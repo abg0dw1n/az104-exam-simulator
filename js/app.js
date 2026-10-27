@@ -390,6 +390,7 @@ function renderQuestion(main, s, index) {
           ${modeChip}
         </div>
         <div class="qhead-actions">
+          ${state.mode === 'exam' ? `<button class="btn btn-ghost btn-sm" data-action="quit-exam" title="Stop this exam without scoring it">${icon('x')}<span class="hide-sm">Quit exam</span></button>` : ''}
           ${state.mode !== 'exam' && Auth.currentUser() ? `<button class="btn btn-ghost btn-sm" data-action="report" title="Report a problem with this question">${icon('alert')}<span class="hide-sm">Report</span></button>` : ''}
           ${s.locked ? '' : `<button class="btn btn-ghost btn-sm ${flagged ? 'active' : ''}" data-action="flag" aria-pressed="${flagged}">
             ${icon('flag')}${flagged ? 'Flagged' : 'Flag for review'}</button>`}
@@ -492,7 +493,7 @@ function renderResults(main) {
           <button class="btn btn-warn" data-action="review-missed" ${missed ? '' : 'disabled'}>${icon('alert')}Review missed (${missed})</button>
           <button class="btn btn-ghost" data-action="review-all">Review all</button>
         </div>
-        <button class="btn btn-primary" data-action="start-exam">${icon('redo')}Retake exam</button>
+        <button class="btn btn-primary" data-action="new-exam">${icon('redo')}New exam</button>
       </div>
     </section>`;
 }
@@ -630,6 +631,28 @@ function startExam() {
     order, optionOrder: {}, answers: {}, flagged: [], index: 0, minutes: examMinutes(order.length),
     startedAt: Date.now(), endsAt: Date.now() + examMinutes(order.length) * 60 * 1000, result: null,
   };
+  state.review = null;
+  state.mode = 'exam';
+  save(); render();
+  window.scrollTo({ top: 0 });
+}
+
+// Leaves the exam unscored and goes back to the setup screen (question count, start).
+async function quitExam() {
+  const ex = state.exam;
+  if (!ex || ex.result) return newExamSetup();
+  const answered = Object.keys(ex.answers).length;
+  const ok = await confirmModal('Quit this exam?',
+    `You've answered <b>${answered}</b> of <b>${ex.order.length}</b> questions. Quitting discards this attempt without a score, and you can start a new exam with any number of questions.`,
+    'Quit exam', 'Keep going');
+  if (!ok) return;
+  newExamSetup();
+  toast('Exam discarded. Choose a size and start again whenever you\'re ready.');
+}
+
+function newExamSetup() {
+  stopTimer();
+  state.exam = null;
   state.review = null;
   state.mode = 'exam';
   save(); render();
@@ -1066,6 +1089,8 @@ async function init() {
       case 'flag': return toggleFlag();
       case 'submit': return confirmSubmit();
       case 'start-exam': return startExam();
+      case 'quit-exam': return quitExam();
+      case 'new-exam': return newExamSetup();
       case 'review-missed': return startReview('missed');
       case 'review-all': return startReview('all');
       case 'back-to-results': state.mode = 'exam'; save(); return render();
