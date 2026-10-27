@@ -10,14 +10,21 @@ const STORAGE_KEY = 'az104-sim:v2';
 let QUESTIONS = [];                // loaded from data/questions.json
 let BY_ID = new Map();
 const examMinutes = (n) => Math.max(5, Math.round(n * MINUTES_PER_QUESTION));
-const LETTERS = 'ABCDEFGH';
+const LETTERS = 'ABCDEF';
+const KEYS_LETTER = 'abcdef';
+const KEYS_NUMBER = '123456';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // State (persisted to localStorage so a refresh never loses progress)
 // ─────────────────────────────────────────────────────────────────────────────
 const defaultState = () => ({
   mode: 'practice',          // 'practice' | 'exam' | 'review'
-  practice: { answers: {}, flagged: [], optionOrder: {}, domain: 'ALL', status: 'all', index: 0 },
+  practice: {
+    answers: {}, flagged: [], optionOrder: {}, index: 0,
+    domain: 'ALL', status: 'all', shuffle: true,
+    list: null,              // frozen question order for the current practice round
+    label: null,             // e.g. 'Retrying 12 missed questions'
+  },
   exam: null,                // { order, optionOrder, answers, flagged, endsAt, index, result }
   review: null,              // { ids, index, source }
   history: [],               // [{ at, score, correct, total, passed }]
@@ -31,7 +38,11 @@ let timerHandle = null;
 function load() {
   try {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    if (saved && saved.practice) return { ...defaultState(), ...saved };
+    if (saved && saved.practice) {
+      const d = defaultState();
+      // Merge one level deep so settings added in newer versions get their defaults.
+      return { ...d, ...saved, practice: { ...d.practice, ...saved.practice } };
+    }
   } catch { /* storage unavailable or corrupt: start fresh */ }
   return defaultState();
 }
@@ -79,12 +90,15 @@ function session() {
     const ex = state.exam;
     return { ids: state.review.ids, store: ex, locked: true, reveal: true, holder: state.review };
   }
-  return { ids: practiceIds(), store: state.practice, locked: false, reveal: true, holder: state.practice };
+  if (!state.practice.list) buildPracticeList();
+  return { ids: state.practice.list, store: state.practice, locked: false, reveal: true, holder: state.practice };
 }
 
-function practiceIds() {
+// Builds the practice round from the filters. The list stays fixed while you answer, so
+// questions don't vanish from 'Unanswered'/'Incorrect' views before you read the explanation.
+function buildPracticeList() {
   const p = state.practice;
-  return QUESTIONS.filter((q) => {
+  const ids = QUESTIONS.filter((q) => {
     if (p.domain !== 'ALL' && q.domain !== p.domain) return false;
     const a = p.answers[q.id];
     switch (p.status) {
@@ -94,6 +108,16 @@ function practiceIds() {
       default: return true;
     }
   }).map((q) => q.id);
+  p.list = p.shuffle ? shuffle(ids) : ids;
+  p.index = 0;
+  p.label = null;
+}
+
+// New letter order for questions you haven't answered yet (or for the given ids).
+function reshuffleOptions(ids) {
+  const p = state.practice;
+  const targets = ids || Object.keys(p.optionOrder).map(Number).filter((id) => p.answers[id] === undefined);
+  for (const id of targets) delete p.optionOrder[id];
 }
 
 function currentHolder(s) { return s.holder || s.store; }
@@ -134,26 +158,41 @@ function renderModeTabs() {
   $('bank-size').textContent = QUESTIONS.length;
 }
 
+let gridKey = '';
 function renderGrid(s) {
   $('navigator').hidden = false;
+  const grid = $('question-grid');
   const holder = currentHolder(s);
   const flagged = new Set(s.store.flagged);
+  // Rebuild the buttons only when the list itself changes; otherwise just update classes.
+  const key = `${state.mode}:${s.ids.join(',')}`;
+  if (key !== gridKey) {
+    grid.innerHTML = s.ids.map((_, i) => `<button class="qbtn" data-jump="${i}">${i + 1}</button>`).join('');
+    gridKey = key;
+  }
   let answered = 0;
-  const html = s.ids.map((id, i) => {
-    const q = BY_ID.get(id);
+  const buttons = grid.children;
+  s.ids.forEach((id, i) => {
     const a = s.store.answers[id];
-    const cls = ['qbtn'];
-    if (a !== undefined) {
-      answered++;
-      if (s.reveal) cls.push(isCorrect(q, a) ? 'correct' : 'wrong');
-      else cls.push('answered');
+    const isAnswered = a !== undefined;
+    if (isAnswered) answered++;
+    const status = !isAnswered ? '' : s.reveal ? (isCorrect(BY_ID.get(id), a) ? ' correct' : ' wrong') : ' answered';
+    const current = i === holder.index;
+    const cls = `qbtn${status}${flagged.has(id) ? ' flagged' : ''}${current ? ' current' : ''}`;
+    const b = buttons[i];
+    if (b.className !== cls) {
+      b.className = cls;
+      b.setAttribute('aria-label', `Question ${i + 1}${isAnswered ? ', answered' : ''}${flagged.has(id) ? ', flagged' : ''}`);
+      if (current) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
     }
-    if (flagged.has(id)) cls.push('flagged');
-    if (i === holder.index) cls.push('current');
-    const label = `Question ${i + 1}${a !== undefined ? ', answered' : ''}${flagged.has(id) ? ', flagged' : ''}`;
-    return `<button class="${cls.join(' ')}" data-jump="${i}" aria-label="${label}"${i === holder.index ? ' aria-current="true"' : ''}>${i + 1}</button>`;
-  }).join('');
-  $('question-grid').innerHTML = html;
+  });
+  // Keep the current button visible inside the grid's own scroll area (never scrolls the page).
+  const cur = buttons[holder.index];
+  if (cur && grid.scrollHeight > grid.clientHeight) {
+    const top = cur.offsetTop - grid.offsetTop;
+    if (top < grid.scrollTop) grid.scrollTop = top - 4;
+    else if (top + cur.offsetHeight > grid.scrollTop + grid.clientHeight) grid.scrollTop = top + cur.offsetHeight - grid.clientHeight + 4;
+  }
   $('progress-text').textContent = `${answered} / ${s.ids.length}`;
 
   const nFlagged = s.store.flagged.length;
@@ -169,7 +208,8 @@ function renderPracticeStats() {
   $('practice-stats').innerHTML = `
     <div><b>${answeredIds.length}</b><span class="muted">answered</span></div>
     <div><b class="good">${correct}</b><span class="muted">correct</span></div>
-    <div><b class="${pct >= 70 ? 'good' : answeredIds.length ? 'weak' : ''}">${pct}%</b><span class="muted">accuracy</span></div>`;
+    <div><b class="${pct >= 70 ? 'good' : answeredIds.length ? 'weak' : ''}">${pct}%</b><span class="muted">accuracy</span></div>
+    ${answeredIds.length - correct ? `<button class="btn btn-ghost btn-sm stats-wide" data-action="retry-missed">${icon('redo')}Retry ${answeredIds.length - correct} missed</button>` : ''}`;
 }
 
 function renderQuestion(main, s, index) {
@@ -211,12 +251,14 @@ function renderQuestion(main, s, index) {
   }
 
   const modeChip = state.mode === 'review'
-    ? `<span class="chip chip-review">Review · ${state.review.source === 'missed' ? 'missed questions' : 'all questions'}</span>` : '';
+    ? `<span class="chip chip-review">Review · ${state.review.source === 'missed' ? 'missed questions' : 'all questions'}</span>`
+    : state.mode === 'practice' && state.practice.label ? `<span class="chip chip-review">${state.practice.label}</span>` : '';
 
   const primary = state.mode === 'exam'
     ? `<button class="btn btn-success" data-action="submit">${icon('check')}Submit exam</button>`
     : state.mode === 'review'
-      ? `<button class="btn btn-ghost" data-action="back-to-results">Back to results</button>` : '';
+      ? `<button class="btn btn-ghost" data-action="back-to-results">Back to results</button>`
+      : answered ? `<button class="btn btn-ghost" data-action="retry-question" title="Clear your answer and reshuffle the options">${icon('redo')}<span class="hide-sm">Try again</span></button>` : '';
 
   main.innerHTML = `
     <article class="panel qcard">
@@ -243,7 +285,7 @@ function renderQuestion(main, s, index) {
           <button class="btn btn-primary" data-action="next" ${isLast ? 'disabled' : ''}>Next${icon('right')}</button>
         </div>
       </div>
-      <div class="kbd-hint"><kbd>A</kbd>–<kbd>D</kbd> answer · <kbd>←</kbd> <kbd>→</kbd> navigate · <kbd>F</kbd> flag</div>
+      <div class="kbd-hint"><kbd>A</kbd>–<kbd>D</kbd> answer · <kbd>←</kbd> <kbd>→</kbd> navigate · <kbd>F</kbd> flag${state.mode === 'practice' ? ' · <kbd>R</kbd> try again' : ''}</div>
     </article>`;
 
   // Code is set via textContent so it is never parsed as HTML.
@@ -289,6 +331,7 @@ function renderExamIntro(main) {
 function renderGridEmpty() {
   $('navigator').hidden = true;
   $('question-grid').innerHTML = '';
+  gridKey = '';
   $('progress-text').textContent = `0 / ${QUESTIONS.length}`;
   $('flag-badge').hidden = true;
 }
@@ -302,7 +345,8 @@ function renderResults(main) {
     return `<div class="domain-row">
       <div class="top"><span>${DOMAINS[key].name} <span class="muted small">(${DOMAINS[key].weight})</span></span>
         <span class="pct ${tone}">${pct}% · ${d.correct}/${d.total}</span></div>
-      <div class="bar"><i class="${tone}" style="width:${pct}%"></i></div></div>`;
+      <div class="bar"><i class="${tone}" style="width:${pct}%"></i></div>
+      ${pct < 70 ? `<button class="btn btn-ghost btn-sm" data-action="practice-domain" data-domain="${key}">Practice this domain</button>` : ''}</div>`;
   }).join('');
   const missed = r.total - r.correct;
 
@@ -501,6 +545,17 @@ function finishExam(timedOut) {
   window.scrollTo({ top: 0 });
 }
 
+function practiceDomain(domain) {
+  const p = state.practice;
+  p.domain = domain;
+  p.status = 'all';
+  buildPracticeList();
+  state.mode = 'practice';
+  syncFilterControls();
+  save(); render();
+  window.scrollTo({ top: 0 });
+}
+
 function startReview(source) {
   const ex = state.exam;
   const ids = source === 'missed' ? ex.order.filter((id) => !isCorrect(BY_ID.get(id), ex.answers[id])) : [...ex.order];
@@ -512,10 +567,54 @@ function startReview(source) {
 }
 
 async function resetPractice() {
-  const ok = await confirmModal('Reset practice progress?', 'This clears your practice answers and flags. Exam history is kept.', 'Reset', 'Cancel');
+  const ok = await confirmModal('Reset practice progress?', 'This clears your practice answers and flags, and reshuffles every question. Exam history is kept.', 'Reset', 'Cancel');
   if (!ok) return;
-  state.practice = defaultState().practice;
+  const keep = { shuffle: state.practice.shuffle };
+  state.practice = { ...defaultState().practice, ...keep };
+  buildPracticeList();
   syncFilterControls();
+  save(); render();
+}
+
+function reshufflePractice() {
+  reshuffleOptions();
+  const p = state.practice;
+  const label = p.label;
+  p.shuffle = true;
+  p.list = shuffle(p.list || []);
+  p.index = 0;
+  p.label = label;
+  syncFilterControls();
+  save(); render();
+  toast('Questions and answer letters reshuffled.');
+}
+
+function retryQuestion() {
+  const p = state.practice;
+  const id = p.list[p.index];
+  delete p.answers[id];
+  reshuffleOptions([id]);
+  save(); render();
+}
+
+function retryMissed() {
+  const p = state.practice;
+  const missed = Object.keys(p.answers).map(Number).filter((id) => BY_ID.has(id) && !isCorrect(BY_ID.get(id), p.answers[id]));
+  if (!missed.length) return;
+  for (const id of missed) delete p.answers[id];
+  reshuffleOptions(missed);
+  p.list = shuffle(missed);
+  p.index = 0;
+  p.label = `Retrying ${missed.length} missed question${missed.length > 1 ? 's' : ''}`;
+  save(); render();
+}
+
+function applyPracticeFilters() {
+  const p = state.practice;
+  p.domain = $('domain-filter').value;
+  p.status = $('status-filter').value;
+  p.shuffle = $('order-filter').value === 'shuffled';
+  buildPracticeList();
   save(); render();
 }
 
@@ -549,6 +648,7 @@ function toast(msg) {
 function syncFilterControls() {
   $('domain-filter').value = state.practice.domain;
   $('status-filter').value = state.practice.status;
+  $('order-filter').value = state.practice.shuffle ? 'shuffled' : 'ordered';
 }
 
 async function loadBank() {
@@ -565,6 +665,8 @@ async function loadBank() {
   if (state.exam) state.exam.order = state.exam.order.filter(valid);
   if (state.exam && !state.exam.order.length) state.exam = null;
   if (state.review) state.review.ids = state.review.ids.filter(valid);
+  if (state.practice.list) state.practice.list = state.practice.list.filter(valid);
+  if (state.practice.list && !state.practice.list.length) state.practice.list = null;
   if (state.mode === 'review' && !state.review?.ids.length) state.mode = 'exam';
 }
 
@@ -584,9 +686,10 @@ async function init() {
     }).join('');
   syncFilterControls();
 
-  $('domain-filter').addEventListener('change', (e) => { state.practice.domain = e.target.value; state.practice.index = 0; save(); render(); });
-  $('status-filter').addEventListener('change', (e) => { state.practice.status = e.target.value; state.practice.index = 0; save(); render(); });
+  for (const id of ['domain-filter', 'status-filter', 'order-filter']) $(id).addEventListener('change', applyPracticeFilters);
   $('btn-reset-practice').addEventListener('click', resetPractice);
+  $('btn-reshuffle').addEventListener('click', reshufflePractice);
+  $('practice-stats').addEventListener('click', (e) => { if (e.target.closest('[data-action="retry-missed"]')) retryMissed(); });
   document.querySelector('.segmented').addEventListener('click', (e) => {
     const b = e.target.closest('[data-mode]');
     if (b) setMode(b.dataset.mode);
@@ -619,9 +722,11 @@ async function init() {
       case 'review-missed': return startReview('missed');
       case 'review-all': return startReview('all');
       case 'back-to-results': state.mode = 'exam'; save(); return render();
+      case 'retry-question': return retryQuestion();
+      case 'practice-domain': return practiceDomain(act.dataset.domain);
       case 'clear-filters':
         state.practice.domain = 'ALL'; state.practice.status = 'all';
-        syncFilterControls(); save(); return render();
+        syncFilterControls(); buildPracticeList(); save(); return render();
     }
   });
 
@@ -642,8 +747,9 @@ async function init() {
     else if (key === 'arrowleft') { e.preventDefault(); go(-1); }
     else if (key === 'f') toggleFlag();
     else {
-      const pos = 'abcd'.indexOf(key) >= 0 ? 'abcd'.indexOf(key) : '1234'.indexOf(key);
+      const pos = Math.max(KEYS_LETTER.indexOf(key), KEYS_NUMBER.indexOf(key));
       if (pos >= 0) quiz.querySelectorAll('[data-option]')[pos]?.click();
+      else if (key === 'r' && state.mode === 'practice' && quiz.querySelector('[data-action="retry-question"]')) retryQuestion();
     }
   });
 
@@ -656,6 +762,12 @@ async function init() {
     toast('Your previous exam ran out of time and was submitted.');
   }
   render();
+  save(); // persist anything created on first render (e.g. a new practice round)
 }
 
 init();
+
+// Offline support: cache the app so practice works without a connection.
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+}

@@ -312,3 +312,10 @@ kbd { font: 11px var(--mono); padding: 1px 5px; border-radius: 4px; border: 1px 
   background: var(--panel-2); color: var(--text); font: 600 13px var(--mono);
 }
 .btn-ghost.active-size { border-color: var(--azure); color: var(--azure-text); background: var(--azure-soft); }
+
+/* ── Practice controls ──────────────────────────────── */
+.filter-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: end; }
+.filter-row .btn { height: 36px; }
+.stats-wide { grid-column: 1 / -1; }
+.domain-row > .btn { justify-self: start; }
+@media (max-width: 600px) { .hide-sm { display: none; } }

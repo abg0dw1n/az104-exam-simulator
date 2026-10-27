@@ -7,6 +7,9 @@
   <meta name="description" content="Practice and timed exam simulator for the Microsoft Azure Administrator (AZ-104) certification.">
   <meta name="theme-color" content="#0f172a">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="stylesheet" href="/css/styles.css">
   <script type="module" src="/js/app.js"></script>
 </head>
@@ -25,6 +28,7 @@
     <symbol id="i-redo" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5"/></symbol>
     <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4 2.5 20h19L12 4Zm0 6v4m0 3v.01"/></symbol>
     <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7L8 5Z"/></symbol>
+    <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></symbol>
   </svg>
 
   <header class="topbar">
@@ -72,6 +76,17 @@
             <option value="flagged">Flagged</option>
           </select>
         </label>
+        <div class="filter-row">
+          <label>Order
+            <select id="order-filter">
+              <option value="shuffled">Shuffled</option>
+              <option value="ordered">In order</option>
+            </select>
+          </label>
+          <button id="btn-reshuffle" class="btn btn-ghost btn-sm" title="Reshuffle question order and answer letters">
+            <svg class="icon"><use href="#i-shuffle"/></svg>Reshuffle
+          </button>
+        </div>
       </div>
 
       <div id="question-grid" class="qgrid" role="list"></div>

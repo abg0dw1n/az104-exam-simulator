@@ -4,12 +4,15 @@ Practice and timed-exam simulator for the Microsoft Azure Administrator (AZ-104)
 
 ## Modes
 
-- **Practice** – answer at your own pace. Each answer is checked instantly, with an explanation and a note on why every other option is wrong. Filter by domain, or show only unanswered, incorrect, or flagged questions.
+- **Practice** – answer at your own pace. Each answer is checked instantly, with an explanation and a note on why every other option is wrong.
+  - Questions are shuffled by default (switch Order to "In order" if you prefer); **Reshuffle** re-randomizes question order and answer letters.
+  - **Try again** (or `R`) clears a question and reshuffles its options; **Retry missed** re-drills everything you got wrong.
+  - Filter by domain, or show only unanswered, incorrect, or flagged questions. The list stays put while you answer.
 - **Exam** – pick how many questions you want (default 50, 2 minutes each). Questions are drawn from the bank in proportion to the AZ-104 domain weights, preferring ones you've seen least, so a big bank rotates instead of repeating. Timer, shuffled questions and options, no feedback until you submit. Results show a scaled score (700 to pass), a domain breakdown and your recent attempts. Afterwards you can review missed questions or all questions.
 
-Progress, flags, and exam history are saved in your browser (localStorage), and the exam timer survives refreshes.
+Progress, flags, and exam history are saved in your browser (localStorage), and the exam timer survives refreshes. The site works offline and can be installed to a phone or desktop home screen.
 
-**Keyboard:** `A`–`D` (or `1`–`4`) answer · `←` `→` navigate · `F` flag.
+**Keyboard:** `A`–`F` (or `1`–`6`) answer · `←` `→` navigate · `F` flag · `R` try again (practice).
 
 ## Project structure
 
@@ -22,6 +25,8 @@ data/questions.json     the question bank
 data/question-template.csv       spreadsheet template for bulk imports
 scripts/import-csv.mjs           CSV → questions.json importer
 scripts/validate-questions.mjs   sanity checks for the question bank
+sw.js                   service worker (offline support)
+manifest.webmanifest    install metadata; icons/ holds the app icons
 vercel.json             caching + security headers
 ```
 
