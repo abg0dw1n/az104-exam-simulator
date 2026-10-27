@@ -95,6 +95,16 @@ python3 -m http.server 4173   # then open http://localhost:4173/?exam=az-104
 
 Hosted on Vercel; every push to `main` deploys automatically. No build settings needed (Framework preset: **Other**).
 
+## Weak spots and reports
+
+- Every answer (practice and exams) updates a per-question spaced-repetition box. **Order → Weak spots first**
+  puts missed and due questions at the top, and **Review N weak spots** starts a round of just those.
+  "Mastered" counts questions in box 3+ (right several times, spaced over days).
+- Signed-in users can **Report** a question; reports go to `public.question_reports`, and admins see and
+  resolve them on the home page. `/<exam>?q=<id>` opens a single question.
+- `.github/workflows/keepalive.yml` reads the database twice a week so the free Supabase project doesn't pause;
+  `validate.yml` checks the question banks on every push.
+
 ## Accounts and sync (optional)
 
 `js/auth.js` adds invite-only sign-in (email link, Google, Microsoft) and syncs each person's progress

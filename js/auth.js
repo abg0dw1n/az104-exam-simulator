@@ -168,3 +168,28 @@ export async function removeInvite(email) {
   await ensureFresh();
   return api(`/rest/v1/invited_emails?email=eq.${encodeURIComponent(email)}`, { method: 'DELETE' });
 }
+
+// ── Question reports ─────────────────────────────────────────────────────────
+// Anyone signed in can file a report; admins can list and resolve them (RLS).
+export async function reportQuestion({ exam, questionId, reason, details, questionText }) {
+  await ensureFresh();
+  return api('/rest/v1/question_reports', {
+    method: 'POST', headers: { Prefer: 'return=minimal' },
+    body: {
+      exam, question_id: questionId, reason,
+      details: (details || '').slice(0, 2000) || null,
+      question_text: (questionText || '').slice(0, 2000) || null,
+    },
+  });
+}
+export async function listOpenReports() {
+  await ensureFresh();
+  return api('/rest/v1/question_reports?select=id,exam,question_id,reason,details,reporter_email,created_at,user_id&status=eq.open&order=created_at.desc&limit=100');
+}
+export async function resolveReport(id) {
+  await ensureFresh();
+  return api(`/rest/v1/question_reports?id=eq.${Number(id)}`, {
+    method: 'PATCH', headers: { Prefer: 'return=minimal' },
+    body: { status: 'resolved', resolved_at: new Date().toISOString() },
+  });
+}

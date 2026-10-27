@@ -26,6 +26,7 @@ const defaultState = () => ({
   practice: {
     answers: {}, flagged: [], optionOrder: {}, index: 0,
     domain: 'ALL', status: 'all', shuffle: true,
+    order: 'shuffled',       // 'shuffled' | 'ordered' | 'weak' (spaced repetition)
     list: null,              // frozen question order for the current practice round
     label: null,             // e.g. 'Retrying 12 missed questions'
   },
@@ -34,6 +35,7 @@ const defaultState = () => ({
   history: [],               // [{ at, score, correct, total, passed }]
   examSize: null,
   seen: {},                  // id -> times served in an exam (to rotate through big banks)
+  mastery: {},               // id -> { box, seen, wrong, last } for spaced repetition
 });
 
 let state = null;
@@ -111,6 +113,52 @@ function optionOrderFor(store, q) {
 }
 
 const isCorrect = (q, answer) => answer === q.answer;
+
+// ── Spaced repetition (Leitner boxes) ────────────────────────────────────────
+// A correct answer moves a question up a box; a wrong one sends it back to box 0.
+// Each box waits longer before the question is due again.
+const BOX_DAYS = [0, 1, 3, 7, 16, 35];
+const DAY = 24 * 60 * 60 * 1000;
+
+function recordResult(id, correct, at = Date.now()) {
+  const m = state.mastery[id] || { box: 0, seen: 0, wrong: 0, last: 0 };
+  m.seen++;
+  if (correct) m.box = Math.min(m.box + 1, BOX_DAYS.length - 1);
+  else { m.box = 0; m.wrong++; }
+  m.last = at;
+  state.mastery[id] = m;
+}
+
+// 0 = missed last time, 1 = due for review, 2 = never seen, 3 = not due yet.
+function weakPriority(id, now = Date.now()) {
+  const m = state.mastery[id];
+  if (!m) return 2;
+  if (m.box === 0) return 0;
+  return now >= m.last + BOX_DAYS[m.box] * DAY ? 1 : 3;
+}
+
+function weakOrder(ids) {
+  const now = Date.now();
+  const groups = [[], [], [], []];
+  for (const id of shuffle(ids)) groups[weakPriority(id, now)].push(id);
+  // Within "due", the most overdue first; within "not due", the soonest due first.
+  const dueAt = (id) => state.mastery[id].last + BOX_DAYS[state.mastery[id].box] * DAY;
+  groups[1].sort((a, b) => dueAt(a) - dueAt(b));
+  groups[3].sort((a, b) => dueAt(a) - dueAt(b));
+  return groups.flat();
+}
+
+const weakIds = (ids) => ids.filter((id) => weakPriority(id) <= 1);
+
+// Seeds history from answers saved before spaced repetition existed.
+function seedMastery() {
+  if (Object.keys(state.mastery).length) return;
+  const at = state.updatedAt || Date.now();
+  for (const [id, a] of Object.entries(state.practice.answers)) {
+    const q = BY_ID.get(Number(id));
+    if (q) recordResult(q.id, isCorrect(q, a), at);
+  }
+}
 const fmtTime = (s) => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
 
 // The active "session" the quiz screen is showing: list of ids + where answers live.
@@ -141,9 +189,32 @@ function buildPracticeList() {
       default: return true;
     }
   }).map((q) => q.id);
-  p.list = p.shuffle ? shuffle(ids) : ids;
+  const order = p.order || (p.shuffle ? 'shuffled' : 'ordered');
+  if (order === 'weak') {
+    // Missed and due questions come back unanswered so they can be practiced again.
+    const again = weakIds(ids);
+    for (const id of again) delete p.answers[id];
+    reshuffleOptions(again);
+    p.list = weakOrder(ids);
+  } else {
+    p.list = order === 'shuffled' ? shuffle(ids) : ids;
+  }
   p.index = 0;
   p.label = null;
+}
+
+// A round of only the questions you missed or that are due for review.
+function startWeakRound() {
+  const p = state.practice;
+  const pool = QUESTIONS.filter((q) => p.domain === 'ALL' || q.domain === p.domain).map((q) => q.id);
+  const ids = weakIds(pool);
+  if (!ids.length) return toast('Nothing to review right now. Nice work!');
+  for (const id of ids) delete p.answers[id];
+  reshuffleOptions(ids);
+  p.list = weakOrder(ids);
+  p.index = 0;
+  p.label = `Reviewing ${ids.length} weak spot${ids.length > 1 ? 's' : ''}`;
+  save(); render();
 }
 
 // New letter order for questions you haven't answered yet (or for the given ids).
@@ -246,7 +317,20 @@ function renderPracticeStats() {
     <div><b>${answeredIds.length}</b><span class="muted">answered</span></div>
     <div><b class="good">${correct}</b><span class="muted">correct</span></div>
     <div><b class="${pct >= 70 ? 'good' : answeredIds.length ? 'weak' : ''}">${pct}%</b><span class="muted">accuracy</span></div>
-    ${answeredIds.length - correct ? `<button class="btn btn-ghost btn-sm stats-wide" data-action="retry-missed">${icon('redo')}Retry ${answeredIds.length - correct} missed</button>` : ''}`;
+    ${answeredIds.length - correct ? `<button class="btn btn-ghost btn-sm stats-wide" data-action="retry-missed">${icon('redo')}Retry ${answeredIds.length - correct} missed</button>` : ''}
+    ${masterySummary()}`;
+}
+
+function masterySummary() {
+  const pool = QUESTIONS.filter((q) => state.practice.domain === 'ALL' || q.domain === state.practice.domain).map((q) => q.id);
+  const weak = weakIds(pool).length;
+  const mastered = pool.filter((id) => (state.mastery[id]?.box || 0) >= 3).length;
+  const pct = pool.length ? Math.round((mastered / pool.length) * 100) : 0;
+  return `<div class="stats-wide mastery" title="Questions answered correctly several times in a row, spaced out over days">
+      <div class="mastery-top"><span>Mastered</span><b>${mastered} / ${pool.length}</b></div>
+      <div class="bar"><i class="good" style="width:${pct}%"></i></div>
+    </div>
+    ${weak ? `<button class="btn btn-ghost btn-sm stats-wide" data-action="weak-round">${icon('bulb')}Review ${weak} weak spot${weak > 1 ? 's' : ''}</button>` : ''}`;
 }
 
 function renderQuestion(main, s, index) {
@@ -305,8 +389,11 @@ function renderQuestion(main, s, index) {
           ${state.mode !== 'exam' ? `<span class="chip">${DOMAINS[q.domain].name}</span>` : ''}
           ${modeChip}
         </div>
-        ${s.locked ? '' : `<button class="btn btn-ghost btn-sm ${flagged ? 'active' : ''}" data-action="flag" aria-pressed="${flagged}">
-          ${icon('flag')}${flagged ? 'Flagged' : 'Flag for review'}</button>`}
+        <div class="qhead-actions">
+          ${state.mode !== 'exam' && Auth.currentUser() ? `<button class="btn btn-ghost btn-sm" data-action="report" title="Report a problem with this question">${icon('alert')}<span class="hide-sm">Report</span></button>` : ''}
+          ${s.locked ? '' : `<button class="btn btn-ghost btn-sm ${flagged ? 'active' : ''}" data-action="flag" aria-pressed="${flagged}">
+            ${icon('flag')}${flagged ? 'Flagged' : 'Flag for review'}</button>`}
+        </div>
       </div>
       <div class="qbody">
         <div class="scenario">${q.scenario}</div>
@@ -481,6 +568,7 @@ function choose(origIdx) {
   const id = s.ids[currentHolder(s).index];
   if (state.mode === 'practice' && s.store.answers[id] !== undefined) return; // practice answers lock once revealed
   s.store.answers[id] = origIdx;
+  if (state.mode === 'practice') recordResult(id, isCorrect(BY_ID.get(id), origIdx));
   save(); render();
 }
 
@@ -568,7 +656,9 @@ function finishExam(timedOut) {
   for (const id of ex.order) {
     const q = BY_ID.get(id);
     domains[q.domain].total++;
-    if (isCorrect(q, ex.answers[id])) { correct++; domains[q.domain].correct++; }
+    const right = isCorrect(q, ex.answers[id]);
+    if (right) { correct++; domains[q.domain].correct++; }
+    recordResult(id, right);
   }
   const total = ex.order.length;
   const score = scaleScore(correct, total);
@@ -607,7 +697,7 @@ function startReview(source) {
 async function resetPractice() {
   const ok = await confirmModal('Reset practice progress?', 'This clears your practice answers and flags, and reshuffles every question. Exam history is kept.', 'Reset', 'Cancel');
   if (!ok) return;
-  const keep = { shuffle: state.practice.shuffle };
+  const keep = { shuffle: state.practice.shuffle, order: state.practice.order };
   state.practice = { ...defaultState().practice, ...keep };
   buildPracticeList();
   syncFilterControls();
@@ -619,6 +709,7 @@ function reshufflePractice() {
   const p = state.practice;
   const label = p.label;
   p.shuffle = true;
+  if (p.order === 'ordered') p.order = 'shuffled';
   p.list = shuffle(p.list || []);
   p.index = 0;
   p.label = label;
@@ -651,9 +742,44 @@ function applyPracticeFilters() {
   const p = state.practice;
   p.domain = $('domain-filter').value;
   p.status = $('status-filter').value;
-  p.shuffle = $('order-filter').value === 'shuffled';
+  p.order = $('order-filter').value;
+  p.shuffle = p.order !== 'ordered';
   buildPracticeList();
   save(); render();
+}
+
+const REPORT_REASONS = {
+  'wrong-answer': 'The marked answer is wrong',
+  explanation: 'The explanation is wrong or misleading',
+  unclear: 'The question is unclear or has two right answers',
+  outdated: "It's outdated (product or exam changed)",
+  typo: 'Typo or formatting problem',
+  other: 'Something else',
+};
+
+async function reportCurrentQuestion() {
+  const s = session();
+  const id = s.ids[currentHolder(s).index];
+  const q = BY_ID.get(id);
+  const body = `<div class="report-form">
+      <p class="small">Question #${id} · ${escapeHtml(DOMAINS[q.domain].name)}</p>
+      <label class="small">What's wrong?
+        <select id="report-reason">${Object.entries(REPORT_REASONS).map(([k, v]) => `<option value="${k}">${v}</option>`).join('')}</select>
+      </label>
+      <label class="small">Details (optional)
+        <textarea id="report-details" rows="4" maxlength="2000" placeholder="For example: the correct answer should be B because…"></textarea>
+      </label>
+    </div>`;
+  if (!(await confirmModal('Report a problem', body, 'Send report'))) return;
+  try {
+    await Auth.reportQuestion({
+      exam: EXAM.slug, questionId: id, reason: $('report-reason').value,
+      details: $('report-details').value.trim(), questionText: q.scenario.replace(/<[^>]+>/g, ''),
+    });
+    toast('Thanks — your report was sent.');
+  } catch (err) {
+    toast(`Couldn't send the report: ${err.message}`);
+  }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -667,7 +793,7 @@ function confirmModal(title, bodyHtml, okLabel = 'OK', cancelLabel = 'Cancel') {
   $('modal-cancel').textContent = cancelLabel;
   dlg.returnValue = '';
   dlg.showModal();
-  $('modal-ok').focus();
+  ($('modal-body').querySelector('select, textarea, input') || $('modal-ok')).focus();
   return new Promise((resolve) => dlg.addEventListener('close', () => resolve(dlg.returnValue === 'ok'), { once: true }));
 }
 
@@ -686,7 +812,7 @@ function toast(msg) {
 function syncFilterControls() {
   $('domain-filter').value = state.practice.domain;
   $('status-filter').value = state.practice.status;
-  $('order-filter').value = state.practice.shuffle ? 'shuffled' : 'ordered';
+  $('order-filter').value = state.practice.order || (state.practice.shuffle ? 'shuffled' : 'ordered');
 }
 
 async function fetchJson(url) {
@@ -821,9 +947,36 @@ async function renderInvites() {
     catch (err) { toast(/duplicate|already/i.test(err.message) ? 'That email is already invited.' : `Couldn't invite: ${err.message}`); }
     finally { renderInvites(); } // always show the current list
   });
+  renderReports(box);
   box.querySelectorAll('[data-uninvite]').forEach((b) => b.addEventListener('click', async () => {
     if (!(await confirmModal('Remove invite?', `${escapeHtml(b.dataset.uninvite)} won't be able to create an account. If they already have one, it stays until you delete the user in Supabase.`, 'Remove'))) return;
     try { await Auth.removeInvite(b.dataset.uninvite); renderInvites(); } catch (err) { toast(`Couldn't remove: ${err.message}`); }
+  }));
+}
+
+async function renderReports(container) {
+  let rows = [];
+  try { rows = await Auth.listOpenReports(); } catch { return; }
+  let exams = [];
+  try { exams = await fetchJson('/exams/index.json'); } catch { /* ignore */ }
+  const codes = Object.fromEntries(exams.map((e) => [e.slug, e.code]));
+  container.querySelector('.reports-panel')?.remove();
+  const panel = document.createElement('div');
+  panel.className = 'panel card-pad stack reports-panel';
+  panel.style.gap = '14px';
+  panel.innerHTML = `<h2 class="section-title">Reported questions ${rows.length ? `<span class="chip chip-review">${rows.length} open</span>` : ''}</h2>
+    ${rows.length ? `<ul class="invite-list">${rows.map((r) => `<li class="report-item">
+      <span><b>${escapeHtml(codes[r.exam] || r.exam)} · #${r.question_id}</b> — ${escapeHtml(REPORT_REASONS[r.reason] || r.reason)}
+        ${r.details ? `<br><span class="small">${escapeHtml(r.details)}</span>` : ''}
+        <br><span class="muted small">${escapeHtml(r.reporter_email || '')} · ${new Date(r.created_at).toLocaleDateString()}</span></span>
+      <span class="report-actions"><a class="btn btn-ghost btn-sm" href="/${encodeURIComponent(r.exam)}?q=${r.question_id}">Open</a>
+      <button class="btn btn-ghost btn-sm" data-resolve="${r.id}">Resolve</button></span></li>`).join('')}</ul>`
+      : '<p class="muted small">No open reports. People you invite can report a question from its Report button.</p>'}`;
+  container.appendChild(panel);
+  panel.querySelectorAll('[data-resolve]').forEach((b) => b.addEventListener('click', async () => {
+    b.disabled = true;
+    try { await Auth.resolveReport(b.dataset.resolve); renderReports(container); toast('Marked as resolved.'); }
+    catch (err) { b.disabled = false; toast(`Couldn't resolve: ${err.message}`); }
   }));
 }
 
@@ -880,7 +1033,10 @@ async function init() {
   for (const id of ['domain-filter', 'status-filter', 'order-filter']) $(id).addEventListener('change', applyPracticeFilters);
   $('btn-reset-practice').addEventListener('click', resetPractice);
   $('btn-reshuffle').addEventListener('click', reshufflePractice);
-  $('practice-stats').addEventListener('click', (e) => { if (e.target.closest('[data-action="retry-missed"]')) retryMissed(); });
+  $('practice-stats').addEventListener('click', (e) => {
+    if (e.target.closest('[data-action="retry-missed"]')) retryMissed();
+    if (e.target.closest('[data-action="weak-round"]')) startWeakRound();
+  });
   document.querySelector('.segmented').addEventListener('click', (e) => {
     const b = e.target.closest('[data-mode]');
     if (b) setMode(b.dataset.mode);
@@ -914,6 +1070,7 @@ async function init() {
       case 'review-all': return startReview('all');
       case 'back-to-results': state.mode = 'exam'; save(); return render();
       case 'retry-question': return retryQuestion();
+      case 'report': return reportCurrentQuestion();
       case 'practice-domain': return practiceDomain(act.dataset.domain);
       case 'clear-filters':
         state.practice.domain = 'ALL'; state.practice.status = 'all';
@@ -946,6 +1103,18 @@ async function init() {
 
   // Re-check the timer when the tab becomes visible again (background tabs throttle intervals).
   document.addEventListener('visibilitychange', () => { if (!document.hidden) renderTimer(); });
+
+  seedMastery();
+
+  // /<exam>?q=123 opens a single question (used by the admin reports list).
+  const linked = Number(new URLSearchParams(location.search).get('q'));
+  if (linked && BY_ID.has(linked)) {
+    const p = state.practice;
+    state.mode = 'practice';
+    delete p.answers[linked];
+    p.list = [linked]; p.index = 0; p.label = `Question #${linked}`;
+    history.replaceState(null, '', location.pathname);
+  }
 
   // An exam that expired while the page was closed is submitted on load.
   if (state.exam && !state.exam.result && Date.now() >= state.exam.endsAt) {
