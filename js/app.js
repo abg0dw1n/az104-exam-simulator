@@ -768,6 +768,7 @@ function renderSignIn(error) {
         <button class="btn btn-primary full" type="submit">Email me a sign-in link</button>
       </form>
       <p id="magic-status" class="signin-msg" role="status" hidden></p>
+      <p class="signin-foot"><a href="/privacy">Privacy policy</a></p>
     </section>`;
   $('main').querySelectorAll('[data-provider]').forEach((b) => b.addEventListener('click', () => Auth.signInWith(b.dataset.provider)));
   $('magic-form').addEventListener('submit', async (e) => {
