@@ -336,14 +336,37 @@ body.home .exams-link { display: none; }
 [data-vendor="comptia"]             { --v: #e0353f; --v-soft: rgba(224,53,63,.15);  --v-text: #f47c83; }
 [data-vendor="cisco"]               { --v: #00a5a8; --v-soft: rgba(0,165,168,.16);  --v-text: #3fd0d2; }
 [data-vendor="amazon-web-services"] { --v: #ff9900; --v-soft: rgba(255,153,0,.15);  --v-text: #ffb547; }
+[data-vendor="google-cloud"]        { --v: #34a853; --v-soft: rgba(52,168,83,.16);  --v-text: #5fd17f; }
 @media (prefers-color-scheme: light) {
   [data-vendor="microsoft"]           { --v-soft: rgba(0,120,212,.10); --v-text: #005ba1; }
   [data-vendor="comptia"]             { --v-soft: rgba(224,53,63,.10); --v-text: #b4212a; }
   [data-vendor="cisco"]               { --v-soft: rgba(0,165,168,.12); --v-text: #00787a; }
   [data-vendor="amazon-web-services"] { --v-soft: rgba(255,153,0,.14); --v-text: #a35c00; }
+  [data-vendor="google-cloud"]        { --v-soft: rgba(52,168,83,.12); --v-text: #1e7b3a; }
 }
 .exam-card[data-vendor] { border-top: 4px solid var(--v); }
 .exam-card[data-vendor]:hover { border-color: var(--v); }
 .chip-vendor { background: var(--v-soft, var(--azure-soft)); border-color: transparent; color: var(--v-text, var(--azure-text)); }
 body[data-vendor] .brand-mark rect { fill: var(--v); }
 @media (max-width: 600px) { .exams-link { padding: 7px 10px; } }
+
+/* ── Sign-in & invites ──────────────────────────────── */
+body.signed-out .exams-link { display: none; }
+.signin { max-width: 440px; margin: 24px auto; display: grid; gap: 16px; }
+.signin h2 { font-size: 22px; font-weight: 700; }
+.signin input, .invite-row input {
+  width: 100%; padding: 10px 12px; border-radius: 9px; border: 1px solid var(--border);
+  background: var(--panel-2); color: var(--text); font: inherit;
+}
+.signin-msg { font-size: 14px; padding: 10px 12px; border-radius: 9px; background: var(--panel-2); border: 1px solid var(--border); }
+.signin-msg.ok-msg { background: var(--ok-soft); border-color: transparent; color: var(--ok-text); }
+.signin-msg.bad-msg { background: var(--bad-soft); border-color: transparent; color: var(--bad-text); }
+.or { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 12px; }
+.or::before, .or::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+.account { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.account-email { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.invite-row { display: grid; grid-template-columns: 2fr 1.2fr auto; gap: 8px; }
+.invite-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.invite-list li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 9px; background: var(--panel-2); border: 1px solid var(--border); font-size: 14px; overflow-wrap: anywhere; }
+@media (max-width: 900px) { .account-email { display: none; } }
+@media (max-width: 600px) { .invite-row { grid-template-columns: 1fr; } }

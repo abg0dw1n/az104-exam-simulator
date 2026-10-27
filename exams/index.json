@@ -29,5 +29,23 @@
     "code": "SAA-C03",
     "name": "AWS Certified Solutions Architect – Associate",
     "vendor": "Amazon Web Services"
+  },
+  {
+    "slug": "ai-901",
+    "code": "AI-901",
+    "name": "Microsoft Azure AI Fundamentals",
+    "vendor": "Microsoft"
+  },
+  {
+    "slug": "aws-aif",
+    "code": "AIF-C01",
+    "name": "AWS Certified AI Practitioner",
+    "vendor": "Amazon Web Services"
+  },
+  {
+    "slug": "google-gail",
+    "code": "Gen AI Leader",
+    "name": "Google Cloud Generative AI Leader",
+    "vendor": "Google Cloud"
   }
 ]

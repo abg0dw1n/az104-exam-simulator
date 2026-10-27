@@ -1,0 +1,16 @@
+{
+  "slug": "ai-901",
+  "code": "AI-901",
+  "name": "Microsoft Azure AI Fundamentals",
+  "vendor": "Microsoft",
+  "domains": {
+    "D1": { "name": "Identify AI concepts and capabilities", "weight": "40–45%", "pct": 42 },
+    "D2": { "name": "Implement AI solutions by using Microsoft Foundry", "weight": "55–60%", "pct": 58 }
+  },
+  "scoring": { "min": 0, "max": 1000, "pass": 700 },
+  "minutesPerQuestion": 1,
+  "defaultSize": 45,
+  "sizeOptions": [15, 30, 45],
+  "realExamNote": "Based on the AI-901 skills measured as of April 15, 2026. AI-901 replaced AI-900, which retired June 30, 2026. The real exam is 45 minutes; Microsoft doesn't publish a fixed question count.",
+  "scoreNote": "Microsoft uses scaled scoring, so treat 700+ as a readiness signal, not a guarantee."
+}

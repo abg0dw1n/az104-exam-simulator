@@ -1,0 +1,18 @@
+{
+  "slug": "google-gail",
+  "code": "Gen AI Leader",
+  "name": "Google Cloud Generative AI Leader",
+  "vendor": "Google Cloud",
+  "domains": {
+    "D1": { "name": "Fundamentals of gen AI", "weight": "~30%", "pct": 30 },
+    "D2": { "name": "Google Cloud's gen AI offerings", "weight": "~35%", "pct": 35 },
+    "D3": { "name": "Techniques to improve gen AI model output", "weight": "~20%", "pct": 20 },
+    "D4": { "name": "Business strategies for a successful gen AI solution", "weight": "~15%", "pct": 15 }
+  },
+  "scoring": { "min": 0, "max": 100, "pass": 70 },
+  "minutesPerQuestion": 1.5,
+  "defaultSize": 60,
+  "sizeOptions": [20, 40, 60],
+  "realExamNote": "The real exam has 50–60 multiple-choice questions in 90 minutes. Google renamed Vertex AI to Gemini Enterprise Agent Platform in April 2026; questions use both names where it helps.",
+  "scoreNote": "Google doesn't publish a passing score, so 70% is used here as a readiness target."
+}

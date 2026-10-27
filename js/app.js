@@ -1,3 +1,5 @@
+import * as Auth from './auth.js';
+
 // ─────────────────────────────────────────────────────────────────────────────
 // Config
 // ─────────────────────────────────────────────────────────────────────────────
@@ -57,15 +59,36 @@ function load() {
   return defaultState();
 }
 
+const writeSaved = (slug, data) => {
+  try { localStorage.setItem(storageKey(slug), JSON.stringify(data)); } catch { /* ignore quota/private mode */ }
+};
+
 let saveQueued = false;
 function save() {
   if (saveQueued) return;
   saveQueued = true;
   queueMicrotask(() => {
     saveQueued = false;
-    try { localStorage.setItem(storageKey(EXAM.slug), JSON.stringify(state)); } catch { /* ignore quota/private mode */ }
+    state.updatedAt = Date.now();
+    writeSaved(EXAM.slug, state);
+    scheduleUpload();
   });
 }
+
+// Cloud sync: upload a few seconds after the last change, and when the page is hidden.
+let uploadTimer = null;
+function scheduleUpload() {
+  if (!Auth.currentUser()) return;
+  clearTimeout(uploadTimer);
+  uploadTimer = setTimeout(flushUpload, 2500);
+}
+function flushUpload(opts) {
+  if (!uploadTimer || !EXAM) return;
+  clearTimeout(uploadTimer); uploadTimer = null;
+  Auth.push(EXAM.slug, state, opts).catch(() => { /* offline: the next save or visit retries */ });
+}
+window.addEventListener('pagehide', () => flushUpload({ keepalive: true }));
+document.addEventListener('visibilitychange', () => { if (document.hidden) flushUpload({ keepalive: true }); });
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Helpers
@@ -721,12 +744,111 @@ async function renderHome() {
   }));
   $('main').innerHTML = `<section class="stack">
       <div class="stack" style="gap:6px"><h2 class="home-title">Choose an exam</h2>
-      <p class="muted">Each exam keeps its own practice progress and history.</p></div>
+      <p class="muted">Each exam keeps its own practice progress and history${Auth.currentUser() ? ', synced to your account' : ''}.</p></div>
       <div class="exam-grid">${cards.join('') || '<p class="muted">No exams found.</p>'}</div>
+      <div id="invites"></div>
     </section>`;
+  renderInvites();
+}
+
+// ── Sign-in screen ───────────────────────────────────────────────────────────
+function renderSignIn(error) {
+  document.body.classList.add('home', 'signed-out');
+  $('navigator').hidden = true;
+  const providers = Auth.PROVIDERS.map((p) =>
+    `<button class="btn btn-ghost full" data-provider="${p.id}">${p.label}</button>`).join('');
+  $('main').innerHTML = `<section class="panel card-pad signin">
+      <h2>Sign in</h2>
+      <p class="muted">This exam simulator is invite-only. Sign in to practice and keep your progress in sync across devices.</p>
+      ${error ? `<p class="signin-msg bad-msg" role="alert">${escapeHtml(error)}</p>` : ''}
+      ${providers ? `<div class="stack" style="gap:10px">${providers}</div><div class="or"><span>or</span></div>` : ''}
+      <form id="magic-form" class="stack" style="gap:10px">
+        <label for="magic-email" class="small muted">Email address</label>
+        <input id="magic-email" type="email" autocomplete="email" required placeholder="you@example.com">
+        <button class="btn btn-primary full" type="submit">Email me a sign-in link</button>
+      </form>
+      <p id="magic-status" class="signin-msg" role="status" hidden></p>
+    </section>`;
+  $('main').querySelectorAll('[data-provider]').forEach((b) => b.addEventListener('click', () => Auth.signInWith(b.dataset.provider)));
+  $('magic-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button'); const status = $('magic-status');
+    btn.disabled = true; status.hidden = false; status.className = 'signin-msg'; status.textContent = 'Sending…';
+    try {
+      await Auth.sendMagicLink($('magic-email').value);
+      status.classList.add('ok-msg');
+      status.textContent = 'Check your email for a sign-in link. You can close this tab; the link opens the site signed in.';
+    } catch (err) {
+      status.classList.add('bad-msg'); status.textContent = err.message;
+    } finally { btn.disabled = false; }
+  });
+}
+
+function renderAccount() {
+  const user = Auth.currentUser();
+  const box = $('account');
+  if (!user) { box.hidden = true; return; }
+  box.hidden = false;
+  $('account-email').textContent = user.email || 'Signed in';
+  $('account-email').title = user.email || '';
+}
+
+// ── Invites (shown to admins only) ───────────────────────────────────────────
+async function renderInvites() {
+  const box = $('invites');
+  if (!box || !Auth.currentUser()) return;
+  let rows;
+  try { rows = await Auth.listInvites(); } catch { return; }
+  if (!rows?.length) return; // not an admin
+  box.innerHTML = `<div class="panel card-pad stack" style="gap:14px">
+      <div><h2 class="section-title">Invite people</h2>
+      <p class="muted small" style="margin-top:8px">Invited people can sign in with that email address (email link${Auth.PROVIDERS.length ? ', ' + Auth.PROVIDERS.map((p) => p.label.replace('Continue with ', '')).join(', ') : ''}). Each person gets their own progress.</p></div>
+      <form id="invite-form" class="invite-row">
+        <input id="invite-email" type="email" required placeholder="friend@example.com" aria-label="Email to invite">
+        <input id="invite-note" type="text" placeholder="Name (optional)" aria-label="Name">
+        <button class="btn btn-primary" type="submit">Invite</button>
+      </form>
+      <ul class="invite-list">${rows.map((r) => `<li><span><b>${escapeHtml(r.email)}</b>${r.note ? ` <span class="muted">· ${escapeHtml(r.note)}</span>` : ''}</span>
+        ${r.is_admin ? '<span class="chip">admin</span>' : `<button class="btn btn-ghost btn-sm" data-uninvite="${escapeHtml(r.email)}">Remove</button>`}</li>`).join('')}</ul>
+    </div>`;
+  $('invite-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    try { await Auth.addInvite($('invite-email').value, $('invite-note').value); toast('Invited. They can now sign in with that email.'); renderInvites(); }
+    catch (err) { toast(/duplicate|already/i.test(err.message) ? 'That email is already invited.' : `Couldn't invite: ${err.message}`); }
+  });
+  box.querySelectorAll('[data-uninvite]').forEach((b) => b.addEventListener('click', async () => {
+    if (!(await confirmModal('Remove invite?', `${escapeHtml(b.dataset.uninvite)} won't be able to create an account. If they already have one, it stays until you delete the user in Supabase.`, 'Remove'))) return;
+    try { await Auth.removeInvite(b.dataset.uninvite); renderInvites(); } catch (err) { toast(`Couldn't remove: ${err.message}`); }
+  }));
+}
+
+const escapeHtml = (t = '') => String(t).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+// Pull cloud progress before showing anything (bounded, so a slow network doesn't block practice).
+async function syncFromCloud() {
+  if (!Auth.currentUser()) return;
+  let exams = [];
+  try { exams = await fetchJson('/exams/index.json'); } catch { /* offline */ }
+  const legacy = Object.fromEntries(exams.map((e) => [e.slug, e.legacyStorageKey]));
+  const slugs = exams.map((e) => e.slug);
+  const work = Auth.pullAll((slug) => readSaved(slug, legacy[slug]), writeSaved, slugs);
+  await Promise.race([work.catch(() => {}), new Promise((r) => setTimeout(r, 5000))]);
 }
 
 async function init() {
+  $('btn-signout').addEventListener('click', async () => {
+    if (!(await confirmModal('Sign out?', 'Your progress is saved to your account and removed from this device.', 'Sign out'))) return;
+    flushUpload();
+    await Auth.signOut();
+    location.assign('/');
+  });
+  if (Auth.AUTH_ENABLED) {
+    const auth = await Auth.initAuth();
+    renderAccount();
+    if (!auth.signedIn) return renderSignIn(auth.error);
+    if (auth.error) toast(auth.error);
+    await syncFromCloud();
+  }
   const slug = currentSlug();
   if (!slug) return renderHome();
   try {

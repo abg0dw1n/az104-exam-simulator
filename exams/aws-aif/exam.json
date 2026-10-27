@@ -1,0 +1,19 @@
+{
+  "slug": "aws-aif",
+  "code": "AIF-C01",
+  "name": "AWS Certified AI Practitioner",
+  "vendor": "Amazon Web Services",
+  "domains": {
+    "D1": { "name": "Fundamentals of AI and ML", "weight": "20%", "pct": 20 },
+    "D2": { "name": "Fundamentals of generative AI", "weight": "24%", "pct": 24 },
+    "D3": { "name": "Applications of foundation models", "weight": "28%", "pct": 28 },
+    "D4": { "name": "Guidelines for responsible AI", "weight": "14%", "pct": 14 },
+    "D5": { "name": "Security, compliance, and governance for AI solutions", "weight": "14%", "pct": 14 }
+  },
+  "scoring": { "min": 100, "max": 1000, "pass": 700 },
+  "minutesPerQuestion": 1.385,
+  "defaultSize": 65,
+  "sizeOptions": [20, 40, 65],
+  "realExamNote": "The real exam has 65 questions (50 scored) in 90 minutes and can include multiple-response, ordering and matching questions; this simulator uses single-answer questions.",
+  "scoreNote": "AWS uses scaled scoring, so treat 700+ as a readiness signal, not a guarantee."
+}

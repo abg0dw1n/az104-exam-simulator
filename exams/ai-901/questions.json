@@ -1,0 +1,2502 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "A loan-approval model approves applicants from one postal region far less often than equally qualified applicants elsewhere. Which responsible AI principle is most at risk?",
+    "options": [
+      {
+        "text": "Fairness",
+        "note": ""
+      },
+      {
+        "text": "Inclusiveness",
+        "note": "About designing for people of all abilities and backgrounds."
+      },
+      {
+        "text": "Transparency",
+        "note": "About explaining how the system works."
+      },
+      {
+        "text": "Reliability and safety",
+        "note": "About consistent, safe operation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fairness means AI systems should treat all people fairly and not disadvantage similar groups. Measure model performance per group to detect bias."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "A company publishes a note explaining that its support chatbot uses AI, what it can and can't do, and which data it was trained on. Which principle does this support?",
+    "options": [
+      {
+        "text": "Transparency",
+        "note": ""
+      },
+      {
+        "text": "Accountability",
+        "note": "About people being responsible for the system."
+      },
+      {
+        "text": "Fairness",
+        "note": "About equal treatment of groups."
+      },
+      {
+        "text": "Privacy and security",
+        "note": "About protecting personal data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Transparency means people should understand that AI is being used, its capabilities and its limitations."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "A speech app is redesigned so it works well for users with strong accents and for users with speech impairments. Which principle does this reflect?",
+    "options": [
+      {
+        "text": "Inclusiveness",
+        "note": ""
+      },
+      {
+        "text": "Transparency",
+        "note": "About explaining the system."
+      },
+      {
+        "text": "Accountability",
+        "note": "About ownership and governance."
+      },
+      {
+        "text": "Fairness",
+        "note": "Related, but designing for diverse abilities is inclusiveness."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Inclusiveness means AI should empower everyone and engage people of all abilities, languages and backgrounds."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "A team monitors a deployed model for drift and tests it against unusual edge cases before every release. Which principle is this?",
+    "options": [
+      {
+        "text": "Reliability and safety",
+        "note": ""
+      },
+      {
+        "text": "Inclusiveness",
+        "note": "About designing for diverse users."
+      },
+      {
+        "text": "Transparency",
+        "note": "About explaining decisions."
+      },
+      {
+        "text": "Privacy and security",
+        "note": "About protecting data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reliable and safe AI performs consistently under expected and unexpected conditions and is monitored after deployment."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "An organization sets up a review board that approves AI use cases and owns the outcomes when systems make mistakes. Which principle is this?",
+    "options": [
+      {
+        "text": "Accountability",
+        "note": ""
+      },
+      {
+        "text": "Fairness",
+        "note": "About equal treatment."
+      },
+      {
+        "text": "Reliability and safety",
+        "note": "About consistent operation."
+      },
+      {
+        "text": "Inclusiveness",
+        "note": "About diverse users."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Accountability means people and organizations remain responsible for AI systems, supported by governance."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "A chatbot's training data includes customer names and phone numbers. Encryption and access controls are added, and personal data is removed. Which principle does this address?",
+    "options": [
+      {
+        "text": "Privacy and security",
+        "note": ""
+      },
+      {
+        "text": "Transparency",
+        "note": "About disclosure of AI use."
+      },
+      {
+        "text": "Fairness",
+        "note": "About bias."
+      },
+      {
+        "text": "Inclusiveness",
+        "note": "About accessibility."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Privacy and security means protecting personal data during training and use, and securing the system against attack."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "How does a large language model generate a response?",
+    "options": [
+      {
+        "text": "It predicts the next token repeatedly based on the tokens so far",
+        "note": ""
+      },
+      {
+        "text": "It looks up stored answers in a database of past questions",
+        "note": "LLMs generate text; they don't retrieve fixed answers."
+      },
+      {
+        "text": "It translates the prompt into SQL and runs a query",
+        "note": "Not how LLMs work."
+      },
+      {
+        "text": "It searches the web for every answer it gives",
+        "note": "Only if connected to a search tool."
+      }
+    ],
+    "answer": 0,
+    "explanation": "LLMs are transformer models trained to predict the next token. Responses are built one token at a time."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "What is a token in the context of a language model?",
+    "options": [
+      {
+        "text": "A word or piece of a word the model processes",
+        "note": ""
+      },
+      {
+        "text": "An API key used to call the model's endpoint",
+        "note": "That's a credential, not a token in this sense."
+      },
+      {
+        "text": "One complete sentence of the user's prompt",
+        "note": "Tokens are usually smaller than words or sentences."
+      },
+      {
+        "text": "A record in the model's training database",
+        "note": "Not the meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Models split text into tokens. Usage, context limits and costs are measured in tokens."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which architecture underpins most modern large language models?",
+    "options": [
+      {
+        "text": "Transformer",
+        "note": ""
+      },
+      {
+        "text": "Decision tree",
+        "note": "A classic ML model."
+      },
+      {
+        "text": "k-means clustering",
+        "note": "Unsupervised grouping."
+      },
+      {
+        "text": "Linear regression",
+        "note": "Predicts numeric values."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Transformers use attention to weigh relationships between tokens, enabling large-scale language models."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "A developer needs a model that can accept an image and a text question in the same request. What type of model is needed?",
+    "options": [
+      {
+        "text": "A multimodal model",
+        "note": ""
+      },
+      {
+        "text": "A text-only small language model",
+        "note": "Can't process images."
+      },
+      {
+        "text": "A speech-to-text model",
+        "note": "Converts audio to text."
+      },
+      {
+        "text": "A regression model trained on part data",
+        "note": "Predicts numbers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Multimodal models accept and reason over more than one type of input, such as text, images and audio."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "A company wants a model that runs cheaply on a small device for a narrow task. What should it consider?",
+    "options": [
+      {
+        "text": "A small language model (SLM)",
+        "note": ""
+      },
+      {
+        "text": "The largest available frontier model",
+        "note": "Expensive and heavy for a narrow task."
+      },
+      {
+        "text": "An image generation model",
+        "note": "Wrong modality."
+      },
+      {
+        "text": "A multimodal video model",
+        "note": "Overkill for a narrow text task."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SLMs (such as the Phi family) trade some capability for lower cost, lower latency and the ability to run on smaller hardware."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "What does the temperature setting control when calling a generative model?",
+    "options": [
+      {
+        "text": "How random or creative the output is",
+        "note": ""
+      },
+      {
+        "text": "The maximum length of the response",
+        "note": "That's max tokens."
+      },
+      {
+        "text": "Which model version is used",
+        "note": "That's the deployment."
+      },
+      {
+        "text": "How long the request can run",
+        "note": "That's a timeout."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lower temperature gives more focused, repeatable output; higher temperature gives more varied output. top_p is a related sampling setting."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "A chatbot's answers are cut off mid-sentence. Which parameter should be increased?",
+    "options": [
+      {
+        "text": "Max tokens",
+        "note": ""
+      },
+      {
+        "text": "Temperature",
+        "note": "Affects randomness, not length."
+      },
+      {
+        "text": "Top_p",
+        "note": "Affects sampling, not length."
+      },
+      {
+        "text": "Frequency penalty",
+        "note": "Reduces repetition."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Max tokens limits the number of tokens in the response. The model's context window is a separate overall limit."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "An answering bot must give consistent, factual answers to policy questions. Which temperature setting is most appropriate?",
+    "options": [
+      {
+        "text": "A low temperature, such as 0 to 0.2",
+        "note": ""
+      },
+      {
+        "text": "A high temperature, such as 1.5",
+        "note": "Increases randomness."
+      },
+      {
+        "text": "Any temperature, because it doesn't matter",
+        "note": "It does affect consistency."
+      },
+      {
+        "text": "Temperature equal to max tokens",
+        "note": "Unrelated settings."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Low temperature makes output more deterministic, which suits factual Q&A. Higher values suit brainstorming."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "What is the purpose of a system message (system prompt)?",
+    "options": [
+      {
+        "text": "To set the model's role, tone and rules",
+        "note": ""
+      },
+      {
+        "text": "To save the user's chat history between sessions",
+        "note": "Not its purpose."
+      },
+      {
+        "text": "To choose which Azure region hosts the model",
+        "note": "Configured at deployment."
+      },
+      {
+        "text": "To limit how many tokens each request can use",
+        "note": "Not its purpose."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The system message guides behavior throughout the conversation; the user message contains the user's request."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "Which statement describes a generative AI \"hallucination\"?",
+    "options": [
+      {
+        "text": "Confident output that is false or unsupported",
+        "note": ""
+      },
+      {
+        "text": "A refusal to answer a harmful request",
+        "note": "That's a safety behavior."
+      },
+      {
+        "text": "An error returned because of rate limits",
+        "note": "That's throttling."
+      },
+      {
+        "text": "A response that takes too long to arrive",
+        "note": "That's latency."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Grounding with your own data, lower temperature and asking for citations help reduce hallucinations."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "A model must answer questions about a company's internal HR policies, which weren't in its training data. What is the usual approach?",
+    "options": [
+      {
+        "text": "Ground the model with the company's documents (RAG)",
+        "note": ""
+      },
+      {
+        "text": "Increase the model's temperature so it explores more",
+        "note": "Doesn't add knowledge."
+      },
+      {
+        "text": "Raise max tokens so it can include more detail",
+        "note": "Doesn't add knowledge."
+      },
+      {
+        "text": "Ask users to paste every policy document each time",
+        "note": "Impractical."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RAG retrieves relevant content (for example, from Azure AI Search) and adds it to the prompt so answers are grounded in your data."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "Which deployment option charges based on the number of tokens processed, with no reserved capacity?",
+    "options": [
+      {
+        "text": "Standard (pay-per-token) deployment",
+        "note": ""
+      },
+      {
+        "text": "Provisioned throughput deployment",
+        "note": "Reserves capacity for a fixed cost."
+      },
+      {
+        "text": "A dedicated on-premises server",
+        "note": "Not a Foundry deployment type."
+      },
+      {
+        "text": "A batch-only deployment with reserved units",
+        "note": "Not the pay-per-token option."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Standard deployments bill per token. Provisioned throughput reserves model capacity for predictable, high-volume workloads."
+  },
+  {
+    "id": 19,
+    "domain": "D1",
+    "scenario": "An app needs predictable latency and guaranteed capacity for a high, steady volume of requests. Which deployment type fits?",
+    "options": [
+      {
+        "text": "Provisioned throughput",
+        "note": ""
+      },
+      {
+        "text": "Standard pay-per-token",
+        "note": "Shared capacity; can be throttled."
+      },
+      {
+        "text": "A free trial deployment",
+        "note": "Not for production."
+      },
+      {
+        "text": "A model with higher temperature",
+        "note": "Unrelated to capacity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Provisioned throughput units reserve capacity for consistent performance."
+  },
+  {
+    "id": 20,
+    "domain": "D1",
+    "scenario": "When choosing a model from the Foundry model catalog, which factors should be compared?",
+    "options": [
+      {
+        "text": "Capabilities, modality, cost and latency",
+        "note": ""
+      },
+      {
+        "text": "Only the model's publisher and popularity",
+        "note": "Not enough to choose."
+      },
+      {
+        "text": "Only which model was released most recently",
+        "note": "Newest isn't always best."
+      },
+      {
+        "text": "Only which model has the most parameters",
+        "note": "Bigger isn't always better."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use model cards, benchmarks and leaderboards in the catalog, then test candidate models with your own prompts."
+  },
+  {
+    "id": 21,
+    "domain": "D1",
+    "scenario": "What makes an AI agent different from a basic chat completion?",
+    "options": [
+      {
+        "text": "It uses a model, instructions and tools to take actions",
+        "note": ""
+      },
+      {
+        "text": "It can only return short, fixed-format answers",
+        "note": "Not a defining feature."
+      },
+      {
+        "text": "It replaces the language model with business rules",
+        "note": "Agents use models."
+      },
+      {
+        "text": "It learns its instructions automatically from users",
+        "note": "Instructions define its behavior."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Agents use a model to reason, call tools (such as search, code or APIs) and use knowledge to complete tasks."
+  },
+  {
+    "id": 22,
+    "domain": "D1",
+    "scenario": "A company wants an assistant that can look up order status in its system and file a return on the customer's behalf. Which workload is this?",
+    "options": [
+      {
+        "text": "Agentic AI",
+        "note": ""
+      },
+      {
+        "text": "Sentiment analysis",
+        "note": "Detects opinion."
+      },
+      {
+        "text": "Optical character recognition",
+        "note": "Reads text from images."
+      },
+      {
+        "text": "Speech synthesis",
+        "note": "Generates spoken audio."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Agentic AI uses tools to take actions, not just generate text."
+  },
+  {
+    "id": 23,
+    "domain": "D1",
+    "scenario": "A company wants to know whether customer reviews are positive, negative or neutral. Which capability should it use?",
+    "options": [
+      {
+        "text": "Sentiment analysis",
+        "note": ""
+      },
+      {
+        "text": "Key phrase extraction",
+        "note": "Finds main topics."
+      },
+      {
+        "text": "Language detection",
+        "note": "Identifies the language."
+      },
+      {
+        "text": "Named entity recognition",
+        "note": "Finds people, places and organizations."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sentiment analysis (opinion mining) returns sentiment labels and confidence scores for documents and sentences."
+  },
+  {
+    "id": 24,
+    "domain": "D1",
+    "scenario": "A news site wants to automatically list the main topics discussed in each article. Which capability fits?",
+    "options": [
+      {
+        "text": "Key phrase extraction",
+        "note": ""
+      },
+      {
+        "text": "Sentiment analysis",
+        "note": "Detects opinion."
+      },
+      {
+        "text": "Speech-to-text",
+        "note": "Transcribes audio."
+      },
+      {
+        "text": "Image classification",
+        "note": "Labels images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Key phrase extraction returns the main talking points in text."
+  },
+  {
+    "id": 25,
+    "domain": "D1",
+    "scenario": "An app must find names of people, companies, places and dates in contracts. Which capability fits?",
+    "options": [
+      {
+        "text": "Named entity recognition",
+        "note": ""
+      },
+      {
+        "text": "Key phrase extraction",
+        "note": "Finds topics, not typed entities."
+      },
+      {
+        "text": "Language detection",
+        "note": "Identifies the language."
+      },
+      {
+        "text": "Text-to-speech",
+        "note": "Generates audio."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NER identifies and categorizes entities such as person, organization, location and date-time."
+  },
+  {
+    "id": 26,
+    "domain": "D1",
+    "scenario": "Support emails arrive in many languages, and each must be routed to the right regional team. Which capability identifies the language?",
+    "options": [
+      {
+        "text": "Language detection",
+        "note": ""
+      },
+      {
+        "text": "Entity linking",
+        "note": "Links entities to a knowledge base."
+      },
+      {
+        "text": "Sentiment analysis",
+        "note": "Detects opinion."
+      },
+      {
+        "text": "Summarization",
+        "note": "Condenses text."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Language detection returns the language and a confidence score."
+  },
+  {
+    "id": 27,
+    "domain": "D1",
+    "scenario": "A legal team needs a short overview of each long document. Which capability fits?",
+    "options": [
+      {
+        "text": "Summarization",
+        "note": ""
+      },
+      {
+        "text": "Language detection",
+        "note": "Identifies the language."
+      },
+      {
+        "text": "Optical character recognition",
+        "note": "Extracts printed text."
+      },
+      {
+        "text": "Speaker identification",
+        "note": "Recognizes voices."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Summarization can be extractive (selecting key sentences) or abstractive (generating new summary text)."
+  },
+  {
+    "id": 28,
+    "domain": "D1",
+    "scenario": "Chat logs must have phone numbers and email addresses masked before storage. Which capability fits?",
+    "options": [
+      {
+        "text": "PII detection and redaction",
+        "note": ""
+      },
+      {
+        "text": "Key phrase extraction",
+        "note": "Finds topics."
+      },
+      {
+        "text": "Sentiment analysis",
+        "note": "Detects opinion."
+      },
+      {
+        "text": "Image tagging",
+        "note": "Labels images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PII detection identifies personal information and can return redacted text."
+  },
+  {
+    "id": 29,
+    "domain": "D1",
+    "scenario": "A call center wants written transcripts of recorded calls. Which capability fits?",
+    "options": [
+      {
+        "text": "Speech-to-text (speech recognition)",
+        "note": ""
+      },
+      {
+        "text": "Text-to-speech (speech synthesis)",
+        "note": "Generates audio from text."
+      },
+      {
+        "text": "Image analysis",
+        "note": "Processes images."
+      },
+      {
+        "text": "Key phrase extraction",
+        "note": "Works on text, not audio."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Speech recognition converts spoken audio into text, in real time or in batch."
+  },
+  {
+    "id": 30,
+    "domain": "D1",
+    "scenario": "An app must read notifications aloud in a natural-sounding voice. Which capability fits?",
+    "options": [
+      {
+        "text": "Text-to-speech",
+        "note": ""
+      },
+      {
+        "text": "Speech-to-text",
+        "note": "Converts audio to text."
+      },
+      {
+        "text": "Language detection",
+        "note": "Identifies languages."
+      },
+      {
+        "text": "Object detection",
+        "note": "Finds objects in images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Speech synthesis converts text to spoken audio. SSML can control pronunciation, rate and pitch."
+  },
+  {
+    "id": 31,
+    "domain": "D1",
+    "scenario": "A live presentation in English must be shown with Spanish captions for remote viewers. Which capability fits?",
+    "options": [
+      {
+        "text": "Speech translation",
+        "note": ""
+      },
+      {
+        "text": "Text-to-speech",
+        "note": "Generates audio only."
+      },
+      {
+        "text": "Sentiment analysis",
+        "note": "Detects opinion."
+      },
+      {
+        "text": "Image generation",
+        "note": "Creates images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Speech translation recognizes speech in one language and returns text (or speech) in another."
+  },
+  {
+    "id": 32,
+    "domain": "D1",
+    "scenario": "A retailer wants to know where products appear in shelf photos, with a bounding box around each one. Which capability fits?",
+    "options": [
+      {
+        "text": "Object detection",
+        "note": ""
+      },
+      {
+        "text": "Image classification",
+        "note": "Labels the whole image without locations."
+      },
+      {
+        "text": "Optical character recognition",
+        "note": "Reads text."
+      },
+      {
+        "text": "Image generation",
+        "note": "Creates new images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Object detection returns object labels with bounding-box coordinates. Classification assigns labels to the whole image."
+  },
+  {
+    "id": 33,
+    "domain": "D1",
+    "scenario": "A recycling app must decide whether each photo shows plastic, glass or paper. Which capability fits?",
+    "options": [
+      {
+        "text": "Image classification",
+        "note": ""
+      },
+      {
+        "text": "Object detection",
+        "note": "Locates multiple objects."
+      },
+      {
+        "text": "Face detection",
+        "note": "Finds faces."
+      },
+      {
+        "text": "Speech recognition",
+        "note": "Audio, not images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Image classification predicts which category an image belongs to."
+  },
+  {
+    "id": 34,
+    "domain": "D1",
+    "scenario": "An app needs to read the text printed on street signs in photos. Which capability fits?",
+    "options": [
+      {
+        "text": "Optical character recognition",
+        "note": ""
+      },
+      {
+        "text": "Image classification",
+        "note": "Labels images, doesn't read text."
+      },
+      {
+        "text": "Sentiment analysis",
+        "note": "Works on text you already have."
+      },
+      {
+        "text": "Image generation",
+        "note": "Creates images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OCR extracts printed and handwritten text from images and documents."
+  },
+  {
+    "id": 35,
+    "domain": "D1",
+    "scenario": "An accessibility app must describe photos in a sentence, such as \"a dog running on a beach.\" Which capability fits?",
+    "options": [
+      {
+        "text": "Image captioning",
+        "note": ""
+      },
+      {
+        "text": "Object detection only",
+        "note": "Returns objects and boxes, not a sentence."
+      },
+      {
+        "text": "OCR",
+        "note": "Reads text in the image."
+      },
+      {
+        "text": "Language detection",
+        "note": "Works on text."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Image analysis can generate captions and tags that describe image content."
+  },
+  {
+    "id": 36,
+    "domain": "D1",
+    "scenario": "A marketing team wants to create new product images from text descriptions. Which capability fits?",
+    "options": [
+      {
+        "text": "Image generation",
+        "note": ""
+      },
+      {
+        "text": "Object detection",
+        "note": "Analyzes existing images."
+      },
+      {
+        "text": "OCR",
+        "note": "Reads text from images."
+      },
+      {
+        "text": "Image classification",
+        "note": "Labels existing images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Image generation models create images from prompts, subject to content safety filters."
+  },
+  {
+    "id": 37,
+    "domain": "D1",
+    "scenario": "Which statement about face-related capabilities in Azure is correct?",
+    "options": [
+      {
+        "text": "Some face features, like identification, need approved access",
+        "note": ""
+      },
+      {
+        "text": "Face identification is open to all customers without review",
+        "note": "It's restricted under responsible AI policies."
+      },
+      {
+        "text": "Face detection only works on video, not still images",
+        "note": "Detection is its basic function."
+      },
+      {
+        "text": "Face features are only available in on-premises containers",
+        "note": "They're cloud services."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Microsoft limits access to sensitive face capabilities and has retired features such as emotion inference."
+  },
+  {
+    "id": 38,
+    "domain": "D1",
+    "scenario": "An accounts team needs vendor name, invoice total and due date pulled from scanned invoices. Which workload is this?",
+    "options": [
+      {
+        "text": "Document information extraction",
+        "note": ""
+      },
+      {
+        "text": "Sentiment analysis",
+        "note": "Detects opinion."
+      },
+      {
+        "text": "Speech synthesis",
+        "note": "Generates audio."
+      },
+      {
+        "text": "Image generation",
+        "note": "Creates images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Information extraction returns structured fields, key-value pairs and tables from documents and forms."
+  },
+  {
+    "id": 39,
+    "domain": "D1",
+    "scenario": "A media company wants transcripts, key moments and speaker information extracted from recorded videos. Which workload is this?",
+    "options": [
+      {
+        "text": "Audio and video information extraction",
+        "note": ""
+      },
+      {
+        "text": "Image classification",
+        "note": "Labels still images."
+      },
+      {
+        "text": "Language detection on the audio",
+        "note": "Only identifies language."
+      },
+      {
+        "text": "Text-to-speech",
+        "note": "Generates audio."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Extraction from audio and video can produce transcripts, summaries, segments and speaker details."
+  },
+  {
+    "id": 40,
+    "domain": "D1",
+    "scenario": "Which kind of data is best described as unstructured?",
+    "options": [
+      {
+        "text": "Emails, images and recorded calls",
+        "note": ""
+      },
+      {
+        "text": "A table of orders with fixed columns",
+        "note": "That's structured data."
+      },
+      {
+        "text": "A spreadsheet of sales figures",
+        "note": "Structured data."
+      },
+      {
+        "text": "A database of customer records",
+        "note": "Structured data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AI services such as text analysis, vision and extraction turn unstructured content into structured information."
+  },
+  {
+    "id": 41,
+    "domain": "D1",
+    "scenario": "Which machine learning type predicts a number, such as next month's sales?",
+    "options": [
+      {
+        "text": "Regression",
+        "note": ""
+      },
+      {
+        "text": "Classification",
+        "note": "Predicts categories."
+      },
+      {
+        "text": "Clustering",
+        "note": "Groups similar items without labels."
+      },
+      {
+        "text": "Object detection",
+        "note": "Locates objects in images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Regression predicts numeric values; classification predicts labels; clustering finds groups in unlabeled data."
+  },
+  {
+    "id": 42,
+    "domain": "D1",
+    "scenario": "A company wants to group customers into segments based on purchasing behavior, without predefined labels. Which technique fits?",
+    "options": [
+      {
+        "text": "Clustering",
+        "note": ""
+      },
+      {
+        "text": "Regression",
+        "note": "Predicts numbers."
+      },
+      {
+        "text": "Classification",
+        "note": "Needs labeled categories."
+      },
+      {
+        "text": "Speech synthesis",
+        "note": "Generates audio."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Clustering is unsupervised learning that groups similar data points."
+  },
+  {
+    "id": 43,
+    "domain": "D1",
+    "scenario": "In machine learning, what are features and labels?",
+    "options": [
+      {
+        "text": "Features are inputs; labels are what the model predicts",
+        "note": ""
+      },
+      {
+        "text": "Features are predictions; labels are the inputs",
+        "note": "Reversed."
+      },
+      {
+        "text": "Both are names for the model's learned weights",
+        "note": "Not the definitions."
+      },
+      {
+        "text": "Labels are only used in unsupervised clustering",
+        "note": "Clustering has no labels."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Supervised learning uses labeled examples to learn a function from features to labels."
+  },
+  {
+    "id": 44,
+    "domain": "D1",
+    "scenario": "Why is data split into training and validation sets?",
+    "options": [
+      {
+        "text": "To test the model on data it hasn't seen",
+        "note": ""
+      },
+      {
+        "text": "To make training run in half the time",
+        "note": "Not the purpose."
+      },
+      {
+        "text": "To reduce the size of the trained model file",
+        "note": "Not the purpose."
+      },
+      {
+        "text": "So two models can be trained at the same time",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Validation data measures generalization and helps detect overfitting."
+  },
+  {
+    "id": 45,
+    "domain": "D1",
+    "scenario": "Which generative AI scenario is most appropriate?",
+    "options": [
+      {
+        "text": "Drafting product descriptions for staff to review",
+        "note": ""
+      },
+      {
+        "text": "Making final medical diagnoses without human review",
+        "note": "High-risk without oversight."
+      },
+      {
+        "text": "Calculating exact payroll taxes with no checks",
+        "note": "Generative models can make arithmetic errors."
+      },
+      {
+        "text": "Approving loans automatically without explanations",
+        "note": "Raises fairness and transparency issues."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Generative AI works well for drafting and summarizing, with people reviewing output for high-stakes decisions."
+  },
+  {
+    "id": 46,
+    "domain": "D1",
+    "scenario": "A model returns harmful content when users try to trick it with cleverly worded prompts. What is this attack called?",
+    "options": [
+      {
+        "text": "Jailbreak or prompt injection",
+        "note": ""
+      },
+      {
+        "text": "Model drift over time",
+        "note": "Performance change over time."
+      },
+      {
+        "text": "Overfitting to training data",
+        "note": "Memorizing training data."
+      },
+      {
+        "text": "Tokenization of the prompt",
+        "note": "Splitting text into tokens."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Content safety filters, prompt shields and well-designed system messages help defend against these attacks."
+  },
+  {
+    "id": 47,
+    "domain": "D1",
+    "scenario": "What is the purpose of content filters on a deployed model in Foundry?",
+    "options": [
+      {
+        "text": "To block harmful content in prompts and responses",
+        "note": ""
+      },
+      {
+        "text": "To compress responses so they use fewer tokens",
+        "note": "Not their purpose."
+      },
+      {
+        "text": "To translate responses into the user's language",
+        "note": "Not their purpose."
+      },
+      {
+        "text": "To speed up inference for large prompts",
+        "note": "Not their purpose."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Content filters classify categories such as hate, violence, sexual content and self-harm at configurable severity levels."
+  },
+  {
+    "id": 48,
+    "domain": "D1",
+    "scenario": "What is a \"context window\"?",
+    "options": [
+      {
+        "text": "The most tokens a model can handle in one exchange",
+        "note": ""
+      },
+      {
+        "text": "The browser window where the chat app is shown",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "The time limit before a model call is cancelled",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "The list of models available in an Azure region",
+        "note": "Not the meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Prompts, history, grounding data and the response all count toward the context window."
+  },
+  {
+    "id": 49,
+    "domain": "D1",
+    "scenario": "What is an embedding?",
+    "options": [
+      {
+        "text": "A vector of numbers representing meaning",
+        "note": ""
+      },
+      {
+        "text": "A compressed copy of the model's weights",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "A watermark added to AI-generated images",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "An API key embedded in the client app",
+        "note": "Not the meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Embeddings place similar content close together, enabling semantic search and retrieval for RAG."
+  },
+  {
+    "id": 50,
+    "domain": "D2",
+    "scenario": "What is Microsoft Foundry?",
+    "options": [
+      {
+        "text": "A platform for building AI apps and agents",
+        "note": ""
+      },
+      {
+        "text": "A database service for storing training data",
+        "note": "Not its purpose."
+      },
+      {
+        "text": "A virtual machine image for running AI code",
+        "note": "Not its purpose."
+      },
+      {
+        "text": "A billing tool for tracking AI spending",
+        "note": "Not its purpose."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Microsoft Foundry (formerly Azure AI Foundry) brings models, agents, tools, evaluation and safety features together in projects."
+  },
+  {
+    "id": 51,
+    "domain": "D2",
+    "scenario": "Where do you organize your models, agents and related resources when you start work in the Foundry portal?",
+    "options": [
+      {
+        "text": "In a Foundry project",
+        "note": ""
+      },
+      {
+        "text": "In an Azure DevOps board",
+        "note": "Work tracking, not AI resources."
+      },
+      {
+        "text": "In a storage account container",
+        "note": "Stores files only."
+      },
+      {
+        "text": "In a resource lock",
+        "note": "Prevents deletion."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Projects group deployments, agents, data connections and settings for a solution."
+  },
+  {
+    "id": 52,
+    "domain": "D2",
+    "scenario": "A developer wants to try different prompts against a deployed model without writing code. What should they use?",
+    "options": [
+      {
+        "text": "The Foundry chat playground",
+        "note": ""
+      },
+      {
+        "text": "Azure Cost Management",
+        "note": "Billing analysis."
+      },
+      {
+        "text": "Azure Monitor alert rules",
+        "note": "Monitoring."
+      },
+      {
+        "text": "The Azure Storage browser",
+        "note": "File storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Playgrounds let you test prompts, system messages and parameters, then view sample code."
+  },
+  {
+    "id": 53,
+    "domain": "D2",
+    "scenario": "What must be done before an app can call a model from the Foundry model catalog?",
+    "options": [
+      {
+        "text": "Deploy the model to get an endpoint",
+        "note": ""
+      },
+      {
+        "text": "Download the model weights to the app server",
+        "note": "Not required for hosted models."
+      },
+      {
+        "text": "Train the model from scratch",
+        "note": "Catalog models are pretrained."
+      },
+      {
+        "text": "Convert the model to a container image",
+        "note": "Not required."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Deployments expose models through an endpoint with a deployment name that the app references."
+  },
+  {
+    "id": 54,
+    "domain": "D2",
+    "scenario": "A prompt includes two example questions with their ideal answers before the real question. What technique is this?",
+    "options": [
+      {
+        "text": "Few-shot prompting",
+        "note": ""
+      },
+      {
+        "text": "Zero-shot prompting",
+        "note": "No examples are provided."
+      },
+      {
+        "text": "Fine-tuning",
+        "note": "Retrains the model on data."
+      },
+      {
+        "text": "Tokenization of the prompt",
+        "note": "Splits text into tokens."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Few-shot prompts show examples of the desired format or behavior. One-shot uses a single example."
+  },
+  {
+    "id": 55,
+    "domain": "D2",
+    "scenario": "Which system message is most effective for a customer-support assistant?",
+    "options": [
+      {
+        "text": "You are Contoso's support assistant. Answer only about Contoso products, briefly; say if you're unsure.",
+        "note": ""
+      },
+      {
+        "text": "Be as helpful as possible and answer every question the user asks.",
+        "note": "Too vague."
+      },
+      {
+        "text": "Answer any topic in as much detail as you can, using long responses.",
+        "note": "Encourages off-topic, long answers."
+      },
+      {
+        "text": "Follow the user's instructions even if they conflict with these rules.",
+        "note": "Unsafe."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Good system messages define role, scope, tone, format and what to do when unsure."
+  },
+  {
+    "id": 56,
+    "domain": "D2",
+    "scenario": "An app needs model output that another program can parse reliably. What should the prompt request?",
+    "options": [
+      {
+        "text": "A specific format, such as JSON with named fields",
+        "note": ""
+      },
+      {
+        "text": "A creative, free-form answer in full sentences",
+        "note": "Hard to parse."
+      },
+      {
+        "text": "A higher temperature setting for variety",
+        "note": "Makes output less predictable."
+      },
+      {
+        "text": "A longer system message with more examples of tone",
+        "note": "Not helpful."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Specifying the format (and using structured output features where available) makes responses machine-readable."
+  },
+  {
+    "id": 57,
+    "domain": "D2",
+    "scenario": "A model gives generic answers to questions about the company's own product. What is the best improvement without retraining?",
+    "options": [
+      {
+        "text": "Ground the prompt with product documentation",
+        "note": ""
+      },
+      {
+        "text": "Increase temperature so answers are more detailed",
+        "note": "Adds randomness, not knowledge."
+      },
+      {
+        "text": "Remove the system message to avoid limiting it",
+        "note": "Removes guidance."
+      },
+      {
+        "text": "Shorten the user's question to save tokens",
+        "note": "Doesn't add knowledge."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Grounding supplies relevant facts in the prompt, often retrieved from a search index of your data."
+  },
+  {
+    "id": 58,
+    "domain": "D2",
+    "scenario": "A chat app built with the Foundry SDK forgets earlier turns. What is the cause?",
+    "options": [
+      {
+        "text": "Chat calls are stateless; the app must resend history",
+        "note": ""
+      },
+      {
+        "text": "The model deletes old messages after each reply",
+        "note": "The model doesn't store history."
+      },
+      {
+        "text": "The temperature is too low to recall earlier turns",
+        "note": "Temperature doesn't affect memory."
+      },
+      {
+        "text": "The deployment uses the wrong model version",
+        "note": "Would cause an error, not forgetting."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The app keeps a list of system, user and assistant messages and sends it with each request."
+  },
+  {
+    "id": 59,
+    "domain": "D2",
+    "scenario": "Which message roles are typically included in a chat completion request?",
+    "options": [
+      {
+        "text": "System, user and assistant",
+        "note": ""
+      },
+      {
+        "text": "Admin, guest and owner",
+        "note": "Not chat roles."
+      },
+      {
+        "text": "Reader, writer and contributor",
+        "note": "Azure RBAC roles."
+      },
+      {
+        "text": "Input, output and error",
+        "note": "Not chat roles."
+      }
+    ],
+    "answer": 0,
+    "explanation": "System sets behavior, user carries the request, and assistant holds previous model replies."
+  },
+  {
+    "id": 60,
+    "domain": "D2",
+    "scenario": "What is the most secure way for an app running in Azure to authenticate to a Foundry project?",
+    "options": [
+      {
+        "text": "Microsoft Entra ID with a managed identity",
+        "note": ""
+      },
+      {
+        "text": "A key hard-coded in the source code",
+        "note": "Keys in code can leak."
+      },
+      {
+        "text": "A key emailed to each developer",
+        "note": "Insecure distribution."
+      },
+      {
+        "text": "Anonymous access with no credentials",
+        "note": "Not supported or secure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use Entra ID (for example, DefaultAzureCredential) with RBAC roles. If keys are needed, store them in Azure Key Vault."
+  },
+  {
+    "id": 61,
+    "domain": "D2",
+    "scenario": "A developer must store an API key for a Foundry resource used by a web app. Where should it go?",
+    "options": [
+      {
+        "text": "Azure Key Vault, read by the app at runtime",
+        "note": ""
+      },
+      {
+        "text": "In the app's public JavaScript file",
+        "note": "Visible to every user."
+      },
+      {
+        "text": "In a comment in the code repository",
+        "note": "Visible to anyone with repo access."
+      },
+      {
+        "text": "In the system message of the prompt",
+        "note": "Could be revealed by the model."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Keep secrets out of code. Prefer Entra ID authentication over keys where possible."
+  },
+  {
+    "id": 62,
+    "domain": "D2",
+    "scenario": "Which information does a chat client need to call a deployed model?",
+    "options": [
+      {
+        "text": "The endpoint, deployment name and credentials",
+        "note": ""
+      },
+      {
+        "text": "Only the model's name from the catalog",
+        "note": "Not enough to connect."
+      },
+      {
+        "text": "The subscription ID and billing account",
+        "note": "Not needed."
+      },
+      {
+        "text": "The location of the model's training dataset",
+        "note": "Not needed for inference."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The SDK client uses the endpoint and credentials; requests reference the deployment (model) name."
+  },
+  {
+    "id": 63,
+    "domain": "D2",
+    "scenario": "A chat app needs answers to appear word by word as they're generated. What should it use?",
+    "options": [
+      {
+        "text": "Streaming responses",
+        "note": ""
+      },
+      {
+        "text": "A larger max tokens value",
+        "note": "Affects length only."
+      },
+      {
+        "text": "Provisioned throughput",
+        "note": "Affects capacity, not display."
+      },
+      {
+        "text": "A lower temperature",
+        "note": "Affects randomness."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Streaming returns partial output as tokens are generated, improving perceived responsiveness."
+  },
+  {
+    "id": 64,
+    "domain": "D2",
+    "scenario": "Which components define a single agent in the Foundry Agent Service?",
+    "options": [
+      {
+        "text": "A model, instructions, tools and knowledge",
+        "note": ""
+      },
+      {
+        "text": "A virtual network, subnet and firewall rules",
+        "note": "Networking, not an agent definition."
+      },
+      {
+        "text": "A storage account and a lifecycle policy",
+        "note": "Not an agent definition."
+      },
+      {
+        "text": "A container image and a Kubernetes cluster",
+        "note": "Not required for agents."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Agents combine a deployed model with instructions, tools (like code interpreter or function calling) and knowledge sources."
+  },
+  {
+    "id": 65,
+    "domain": "D2",
+    "scenario": "An agent must answer questions using a set of uploaded product manuals. Which tool should be added?",
+    "options": [
+      {
+        "text": "File search with the manuals uploaded",
+        "note": ""
+      },
+      {
+        "text": "Code interpreter with the manuals as input",
+        "note": "Runs code, not document retrieval."
+      },
+      {
+        "text": "A speech tool that reads the manuals aloud",
+        "note": "Generates audio."
+      },
+      {
+        "text": "An image generation tool",
+        "note": "Creates images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "File search indexes uploaded documents so the agent can retrieve relevant passages."
+  },
+  {
+    "id": 66,
+    "domain": "D2",
+    "scenario": "An agent needs to calculate statistics from a CSV file the user uploads. Which tool fits?",
+    "options": [
+      {
+        "text": "Code interpreter",
+        "note": ""
+      },
+      {
+        "text": "File search",
+        "note": "Retrieves text; doesn't run calculations."
+      },
+      {
+        "text": "Bing grounding",
+        "note": "Searches the web."
+      },
+      {
+        "text": "Content filter",
+        "note": "Blocks harmful content."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Code interpreter lets the agent write and run Python in a sandbox to analyze data and create charts."
+  },
+  {
+    "id": 67,
+    "domain": "D2",
+    "scenario": "An agent must check live inventory in the company's own system. Which tool type allows this?",
+    "options": [
+      {
+        "text": "A function or OpenAPI tool for the inventory API",
+        "note": ""
+      },
+      {
+        "text": "A higher temperature setting for variety",
+        "note": "Doesn't connect systems."
+      },
+      {
+        "text": "A longer system message listing current stock",
+        "note": "Doesn't connect systems."
+      },
+      {
+        "text": "An image generation tool",
+        "note": "Wrong capability."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Function calling and OpenAPI tools let agents call your APIs. The app or service executes the call and returns results."
+  },
+  {
+    "id": 68,
+    "domain": "D2",
+    "scenario": "How does a client app keep a multi-turn conversation with a Foundry agent?",
+    "options": [
+      {
+        "text": "It uses a thread that stores the messages",
+        "note": ""
+      },
+      {
+        "text": "It retrains the agent after each user message",
+        "note": "Not how agents work."
+      },
+      {
+        "text": "It creates a new agent for every message",
+        "note": "Wasteful and loses context."
+      },
+      {
+        "text": "It appends every message to the agent's instructions",
+        "note": "Not the mechanism."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Threads (conversations) hold message history; runs process the thread with the agent."
+  },
+  {
+    "id": 69,
+    "domain": "D2",
+    "scenario": "Where can a developer test an agent's instructions and tools before building a client app?",
+    "options": [
+      {
+        "text": "The Foundry agent playground",
+        "note": ""
+      },
+      {
+        "text": "Azure Resource Graph Explorer",
+        "note": "Queries resources."
+      },
+      {
+        "text": "The Azure Activity Log",
+        "note": "Shows control-plane events."
+      },
+      {
+        "text": "Azure Storage Explorer",
+        "note": "Manages files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The agent playground lets you chat with the agent and see tool calls before writing code."
+  },
+  {
+    "id": 70,
+    "domain": "D2",
+    "scenario": "A developer builds an app that returns sentiment and confidence scores for reviews. Which service is designed for this?",
+    "options": [
+      {
+        "text": "Azure Language",
+        "note": ""
+      },
+      {
+        "text": "Azure Speech",
+        "note": "Audio processing."
+      },
+      {
+        "text": "Azure Vision",
+        "note": "Image processing."
+      },
+      {
+        "text": "Azure Content Understanding for video",
+        "note": "Not the simplest fit for review text."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Azure Language provides prebuilt features such as sentiment analysis, key phrases, entities, PII detection, language detection and summarization."
+  },
+  {
+    "id": 71,
+    "domain": "D2",
+    "scenario": "Azure Language returns a sentiment of \"mixed\" for a review. What does this mean?",
+    "options": [
+      {
+        "text": "It has both positive and negative sentences",
+        "note": ""
+      },
+      {
+        "text": "The service couldn't detect the language",
+        "note": "Different result."
+      },
+      {
+        "text": "The text was too long to analyze fully",
+        "note": "Different result."
+      },
+      {
+        "text": "Every sentence in the review was neutral",
+        "note": "That's neutral."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Document-level sentiment is mixed when sentences have different sentiments. Sentence-level results show which parts are positive or negative."
+  },
+  {
+    "id": 72,
+    "domain": "D2",
+    "scenario": "An app sends many reviews to Azure Language at once. What does each result include to show how certain the service is?",
+    "options": [
+      {
+        "text": "Confidence scores",
+        "note": ""
+      },
+      {
+        "text": "Token counts only",
+        "note": "Not the certainty measure."
+      },
+      {
+        "text": "Billing totals",
+        "note": "Not included per result."
+      },
+      {
+        "text": "Bounding boxes for each speaker",
+        "note": "Used for images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Results include confidence scores (0–1) per label, which apps can use as thresholds."
+  },
+  {
+    "id": 73,
+    "domain": "D2",
+    "scenario": "A team could either use a prebuilt language feature or prompt a general LLM to detect sentiment. Why might they choose the prebuilt feature?",
+    "options": [
+      {
+        "text": "It returns consistent results with confidence scores",
+        "note": ""
+      },
+      {
+        "text": "It can also write marketing replies to each review",
+        "note": "That's generative AI."
+      },
+      {
+        "text": "It understands images as well as review text",
+        "note": "Text only."
+      },
+      {
+        "text": "It runs entirely in the browser without API calls",
+        "note": "It's a cloud API."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Prebuilt AI services are specialized and predictable; LLMs are flexible but need careful prompting."
+  },
+  {
+    "id": 74,
+    "domain": "D2",
+    "scenario": "A developer must build an app that transcribes meetings and reads replies aloud. Which service fits?",
+    "options": [
+      {
+        "text": "Azure Speech",
+        "note": ""
+      },
+      {
+        "text": "Azure Language",
+        "note": "Text only."
+      },
+      {
+        "text": "Azure Vision",
+        "note": "Images."
+      },
+      {
+        "text": "Azure AI Search",
+        "note": "Indexing and retrieval."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Azure Speech provides speech-to-text, text-to-speech with neural voices and speech translation."
+  },
+  {
+    "id": 75,
+    "domain": "D2",
+    "scenario": "Users speak questions into an app, and a deployed multimodal model should answer. What does the request send?",
+    "options": [
+      {
+        "text": "Audio sent to an audio-capable model",
+        "note": ""
+      },
+      {
+        "text": "A photo of the user taken by the device camera",
+        "note": "Not audio."
+      },
+      {
+        "text": "A PDF transcript created by the client app",
+        "note": "Not the scenario."
+      },
+      {
+        "text": "A database query built from the spoken words",
+        "note": "Not the scenario."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Audio-capable multimodal models accept spoken prompts directly and can reply in text or speech."
+  },
+  {
+    "id": 76,
+    "domain": "D2",
+    "scenario": "Which markup lets a developer control pronunciation, speaking rate and pauses in synthesized speech?",
+    "options": [
+      {
+        "text": "SSML",
+        "note": ""
+      },
+      {
+        "text": "HTML",
+        "note": "Web page markup."
+      },
+      {
+        "text": "JSON Schema",
+        "note": "Data validation."
+      },
+      {
+        "text": "Markdown",
+        "note": "Text formatting."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SSML adjusts voice, pitch, rate, pauses and pronunciation."
+  },
+  {
+    "id": 77,
+    "domain": "D2",
+    "scenario": "A speech app must convert a recorded English lecture into French text. Which feature fits?",
+    "options": [
+      {
+        "text": "Speech translation",
+        "note": ""
+      },
+      {
+        "text": "Text-to-speech",
+        "note": "Generates audio."
+      },
+      {
+        "text": "Speaker recognition",
+        "note": "Identifies speakers."
+      },
+      {
+        "text": "Keyword spotting only",
+        "note": "Detects a keyword."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Speech translation returns translated text and can optionally synthesize translated speech."
+  },
+  {
+    "id": 78,
+    "domain": "D2",
+    "scenario": "Which setting must match the audio for accurate speech recognition?",
+    "options": [
+      {
+        "text": "The recognition locale, such as en-US",
+        "note": ""
+      },
+      {
+        "text": "The neural voice name used for replies",
+        "note": "Used for synthesis."
+      },
+      {
+        "text": "The camera resolution of the device",
+        "note": "Not relevant."
+      },
+      {
+        "text": "The model temperature setting",
+        "note": "Not used for recognition."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Set the correct locale, or use language identification when the language isn't known in advance."
+  },
+  {
+    "id": 79,
+    "domain": "D2",
+    "scenario": "A developer sends a photo and the question \"What's wrong with this machine part?\" in one request. What is being used?",
+    "options": [
+      {
+        "text": "A multimodal model with image input",
+        "note": ""
+      },
+      {
+        "text": "Speech-to-text",
+        "note": "Audio input."
+      },
+      {
+        "text": "Text analysis with sentiment",
+        "note": "Text only."
+      },
+      {
+        "text": "A regression model trained on part data",
+        "note": "Numeric prediction."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Multimodal models accept images alongside text prompts and reason about both."
+  },
+  {
+    "id": 80,
+    "domain": "D2",
+    "scenario": "Generated images must avoid harmful content. What protects this in Foundry?",
+    "options": [
+      {
+        "text": "Content safety filters on prompts and images",
+        "note": ""
+      },
+      {
+        "text": "Setting max tokens to a low value",
+        "note": "Shortens output; doesn't filter content."
+      },
+      {
+        "text": "Using a higher temperature for variety",
+        "note": "Doesn't filter content."
+      },
+      {
+        "text": "Disabling request logging for the deployment",
+        "note": "Doesn't filter content."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Image generation applies content filters and may refuse prompts that violate policies."
+  },
+  {
+    "id": 81,
+    "domain": "D2",
+    "scenario": "An app must read text from photographed receipts and return the text lines. Which capability fits best?",
+    "options": [
+      {
+        "text": "OCR in Azure Vision",
+        "note": ""
+      },
+      {
+        "text": "Image generation",
+        "note": "Creates images."
+      },
+      {
+        "text": "Speech-to-text",
+        "note": "Audio."
+      },
+      {
+        "text": "Sentiment analysis",
+        "note": "Text opinion."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OCR returns lines and words with positions. For structured fields like totals, use document extraction."
+  },
+  {
+    "id": 82,
+    "domain": "D2",
+    "scenario": "Prebuilt image analysis can't distinguish a company's own product models. What is a common solution?",
+    "options": [
+      {
+        "text": "Train a custom model on labeled product images",
+        "note": ""
+      },
+      {
+        "text": "Lower the temperature of the vision model",
+        "note": "Not applicable."
+      },
+      {
+        "text": "Use speech recognition on product descriptions",
+        "note": "Wrong capability."
+      },
+      {
+        "text": "Convert the images to grayscale before analysis",
+        "note": "Not meaningful."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Custom models learn domain-specific classes from labeled examples. A multimodal model with good prompts may also work."
+  },
+  {
+    "id": 83,
+    "domain": "D2",
+    "scenario": "A vision app returns object labels with bounding boxes. What do the bounding boxes show?",
+    "options": [
+      {
+        "text": "Where each detected object appears in the image",
+        "note": ""
+      },
+      {
+        "text": "The confidence of the overall image caption only",
+        "note": "Not boxes."
+      },
+      {
+        "text": "The image file size",
+        "note": "Not boxes."
+      },
+      {
+        "text": "The color palette of the image",
+        "note": "Not boxes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Bounding boxes give coordinates for each detected object."
+  },
+  {
+    "id": 84,
+    "domain": "D2",
+    "scenario": "A company must extract fields such as policy number and claim amount from many insurance forms. Which service fits?",
+    "options": [
+      {
+        "text": "Azure Content Understanding",
+        "note": ""
+      },
+      {
+        "text": "Azure Speech",
+        "note": "Audio."
+      },
+      {
+        "text": "Azure Language sentiment analysis",
+        "note": "Detects opinion."
+      },
+      {
+        "text": "An image generation model",
+        "note": "Creates images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Content Understanding uses analyzers to return structured fields, key-value pairs and tables from documents, images, audio and video."
+  },
+  {
+    "id": 85,
+    "domain": "D2",
+    "scenario": "In Azure Content Understanding, what defines which fields are extracted?",
+    "options": [
+      {
+        "text": "An analyzer's field schema",
+        "note": ""
+      },
+      {
+        "text": "The temperature setting on the request",
+        "note": "Not used for extraction."
+      },
+      {
+        "text": "The neural voice selected for output",
+        "note": "Speech synthesis."
+      },
+      {
+        "text": "The storage tier holding the documents",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "You can use prebuilt analyzers or define custom analyzers with a schema of fields to extract."
+  },
+  {
+    "id": 86,
+    "domain": "D2",
+    "scenario": "Extracting insights from a one-hour video with Content Understanding takes time. How does the app usually get results?",
+    "options": [
+      {
+        "text": "It starts an asynchronous operation and polls for the result",
+        "note": ""
+      },
+      {
+        "text": "It waits for an instant synchronous reply",
+        "note": "Large files are processed asynchronously."
+      },
+      {
+        "text": "It must split the video into single frames itself",
+        "note": "The service handles processing."
+      },
+      {
+        "text": "It must convert the video to text first",
+        "note": "The service does transcription."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Long-running analysis returns an operation to poll until results are ready."
+  },
+  {
+    "id": 87,
+    "domain": "D2",
+    "scenario": "A call recording should produce a transcript that shows who said what. Which output is needed?",
+    "options": [
+      {
+        "text": "Transcription with speaker diarization",
+        "note": ""
+      },
+      {
+        "text": "Image captions for each video frame",
+        "note": "For images."
+      },
+      {
+        "text": "Key phrases from the recording",
+        "note": "No speaker detail."
+      },
+      {
+        "text": "Bounding boxes for each speaker",
+        "note": "For images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Audio extraction can label speakers and return a transcript, summaries and other fields."
+  },
+  {
+    "id": 88,
+    "domain": "D2",
+    "scenario": "Why do extraction results include a confidence score for each field?",
+    "options": [
+      {
+        "text": "So low-confidence fields can go to human review",
+        "note": ""
+      },
+      {
+        "text": "To show how much each field cost to extract",
+        "note": "Not its purpose."
+      },
+      {
+        "text": "To report how large the source document was",
+        "note": "Not its purpose."
+      },
+      {
+        "text": "To rank documents by their length and age",
+        "note": "Not its purpose."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Human-in-the-loop review of low-confidence values improves accuracy."
+  },
+  {
+    "id": 89,
+    "domain": "D2",
+    "scenario": "Which input types can Azure Content Understanding analyze?",
+    "options": [
+      {
+        "text": "Documents, images, audio and video",
+        "note": ""
+      },
+      {
+        "text": "Only plain text and Word documents",
+        "note": "It handles multiple modalities."
+      },
+      {
+        "text": "Only scanned PDFs and images",
+        "note": "More than PDFs."
+      },
+      {
+        "text": "Only spreadsheets and CSV files",
+        "note": "Not limited to spreadsheets."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Content Understanding is multimodal and returns structured output for each modality."
+  },
+  {
+    "id": 90,
+    "domain": "D2",
+    "scenario": "Before releasing a chat app, a team wants to measure groundedness and relevance of responses. What should they use?",
+    "options": [
+      {
+        "text": "Evaluations in Microsoft Foundry",
+        "note": ""
+      },
+      {
+        "text": "Azure Advisor cost recommendations",
+        "note": "Cost and best practices."
+      },
+      {
+        "text": "Azure Backup reports",
+        "note": "Backup status."
+      },
+      {
+        "text": "DNS diagnostics",
+        "note": "Networking."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Foundry evaluations score outputs on quality metrics like groundedness, relevance and coherence, plus safety metrics."
+  },
+  {
+    "id": 91,
+    "domain": "D2",
+    "scenario": "A chat app's requests are being rejected with \"429 Too Many Requests.\" What is the cause?",
+    "options": [
+      {
+        "text": "The deployment's rate limit was exceeded",
+        "note": ""
+      },
+      {
+        "text": "The model is generating harmful content",
+        "note": "Would trigger content filtering."
+      },
+      {
+        "text": "The API key is missing from the request",
+        "note": "Would be a 401 error."
+      },
+      {
+        "text": "The deployment name doesn't exist",
+        "note": "Would be a 404 error."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Add retries with backoff, increase the deployment's quota, or consider provisioned throughput."
+  },
+  {
+    "id": 92,
+    "domain": "D2",
+    "scenario": "A developer gets a 401 Unauthorized error calling a Foundry endpoint. What should be checked first?",
+    "options": [
+      {
+        "text": "The caller's credentials or role assignment",
+        "note": ""
+      },
+      {
+        "text": "The model's temperature value",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The max tokens value in the request",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The length of the system message",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "401 means authentication failed. With Entra ID, also make sure the identity has an appropriate role on the resource."
+  },
+  {
+    "id": 93,
+    "domain": "D2",
+    "scenario": "A team wants the model's answers to cite which internal documents they came from. What should the solution include?",
+    "options": [
+      {
+        "text": "Retrieved sources with metadata and an instruction to cite",
+        "note": ""
+      },
+      {
+        "text": "A higher temperature setting for variety",
+        "note": "Doesn't add citations."
+      },
+      {
+        "text": "Text-to-speech output for each answer",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A smaller context window for each request",
+        "note": "Reduces available content."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RAG solutions pass source titles or URLs with retrieved chunks so the model can cite them."
+  },
+  {
+    "id": 94,
+    "domain": "D2",
+    "scenario": "An agent's tools could change customer records. What is a responsible design choice?",
+    "options": [
+      {
+        "text": "Require approval for high-impact actions and log them",
+        "note": ""
+      },
+      {
+        "text": "Give the agent full admin rights to avoid failures",
+        "note": "Violates least privilege."
+      },
+      {
+        "text": "Hide the agent's tool calls from users",
+        "note": "Reduces transparency."
+      },
+      {
+        "text": "Disable content filters to reduce latency",
+        "note": "Reduces safety."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use least-privilege access, approval steps and monitoring for agents that take actions."
+  },
+  {
+    "id": 95,
+    "domain": "D2",
+    "scenario": "Which approach builds a lightweight vision app with the least custom training?",
+    "options": [
+      {
+        "text": "Use prebuilt image analysis or a multimodal model",
+        "note": ""
+      },
+      {
+        "text": "Collect a million labeled images and train from scratch",
+        "note": "Unnecessary for common tasks."
+      },
+      {
+        "text": "Build a new transformer architecture",
+        "note": "Unnecessary."
+      },
+      {
+        "text": "Write a manual rule for every pixel",
+        "note": "Impractical."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Start with prebuilt or foundation models; customize only when they don't meet requirements."
+  },
+  {
+    "id": 96,
+    "domain": "D2",
+    "scenario": "A developer asks a multimodal model to create a product image, but the request is refused. What is the most likely reason?",
+    "options": [
+      {
+        "text": "The prompt triggered a content safety policy",
+        "note": ""
+      },
+      {
+        "text": "Max tokens was set too high",
+        "note": "Doesn't cause refusals."
+      },
+      {
+        "text": "The model only supports audio",
+        "note": "Then it couldn't generate images at all."
+      },
+      {
+        "text": "The project has too many deployments",
+        "note": "Not a refusal reason."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Rephrase the prompt to comply with policies; review content filter settings and results."
+  },
+  {
+    "id": 97,
+    "domain": "D2",
+    "scenario": "What should a developer do to see the code needed to call a model they tested in the playground?",
+    "options": [
+      {
+        "text": "Use the playground's view code option",
+        "note": ""
+      },
+      {
+        "text": "Export the Azure bill as CSV",
+        "note": "Billing data."
+      },
+      {
+        "text": "Open the subscription's activity log",
+        "note": "Control-plane events."
+      },
+      {
+        "text": "Create a new resource group",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Playgrounds generate sample code (for example, Python) that uses the current settings."
+  },
+  {
+    "id": 98,
+    "domain": "D2",
+    "scenario": "A team wants to compare two deployed models on the same set of test prompts. What should they do?",
+    "options": [
+      {
+        "text": "Evaluate both on the same test dataset",
+        "note": ""
+      },
+      {
+        "text": "Ask one user to try each model a few times",
+        "note": "Too small a sample."
+      },
+      {
+        "text": "Pick whichever model was released most recently",
+        "note": "Newer isn't always better for your data."
+      },
+      {
+        "text": "Compare only their prices per token",
+        "note": "Ignores quality."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Consistent evaluation datasets and metrics make model comparisons meaningful."
+  },
+  {
+    "id": 99,
+    "domain": "D2",
+    "scenario": "Which Foundry feature helps block prompt injection attacks hidden in user input or retrieved documents?",
+    "options": [
+      {
+        "text": "Prompt shields",
+        "note": ""
+      },
+      {
+        "text": "Provisioned throughput",
+        "note": "Capacity, not safety."
+      },
+      {
+        "text": "Model catalog filters",
+        "note": "Help you find models."
+      },
+      {
+        "text": "Deployment version pinning",
+        "note": "Controls model versions, not attacks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Prompt shields detect jailbreak attempts and indirect prompt injection in documents."
+  },
+  {
+    "id": 100,
+    "domain": "D2",
+    "scenario": "An app built on a speech model must also translate the transcript and detect its sentiment. What is the simplest design?",
+    "options": [
+      {
+        "text": "Azure Speech for transcription, then Azure Language",
+        "note": ""
+      },
+      {
+        "text": "Train one custom model from scratch for all tasks",
+        "note": "Unnecessary effort."
+      },
+      {
+        "text": "Use image analysis on a waveform of the audio",
+        "note": "Wrong modality."
+      },
+      {
+        "text": "Use text-to-speech, then analyze the audio",
+        "note": "Generates audio, not analysis."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AI solutions often chain services: speech recognition, then translation and text analysis."
+  }
+]

@@ -1,0 +1,2752 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "Which statement correctly describes the relationship between AI, machine learning and generative AI?",
+    "options": [
+      {
+        "text": "Gen AI is a type of ML, which is part of AI",
+        "note": ""
+      },
+      {
+        "text": "AI is one branch within generative AI research",
+        "note": "Reversed."
+      },
+      {
+        "text": "ML and gen AI are separate fields with no overlap",
+        "note": "Generative AI uses ML."
+      },
+      {
+        "text": "Generative AI has fully replaced traditional ML",
+        "note": "ML remains broadly used."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Generative AI uses deep learning models to create new content; it sits within ML, which sits within AI."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "What makes a model \"generative\"?",
+    "options": [
+      {
+        "text": "It creates new content such as text, images or code",
+        "note": ""
+      },
+      {
+        "text": "It only sorts records into predefined categories",
+        "note": "That's classification."
+      },
+      {
+        "text": "It only predicts a number from past data",
+        "note": "That's regression."
+      },
+      {
+        "text": "It only groups similar records together",
+        "note": "That's clustering."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Generative models produce novel outputs based on patterns learned from training data."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "What is a foundation model?",
+    "options": [
+      {
+        "text": "A large, broadly trained model adaptable to many tasks",
+        "note": ""
+      },
+      {
+        "text": "A compact model built for a single narrow prediction",
+        "note": "Task-specific, not foundational."
+      },
+      {
+        "text": "A set of business rules maintained by domain experts",
+        "note": "Not ML."
+      },
+      {
+        "text": "The first model a company deploys in production",
+        "note": "Describes deployment order, not a model type."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Gemini is an example; foundation models are adapted through prompting, grounding and tuning."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "Which type of model is designed primarily to understand and generate human language?",
+    "options": [
+      {
+        "text": "A large language model (LLM)",
+        "note": ""
+      },
+      {
+        "text": "A diffusion image model",
+        "note": "Generates images."
+      },
+      {
+        "text": "A k-means clustering model",
+        "note": "Groups data."
+      },
+      {
+        "text": "A linear regression model",
+        "note": "Predicts numbers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "LLMs are trained on large text corpora to predict and generate language."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "A model can take a photo, a spoken question and text instructions together. What kind of model is it?",
+    "options": [
+      {
+        "text": "Multimodal",
+        "note": ""
+      },
+      {
+        "text": "Unimodal text-only",
+        "note": "Only handles text."
+      },
+      {
+        "text": "Rule-based",
+        "note": "Not ML."
+      },
+      {
+        "text": "Tabular regression",
+        "note": "Numeric predictions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Gemini models are natively multimodal, handling text, images, audio, video and code."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "Which learning approach uses labeled examples to train a model?",
+    "options": [
+      {
+        "text": "Supervised learning",
+        "note": ""
+      },
+      {
+        "text": "Unsupervised learning",
+        "note": "No labels."
+      },
+      {
+        "text": "Reinforcement learning",
+        "note": "Uses rewards."
+      },
+      {
+        "text": "Self-organizing clustering",
+        "note": "No labels."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Supervised learning maps inputs to known outputs, such as spam or not spam."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "A team wants to find natural groupings in customer data that has no labels. Which approach fits?",
+    "options": [
+      {
+        "text": "Unsupervised learning",
+        "note": ""
+      },
+      {
+        "text": "Supervised learning",
+        "note": "Needs labels."
+      },
+      {
+        "text": "Reinforcement learning",
+        "note": "Learns from rewards."
+      },
+      {
+        "text": "Transfer learning only",
+        "note": "Reuses a pretrained model."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Clustering is a common unsupervised technique."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "Which learning approach trains an agent through rewards and penalties from its actions?",
+    "options": [
+      {
+        "text": "Reinforcement learning",
+        "note": ""
+      },
+      {
+        "text": "Supervised learning",
+        "note": "Uses labeled data."
+      },
+      {
+        "text": "Unsupervised learning",
+        "note": "Finds patterns."
+      },
+      {
+        "text": "Batch prediction",
+        "note": "Not a learning type."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reinforcement learning from human feedback (RLHF) is used to align LLMs with human preferences."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which is an example of unstructured data?",
+    "options": [
+      {
+        "text": "Customer support call recordings",
+        "note": ""
+      },
+      {
+        "text": "A database table of orders",
+        "note": "Structured."
+      },
+      {
+        "text": "A spreadsheet with fixed columns",
+        "note": "Structured."
+      },
+      {
+        "text": "A CSV file of sensor readings",
+        "note": "Structured."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Unstructured data includes text documents, images, audio and video."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "Why does data quality matter so much for AI?",
+    "options": [
+      {
+        "text": "Flawed data leads to poor or unfair outputs",
+        "note": ""
+      },
+      {
+        "text": "It mainly affects storage and processing costs",
+        "note": "It affects model behavior."
+      },
+      {
+        "text": "Models automatically correct errors in their data",
+        "note": "They learn from it, flaws included."
+      },
+      {
+        "text": "Only the volume of data matters, not its quality",
+        "note": "Quality is critical."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Key data quality dimensions include accuracy, completeness, consistency, relevance and timeliness."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "What is the difference between labeled and unlabeled data?",
+    "options": [
+      {
+        "text": "Labeled data includes the answer for each example",
+        "note": ""
+      },
+      {
+        "text": "Labeled data must be stored in a data warehouse",
+        "note": "Storage location isn't the difference."
+      },
+      {
+        "text": "Unlabeled data can't be used in any ML approach",
+        "note": "Used in unsupervised learning."
+      },
+      {
+        "text": "Labeled data always consists of images or video",
+        "note": "Any data type can be labeled."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Labeling is often costly, which is why self-supervised pretraining on unlabeled data is powerful."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "Which order reflects the typical ML lifecycle?",
+    "options": [
+      {
+        "text": "Data prep, training, deployment, monitoring",
+        "note": ""
+      },
+      {
+        "text": "Deployment, monitoring, training, data prep",
+        "note": "Out of order."
+      },
+      {
+        "text": "Training, data prep, monitoring, deployment",
+        "note": "Out of order."
+      },
+      {
+        "text": "Data prep, deployment, training, monitoring",
+        "note": "Out of order."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The lifecycle is iterative: monitoring results drive retraining."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "Which Google Cloud service is a serverless data warehouse commonly used to prepare data for ML?",
+    "options": [
+      {
+        "text": "BigQuery",
+        "note": ""
+      },
+      {
+        "text": "Cloud DNS",
+        "note": "Name resolution."
+      },
+      {
+        "text": "Cloud Armor",
+        "note": "Web security."
+      },
+      {
+        "text": "Cloud CDN",
+        "note": "Content delivery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BigQuery stores and analyzes large datasets, and BigQuery ML can train models with SQL."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "What is a \"hallucination\" in generative AI?",
+    "options": [
+      {
+        "text": "Confident output that isn't supported by facts",
+        "note": ""
+      },
+      {
+        "text": "A model refusing to answer an unsafe request",
+        "note": "That's a safety refusal."
+      },
+      {
+        "text": "A slow response caused by heavy traffic",
+        "note": "That's latency."
+      },
+      {
+        "text": "Output that varies each time a prompt is sent",
+        "note": "That's normal sampling variation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Grounding, RAG and human review reduce hallucinations."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "Which is a known limitation of foundation models?",
+    "options": [
+      {
+        "text": "Knowledge has a cutoff unless grounded",
+        "note": ""
+      },
+      {
+        "text": "They can only process one language at a time",
+        "note": "Many models are multilingual."
+      },
+      {
+        "text": "They need no compute once trained",
+        "note": "They require significant compute."
+      },
+      {
+        "text": "They can only generate text, never code",
+        "note": "They generate code and many content types."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Grounding with Google Search or enterprise data supplies information newer than the training cutoff."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "Which Google model family is designed for generating images from text?",
+    "options": [
+      {
+        "text": "Imagen",
+        "note": ""
+      },
+      {
+        "text": "Veo",
+        "note": "Video generation."
+      },
+      {
+        "text": "Gemma",
+        "note": "Lightweight open models."
+      },
+      {
+        "text": "Chirp",
+        "note": "Speech models."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Imagen generates and edits images; Veo generates video; Gemma provides open models; Chirp handles speech."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "Which Google model family generates video from text or image prompts?",
+    "options": [
+      {
+        "text": "Veo",
+        "note": ""
+      },
+      {
+        "text": "Imagen",
+        "note": "Images."
+      },
+      {
+        "text": "Gemma",
+        "note": "Open lightweight models."
+      },
+      {
+        "text": "Codey",
+        "note": "Older code models."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Veo is Google's video generation model family."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "A company wants a lightweight, open model it can run and customize on its own infrastructure. Which Google family fits?",
+    "options": [
+      {
+        "text": "Gemma",
+        "note": ""
+      },
+      {
+        "text": "Gemini Ultra-class models",
+        "note": "Large, proprietary models."
+      },
+      {
+        "text": "Imagen",
+        "note": "Image generation."
+      },
+      {
+        "text": "Veo",
+        "note": "Video generation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Gemma models are open, lightweight models built from the same research as Gemini."
+  },
+  {
+    "id": 19,
+    "domain": "D1",
+    "scenario": "What is a token in the context of LLMs?",
+    "options": [
+      {
+        "text": "A unit of text, like part of a word",
+        "note": ""
+      },
+      {
+        "text": "A credential used to call the Gemini API",
+        "note": "That's an API key."
+      },
+      {
+        "text": "One complete sentence of the prompt",
+        "note": "Not this meaning."
+      },
+      {
+        "text": "A label that marks an answer as correct",
+        "note": "Not this meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Context windows and pricing are measured in tokens."
+  },
+  {
+    "id": 20,
+    "domain": "D1",
+    "scenario": "What does a model's context window determine?",
+    "options": [
+      {
+        "text": "How much input and output fit in one request",
+        "note": ""
+      },
+      {
+        "text": "How many users can call the model per minute",
+        "note": "That's quota."
+      },
+      {
+        "text": "Which cloud regions host the model endpoint",
+        "note": "Availability."
+      },
+      {
+        "text": "How long the model remembers past conversations",
+        "note": "Models don't remember; apps resend history."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Large context windows let Gemini process long documents, codebases or videos in one request."
+  },
+  {
+    "id": 21,
+    "domain": "D1",
+    "scenario": "Which describes an AI agent?",
+    "options": [
+      {
+        "text": "A model-driven system that plans and uses tools",
+        "note": ""
+      },
+      {
+        "text": "A dashboard that reports model accuracy over time",
+        "note": "That's monitoring, not an agent."
+      },
+      {
+        "text": "A person who reviews and labels model outputs",
+        "note": "A human reviewer, not an AI agent."
+      },
+      {
+        "text": "A chatbot that answers from a fixed list of FAQs",
+        "note": "No reasoning or tools."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Agents combine a model, instructions, tools and an orchestration loop to act toward a goal."
+  },
+  {
+    "id": 22,
+    "domain": "D1",
+    "scenario": "Which is a core component of a generative AI agent?",
+    "options": [
+      {
+        "text": "Tools to take actions or fetch data",
+        "note": ""
+      },
+      {
+        "text": "A dedicated GPU server for each user",
+        "note": "Not required."
+      },
+      {
+        "text": "A fixed decision tree that replaces the model",
+        "note": "That's a rule-based bot."
+      },
+      {
+        "text": "A separate vector database for every prompt",
+        "note": "Not required."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tools (functions, APIs, data stores, extensions) connect agents to systems and data."
+  },
+  {
+    "id": 23,
+    "domain": "D1",
+    "scenario": "What is the role of the reasoning loop in an agent?",
+    "options": [
+      {
+        "text": "It decides steps, calls tools, checks results",
+        "note": ""
+      },
+      {
+        "text": "It retrains the model after every question",
+        "note": "Not the role."
+      },
+      {
+        "text": "It encrypts the conversation history for privacy",
+        "note": "Not the role."
+      },
+      {
+        "text": "It limits how many tokens each step can use",
+        "note": "That's a configuration limit."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Frameworks like ReAct alternate reasoning and acting."
+  },
+  {
+    "id": 24,
+    "domain": "D1",
+    "scenario": "Which layer of the generative AI landscape provides the compute such as TPUs and GPUs?",
+    "options": [
+      {
+        "text": "Infrastructure",
+        "note": ""
+      },
+      {
+        "text": "Applications",
+        "note": "End-user experiences."
+      },
+      {
+        "text": "Agents",
+        "note": "Systems that act."
+      },
+      {
+        "text": "Platforms",
+        "note": "Tools to build and manage AI."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The landscape is often described as infrastructure, models, platforms, agents and applications."
+  },
+  {
+    "id": 25,
+    "domain": "D1",
+    "scenario": "What are TPUs?",
+    "options": [
+      {
+        "text": "Google's custom chips for ML workloads",
+        "note": ""
+      },
+      {
+        "text": "A type of index used by vector databases",
+        "note": "TPUs are chips, not indexes."
+      },
+      {
+        "text": "A billing unit for Gemini API usage",
+        "note": "TPUs are chips, not billing units."
+      },
+      {
+        "text": "A managed data labeling service",
+        "note": "TPUs are chips, not a service."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tensor Processing Units power training and serving of large models on Google Cloud."
+  },
+  {
+    "id": 26,
+    "domain": "D1",
+    "scenario": "A team needs a model that answers in a single, predictable format every time. Which is a key consideration?",
+    "options": [
+      {
+        "text": "Outputs vary, so use clear prompts, settings and checks",
+        "note": ""
+      },
+      {
+        "text": "Generative models always return identical outputs",
+        "note": "Outputs can vary."
+      },
+      {
+        "text": "The format of output can never be controlled",
+        "note": "It can be controlled."
+      },
+      {
+        "text": "Only image models vary their output between calls",
+        "note": "Text models vary too."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lower temperature, structured output and examples improve consistency."
+  },
+  {
+    "id": 27,
+    "domain": "D1",
+    "scenario": "Which is an example of a discriminative (non-generative) ML task?",
+    "options": [
+      {
+        "text": "Classifying emails as spam or not spam",
+        "note": ""
+      },
+      {
+        "text": "Writing a new marketing email",
+        "note": "Generative."
+      },
+      {
+        "text": "Creating a product image from text",
+        "note": "Generative."
+      },
+      {
+        "text": "Composing a short music clip",
+        "note": "Generative."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Discriminative models predict labels; generative models create content."
+  },
+  {
+    "id": 28,
+    "domain": "D1",
+    "scenario": "What does \"pretraining\" a foundation model involve?",
+    "options": [
+      {
+        "text": "Training on broad data before task-specific adaptation",
+        "note": ""
+      },
+      {
+        "text": "Writing the system prompt before first use",
+        "note": "That's prompt design, not pretraining."
+      },
+      {
+        "text": "Testing the model with a pilot group of users",
+        "note": "That's evaluation."
+      },
+      {
+        "text": "Setting default temperature and token limits",
+        "note": "Those are inference settings."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pretraining learns general patterns; tuning and prompting adapt the model later."
+  },
+  {
+    "id": 29,
+    "domain": "D1",
+    "scenario": "Which describes self-supervised learning used to pretrain LLMs?",
+    "options": [
+      {
+        "text": "It predicts parts of the data, like the next word, without labels",
+        "note": ""
+      },
+      {
+        "text": "Humans label every sentence before training begins",
+        "note": "That's supervised."
+      },
+      {
+        "text": "The model is rewarded based on a game score",
+        "note": "That's reinforcement learning."
+      },
+      {
+        "text": "The model only clusters documents by topic",
+        "note": "That's unsupervised clustering."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Self-supervision creates training signals from the data itself."
+  },
+  {
+    "id": 30,
+    "domain": "D1",
+    "scenario": "Which data concern is most important before using customer data with AI?",
+    "options": [
+      {
+        "text": "Privacy, consent and access controls",
+        "note": ""
+      },
+      {
+        "text": "The file format used to export the data",
+        "note": "Format matters less than privacy and consent."
+      },
+      {
+        "text": "The total number of files involved",
+        "note": "Volume matters less than privacy and consent."
+      },
+      {
+        "text": "The time zone of the data center",
+        "note": "Rarely relevant."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data governance covers privacy, security, quality and lineage."
+  },
+  {
+    "id": 31,
+    "domain": "D1",
+    "scenario": "Which is a typical generative AI use case in customer service?",
+    "options": [
+      {
+        "text": "Summarizing past interactions for agents",
+        "note": ""
+      },
+      {
+        "text": "Replacing the company's network firewall rules",
+        "note": "Not a gen AI use case."
+      },
+      {
+        "text": "Storing call recordings in archive storage",
+        "note": "Storage, not gen AI."
+      },
+      {
+        "text": "Routing calls based on a fixed phone tree",
+        "note": "Rule-based routing, not gen AI."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Other use cases include drafting replies, chatbots and sentiment-aware routing."
+  },
+  {
+    "id": 32,
+    "domain": "D1",
+    "scenario": "A model is trained on data that underrepresents certain groups. What is the main risk?",
+    "options": [
+      {
+        "text": "Biased outputs for those groups",
+        "note": ""
+      },
+      {
+        "text": "Lower storage costs for training data",
+        "note": "Not a risk."
+      },
+      {
+        "text": "Faster responses for those groups",
+        "note": "Not related."
+      },
+      {
+        "text": "Better accuracy for those groups",
+        "note": "The opposite."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Representative data and fairness testing reduce bias."
+  },
+  {
+    "id": 33,
+    "domain": "D1",
+    "scenario": "What is fine-tuning (tuning) a foundation model?",
+    "options": [
+      {
+        "text": "Further training on task-specific examples",
+        "note": ""
+      },
+      {
+        "text": "Editing the system prompt for each request",
+        "note": "That's prompting, not tuning."
+      },
+      {
+        "text": "Adjusting the model's temperature and top-k",
+        "note": "Those are inference settings."
+      },
+      {
+        "text": "Grounding answers in a document library",
+        "note": "That's grounding/RAG, not tuning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Supervised tuning uses example input-output pairs to specialize a model."
+  },
+  {
+    "id": 34,
+    "domain": "D2",
+    "scenario": "Which Google Cloud platform provides unified tools to build, tune, deploy and manage ML models and agents?",
+    "options": [
+      {
+        "text": "Vertex AI",
+        "note": ""
+      },
+      {
+        "text": "Cloud Storage",
+        "note": "Object storage."
+      },
+      {
+        "text": "Cloud Run with GPUs",
+        "note": "Hosts containers; not a full ML platform."
+      },
+      {
+        "text": "Cloud DNS",
+        "note": "Name resolution."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Google expanded and renamed Vertex AI as Gemini Enterprise Agent Platform in April 2026; exam materials may still say Vertex AI."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "Where can a team browse and deploy Google, third-party and open models in one catalog?",
+    "options": [
+      {
+        "text": "Model Garden",
+        "note": ""
+      },
+      {
+        "text": "Cloud Billing reports",
+        "note": "Cost reporting."
+      },
+      {
+        "text": "Cloud Monitoring dashboards",
+        "note": "Metrics."
+      },
+      {
+        "text": "Artifact Registry",
+        "note": "Container and package storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Model Garden includes Gemini, Imagen, Gemma and many partner and open models."
+  },
+  {
+    "id": 36,
+    "domain": "D2",
+    "scenario": "A developer wants to quickly prototype prompts with the Gemini API using a free, browser-based tool. Which fits?",
+    "options": [
+      {
+        "text": "Google AI Studio",
+        "note": ""
+      },
+      {
+        "text": "Cloud Shell Editor",
+        "note": "Code editor."
+      },
+      {
+        "text": "BigQuery console",
+        "note": "Data warehouse."
+      },
+      {
+        "text": "Looker Studio",
+        "note": "Dashboards."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Google AI Studio suits rapid prototyping; enterprise teams use Vertex AI Studio for governance, security and Google Cloud integration."
+  },
+  {
+    "id": 37,
+    "domain": "D2",
+    "scenario": "An enterprise team needs to test prompts and tune models with enterprise security, data governance and Google Cloud integration. Which tool fits?",
+    "options": [
+      {
+        "text": "Vertex AI Studio",
+        "note": ""
+      },
+      {
+        "text": "Google AI Studio with a personal account",
+        "note": "Not the enterprise option."
+      },
+      {
+        "text": "Google Sheets",
+        "note": "Spreadsheets."
+      },
+      {
+        "text": "Gmail",
+        "note": "Email."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Vertex AI Studio is the console experience for prompt design, tuning and model testing on Google Cloud."
+  },
+  {
+    "id": 38,
+    "domain": "D2",
+    "scenario": "Which Google offering gives employees a single place to search company data, use NotebookLM and run AI agents?",
+    "options": [
+      {
+        "text": "Gemini Enterprise",
+        "note": ""
+      },
+      {
+        "text": "Cloud Run",
+        "note": "Container hosting."
+      },
+      {
+        "text": "Google AI Studio",
+        "note": "A quick prototyping tool for the Gemini API."
+      },
+      {
+        "text": "Vertex AI Pipelines",
+        "note": "Orchestrates ML workflows."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Gemini Enterprise connects to sources like Drive, SharePoint and Jira, and provides agents and enterprise search."
+  },
+  {
+    "id": 39,
+    "domain": "D2",
+    "scenario": "Employees want AI help writing emails in Gmail and drafting documents in Docs. Which offering fits?",
+    "options": [
+      {
+        "text": "Gemini in Workspace",
+        "note": ""
+      },
+      {
+        "text": "Vertex AI Pipelines",
+        "note": "Orchestrates ML workflows."
+      },
+      {
+        "text": "Cloud Spanner",
+        "note": "Database."
+      },
+      {
+        "text": "Cloud Armor",
+        "note": "Web security."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Gemini is built into Workspace apps like Gmail, Docs, Sheets, Slides and Meet."
+  },
+  {
+    "id": 40,
+    "domain": "D2",
+    "scenario": "A researcher wants an AI tool that summarizes and answers questions grounded only in the sources they upload. Which fits?",
+    "options": [
+      {
+        "text": "NotebookLM",
+        "note": ""
+      },
+      {
+        "text": "Cloud Translation API",
+        "note": "Translation only."
+      },
+      {
+        "text": "Cloud Vision API",
+        "note": "Image analysis."
+      },
+      {
+        "text": "Cloud Scheduler",
+        "note": "Cron jobs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NotebookLM grounds responses in user-provided documents and cites them; an enterprise version is part of Gemini Enterprise."
+  },
+  {
+    "id": 41,
+    "domain": "D2",
+    "scenario": "A company wants to add generative AI search over its website and documents without building a RAG pipeline from scratch. Which service fits?",
+    "options": [
+      {
+        "text": "Vertex AI Search",
+        "note": ""
+      },
+      {
+        "text": "BigQuery ML",
+        "note": "Runs ML models with SQL in BigQuery."
+      },
+      {
+        "text": "Document AI",
+        "note": "Extracts data from documents and forms."
+      },
+      {
+        "text": "Cloud NAT",
+        "note": "Network address translation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Vertex AI Search provides managed enterprise search and grounding with your data."
+  },
+  {
+    "id": 42,
+    "domain": "D2",
+    "scenario": "Which Google Cloud offering bundles Conversational Agents, Agent Assist and Conversational Insights for contact centers?",
+    "options": [
+      {
+        "text": "Customer Engagement Suite",
+        "note": ""
+      },
+      {
+        "text": "Security Command Center",
+        "note": "Security posture."
+      },
+      {
+        "text": "Cloud Deploy",
+        "note": "Continuous delivery."
+      },
+      {
+        "text": "Dataplex",
+        "note": "Data governance."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The suite helps build virtual agents, assist human agents in real time and analyze conversations."
+  },
+  {
+    "id": 43,
+    "domain": "D2",
+    "scenario": "Live human support agents want real-time suggested responses and knowledge articles during calls. Which feature fits?",
+    "options": [
+      {
+        "text": "Agent Assist",
+        "note": ""
+      },
+      {
+        "text": "Conversational Insights only",
+        "note": "Analyzes conversations after the fact."
+      },
+      {
+        "text": "Cloud Logging",
+        "note": "Logs."
+      },
+      {
+        "text": "BigQuery ML",
+        "note": "Runs ML models with SQL in BigQuery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Agent Assist provides in-the-moment suggestions, summaries and knowledge for human agents."
+  },
+  {
+    "id": 44,
+    "domain": "D2",
+    "scenario": "A team wants to analyze thousands of past customer conversations for topics and sentiment. Which feature fits?",
+    "options": [
+      {
+        "text": "Conversational Insights",
+        "note": ""
+      },
+      {
+        "text": "Agent Assist",
+        "note": "Real-time help for agents."
+      },
+      {
+        "text": "Cloud DNS",
+        "note": "Networking."
+      },
+      {
+        "text": "Cloud Build",
+        "note": "CI/CD."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Conversational Insights surfaces trends, topics and sentiment across conversations."
+  },
+  {
+    "id": 45,
+    "domain": "D2",
+    "scenario": "A company needs a virtual agent that handles customer chats and calls using generative AI and defined flows. What fits?",
+    "options": [
+      {
+        "text": "Conversational Agents (Dialogflow CX)",
+        "note": ""
+      },
+      {
+        "text": "Cloud Storage buckets",
+        "note": "Storage."
+      },
+      {
+        "text": "Compute Engine instance templates",
+        "note": "VMs."
+      },
+      {
+        "text": "Cloud Interconnect",
+        "note": "Network links."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Conversational Agents combine generative capabilities with deterministic flows."
+  },
+  {
+    "id": 46,
+    "domain": "D2",
+    "scenario": "A developer team wants a code-first framework to build multi-agent systems on Google Cloud. Which fits?",
+    "options": [
+      {
+        "text": "Agent Development Kit",
+        "note": ""
+      },
+      {
+        "text": "Google AI Studio",
+        "note": "A quick prototyping tool for the Gemini API."
+      },
+      {
+        "text": "Cloud Vision API",
+        "note": "Images."
+      },
+      {
+        "text": "Looker",
+        "note": "BI."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ADK is an open-source framework for building, evaluating and deploying agents."
+  },
+  {
+    "id": 47,
+    "domain": "D2",
+    "scenario": "Which prebuilt Google Cloud API extracts structured data from invoices and forms?",
+    "options": [
+      {
+        "text": "Document AI",
+        "note": ""
+      },
+      {
+        "text": "Speech-to-Text",
+        "note": "Audio transcription."
+      },
+      {
+        "text": "Translation API",
+        "note": "Language translation."
+      },
+      {
+        "text": "Video Intelligence API",
+        "note": "Video analysis."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Document AI offers specialized processors for invoices, receipts, IDs and more."
+  },
+  {
+    "id": 48,
+    "domain": "D2",
+    "scenario": "Which prebuilt API converts audio recordings into text?",
+    "options": [
+      {
+        "text": "Speech-to-Text",
+        "note": ""
+      },
+      {
+        "text": "Text-to-Speech",
+        "note": "The reverse."
+      },
+      {
+        "text": "Natural Language API",
+        "note": "Text analysis."
+      },
+      {
+        "text": "Vision API",
+        "note": "Images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Speech-to-Text uses Chirp speech models for transcription."
+  },
+  {
+    "id": 49,
+    "domain": "D2",
+    "scenario": "Which prebuilt API detects sentiment and entities in text?",
+    "options": [
+      {
+        "text": "Natural Language API",
+        "note": ""
+      },
+      {
+        "text": "Vision API",
+        "note": "Images."
+      },
+      {
+        "text": "Speech-to-Text",
+        "note": "Audio."
+      },
+      {
+        "text": "Document AI",
+        "note": "Extracts data from documents and forms."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Natural Language API provides sentiment, entity and syntax analysis."
+  },
+  {
+    "id": 50,
+    "domain": "D2",
+    "scenario": "Which prebuilt API labels objects and reads text in images?",
+    "options": [
+      {
+        "text": "Cloud Vision API",
+        "note": ""
+      },
+      {
+        "text": "Translation API",
+        "note": "Text translation."
+      },
+      {
+        "text": "Text-to-Speech",
+        "note": "Audio output."
+      },
+      {
+        "text": "Recommendations AI",
+        "note": "Product recommendations."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Vision API supports label detection, OCR, landmark and safe search detection."
+  },
+  {
+    "id": 51,
+    "domain": "D2",
+    "scenario": "When should a company choose a prebuilt AI API over building a custom model?",
+    "options": [
+      {
+        "text": "When the API handles the task well and speed matters",
+        "note": ""
+      },
+      {
+        "text": "Whenever there's no data to evaluate results with",
+        "note": "Still evaluate quality."
+      },
+      {
+        "text": "Only when the task is unique to the company",
+        "note": "Custom models fit unique tasks."
+      },
+      {
+        "text": "Never, because custom models are always more accurate",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Prebuilt APIs need no ML expertise; custom or tuned models fit specialized needs."
+  },
+  {
+    "id": 52,
+    "domain": "D2",
+    "scenario": "Which Gemini model choice is typically best for high-volume, low-latency tasks at lower cost?",
+    "options": [
+      {
+        "text": "A Flash or Flash-Lite variant",
+        "note": ""
+      },
+      {
+        "text": "The largest Pro or Ultra-class model",
+        "note": "Higher cost and latency."
+      },
+      {
+        "text": "Imagen",
+        "note": "Image generation."
+      },
+      {
+        "text": "Veo",
+        "note": "Video generation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Flash models balance speed and cost; Pro models handle more complex reasoning."
+  },
+  {
+    "id": 53,
+    "domain": "D2",
+    "scenario": "A team needs model answers grounded in current public information. Which feature fits?",
+    "options": [
+      {
+        "text": "Grounding with Google Search",
+        "note": ""
+      },
+      {
+        "text": "Raising the model's temperature",
+        "note": "Doesn't add information."
+      },
+      {
+        "text": "Shortening the context window",
+        "note": "Reduces information."
+      },
+      {
+        "text": "Using Imagen instead of Gemini",
+        "note": "Image model."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Grounding with Google Search lets Gemini cite up-to-date web sources."
+  },
+  {
+    "id": 54,
+    "domain": "D2",
+    "scenario": "Which service protects generative AI apps by screening prompts and responses for prompt injection, sensitive data and harmful content?",
+    "options": [
+      {
+        "text": "Model Armor",
+        "note": ""
+      },
+      {
+        "text": "Cloud CDN",
+        "note": "Content delivery."
+      },
+      {
+        "text": "Cloud NAT",
+        "note": "Outbound networking."
+      },
+      {
+        "text": "Cloud Scheduler",
+        "note": "Cron jobs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Model Armor applies configurable safety and security filters to LLM traffic."
+  },
+  {
+    "id": 55,
+    "domain": "D2",
+    "scenario": "Which Google Cloud capability helps ensure data used with Gemini stays in a specific geographic location?",
+    "options": [
+      {
+        "text": "Data residency and regional endpoints",
+        "note": ""
+      },
+      {
+        "text": "Turning off request logging in the console",
+        "note": "Doesn't control where data is processed."
+      },
+      {
+        "text": "Using shorter prompts with less data",
+        "note": "Doesn't control where data is processed."
+      },
+      {
+        "text": "Encrypting data with Google-managed keys only",
+        "note": "Encryption doesn't control location."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Choose regional endpoints and data residency settings to meet compliance needs."
+  },
+  {
+    "id": 56,
+    "domain": "D2",
+    "scenario": "What does Google Cloud commit regarding customer data used with its enterprise generative AI services?",
+    "options": [
+      {
+        "text": "Customer data isn't used to train its models without permission",
+        "note": ""
+      },
+      {
+        "text": "Prompts are shared to improve public Gemini models",
+        "note": "Not true."
+      },
+      {
+        "text": "Customer data is used for ad personalization",
+        "note": "Not true."
+      },
+      {
+        "text": "Data is shared with every partner model in the catalog",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Enterprise data governance commitments keep customer data under customer control."
+  },
+  {
+    "id": 57,
+    "domain": "D2",
+    "scenario": "A business user with no coding skills wants to create a custom assistant in the Gemini app for a recurring task. What should they use?",
+    "options": [
+      {
+        "text": "Gems",
+        "note": ""
+      },
+      {
+        "text": "Kubernetes Engine",
+        "note": "Container orchestration."
+      },
+      {
+        "text": "Cloud Spanner",
+        "note": "Database."
+      },
+      {
+        "text": "Dataflow",
+        "note": "Stream and batch processing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Gems are custom versions of Gemini with saved instructions for specific tasks."
+  },
+  {
+    "id": 58,
+    "domain": "D2",
+    "scenario": "Which Vertex AI capability lets teams run SQL-based ML directly in the data warehouse?",
+    "options": [
+      {
+        "text": "BigQuery ML",
+        "note": ""
+      },
+      {
+        "text": "Cloud Run jobs",
+        "note": "Container jobs."
+      },
+      {
+        "text": "Google AI Studio",
+        "note": "A quick prototyping tool for the Gemini API."
+      },
+      {
+        "text": "Cloud Tasks",
+        "note": "Task queues."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BigQuery ML trains and runs models with SQL, including calling Gemini from BigQuery."
+  },
+  {
+    "id": 59,
+    "domain": "D2",
+    "scenario": "A team wants to build an ML model with minimal coding by providing labeled data. Which option fits?",
+    "options": [
+      {
+        "text": "AutoML",
+        "note": ""
+      },
+      {
+        "text": "Writing custom TensorFlow from scratch",
+        "note": "Requires coding."
+      },
+      {
+        "text": "Cloud Interconnect",
+        "note": "Networking."
+      },
+      {
+        "text": "Cloud KMS",
+        "note": "Key management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AutoML trains high-quality models on your data with little code."
+  },
+  {
+    "id": 60,
+    "domain": "D2",
+    "scenario": "Which service monitors deployed models for skew and drift in production data?",
+    "options": [
+      {
+        "text": "Vertex AI model monitoring",
+        "note": ""
+      },
+      {
+        "text": "Cloud CDN logs",
+        "note": "Content delivery."
+      },
+      {
+        "text": "Cloud Audit Logs",
+        "note": "Records admin and data access activity."
+      },
+      {
+        "text": "Cloud Billing reports",
+        "note": "Cost reporting."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Model monitoring detects training-serving skew and prediction drift."
+  },
+  {
+    "id": 61,
+    "domain": "D2",
+    "scenario": "Where are trained model versions stored, tracked and managed on Vertex AI?",
+    "options": [
+      {
+        "text": "Model Registry",
+        "note": ""
+      },
+      {
+        "text": "Cloud Billing",
+        "note": "Costs."
+      },
+      {
+        "text": "Cloud Shell",
+        "note": "Terminal."
+      },
+      {
+        "text": "Cloud Source Repositories only",
+        "note": "Code, not models."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Model Registry manages versions and deployment of models."
+  },
+  {
+    "id": 62,
+    "domain": "D2",
+    "scenario": "Which Google approach outlines practices for securing AI systems across their lifecycle?",
+    "options": [
+      {
+        "text": "Secure AI Framework (SAIF)",
+        "note": ""
+      },
+      {
+        "text": "Site Reliability Engineering (SRE)",
+        "note": "Operations practice."
+      },
+      {
+        "text": "Infrastructure as Code (IaC)",
+        "note": "Provisioning practice."
+      },
+      {
+        "text": "Agile Scrum",
+        "note": "Project method."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SAIF provides principles for secure-by-default AI."
+  },
+  {
+    "id": 63,
+    "domain": "D2",
+    "scenario": "Which Google Cloud feature controls who can call Gemini models and access AI resources?",
+    "options": [
+      {
+        "text": "IAM",
+        "note": ""
+      },
+      {
+        "text": "Cloud CDN",
+        "note": "Delivery."
+      },
+      {
+        "text": "Cloud Translation",
+        "note": "Translation."
+      },
+      {
+        "text": "Cloud Scheduler",
+        "note": "Scheduling."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use least-privilege IAM roles for AI resources."
+  },
+  {
+    "id": 64,
+    "domain": "D2",
+    "scenario": "A company wants to generate marketing images with built-in watermarking to identify AI-generated content. Which Google technology identifies such content?",
+    "options": [
+      {
+        "text": "SynthID",
+        "note": ""
+      },
+      {
+        "text": "Cloud Armor",
+        "note": "Web application firewall."
+      },
+      {
+        "text": "Cloud Logging",
+        "note": "Logs."
+      },
+      {
+        "text": "Pub/Sub",
+        "note": "Messaging."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SynthID embeds imperceptible watermarks in AI-generated images, audio, video and text."
+  },
+  {
+    "id": 65,
+    "domain": "D2",
+    "scenario": "Which offering would most help a sales team quickly get answers from internal documents across Drive, Salesforce and SharePoint?",
+    "options": [
+      {
+        "text": "Gemini Enterprise connectors",
+        "note": ""
+      },
+      {
+        "text": "Cloud Storage lifecycle rules",
+        "note": "Storage management."
+      },
+      {
+        "text": "Compute Engine VMs",
+        "note": "Raw compute."
+      },
+      {
+        "text": "Cloud Monitoring alerts",
+        "note": "Operations."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Connectors let Gemini Enterprise search and reason across enterprise systems with permission awareness."
+  },
+  {
+    "id": 66,
+    "domain": "D2",
+    "scenario": "What is the role of Vertex AI Agent Builder (agent tooling in the platform)?",
+    "options": [
+      {
+        "text": "Building and managing AI agents",
+        "note": ""
+      },
+      {
+        "text": "Registering domain names for AI apps",
+        "note": "Not its role."
+      },
+      {
+        "text": "Scheduling batch data exports to BigQuery",
+        "note": "Not its role."
+      },
+      {
+        "text": "Hosting static websites for chatbots",
+        "note": "Not its role."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Agent tooling includes ADK, managed runtimes, tools and governance."
+  },
+  {
+    "id": 67,
+    "domain": "D2",
+    "scenario": "Which business benefit comes from using Google Cloud's managed gen AI platform rather than self-hosting models?",
+    "options": [
+      {
+        "text": "Faster value with built-in security and scaling",
+        "note": ""
+      },
+      {
+        "text": "No need to define business goals or KPIs",
+        "note": "Goals still matter."
+      },
+      {
+        "text": "Guaranteed elimination of hallucinations",
+        "note": "Not guaranteed."
+      },
+      {
+        "text": "No usage costs for any model",
+        "note": "There are usage costs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Managed platforms remove infrastructure work and provide enterprise controls."
+  },
+  {
+    "id": 68,
+    "domain": "D2",
+    "scenario": "A media team needs short video clips generated from text descriptions for social posts. Which model fits?",
+    "options": [
+      {
+        "text": "Veo",
+        "note": ""
+      },
+      {
+        "text": "Gemma",
+        "note": "Open text models."
+      },
+      {
+        "text": "Chirp",
+        "note": "Speech."
+      },
+      {
+        "text": "BigQuery ML",
+        "note": "Runs ML models with SQL in BigQuery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Veo generates high-quality video from prompts."
+  },
+  {
+    "id": 69,
+    "domain": "D2",
+    "scenario": "A company wants AI coding assistance in developers' IDEs integrated with Google Cloud. Which offering fits?",
+    "options": [
+      {
+        "text": "Gemini Code Assist",
+        "note": ""
+      },
+      {
+        "text": "Cloud Storage",
+        "note": "Storage."
+      },
+      {
+        "text": "Looker Studio",
+        "note": "Dashboards."
+      },
+      {
+        "text": "Cloud DNS",
+        "note": "Networking."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Gemini Code Assist offers code completion, generation and chat in IDEs."
+  },
+  {
+    "id": 70,
+    "domain": "D2",
+    "scenario": "Which is the best description of the Gemini app (gemini.google.com) compared with Gemini Enterprise?",
+    "options": [
+      {
+        "text": "Gemini Enterprise adds company data, agents and admin controls",
+        "note": ""
+      },
+      {
+        "text": "They're the same product sold under two names",
+        "note": "They differ."
+      },
+      {
+        "text": "The Gemini app only works inside Gmail and Docs",
+        "note": "It does much more."
+      },
+      {
+        "text": "Gemini Enterprise can't connect to company data",
+        "note": "Searching company data is a core feature."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Choose based on whether you need enterprise data access, governance and agents."
+  },
+  {
+    "id": 71,
+    "domain": "D2",
+    "scenario": "A team is deciding between Gemini models. Which factors matter?",
+    "options": [
+      {
+        "text": "Capability, latency, cost and modality",
+        "note": ""
+      },
+      {
+        "text": "Only the model's release date",
+        "note": "Not sufficient."
+      },
+      {
+        "text": "Only the model's parameter count",
+        "note": "Bigger isn't always better."
+      },
+      {
+        "text": "Only the model's benchmark leaderboard rank",
+        "note": "Benchmarks don't reflect your specific task."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Match model choice to task complexity, speed and budget."
+  },
+  {
+    "id": 72,
+    "domain": "D3",
+    "scenario": "A prompt asks a model to translate a sentence with no examples given. Which technique is this?",
+    "options": [
+      {
+        "text": "Zero-shot prompting",
+        "note": ""
+      },
+      {
+        "text": "Few-shot prompting",
+        "note": "Includes examples."
+      },
+      {
+        "text": "Fine-tuning",
+        "note": "Changes model weights."
+      },
+      {
+        "text": "Prompt chaining",
+        "note": "Links several prompts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Zero-shot relies on instructions alone; one-shot and few-shot include examples."
+  },
+  {
+    "id": 73,
+    "domain": "D3",
+    "scenario": "A prompt includes three examples of product descriptions in the brand's style before asking for a new one. Which technique is this?",
+    "options": [
+      {
+        "text": "Few-shot prompting",
+        "note": ""
+      },
+      {
+        "text": "Zero-shot prompting",
+        "note": "No examples."
+      },
+      {
+        "text": "Grounding with Google Search",
+        "note": "Adds web facts."
+      },
+      {
+        "text": "Reinforcement learning",
+        "note": "Training method."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Examples help the model match format and tone."
+  },
+  {
+    "id": 74,
+    "domain": "D3",
+    "scenario": "A prompt asks the model to \"explain your reasoning step by step before answering.\" What technique is this?",
+    "options": [
+      {
+        "text": "Chain-of-thought prompting",
+        "note": ""
+      },
+      {
+        "text": "Role prompting",
+        "note": "Assigns a persona."
+      },
+      {
+        "text": "Negative prompting",
+        "note": "Says what to avoid."
+      },
+      {
+        "text": "Zero-shot classification",
+        "note": "No reasoning request."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Chain-of-thought improves performance on multi-step reasoning tasks."
+  },
+  {
+    "id": 75,
+    "domain": "D3",
+    "scenario": "A prompt begins: \"You are an experienced financial advisor.\" Which technique is this?",
+    "options": [
+      {
+        "text": "Role prompting",
+        "note": ""
+      },
+      {
+        "text": "Few-shot prompting",
+        "note": "Uses examples."
+      },
+      {
+        "text": "Prompt chaining",
+        "note": "Splits tasks."
+      },
+      {
+        "text": "Data augmentation",
+        "note": "Training technique."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Assigning a role shapes tone, expertise and perspective."
+  },
+  {
+    "id": 76,
+    "domain": "D3",
+    "scenario": "A complex report is created by first asking the model for an outline, then using that output to write each section. Which technique is this?",
+    "options": [
+      {
+        "text": "Prompt chaining",
+        "note": ""
+      },
+      {
+        "text": "Zero-shot prompting",
+        "note": "Single prompt."
+      },
+      {
+        "text": "Fine-tuning",
+        "note": "Training."
+      },
+      {
+        "text": "Temperature scaling",
+        "note": "Sampling setting."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Prompt chaining feeds one prompt's output into the next."
+  },
+  {
+    "id": 77,
+    "domain": "D3",
+    "scenario": "Which approach combines reasoning steps with actions such as tool calls?",
+    "options": [
+      {
+        "text": "ReAct",
+        "note": ""
+      },
+      {
+        "text": "Negative prompting",
+        "note": "Image technique."
+      },
+      {
+        "text": "One-shot prompting",
+        "note": "One example."
+      },
+      {
+        "text": "Batch prediction",
+        "note": "Offline inference."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ReAct underpins many agent designs."
+  },
+  {
+    "id": 78,
+    "domain": "D3",
+    "scenario": "What does grounding a model mean?",
+    "options": [
+      {
+        "text": "Tying responses to verifiable sources",
+        "note": ""
+      },
+      {
+        "text": "Running the model on dedicated hardware",
+        "note": "Infrastructure, not grounding."
+      },
+      {
+        "text": "Restricting the model to a fixed set of topics",
+        "note": "That's a guardrail, not grounding."
+      },
+      {
+        "text": "Lowering temperature to reduce creativity",
+        "note": "A sampling setting, not grounding."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Grounding with enterprise data or Google Search reduces hallucinations and enables citations."
+  },
+  {
+    "id": 79,
+    "domain": "D3",
+    "scenario": "What is retrieval-augmented generation (RAG)?",
+    "options": [
+      {
+        "text": "Adding retrieved information to the prompt",
+        "note": ""
+      },
+      {
+        "text": "Retraining the model every time data changes",
+        "note": "That's tuning."
+      },
+      {
+        "text": "Generating synthetic data to train models",
+        "note": "That's synthetic data."
+      },
+      {
+        "text": "Reducing model size for mobile devices",
+        "note": "That's distillation or quantization."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RAG keeps answers current and grounded without changing model weights."
+  },
+  {
+    "id": 80,
+    "domain": "D3",
+    "scenario": "A company's product catalog changes daily. Which approach keeps a chatbot's answers current at the lowest effort?",
+    "options": [
+      {
+        "text": "Grounding with the catalog data",
+        "note": ""
+      },
+      {
+        "text": "Fine-tuning the model every day",
+        "note": "Costly and slow."
+      },
+      {
+        "text": "Training a new model from scratch",
+        "note": "Unnecessary."
+      },
+      {
+        "text": "Increasing the context window size",
+        "note": "Doesn't add current catalog data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Retrieval uses the latest data at query time."
+  },
+  {
+    "id": 81,
+    "domain": "D3",
+    "scenario": "When is fine-tuning more appropriate than RAG?",
+    "options": [
+      {
+        "text": "When it must follow a specialized style or format",
+        "note": ""
+      },
+      {
+        "text": "When the information changes every hour",
+        "note": "RAG fits better."
+      },
+      {
+        "text": "When answers must cite current documents",
+        "note": "RAG fits better."
+      },
+      {
+        "text": "When no example data is available",
+        "note": "Tuning needs examples."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tuning changes behavior; RAG supplies knowledge."
+  },
+  {
+    "id": 82,
+    "domain": "D3",
+    "scenario": "What does lowering the temperature setting do?",
+    "options": [
+      {
+        "text": "Makes outputs more focused",
+        "note": ""
+      },
+      {
+        "text": "Makes outputs more creative and varied",
+        "note": "That's higher temperature."
+      },
+      {
+        "text": "Increases the maximum response length",
+        "note": "That's output token limit."
+      },
+      {
+        "text": "Lowers the cost per token",
+        "note": "No effect on price."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use low temperature for factual tasks and higher temperature for brainstorming."
+  },
+  {
+    "id": 83,
+    "domain": "D3",
+    "scenario": "What does top-k sampling control?",
+    "options": [
+      {
+        "text": "Sampling only from the k most likely tokens",
+        "note": ""
+      },
+      {
+        "text": "The number of documents retrieved for RAG",
+        "note": "Retrieval setting, not sampling."
+      },
+      {
+        "text": "The number of requests allowed per minute",
+        "note": "That's quota."
+      },
+      {
+        "text": "The number of training epochs during tuning",
+        "note": "Training setting."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Top-p chooses from tokens whose cumulative probability reaches p."
+  },
+  {
+    "id": 84,
+    "domain": "D3",
+    "scenario": "Responses are being cut off mid-sentence. Which setting should be increased?",
+    "options": [
+      {
+        "text": "Maximum output tokens",
+        "note": ""
+      },
+      {
+        "text": "Temperature",
+        "note": "Affects randomness."
+      },
+      {
+        "text": "Top-k",
+        "note": "Affects sampling."
+      },
+      {
+        "text": "Safety filter threshold",
+        "note": "Affects filtering."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Output token limits cap response length."
+  },
+  {
+    "id": 85,
+    "domain": "D3",
+    "scenario": "Why include human-in-the-loop (HITL) review in a gen AI workflow?",
+    "options": [
+      {
+        "text": "People verify outputs and give feedback",
+        "note": ""
+      },
+      {
+        "text": "To make the model respond faster",
+        "note": "Usually adds time."
+      },
+      {
+        "text": "Because models can't run without a human operator",
+        "note": "They can."
+      },
+      {
+        "text": "To avoid writing system instructions",
+        "note": "Instructions are still needed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HITL is important for sensitive, regulated or customer-facing outputs."
+  },
+  {
+    "id": 86,
+    "domain": "D3",
+    "scenario": "Which technique gives a model specific domain behavior by training on a modest set of labeled input-output examples?",
+    "options": [
+      {
+        "text": "Supervised fine-tuning",
+        "note": ""
+      },
+      {
+        "text": "Grounding with Google Search",
+        "note": "Adds web facts."
+      },
+      {
+        "text": "Zero-shot prompting",
+        "note": "No training."
+      },
+      {
+        "text": "Increasing top-p",
+        "note": "Sampling."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Supervised tuning is often more efficient than full retraining."
+  },
+  {
+    "id": 87,
+    "domain": "D3",
+    "scenario": "What is a key benefit of asking for structured output, such as JSON, in a prompt?",
+    "options": [
+      {
+        "text": "Other systems can reliably parse it",
+        "note": ""
+      },
+      {
+        "text": "It makes the model's answers more creative",
+        "note": "Not the benefit."
+      },
+      {
+        "text": "It eliminates hallucinations entirely",
+        "note": "Not guaranteed."
+      },
+      {
+        "text": "It removes the need for testing",
+        "note": "Still test."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Gemini supports controlled generation with response schemas."
+  },
+  {
+    "id": 88,
+    "domain": "D3",
+    "scenario": "A model must not discuss competitors' products. Where should this rule go?",
+    "options": [
+      {
+        "text": "In system instructions, backed by filters",
+        "note": ""
+      },
+      {
+        "text": "Only in each user's question",
+        "note": "Inconsistent."
+      },
+      {
+        "text": "In the model's temperature setting",
+        "note": "Not possible."
+      },
+      {
+        "text": "Nowhere, because models avoid it automatically",
+        "note": "Not guaranteed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "System instructions set persistent behavior and boundaries."
+  },
+  {
+    "id": 89,
+    "domain": "D3",
+    "scenario": "Which prompt is most likely to produce a useful output?",
+    "options": [
+      {
+        "text": "Summarize this report in five bullets for executives, focusing on cost risks",
+        "note": ""
+      },
+      {
+        "text": "Please summarize this report for me so I can understand it better.",
+        "note": "No audience, length or focus."
+      },
+      {
+        "text": "Write a long, detailed summary of everything in the report.",
+        "note": "No audience or focus; may be too long."
+      },
+      {
+        "text": "Tell me everything about this file and what you think of it.",
+        "note": "Vague and open-ended."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Specify task, audience, format and focus."
+  },
+  {
+    "id": 90,
+    "domain": "D3",
+    "scenario": "Which evaluation approach checks gen AI output quality systematically before launch?",
+    "options": [
+      {
+        "text": "Scoring test prompts with metrics and reviewers",
+        "note": ""
+      },
+      {
+        "text": "Asking one employee whether it seems right",
+        "note": "Too informal."
+      },
+      {
+        "text": "Checking that the API returns successful responses",
+        "note": "Doesn't assess quality."
+      },
+      {
+        "text": "Launching first and waiting for complaints",
+        "note": "Risky."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Gen AI evaluation services can score fluency, groundedness, safety and task metrics."
+  },
+  {
+    "id": 91,
+    "domain": "D3",
+    "scenario": "What is distillation in the context of models?",
+    "options": [
+      {
+        "text": "Training a small model to mimic a larger one",
+        "note": ""
+      },
+      {
+        "text": "Removing training data after deployment",
+        "note": "Not distillation."
+      },
+      {
+        "text": "Filtering harmful content from outputs",
+        "note": "That's a safety filter."
+      },
+      {
+        "text": "Splitting a prompt into chained steps",
+        "note": "That's prompt chaining."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Distilled models are cheaper and faster while keeping much of the quality."
+  },
+  {
+    "id": 92,
+    "domain": "D3",
+    "scenario": "Which risk increases when a prompt includes untrusted content, such as an external web page?",
+    "options": [
+      {
+        "text": "Indirect prompt injection",
+        "note": ""
+      },
+      {
+        "text": "Lower storage costs for training data",
+        "note": "Not a risk."
+      },
+      {
+        "text": "Better grounding automatically",
+        "note": "Not guaranteed."
+      },
+      {
+        "text": "Faster inference",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Malicious instructions hidden in content can hijack the model; use filters like Model Armor."
+  },
+  {
+    "id": 93,
+    "domain": "D3",
+    "scenario": "What is one-shot prompting?",
+    "options": [
+      {
+        "text": "Including exactly one example",
+        "note": ""
+      },
+      {
+        "text": "Sending the prompt once with no retries",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "Using a single model for every task",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "Generating one response per prompt",
+        "note": "Not the meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Zero-shot has no examples; one-shot has one; few-shot has several."
+  },
+  {
+    "id": 94,
+    "domain": "D4",
+    "scenario": "A company is choosing its first gen AI project. Which is the best starting point?",
+    "options": [
+      {
+        "text": "A high-value, low-risk use case with clear success metrics",
+        "note": ""
+      },
+      {
+        "text": "The most complex, highest-risk process in the company",
+        "note": "Too risky for a first project."
+      },
+      {
+        "text": "A project with no defined business goal",
+        "note": "Hard to measure value."
+      },
+      {
+        "text": "Replacing all employees in a department at once",
+        "note": "High risk and poor change management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Start with feasible, measurable use cases, then scale."
+  },
+  {
+    "id": 95,
+    "domain": "D4",
+    "scenario": "Which metric best measures the business impact of a gen AI writing assistant for support agents?",
+    "options": [
+      {
+        "text": "Lower handle time with steady satisfaction",
+        "note": ""
+      },
+      {
+        "text": "The number of GPUs used by the model",
+        "note": "Not a business outcome."
+      },
+      {
+        "text": "The length of the system prompt",
+        "note": "Not a business outcome."
+      },
+      {
+        "text": "The model's parameter count",
+        "note": "Not a business outcome."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tie gen AI to KPIs such as productivity, revenue, cost and customer experience."
+  },
+  {
+    "id": 96,
+    "domain": "D4",
+    "scenario": "Which factor is most important for successful gen AI adoption across an organization?",
+    "options": [
+      {
+        "text": "Change management and executive sponsorship",
+        "note": ""
+      },
+      {
+        "text": "Buying the largest model available",
+        "note": "Not sufficient."
+      },
+      {
+        "text": "Keeping the project confidential until launch",
+        "note": "Hurts adoption and trust."
+      },
+      {
+        "text": "Skipping the pilot to move faster",
+        "note": "Pilots reduce risk."
+      }
+    ],
+    "answer": 0,
+    "explanation": "People, process and culture matter as much as technology."
+  },
+  {
+    "id": 97,
+    "domain": "D4",
+    "scenario": "Which describes Google's approach to responsible AI?",
+    "options": [
+      {
+        "text": "AI Principles covering fairness, safety, privacy and accountability",
+        "note": ""
+      },
+      {
+        "text": "No guidelines beyond legal minimums",
+        "note": "Google publishes AI Principles."
+      },
+      {
+        "text": "Focusing on model performance and speed only",
+        "note": "Not responsible AI."
+      },
+      {
+        "text": "Leaving all safety decisions to customers",
+        "note": "Shared responsibility."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Responsible AI includes fairness, transparency, privacy, security, safety and accountability."
+  },
+  {
+    "id": 98,
+    "domain": "D4",
+    "scenario": "A loan-approval assistant shows lower approval rates for one group. What is the right response?",
+    "options": [
+      {
+        "text": "Investigate for bias; add fairness tests and human review",
+        "note": ""
+      },
+      {
+        "text": "Ignore it if overall accuracy is high",
+        "note": "Overall accuracy can hide bias."
+      },
+      {
+        "text": "Remove the group attribute and redeploy unchanged",
+        "note": "Bias can persist through proxy features."
+      },
+      {
+        "text": "Retrain on the same data with more epochs",
+        "note": "Doesn't address biased data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Monitor fairness metrics across groups and keep humans involved in high-impact decisions."
+  },
+  {
+    "id": 99,
+    "domain": "D4",
+    "scenario": "Why is transparency important when deploying a gen AI chatbot to customers?",
+    "options": [
+      {
+        "text": "Customers should know it's AI and its limits",
+        "note": ""
+      },
+      {
+        "text": "It increases the model's accuracy",
+        "note": "Disclosure doesn't change accuracy."
+      },
+      {
+        "text": "It removes the need for testing",
+        "note": "Still test."
+      },
+      {
+        "text": "It lowers token costs per conversation",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Disclosure and explanations build trust."
+  },
+  {
+    "id": 100,
+    "domain": "D4",
+    "scenario": "What is a key privacy practice when using gen AI with customer data?",
+    "options": [
+      {
+        "text": "Minimize and de-identify sensitive data",
+        "note": ""
+      },
+      {
+        "text": "Include full customer records in every prompt",
+        "note": "Exposes data unnecessarily."
+      },
+      {
+        "text": "Share prompts publicly for transparency",
+        "note": "Exposes data."
+      },
+      {
+        "text": "Store all prompts indefinitely by default",
+        "note": "Conflicts with minimization."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data minimization, DLP and access controls protect privacy."
+  },
+  {
+    "id": 101,
+    "domain": "D4",
+    "scenario": "After launch, a gen AI app's answers gradually become less accurate. What should be in place?",
+    "options": [
+      {
+        "text": "Ongoing monitoring and re-evaluation",
+        "note": ""
+      },
+      {
+        "text": "Monitoring only during the launch week",
+        "note": "Problems go unnoticed."
+      },
+      {
+        "text": "Only annual manual quality checks",
+        "note": "Too infrequent."
+      },
+      {
+        "text": "Turning off logging to save cost",
+        "note": "Removes visibility."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Monitor quality, safety, drift, cost and user feedback continuously."
+  },
+  {
+    "id": 102,
+    "domain": "D4",
+    "scenario": "Which is an example of integrating gen AI into existing workflows rather than adding a separate tool?",
+    "options": [
+      {
+        "text": "Draft replies built into the ticket system",
+        "note": ""
+      },
+      {
+        "text": "Agents copy tickets into a separate AI website",
+        "note": "Adds friction."
+      },
+      {
+        "text": "A weekly AI report emailed to managers",
+        "note": "Not integrated into the workflow."
+      },
+      {
+        "text": "A standalone AI app agents open separately",
+        "note": "Adds steps."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Integration where people already work drives adoption and value."
+  },
+  {
+    "id": 103,
+    "domain": "D4",
+    "scenario": "Which security risk is specific to AI systems and addressed by SAIF?",
+    "options": [
+      {
+        "text": "Prompt injection and data poisoning",
+        "note": ""
+      },
+      {
+        "text": "Expired TLS certificates on a website",
+        "note": "General IT issue."
+      },
+      {
+        "text": "Weak passwords on employee laptops",
+        "note": "General IT issue, not AI-specific."
+      },
+      {
+        "text": "Office Wi-Fi password sharing",
+        "note": "General IT issue."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SAIF extends security foundations to AI-specific threats."
+  },
+  {
+    "id": 104,
+    "domain": "D4",
+    "scenario": "Which build-versus-buy factor favors using a ready-made gen AI product like Gemini in Workspace?",
+    "options": [
+      {
+        "text": "The need is common, like drafting and summarizing",
+        "note": ""
+      },
+      {
+        "text": "The task requires proprietary, specialized behavior",
+        "note": "Favors custom building."
+      },
+      {
+        "text": "The company wants full control of model weights",
+        "note": "Favors custom or open models."
+      },
+      {
+        "text": "It needs integrations no product supports",
+        "note": "Favors building."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Buy for common needs; build or customize for differentiating capabilities."
+  },
+  {
+    "id": 105,
+    "domain": "D4",
+    "scenario": "How should a company estimate return on investment for a gen AI initiative?",
+    "options": [
+      {
+        "text": "Compare measurable benefits with total costs",
+        "note": ""
+      },
+      {
+        "text": "Count the number of prompts employees send",
+        "note": "Activity, not value."
+      },
+      {
+        "text": "Assume ROI is guaranteed for AI projects",
+        "note": "Not guaranteed."
+      },
+      {
+        "text": "Look only at the model's accuracy score",
+        "note": "Not the full picture."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Include costs for usage, integration, change management and governance."
+  },
+  {
+    "id": 106,
+    "domain": "D4",
+    "scenario": "Which role should own accountability for a gen AI system's outcomes?",
+    "options": [
+      {
+        "text": "Designated people, backed by governance",
+        "note": ""
+      },
+      {
+        "text": "The AI model and its provider",
+        "note": "Models can't be accountable; customers own their use."
+      },
+      {
+        "text": "No one, because AI decisions are automatic",
+        "note": "Accountability is required."
+      },
+      {
+        "text": "Only the cloud provider hosting the model",
+        "note": "Customers own their use."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Define owners, review processes and escalation paths."
+  },
+  {
+    "id": 107,
+    "domain": "D4",
+    "scenario": "Which describes a responsible approach to AI-generated content for marketing?",
+    "options": [
+      {
+        "text": "Review for accuracy and IP, and disclose AI use",
+        "note": ""
+      },
+      {
+        "text": "Publish outputs immediately to save time",
+        "note": "Risky."
+      },
+      {
+        "text": "Assume all generated content is legally safe",
+        "note": "Not guaranteed."
+      },
+      {
+        "text": "Never disclose that AI was used",
+        "note": "Reduces transparency."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Human review and watermarking (like SynthID) support responsible use."
+  },
+  {
+    "id": 108,
+    "domain": "D4",
+    "scenario": "A pilot shows strong results. What is a sensible next step?",
+    "options": [
+      {
+        "text": "Scale gradually with monitoring and training",
+        "note": ""
+      },
+      {
+        "text": "Roll it out everywhere at once",
+        "note": "Risky."
+      },
+      {
+        "text": "Stop, since pilot results rarely carry over",
+        "note": "Wastes the learning."
+      },
+      {
+        "text": "Drop the success metrics after the pilot",
+        "note": "Lose visibility."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Phased rollout lets teams manage risk and adoption."
+  },
+  {
+    "id": 109,
+    "domain": "D4",
+    "scenario": "Which is a common reason gen AI projects fail to deliver value?",
+    "options": [
+      {
+        "text": "No clear business problem or success measure",
+        "note": ""
+      },
+      {
+        "text": "The company tracked too many success metrics",
+        "note": "Rarely the main cause."
+      },
+      {
+        "text": "Users received too much training",
+        "note": "Unlikely."
+      },
+      {
+        "text": "The data was too tightly governed",
+        "note": "Unlikely."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Start from the business problem, not the technology."
+  },
+  {
+    "id": 110,
+    "domain": "D4",
+    "scenario": "Which approach best addresses fairness in a gen AI hiring tool?",
+    "options": [
+      {
+        "text": "Test across groups and keep humans deciding",
+        "note": ""
+      },
+      {
+        "text": "Remove human oversight to avoid human bias",
+        "note": "Removes accountability."
+      },
+      {
+        "text": "Train only on historical hiring decisions",
+        "note": "May encode bias."
+      },
+      {
+        "text": "Keep the scoring criteria confidential",
+        "note": "Reduces transparency."
+      }
+    ],
+    "answer": 0,
+    "explanation": "High-impact uses need fairness testing, transparency and human judgment."
+  }
+]

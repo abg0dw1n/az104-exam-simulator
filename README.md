@@ -9,8 +9,11 @@ Practice questions and timed exams for IT certifications. Currently includes:
 | CompTIA Security+ (SY0-701) | `exams/security-plus` | 195 | 750 on 100–900 to pass |
 | Cisco CCNA (200-301 v2.0) | `exams/ccna` | 200 | ~825 / 1000 (Cisco doesn't publish a cut score) |
 | AWS Solutions Architect – Associate (SAA-C03) | `exams/aws-saa` | 197 | 720 on 100–1000 to pass |
+| Microsoft Azure AI Fundamentals (AI-901) | `exams/ai-901` | 100 | 700 / 1000 to pass |
+| AWS Certified AI Practitioner (AIF-C01) | `exams/aws-aif` | 132 | 700 on 100–1000 to pass |
+| Google Cloud Generative AI Leader | `exams/google-gail` | 110 | ~70% (Google doesn't publish a cut score) |
 
-Open the site to pick an exam, or go straight to one at `/<folder>` (e.g. `/az-104`, `/network-plus`, `/security-plus`, `/ccna`, `/aws-saa`). Each exam keeps its own progress and history.
+Open the site to pick an exam, or go straight to one at `/<folder>` (e.g. `/az-104`, `/network-plus`, `/security-plus`, `/ccna`, `/aws-saa`, `/ai-901`, `/aws-aif`, `/google-gail`). Each exam keeps its own progress and history.
 
 ## Modes
 
@@ -91,3 +94,13 @@ python3 -m http.server 4173   # then open http://localhost:4173/?exam=az-104
 ## Deploy
 
 Hosted on Vercel; every push to `main` deploys automatically. No build settings needed (Framework preset: **Other**).
+
+## Accounts and sync (optional)
+
+`js/auth.js` adds invite-only sign-in (email link, Google, Microsoft) and syncs each person's progress
+through Supabase (project `exam-simulator`). It's off until `AUTH_ENABLED` is set to `true`.
+
+- Invites live in `public.invited_emails`; a Postgres "Before User Created" auth hook (`public.hook_invite_only`)
+  rejects anyone not on the list. Admins can add or remove invites from the home page.
+- Progress is stored per user and exam in `public.progress`, protected by row-level security.
+- OAuth buttons are listed in `PROVIDERS` in `js/auth.js`; enable each provider in the Supabase dashboard first.
