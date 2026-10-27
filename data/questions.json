@@ -310,7 +310,7 @@
         "note": "GUI tool; not designed for preserving NTFS ACLs in bulk migrations."
       },
       {
-        "text": "AzCopy with <code>--preserve-permissions</code>",
+        "text": "AzCopy with <code>--preserve-permissions</code> and <code>--preserve-info</code>",
         "note": ""
       },
       {
@@ -323,7 +323,7 @@
       }
     ],
     "answer": 1,
-    "explanation": "AzCopy can copy SMB ACLs and file attributes to Azure Files, and <code>azcopy sync</code> transfers only files that changed. (Older AzCopy versions call the flag <code>--preserve-smb-permissions</code>.) Robocopy and Azure File Sync are other common answers for this task."
+    "explanation": "AzCopy copies NTFS ACLs with <code>--preserve-permissions</code> and SMB properties (attributes and timestamps) with <code>--preserve-info</code>. For repeat runs, Microsoft suggests <code>azcopy copy</code> with <code>--overwrite ifSourceNewer</code>; <code>azcopy sync</code> also works but isn't fully recommended for Azure Files. Robocopy and Azure File Sync are other common answers for this task."
   },
   {
     "id": 14,
@@ -582,10 +582,10 @@
     "options": [
       {
         "text": "Kubenet with no network policy engine",
-        "note": "Without a policy engine, NetworkPolicy objects are not enforced. Kubenet is also being retired."
+        "note": "Without a policy engine, NetworkPolicy objects are not enforced. Kubenet also retires on March 31, 2028."
       },
       {
-        "text": "Azure CNI with a network policy engine",
+        "text": "Azure CNI with a network policy engine such as Cilium or Calico",
         "note": ""
       },
       {
@@ -598,7 +598,7 @@
       }
     ],
     "answer": 1,
-    "explanation": "Kubernetes NetworkPolicy resources need a policy engine. In AKS you choose Azure Network Policy Manager, Calico, or Cilium (Azure CNI powered by Cilium) when creating the cluster."
+    "explanation": "Kubernetes NetworkPolicy resources need a policy engine chosen when you create the cluster. Microsoft recommends Azure CNI powered by Cilium; Calico is also supported. Azure Network Policy Manager on Linux nodes retires on September 30, 2028, and kubenet retires March 31, 2028 (migrate to Azure CNI Overlay)."
   },
   {
     "id": 25,
@@ -973,7 +973,7 @@
       }
     ],
     "answer": 0,
-    "explanation": "NAT Gateway gives every VM in the subnet outbound-only internet access through static public IPs or prefixes. Default outbound access for new VNets is being retired, so explicit egress like this is recommended."
+    "explanation": "NAT Gateway gives every VM in the subnet outbound-only internet access through static public IPs or prefixes. Microsoft recommends explicit outbound methods like this: new VNets created with current API versions use private subnets with no default outbound access, while existing VNets keep their current behavior."
   },
   {
     "id": 40,
@@ -1204,7 +1204,7 @@
   {
     "id": 49,
     "domain": "D1",
-    "scenario": "You assign a Microsoft 365 license to a group so its members get the license automatically. Several members don't receive it, and the error says the usage location is missing. What should you do?",
+    "scenario": "You assign a Microsoft 365 license to a group so its members get the license automatically. For several members, licensing fails with the error 'Usage location isn't allowed'. What should you do?",
     "options": [
       {
         "text": "Set each user's Usage location",
@@ -1224,7 +1224,7 @@
       }
     ],
     "answer": 0,
-    "explanation": "Licenses can't be assigned to users without a usage location, because service availability varies by country. Set Usage location on the user (it can also be inherited from the tenant's location in some cases)."
+    "explanation": "Licenses can't be assigned without a valid usage location, because services vary by country. With group-based licensing, users without a usage location inherit the tenant's location, which may not be correct for them. Set each user's Usage location (ideally when the account is created), then reprocess the group."
   },
   {
     "id": 50,
@@ -1304,27 +1304,27 @@
   {
     "id": 53,
     "domain": "D1",
-    "scenario": "Your organization requires that administrators register two authentication methods for self-service password reset, while regular users need only one. What do you need to configure for the administrators?",
+    "scenario": "Your tenant uses a verified custom domain and syncs users from on-premises AD with Microsoft Entra Connect. The user SSPR policy requires one authentication method. How many methods must administrators provide to reset their own passwords with SSPR?",
     "options": [
       {
-        "text": "Nothing; admins always get a two-method policy",
+        "text": "One, because admins follow the user SSPR policy",
+        "note": "Admin roles use a separate Microsoft-managed policy, not the user policy."
+      },
+      {
+        "text": "Two",
         "note": ""
       },
       {
-        "text": "A second SSPR policy scoped to an admin group",
-        "note": "SSPR settings in the portal apply to users; the admin policy isn't configurable there."
+        "text": "Three",
+        "note": "The admin policy requires two methods, not three."
       },
       {
-        "text": "A Conditional Access policy requiring two methods.",
-        "note": "Conditional Access doesn't set SSPR method counts."
-      },
-      {
-        "text": "An Entra ID Protection sign-in risk policy.",
-        "note": "Risk policies don't control SSPR registration."
+        "text": "None; administrators can never use SSPR",
+        "note": "Admins can use SSPR by default (unless it's explicitly disabled for them)."
       }
     ],
-    "answer": 0,
-    "explanation": "Microsoft enforces a default 'two-gate' SSPR policy for admin roles, regardless of the user SSPR settings. Your configured method count applies to non-admin users."
+    "answer": 1,
+    "explanation": "Admin roles get a Microsoft-managed reset policy that can't be changed. It's a two-gate policy (two methods, no security questions) when the tenant has a custom domain, syncs with Entra Connect, or is more than 30 days into a trial; otherwise it's one-gate. The user SSPR settings don't apply to admins."
   },
   {
     "id": 54,
@@ -1474,7 +1474,7 @@
       }
     ],
     "answer": 1,
-    "explanation": "Deny assignments block actions even if a role grants them, but only Azure itself creates them (for example deployment stacks with deny settings, or managed apps). For your own resources, a CanNotDelete lock is the practical way to block deletion."
+    "explanation": "Deny assignments block actions even if a role grants them, but you can't create them directly: Azure creates and manages them, for example when you set deny settings on a deployment stack. For your own resources, a CanNotDelete lock is the practical way to block deletion."
   },
   {
     "id": 60,
@@ -2374,7 +2374,7 @@
       }
     ],
     "answer": 1,
-    "explanation": "Data Box is a ruggedized appliance you load locally and ship to Microsoft for upload. Data Box Disk suits smaller volumes (tens of TB) and Data Box Heavy suits petabyte scale."
+    "explanation": "Data Box is a ruggedized appliance (about 80 TB usable) that you load locally and ship to Microsoft for upload. Data Box Disk suits smaller volumes (up to about 35 TB per order) and Data Box Heavy suits hundreds of terabytes."
   },
   {
     "id": 96,
@@ -2657,7 +2657,7 @@
     "scenario": "You configure a lifecycle rule to delete blobs 90 days after creation, but some blobs are still there after 100 days. Which is a possible explanation?",
     "options": [
       {
-        "text": "Lifecycle actions can lag by up to 24 hours or more",
+        "text": "New or changed policies can take up to 24 hours to take effect",
         "note": ""
       },
       {
@@ -2674,7 +2674,7 @@
       }
     ],
     "answer": 0,
-    "explanation": "The lifecycle engine runs about once a day, so actions can lag. Also check the rule's filters (prefix, blob type, index tags), and whether the blobs are under a legal hold or immutability policy."
+    "explanation": "After you create or change a lifecycle policy, it can take up to 24 hours before it takes effect and the first run starts, and large accounts can take longer to process. Also check the rule's filters (prefix, blob type, index tags) and whether the blobs are under an immutability policy, which blocks deletion."
   },
   {
     "id": 108,
@@ -2899,7 +2899,7 @@
       }
     ],
     "answer": 0,
-    "explanation": "Bastion needs a dedicated subnet with that exact name, /26 or larger, and no other resources in it."
+    "explanation": "Bastion needs a dedicated subnet with that exact name, /26 or larger, and no other resources in it. The exception is the Bastion Developer SKU, which needs neither a dedicated subnet nor a public IP."
   },
   {
     "id": 117,
@@ -3299,7 +3299,7 @@
       }
     ],
     "answer": 2,
-    "explanation": "Geo-replication is a Premium feature, as are private endpoints and content trust. Images are pushed once and replicated to all configured regions."
+    "explanation": "Geo-replication is a Premium feature, as are private endpoints (Private Link). Images are pushed once and replicated to all configured regions."
   },
   {
     "id": 133,
@@ -4775,7 +4775,7 @@
       }
     ],
     "answer": 0,
-    "explanation": "Backup soft delete keeps deleted backup data for 14 days by default (enhanced soft delete allows up to 180 days, and can be made always-on). Multi-user authorization and immutable vaults add further protection."
+    "explanation": "Backup soft delete keeps deleted backup data for 14 days by default, configurable up to 180 days. Newly created vaults have soft delete permanently enabled. Multi-user authorization and immutable vaults add further protection."
   },
   {
     "id": 192,

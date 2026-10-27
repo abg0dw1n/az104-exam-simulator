@@ -1,6 +1,6 @@
 // Offline support: network-first for everything (so updates show up immediately),
 // falling back to the cached copy when there's no connection.
-const CACHE = 'az104-sim-v1';
+const CACHE = 'az104-sim-v2';
 const CORE = ['/', '/index.html', '/css/styles.css', '/js/app.js', '/js/domains.js',
   '/data/questions.json', '/favicon.svg', '/manifest.webmanifest', '/icons/icon-192.png'];
 
