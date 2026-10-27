@@ -57,7 +57,7 @@
   ],
   "rewrites": [
     {
-      "source": "/:slug([a-z0-9-]+)",
+      "source": "/:slug",
       "destination": "/index.html"
     }
   ]
