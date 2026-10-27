@@ -15,7 +15,7 @@ export const PROVIDERS = [
 ];
 
 // Flip to true once the Supabase dashboard setup is done (hook, URLs, email).
-export const AUTH_ENABLED = false;
+export const AUTH_ENABLED = true;
 
 const SESSION_KEY = 'examsim:session';
 const DATA_PREFIX = 'examsim:';
