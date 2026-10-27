@@ -1,0 +1,10 @@
+{
+  "name": "az104-exam-simulator",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "description": "AZ-104 Microsoft Azure Administrator practice and exam simulator",
+  "scripts": {
+    "validate": "node scripts/validate-questions.mjs"
+  }
+}
