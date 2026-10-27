@@ -96,6 +96,11 @@ python3 -m http.server 4173   # then open http://localhost:4173/?exam=az-104
 
 Hosted on Vercel; every push to `main` deploys automatically. No build settings needed (Framework preset: **Other**).
 
+## "Updated" dates
+
+Each exam card shows when its questions last changed, from `updated` in `exams/index.json`.
+After committing question changes, run `node scripts/stamp-updated.mjs` and commit `exams/index.json`.
+
 ## Weak spots and reports
 
 - Every answer (practice and exams) updates a per-question spaced-repetition box. **Order → Weak spots first**

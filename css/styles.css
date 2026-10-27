@@ -395,3 +395,5 @@ body.signed-out .exams-link { display: none; }
 .report-actions { display: flex; gap: 6px; flex: none; }
 .stats .mastery .mastery-top { background: none; border: 0; padding: 0; }
 .stats .mastery .bar { padding: 0; border: 0; border-radius: 4px; background: var(--border); }
+
+.exam-updated { font-size: 11.5px; color: var(--muted); opacity: .75; margin-top: -2px; }

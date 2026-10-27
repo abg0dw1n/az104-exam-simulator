@@ -871,6 +871,12 @@ function currentSlug() {
   return /^[a-z0-9-]+$/.test(slug) && slug !== 'index.html' ? slug : '';
 }
 
+// "2026-10-27" → "Oct 27, 2026" (parsed as a local date so it never shifts a day).
+const fmtDate = (iso) => {
+  const [y, m, d] = iso.split('-').map(Number);
+  return new Date(y, m - 1, d).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+};
+
 const vendorKey = (v = '') => v.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 async function renderHome() {
@@ -889,6 +895,7 @@ async function renderHome() {
       <h2>${e.name}</h2>
       <span class="chip chip-vendor">${e.code}</span>
       <p class="muted small">${count ? `${count} questions` : ''}${answered ? ` · ${answered} practiced` : ''}${last ? ` · last exam <b class="${last.passed ? 'good' : 'weak'}">${last.score}</b>` : ''}</p>
+      ${e.updated ? `<p class="exam-updated">Updated ${fmtDate(e.updated)}</p>` : ''}
     </a>`;
   }));
   $('main').innerHTML = `<section class="stack">

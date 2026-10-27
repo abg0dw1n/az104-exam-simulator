@@ -4,48 +4,56 @@
     "code": "AZ-104",
     "name": "Microsoft Azure Administrator",
     "vendor": "Microsoft",
-    "legacyStorageKey": "az104-sim:v2"
+    "legacyStorageKey": "az104-sim:v2",
+    "updated": "2026-10-27"
   },
   {
     "slug": "network-plus",
     "code": "N10-009",
     "name": "CompTIA Network+",
-    "vendor": "CompTIA"
+    "vendor": "CompTIA",
+    "updated": "2026-10-27"
   },
   {
     "slug": "security-plus",
     "code": "SY0-701",
     "name": "CompTIA Security+",
-    "vendor": "CompTIA"
+    "vendor": "CompTIA",
+    "updated": "2026-10-27"
   },
   {
     "slug": "ccna",
     "code": "CCNA 200-301",
     "name": "Cisco Certified Network Associate",
-    "vendor": "Cisco"
+    "vendor": "Cisco",
+    "updated": "2026-10-27"
   },
   {
     "slug": "aws-saa",
     "code": "SAA-C03",
     "name": "AWS Certified Solutions Architect – Associate",
-    "vendor": "Amazon Web Services"
+    "vendor": "Amazon Web Services",
+    "updated": "2026-10-27"
   },
   {
     "slug": "ai-901",
     "code": "AI-901",
     "name": "Microsoft Azure AI Fundamentals",
-    "vendor": "Microsoft"
+    "vendor": "Microsoft",
+    "updated": "2026-10-27"
   },
   {
     "slug": "aws-aif",
     "code": "AIF-C01",
     "name": "AWS Certified AI Practitioner",
-    "vendor": "Amazon Web Services"
+    "vendor": "Amazon Web Services",
+    "updated": "2026-10-27"
   },
   {
     "slug": "google-gail",
     "code": "Gen AI Leader",
     "name": "Google Cloud Generative AI Leader",
-    "vendor": "Google Cloud"
+    "vendor": "Google Cloud",
+    "updated": "2026-10-27"
   }
 ]
