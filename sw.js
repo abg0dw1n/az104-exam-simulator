@@ -1,8 +1,9 @@
 // Offline support: network-first for everything (so updates show up immediately),
 // falling back to the cached copy when there's no connection.
-const CACHE = 'az104-sim-v2';
-const CORE = ['/', '/index.html', '/css/styles.css', '/js/app.js', '/js/domains.js',
-  '/data/questions.json', '/favicon.svg', '/manifest.webmanifest', '/icons/icon-192.png'];
+const CACHE = 'examsim-v3';
+// Exam files are cached the first time each exam is opened.
+const CORE = ['/', '/index.html', '/css/styles.css', '/js/app.js', '/exams/index.json',
+  '/favicon.svg', '/manifest.webmanifest', '/icons/icon-192.png'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((c) => c.addAll(CORE)).then(() => self.skipWaiting()));
@@ -28,6 +29,7 @@ self.addEventListener('fetch', (event) => {
         }
         return response;
       })
+      // Offline: serve the cached copy; exam pages like /az-104 fall back to the app shell.
       .catch(() => caches.match(request, { ignoreSearch: true })
         .then((hit) => hit || (request.mode === 'navigate' ? caches.match('/index.html') : Response.error()))),
   );

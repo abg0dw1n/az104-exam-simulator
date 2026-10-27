@@ -1,10 +1,12 @@
-// Import questions from a CSV file (e.g. exported from Excel or Google Sheets) into data/questions.json.
+// Import questions from a CSV file (e.g. exported from Excel or Google Sheets) into an exam's bank.
 //
-//   node scripts/import-csv.mjs path/to/questions.csv            # append new questions
-//   node scripts/import-csv.mjs path/to/questions.csv --dry-run  # check only, write nothing
+//   node scripts/import-csv.mjs --exam az-104 path/to/questions.csv            # append new questions
+//   node scripts/import-csv.mjs --exam az-104 path/to/questions.csv --dry-run  # check only, write nothing
+//
+// --exam is the folder name under exams/ (az-104, network-plus, ...).
 //
 // Columns (header row required, order doesn't matter, names are case-insensitive):
-//   domain       D1–D5 or 1–5 (see js/domains.js)
+//   domain       D1–D5 or 1–5 (see the exam's exam.json)
 //   scenario     question text; HTML allowed, e.g. <code>rg-prod</code>
 //   code         optional snippet (JSON, KQL, PowerShell…) shown as plain text
 //   option_a … option_f   answer options (at least 2; blank ones are skipped)
@@ -17,17 +19,24 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { DOMAINS } from '../js/domains.js';
-
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const bankPath = path.join(root, 'data', 'questions.json');
-const [csvPath, ...flags] = process.argv.slice(2);
-const dryRun = flags.includes('--dry-run');
+const args = process.argv.slice(2);
+const dryRun = args.includes('--dry-run');
+const examIdx = args.indexOf('--exam');
+const slug = examIdx >= 0 ? args[examIdx + 1] : null;
+const csvPath = args.find((a, i) => !a.startsWith('--') && i !== examIdx + 1);
 
-if (!csvPath) {
-  console.error('Usage: node scripts/import-csv.mjs <file.csv> [--dry-run]');
+if (!csvPath || !slug) {
+  console.error('Usage: node scripts/import-csv.mjs --exam <exam-folder> <file.csv> [--dry-run]');
   process.exit(1);
 }
+const examDir = path.join(root, 'exams', slug);
+if (!fs.existsSync(path.join(examDir, 'exam.json'))) {
+  console.error(`No exam folder exams/${slug}/ with an exam.json. Existing: ${fs.readdirSync(path.join(root, 'exams')).filter((d) => fs.existsSync(path.join(root, 'exams', d, 'exam.json'))).join(', ')}`);
+  process.exit(1);
+}
+const { domains: DOMAINS } = JSON.parse(fs.readFileSync(path.join(examDir, 'exam.json'), 'utf8'));
+const bankPath = path.join(examDir, 'questions.json');
 
 // RFC 4180 CSV parser: quoted fields, escaped quotes, commas and newlines inside quotes.
 function parseCsv(text) {

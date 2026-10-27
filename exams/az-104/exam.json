@@ -1,0 +1,20 @@
+{
+  "slug": "az-104",
+  "code": "AZ-104",
+  "name": "Microsoft Azure Administrator",
+  "vendor": "Microsoft",
+  "legacyStorageKey": "az104-sim:v2",
+  "domains": {
+    "D1": { "name": "Manage Azure identities and governance", "weight": "20–25%", "pct": 22.5 },
+    "D2": { "name": "Implement and manage storage", "weight": "15–20%", "pct": 17.5 },
+    "D3": { "name": "Deploy and manage Azure compute resources", "weight": "20–25%", "pct": 22.5 },
+    "D4": { "name": "Implement and manage virtual networking", "weight": "15–20%", "pct": 17.5 },
+    "D5": { "name": "Monitor and maintain Azure resources", "weight": "10–15%", "pct": 12.5 }
+  },
+  "scoring": { "min": 0, "max": 1000, "pass": 700 },
+  "minutesPerQuestion": 2,
+  "defaultSize": 50,
+  "sizeOptions": [20, 40, 50, 60],
+  "realExamNote": "The real exam has 40–60 questions in 100 minutes; 50 questions here gets you the same pace.",
+  "scoreNote": "Microsoft's real scoring is scaled differently, so treat 700+ as a readiness signal, not a guarantee."
+}

@@ -16,7 +16,7 @@
       ]
     },
     {
-      "source": "/data/(.*)",
+      "source": "/exams/(.*)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -53,6 +53,12 @@
           "value": "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
         }
       ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/:slug([a-z0-9-]+)",
+      "destination": "/index.html"
     }
   ]
 }

@@ -1,0 +1,15 @@
+[
+  {
+    "slug": "az-104",
+    "code": "AZ-104",
+    "name": "Microsoft Azure Administrator",
+    "vendor": "Microsoft",
+    "legacyStorageKey": "az104-sim:v2"
+  },
+  {
+    "slug": "network-plus",
+    "code": "N10-009",
+    "name": "CompTIA Network+",
+    "vendor": "CompTIA"
+  }
+]

@@ -1,0 +1,5927 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "A technician is troubleshooting a problem with MAC addresses and frame forwarding on a switch. At which OSI layer is the technician working?",
+    "options": [
+      {
+        "text": "Layer 1 – Physical",
+        "note": "Physical deals with bits, signals and cabling."
+      },
+      {
+        "text": "Layer 2 – Data link",
+        "note": ""
+      },
+      {
+        "text": "Layer 3 – Network",
+        "note": "Layer 3 uses IP addresses and routing."
+      },
+      {
+        "text": "Layer 4 – Transport",
+        "note": "Layer 4 handles ports, TCP and UDP."
+      }
+    ],
+    "answer": 1,
+    "explanation": "The data link layer (Layer 2) uses MAC addresses and frames. Switches forward frames based on their MAC address tables."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "Which OSI layer is responsible for logical addressing and choosing a path between networks?",
+    "options": [
+      {
+        "text": "Data link",
+        "note": "Uses MAC addresses within a local segment."
+      },
+      {
+        "text": "Transport",
+        "note": "Provides end-to-end delivery with ports."
+      },
+      {
+        "text": "Network",
+        "note": ""
+      },
+      {
+        "text": "Session",
+        "note": "Manages sessions between applications."
+      }
+    ],
+    "answer": 2,
+    "explanation": "The network layer (Layer 3) handles logical (IP) addressing and routing between networks. Routers operate at this layer."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "TCP and UDP port numbers are part of which OSI layer?",
+    "options": [
+      {
+        "text": "Layer 3",
+        "note": "IP addressing lives here, not ports."
+      },
+      {
+        "text": "Layer 4",
+        "note": ""
+      },
+      {
+        "text": "Layer 5",
+        "note": "Session management, not port numbers."
+      },
+      {
+        "text": "Layer 7",
+        "note": "Application protocols use ports, but ports are defined at Layer 4."
+      }
+    ],
+    "answer": 1,
+    "explanation": "The transport layer (Layer 4) provides segmentation, port addressing and, with TCP, reliable delivery with acknowledgments and flow control."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "Which OSI layer handles data formatting, character encoding and encryption so that applications can read the data?",
+    "options": [
+      {
+        "text": "Presentation (Layer 6)",
+        "note": ""
+      },
+      {
+        "text": "Session (Layer 5)",
+        "note": "Sets up, manages and tears down sessions."
+      },
+      {
+        "text": "Application (Layer 7)",
+        "note": "Provides network services to applications, such as HTTP or DNS."
+      },
+      {
+        "text": "Transport (Layer 4)",
+        "note": "Handles segmentation and ports."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The presentation layer translates data formats, handles character encoding and compression, and is where encryption and decryption are traditionally placed in the model."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "A network engineer says a cable is damaged and the link light is off. Which OSI layer is the problem at?",
+    "options": [
+      {
+        "text": "Physical",
+        "note": ""
+      },
+      {
+        "text": "Data link",
+        "note": "Layer 2 issues include MAC or VLAN problems."
+      },
+      {
+        "text": "Network",
+        "note": "Layer 3 issues include IP or routing problems."
+      },
+      {
+        "text": "Application",
+        "note": "Layer 7 issues include service or protocol problems."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cabling, connectors, signals and link lights are all Layer 1 (physical). Troubleshooting often starts here and works up."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "What is the correct order of the encapsulation units from Layer 4 down to Layer 1?",
+    "options": [
+      {
+        "text": "Segment, packet, frame, bits",
+        "note": ""
+      },
+      {
+        "text": "Packet, segment, frame, bits",
+        "note": "Segments come from Layer 4, packets from Layer 3."
+      },
+      {
+        "text": "Frame, packet, segment, bits",
+        "note": "That's bottom-up order reversed incorrectly."
+      },
+      {
+        "text": "Segment, frame, packet, bits",
+        "note": "Packets (Layer 3) come before frames (Layer 2)."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data is divided into segments (TCP) or datagrams (UDP) at Layer 4, placed in packets at Layer 3, framed at Layer 2, and transmitted as bits at Layer 1."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "A company needs a device that inspects traffic and actively blocks detected attacks in real time. What should it deploy?",
+    "options": [
+      {
+        "text": "IDS",
+        "note": "An IDS detects and alerts but doesn't block."
+      },
+      {
+        "text": "IPS",
+        "note": ""
+      },
+      {
+        "text": "Proxy server",
+        "note": "Proxies forward requests; they aren't primarily attack-detection devices."
+      },
+      {
+        "text": "Load balancer",
+        "note": "Distributes traffic; doesn't detect attacks."
+      }
+    ],
+    "answer": 1,
+    "explanation": "An intrusion prevention system sits inline and can drop malicious traffic. An intrusion detection system monitors a copy of traffic and only alerts."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "Users' web requests should go through a server that can cache content and filter which sites are allowed. What is this device?",
+    "options": [
+      {
+        "text": "Forward proxy",
+        "note": ""
+      },
+      {
+        "text": "Reverse proxy",
+        "note": "A reverse proxy sits in front of servers for inbound requests."
+      },
+      {
+        "text": "Load balancer",
+        "note": "Distributes inbound traffic across servers."
+      },
+      {
+        "text": "NAS",
+        "note": "Network-attached storage serves files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A forward proxy acts on behalf of internal clients, caching content and enforcing web filtering. A reverse proxy acts on behalf of servers."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Several identical web servers should share incoming traffic, and failed servers should be taken out of rotation automatically. What should be deployed?",
+    "options": [
+      {
+        "text": "A load balancer",
+        "note": ""
+      },
+      {
+        "text": "A content filter",
+        "note": "Filters content; doesn't distribute traffic."
+      },
+      {
+        "text": "A layer 2 switch",
+        "note": "Forwards frames but doesn't balance traffic or health-check servers."
+      },
+      {
+        "text": "A wireless controller",
+        "note": "Manages access points."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Load balancers distribute connections across a pool of servers and use health checks to stop sending traffic to failed ones."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "What is the main difference between NAS and SAN storage?",
+    "options": [
+      {
+        "text": "NAS is file-level; SAN is block-level.",
+        "note": ""
+      },
+      {
+        "text": "NAS is block-level; SAN is file-level storage.",
+        "note": "This is reversed."
+      },
+      {
+        "text": "NAS requires Fibre Channel; SAN uses only SMB.",
+        "note": "SANs commonly use Fibre Channel or iSCSI; NAS uses SMB or NFS."
+      },
+      {
+        "text": "There's no difference; the terms are interchangeable.",
+        "note": "They provide different types of access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NAS shares files using protocols like SMB and NFS. A SAN presents block storage (LUNs) to servers using Fibre Channel or iSCSI, and the server formats it like a local disk."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "A global company wants static website content served from locations close to users to reduce latency. What should it use?",
+    "options": [
+      {
+        "text": "A CDN",
+        "note": ""
+      },
+      {
+        "text": "A VPN concentrator",
+        "note": "Terminates VPN tunnels."
+      },
+      {
+        "text": "A NAS appliance",
+        "note": "Local file storage."
+      },
+      {
+        "text": "An IDS",
+        "note": "Detects attacks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A CDN caches content at edge locations around the world, so users get content from a nearby server."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "Voice traffic must be prioritized over bulk file transfers on a congested WAN link. What should be configured?",
+    "options": [
+      {
+        "text": "QoS",
+        "note": ""
+      },
+      {
+        "text": "Port security",
+        "note": "Limits MAC addresses on a port."
+      },
+      {
+        "text": "Spanning tree",
+        "note": "Prevents switching loops."
+      },
+      {
+        "text": "NAT",
+        "note": "Translates addresses."
+      }
+    ],
+    "answer": 0,
+    "explanation": "QoS classifies and marks traffic (for example with DSCP) and prioritizes delay-sensitive traffic such as voice and video."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "What does the TTL field in an IPv4 header do?",
+    "options": [
+      {
+        "text": "It limits how many router hops the packet can make.",
+        "note": ""
+      },
+      {
+        "text": "It sets how long a DHCP lease lasts.",
+        "note": "Lease time is a DHCP setting."
+      },
+      {
+        "text": "It defines the maximum frame size.",
+        "note": "That's the MTU."
+      },
+      {
+        "text": "It controls how long a DNS record is cached.",
+        "note": "DNS records have their own TTL, separate from the IP header."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Each router decrements TTL by 1. When it reaches 0, the packet is dropped and an ICMP Time Exceeded message is usually sent back, which is how traceroute works."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "A company wants to run its own operating systems and applications in the cloud but not manage physical hardware. Which service model is this?",
+    "options": [
+      {
+        "text": "SaaS",
+        "note": "The provider runs the application; you only use it."
+      },
+      {
+        "text": "PaaS",
+        "note": "The provider manages the OS and runtime."
+      },
+      {
+        "text": "IaaS",
+        "note": ""
+      },
+      {
+        "text": "DaaS",
+        "note": "Not one of the core service models here."
+      }
+    ],
+    "answer": 2,
+    "explanation": "With infrastructure as a service, the provider manages hardware, storage and networking, and the customer manages operating systems, middleware and applications."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "Developers want to deploy code without managing servers, operating systems or patching. Which cloud model fits?",
+    "options": [
+      {
+        "text": "PaaS",
+        "note": ""
+      },
+      {
+        "text": "IaaS",
+        "note": "You'd still manage operating systems."
+      },
+      {
+        "text": "On-premises",
+        "note": "You'd manage everything."
+      },
+      {
+        "text": "Private cloud IaaS",
+        "note": "Still requires OS management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Platform as a service provides a managed runtime. Developers deploy code, and the provider handles servers, OS and middleware."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "An organization runs sensitive workloads in its own datacenter and burst workloads in a public cloud, connected together. Which deployment model is this?",
+    "options": [
+      {
+        "text": "Public",
+        "note": "Only public cloud resources."
+      },
+      {
+        "text": "Private",
+        "note": "Only dedicated resources."
+      },
+      {
+        "text": "Hybrid",
+        "note": ""
+      },
+      {
+        "text": "Community",
+        "note": "Shared by organizations with common requirements."
+      }
+    ],
+    "answer": 2,
+    "explanation": "A hybrid cloud combines private (on-premises or dedicated) infrastructure with public cloud, with connectivity between them."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "A cloud application automatically adds servers during a traffic spike and removes them afterward. Which cloud characteristic does this describe?",
+    "options": [
+      {
+        "text": "Elasticity",
+        "note": ""
+      },
+      {
+        "text": "Multitenancy",
+        "note": "Multiple customers sharing infrastructure."
+      },
+      {
+        "text": "Data locality",
+        "note": "Where data is stored geographically."
+      },
+      {
+        "text": "Network function virtualization",
+        "note": "Running network functions as software."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Elasticity is the ability to scale resources up and down automatically with demand. Scalability is the broader ability to grow to handle more load."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "In the cloud, which component lets resources in a VPC communicate with the internet?",
+    "options": [
+      {
+        "text": "An internet gateway",
+        "note": ""
+      },
+      {
+        "text": "An 802.1Q VLAN trunk",
+        "note": "A switching concept, not a cloud gateway."
+      },
+      {
+        "text": "A patch panel",
+        "note": "Physical cabling."
+      },
+      {
+        "text": "A TFTP server in the subnet",
+        "note": "File transfer."
+      }
+    ],
+    "answer": 0,
+    "explanation": "An internet gateway connects a virtual private cloud to the internet. A NAT gateway lets private resources make outbound connections without being reachable from the internet."
+  },
+  {
+    "id": 19,
+    "domain": "D1",
+    "scenario": "Running firewalls, routers and load balancers as software on standard servers instead of dedicated hardware is called what?",
+    "options": [
+      {
+        "text": "Network function virtualization",
+        "note": ""
+      },
+      {
+        "text": "Port mirroring",
+        "note": "Copies traffic for analysis."
+      },
+      {
+        "text": "Link aggregation",
+        "note": "Combines physical links."
+      },
+      {
+        "text": "Spanning tree",
+        "note": "Prevents loops."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NFV replaces dedicated network appliances with virtual instances running on commodity hardware or in the cloud."
+  },
+  {
+    "id": 20,
+    "domain": "D1",
+    "scenario": "Which feature in a cloud VPC filters inbound and outbound traffic to instances, similar to a firewall?",
+    "options": [
+      {
+        "text": "A network security group",
+        "note": ""
+      },
+      {
+        "text": "Internet gateway",
+        "note": "Provides internet connectivity, not filtering."
+      },
+      {
+        "text": "An elastic (static public) IP",
+        "note": "A static public address."
+      },
+      {
+        "text": "A content delivery network",
+        "note": "Caches content."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Network security groups (security groups or security lists, depending on the provider) contain allow/deny rules for traffic to cloud resources."
+  },
+  {
+    "id": 21,
+    "domain": "D1",
+    "scenario": "Which port does HTTPS use by default?",
+    "options": [
+      {
+        "text": "80",
+        "note": "HTTP."
+      },
+      {
+        "text": "443",
+        "note": ""
+      },
+      {
+        "text": "8080",
+        "note": "A common alternate HTTP port, not the default for HTTPS."
+      },
+      {
+        "text": "22",
+        "note": "SSH."
+      }
+    ],
+    "answer": 1,
+    "explanation": "HTTPS (HTTP over TLS) uses TCP 443 by default. HTTP uses TCP 80."
+  },
+  {
+    "id": 22,
+    "domain": "D1",
+    "scenario": "A technician needs a secure, encrypted command-line session to a router. Which protocol and port should be used?",
+    "options": [
+      {
+        "text": "Telnet on TCP 23",
+        "note": "Telnet sends everything, including passwords, in clear text."
+      },
+      {
+        "text": "SSH on TCP 22",
+        "note": ""
+      },
+      {
+        "text": "RDP on TCP 3389",
+        "note": "RDP is a graphical remote desktop protocol."
+      },
+      {
+        "text": "SNMP on UDP 161",
+        "note": "Monitoring, not an interactive CLI."
+      }
+    ],
+    "answer": 1,
+    "explanation": "SSH provides encrypted remote command-line access on TCP 22. SFTP also runs over SSH on port 22."
+  },
+  {
+    "id": 23,
+    "domain": "D1",
+    "scenario": "Which ports does DNS use?",
+    "options": [
+      {
+        "text": "UDP and TCP 53",
+        "note": ""
+      },
+      {
+        "text": "UDP 67 and 68",
+        "note": "DHCP."
+      },
+      {
+        "text": "TCP 25",
+        "note": "SMTP."
+      },
+      {
+        "text": "UDP 123",
+        "note": "NTP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DNS uses UDP 53 for most queries and TCP 53 for zone transfers and large responses."
+  },
+  {
+    "id": 24,
+    "domain": "D1",
+    "scenario": "A client's DHCP Discover message is sent to which destination port?",
+    "options": [
+      {
+        "text": "UDP 67",
+        "note": ""
+      },
+      {
+        "text": "UDP 68",
+        "note": "Clients listen on 68; servers listen on 67."
+      },
+      {
+        "text": "UDP 69",
+        "note": "TFTP."
+      },
+      {
+        "text": "TCP 53",
+        "note": "DNS."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DHCP servers listen on UDP 67 and clients use UDP 68."
+  },
+  {
+    "id": 25,
+    "domain": "D1",
+    "scenario": "Which protocol and port are used to synchronize device clocks?",
+    "options": [
+      {
+        "text": "NTP on UDP 123",
+        "note": ""
+      },
+      {
+        "text": "SNMP on UDP 161",
+        "note": "Monitoring."
+      },
+      {
+        "text": "Syslog on UDP 514",
+        "note": "Logging."
+      },
+      {
+        "text": "LDAP on TCP 389",
+        "note": "Directory access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Network Time Protocol uses UDP 123. Accurate time matters for logs, authentication (such as Kerberos) and certificates."
+  },
+  {
+    "id": 26,
+    "domain": "D1",
+    "scenario": "A network monitoring system receives unsolicited alerts (traps) from devices. Which port do SNMP traps typically use?",
+    "options": [
+      {
+        "text": "UDP 161",
+        "note": "Used for SNMP polling (get/set) to agents."
+      },
+      {
+        "text": "UDP 162",
+        "note": ""
+      },
+      {
+        "text": "UDP 514",
+        "note": "Syslog."
+      },
+      {
+        "text": "TCP 389",
+        "note": "LDAP."
+      }
+    ],
+    "answer": 1,
+    "explanation": "SNMP managers poll agents on UDP 161, and agents send traps to the manager on UDP 162."
+  },
+  {
+    "id": 27,
+    "domain": "D1",
+    "scenario": "Which port does LDAPS (LDAP over TLS) use?",
+    "options": [
+      {
+        "text": "389",
+        "note": "Unencrypted LDAP."
+      },
+      {
+        "text": "636",
+        "note": ""
+      },
+      {
+        "text": "445",
+        "note": "SMB."
+      },
+      {
+        "text": "1433",
+        "note": "Microsoft SQL Server."
+      }
+    ],
+    "answer": 1,
+    "explanation": "LDAP uses TCP 389; LDAP over SSL/TLS uses TCP 636."
+  },
+  {
+    "id": 28,
+    "domain": "D1",
+    "scenario": "Users need to access Windows file shares. Which port must be allowed?",
+    "options": [
+      {
+        "text": "TCP 445",
+        "note": ""
+      },
+      {
+        "text": "TCP 3389",
+        "note": "RDP."
+      },
+      {
+        "text": "TCP 21",
+        "note": "FTP control."
+      },
+      {
+        "text": "UDP 69",
+        "note": "TFTP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Server Message Block (SMB) uses TCP 445 for Windows file and printer sharing."
+  },
+  {
+    "id": 29,
+    "domain": "D1",
+    "scenario": "A firewall rule must allow remote desktop connections to Windows servers. Which port should be opened?",
+    "options": [
+      {
+        "text": "3389",
+        "note": ""
+      },
+      {
+        "text": "5060",
+        "note": "SIP."
+      },
+      {
+        "text": "1433",
+        "note": "SQL Server."
+      },
+      {
+        "text": "23",
+        "note": "Telnet."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Remote Desktop Protocol uses TCP 3389 (and can also use UDP 3389)."
+  },
+  {
+    "id": 30,
+    "domain": "D1",
+    "scenario": "Which protocol and port pair is used by VoIP phones for unencrypted call signaling?",
+    "options": [
+      {
+        "text": "SIP on 5060",
+        "note": ""
+      },
+      {
+        "text": "SIP on 5061",
+        "note": "5061 is SIP over TLS (encrypted)."
+      },
+      {
+        "text": "RTP on 22",
+        "note": "RTP carries media on dynamic ports, not 22."
+      },
+      {
+        "text": "H.323 on 443",
+        "note": "Not the standard port for H.323."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SIP uses port 5060 for unencrypted signaling and 5061 for SIP over TLS."
+  },
+  {
+    "id": 31,
+    "domain": "D1",
+    "scenario": "Which ports does FTP use?",
+    "options": [
+      {
+        "text": "TCP 20 and 21",
+        "note": ""
+      },
+      {
+        "text": "TCP 22",
+        "note": "SFTP over SSH."
+      },
+      {
+        "text": "UDP 69",
+        "note": "TFTP."
+      },
+      {
+        "text": "TCP 989 and 990 only",
+        "note": "Those are FTPS (implicit), not standard FTP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "FTP uses TCP 21 for control and TCP 20 for data in active mode. It sends credentials in clear text."
+  },
+  {
+    "id": 32,
+    "domain": "D1",
+    "scenario": "Network devices send their log messages to a central server. Which protocol and default port is used?",
+    "options": [
+      {
+        "text": "Syslog on UDP 514",
+        "note": ""
+      },
+      {
+        "text": "SNMP on UDP 161",
+        "note": "Polling, not log forwarding."
+      },
+      {
+        "text": "TFTP on UDP 69",
+        "note": "File transfer."
+      },
+      {
+        "text": "NTP on UDP 123",
+        "note": "Time sync."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Syslog traditionally uses UDP 514. TCP and TLS-secured syslog are also used for reliable or encrypted delivery."
+  },
+  {
+    "id": 33,
+    "domain": "D1",
+    "scenario": "Which protocol has no handshake, no acknowledgments, and is used by DNS queries and streaming?",
+    "options": [
+      {
+        "text": "TCP segments",
+        "note": "Connection-oriented with a three-way handshake."
+      },
+      {
+        "text": "UDP datagrams",
+        "note": ""
+      },
+      {
+        "text": "GRE",
+        "note": "A tunneling protocol."
+      },
+      {
+        "text": "ICMP",
+        "note": "Used for diagnostics and errors, not application data."
+      }
+    ],
+    "answer": 1,
+    "explanation": "UDP is connectionless and lightweight. Applications that need speed over guaranteed delivery, like DNS, VoIP and streaming, often use it."
+  },
+  {
+    "id": 34,
+    "domain": "D1",
+    "scenario": "Which protocol does ping use?",
+    "options": [
+      {
+        "text": "ICMP",
+        "note": ""
+      },
+      {
+        "text": "UDP datagrams",
+        "note": "Ping doesn't use UDP ports."
+      },
+      {
+        "text": "TCP segments",
+        "note": "Ping doesn't open TCP connections."
+      },
+      {
+        "text": "ARP broadcasts",
+        "note": "ARP resolves MAC addresses."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Ping sends ICMP Echo Request messages and waits for Echo Replies. ICMP is IP protocol number 1."
+  },
+  {
+    "id": 35,
+    "domain": "D1",
+    "scenario": "Which IPsec component provides encryption of the payload as well as integrity?",
+    "options": [
+      {
+        "text": "ESP",
+        "note": ""
+      },
+      {
+        "text": "AH",
+        "note": "AH provides integrity and authentication but no encryption."
+      },
+      {
+        "text": "IKE",
+        "note": "Negotiates keys and security associations."
+      },
+      {
+        "text": "GRE",
+        "note": "Tunnels traffic without encryption."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ESP encrypts and authenticates the payload. AH authenticates without encrypting. IKE (UDP 500) negotiates the security associations."
+  },
+  {
+    "id": 36,
+    "domain": "D1",
+    "scenario": "A tunnel must carry multicast routing protocol traffic between sites, and encryption will be added separately with IPsec. Which protocol creates the tunnel?",
+    "options": [
+      {
+        "text": "GRE",
+        "note": ""
+      },
+      {
+        "text": "ESP",
+        "note": "ESP encrypts but doesn't natively carry multicast like GRE."
+      },
+      {
+        "text": "SNMP",
+        "note": "Monitoring protocol."
+      },
+      {
+        "text": "ARP broadcasts",
+        "note": "Address resolution."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Generic Routing Encapsulation wraps many protocol types, including multicast, in a point-to-point tunnel. It has no encryption, so it's often combined with IPsec (GRE over IPsec)."
+  },
+  {
+    "id": 37,
+    "domain": "D1",
+    "scenario": "A single packet is delivered to the nearest of several servers that share the same IP address. What type of traffic is this?",
+    "options": [
+      {
+        "text": "Anycast",
+        "note": ""
+      },
+      {
+        "text": "Multicast",
+        "note": "Delivered to all members of a group."
+      },
+      {
+        "text": "Broadcast",
+        "note": "Delivered to all hosts on a segment."
+      },
+      {
+        "text": "Unicast",
+        "note": "Delivered to one specific host."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Anycast routes packets to the nearest (by routing metric) of several nodes advertising the same address. Public DNS resolvers commonly use it."
+  },
+  {
+    "id": 38,
+    "domain": "D1",
+    "scenario": "Which traffic type does IPv6 not support?",
+    "options": [
+      {
+        "text": "Broadcast",
+        "note": ""
+      },
+      {
+        "text": "Multicast",
+        "note": "IPv6 relies heavily on multicast."
+      },
+      {
+        "text": "Anycast",
+        "note": "Supported in IPv6."
+      },
+      {
+        "text": "Unicast",
+        "note": "Supported in IPv6."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IPv6 has no broadcast. Functions like ARP are replaced by multicast-based Neighbor Discovery."
+  },
+  {
+    "id": 39,
+    "domain": "D1",
+    "scenario": "Which fiber type is designed for long distances, using a laser and a very small core?",
+    "options": [
+      {
+        "text": "Single-mode",
+        "note": ""
+      },
+      {
+        "text": "Multimode",
+        "note": "Larger core, shorter distances, often LED or VCSEL light sources."
+      },
+      {
+        "text": "Twinaxial",
+        "note": "Copper, not fiber."
+      },
+      {
+        "text": "Plenum",
+        "note": "A cable jacket rating, not a fiber type."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Single-mode fiber has a small core (about 9 microns) and carries a single light path over many kilometers. Multimode has a larger core (50 or 62.5 microns) and is used for shorter runs."
+  },
+  {
+    "id": 40,
+    "domain": "D1",
+    "scenario": "Which connector is small, uses a push-pull latch, and is common on SFP fiber transceivers?",
+    "options": [
+      {
+        "text": "LC",
+        "note": ""
+      },
+      {
+        "text": "ST",
+        "note": "A bayonet twist-on connector."
+      },
+      {
+        "text": "BNC",
+        "note": "Coax connector."
+      },
+      {
+        "text": "RJ11",
+        "note": "Telephone connector."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The LC (Lucent connector) is a small form-factor fiber connector widely used with SFP and SFP+ modules."
+  },
+  {
+    "id": 41,
+    "domain": "D1",
+    "scenario": "Which connector type is used to connect cable modems and TV equipment to coaxial cable?",
+    "options": [
+      {
+        "text": "F-type",
+        "note": ""
+      },
+      {
+        "text": "RJ45",
+        "note": "Twisted-pair Ethernet."
+      },
+      {
+        "text": "LC",
+        "note": "Fiber."
+      },
+      {
+        "text": "MPO",
+        "note": "Multi-fiber."
+      }
+    ],
+    "answer": 0,
+    "explanation": "F-type connectors screw onto coaxial cable such as RG-6, used for cable internet and TV."
+  },
+  {
+    "id": 42,
+    "domain": "D1",
+    "scenario": "A data center needs a connector that terminates 12 or more fibers in one connector for 40/100G links. Which connector fits?",
+    "options": [
+      {
+        "text": "MPO",
+        "note": ""
+      },
+      {
+        "text": "SC",
+        "note": "A single-fiber connector."
+      },
+      {
+        "text": "RJ45",
+        "note": "Copper."
+      },
+      {
+        "text": "F-type",
+        "note": "Coax."
+      }
+    ],
+    "answer": 0,
+    "explanation": "MPO (multi-fiber push-on) connectors carry 8, 12, 16 or more fibers and are used for high-speed parallel optics such as 40G and 100G."
+  },
+  {
+    "id": 43,
+    "domain": "D1",
+    "scenario": "Two switches in the same rack need a cheap, short 10 Gbps link using their SFP+ ports. What is the most cost-effective option?",
+    "options": [
+      {
+        "text": "A direct attach copper (DAC) twinax cable",
+        "note": ""
+      },
+      {
+        "text": "Two single-mode transceivers and fiber",
+        "note": "Works, but costs more for a short run."
+      },
+      {
+        "text": "A Cat5e patch cable",
+        "note": "SFP+ ports don't accept RJ45 directly, and Cat5e isn't rated for 10G."
+      },
+      {
+        "text": "A coax cable with F-type connectors",
+        "note": "Not compatible with SFP+."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DAC cables have transceiver ends permanently attached to twinax copper. They're inexpensive and low-latency for short distances, typically a few meters."
+  },
+  {
+    "id": 44,
+    "domain": "D1",
+    "scenario": "Which transceiver form factor supports 40 Gbps by combining four lanes?",
+    "options": [
+      {
+        "text": "QSFP+",
+        "note": ""
+      },
+      {
+        "text": "SFP",
+        "note": "Typically 1 Gbps."
+      },
+      {
+        "text": "SFP+",
+        "note": "Typically 10 Gbps."
+      },
+      {
+        "text": "GBIC",
+        "note": "An older, larger 1 Gbps form factor."
+      }
+    ],
+    "answer": 0,
+    "explanation": "QSFP (quad small form-factor pluggable) uses four lanes: QSFP+ for 40G and QSFP28 for 100G."
+  },
+  {
+    "id": 45,
+    "domain": "D1",
+    "scenario": "Cable must run through the air-handling space above a drop ceiling. What type of cable jacket is required?",
+    "options": [
+      {
+        "text": "Plenum-rated",
+        "note": ""
+      },
+      {
+        "text": "Riser-rated",
+        "note": "For vertical runs between floors, not air-handling spaces."
+      },
+      {
+        "text": "PVC (non-plenum)",
+        "note": "Produces toxic smoke when burned."
+      },
+      {
+        "text": "Direct burial",
+        "note": "For underground runs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Plenum-rated cable uses low-smoke, fire-resistant jackets. Building codes require it in plenum spaces used for air circulation."
+  },
+  {
+    "id": 46,
+    "domain": "D1",
+    "scenario": "What is the maximum cable length for a 1000BASE-T Ethernet run over Cat5e or Cat6?",
+    "options": [
+      {
+        "text": "100 meters",
+        "note": ""
+      },
+      {
+        "text": "55 meters",
+        "note": "That's the limit for 10GBASE-T over Cat6."
+      },
+      {
+        "text": "185 meters",
+        "note": "An old thin coax (10BASE2) limit."
+      },
+      {
+        "text": "500 meters",
+        "note": "Far beyond twisted-pair limits."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Twisted-pair Ethernet runs are limited to 100 meters (90 m permanent link plus patch cords)."
+  },
+  {
+    "id": 47,
+    "domain": "D1",
+    "scenario": "A new 10GBASE-T run of 90 meters is planned. Which cable category supports 10 Gbps at that length?",
+    "options": [
+      {
+        "text": "Cat6a",
+        "note": ""
+      },
+      {
+        "text": "Cat5e",
+        "note": "Rated for 1 Gbps."
+      },
+      {
+        "text": "Cat6",
+        "note": "Supports 10 Gbps only up to about 55 meters."
+      },
+      {
+        "text": "Cat3",
+        "note": "Telephone-grade."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cat6a supports 10 Gbps up to 100 meters. Cat6 supports 10 Gbps only up to about 55 meters."
+  },
+  {
+    "id": 48,
+    "domain": "D1",
+    "scenario": "Which wireless technology connects sites using a dish that communicates with orbiting satellites, often with high latency?",
+    "options": [
+      {
+        "text": "Satellite",
+        "note": ""
+      },
+      {
+        "text": "Cellular 5G",
+        "note": "Uses terrestrial cell towers."
+      },
+      {
+        "text": "802.11ac",
+        "note": "Local Wi-Fi."
+      },
+      {
+        "text": "Bluetooth",
+        "note": "Very short range."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Satellite links serve remote locations. Geostationary satellites add significant latency; low-earth-orbit constellations reduce it."
+  },
+  {
+    "id": 49,
+    "domain": "D1",
+    "scenario": "Every switch in the access layer connects to every switch in the core layer, so any two servers are the same number of hops apart. Which topology is this?",
+    "options": [
+      {
+        "text": "Spine and leaf",
+        "note": ""
+      },
+      {
+        "text": "Bus",
+        "note": "A single shared backbone."
+      },
+      {
+        "text": "Ring",
+        "note": "Devices connected in a loop."
+      },
+      {
+        "text": "Point-to-point",
+        "note": "A single link between two endpoints."
+      }
+    ],
+    "answer": 0,
+    "explanation": "In a spine-and-leaf design, every leaf connects to every spine. That gives predictable latency and is common in data centers with heavy east-west traffic."
+  },
+  {
+    "id": 50,
+    "domain": "D1",
+    "scenario": "Traffic between servers inside a data center is described as what?",
+    "options": [
+      {
+        "text": "East-west traffic",
+        "note": ""
+      },
+      {
+        "text": "North-south traffic",
+        "note": "Traffic entering or leaving the data center."
+      },
+      {
+        "text": "Broadcast traffic",
+        "note": "A delivery type, not a direction."
+      },
+      {
+        "text": "Out-of-band traffic",
+        "note": "Management traffic on a separate network."
+      }
+    ],
+    "answer": 0,
+    "explanation": "East-west traffic flows between servers within the data center. North-south traffic flows in and out, for example between clients and the data center."
+  },
+  {
+    "id": 51,
+    "domain": "D1",
+    "scenario": "A small campus merges the core and distribution layers into one layer to save cost. What is this design called?",
+    "options": [
+      {
+        "text": "Collapsed core",
+        "note": ""
+      },
+      {
+        "text": "Spine and leaf",
+        "note": "A data center design."
+      },
+      {
+        "text": "Full mesh",
+        "note": "Every node connects to every other node."
+      },
+      {
+        "text": "Hub and spoke",
+        "note": "Branches connect to a central site."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A collapsed core combines the core and distribution layers of the three-tier (core/distribution/access) model, which suits smaller networks."
+  },
+  {
+    "id": 52,
+    "domain": "D1",
+    "scenario": "All branch offices connect only to headquarters, and branch-to-branch traffic passes through headquarters. Which topology is this?",
+    "options": [
+      {
+        "text": "Hub and spoke",
+        "note": ""
+      },
+      {
+        "text": "Full mesh",
+        "note": "Branches would connect directly to each other."
+      },
+      {
+        "text": "Ring",
+        "note": "Sites would connect in a loop."
+      },
+      {
+        "text": "Bus",
+        "note": "A shared backbone."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hub and spoke is simple and cheap but makes the hub a single point of failure and adds latency for spoke-to-spoke traffic."
+  },
+  {
+    "id": 53,
+    "domain": "D1",
+    "scenario": "Which address is a private (RFC 1918) IPv4 address?",
+    "options": [
+      {
+        "text": "172.20.5.9",
+        "note": ""
+      },
+      {
+        "text": "172.32.1.1",
+        "note": "Outside the 172.16.0.0/12 private range."
+      },
+      {
+        "text": "192.169.1.1",
+        "note": "Outside 192.168.0.0/16."
+      },
+      {
+        "text": "11.0.0.5",
+        "note": "Outside 10.0.0.0/8."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The private ranges are 10.0.0.0/8, 172.16.0.0/12 (172.16.0.0–172.31.255.255) and 192.168.0.0/16."
+  },
+  {
+    "id": 54,
+    "domain": "D1",
+    "scenario": "A Windows PC shows the address 169.254.33.10. What does this most likely mean?",
+    "options": [
+      {
+        "text": "DHCP failed, so it self-assigned an APIPA address.",
+        "note": ""
+      },
+      {
+        "text": "It received a public address directly from the ISP.",
+        "note": "169.254.0.0/16 is link-local, not public."
+      },
+      {
+        "text": "It's using the loopback interface.",
+        "note": "Loopback is 127.0.0.0/8."
+      },
+      {
+        "text": "It has a static IP address configured manually.",
+        "note": "APIPA is self-assigned automatically."
+      }
+    ],
+    "answer": 0,
+    "explanation": "APIPA (169.254.0.0/16) is self-assigned when DHCP fails. Check DHCP server availability, DHCP relay and the client's network connection."
+  },
+  {
+    "id": 55,
+    "domain": "D1",
+    "scenario": "How many usable host addresses are in a /27 subnet?",
+    "options": [
+      {
+        "text": "30",
+        "note": ""
+      },
+      {
+        "text": "32",
+        "note": "That's the total; the network and broadcast addresses aren't usable."
+      },
+      {
+        "text": "62",
+        "note": "That's a /26."
+      },
+      {
+        "text": "14",
+        "note": "That's a /28."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A /27 leaves 5 host bits: 2⁵ = 32 addresses, minus the network and broadcast addresses = 30 usable hosts."
+  },
+  {
+    "id": 56,
+    "domain": "D1",
+    "scenario": "What is the subnet mask for a /26 network?",
+    "options": [
+      {
+        "text": "255.255.255.192",
+        "note": ""
+      },
+      {
+        "text": "255.255.255.224",
+        "note": "That's /27."
+      },
+      {
+        "text": "255.255.255.128",
+        "note": "That's /25."
+      },
+      {
+        "text": "255.255.255.240",
+        "note": "That's /28."
+      }
+    ],
+    "answer": 0,
+    "explanation": "/26 means 26 network bits: 255.255.255.192 (the last octet is 11000000)."
+  },
+  {
+    "id": 57,
+    "domain": "D1",
+    "scenario": "A host has the address 192.168.10.77/26. What is its network address?",
+    "options": [
+      {
+        "text": "192.168.10.64",
+        "note": ""
+      },
+      {
+        "text": "192.168.10.0",
+        "note": "That would be correct for /24."
+      },
+      {
+        "text": "192.168.10.72",
+        "note": "Not a /26 boundary."
+      },
+      {
+        "text": "192.168.10.128",
+        "note": "That's the next-but-one /26 block."
+      }
+    ],
+    "answer": 0,
+    "explanation": "/26 blocks are 64 addresses wide: .0, .64, .128, .192. Address .77 falls in the .64 block (.64–.127)."
+  },
+  {
+    "id": 58,
+    "domain": "D1",
+    "scenario": "What is the broadcast address of the subnet 10.1.4.0/22?",
+    "options": [
+      {
+        "text": "10.1.7.255",
+        "note": ""
+      },
+      {
+        "text": "10.1.4.255",
+        "note": "That would be /24."
+      },
+      {
+        "text": "10.1.5.255",
+        "note": "That would be /23."
+      },
+      {
+        "text": "10.1.255.255",
+        "note": "That would be /16."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A /22 spans four /24s: 10.1.4.0 through 10.1.7.255, so the broadcast address is 10.1.7.255."
+  },
+  {
+    "id": 59,
+    "domain": "D1",
+    "scenario": "A department needs 50 hosts in its subnet with as little waste as possible. Which prefix length should you use?",
+    "options": [
+      {
+        "text": "/26",
+        "note": ""
+      },
+      {
+        "text": "/27",
+        "note": "Only 30 usable hosts."
+      },
+      {
+        "text": "/25",
+        "note": "126 usable hosts; more waste than needed."
+      },
+      {
+        "text": "/28",
+        "note": "Only 14 usable hosts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A /26 provides 62 usable hosts, the smallest subnet that fits 50. Using different prefix lengths for different needs is VLSM."
+  },
+  {
+    "id": 60,
+    "domain": "D1",
+    "scenario": "Which address range is reserved for loopback in IPv4?",
+    "options": [
+      {
+        "text": "127.0.0.0/8",
+        "note": ""
+      },
+      {
+        "text": "169.254.0.0/16",
+        "note": "APIPA / link-local."
+      },
+      {
+        "text": "224.0.0.0/4",
+        "note": "Multicast (class D)."
+      },
+      {
+        "text": "0.0.0.0/8",
+        "note": "\"This network\"; not loopback."
+      }
+    ],
+    "answer": 0,
+    "explanation": "127.0.0.0/8 is loopback; 127.0.0.1 is the usual address used to test the local TCP/IP stack."
+  },
+  {
+    "id": 61,
+    "domain": "D1",
+    "scenario": "Which IPv4 class range is used for multicast?",
+    "options": [
+      {
+        "text": "Class D (224.0.0.0–239.255.255.255)",
+        "note": ""
+      },
+      {
+        "text": "Class C (192.0.0.0–223.255.255.255)",
+        "note": "Unicast."
+      },
+      {
+        "text": "Class E (240.0.0.0–255.255.255.255)",
+        "note": "Reserved/experimental."
+      },
+      {
+        "text": "Class B (128.0.0.0–191.255.255.255)",
+        "note": "Unicast."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Class D addresses are multicast. Classful addressing is obsolete for routing, but the ranges still appear on exams."
+  },
+  {
+    "id": 62,
+    "domain": "D1",
+    "scenario": "A company wants to manage WAN links centrally and automatically route application traffic over the best available link (MPLS, broadband or LTE). What should it implement?",
+    "options": [
+      {
+        "text": "SD-WAN",
+        "note": ""
+      },
+      {
+        "text": "Spanning tree",
+        "note": "Prevents layer 2 loops."
+      },
+      {
+        "text": "A collapsed core",
+        "note": "A campus design."
+      },
+      {
+        "text": "Static routes on each branch router",
+        "note": "Not application-aware or centrally managed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SD-WAN is transport-agnostic and application-aware, with central policy management and zero-touch provisioning for new sites."
+  },
+  {
+    "id": 63,
+    "domain": "D1",
+    "scenario": "In software-defined networking, which plane makes forwarding decisions centrally and pushes them to devices?",
+    "options": [
+      {
+        "text": "Control plane",
+        "note": ""
+      },
+      {
+        "text": "Data plane",
+        "note": "Forwards traffic based on the decisions."
+      },
+      {
+        "text": "Management plane",
+        "note": "Used for configuration and monitoring access."
+      },
+      {
+        "text": "Physical plane",
+        "note": "Not an SDN plane."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SDN separates the control plane (centralized in a controller) from the data plane (forwarding on devices). The management plane is used to configure and monitor."
+  },
+  {
+    "id": 64,
+    "domain": "D1",
+    "scenario": "A data center must extend layer 2 segments across a layer 3 network between sites, with up to 16 million segment IDs. Which technology fits?",
+    "options": [
+      {
+        "text": "VXLAN",
+        "note": ""
+      },
+      {
+        "text": "802.1Q VLANs only",
+        "note": "Limited to 4094 VLANs and doesn't cross layer 3."
+      },
+      {
+        "text": "GRE",
+        "note": "Tunnels IP; not a scalable layer 2 overlay with segment IDs."
+      },
+      {
+        "text": "STP",
+        "note": "Loop prevention."
+      }
+    ],
+    "answer": 0,
+    "explanation": "VXLAN encapsulates layer 2 frames in UDP. Its 24-bit VNI allows about 16 million segments, which suits data center interconnects."
+  },
+  {
+    "id": 65,
+    "domain": "D1",
+    "scenario": "Which security model assumes no user or device is trusted by default and checks every access request based on identity and policy?",
+    "options": [
+      {
+        "text": "Zero trust architecture",
+        "note": ""
+      },
+      {
+        "text": "Perimeter-based (castle-and-moat) security",
+        "note": "Trusts anything inside the network."
+      },
+      {
+        "text": "Defense in depth only",
+        "note": "Layered controls, but not specifically 'never trust, always verify'."
+      },
+      {
+        "text": "Implicit trust",
+        "note": "The opposite of zero trust."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Zero trust uses policy-based authentication and authorization for every request and least-privilege access, regardless of network location."
+  },
+  {
+    "id": 66,
+    "domain": "D1",
+    "scenario": "A provider combines SD-WAN with cloud-delivered security services such as secure web gateway, CASB and zero trust network access. What is this called?",
+    "options": [
+      {
+        "text": "SASE",
+        "note": ""
+      },
+      {
+        "text": "SCADA",
+        "note": "Industrial control systems."
+      },
+      {
+        "text": "SIEM",
+        "note": "Log correlation and analysis."
+      },
+      {
+        "text": "SNMP",
+        "note": "Monitoring protocol."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Secure Access Service Edge combines networking (SD-WAN) and security (SSE) delivered from the cloud. Security Service Edge (SSE) is the security part alone."
+  },
+  {
+    "id": 67,
+    "domain": "D1",
+    "scenario": "A team stores router configurations as templates and uses automation playbooks to deploy them, and an alert fires when a device's running config no longer matches. What is that mismatch called?",
+    "options": [
+      {
+        "text": "Configuration drift",
+        "note": ""
+      },
+      {
+        "text": "Jitter",
+        "note": "Variation in packet delay."
+      },
+      {
+        "text": "Split horizon",
+        "note": "A routing loop-prevention technique."
+      },
+      {
+        "text": "Attenuation",
+        "note": "Signal loss."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Infrastructure as code keeps configurations consistent. Configuration drift is when a device deviates from its intended, source-controlled configuration."
+  },
+  {
+    "id": 68,
+    "domain": "D1",
+    "scenario": "Two engineers edit the same automation template in a version control repository. What helps them work in parallel and then merge their changes safely?",
+    "options": [
+      {
+        "text": "Branching",
+        "note": ""
+      },
+      {
+        "text": "Port mirroring",
+        "note": "Copies network traffic."
+      },
+      {
+        "text": "Dynamic inventory",
+        "note": "Lists devices for automation, but doesn't manage parallel edits."
+      },
+      {
+        "text": "NAT64",
+        "note": "IPv6 to IPv4 translation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Source control lets each engineer work on a branch. Merges are reviewed, and conflicts are identified before changes reach the main branch."
+  },
+  {
+    "id": 69,
+    "domain": "D1",
+    "scenario": "Which IPv6 address type is automatically configured on every interface and starts with fe80?",
+    "options": [
+      {
+        "text": "Link-local",
+        "note": ""
+      },
+      {
+        "text": "Global unicast",
+        "note": "Usually starts with 2 or 3 (2000::/3)."
+      },
+      {
+        "text": "Unique local",
+        "note": "Starts with fc or fd (fc00::/7)."
+      },
+      {
+        "text": "Multicast",
+        "note": "Starts with ff."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Link-local addresses (fe80::/10) are used for communication on the local link, including Neighbor Discovery and routing protocol neighbors."
+  },
+  {
+    "id": 70,
+    "domain": "D1",
+    "scenario": "An organization runs IPv4 and IPv6 on the same hosts and network devices at the same time. What is this transition method called?",
+    "options": [
+      {
+        "text": "Dual stack",
+        "note": ""
+      },
+      {
+        "text": "NAT64",
+        "note": "Translates between IPv6-only and IPv4 hosts."
+      },
+      {
+        "text": "Tunneling",
+        "note": "Encapsulates IPv6 in IPv4 across IPv4-only networks."
+      },
+      {
+        "text": "APIPA",
+        "note": "IPv4 self-assignment."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Dual stack is the most common transition method. Tunneling and NAT64 are used where one protocol isn't available end to end."
+  },
+  {
+    "id": 71,
+    "domain": "D1",
+    "scenario": "IPv6-only clients need to reach an IPv4-only web server. Which technology translates between them?",
+    "options": [
+      {
+        "text": "NAT64",
+        "note": ""
+      },
+      {
+        "text": "Dual stack",
+        "note": "Requires both protocols on the hosts."
+      },
+      {
+        "text": "6to4 tunneling",
+        "note": "Carries IPv6 across IPv4 networks; doesn't translate to IPv4 servers."
+      },
+      {
+        "text": "PAT",
+        "note": "Translates IPv4 to IPv4."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NAT64 translates IPv6 packets to IPv4. DNS64 synthesizes AAAA records for IPv4-only names so clients know which address to use."
+  },
+  {
+    "id": 72,
+    "domain": "D1",
+    "scenario": "Which is the correctly shortened form of 2001:0db8:0000:0000:0000:ff00:0042:8329?",
+    "options": [
+      {
+        "text": "2001:db8::ff00:42:8329",
+        "note": ""
+      },
+      {
+        "text": "2001:db8:0:0:ff00:42:8329",
+        "note": "Missing one group; the original has three zero groups."
+      },
+      {
+        "text": "2001:db8::ff00::42:8329",
+        "note": "The :: can appear only once."
+      },
+      {
+        "text": "2001:db8:ff00:42:8329",
+        "note": "Drops the zero groups without ::."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Remove leading zeros in each group and replace one run of consecutive all-zero groups with ::. The :: can only be used once per address."
+  },
+  {
+    "id": 73,
+    "domain": "D2",
+    "scenario": "A router has routes to 10.1.0.0/16 and 10.1.5.0/24. A packet arrives for 10.1.5.20. Which route is used?",
+    "options": [
+      {
+        "text": "10.1.5.0/24",
+        "note": ""
+      },
+      {
+        "text": "10.1.0.0/16",
+        "note": "Also matches, but it's less specific."
+      },
+      {
+        "text": "Whichever route was added first",
+        "note": "Order of entry doesn't decide."
+      },
+      {
+        "text": "The default route",
+        "note": "Only used when nothing more specific matches."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Routers use the longest prefix match: the most specific matching route wins, before administrative distance or metric are considered."
+  },
+  {
+    "id": 74,
+    "domain": "D2",
+    "scenario": "A router learns the same network from OSPF and from a static route. Which one is installed in the routing table by default (Cisco values)?",
+    "options": [
+      {
+        "text": "The static route (administrative distance 1)",
+        "note": ""
+      },
+      {
+        "text": "The OSPF route (administrative distance 110)",
+        "note": "Higher AD is less trusted."
+      },
+      {
+        "text": "Both, load-balanced",
+        "note": "Different sources with different AD aren't load-balanced."
+      },
+      {
+        "text": "Neither; the router reports a conflict",
+        "note": "The router simply picks the lower AD."
+      }
+    ],
+    "answer": 0,
+    "explanation": "When prefix length is the same, the route with the lowest administrative distance wins. Typical Cisco values: connected 0, static 1, eBGP 20, EIGRP 90, OSPF 110, RIP 120."
+  },
+  {
+    "id": 75,
+    "domain": "D2",
+    "scenario": "A route is considered most trustworthy when it has which characteristic?",
+    "options": [
+      {
+        "text": "The lowest administrative distance",
+        "note": ""
+      },
+      {
+        "text": "The highest administrative distance",
+        "note": "Higher AD means less trusted."
+      },
+      {
+        "text": "The highest hop count",
+        "note": "More hops is worse for RIP."
+      },
+      {
+        "text": "The longest uptime",
+        "note": "Not a route selection factor."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Administrative distance rates how trustworthy a route source is. Lower is better. It's compared only between routes with the same prefix length."
+  },
+  {
+    "id": 76,
+    "domain": "D2",
+    "scenario": "Which routing protocol is used between autonomous systems on the internet?",
+    "options": [
+      {
+        "text": "BGP",
+        "note": ""
+      },
+      {
+        "text": "OSPF",
+        "note": "An interior gateway protocol used within one organization."
+      },
+      {
+        "text": "EIGRP",
+        "note": "An interior gateway protocol."
+      },
+      {
+        "text": "RIP",
+        "note": "An old interior protocol limited to 15 hops."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BGP is a path-vector exterior gateway protocol. It exchanges routes between autonomous systems, such as between ISPs and large enterprises."
+  },
+  {
+    "id": 77,
+    "domain": "D2",
+    "scenario": "Which interior routing protocol is link-state, uses areas, and calculates cost based on interface bandwidth?",
+    "options": [
+      {
+        "text": "OSPF",
+        "note": ""
+      },
+      {
+        "text": "RIP",
+        "note": "Distance-vector using hop count."
+      },
+      {
+        "text": "BGP",
+        "note": "Path-vector, used between autonomous systems."
+      },
+      {
+        "text": "EIGRP",
+        "note": "An advanced distance-vector (hybrid) protocol."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OSPF builds a complete map of the area using link-state advertisements, runs the SPF algorithm, and uses cost (based on bandwidth) as its metric."
+  },
+  {
+    "id": 78,
+    "domain": "D2",
+    "scenario": "Which routing protocol is described as advanced distance-vector (hybrid) and uses bandwidth and delay in its metric by default?",
+    "options": [
+      {
+        "text": "EIGRP",
+        "note": ""
+      },
+      {
+        "text": "OSPF",
+        "note": "Link-state, using cost."
+      },
+      {
+        "text": "RIPv2",
+        "note": "Distance-vector, using hop count."
+      },
+      {
+        "text": "BGP",
+        "note": "Path-vector, using path attributes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "EIGRP (originally Cisco proprietary) combines distance-vector and link-state features, converges quickly, and uses bandwidth and delay by default."
+  },
+  {
+    "id": 79,
+    "domain": "D2",
+    "scenario": "A small branch has one internet connection. What is the simplest way to send all non-local traffic to the ISP?",
+    "options": [
+      {
+        "text": "Configure a default static route (0.0.0.0/0) to the ISP's next hop.",
+        "note": ""
+      },
+      {
+        "text": "Run BGP with the ISP.",
+        "note": "Unnecessary complexity for a single connection."
+      },
+      {
+        "text": "Enable OSPF on all interfaces.",
+        "note": "OSPF won't learn internet routes from the ISP."
+      },
+      {
+        "text": "Configure a separate static route for every internet network.",
+        "note": "Impractical."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A default route (gateway of last resort) matches any destination not otherwise in the routing table."
+  },
+  {
+    "id": 80,
+    "domain": "D2",
+    "scenario": "Two routers share a virtual IP address that hosts use as their default gateway. If the active router fails, the standby takes over. What provides this?",
+    "options": [
+      {
+        "text": "A first hop redundancy protocol",
+        "note": ""
+      },
+      {
+        "text": "Spanning tree",
+        "note": "Prevents loops; doesn't provide gateway redundancy."
+      },
+      {
+        "text": "Link aggregation",
+        "note": "Combines links, not routers."
+      },
+      {
+        "text": "DHCP relay",
+        "note": "Forwards DHCP requests."
+      }
+    ],
+    "answer": 0,
+    "explanation": "FHRPs (VRRP, HSRP, GLBP) present a virtual IP and virtual MAC to hosts, so the gateway survives a router failure without client changes."
+  },
+  {
+    "id": 81,
+    "domain": "D2",
+    "scenario": "Hundreds of internal hosts share one public IPv4 address using different source ports. What is this called?",
+    "options": [
+      {
+        "text": "PAT (NAT overload)",
+        "note": ""
+      },
+      {
+        "text": "Static NAT",
+        "note": "Maps one private address to one public address."
+      },
+      {
+        "text": "NAT64",
+        "note": "Translates IPv6 to IPv4."
+      },
+      {
+        "text": "Anycast",
+        "note": "A routing delivery method."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PAT tracks each connection by translated source port, so many private hosts share one public address."
+  },
+  {
+    "id": 82,
+    "domain": "D2",
+    "scenario": "An internal web server must always be reachable from the internet at the same public IP address. Which type of NAT is needed?",
+    "options": [
+      {
+        "text": "Static NAT",
+        "note": ""
+      },
+      {
+        "text": "PAT",
+        "note": "Shares one address among many outbound hosts."
+      },
+      {
+        "text": "Dynamic NAT from a pool",
+        "note": "The public address could change."
+      },
+      {
+        "text": "APIPA",
+        "note": "Self-assigned link-local addressing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Static NAT creates a permanent one-to-one mapping between a private and a public address, so inbound connections always reach the same server. Port forwarding is the PAT equivalent for specific ports."
+  },
+  {
+    "id": 83,
+    "domain": "D2",
+    "scenario": "One physical router interface must route between VLANs 10, 20 and 30 arriving on an 802.1Q trunk. What should be configured on the router?",
+    "options": [
+      {
+        "text": "An 802.1Q subinterface per VLAN",
+        "note": ""
+      },
+      {
+        "text": "Three separate physical interfaces",
+        "note": "Works, but the scenario has one interface."
+      },
+      {
+        "text": "A switched virtual interface on the router",
+        "note": "SVIs are configured on layer 3 switches."
+      },
+      {
+        "text": "Port mirroring",
+        "note": "Copies traffic for analysis."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Router-on-a-stick uses one logical subinterface per VLAN on a trunked physical interface. Each subinterface becomes the default gateway for its VLAN."
+  },
+  {
+    "id": 84,
+    "domain": "D2",
+    "scenario": "A layer 3 switch needs to route between VLAN 10 and VLAN 20 internally. What should be created?",
+    "options": [
+      {
+        "text": "An SVI for each VLAN",
+        "note": ""
+      },
+      {
+        "text": "A separate physical router per VLAN",
+        "note": "Not needed with a layer 3 switch."
+      },
+      {
+        "text": "A trunk port between VLANs",
+        "note": "Trunks carry VLANs; they don't route."
+      },
+      {
+        "text": "A port channel",
+        "note": "Aggregates links."
+      }
+    ],
+    "answer": 0,
+    "explanation": "An SVI is a virtual layer 3 interface for a VLAN, with an IP address that acts as the VLAN's default gateway."
+  },
+  {
+    "id": 85,
+    "domain": "D2",
+    "scenario": "On an 802.1Q trunk, frames for one VLAN are sent without a tag. What is that VLAN called?",
+    "options": [
+      {
+        "text": "The native VLAN",
+        "note": ""
+      },
+      {
+        "text": "The voice VLAN",
+        "note": "Carries voice traffic, usually tagged."
+      },
+      {
+        "text": "The management VLAN",
+        "note": "Used for device management; not necessarily untagged."
+      },
+      {
+        "text": "The default gateway VLAN",
+        "note": "Not a real term."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The native VLAN carries untagged traffic on a trunk. It must match on both ends, and changing it from VLAN 1 is a security best practice."
+  },
+  {
+    "id": 86,
+    "domain": "D2",
+    "scenario": "An IP phone and a PC share one switch port. The phone's traffic should go to VLAN 50 and the PC's to VLAN 10. What should be configured on the port?",
+    "options": [
+      {
+        "text": "Access VLAN 10, voice VLAN 50",
+        "note": ""
+      },
+      {
+        "text": "A trunk port allowing all VLANs",
+        "note": "Overly broad for an access port."
+      },
+      {
+        "text": "Two separate switch ports",
+        "note": "The scenario uses one port."
+      },
+      {
+        "text": "A port channel",
+        "note": "Aggregates links."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A voice VLAN lets the phone tag its traffic (often learned through CDP or LLDP-MED) while the PC's untagged traffic uses the access VLAN."
+  },
+  {
+    "id": 87,
+    "domain": "D2",
+    "scenario": "Which standard adds a 4-byte tag to Ethernet frames to identify their VLAN on a trunk?",
+    "options": [
+      {
+        "text": "802.1Q",
+        "note": ""
+      },
+      {
+        "text": "802.1X",
+        "note": "Port-based network access control."
+      },
+      {
+        "text": "802.3af",
+        "note": "Power over Ethernet."
+      },
+      {
+        "text": "802.11ac",
+        "note": "Wi-Fi."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IEEE 802.1Q defines VLAN tagging, with a 12-bit VLAN ID that allows VLANs 1–4094."
+  },
+  {
+    "id": 88,
+    "domain": "D2",
+    "scenario": "Four 1 Gbps links between two switches should act as one logical link for more bandwidth and redundancy. What should be configured?",
+    "options": [
+      {
+        "text": "Link aggregation with LACP",
+        "note": ""
+      },
+      {
+        "text": "Spanning tree on all four links",
+        "note": "STP would block all but one of the links."
+      },
+      {
+        "text": "Four separate VLANs",
+        "note": "Doesn't combine bandwidth."
+      },
+      {
+        "text": "Port mirroring",
+        "note": "Copies traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Link aggregation (port channel / EtherChannel), negotiated with LACP, bundles links into one logical interface. Traffic is load-balanced across members, and it survives a member failure."
+  },
+  {
+    "id": 89,
+    "domain": "D2",
+    "scenario": "A link shows many late collisions and poor performance. One side is set to full duplex and the other to half duplex. What is the issue?",
+    "options": [
+      {
+        "text": "Duplex mismatch",
+        "note": ""
+      },
+      {
+        "text": "VLAN mismatch",
+        "note": "Would stop traffic between the VLANs entirely."
+      },
+      {
+        "text": "Incorrect MTU",
+        "note": "Causes problems with large frames, not collisions."
+      },
+      {
+        "text": "PoE power budget exceeded",
+        "note": "Affects powered devices."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A duplex mismatch causes collisions, CRC errors and slow performance. Set both sides to auto-negotiate, or hard-code both identically."
+  },
+  {
+    "id": 90,
+    "domain": "D2",
+    "scenario": "Storage traffic on a data center network will use 9000-byte frames. What must be configured consistently along the path?",
+    "options": [
+      {
+        "text": "A 9000-byte MTU on every device in the path",
+        "note": ""
+      },
+      {
+        "text": "A 1500-byte MTU on the servers only",
+        "note": "1500 is the standard size; large frames would be dropped or fragmented."
+      },
+      {
+        "text": "QoS marking only",
+        "note": "Doesn't change frame size limits."
+      },
+      {
+        "text": "A larger TTL",
+        "note": "TTL limits hops, not frame size."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Jumbo frames reduce overhead for large transfers, but every switch, router and host along the path must support the larger MTU, or frames are dropped."
+  },
+  {
+    "id": 91,
+    "domain": "D2",
+    "scenario": "What is the purpose of Spanning Tree Protocol?",
+    "options": [
+      {
+        "text": "To prevent layer 2 switching loops",
+        "note": ""
+      },
+      {
+        "text": "To route between VLANs",
+        "note": "That's done by routers or layer 3 switches."
+      },
+      {
+        "text": "To combine links into one logical link",
+        "note": "That's link aggregation."
+      },
+      {
+        "text": "To assign IP addresses",
+        "note": "That's DHCP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "STP (802.1D; RSTP is 802.1w) elects a root bridge and blocks redundant ports so there's one loop-free path, while keeping backup paths ready."
+  },
+  {
+    "id": 92,
+    "domain": "D2",
+    "scenario": "How is the STP root bridge elected?",
+    "options": [
+      {
+        "text": "The lowest bridge ID wins.",
+        "note": ""
+      },
+      {
+        "text": "The highest priority value wins.",
+        "note": "Lower values win."
+      },
+      {
+        "text": "The switch with the most ports wins.",
+        "note": "Port count doesn't matter."
+      },
+      {
+        "text": "The first switch powered on wins.",
+        "note": "Boot order doesn't decide."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The bridge ID is the priority (default 32768) plus the MAC address. Lower is better. Set a lower priority on the switch you want as root rather than leaving it to MAC addresses."
+  },
+  {
+    "id": 93,
+    "domain": "D2",
+    "scenario": "Which 2.4 GHz channels are non-overlapping in North America?",
+    "options": [
+      {
+        "text": "1, 6 and 11",
+        "note": ""
+      },
+      {
+        "text": "1, 5 and 9",
+        "note": "These overlap with 20 MHz channels."
+      },
+      {
+        "text": "2, 7 and 12",
+        "note": "Not the standard non-overlapping set."
+      },
+      {
+        "text": "36, 40 and 44",
+        "note": "These are 5 GHz channels."
+      }
+    ],
+    "answer": 0,
+    "explanation": "With 20 MHz channels in the 2.4 GHz band, only 1, 6 and 11 don't overlap in North America."
+  },
+  {
+    "id": 94,
+    "domain": "D2",
+    "scenario": "Which Wi-Fi generation added support for the 6 GHz band?",
+    "options": [
+      {
+        "text": "Wi-Fi 6E (802.11ax)",
+        "note": ""
+      },
+      {
+        "text": "Wi-Fi 5 (802.11ac)",
+        "note": "5 GHz only."
+      },
+      {
+        "text": "Wi-Fi 4 (802.11n)",
+        "note": "2.4 and 5 GHz."
+      },
+      {
+        "text": "802.11g",
+        "note": "2.4 GHz only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Wi-Fi 6E extends 802.11ax into the 6 GHz band. Wi-Fi 7 (802.11be) also supports 2.4, 5 and 6 GHz."
+  },
+  {
+    "id": 95,
+    "domain": "D2",
+    "scenario": "Which 802.11 standard operates only in the 5 GHz band?",
+    "options": [
+      {
+        "text": "802.11ac",
+        "note": ""
+      },
+      {
+        "text": "802.11n",
+        "note": "Supports both 2.4 and 5 GHz."
+      },
+      {
+        "text": "802.11g",
+        "note": "2.4 GHz only."
+      },
+      {
+        "text": "802.11b",
+        "note": "2.4 GHz only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "802.11ac (Wi-Fi 5) is a 5 GHz standard. 802.11a was also 5 GHz only."
+  },
+  {
+    "id": 96,
+    "domain": "D2",
+    "scenario": "Wider Wi-Fi channels (80 or 160 MHz) increase throughput. What is the trade-off?",
+    "options": [
+      {
+        "text": "Fewer non-overlapping channels are available",
+        "note": ""
+      },
+      {
+        "text": "They only work in the 2.4 GHz band",
+        "note": "Wide channels are used in 5 and 6 GHz."
+      },
+      {
+        "text": "They reduce encryption strength",
+        "note": "Channel width doesn't affect encryption."
+      },
+      {
+        "text": "They require WPA2 or older security",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Bonding channels uses more spectrum, so neighboring APs are more likely to overlap. Dense environments often use 20 or 40 MHz channels."
+  },
+  {
+    "id": 97,
+    "domain": "D2",
+    "scenario": "Dual-band clients keep connecting to 2.4 GHz even though 5 GHz is available and less congested. Which AP feature encourages them to use 5 GHz?",
+    "options": [
+      {
+        "text": "Band steering",
+        "note": ""
+      },
+      {
+        "text": "MAC filtering",
+        "note": "Controls which devices can connect."
+      },
+      {
+        "text": "Captive portal",
+        "note": "Guest authentication page."
+      },
+      {
+        "text": "SSID broadcast disabling",
+        "note": "Hides the network name."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Band steering nudges dual-band clients toward the 5 GHz (or 6 GHz) band by delaying or rejecting their 2.4 GHz probe responses."
+  },
+  {
+    "id": 98,
+    "domain": "D2",
+    "scenario": "Several APs broadcast the same network name so clients can roam between them. What is this group called?",
+    "options": [
+      {
+        "text": "An ESS (one ESSID)",
+        "note": ""
+      },
+      {
+        "text": "A BSSID",
+        "note": "The MAC address of a single AP radio."
+      },
+      {
+        "text": "An ad hoc network",
+        "note": "Devices connect directly without an AP."
+      },
+      {
+        "text": "A VLAN",
+        "note": "A layer 2 segment, not a wireless term."
+      }
+    ],
+    "answer": 0,
+    "explanation": "An extended service set (ESS) uses one ESSID (SSID) across many APs. Each AP radio has its own BSSID (MAC address)."
+  },
+  {
+    "id": 99,
+    "domain": "D2",
+    "scenario": "Which regulation-driven 802.11 amendment adds dynamic frequency selection and transmit power control in the 5 GHz band to avoid interfering with radar?",
+    "options": [
+      {
+        "text": "802.11h",
+        "note": ""
+      },
+      {
+        "text": "802.11e",
+        "note": "QoS for Wi-Fi."
+      },
+      {
+        "text": "802.11i",
+        "note": "Security (WPA2)."
+      },
+      {
+        "text": "802.11r",
+        "note": "Fast roaming."
+      }
+    ],
+    "answer": 0,
+    "explanation": "802.11h introduced DFS and TPC. APs on DFS channels must switch channels if they detect radar."
+  },
+  {
+    "id": 100,
+    "domain": "D2",
+    "scenario": "A home network uses a shared password instead of individual user accounts. Which WPA3 mode is this, and how is the password protected?",
+    "options": [
+      {
+        "text": "WPA3-Personal, using SAE",
+        "note": ""
+      },
+      {
+        "text": "WPA3-Enterprise, using RADIUS",
+        "note": "Enterprise uses 802.1X with individual credentials."
+      },
+      {
+        "text": "WEP, using a 64-bit key",
+        "note": "WEP is broken and obsolete."
+      },
+      {
+        "text": "WPA2-Enterprise, using a captive portal",
+        "note": "Captive portals aren't encryption."
+      }
+    ],
+    "answer": 0,
+    "explanation": "WPA3-Personal replaces WPA2's PSK four-way handshake with Simultaneous Authentication of Equals (SAE), which protects against offline password cracking."
+  },
+  {
+    "id": 101,
+    "domain": "D2",
+    "scenario": "Each employee should log in to Wi-Fi with their own directory credentials, and access should be revocable per user. What should be configured?",
+    "options": [
+      {
+        "text": "Enterprise mode (802.1X) with RADIUS",
+        "note": ""
+      },
+      {
+        "text": "WPA2-Personal with a strong shared key",
+        "note": "Everyone shares one key."
+      },
+      {
+        "text": "An open network with MAC filtering",
+        "note": "MAC addresses are easily spoofed."
+      },
+      {
+        "text": "WEP",
+        "note": "Insecure and obsolete."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Enterprise mode uses 802.1X/EAP with a RADIUS server, so authentication is per user and access can be revoked individually."
+  },
+  {
+    "id": 102,
+    "domain": "D2",
+    "scenario": "Visitors must accept terms of use on a web page before getting internet access on the guest Wi-Fi. What provides this?",
+    "options": [
+      {
+        "text": "A captive portal",
+        "note": ""
+      },
+      {
+        "text": "Band steering",
+        "note": "Moves clients between bands."
+      },
+      {
+        "text": "WPA3-SAE",
+        "note": "Password-based encryption, not a terms page."
+      },
+      {
+        "text": "DFS",
+        "note": "Radar avoidance."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A captive portal redirects new clients to a web page for terms acceptance or login before granting access. It's typically paired with an isolated guest network."
+  },
+  {
+    "id": 103,
+    "domain": "D2",
+    "scenario": "A point-to-point wireless bridge must connect two buildings 2 km apart. Which antenna type is most appropriate?",
+    "options": [
+      {
+        "text": "Directional",
+        "note": ""
+      },
+      {
+        "text": "Omnidirectional",
+        "note": "Spreads signal in all directions; poor for long point-to-point links."
+      },
+      {
+        "text": "A dipole on a laptop",
+        "note": "Very short range."
+      },
+      {
+        "text": "No antenna; use a mesh of APs",
+        "note": "Impractical for a 2 km gap."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Directional antennas focus energy in one direction for long-distance point-to-point links. Omnidirectional antennas cover the area around an AP."
+  },
+  {
+    "id": 104,
+    "domain": "D2",
+    "scenario": "A company with 200 APs wants central configuration, firmware updates and roaming management. Which AP architecture fits?",
+    "options": [
+      {
+        "text": "Controller-managed lightweight APs",
+        "note": ""
+      },
+      {
+        "text": "Autonomous APs configured one by one",
+        "note": "Each AP is managed individually."
+      },
+      {
+        "text": "Ad hoc networking",
+        "note": "No access points at all."
+      },
+      {
+        "text": "A single high-power AP",
+        "note": "Can't cover a large site."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lightweight (controller-based or cloud-managed) APs get their configuration from a central controller. Autonomous APs are configured individually."
+  },
+  {
+    "id": 105,
+    "domain": "D2",
+    "scenario": "APs in a warehouse can't all be cabled, so some APs connect wirelessly to other APs to reach the wired network. What is this network type?",
+    "options": [
+      {
+        "text": "Wireless mesh",
+        "note": ""
+      },
+      {
+        "text": "Ad hoc",
+        "note": "Client devices connect directly to each other."
+      },
+      {
+        "text": "Infrastructure with all-wired APs",
+        "note": "The scenario has unwired APs."
+      },
+      {
+        "text": "Point-to-point only",
+        "note": "Mesh involves multiple interconnected APs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "In a wireless mesh, APs relay traffic for each other back to the wired network. That extends coverage where cabling is hard."
+  },
+  {
+    "id": 106,
+    "domain": "D2",
+    "scenario": "Where are the building's main network equipment and the connection to the service provider usually located?",
+    "options": [
+      {
+        "text": "The main distribution frame (MDF)",
+        "note": ""
+      },
+      {
+        "text": "An intermediate distribution frame (IDF)",
+        "note": "IDFs serve individual floors or areas and connect back to the MDF."
+      },
+      {
+        "text": "The demarc extension in the break room",
+        "note": "Not where core equipment is housed."
+      },
+      {
+        "text": "The plenum space",
+        "note": "An air-handling space."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The MDF houses core equipment and the provider demarcation. IDFs on other floors connect to it through backbone cabling."
+  },
+  {
+    "id": 107,
+    "domain": "D2",
+    "scenario": "A switch has fans that blow air out of the side where its ports are. How should it be mounted in a hot aisle/cold aisle data center?",
+    "options": [
+      {
+        "text": "With the port side facing the hot aisle",
+        "note": ""
+      },
+      {
+        "text": "With the port side facing the cold aisle",
+        "note": "Exhaust would blow hot air into the cold aisle."
+      },
+      {
+        "text": "Sideways across the rack",
+        "note": "Breaks the airflow design."
+      },
+      {
+        "text": "Airflow direction doesn't matter for switches",
+        "note": "It matters for cooling."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Port-side exhaust devices should have their ports facing the hot aisle. Port-side intake devices should face the cold aisle. Match equipment airflow to the room design."
+  },
+  {
+    "id": 108,
+    "domain": "D2",
+    "scenario": "Horizontal cable runs from work areas terminate on the back of a rack-mounted panel, with short patch cords connecting to the switch. What is this panel?",
+    "options": [
+      {
+        "text": "A patch panel",
+        "note": ""
+      },
+      {
+        "text": "A fiber distribution panel",
+        "note": "Used to terminate fiber, not copper work-area runs."
+      },
+      {
+        "text": "A PDU",
+        "note": "Distributes power."
+      },
+      {
+        "text": "A UPS",
+        "note": "Provides battery backup."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Patch panels terminate permanent cable runs and let you change connections with patch cords without disturbing the in-wall cabling."
+  },
+  {
+    "id": 109,
+    "domain": "D2",
+    "scenario": "Which device provides short-term battery power so equipment keeps running or shuts down cleanly during an outage?",
+    "options": [
+      {
+        "text": "UPS",
+        "note": ""
+      },
+      {
+        "text": "PDU",
+        "note": "Distributes power but doesn't store it."
+      },
+      {
+        "text": "Generator",
+        "note": "Provides long-term power but needs time to start."
+      },
+      {
+        "text": "Surge protector",
+        "note": "Blocks spikes but has no battery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A UPS bridges the gap until power returns or a generator starts, and smooths voltage problems. PDUs distribute power within the rack."
+  },
+  {
+    "id": 110,
+    "domain": "D2",
+    "scenario": "A server room needs fire suppression that won't damage electronic equipment. Which option is most appropriate?",
+    "options": [
+      {
+        "text": "A clean-agent gas system",
+        "note": ""
+      },
+      {
+        "text": "A standard water sprinkler system",
+        "note": "Water damages electronics."
+      },
+      {
+        "text": "Portable foam extinguishers only",
+        "note": "Foam damages equipment and isn't automatic."
+      },
+      {
+        "text": "No suppression; rely on the HVAC",
+        "note": "HVAC doesn't suppress fires."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Clean-agent systems (such as FM-200 or Novec 1230) suppress fire without leaving residue. Many sites also use pre-action sprinklers as a backup."
+  },
+  {
+    "id": 111,
+    "domain": "D2",
+    "scenario": "Why is humidity in a data center kept within a moderate range?",
+    "options": [
+      {
+        "text": "Too low increases static discharge; too high risks condensation and corrosion.",
+        "note": ""
+      },
+      {
+        "text": "High humidity improves cooling efficiency, so it should be maximized.",
+        "note": "Condensation would damage equipment."
+      },
+      {
+        "text": "Humidity has no effect on equipment.",
+        "note": "It affects static and corrosion."
+      },
+      {
+        "text": "Low humidity prevents all electrical problems.",
+        "note": "Low humidity increases static electricity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data centers monitor humidity along with temperature to avoid electrostatic discharge (too dry) and condensation and corrosion (too humid)."
+  },
+  {
+    "id": 112,
+    "domain": "D2",
+    "scenario": "A technician must calculate whether a rack's PDU can support new servers. What should they compare?",
+    "options": [
+      {
+        "text": "Total equipment power load vs. the PDU rating",
+        "note": ""
+      },
+      {
+        "text": "The number of rack units against the switch port count",
+        "note": "Unrelated to power."
+      },
+      {
+        "text": "The UPS battery age against the server warranty",
+        "note": "Not a capacity calculation."
+      },
+      {
+        "text": "The patch panel count against the PDU outlets",
+        "note": "Outlet count matters, but power load is the key limit."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Add up the equipment's power draw (watts or amps at the supplied voltage) and keep it within the PDU and circuit ratings, leaving headroom."
+  },
+  {
+    "id": 113,
+    "domain": "D3",
+    "scenario": "Which diagram shows IP subnets, VLANs and routing between them rather than where devices are physically located?",
+    "options": [
+      {
+        "text": "A logical network diagram",
+        "note": ""
+      },
+      {
+        "text": "A physical network diagram",
+        "note": "Shows physical placement and cabling."
+      },
+      {
+        "text": "A rack diagram",
+        "note": "Shows equipment positions in a rack."
+      },
+      {
+        "text": "A floor plan",
+        "note": "Shows building layout."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Logical diagrams show layer 2 and layer 3 relationships such as VLANs, subnets and routing. Physical diagrams show devices, cabling and locations."
+  },
+  {
+    "id": 114,
+    "domain": "D3",
+    "scenario": "A new technician needs to know which devices are in each rack and in which rack unit. Which document helps most?",
+    "options": [
+      {
+        "text": "A rack diagram",
+        "note": ""
+      },
+      {
+        "text": "A logical diagram",
+        "note": "Shows addressing, not rack positions."
+      },
+      {
+        "text": "An SLA",
+        "note": "Defines service commitments."
+      },
+      {
+        "text": "A change request",
+        "note": "Requests a change."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Rack diagrams (rack elevations) show the position of every device in each rack, which helps with installs, moves and troubleshooting."
+  },
+  {
+    "id": 115,
+    "domain": "D3",
+    "scenario": "Which tool or document tracks which IP addresses and subnets are assigned, available or reserved across the organization?",
+    "options": [
+      {
+        "text": "IPAM",
+        "note": ""
+      },
+      {
+        "text": "A cable map",
+        "note": "Tracks cable runs."
+      },
+      {
+        "text": "A wireless heat map",
+        "note": "Shows signal coverage."
+      },
+      {
+        "text": "A baseline report",
+        "note": "Shows normal performance."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IPAM tools track address allocation and often integrate with DHCP and DNS to prevent conflicts and plan capacity."
+  },
+  {
+    "id": 116,
+    "domain": "D3",
+    "scenario": "Before deploying APs in a new building, the team measures signal strength and interference throughout the floor. What is this?",
+    "options": [
+      {
+        "text": "A wireless site survey",
+        "note": ""
+      },
+      {
+        "text": "A penetration test",
+        "note": "Tests security, not coverage."
+      },
+      {
+        "text": "Port mirroring",
+        "note": "Copies wired traffic."
+      },
+      {
+        "text": "An asset inventory",
+        "note": "Lists hardware and software."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A site survey (passive or active) measures coverage, signal strength and interference, and produces heat maps used to plan AP placement and channels."
+  },
+  {
+    "id": 117,
+    "domain": "D3",
+    "scenario": "A contract states the provider will restore service within 4 hours and keep 99.9% uptime. What is this document?",
+    "options": [
+      {
+        "text": "A service-level agreement (SLA)",
+        "note": ""
+      },
+      {
+        "text": "A memorandum of understanding (MOU)",
+        "note": "Usually non-binding."
+      },
+      {
+        "text": "A non-disclosure agreement (NDA)",
+        "note": "Covers confidentiality."
+      },
+      {
+        "text": "An acceptable use policy (AUP)",
+        "note": "Defines user behavior rules."
+      }
+    ],
+    "answer": 0,
+    "explanation": "An SLA defines measurable service commitments such as uptime and response or restoration times, often with penalties if they aren't met."
+  },
+  {
+    "id": 118,
+    "domain": "D3",
+    "scenario": "A switch model reached end-of-support (EOS) last month. What is the main risk?",
+    "options": [
+      {
+        "text": "No more security patches or vendor support",
+        "note": ""
+      },
+      {
+        "text": "It immediately stops forwarding traffic",
+        "note": "It keeps working; it just isn't supported."
+      },
+      {
+        "text": "Its warranty becomes longer",
+        "note": "The opposite."
+      },
+      {
+        "text": "It can no longer be powered on",
+        "note": "Hardware doesn't shut off at EOS."
+      }
+    ],
+    "answer": 0,
+    "explanation": "End-of-support means no more fixes, firmware or security updates, so vulnerabilities stay unpatched. Plan replacements before EOS as part of life-cycle management."
+  },
+  {
+    "id": 119,
+    "domain": "D3",
+    "scenario": "A change to a core router's configuration needs approval, a rollback plan and a scheduled maintenance window. Which process covers this?",
+    "options": [
+      {
+        "text": "Change management",
+        "note": ""
+      },
+      {
+        "text": "Incident management",
+        "note": "Restores service after an outage."
+      },
+      {
+        "text": "Asset management",
+        "note": "Tracks hardware and software."
+      },
+      {
+        "text": "Capacity planning",
+        "note": "Plans for future growth."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Change management documents, reviews, approves, schedules and tracks changes, including impact analysis and rollback plans, to reduce outages."
+  },
+  {
+    "id": 120,
+    "domain": "D3",
+    "scenario": "Every new access switch should start from a standard, approved configuration. What is that configuration called?",
+    "options": [
+      {
+        "text": "A golden configuration",
+        "note": ""
+      },
+      {
+        "text": "A running configuration",
+        "note": "The current, active config on one device."
+      },
+      {
+        "text": "A startup configuration",
+        "note": "The saved config a device loads at boot."
+      },
+      {
+        "text": "A default configuration",
+        "note": "The factory settings, before standardization."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A golden configuration is the approved template. Comparing devices against it detects drift; backups of production configurations allow fast recovery."
+  },
+  {
+    "id": 121,
+    "domain": "D3",
+    "scenario": "Before decommissioning an old firewall, what should be done with its storage?",
+    "options": [
+      {
+        "text": "Sanitize it and update the inventory",
+        "note": ""
+      },
+      {
+        "text": "Leave it as is in case it's needed later",
+        "note": "Configs and keys could leak."
+      },
+      {
+        "text": "Only remove the power cable",
+        "note": "Data remains on the device."
+      },
+      {
+        "text": "Reset the clock to factory time",
+        "note": "Doesn't remove sensitive data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Decommissioning includes sanitizing data (configs, keys, logs), updating asset records and diagrams, and disposing of hardware properly."
+  },
+  {
+    "id": 122,
+    "domain": "D3",
+    "scenario": "Which SNMP version adds authentication and encryption?",
+    "options": [
+      {
+        "text": "SNMPv3",
+        "note": ""
+      },
+      {
+        "text": "SNMPv1",
+        "note": "Uses clear-text community strings."
+      },
+      {
+        "text": "SNMPv2c",
+        "note": "Also uses clear-text community strings."
+      },
+      {
+        "text": "SNMPv2c with a long community string",
+        "note": "Still sent in clear text."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SNMPv3 supports user-based authentication and privacy (encryption). v1 and v2c rely on community strings sent in clear text."
+  },
+  {
+    "id": 123,
+    "domain": "D3",
+    "scenario": "What defines the objects (such as interface counters and CPU usage) that an SNMP manager can query on a device?",
+    "options": [
+      {
+        "text": "The MIB",
+        "note": ""
+      },
+      {
+        "text": "The community string",
+        "note": "Acts like a password for v1/v2c."
+      },
+      {
+        "text": "The trap receiver",
+        "note": "The manager that receives alerts."
+      },
+      {
+        "text": "The syslog facility",
+        "note": "Categorizes log messages."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The MIB is a hierarchical database of object identifiers (OIDs) that describes what can be monitored or configured on a device."
+  },
+  {
+    "id": 124,
+    "domain": "D3",
+    "scenario": "An administrator wants to know which applications and hosts are using the most bandwidth, without capturing full packets. What should they use?",
+    "options": [
+      {
+        "text": "Flow data (NetFlow, sFlow or IPFIX)",
+        "note": ""
+      },
+      {
+        "text": "A cable tester",
+        "note": "Tests physical cables."
+      },
+      {
+        "text": "A full packet capture on every link",
+        "note": "Works but captures far more data than needed."
+      },
+      {
+        "text": "A toner probe",
+        "note": "Traces cables."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Flow data summarizes conversations (source, destination, ports, bytes) so you can analyze traffic patterns efficiently."
+  },
+  {
+    "id": 125,
+    "domain": "D3",
+    "scenario": "A switch must send a copy of all traffic from one port to a port where a protocol analyzer is connected. What should be configured?",
+    "options": [
+      {
+        "text": "Port mirroring",
+        "note": ""
+      },
+      {
+        "text": "Port security",
+        "note": "Restricts MAC addresses."
+      },
+      {
+        "text": "Link aggregation",
+        "note": "Combines links."
+      },
+      {
+        "text": "A voice VLAN",
+        "note": "Separates voice traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Port mirroring copies traffic from source ports or VLANs to a destination port for monitoring. A network tap is a hardware alternative."
+  },
+  {
+    "id": 126,
+    "domain": "D3",
+    "scenario": "Logs from firewalls, servers and switches are collected centrally, correlated, and used to generate security alerts. What system does this?",
+    "options": [
+      {
+        "text": "A SIEM",
+        "note": ""
+      },
+      {
+        "text": "An IPAM",
+        "note": "Manages IP addresses."
+      },
+      {
+        "text": "A UPS",
+        "note": "Provides power backup."
+      },
+      {
+        "text": "A CDN",
+        "note": "Delivers content."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A SIEM (security information and event management) aggregates and correlates logs from many sources and alerts on suspicious patterns."
+  },
+  {
+    "id": 127,
+    "domain": "D3",
+    "scenario": "Which syslog severity level is the most severe?",
+    "options": [
+      {
+        "text": "0 – Emergency",
+        "note": ""
+      },
+      {
+        "text": "7 – Debugging",
+        "note": "The least severe."
+      },
+      {
+        "text": "3 – Error",
+        "note": "Serious, but not the highest."
+      },
+      {
+        "text": "5 – Notice",
+        "note": "Normal but significant."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Syslog severities run from 0 (emergency) to 7 (debug): emergency, alert, critical, error, warning, notice, informational, debug."
+  },
+  {
+    "id": 128,
+    "domain": "D3",
+    "scenario": "To spot abnormal network behavior, an administrator first records typical utilization and latency over several weeks. What is this?",
+    "options": [
+      {
+        "text": "Establishing a performance baseline",
+        "note": ""
+      },
+      {
+        "text": "Running a penetration test",
+        "note": "Tests security."
+      },
+      {
+        "text": "Building a golden configuration",
+        "note": "A config template."
+      },
+      {
+        "text": "Conducting a tabletop exercise",
+        "note": "A DR discussion exercise."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A baseline shows what normal looks like, so monitoring tools can alert on anomalies such as unusual spikes in utilization or errors."
+  },
+  {
+    "id": 129,
+    "domain": "D3",
+    "scenario": "A monitoring system pings every device every minute and alerts when one stops responding. What type of monitoring is this?",
+    "options": [
+      {
+        "text": "Availability monitoring",
+        "note": ""
+      },
+      {
+        "text": "Configuration monitoring",
+        "note": "Tracks config changes."
+      },
+      {
+        "text": "Traffic analysis",
+        "note": "Examines traffic patterns."
+      },
+      {
+        "text": "Performance monitoring",
+        "note": "Focuses on metrics like latency and throughput."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Availability (up/down) monitoring checks whether devices and services are reachable and alerts when they aren't."
+  },
+  {
+    "id": 130,
+    "domain": "D3",
+    "scenario": "A tool automatically scans subnets on a schedule to find new devices and update the network map. What is this?",
+    "options": [
+      {
+        "text": "Network discovery",
+        "note": ""
+      },
+      {
+        "text": "Port mirroring",
+        "note": "Copies traffic."
+      },
+      {
+        "text": "Load balancing",
+        "note": "Distributes traffic."
+      },
+      {
+        "text": "DHCP snooping",
+        "note": "Blocks rogue DHCP servers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Network discovery (ad hoc or scheduled) uses protocols such as ICMP, SNMP, LLDP and CDP to find devices and build inventories and topology maps."
+  },
+  {
+    "id": 131,
+    "domain": "D3",
+    "scenario": "Leadership says the business can tolerate losing at most 1 hour of data. Which metric is this?",
+    "options": [
+      {
+        "text": "Recovery point objective (RPO)",
+        "note": ""
+      },
+      {
+        "text": "Recovery time objective (RTO)",
+        "note": "How long restoring service may take."
+      },
+      {
+        "text": "Mean time to repair (MTTR)",
+        "note": "Average time to fix a failure."
+      },
+      {
+        "text": "Mean time between failures (MTBF)",
+        "note": "Average time a device runs between failures."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RPO is the maximum acceptable data loss measured in time, which drives backup or replication frequency. RTO is the maximum acceptable downtime."
+  },
+  {
+    "id": 132,
+    "domain": "D3",
+    "scenario": "A system must be back online within 4 hours of an outage. Which metric is this?",
+    "options": [
+      {
+        "text": "Recovery time objective (RTO)",
+        "note": ""
+      },
+      {
+        "text": "Recovery point objective (RPO)",
+        "note": "Acceptable data loss."
+      },
+      {
+        "text": "Mean time between failures (MTBF)",
+        "note": "Reliability measure."
+      },
+      {
+        "text": "Service set identifier (SSID)",
+        "note": "A Wi-Fi network name."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RTO is the target time to restore a service after a disruption."
+  },
+  {
+    "id": 133,
+    "domain": "D3",
+    "scenario": "A vendor says a switch averages 200,000 hours of operation before failing. Which metric is this?",
+    "options": [
+      {
+        "text": "MTBF",
+        "note": ""
+      },
+      {
+        "text": "MTTR",
+        "note": "Average time to repair."
+      },
+      {
+        "text": "RPO",
+        "note": "Acceptable data loss."
+      },
+      {
+        "text": "RTO",
+        "note": "Acceptable recovery time."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Mean time between failures measures reliability. Mean time to repair measures how quickly failures are fixed."
+  },
+  {
+    "id": 134,
+    "domain": "D3",
+    "scenario": "A DR site has power, network connectivity and hardware already installed, but data must be restored from backups before use. What type of site is this?",
+    "options": [
+      {
+        "text": "Warm site",
+        "note": ""
+      },
+      {
+        "text": "Hot site",
+        "note": "Fully equipped with current data; ready almost immediately."
+      },
+      {
+        "text": "Cold site",
+        "note": "Space and power only; no equipment."
+      },
+      {
+        "text": "Mobile site",
+        "note": "A portable facility, not defined by readiness."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Warm sites have equipment but need data restored and some configuration. Hot sites are ready almost immediately; cold sites need equipment installed."
+  },
+  {
+    "id": 135,
+    "domain": "D3",
+    "scenario": "Two firewalls both pass traffic at the same time, and if one fails the other carries the full load. What is this design?",
+    "options": [
+      {
+        "text": "Active-active",
+        "note": ""
+      },
+      {
+        "text": "Active-passive",
+        "note": "Only one unit handles traffic until failover."
+      },
+      {
+        "text": "Cold standby",
+        "note": "The backup isn't running."
+      },
+      {
+        "text": "Single point of failure",
+        "note": "The opposite of high availability."
+      }
+    ],
+    "answer": 0,
+    "explanation": "In active-active, all nodes handle traffic. Each must be sized to carry the full load if its partner fails. In active-passive, the standby only takes over on failure."
+  },
+  {
+    "id": 136,
+    "domain": "D3",
+    "scenario": "The DR team talks through how each person would respond to a ransomware scenario, without touching any systems. What type of test is this?",
+    "options": [
+      {
+        "text": "A tabletop exercise",
+        "note": ""
+      },
+      {
+        "text": "A full failover test",
+        "note": "Actually switches production to the DR site."
+      },
+      {
+        "text": "A validation test",
+        "note": "Verifies that systems actually work as expected."
+      },
+      {
+        "text": "A penetration test",
+        "note": "Tests security."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tabletop exercises are discussion-based walkthroughs that find gaps in plans and roles at low risk. Validation tests confirm the technical recovery steps work."
+  },
+  {
+    "id": 137,
+    "domain": "D3",
+    "scenario": "What is the correct order of the DHCP lease process?",
+    "options": [
+      {
+        "text": "Discover, Offer, Request, Acknowledge",
+        "note": ""
+      },
+      {
+        "text": "Request, Offer, Discover, Acknowledge",
+        "note": "Clients discover first."
+      },
+      {
+        "text": "Offer, Discover, Acknowledge, Request",
+        "note": "The server can't offer before a discover."
+      },
+      {
+        "text": "Discover, Request, Offer, Acknowledge",
+        "note": "The offer comes before the request."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DORA: the client broadcasts Discover, the server sends an Offer, the client sends a Request, and the server confirms with an Acknowledge."
+  },
+  {
+    "id": 138,
+    "domain": "D3",
+    "scenario": "A printer must always receive the same IP address from DHCP. What should be configured?",
+    "options": [
+      {
+        "text": "A DHCP reservation for the printer's MAC address",
+        "note": ""
+      },
+      {
+        "text": "A shorter lease time",
+        "note": "The printer could still get a different address."
+      },
+      {
+        "text": "An exclusion range containing the printer",
+        "note": "Exclusions prevent DHCP from handing out those addresses at all."
+      },
+      {
+        "text": "APIPA on the printer",
+        "note": "Gives a random link-local address."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A reservation ties an IP address to a MAC address, so the device always gets the same address while still being managed by DHCP."
+  },
+  {
+    "id": 139,
+    "domain": "D3",
+    "scenario": "Clients on VLAN 30 can't get DHCP addresses because the DHCP server is on another subnet. What should be configured on VLAN 30's router interface?",
+    "options": [
+      {
+        "text": "A DHCP relay (IP helper)",
+        "note": ""
+      },
+      {
+        "text": "A static route to the client subnet",
+        "note": "Doesn't forward broadcasts."
+      },
+      {
+        "text": "A larger DHCP scope",
+        "note": "The scope isn't the problem."
+      },
+      {
+        "text": "Port security",
+        "note": "Unrelated to DHCP forwarding."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Routers don't forward broadcasts. A DHCP relay agent converts the client broadcasts into unicast requests to the DHCP server."
+  },
+  {
+    "id": 140,
+    "domain": "D3",
+    "scenario": "Static IPs for servers fall within the DHCP scope range. How do you stop DHCP from assigning those addresses?",
+    "options": [
+      {
+        "text": "An exclusion range",
+        "note": ""
+      },
+      {
+        "text": "A shorter lease time",
+        "note": "Doesn't prevent assignment."
+      },
+      {
+        "text": "A DNS A record for each server",
+        "note": "Doesn't affect DHCP."
+      },
+      {
+        "text": "SLAAC on the server subnet",
+        "note": "IPv6 autoconfiguration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Exclusions remove specific addresses or ranges from the pool so DHCP never hands them out."
+  },
+  {
+    "id": 141,
+    "domain": "D3",
+    "scenario": "Which DHCP option provides clients with their default gateway?",
+    "options": [
+      {
+        "text": "Router (option 3)",
+        "note": ""
+      },
+      {
+        "text": "DNS servers (option 6)",
+        "note": "Provides DNS server addresses."
+      },
+      {
+        "text": "Domain name (option 15)",
+        "note": "Provides the DNS suffix."
+      },
+      {
+        "text": "Lease time (option 51)",
+        "note": "Sets lease duration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DHCP options deliver settings beyond the IP address: option 3 is the default gateway, option 6 is DNS servers, option 15 is the domain name."
+  },
+  {
+    "id": 142,
+    "domain": "D3",
+    "scenario": "IPv6 hosts build their own global addresses from the prefix in router advertisements, without a DHCP server. What is this?",
+    "options": [
+      {
+        "text": "SLAAC",
+        "note": ""
+      },
+      {
+        "text": "APIPA",
+        "note": "IPv4 link-local self-assignment."
+      },
+      {
+        "text": "DHCP relay",
+        "note": "Forwards DHCP messages."
+      },
+      {
+        "text": "NAT64",
+        "note": "Translates IPv6 to IPv4."
+      }
+    ],
+    "answer": 0,
+    "explanation": "With SLAAC, hosts combine the advertised /64 prefix with a self-generated interface ID. DHCPv6 can supplement it with options such as DNS."
+  },
+  {
+    "id": 143,
+    "domain": "D3",
+    "scenario": "Which DNS record type maps a hostname to an IPv6 address?",
+    "options": [
+      {
+        "text": "AAAA",
+        "note": ""
+      },
+      {
+        "text": "A",
+        "note": "Maps a name to an IPv4 address."
+      },
+      {
+        "text": "PTR",
+        "note": "Maps an IP address back to a name."
+      },
+      {
+        "text": "CNAME",
+        "note": "Creates an alias to another name."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A records hold IPv4 addresses and AAAA records hold IPv6 addresses."
+  },
+  {
+    "id": 144,
+    "domain": "D3",
+    "scenario": "Which DNS record tells other mail servers where to deliver email for a domain?",
+    "options": [
+      {
+        "text": "MX",
+        "note": ""
+      },
+      {
+        "text": "NS",
+        "note": "Identifies the zone's authoritative name servers."
+      },
+      {
+        "text": "TXT",
+        "note": "Free text, often used for SPF and verification."
+      },
+      {
+        "text": "SOA",
+        "note": "Holds zone administrative information."
+      }
+    ],
+    "answer": 0,
+    "explanation": "MX (mail exchanger) records point to the mail servers for a domain, with a preference value for priority."
+  },
+  {
+    "id": 145,
+    "domain": "D3",
+    "scenario": "A security tool looks up an IP address and needs the hostname. Which record type and zone is used?",
+    "options": [
+      {
+        "text": "A PTR record in a reverse lookup zone",
+        "note": ""
+      },
+      {
+        "text": "An A record in a forward lookup zone",
+        "note": "Maps names to IP addresses, not the reverse."
+      },
+      {
+        "text": "An MX record",
+        "note": "For mail routing."
+      },
+      {
+        "text": "A CNAME in a reverse zone",
+        "note": "Not used for reverse lookups."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reverse lookup zones (in-addr.arpa for IPv4, ip6.arpa for IPv6) contain PTR records that map IP addresses to hostnames."
+  },
+  {
+    "id": 146,
+    "domain": "D3",
+    "scenario": "Which record publishes SPF information for a domain, listing servers allowed to send its email?",
+    "options": [
+      {
+        "text": "TXT",
+        "note": ""
+      },
+      {
+        "text": "MX",
+        "note": "Directs inbound mail."
+      },
+      {
+        "text": "CNAME",
+        "note": "Creates an alias."
+      },
+      {
+        "text": "AAAA",
+        "note": "IPv6 address."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SPF is published as a TXT record. TXT records are also used for DKIM, DMARC and domain verification."
+  },
+  {
+    "id": 147,
+    "domain": "D3",
+    "scenario": "Which technology adds digital signatures to DNS responses so resolvers can verify they haven't been tampered with?",
+    "options": [
+      {
+        "text": "DNSSEC",
+        "note": ""
+      },
+      {
+        "text": "DoH",
+        "note": "Encrypts DNS queries in transit, but doesn't sign records."
+      },
+      {
+        "text": "Dynamic DNS",
+        "note": "Lets clients update their own records."
+      },
+      {
+        "text": "A larger TTL",
+        "note": "Controls caching time."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DNSSEC signs zone data, protecting against spoofed or poisoned records. DoH (DNS over HTTPS) and DoT (DNS over TLS) encrypt queries for privacy."
+  },
+  {
+    "id": 148,
+    "domain": "D3",
+    "scenario": "A company wants DNS queries from clients encrypted using TLS on a dedicated port (853). Which technology is this?",
+    "options": [
+      {
+        "text": "DNS over TLS (DoT)",
+        "note": ""
+      },
+      {
+        "text": "DNS over HTTPS (DoH)",
+        "note": "Uses HTTPS on port 443."
+      },
+      {
+        "text": "DNSSEC",
+        "note": "Signs records but doesn't encrypt queries."
+      },
+      {
+        "text": "Zone transfers over TCP 53",
+        "note": "Not encrypted."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DoT uses TCP 853. DoH sends DNS queries inside HTTPS on port 443, which blends in with web traffic."
+  },
+  {
+    "id": 149,
+    "domain": "D3",
+    "scenario": "A DNS server answers a query from its local cache rather than from the zone it hosts. What kind of answer is this?",
+    "options": [
+      {
+        "text": "Non-authoritative",
+        "note": ""
+      },
+      {
+        "text": "Authoritative",
+        "note": "Only from a server hosting the zone."
+      },
+      {
+        "text": "Recursive referral",
+        "note": "A referral isn't a cached answer."
+      },
+      {
+        "text": "Reverse",
+        "note": "Refers to IP-to-name lookups."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Authoritative answers come from a server that hosts the zone (primary or secondary). Cached answers from a resolver are non-authoritative."
+  },
+  {
+    "id": 150,
+    "domain": "D3",
+    "scenario": "A secondary DNS server keeps a read-only copy of a zone. How does it get updates from the primary?",
+    "options": [
+      {
+        "text": "Through zone transfers",
+        "note": ""
+      },
+      {
+        "text": "Through DHCP leases",
+        "note": "DHCP doesn't replicate DNS zones."
+      },
+      {
+        "text": "Through SNMP traps",
+        "note": "Monitoring alerts."
+      },
+      {
+        "text": "By recursive queries to the root servers",
+        "note": "Recursion resolves names; it doesn't copy zones."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Secondary servers pull zone data from the primary through zone transfers (AXFR or IXFR) over TCP 53."
+  },
+  {
+    "id": 151,
+    "domain": "D3",
+    "scenario": "A trading system needs clocks synchronized to sub-microsecond accuracy using hardware timestamping. Which protocol is designed for this?",
+    "options": [
+      {
+        "text": "PTP",
+        "note": ""
+      },
+      {
+        "text": "NTP",
+        "note": "Typically millisecond-level accuracy."
+      },
+      {
+        "text": "SNTP",
+        "note": "A simplified NTP; less accurate."
+      },
+      {
+        "text": "Syslog",
+        "note": "Logging, not time sync."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PTP (IEEE 1588) achieves much higher precision than NTP using hardware timestamps. NTS (Network Time Security) adds authentication to NTP."
+  },
+  {
+    "id": 152,
+    "domain": "D3",
+    "scenario": "Remote users connect to the corporate VPN, but only traffic for corporate networks goes through the tunnel; internet traffic goes out locally. What is this configuration?",
+    "options": [
+      {
+        "text": "Split tunnel",
+        "note": ""
+      },
+      {
+        "text": "Full tunnel",
+        "note": "All traffic goes through the VPN."
+      },
+      {
+        "text": "Site-to-site VPN",
+        "note": "Connects networks, not individual users."
+      },
+      {
+        "text": "Clientless VPN",
+        "note": "Browser-based access, not a tunnel routing choice."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Split tunneling reduces load on the VPN but means internet traffic bypasses corporate security controls. Full tunnel sends everything through the VPN."
+  },
+  {
+    "id": 153,
+    "domain": "D3",
+    "scenario": "Users need access to a few internal web apps from any browser without installing VPN software. What should be used?",
+    "options": [
+      {
+        "text": "A clientless VPN portal",
+        "note": ""
+      },
+      {
+        "text": "A site-to-site IPsec VPN",
+        "note": "Connects networks, not individual browsers."
+      },
+      {
+        "text": "Telnet",
+        "note": "Insecure CLI access."
+      },
+      {
+        "text": "A full-tunnel client VPN",
+        "note": "Requires a VPN client."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Clientless VPNs give browser-based access to specific internal web applications over HTTPS."
+  },
+  {
+    "id": 154,
+    "domain": "D3",
+    "scenario": "Administrators must first connect to one hardened server before they can manage network devices in a secure segment. What is that server called?",
+    "options": [
+      {
+        "text": "A jump box",
+        "note": ""
+      },
+      {
+        "text": "A honeypot",
+        "note": "A decoy to attract attackers."
+      },
+      {
+        "text": "A proxy server",
+        "note": "Forwards client web requests."
+      },
+      {
+        "text": "A RADIUS server",
+        "note": "Handles authentication."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A jump host is a controlled, monitored entry point into a secure network, which reduces the attack surface for management access."
+  },
+  {
+    "id": 155,
+    "domain": "D3",
+    "scenario": "Network devices can be managed through a separate network and console servers even when the production network is down. What is this?",
+    "options": [
+      {
+        "text": "Out-of-band management",
+        "note": ""
+      },
+      {
+        "text": "In-band management",
+        "note": "Uses the production network."
+      },
+      {
+        "text": "Split tunneling",
+        "note": "A VPN routing option."
+      },
+      {
+        "text": "Port mirroring",
+        "note": "Copies traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Out-of-band management uses a dedicated path (management network, console servers or cellular modems), so devices stay reachable during outages."
+  },
+  {
+    "id": 156,
+    "domain": "D3",
+    "scenario": "A technician configures a brand-new switch that has no IP address yet. How should they connect?",
+    "options": [
+      {
+        "text": "Through the console port",
+        "note": ""
+      },
+      {
+        "text": "Over SSH",
+        "note": "Needs an IP address and SSH configured."
+      },
+      {
+        "text": "Through the web GUI",
+        "note": "Needs an IP address."
+      },
+      {
+        "text": "Through the REST API",
+        "note": "Needs network access and configuration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The console port (serial or USB) provides direct local CLI access for initial setup or recovery, with no network needed."
+  },
+  {
+    "id": 157,
+    "domain": "D3",
+    "scenario": "An automation script retrieves interface statistics from a cloud-managed switch in JSON format. Which management method is it using?",
+    "options": [
+      {
+        "text": "An API",
+        "note": ""
+      },
+      {
+        "text": "A console cable",
+        "note": "Interactive local CLI."
+      },
+      {
+        "text": "Telnet",
+        "note": "Insecure CLI access, not structured data."
+      },
+      {
+        "text": "A serial terminal",
+        "note": "Local CLI."
+      }
+    ],
+    "answer": 0,
+    "explanation": "APIs (often REST with JSON) let tools and scripts read and change configuration programmatically. That's the basis for automation and orchestration."
+  },
+  {
+    "id": 158,
+    "domain": "D4",
+    "scenario": "Which part of the CIA triad is violated when an attacker changes data in transit?",
+    "options": [
+      {
+        "text": "Integrity",
+        "note": ""
+      },
+      {
+        "text": "Confidentiality",
+        "note": "About unauthorized disclosure."
+      },
+      {
+        "text": "Availability",
+        "note": "About access to systems and data."
+      },
+      {
+        "text": "Authentication",
+        "note": "Not part of the CIA triad."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Integrity means data hasn't been altered without authorization. Hashes and digital signatures help detect tampering."
+  },
+  {
+    "id": 159,
+    "domain": "D4",
+    "scenario": "A weakness in a firewall's firmware has been published but not yet patched. What is this weakness called?",
+    "options": [
+      {
+        "text": "A vulnerability",
+        "note": ""
+      },
+      {
+        "text": "An exploit",
+        "note": "The code or technique that takes advantage of the weakness."
+      },
+      {
+        "text": "A threat",
+        "note": "The actor or event that could cause harm."
+      },
+      {
+        "text": "A risk",
+        "note": "The likelihood and impact of the threat exploiting the weakness."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A vulnerability is a weakness. An exploit uses it, a threat is something that might exploit it, and risk combines likelihood and impact."
+  },
+  {
+    "id": 160,
+    "domain": "D4",
+    "scenario": "Users sign in once and then access several applications without signing in again. What is this?",
+    "options": [
+      {
+        "text": "Single sign-on (SSO)",
+        "note": ""
+      },
+      {
+        "text": "Multifactor authentication",
+        "note": "Requires multiple factor types."
+      },
+      {
+        "text": "Role-based access control",
+        "note": "Controls permissions by role."
+      },
+      {
+        "text": "Geofencing",
+        "note": "Restricts access by location."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SSO lets one authentication grant access to multiple applications, often using protocols such as SAML or OpenID Connect."
+  },
+  {
+    "id": 161,
+    "domain": "D4",
+    "scenario": "Which login combination is true multifactor authentication?",
+    "options": [
+      {
+        "text": "A password and an authenticator app code",
+        "note": ""
+      },
+      {
+        "text": "A password and a PIN",
+        "note": "Both are something you know."
+      },
+      {
+        "text": "A password and a security question answer",
+        "note": "Both are something you know."
+      },
+      {
+        "text": "Two different passwords",
+        "note": "The same factor type twice."
+      }
+    ],
+    "answer": 0,
+    "explanation": "MFA requires factors from different categories: something you know, something you have and something you are."
+  },
+  {
+    "id": 162,
+    "domain": "D4",
+    "scenario": "Network administrators' commands on switches must be authorized and logged per command, and the full payload must be encrypted. Which AAA protocol fits best?",
+    "options": [
+      {
+        "text": "TACACS+",
+        "note": ""
+      },
+      {
+        "text": "RADIUS",
+        "note": "Encrypts only the password and combines authentication and authorization."
+      },
+      {
+        "text": "LDAP",
+        "note": "A directory protocol, not a device AAA protocol."
+      },
+      {
+        "text": "Kerberos",
+        "note": "Ticket-based authentication, not per-command device authorization."
+      }
+    ],
+    "answer": 0,
+    "explanation": "TACACS+ (TCP 49) separates authentication, authorization and accounting, encrypts the whole payload, and supports per-command authorization. That's why it's favored for device administration."
+  },
+  {
+    "id": 163,
+    "domain": "D4",
+    "scenario": "Which protocol is most often used to authenticate Wi-Fi users with 802.1X?",
+    "options": [
+      {
+        "text": "RADIUS",
+        "note": ""
+      },
+      {
+        "text": "TACACS+",
+        "note": "Mainly used for device administration."
+      },
+      {
+        "text": "SNMP",
+        "note": "Monitoring protocol."
+      },
+      {
+        "text": "SMTP",
+        "note": "Email delivery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RADIUS (UDP 1812/1813) is the usual AAA server for 802.1X network access on wired and wireless networks."
+  },
+  {
+    "id": 164,
+    "domain": "D4",
+    "scenario": "A web application lets users sign in with their corporate identity provider by exchanging XML assertions. Which standard is this?",
+    "options": [
+      {
+        "text": "SAML",
+        "note": ""
+      },
+      {
+        "text": "LDAP",
+        "note": "Queries a directory."
+      },
+      {
+        "text": "TACACS+",
+        "note": "Device administration AAA."
+      },
+      {
+        "text": "SNMPv3",
+        "note": "Monitoring."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SAML is an XML-based standard for federated single sign-on between an identity provider and service providers."
+  },
+  {
+    "id": 165,
+    "domain": "D4",
+    "scenario": "Help desk staff can reset passwords but can't change firewall rules, based on their job function. What access control model is this?",
+    "options": [
+      {
+        "text": "Role-based access control (RBAC)",
+        "note": ""
+      },
+      {
+        "text": "Discretionary access control",
+        "note": "Owners grant access at their discretion."
+      },
+      {
+        "text": "Geofencing",
+        "note": "Location-based restriction."
+      },
+      {
+        "text": "Implicit allow",
+        "note": "Not an access control model."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RBAC grants permissions to roles, and users get the permissions of their roles. Combined with least privilege, users get only what their job requires."
+  },
+  {
+    "id": 166,
+    "domain": "D4",
+    "scenario": "A cloud console should be reachable only from devices physically in the company's country. What should be used?",
+    "options": [
+      {
+        "text": "Geofencing",
+        "note": ""
+      },
+      {
+        "text": "MAC filtering",
+        "note": "Controls devices, not location."
+      },
+      {
+        "text": "Port security",
+        "note": "Applies to switch ports."
+      },
+      {
+        "text": "Honeypots",
+        "note": "Decoys."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Geofencing allows or denies access based on location, determined from GPS, IP geolocation or network location."
+  },
+  {
+    "id": 167,
+    "domain": "D4",
+    "scenario": "Security wants a decoy server that looks valuable so attackers who reach it can be detected and studied. What is this?",
+    "options": [
+      {
+        "text": "A honeypot",
+        "note": ""
+      },
+      {
+        "text": "A jump box",
+        "note": "A legitimate admin entry point."
+      },
+      {
+        "text": "A screened subnet",
+        "note": "A network zone for public-facing services."
+      },
+      {
+        "text": "A proxy server",
+        "note": "Forwards web requests."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Honeypots (or a network of them, a honeynet) are deception technologies. Legitimate users have no reason to touch them, so any interaction is suspicious."
+  },
+  {
+    "id": 168,
+    "domain": "D4",
+    "scenario": "A company must not store EU customers' personal data outside approved regions. Which regulation and concept does this involve?",
+    "options": [
+      {
+        "text": "GDPR and data locality",
+        "note": ""
+      },
+      {
+        "text": "PCI DSS and tokenization",
+        "note": "PCI DSS covers payment card data."
+      },
+      {
+        "text": "HIPAA and geofencing",
+        "note": "HIPAA is US health data; geofencing restricts access location."
+      },
+      {
+        "text": "SOX and segmentation",
+        "note": "SOX is financial reporting."
+      }
+    ],
+    "answer": 0,
+    "explanation": "GDPR governs personal data of people in the EU. Data locality (residency) requirements control where data may be stored and processed."
+  },
+  {
+    "id": 169,
+    "domain": "D4",
+    "scenario": "An online store processes credit cards. Which standard requires it to segment the cardholder data environment and protect card data?",
+    "options": [
+      {
+        "text": "PCI DSS",
+        "note": ""
+      },
+      {
+        "text": "GDPR",
+        "note": "Personal data protection in the EU."
+      },
+      {
+        "text": "ISO 9001",
+        "note": "Quality management."
+      },
+      {
+        "text": "802.1X",
+        "note": "Port-based network access control."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PCI DSS applies to anyone who stores, processes or transmits payment card data. Segmenting the cardholder data environment reduces compliance scope."
+  },
+  {
+    "id": 170,
+    "domain": "D4",
+    "scenario": "Industrial control systems on a factory floor must be isolated from the corporate network. Which systems are these?",
+    "options": [
+      {
+        "text": "SCADA / ICS",
+        "note": ""
+      },
+      {
+        "text": "Employees' BYOD devices",
+        "note": "Personal devices."
+      },
+      {
+        "text": "Guest Wi-Fi clients",
+        "note": "Visitors' devices."
+      },
+      {
+        "text": "Virtual desktops",
+        "note": "IT workloads."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OT systems such as SCADA and ICS often run legacy software that's hard to patch. Segmentation protects them from threats on the corporate network."
+  },
+  {
+    "id": 171,
+    "domain": "D4",
+    "scenario": "Public web and email servers are placed in a separate network zone between the internet and the internal network. What is this zone?",
+    "options": [
+      {
+        "text": "A screened subnet",
+        "note": ""
+      },
+      {
+        "text": "A trusted zone",
+        "note": "The internal network."
+      },
+      {
+        "text": "A honeynet",
+        "note": "A decoy network."
+      },
+      {
+        "text": "An 802.1Q VLAN trunk",
+        "note": "A switching link, not a security zone."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A screened subnet exposes public services while firewall rules limit what can reach the internal (trusted) network if those servers are compromised."
+  },
+  {
+    "id": 172,
+    "domain": "D4",
+    "scenario": "A website uses a certificate it issued to itself. What warning do browsers show, and why?",
+    "options": [
+      {
+        "text": "An untrusted certificate warning, because no trusted CA signed it",
+        "note": ""
+      },
+      {
+        "text": "No warning, because self-signed certificates are always trusted",
+        "note": "Browsers don't trust them by default."
+      },
+      {
+        "text": "A DNSSEC error",
+        "note": "Unrelated to TLS certificates."
+      },
+      {
+        "text": "A port 443 blocked error",
+        "note": "A network issue, not a trust issue."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Browsers trust certificates that chain to a trusted certificate authority in the PKI. Self-signed certificates encrypt traffic but aren't trusted until manually added."
+  },
+  {
+    "id": 173,
+    "domain": "D4",
+    "scenario": "A laptop's drive is encrypted so data is protected if the laptop is stolen. What is this protecting?",
+    "options": [
+      {
+        "text": "Data at rest",
+        "note": ""
+      },
+      {
+        "text": "Data in transit",
+        "note": "Data moving across a network."
+      },
+      {
+        "text": "Data in use",
+        "note": "Data being processed in memory."
+      },
+      {
+        "text": "Data in motion only",
+        "note": "Same as in transit."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Full-disk encryption protects data at rest. TLS and IPsec protect data in transit."
+  },
+  {
+    "id": 174,
+    "domain": "D4",
+    "scenario": "An attacker floods a switch with frames from thousands of fake MAC addresses, so the switch starts flooding all traffic out every port. What attack is this?",
+    "options": [
+      {
+        "text": "MAC flooding",
+        "note": ""
+      },
+      {
+        "text": "ARP poisoning",
+        "note": "Sends false ARP replies."
+      },
+      {
+        "text": "VLAN hopping",
+        "note": "Accesses other VLANs."
+      },
+      {
+        "text": "DNS poisoning",
+        "note": "Corrupts DNS data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "MAC flooding fills the CAM table, so the switch behaves like a hub and the attacker can capture other hosts' traffic. Port security mitigates it."
+  },
+  {
+    "id": 175,
+    "domain": "D4",
+    "scenario": "An attacker sends forged ARP replies so traffic for the default gateway goes to the attacker's machine first. What is this?",
+    "options": [
+      {
+        "text": "ARP poisoning",
+        "note": ""
+      },
+      {
+        "text": "MAC flooding",
+        "note": "Overflows the switch table."
+      },
+      {
+        "text": "DNS spoofing",
+        "note": "Falsifies name resolution."
+      },
+      {
+        "text": "Evil twin",
+        "note": "A rogue wireless AP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ARP poisoning maps the attacker's MAC to the gateway's IP in victims' caches, putting the attacker on-path. Dynamic ARP inspection helps prevent it."
+  },
+  {
+    "id": 176,
+    "domain": "D4",
+    "scenario": "An attacker sends double-tagged 802.1Q frames that start in the native VLAN to reach a different VLAN. What attack is this, and what mitigates it?",
+    "options": [
+      {
+        "text": "VLAN hopping; change the native VLAN",
+        "note": ""
+      },
+      {
+        "text": "MAC flooding; enable port security",
+        "note": "A different attack."
+      },
+      {
+        "text": "DNS poisoning; enable DNSSEC",
+        "note": "A different attack."
+      },
+      {
+        "text": "Phishing; train users",
+        "note": "A social engineering attack."
+      }
+    ],
+    "answer": 0,
+    "explanation": "VLAN hopping uses double tagging or switch spoofing (negotiating a trunk). Changing the native VLAN, tagging it, and disabling DTP/auto-trunking on access ports prevent it."
+  },
+  {
+    "id": 177,
+    "domain": "D4",
+    "scenario": "Clients start receiving incorrect default gateway addresses after someone plugs in an unauthorized device. What is the most likely cause and fix?",
+    "options": [
+      {
+        "text": "A rogue DHCP server; enable DHCP snooping",
+        "note": ""
+      },
+      {
+        "text": "An evil twin AP; disable SSID broadcast",
+        "note": "Affects Wi-Fi; hiding the SSID doesn't stop rogues."
+      },
+      {
+        "text": "MAC flooding; increase the MAC table size",
+        "note": "Wouldn't hand out IP settings."
+      },
+      {
+        "text": "DNS poisoning; flush client caches",
+        "note": "DNS doesn't assign gateways."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A rogue DHCP server hands out bad settings. DHCP snooping only allows DHCP server responses on trusted ports."
+  },
+  {
+    "id": 178,
+    "domain": "D4",
+    "scenario": "An attacker sets up an access point with the same SSID as the corporate network to capture users' credentials. What attack is this?",
+    "options": [
+      {
+        "text": "Evil twin",
+        "note": ""
+      },
+      {
+        "text": "Bluejacking",
+        "note": "Unsolicited Bluetooth messages."
+      },
+      {
+        "text": "War driving",
+        "note": "Searching for wireless networks."
+      },
+      {
+        "text": "MAC flooding",
+        "note": "A switch attack."
+      }
+    ],
+    "answer": 0,
+    "explanation": "An evil twin impersonates a legitimate network. WPA2/WPA3-Enterprise with server certificate validation, and wireless intrusion detection, help defend against it."
+  },
+  {
+    "id": 179,
+    "domain": "D4",
+    "scenario": "Thousands of compromised devices send traffic to a website simultaneously to make it unavailable. What attack is this?",
+    "options": [
+      {
+        "text": "DDoS",
+        "note": ""
+      },
+      {
+        "text": "On-path attack",
+        "note": "Intercepts traffic rather than overwhelming it."
+      },
+      {
+        "text": "Phishing",
+        "note": "Deceptive messages."
+      },
+      {
+        "text": "VLAN hopping",
+        "note": "A switching attack."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A DDoS uses many sources (often a botnet) to exhaust bandwidth or resources. Mitigations include upstream scrubbing services and rate limiting."
+  },
+  {
+    "id": 180,
+    "domain": "D4",
+    "scenario": "Someone follows an employee through a secure door without badging in. What is this?",
+    "options": [
+      {
+        "text": "Tailgating",
+        "note": ""
+      },
+      {
+        "text": "Shoulder surfing",
+        "note": "Watching someone enter credentials."
+      },
+      {
+        "text": "Dumpster diving",
+        "note": "Searching discarded materials."
+      },
+      {
+        "text": "Phishing",
+        "note": "Deceptive messages."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tailgating (piggybacking) bypasses physical access controls. Access control vestibules (mantraps) and security awareness training mitigate it."
+  },
+  {
+    "id": 181,
+    "domain": "D4",
+    "scenario": "An attacker corrupts a DNS server's cache so users trying to reach a bank's website are sent to a fake one. What attack is this?",
+    "options": [
+      {
+        "text": "DNS poisoning",
+        "note": ""
+      },
+      {
+        "text": "ARP spoofing",
+        "note": "Affects local IP-to-MAC mappings."
+      },
+      {
+        "text": "Evil twin",
+        "note": "A rogue AP."
+      },
+      {
+        "text": "MAC flooding",
+        "note": "A switch attack."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DNS cache poisoning inserts false records into a resolver's cache. DNSSEC validation helps prevent it."
+  },
+  {
+    "id": 182,
+    "domain": "D4",
+    "scenario": "A switch port should only allow the one MAC address of the PC that's normally connected and shut down if another device is plugged in. What should be configured?",
+    "options": [
+      {
+        "text": "Port security (max 1 MAC, shutdown)",
+        "note": ""
+      },
+      {
+        "text": "802.1Q trunking on the port",
+        "note": "Carries multiple VLANs."
+      },
+      {
+        "text": "Spanning tree PortFast",
+        "note": "Speeds up port activation."
+      },
+      {
+        "text": "Port mirroring",
+        "note": "Copies traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Port security limits learned MAC addresses and takes action on violations (protect, restrict or shutdown). Shutdown puts the port into an err-disabled state."
+  },
+  {
+    "id": 183,
+    "domain": "D4",
+    "scenario": "Devices must authenticate before a switch port allows any network traffic, with credentials checked by a RADIUS server. Which standard is this?",
+    "options": [
+      {
+        "text": "802.1X",
+        "note": ""
+      },
+      {
+        "text": "802.1Q",
+        "note": "VLAN tagging."
+      },
+      {
+        "text": "802.3af",
+        "note": "Power over Ethernet."
+      },
+      {
+        "text": "802.11h",
+        "note": "Wi-Fi spectrum management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "802.1X involves a supplicant (client), an authenticator (switch or AP) and an authentication server (RADIUS). It's the core of network access control."
+  },
+  {
+    "id": 184,
+    "domain": "D4",
+    "scenario": "What are two device hardening best practices for a newly installed switch?",
+    "options": [
+      {
+        "text": "Change default passwords and disable unused ports and services",
+        "note": ""
+      },
+      {
+        "text": "Enable Telnet and keep the default SNMP community string",
+        "note": "Both weaken security."
+      },
+      {
+        "text": "Leave all ports enabled in VLAN 1",
+        "note": "Increases exposure."
+      },
+      {
+        "text": "Disable logging to save resources",
+        "note": "Reduces visibility."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hardening includes changing defaults, disabling unused ports and services (Telnet, HTTP), using SSH and SNMPv3, applying updates, and putting unused ports in an isolated VLAN."
+  },
+  {
+    "id": 185,
+    "domain": "D4",
+    "scenario": "Firewall rules are processed top-down. What happens to traffic that matches none of the explicit rules on most firewalls?",
+    "options": [
+      {
+        "text": "It's denied by the implicit deny at the end",
+        "note": ""
+      },
+      {
+        "text": "It's allowed by default",
+        "note": "Most firewalls end with an implicit deny."
+      },
+      {
+        "text": "It's sent to the IDS for a decision",
+        "note": "Firewalls don't defer decisions that way."
+      },
+      {
+        "text": "It's forwarded to the default gateway",
+        "note": "Routing doesn't override filtering."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ACLs and firewall rule sets are evaluated in order; the first match applies. If nothing matches, an implicit deny drops the traffic. Put specific rules above general ones."
+  },
+  {
+    "id": 186,
+    "domain": "D4",
+    "scenario": "A company wants to block employees from reaching gambling and malware websites by category. What should it use?",
+    "options": [
+      {
+        "text": "Content filtering",
+        "note": ""
+      },
+      {
+        "text": "Port security",
+        "note": "Controls MAC addresses on switch ports."
+      },
+      {
+        "text": "NAT",
+        "note": "Translates addresses."
+      },
+      {
+        "text": "Link aggregation",
+        "note": "Combines links."
+      }
+    ],
+    "answer": 0,
+    "explanation": "URL and content filtering (on a proxy, firewall or secure web gateway) blocks sites by category, reputation or specific URL."
+  },
+  {
+    "id": 187,
+    "domain": "D4",
+    "scenario": "Guest and IoT devices must be separated from corporate systems so a compromised camera can't reach file servers. What should be implemented?",
+    "options": [
+      {
+        "text": "Segmentation into separate VLANs",
+        "note": ""
+      },
+      {
+        "text": "A larger DHCP scope",
+        "note": "Doesn't isolate devices."
+      },
+      {
+        "text": "Jumbo frames",
+        "note": "Frame size, not security."
+      },
+      {
+        "text": "A flat network with strong Wi-Fi passwords",
+        "note": "No isolation between device types."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Segmentation places different trust levels (guest, IoT, BYOD, OT, corporate) in separate zones, with firewall or ACL rules controlling traffic between them."
+  },
+  {
+    "id": 188,
+    "domain": "D4",
+    "scenario": "Encryption keys must be generated, stored, rotated and revoked securely across many systems. What process covers this?",
+    "options": [
+      {
+        "text": "Key management",
+        "note": ""
+      },
+      {
+        "text": "Change management",
+        "note": "Approves configuration changes."
+      },
+      {
+        "text": "Asset inventory",
+        "note": "Tracks hardware and software."
+      },
+      {
+        "text": "Port mirroring",
+        "note": "Copies traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Key management handles the full key life cycle, often using hardware security modules or cloud key management services."
+  },
+  {
+    "id": 189,
+    "domain": "D5",
+    "scenario": "According to the CompTIA troubleshooting methodology, what is the first step?",
+    "options": [
+      {
+        "text": "Identify the problem",
+        "note": ""
+      },
+      {
+        "text": "Establish a theory of probable cause",
+        "note": "Comes after identifying the problem."
+      },
+      {
+        "text": "Implement the solution",
+        "note": "Much later in the process."
+      },
+      {
+        "text": "Document findings",
+        "note": "The final step."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The steps are: identify the problem; establish a theory of probable cause; test the theory; establish a plan of action; implement the solution or escalate; verify full system functionality and implement preventive measures; document findings, actions, outcomes and lessons learned."
+  },
+  {
+    "id": 190,
+    "domain": "D5",
+    "scenario": "A technician tested a theory and confirmed the cause of an outage. What is the next step?",
+    "options": [
+      {
+        "text": "Establish a plan of action",
+        "note": ""
+      },
+      {
+        "text": "Document findings and lessons learned",
+        "note": "That's the last step."
+      },
+      {
+        "text": "Identify the problem",
+        "note": "Already done."
+      },
+      {
+        "text": "Question the obvious",
+        "note": "Part of establishing a theory."
+      }
+    ],
+    "answer": 0,
+    "explanation": "After confirming the theory, plan the fix and consider its side effects (including change management), then implement or escalate."
+  },
+  {
+    "id": 191,
+    "domain": "D5",
+    "scenario": "After fixing a routing problem, what should the technician do before documenting the work?",
+    "options": [
+      {
+        "text": "Verify full system functionality",
+        "note": ""
+      },
+      {
+        "text": "Establish a new theory",
+        "note": "The problem is already solved."
+      },
+      {
+        "text": "Gather information from users",
+        "note": "Part of identifying the problem."
+      },
+      {
+        "text": "Escalate the issue",
+        "note": "Only if the fix can't be implemented."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Verification confirms the problem is fixed and nothing else broke. Preventive measures stop it recurring. Documentation comes last."
+  },
+  {
+    "id": 192,
+    "domain": "D5",
+    "scenario": "While identifying a problem, which actions are part of this step?",
+    "options": [
+      {
+        "text": "Gather information and question users",
+        "note": ""
+      },
+      {
+        "text": "Implement the fix and test it",
+        "note": "Comes later."
+      },
+      {
+        "text": "Restore from backup immediately",
+        "note": "Premature without diagnosis."
+      },
+      {
+        "text": "Write the post-incident report",
+        "note": "That's documentation, the final step."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Identifying the problem includes gathering information, questioning users, identifying symptoms, determining recent changes, duplicating the problem if possible and approaching multiple problems individually."
+  },
+  {
+    "id": 193,
+    "domain": "D5",
+    "scenario": "A theory is tested and proven wrong. What should the technician do?",
+    "options": [
+      {
+        "text": "Establish a new theory or escalate",
+        "note": ""
+      },
+      {
+        "text": "Implement the original fix anyway",
+        "note": "The theory was disproven."
+      },
+      {
+        "text": "Document and close the ticket",
+        "note": "The problem isn't solved."
+      },
+      {
+        "text": "Replace all network hardware",
+        "note": "Not a methodical next step."
+      }
+    ],
+    "answer": 0,
+    "explanation": "If a theory isn't confirmed, go back and establish a new one, or escalate to someone with more expertise or access."
+  },
+  {
+    "id": 194,
+    "domain": "D5",
+    "scenario": "A switch port shows a rapidly increasing number of CRC errors. What is the most likely cause?",
+    "options": [
+      {
+        "text": "Bad cabling or interference",
+        "note": ""
+      },
+      {
+        "text": "An incorrect VLAN assignment",
+        "note": "Causes connectivity issues, not CRC errors."
+      },
+      {
+        "text": "A DHCP scope exhaustion",
+        "note": "Unrelated to frame integrity."
+      },
+      {
+        "text": "A DNS misconfiguration",
+        "note": "Unrelated to the physical layer."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CRC errors mean frames are corrupted in transit, typically due to bad cabling, poor terminations, interference or a duplex mismatch."
+  },
+  {
+    "id": 195,
+    "domain": "D5",
+    "scenario": "Interface counters show many frames smaller than 64 bytes. What are these called?",
+    "options": [
+      {
+        "text": "Runts",
+        "note": ""
+      },
+      {
+        "text": "Giants",
+        "note": "Frames larger than the maximum allowed size."
+      },
+      {
+        "text": "Jabbers",
+        "note": "Oversized frames with bad CRCs, from a faulty NIC."
+      },
+      {
+        "text": "Encapsulation errors",
+        "note": "Not a frame-size counter."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Runts are undersized frames, often caused by collisions (for example from a duplex mismatch) or a faulty NIC. Giants are frames larger than the MTU allows."
+  },
+  {
+    "id": 196,
+    "domain": "D5",
+    "scenario": "Large frames are being dropped and the counter for frames over the maximum size is increasing. What should be checked first?",
+    "options": [
+      {
+        "text": "An MTU mismatch",
+        "note": ""
+      },
+      {
+        "text": "The DNS server addresses",
+        "note": "Unrelated to frame size."
+      },
+      {
+        "text": "Wireless channel overlap",
+        "note": "A wireless issue."
+      },
+      {
+        "text": "The DHCP lease time",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Giants usually come from an MTU mismatch, such as one device sending jumbo frames to a port that isn't configured for them."
+  },
+  {
+    "id": 197,
+    "domain": "D5",
+    "scenario": "A long cable run near fluorescent lights and motors has many errors. Which cable type helps reduce the interference?",
+    "options": [
+      {
+        "text": "Shielded twisted pair (STP)",
+        "note": ""
+      },
+      {
+        "text": "Unshielded twisted pair (UTP) of a lower category",
+        "note": "Less protection, not more."
+      },
+      {
+        "text": "A longer cable",
+        "note": "Increases attenuation."
+      },
+      {
+        "text": "Plenum-rated UTP",
+        "note": "Plenum is about fire safety, not shielding."
+      }
+    ],
+    "answer": 0,
+    "explanation": "STP has foil or braided shielding that reduces electromagnetic interference. It must be properly grounded to be effective. Fiber is immune to EMI."
+  },
+  {
+    "id": 198,
+    "domain": "D5",
+    "scenario": "A fiber link isn't working. The technician notices the transmit fiber on one end is connected to the transmit port on the other end. What is the issue?",
+    "options": [
+      {
+        "text": "TX/RX are transposed (reversed)",
+        "note": ""
+      },
+      {
+        "text": "The fiber is too short",
+        "note": "Short runs aren't a typical problem."
+      },
+      {
+        "text": "The VLAN is wrong",
+        "note": "The link wouldn't come up at layer 1 at all."
+      },
+      {
+        "text": "The cable is plenum-rated",
+        "note": "Jacket rating doesn't affect this."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fiber pairs must cross over: TX on one end to RX on the other. Swapping the pair at one end fixes it."
+  },
+  {
+    "id": 199,
+    "domain": "D5",
+    "scenario": "A link between buildings uses single-mode fiber, but one switch has a multimode SFP installed. What will most likely happen?",
+    "options": [
+      {
+        "text": "The link fails or has high errors",
+        "note": ""
+      },
+      {
+        "text": "It works normally at full speed",
+        "note": "Mixing mode types causes problems."
+      },
+      {
+        "text": "It works but only for IPv6",
+        "note": "The protocol doesn't matter."
+      },
+      {
+        "text": "Spanning tree blocks the port",
+        "note": "STP isn't the issue here."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Transceivers must match the fiber type, wavelength and speed at both ends. Mismatches cause no link or excessive errors."
+  },
+  {
+    "id": 200,
+    "domain": "D5",
+    "scenario": "A long copper run works, but signal strength degrades with distance and causes errors beyond 100 meters. What is this called?",
+    "options": [
+      {
+        "text": "Attenuation",
+        "note": ""
+      },
+      {
+        "text": "Crosstalk",
+        "note": "Signal leaking between pairs."
+      },
+      {
+        "text": "Jitter",
+        "note": "Variation in packet delay."
+      },
+      {
+        "text": "Latency",
+        "note": "Delay."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Attenuation is the loss of signal strength over distance. Stay within length limits or use fiber for longer runs."
+  },
+  {
+    "id": 201,
+    "domain": "D5",
+    "scenario": "Signals from one wire pair are bleeding into an adjacent pair near the connector, often due to untwisting too much wire during termination. What is this?",
+    "options": [
+      {
+        "text": "Crosstalk (NEXT)",
+        "note": ""
+      },
+      {
+        "text": "Attenuation",
+        "note": "Signal loss over distance."
+      },
+      {
+        "text": "A duplex mismatch",
+        "note": "A configuration issue."
+      },
+      {
+        "text": "Reflection from an open fiber",
+        "note": "A fiber issue."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Near-end crosstalk is commonly caused by improper termination. Keep pairs twisted as close to the connector as possible."
+  },
+  {
+    "id": 202,
+    "domain": "D5",
+    "scenario": "A switch port shows as \"administratively down\". What does this mean?",
+    "options": [
+      {
+        "text": "It was disabled with shutdown",
+        "note": ""
+      },
+      {
+        "text": "The cable is unplugged",
+        "note": "That shows as down/down (not connected)."
+      },
+      {
+        "text": "Port security shut it down",
+        "note": "That shows as err-disabled."
+      },
+      {
+        "text": "Spanning tree is blocking it",
+        "note": "Blocked ports aren't administratively down."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Administratively down means the interface is disabled in the configuration. Use \"no shutdown\" to enable it."
+  },
+  {
+    "id": 203,
+    "domain": "D5",
+    "scenario": "A port went into an err-disabled state after someone connected a personal switch to it. What most likely happened?",
+    "options": [
+      {
+        "text": "Port security or BPDU guard disabled it",
+        "note": ""
+      },
+      {
+        "text": "The port was configured as a trunk",
+        "note": "Wouldn't cause err-disabled."
+      },
+      {
+        "text": "The DHCP server ran out of addresses",
+        "note": "Wouldn't disable the port."
+      },
+      {
+        "text": "The cable was too short",
+        "note": "Not a cause of err-disabled."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Err-disabled is set automatically by protective features (port security violations, BPDU guard, storm control). Fix the cause, then re-enable the port."
+  },
+  {
+    "id": 204,
+    "domain": "D5",
+    "scenario": "New PoE cameras power on intermittently, and the switch log shows it's out of power. What is the issue?",
+    "options": [
+      {
+        "text": "The PoE power budget is exceeded",
+        "note": ""
+      },
+      {
+        "text": "The cameras are in the wrong VLAN",
+        "note": "Wouldn't affect power."
+      },
+      {
+        "text": "The cable is plenum-rated",
+        "note": "Doesn't affect power."
+      },
+      {
+        "text": "DNS isn't configured",
+        "note": "Unrelated to power."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Each PoE switch has a total power budget. Too many powered devices, or devices that need a higher PoE class, can exceed it."
+  },
+  {
+    "id": 205,
+    "domain": "D5",
+    "scenario": "A PTZ camera needs about 25 W from the switch. Which PoE standard is the minimum that supports it?",
+    "options": [
+      {
+        "text": "802.3at (PoE+)",
+        "note": ""
+      },
+      {
+        "text": "802.3af (PoE)",
+        "note": "Delivers up to about 15.4 W at the switch."
+      },
+      {
+        "text": "802.3ab",
+        "note": "1000BASE-T Ethernet, not PoE."
+      },
+      {
+        "text": "802.1X",
+        "note": "Access control."
+      }
+    ],
+    "answer": 0,
+    "explanation": "802.3af (PoE) provides up to 15.4 W per port at the switch, 802.3at (PoE+) up to 30 W, and 802.3bt (PoE++) up to 60 W (Type 3) or 90 W (Type 4). Devices receive slightly less than the switch sends because of cable losses."
+  },
+  {
+    "id": 206,
+    "domain": "D5",
+    "scenario": "Users report the network is extremely slow, and switch CPU usage is at 100% with broadcast traffic constantly increasing after a new cable was added between two switches. What is the likely cause?",
+    "options": [
+      {
+        "text": "A switching loop",
+        "note": ""
+      },
+      {
+        "text": "A DNS server failure",
+        "note": "Wouldn't cause a broadcast storm."
+      },
+      {
+        "text": "An expired certificate",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A duplicate IP address",
+        "note": "Affects one host, not the whole switch."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A redundant link without working spanning tree creates a loop, and broadcasts circulate endlessly. Check STP status and remove or block the extra link."
+  },
+  {
+    "id": 207,
+    "domain": "D5",
+    "scenario": "Traffic between data center switches is taking a slow path because an old access switch became the spanning tree root bridge. What should be done?",
+    "options": [
+      {
+        "text": "Lower the core switch's bridge priority",
+        "note": ""
+      },
+      {
+        "text": "Disable spanning tree",
+        "note": "Risks switching loops."
+      },
+      {
+        "text": "Raise the core switch's priority value",
+        "note": "Higher values are less preferred."
+      },
+      {
+        "text": "Replace all cables",
+        "note": "Not related to root election."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Root bridge selection should be deliberate. Set the core switch to a low priority (for example 4096) so it always wins the election."
+  },
+  {
+    "id": 208,
+    "domain": "D5",
+    "scenario": "A PC is plugged into a port configured for VLAN 20 instead of VLAN 10. What symptom appears?",
+    "options": [
+      {
+        "text": "It can't reach VLAN 10 resources",
+        "note": ""
+      },
+      {
+        "text": "CRC errors increase on the port",
+        "note": "A physical-layer symptom."
+      },
+      {
+        "text": "The PoE budget is exceeded",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The port goes err-disabled",
+        "note": "VLAN assignment doesn't cause that."
+      }
+    ],
+    "answer": 0,
+    "explanation": "An incorrect VLAN assignment puts the device in the wrong broadcast domain. Check the port's access VLAN with \"show vlan\" or the interface config."
+  },
+  {
+    "id": 209,
+    "domain": "D5",
+    "scenario": "A new ACL on a router blocks all traffic, including traffic it was supposed to allow. What is the most likely cause?",
+    "options": [
+      {
+        "text": "The permit is missing or below a broader deny",
+        "note": ""
+      },
+      {
+        "text": "The router is out of DHCP addresses",
+        "note": "Unrelated to ACLs."
+      },
+      {
+        "text": "The cable is too long",
+        "note": "A physical issue."
+      },
+      {
+        "text": "NTP isn't configured",
+        "note": "Doesn't affect filtering."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ACLs are processed top-down, first match wins, and they end with an implicit deny. Order specific rules first and include the necessary permits."
+  },
+  {
+    "id": 210,
+    "domain": "D5",
+    "scenario": "Hosts on a subnet can reach each other but nothing outside the subnet. Other subnets work. What should be checked first?",
+    "options": [
+      {
+        "text": "The default gateway setting",
+        "note": ""
+      },
+      {
+        "text": "The DNS MX records",
+        "note": "Mail routing; unrelated."
+      },
+      {
+        "text": "The switch's PoE budget",
+        "note": "Power."
+      },
+      {
+        "text": "The Wi-Fi channel",
+        "note": "Wireless."
+      }
+    ],
+    "answer": 0,
+    "explanation": "If local communication works but remote doesn't, check the default gateway address on the hosts (or DHCP option 3), and that the gateway interface is up."
+  },
+  {
+    "id": 211,
+    "domain": "D5",
+    "scenario": "New devices on a VLAN suddenly get APIPA addresses while existing devices work fine. What is the most likely cause?",
+    "options": [
+      {
+        "text": "The DHCP scope is exhausted",
+        "note": ""
+      },
+      {
+        "text": "The switch has a duplex mismatch",
+        "note": "Would affect existing devices too."
+      },
+      {
+        "text": "DNSSEC is misconfigured",
+        "note": "Unrelated to addressing."
+      },
+      {
+        "text": "The PoE budget is exceeded",
+        "note": "Affects power, not addressing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "When the pool has no free addresses, new clients can't get a lease. Expand the scope, shorten lease times or remove stale leases."
+  },
+  {
+    "id": 212,
+    "domain": "D5",
+    "scenario": "Two hosts intermittently lose connectivity and Windows reports an address conflict. What is the problem?",
+    "options": [
+      {
+        "text": "A duplicate IP address",
+        "note": ""
+      },
+      {
+        "text": "An incorrect subnet mask",
+        "note": "Causes reachability problems, not conflict warnings."
+      },
+      {
+        "text": "A DNS cache issue",
+        "note": "Wouldn't produce an address conflict."
+      },
+      {
+        "text": "A bad SFP",
+        "note": "A physical problem."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Duplicate IPs often come from a static address inside the DHCP range. Use exclusions or reservations, and check ARP tables to find the conflicting MAC."
+  },
+  {
+    "id": 213,
+    "domain": "D5",
+    "scenario": "A host is configured as 192.168.1.50 with mask 255.255.0.0, while the network is 192.168.1.0/24. What problem can this cause?",
+    "options": [
+      {
+        "text": "It treats some remote subnets as local",
+        "note": ""
+      },
+      {
+        "text": "It can't reach anything on 192.168.1.0/24",
+        "note": "Local hosts are still within its range."
+      },
+      {
+        "text": "The host's DNS stops working entirely",
+        "note": "Not a direct effect."
+      },
+      {
+        "text": "The switch port shuts down",
+        "note": "A mask mismatch doesn't affect the switch."
+      }
+    ],
+    "answer": 0,
+    "explanation": "With a wrong subnet mask, a host misjudges which destinations are local, so traffic to some remote subnets is sent directly via ARP instead of to the gateway, and fails."
+  },
+  {
+    "id": 214,
+    "domain": "D5",
+    "scenario": "A router has no route to a destination network and no default route. What happens to packets for that destination?",
+    "options": [
+      {
+        "text": "They're dropped",
+        "note": ""
+      },
+      {
+        "text": "They're broadcast out all interfaces",
+        "note": "Routers don't flood unknown destinations."
+      },
+      {
+        "text": "They're sent back to the source",
+        "note": "Not standard routing behavior."
+      },
+      {
+        "text": "They're queued until a route appears",
+        "note": "Packets aren't held indefinitely."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Without a matching route (including a default route), the router discards the packet. Check the routing table with \"show ip route\"."
+  },
+  {
+    "id": 215,
+    "domain": "D5",
+    "scenario": "VoIP calls sound choppy, and monitoring shows packets arrive with highly variable delay. Which metric is the problem?",
+    "options": [
+      {
+        "text": "Jitter",
+        "note": ""
+      },
+      {
+        "text": "Throughput",
+        "note": "Overall data rate."
+      },
+      {
+        "text": "Attenuation",
+        "note": "Signal loss."
+      },
+      {
+        "text": "MTBF",
+        "note": "A reliability metric."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Jitter is variation in packet delay. Voice and video are very sensitive to it. QoS and jitter buffers help."
+  },
+  {
+    "id": 216,
+    "domain": "D5",
+    "scenario": "A link is rated at 1 Gbps but transfers only reach 400 Mbps due to protocol overhead and congestion. What is the 400 Mbps figure?",
+    "options": [
+      {
+        "text": "Throughput",
+        "note": ""
+      },
+      {
+        "text": "Bandwidth",
+        "note": "The theoretical maximum capacity."
+      },
+      {
+        "text": "Latency",
+        "note": "Delay."
+      },
+      {
+        "text": "Jitter",
+        "note": "Delay variation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Bandwidth is the maximum capacity; throughput is the actual achieved data rate."
+  },
+  {
+    "id": 217,
+    "domain": "D5",
+    "scenario": "Users at a branch report slow applications every afternoon, and the WAN link shows 100% utilization during those hours. What is this?",
+    "options": [
+      {
+        "text": "WAN link congestion",
+        "note": ""
+      },
+      {
+        "text": "A duplicate IP address",
+        "note": "Wouldn't follow a time-of-day pattern."
+      },
+      {
+        "text": "A broadcast storm",
+        "note": "Would affect the LAN, not just the WAN link."
+      },
+      {
+        "text": "A misconfigured VLAN",
+        "note": "Wouldn't be intermittent by time of day."
+      }
+    ],
+    "answer": 0,
+    "explanation": "When demand exceeds capacity, packets queue and drop. Options include QoS, more bandwidth, caching or scheduling bulk transfers off-peak."
+  },
+  {
+    "id": 218,
+    "domain": "D5",
+    "scenario": "Several 2.4 GHz APs in an office all use channel 6, and users see poor performance. What should be done?",
+    "options": [
+      {
+        "text": "Use channels 1, 6 and 11",
+        "note": ""
+      },
+      {
+        "text": "Increase every AP's transmit power",
+        "note": "Increases co-channel interference."
+      },
+      {
+        "text": "Switch all APs to channel 3",
+        "note": "Overlaps with both 1 and 6."
+      },
+      {
+        "text": "Disable WPA3",
+        "note": "Security doesn't affect channel contention."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Co-channel and adjacent-channel interference slow Wi-Fi. Plan channels so nearby APs use non-overlapping channels, and prefer 5 or 6 GHz where possible."
+  },
+  {
+    "id": 219,
+    "domain": "D5",
+    "scenario": "Users far from an AP have weak signal and frequently drop off the network, while close users are fine. What is the most likely issue?",
+    "options": [
+      {
+        "text": "Insufficient wireless coverage",
+        "note": ""
+      },
+      {
+        "text": "DHCP scope exhaustion",
+        "note": "Would affect connections regardless of distance."
+      },
+      {
+        "text": "An incorrect native VLAN",
+        "note": "A wired trunk issue."
+      },
+      {
+        "text": "Too many SSIDs",
+        "note": "Adds overhead but isn't distance-related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Signal degrades with distance and obstacles. Do a site survey and add or relocate APs to cover dead zones."
+  },
+  {
+    "id": 220,
+    "domain": "D5",
+    "scenario": "Clients disconnect briefly every time they move between APs on the same SSID. What should be checked?",
+    "options": [
+      {
+        "text": "The roaming configuration",
+        "note": ""
+      },
+      {
+        "text": "The DNS PTR records",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The PoE class of the cameras",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Interface MTU on servers",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Roaming issues come from mismatched settings between APs, poor overlap or slow re-authentication. 802.11r/k/v help clients roam smoothly."
+  },
+  {
+    "id": 221,
+    "domain": "D5",
+    "scenario": "A microwave oven in the break room disrupts Wi-Fi for nearby users whenever it's running. Which band is affected and what helps?",
+    "options": [
+      {
+        "text": "2.4 GHz; move clients to 5 or 6 GHz",
+        "note": ""
+      },
+      {
+        "text": "5 GHz; move clients to 2.4 GHz",
+        "note": "Microwave ovens interfere with 2.4 GHz."
+      },
+      {
+        "text": "6 GHz; disable WPA3",
+        "note": "Not the cause."
+      },
+      {
+        "text": "All bands equally; nothing can be done",
+        "note": "5 and 6 GHz avoid it."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Microwave ovens operate around 2.4 GHz. A spectrum analyzer can confirm non-Wi-Fi interference."
+  },
+  {
+    "id": 222,
+    "domain": "D5",
+    "scenario": "Which command shows the path packets take to a destination and the delay at each hop on a Windows PC?",
+    "options": [
+      {
+        "text": "tracert",
+        "note": ""
+      },
+      {
+        "text": "ipconfig",
+        "note": "Shows IP configuration."
+      },
+      {
+        "text": "netstat",
+        "note": "Shows connections and listening ports."
+      },
+      {
+        "text": "arp -a",
+        "note": "Shows the ARP cache."
+      }
+    ],
+    "answer": 0,
+    "explanation": "tracert (Windows) and traceroute (Linux/macOS) list each router hop using increasing TTL values."
+  },
+  {
+    "id": 223,
+    "domain": "D5",
+    "scenario": "Which command displays active TCP connections and listening ports on a host?",
+    "options": [
+      {
+        "text": "netstat",
+        "note": ""
+      },
+      {
+        "text": "nslookup",
+        "note": "Queries DNS."
+      },
+      {
+        "text": "tracert",
+        "note": "Traces routes."
+      },
+      {
+        "text": "ping",
+        "note": "Tests reachability."
+      }
+    ],
+    "answer": 0,
+    "explanation": "netstat (or ss on Linux) lists connections, listening ports and, with options, the owning process."
+  },
+  {
+    "id": 224,
+    "domain": "D5",
+    "scenario": "A user can reach a website by IP address but not by name. Which tool tests DNS resolution directly?",
+    "options": [
+      {
+        "text": "nslookup",
+        "note": ""
+      },
+      {
+        "text": "arp -a",
+        "note": "Resolves IP to MAC on the local network."
+      },
+      {
+        "text": "tracert",
+        "note": "Traces the network path."
+      },
+      {
+        "text": "netstat",
+        "note": "Shows connections."
+      }
+    ],
+    "answer": 0,
+    "explanation": "nslookup (Windows and others) and dig (Linux/macOS) query DNS servers directly, so you can test name resolution and which server answers."
+  },
+  {
+    "id": 225,
+    "domain": "D5",
+    "scenario": "Which command shows the IP address, subnet mask, default gateway and DNS servers on a Windows PC?",
+    "options": [
+      {
+        "text": "ipconfig /all",
+        "note": ""
+      },
+      {
+        "text": "ifconfig -a",
+        "note": "Linux/macOS (and doesn't show DNS servers)."
+      },
+      {
+        "text": "netstat -r",
+        "note": "Shows the routing table."
+      },
+      {
+        "text": "nslookup",
+        "note": "Queries DNS."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ipconfig /all shows full adapter configuration. On Linux, use ip addr and ip route (or the older ifconfig)."
+  },
+  {
+    "id": 226,
+    "domain": "D5",
+    "scenario": "Which Linux command captures packets on an interface from the command line?",
+    "options": [
+      {
+        "text": "tcpdump",
+        "note": ""
+      },
+      {
+        "text": "dig",
+        "note": "Queries DNS."
+      },
+      {
+        "text": "ip route",
+        "note": "Shows routes."
+      },
+      {
+        "text": "nslookup",
+        "note": "Queries DNS."
+      }
+    ],
+    "answer": 0,
+    "explanation": "tcpdump captures and filters packets and can save them to a file for analysis in Wireshark."
+  },
+  {
+    "id": 227,
+    "domain": "D5",
+    "scenario": "An administrator needs to discover which hosts are up on a subnet and which ports and services they expose. Which tool is designed for this?",
+    "options": [
+      {
+        "text": "Nmap",
+        "note": ""
+      },
+      {
+        "text": "A cable tester",
+        "note": "Physical layer."
+      },
+      {
+        "text": "A toner probe",
+        "note": "Traces cables."
+      },
+      {
+        "text": "A visual fault locator",
+        "note": "Finds fiber breaks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Nmap scans networks for live hosts, open ports, services and operating systems. Only scan networks you're authorized to scan."
+  },
+  {
+    "id": 228,
+    "domain": "D5",
+    "scenario": "A technician wants to see which switch and port a device is connected to, using a vendor-neutral neighbor discovery protocol. Which protocol should be used?",
+    "options": [
+      {
+        "text": "LLDP",
+        "note": ""
+      },
+      {
+        "text": "CDP",
+        "note": "Cisco proprietary."
+      },
+      {
+        "text": "STP",
+        "note": "Loop prevention."
+      },
+      {
+        "text": "ARP broadcasts",
+        "note": "IP-to-MAC resolution."
+      }
+    ],
+    "answer": 0,
+    "explanation": "LLDP (IEEE 802.1AB) advertises device identity, port and capabilities to neighbors. CDP is Cisco's proprietary equivalent."
+  },
+  {
+    "id": 229,
+    "domain": "D5",
+    "scenario": "Which tool decodes captured packets so a technician can inspect each protocol header?",
+    "options": [
+      {
+        "text": "A protocol analyzer",
+        "note": ""
+      },
+      {
+        "text": "A cable tester",
+        "note": "Tests wiring."
+      },
+      {
+        "text": "A speed tester",
+        "note": "Measures throughput."
+      },
+      {
+        "text": "A loopback plug",
+        "note": "Tests a port."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Protocol analyzers capture and decode traffic layer by layer, which helps diagnose application, protocol and performance issues."
+  },
+  {
+    "id": 230,
+    "domain": "D5",
+    "scenario": "A technician needs to find which cable in a bundle of unlabeled wires runs to a specific wall jack. Which tool should they use?",
+    "options": [
+      {
+        "text": "A toner and probe",
+        "note": ""
+      },
+      {
+        "text": "A visual fault locator",
+        "note": "Used for fiber."
+      },
+      {
+        "text": "A Wi-Fi analyzer",
+        "note": "Wireless."
+      },
+      {
+        "text": "A protocol analyzer",
+        "note": "Traffic analysis."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A tone generator sends a signal into the cable at the jack, and the probe detects it in the bundle at the patch panel."
+  },
+  {
+    "id": 231,
+    "domain": "D5",
+    "scenario": "Which tool checks a newly terminated copper cable for opens, shorts and miswired pairs?",
+    "options": [
+      {
+        "text": "A cable tester",
+        "note": ""
+      },
+      {
+        "text": "A toner probe",
+        "note": "Locates cables but doesn't verify wiring."
+      },
+      {
+        "text": "tcpdump",
+        "note": "Captures packets."
+      },
+      {
+        "text": "A light meter",
+        "note": "Measures fiber optical power."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cable testers verify wire maps and continuity. Cable certifiers go further and test performance against category specifications."
+  },
+  {
+    "id": 232,
+    "domain": "D5",
+    "scenario": "A technician needs to find a break or tight bend in a short fiber patch cable. Which tool shines visible red light through the fiber to show the fault?",
+    "options": [
+      {
+        "text": "A visual fault locator",
+        "note": ""
+      },
+      {
+        "text": "A toner probe",
+        "note": "For copper cables."
+      },
+      {
+        "text": "A Wi-Fi analyzer",
+        "note": "Wireless."
+      },
+      {
+        "text": "An OTDR alone",
+        "note": "An OTDR finds faults over long distances by reflection; a VFL makes them visible on short runs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A visual fault locator injects a bright red laser; light leaks out at breaks and sharp bends. Optical power meters and OTDRs are used for longer runs."
+  },
+  {
+    "id": 233,
+    "domain": "D5",
+    "scenario": "Users report slow Wi-Fi. Which tool helps identify channel usage, signal strength and nearby networks?",
+    "options": [
+      {
+        "text": "A Wi-Fi analyzer",
+        "note": ""
+      },
+      {
+        "text": "A cable tester",
+        "note": "Wired."
+      },
+      {
+        "text": "A toner probe",
+        "note": "Wired."
+      },
+      {
+        "text": "netstat",
+        "note": "Shows connections on a host."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Wi-Fi analyzers show SSIDs, channels, signal strength (RSSI) and noise, which helps find interference and coverage gaps."
+  },
+  {
+    "id": 234,
+    "domain": "D5",
+    "scenario": "On a switch, which command shows which MAC addresses have been learned on which ports?",
+    "options": [
+      {
+        "text": "show mac address-table",
+        "note": ""
+      },
+      {
+        "text": "show ip route",
+        "note": "Displays the routing table."
+      },
+      {
+        "text": "show vlan brief",
+        "note": "Lists VLANs and their port assignments."
+      },
+      {
+        "text": "show power inline",
+        "note": "Shows PoE usage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The MAC address table maps MAC addresses to ports and VLANs, which helps locate devices and spot MAC flooding."
+  },
+  {
+    "id": 235,
+    "domain": "D5",
+    "scenario": "Which command checks interface status, errors (CRC, runts, giants), duplex and speed on a switch?",
+    "options": [
+      {
+        "text": "show interface",
+        "note": ""
+      },
+      {
+        "text": "show running-config only",
+        "note": "Shows configuration, not live counters."
+      },
+      {
+        "text": "show arp",
+        "note": "Shows IP-to-MAC mappings."
+      },
+      {
+        "text": "show route",
+        "note": "Shows routes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "\"show interface\" (or \"show interfaces\") displays link status, speed and duplex, plus error counters useful for physical-layer troubleshooting."
+  },
+  {
+    "id": 236,
+    "domain": "D5",
+    "scenario": "A network device is reachable by IP, but the technician needs to confirm which MAC address is associated with that IP. Which command helps on a router?",
+    "options": [
+      {
+        "text": "show arp",
+        "note": ""
+      },
+      {
+        "text": "show vlan brief",
+        "note": "VLAN information."
+      },
+      {
+        "text": "show power",
+        "note": "PoE information."
+      },
+      {
+        "text": "show version",
+        "note": "Software and hardware information."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The ARP table maps IP addresses to MAC addresses. On Windows the equivalent is arp -a."
+  },
+  {
+    "id": 237,
+    "domain": "D5",
+    "scenario": "Which hardware device is placed inline on a cable to give a monitoring tool a complete copy of traffic in both directions?",
+    "options": [
+      {
+        "text": "A network tap",
+        "note": ""
+      },
+      {
+        "text": "A patch panel",
+        "note": "Terminates cables."
+      },
+      {
+        "text": "A PDU",
+        "note": "Distributes power."
+      },
+      {
+        "text": "A media converter",
+        "note": "Converts between media types."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A network tap passively copies all traffic, including errors, without depending on switch configuration. Port mirroring (SPAN) is the switch-based alternative."
+  }
+]

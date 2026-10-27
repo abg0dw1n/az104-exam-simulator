@@ -1,9 +1,9 @@
 {
-  "name": "az104-exam-simulator",
+  "name": "exam-simulator",
   "private": true,
-  "version": "2.0.0",
+  "version": "3.0.0",
   "type": "module",
-  "description": "AZ-104 Microsoft Azure Administrator practice and exam simulator",
+  "description": "Practice and timed exam simulator for IT certifications (AZ-104, Network+)",
   "scripts": {
     "validate": "node scripts/validate-questions.mjs"
   }

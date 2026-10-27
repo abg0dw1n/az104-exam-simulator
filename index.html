@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AZ-104 Exam Simulator</title>
-  <meta name="description" content="Practice and timed exam simulator for the Microsoft Azure Administrator (AZ-104) certification.">
+  <title>Exam Simulator</title>
+  <meta name="description" content="Practice questions and timed exams for IT certifications.">
   <meta name="theme-color" content="#0f172a">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="/manifest.webmanifest">
@@ -34,22 +34,23 @@
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
-        <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0078d4"/><path d="M9 16.5l4.5 4.5L23 11.5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <div>
-          <h1>AZ-104 Exam Simulator</h1>
-          <p class="muted small">Microsoft Azure Administrator · <span id="bank-size">45</span> questions</p>
+          <h1><a href="/" class="brand-link" id="brand-title" title="All exams">Exam Simulator</a></h1>
+          <p class="muted small" id="brand-sub">Practice questions and timed exams</p>
         </div>
       </div>
 
       <div class="topbar-actions">
-        <div class="segmented" role="tablist" aria-label="Mode">
+        <a href="/" class="btn btn-ghost btn-sm exams-link" id="exams-link">All exams</a>
+        <div class="segmented" role="tablist" aria-label="Mode" id="mode-tabs" hidden>
           <button id="btn-mode-practice" role="tab" data-mode="practice"><svg class="icon"><use href="#i-book"/></svg><span>Practice</span></button>
           <button id="btn-mode-exam" role="tab" data-mode="exam"><svg class="icon"><use href="#i-clock"/></svg><span>Exam</span></button>
         </div>
         <div id="timer" class="timer" hidden aria-live="off">
           <svg class="icon"><use href="#i-clock"/></svg><span id="timer-display">100:00</span>
         </div>
-        <button id="btn-drawer" class="icon-btn" aria-label="Toggle question navigator" aria-controls="navigator" aria-expanded="true">
+        <button id="btn-drawer" hidden class="icon-btn" aria-label="Toggle question navigator" aria-controls="navigator" aria-expanded="true">
           <svg class="icon"><use href="#i-grid"/></svg>
           <span id="flag-badge" class="badge" hidden>0</span>
         </button>
@@ -58,7 +59,7 @@
   </header>
 
   <div class="layout">
-    <aside id="navigator" class="panel navigator">
+    <aside id="navigator" class="panel navigator" hidden>
       <div class="nav-head">
         <h2>Question navigator</h2>
         <span id="progress-text" class="mono muted small">0 / 45</span>

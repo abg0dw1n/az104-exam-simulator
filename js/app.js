@@ -1,15 +1,17 @@
-import { DOMAINS } from './domains.js';
-
 // ─────────────────────────────────────────────────────────────────────────────
 // Config
 // ─────────────────────────────────────────────────────────────────────────────
-const MINUTES_PER_QUESTION = 2;   // the real exam is ~100 min for 40–60 questions
-const DEFAULT_EXAM_SIZE = 50;
-const PASS_MARK = 700;
-const STORAGE_KEY = 'az104-sim:v2';
-let QUESTIONS = [];                // loaded from data/questions.json
+// Everything exam-specific comes from exams/<slug>/exam.json, so adding a certification
+// means adding a folder, not changing code.
+let EXAM = null;                   // exam settings (exam.json)
+let DOMAINS = {};
+let QUESTIONS = [];                // exams/<slug>/questions.json
 let BY_ID = new Map();
-const examMinutes = (n) => Math.max(5, Math.round(n * MINUTES_PER_QUESTION));
+const storageKey = (slug) => `examsim:${slug}:v1`;
+const examMinutes = (n) => Math.max(5, Math.round(n * (EXAM.minutesPerQuestion || 2)));
+const passMark = () => EXAM.scoring.pass;
+const scaleScore = (correct, total) =>
+  Math.round(EXAM.scoring.min + (correct / total) * (EXAM.scoring.max - EXAM.scoring.min));
 const LETTERS = 'ABCDEF';
 const KEYS_LETTER = 'abcdef';
 const KEYS_NUMBER = '123456';
@@ -28,16 +30,24 @@ const defaultState = () => ({
   exam: null,                // { order, optionOrder, answers, flagged, endsAt, index, result }
   review: null,              // { ids, index, source }
   history: [],               // [{ at, score, correct, total, passed }]
-  examSize: DEFAULT_EXAM_SIZE,
+  examSize: null,
   seen: {},                  // id -> times served in an exam (to rotate through big banks)
 });
 
-let state = load();
+let state = null;
 let timerHandle = null;
+
+// Reads an exam's saved progress; legacyKey covers data saved before multi-exam support.
+function readSaved(slug, legacyKey) {
+  try {
+    const raw = localStorage.getItem(storageKey(slug)) ?? (legacyKey ? localStorage.getItem(legacyKey) : null);
+    return raw ? JSON.parse(raw) : null;
+  } catch { return null; }
+}
 
 function load() {
   try {
-    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    const saved = readSaved(EXAM.slug, EXAM.legacyStorageKey);
     if (saved && saved.practice) {
       const d = defaultState();
       // Merge one level deep so settings added in newer versions get their defaults.
@@ -53,7 +63,7 @@ function save() {
   saveQueued = true;
   queueMicrotask(() => {
     saveQueued = false;
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch { /* ignore quota/private mode */ }
+    try { localStorage.setItem(storageKey(EXAM.slug), JSON.stringify(state)); } catch { /* ignore quota/private mode */ }
   });
 }
 
@@ -134,6 +144,11 @@ function render() {
   $('practice-stats').hidden = state.mode !== 'practice';
   $('btn-reset-practice').hidden = state.mode !== 'practice';
 
+  if (!QUESTIONS.length) {
+    renderGridEmpty();
+    main.innerHTML = `<div class="panel empty"><p>This exam doesn't have any questions yet.</p><a class="btn btn-ghost" href="/">All exams</a></div>`;
+    return;
+  }
   if (state.mode === 'exam' && !state.exam) return renderExamIntro(main);
   if (state.mode === 'exam' && state.exam.result) return renderResults(main);
 
@@ -155,7 +170,6 @@ function renderModeTabs() {
   const examTab = state.mode === 'exam' || state.mode === 'review';
   $('btn-mode-practice').setAttribute('aria-selected', String(!examTab));
   $('btn-mode-exam').setAttribute('aria-selected', String(examTab));
-  $('bank-size').textContent = QUESTIONS.length;
 }
 
 let gridKey = '';
@@ -298,17 +312,17 @@ function renderExamIntro(main) {
   main.innerHTML = `
     <section class="panel card-pad stack intro">
       <div class="stack" style="gap:8px">
-        <h2>Timed exam</h2>
+        <h2>Timed exam · ${EXAM.code}</h2>
         <p class="muted">A full-length run under exam conditions. Questions and answer options are shuffled, and answers are only revealed after you submit.</p>
       </div>
       <div class="facts">
         <div class="fact"><b>${QUESTIONS.length}</b><span class="muted small">questions in the bank</span></div>
         <div class="fact"><b id="exam-minutes">${examMinutes(examSize())} min</b><span class="muted small">time limit</span></div>
-        <div class="fact"><b>${PASS_MARK}</b><span class="muted small">passing score (of 1000)</span></div>
+        <div class="fact"><b>${passMark()}</b><span class="muted small">passing score (${EXAM.scoring.min}–${EXAM.scoring.max})</span></div>
         ${last ? `<div class="fact"><b class="${last.passed ? 'good' : 'weak'}">${last.score}</b><span class="muted small">last attempt</span></div>` : ''}
       </div>
       <ul class="rules">
-        <li>The real exam has 40–60 questions in 100 minutes; 50 questions here gets you the same pace.</li>
+        ${EXAM.realExamNote ? `<li>${EXAM.realExamNote}</li>` : ''}
         <li>The timer keeps running if you refresh or close the tab.</li>
         <li>Flag questions to come back to them from the navigator.</li>
         <li>The exam submits automatically when time runs out.</li>
@@ -316,12 +330,12 @@ function renderExamIntro(main) {
       <div class="exam-size">
         <label for="exam-size">Number of questions</label>
         <div class="size-row">
-          ${[20, 40, 50, 60].filter((n) => n <= QUESTIONS.length).map((n) =>
+          ${(EXAM.sizeOptions || [20, 40, 50, 60]).filter((n) => n <= QUESTIONS.length).map((n) =>
             `<button class="btn btn-ghost btn-sm ${n === examSize() ? 'active-size' : ''}" data-size="${n}">${n}</button>`).join('')}
           <input id="exam-size" type="number" min="1" max="${QUESTIONS.length}" value="${examSize()}" inputmode="numeric">
-          <span class="muted small">of ${QUESTIONS.length} · ${MINUTES_PER_QUESTION} min per question</span>
+          <span class="muted small">of ${QUESTIONS.length} · ${EXAM.minutesPerQuestion} min per question</span>
         </div>
-        <p class="muted small">Questions are picked in proportion to the AZ-104 domain weights, favoring ones you've seen least.</p>
+        <p class="muted small">Questions are picked in proportion to the ${EXAM.code} domain weights, favoring ones you've seen least.</p>
       </div>
       <div><button class="btn btn-primary" data-action="start-exam">${icon('play')}Start exam</button></div>
       ${historyTable()}
@@ -354,9 +368,9 @@ function renderResults(main) {
     <section class="panel card-pad stack">
       <div class="score-banner ${r.passed ? 'pass' : 'fail'}">
         <span class="status-pill">${r.passed ? 'PASSED' : 'NOT PASSED'}</span>
-        <h2>${r.score} / 1000</h2>
+        <h2>${r.score} / ${EXAM.scoring.max}</h2>
         <p class="muted">${r.correct} of ${r.total} correct · ${r.timedOut ? 'time expired' : `finished in ${fmtTime(r.elapsed)}`}</p>
-        <p class="small muted">Score is a straight percentage scaled to 1000. Microsoft's real scoring is scaled differently, so treat ${PASS_MARK}+ as a readiness signal, not a guarantee.</p>
+        <p class="small muted">Score is your percentage correct mapped onto the ${EXAM.scoring.min}–${EXAM.scoring.max} scale. ${EXAM.scoreNote || ''}</p>
       </div>
       <div class="stack" style="gap:10px">
         <h3 class="section-title">Domain breakdown</h3>
@@ -468,7 +482,7 @@ function setMode(mode) {
 }
 
 function examSize() {
-  return Math.min(Math.max(1, state.examSize || DEFAULT_EXAM_SIZE), QUESTIONS.length);
+  return Math.min(Math.max(1, state.examSize || EXAM.defaultSize || 50), QUESTIONS.length);
 }
 
 // Pick `count` questions: allocate slots per domain by exam weight (largest-remainder),
@@ -534,10 +548,11 @@ function finishExam(timedOut) {
     if (isCorrect(q, ex.answers[id])) { correct++; domains[q.domain].correct++; }
   }
   const total = ex.order.length;
-  const score = Math.round((correct / total) * 1000);
+  const score = scaleScore(correct, total);
+  const passed = score >= passMark();
   const elapsed = Math.min((ex.minutes || 100) * 60, Math.round((Date.now() - ex.startedAt) / 1000));
-  ex.result = { correct, total, score, passed: score >= PASS_MARK, domains, timedOut, elapsed };
-  state.history.unshift({ at: Date.now(), score, correct, total, passed: score >= PASS_MARK });
+  ex.result = { correct, total, score, passed, domains, timedOut, elapsed };
+  state.history.unshift({ at: Date.now(), score, correct, total, passed });
   state.history = state.history.slice(0, 20);
   state.mode = 'exam';
   stopTimer();
@@ -651,10 +666,16 @@ function syncFilterControls() {
   $('order-filter').value = state.practice.shuffle ? 'shuffled' : 'ordered';
 }
 
-async function loadBank() {
-  const res = await fetch('/data/questions.json', { cache: 'no-cache' });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  QUESTIONS = await res.json();
+async function fetchJson(url) {
+  const res = await fetch(url, { cache: 'no-cache' });
+  if (!res.ok) throw new Error(`${url}: HTTP ${res.status}`);
+  return res.json();
+}
+
+async function loadBank(slug) {
+  [EXAM, QUESTIONS] = await Promise.all([fetchJson(`/exams/${slug}/exam.json`), fetchJson(`/exams/${slug}/questions.json`)]);
+  DOMAINS = EXAM.domains;
+  state = load();
   BY_ID = new Map(QUESTIONS.map((q) => [q.id, q]));
   // Drop saved references to questions that no longer exist in the bank.
   const valid = (id) => BY_ID.has(Number(id));
@@ -670,15 +691,55 @@ async function loadBank() {
   if (state.mode === 'review' && !state.review?.ids.length) state.mode = 'exam';
 }
 
+// /az-104 or /network-plus selects an exam; / shows the exam picker.
+function currentSlug() {
+  const fromQuery = new URLSearchParams(location.search).get('exam');
+  const fromPath = location.pathname.replace(/^\/+|\/+$/g, '').split('/')[0];
+  const slug = (fromQuery || fromPath || '').toLowerCase();
+  return /^[a-z0-9-]+$/.test(slug) && slug !== 'index.html' ? slug : '';
+}
+
+async function renderHome() {
+  document.body.classList.add('home');
+  $('navigator').hidden = true;
+  let exams = [];
+  try { exams = await fetchJson('/exams/index.json'); } catch { /* offline with nothing cached */ }
+  const cards = await Promise.all(exams.map(async (e) => {
+    let count = '';
+    try { count = (await fetchJson(`/exams/${e.slug}/questions.json`)).length; } catch { /* ignore */ }
+    const saved = readSaved(e.slug, e.legacyStorageKey);
+    const last = saved?.history?.[0];
+    const answered = saved ? Object.keys(saved.practice?.answers || {}).length : 0;
+    return `<a class="panel exam-card" href="/${e.slug}">
+      <span class="exam-vendor">${e.vendor}</span>
+      <h2>${e.name}</h2>
+      <span class="chip chip-azure">${e.code}</span>
+      <p class="muted small">${count ? `${count} questions` : ''}${answered ? ` · ${answered} practiced` : ''}${last ? ` · last exam <b class="${last.passed ? 'good' : 'weak'}">${last.score}</b>` : ''}</p>
+    </a>`;
+  }));
+  $('main').innerHTML = `<section class="stack">
+      <div class="stack" style="gap:6px"><h2 class="home-title">Choose an exam</h2>
+      <p class="muted">Each exam keeps its own practice progress and history.</p></div>
+      <div class="exam-grid">${cards.join('') || '<p class="muted">No exams found.</p>'}</div>
+    </section>`;
+}
+
 async function init() {
+  const slug = currentSlug();
+  if (!slug) return renderHome();
   try {
-    await loadBank();
+    await loadBank(slug);
   } catch (err) {
-    $('main').innerHTML = `<div class="panel empty"><p>Couldn't load the question bank (${err.message}).</p>
-      <button class="btn btn-primary" id="btn-retry">Retry</button></div>`;
-    $('btn-retry').addEventListener('click', () => location.reload());
+    $('main').innerHTML = `<div class="panel empty"><p>Couldn't load the "${slug}" exam (${err.message}).</p>
+      <a class="btn btn-primary" href="/">All exams</a></div>`;
+    $('navigator').hidden = true;
     return;
   }
+  document.title = `${EXAM.code} Exam Simulator`;
+  $('brand-title').textContent = `${EXAM.code} Exam Simulator`;
+  $('brand-sub').textContent = `${EXAM.name} · ${QUESTIONS.length} questions`;
+  $('mode-tabs').hidden = false;
+  $('btn-drawer').hidden = false;
   $('domain-filter').innerHTML = `<option value="ALL">All domains (${QUESTIONS.length})</option>` +
     Object.entries(DOMAINS).map(([k, d], i) => {
       const n = QUESTIONS.filter((q) => q.domain === k).length;
@@ -733,7 +794,7 @@ async function init() {
   $('main').addEventListener('change', (e) => {
     if (e.target.id !== 'exam-size') return;
     const n = Math.round(Number(e.target.value));
-    state.examSize = Number.isFinite(n) && n > 0 ? Math.min(n, QUESTIONS.length) : DEFAULT_EXAM_SIZE;
+    state.examSize = Number.isFinite(n) && n > 0 ? Math.min(n, QUESTIONS.length) : EXAM.defaultSize;
     save(); render();
   });
 
