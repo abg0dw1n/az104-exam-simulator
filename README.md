@@ -6,8 +6,11 @@ Practice questions and timed exams for IT certifications. Currently includes:
 |---|---|---|---|
 | Microsoft Azure Administrator (AZ-104) | `exams/az-104` | 198 | 700 / 1000 to pass |
 | CompTIA Network+ (N10-009) | `exams/network-plus` | 237 | 720 on 100–900 to pass |
+| CompTIA Security+ (SY0-701) | `exams/security-plus` | 195 | 750 on 100–900 to pass |
+| Cisco CCNA (200-301 v2.0) | `exams/ccna` | 200 | ~825 / 1000 (Cisco doesn't publish a cut score) |
+| AWS Solutions Architect – Associate (SAA-C03) | `exams/aws-saa` | 197 | 720 on 100–1000 to pass |
 
-Open the site to pick an exam, or go straight to one at `/<folder>` (e.g. `/az-104`, `/network-plus`). Each exam keeps its own progress and history.
+Open the site to pick an exam, or go straight to one at `/<folder>` (e.g. `/az-104`, `/network-plus`, `/security-plus`, `/ccna`, `/aws-saa`). Each exam keeps its own progress and history.
 
 ## Modes
 

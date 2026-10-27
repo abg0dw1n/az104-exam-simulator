@@ -1,0 +1,5006 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "A switch port connected to a server shows late collisions and many runts on the switch side. The server is set to full duplex. What is the most likely cause?",
+    "options": [
+      {
+        "text": "The switch port is set to half duplex",
+        "note": ""
+      },
+      {
+        "text": "The cable exceeds the 300-meter copper limit",
+        "note": "Copper Ethernet is limited to 100 m; but late collisions point to duplex."
+      },
+      {
+        "text": "The port is assigned to the wrong VLAN",
+        "note": "Wouldn't cause collisions."
+      },
+      {
+        "text": "The server's IP address is wrong",
+        "note": "A layer 3 issue."
+      }
+    ],
+    "answer": 0,
+    "explanation": "With a duplex mismatch, the half-duplex side sees late collisions, and the full-duplex side often sees CRC errors and runts. Set both sides to auto or configure them identically."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "Two switches connect with a standard straight-through cable and the link comes up. Which feature makes this work?",
+    "options": [
+      {
+        "text": "Auto-MDIX",
+        "note": ""
+      },
+      {
+        "text": "PortFast",
+        "note": "Speeds up STP transitions."
+      },
+      {
+        "text": "CDP",
+        "note": "Neighbor discovery."
+      },
+      {
+        "text": "BPDU Guard on access ports",
+        "note": "Protects against unexpected BPDUs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Auto-MDIX detects the cable type and adjusts transmit and receive pairs, so straight-through or crossover cables both work."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "Interface output shows input errors and a rising CRC count, but no collisions. The link is full duplex. What should be checked first?",
+    "options": [
+      {
+        "text": "Cabling, connectors and interference",
+        "note": ""
+      },
+      {
+        "text": "The OSPF area number on the uplink",
+        "note": "Layer 3."
+      },
+      {
+        "text": "The DHCP pool and lease settings",
+        "note": "Addressing."
+      },
+      {
+        "text": "The VTY line passwords and timeouts",
+        "note": "Management access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CRC errors on a full-duplex link usually mean physical problems: damaged cabling, bad terminations, EMI or a failing port or transceiver."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "Which copper Ethernet standard and maximum distance apply to 1000BASE-T?",
+    "options": [
+      {
+        "text": "Cat5e or better, 100 meters",
+        "note": ""
+      },
+      {
+        "text": "Cat3, 100 meters",
+        "note": "Cat3 is too low."
+      },
+      {
+        "text": "Cat6, 55 meters",
+        "note": "That's the 10GBASE-T limit on Cat6."
+      },
+      {
+        "text": "Coaxial cable, 500 meters",
+        "note": "An old 10BASE5 limit."
+      }
+    ],
+    "answer": 0,
+    "explanation": "1000BASE-T uses all four pairs of Cat5e (or better) up to 100 meters."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "A switch port shows \"down/down\" with a fiber transceiver installed. The far end uses multimode fiber at 850 nm. The local SFP is a 1310 nm single-mode module. What is the problem?",
+    "options": [
+      {
+        "text": "Transceiver and fiber type mismatch",
+        "note": ""
+      },
+      {
+        "text": "Spanning tree is blocking the port as a loop",
+        "note": "STP blocking doesn't cause down/down."
+      },
+      {
+        "text": "The port is in the wrong VLAN",
+        "note": "VLANs don't affect link status."
+      },
+      {
+        "text": "A duplex mismatch",
+        "note": "Fiber links negotiate full duplex."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Both ends must use compatible optics (wavelength and fiber mode). Mismatched transceivers cause no link or a high error rate."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "What does an interface status of \"up/down\" usually indicate?",
+    "options": [
+      {
+        "text": "Layer 1 is up, but the data link protocol isn't",
+        "note": ""
+      },
+      {
+        "text": "The interface is administratively shut down",
+        "note": "That's administratively down."
+      },
+      {
+        "text": "Everything is working",
+        "note": "That's up/up."
+      },
+      {
+        "text": "No cable is connected to the port at all",
+        "note": "That's usually down/down."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The first status is the physical layer and the second is the line protocol. \"up/down\" points to layer 2 issues such as encapsulation mismatches."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Which hypervisor type runs directly on the server hardware without a host operating system?",
+    "options": [
+      {
+        "text": "Type 1 (bare metal)",
+        "note": ""
+      },
+      {
+        "text": "Type 2 (hosted)",
+        "note": "Runs on top of an OS."
+      },
+      {
+        "text": "A container engine on a host OS",
+        "note": "Containers share the host OS kernel."
+      },
+      {
+        "text": "A VLAN",
+        "note": "A layer 2 segment."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Type 1 hypervisors (such as ESXi or Hyper-V Server) are used in data centers. Type 2 hypervisors (such as VirtualBox) run as applications on a desktop OS."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "What is a key difference between containers and virtual machines?",
+    "options": [
+      {
+        "text": "Containers share the host OS kernel; VMs each run a full guest OS",
+        "note": ""
+      },
+      {
+        "text": "Containers each include their own full OS kernel and drivers",
+        "note": "That's VMs."
+      },
+      {
+        "text": "VMs can't run on hypervisors",
+        "note": "VMs run on hypervisors."
+      },
+      {
+        "text": "Containers can only run on type 2 hypervisors",
+        "note": "Not required."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Containers are lightweight and start quickly because they share the host kernel. VMs provide stronger isolation with their own OS."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Virtual machines on a host need to communicate with each other and with the physical network. Which component switches their traffic?",
+    "options": [
+      {
+        "text": "A virtual switch",
+        "note": ""
+      },
+      {
+        "text": "A physical router only",
+        "note": "VM traffic on the same host is switched in software."
+      },
+      {
+        "text": "A wireless controller",
+        "note": "Manages APs."
+      },
+      {
+        "text": "A DHCP relay",
+        "note": "Forwards DHCP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hypervisors include virtual switches that connect VM virtual NICs to each other and to physical uplinks, and can apply VLAN tags."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "A host is configured as 172.16.10.130/25. What are its network and broadcast addresses?",
+    "options": [
+      {
+        "text": "172.16.10.128 and 172.16.10.255",
+        "note": ""
+      },
+      {
+        "text": "172.16.10.0 and 172.16.10.127",
+        "note": "That's the other /25."
+      },
+      {
+        "text": "172.16.10.128 and 172.16.10.191",
+        "note": "That's a /26."
+      },
+      {
+        "text": "172.16.0.0 and 172.16.255.255",
+        "note": "That's a /16."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A /25 splits the last octet into 0–127 and 128–255. Address .130 is in the 128 block."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "Which subnet mask provides at least 500 usable host addresses with the least waste?",
+    "options": [
+      {
+        "text": "255.255.254.0 (/23)",
+        "note": ""
+      },
+      {
+        "text": "255.255.255.0 (/24)",
+        "note": "Only 254 hosts."
+      },
+      {
+        "text": "255.255.252.0 (/22)",
+        "note": "1022 hosts; more than needed."
+      },
+      {
+        "text": "255.255.255.128 (/25)",
+        "note": "Only 126 hosts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A /23 gives 2⁹ − 2 = 510 usable addresses."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "A router interface needs an address on a point-to-point link with only two hosts. Which prefix is most efficient?",
+    "options": [
+      {
+        "text": "/30",
+        "note": ""
+      },
+      {
+        "text": "/29",
+        "note": "Six usable; wasteful."
+      },
+      {
+        "text": "/28",
+        "note": "14 usable; wasteful."
+      },
+      {
+        "text": "/24",
+        "note": "254 usable; very wasteful."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A /30 provides exactly two usable addresses. Many networks also use /31 on point-to-point links (RFC 3021)."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "PC1 is 10.1.1.10/24 with gateway 10.1.2.1. It can ping hosts on 10.1.1.0/24 but not remote networks. What is wrong?",
+    "options": [
+      {
+        "text": "The default gateway isn't in the PC's subnet",
+        "note": ""
+      },
+      {
+        "text": "The subnet mask is too large",
+        "note": "/24 is fine for 10.1.1.x."
+      },
+      {
+        "text": "The PC needs a public IP address to route",
+        "note": "Private addressing is fine with NAT."
+      },
+      {
+        "text": "The DNS server address is misconfigured",
+        "note": "Pings by IP would still work."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The default gateway must be an address in the host's own subnet, normally the router's interface on that segment."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Which addresses are private IPv4 ranges defined by RFC 1918?",
+    "options": [
+      {
+        "text": "10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16",
+        "note": ""
+      },
+      {
+        "text": "10.0.0.0/16, 172.16.0.0/16, 192.168.0.0/24",
+        "note": "Too narrow."
+      },
+      {
+        "text": "100.64.0.0/10 and 169.254.0.0/16",
+        "note": "Shared address space and link-local."
+      },
+      {
+        "text": "127.0.0.0/8 and 224.0.0.0/4",
+        "note": "Loopback and multicast."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RFC 1918 private ranges aren't routed on the internet; NAT translates them to public addresses."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "Which wildcard mask matches all hosts in 192.168.40.0/22?",
+    "options": [
+      {
+        "text": "0.0.3.255",
+        "note": ""
+      },
+      {
+        "text": "0.0.0.255",
+        "note": "Matches a /24."
+      },
+      {
+        "text": "255.255.252.0",
+        "note": "That's the subnet mask."
+      },
+      {
+        "text": "0.0.7.255",
+        "note": "Matches a /21."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The wildcard mask is the inverse of the subnet mask: 255.255.255.255 − 255.255.252.0 = 0.0.3.255."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "A router interface with MAC address 0011.2233.4455 uses EUI-64 to build its IPv6 interface ID. What is the interface ID?",
+    "options": [
+      {
+        "text": "0211:22FF:FE33:4455",
+        "note": ""
+      },
+      {
+        "text": "0011:22FF:FE33:4455",
+        "note": "The 7th bit must be flipped."
+      },
+      {
+        "text": "0211:2233:4455:FFFE",
+        "note": "FFFE goes in the middle."
+      },
+      {
+        "text": "FFFE:0011:2233:4455",
+        "note": "FFFE goes in the middle."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Modified EUI-64 splits the MAC in half, inserts FFFE, and flips the 7th bit of the first byte (00 becomes 02)."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "Which IPv6 address type is equivalent to public IPv4 addresses and is routable on the internet?",
+    "options": [
+      {
+        "text": "Global unicast (2000::/3)",
+        "note": ""
+      },
+      {
+        "text": "Link-local (FE80::/10)",
+        "note": "Only on the local link."
+      },
+      {
+        "text": "Unique local (FC00::/7)",
+        "note": "Private use, like RFC 1918."
+      },
+      {
+        "text": "Multicast (FF00::/8)",
+        "note": "One-to-many."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Global unicast addresses are globally routable. Unique local addresses are for private use."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "Which command enables a Cisco router to forward IPv6 packets between interfaces?",
+    "options": [
+      {
+        "text": "ipv6 unicast-routing",
+        "note": ""
+      },
+      {
+        "text": "ip routing",
+        "note": "Enables IPv4 routing."
+      },
+      {
+        "text": "ipv6 enable",
+        "note": "Creates a link-local address on an interface."
+      },
+      {
+        "text": "ipv6 address autoconfig",
+        "note": "Configures SLAAC on an interface."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Routers need ipv6 unicast-routing to route IPv6 and to send router advertisements."
+  },
+  {
+    "id": 19,
+    "domain": "D1",
+    "scenario": "Which IPv6 multicast address reaches all nodes on the local link?",
+    "options": [
+      {
+        "text": "FF02::1",
+        "note": ""
+      },
+      {
+        "text": "FF02::2",
+        "note": "All routers."
+      },
+      {
+        "text": "FF02::5",
+        "note": "All OSPFv3 routers."
+      },
+      {
+        "text": "FE80::1",
+        "note": "A link-local unicast address."
+      }
+    ],
+    "answer": 0,
+    "explanation": "FF02::1 is all nodes and FF02::2 is all routers. Solicited-node multicast (FF02::1:FFxx:xxxx) replaces ARP broadcasts."
+  },
+  {
+    "id": 20,
+    "domain": "D1",
+    "scenario": "An IPv6 interface is configured with <code>ipv6 address 2001:db8:10::/64 eui-64</code>. How is the full address formed?",
+    "options": [
+      {
+        "text": "The /64 prefix plus an ID derived from the MAC",
+        "note": ""
+      },
+      {
+        "text": "A randomly generated 128-bit address",
+        "note": "EUI-64 is derived, not random."
+      },
+      {
+        "text": "The prefix followed by an all-zeros interface ID",
+        "note": "That would be the subnet-router anycast address."
+      },
+      {
+        "text": "An address leased from a DHCPv6 server",
+        "note": "Not with this command."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The router combines the configured /64 prefix with the modified EUI-64 interface ID."
+  },
+  {
+    "id": 21,
+    "domain": "D1",
+    "scenario": "Which IPv6 address prefix is used for unique local addresses, similar to private IPv4 addresses?",
+    "options": [
+      {
+        "text": "FC00::/7",
+        "note": ""
+      },
+      {
+        "text": "FE80::/10",
+        "note": "Link-local."
+      },
+      {
+        "text": "2001:DB8::/32",
+        "note": "Reserved for documentation."
+      },
+      {
+        "text": "::1/128",
+        "note": "Loopback."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Unique local addresses aren't routed on the internet. In practice they use FD00::/8 with a random global ID."
+  },
+  {
+    "id": 22,
+    "domain": "D1",
+    "scenario": "An office has dense Wi-Fi coverage in the 2.4 GHz band. Which channels should neighboring APs use to avoid overlap?",
+    "options": [
+      {
+        "text": "1, 6 and 11",
+        "note": ""
+      },
+      {
+        "text": "1, 2 and 3",
+        "note": "These overlap heavily."
+      },
+      {
+        "text": "36, 40 and 44",
+        "note": "These are 5 GHz channels."
+      },
+      {
+        "text": "Any channels, since they don't overlap in 2.4 GHz",
+        "note": "Most 2.4 GHz channels overlap."
+      }
+    ],
+    "answer": 0,
+    "explanation": "In the 2.4 GHz band, only channels 1, 6 and 11 don't overlap (in North America)."
+  },
+  {
+    "id": 23,
+    "domain": "D1",
+    "scenario": "Compared with 2.4 GHz, what is a characteristic of the 5 GHz band?",
+    "options": [
+      {
+        "text": "More non-overlapping channels but shorter range",
+        "note": ""
+      },
+      {
+        "text": "Longer range through walls",
+        "note": "Higher frequencies attenuate more."
+      },
+      {
+        "text": "Only three usable non-overlapping channels",
+        "note": "That's 2.4 GHz."
+      },
+      {
+        "text": "More interference from microwave ovens and Bluetooth",
+        "note": "Microwaves affect 2.4 GHz."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Higher frequencies offer more channels and less congestion but attenuate more through obstacles."
+  },
+  {
+    "id": 24,
+    "domain": "D1",
+    "scenario": "Which wireless security protocol replaces the pre-shared key handshake with SAE?",
+    "options": [
+      {
+        "text": "WPA3-Personal",
+        "note": ""
+      },
+      {
+        "text": "WPA2-Personal",
+        "note": "Uses PSK with the four-way handshake."
+      },
+      {
+        "text": "WEP",
+        "note": "Obsolete and insecure."
+      },
+      {
+        "text": "WPA2-Enterprise",
+        "note": "Uses 802.1X."
+      }
+    ],
+    "answer": 0,
+    "explanation": "WPA3-Personal uses Simultaneous Authentication of Equals, which resists offline dictionary attacks."
+  },
+  {
+    "id": 25,
+    "domain": "D1",
+    "scenario": "A wireless client's signal is strong, but the noise floor is high and throughput is poor. Which metric best describes the problem?",
+    "options": [
+      {
+        "text": "Low signal-to-noise ratio",
+        "note": ""
+      },
+      {
+        "text": "RSSI that's too high for the client",
+        "note": "A strong signal alone isn't the issue."
+      },
+      {
+        "text": "The SSID is mapped to the wrong VLAN",
+        "note": "Wouldn't cause RF problems."
+      },
+      {
+        "text": "Duplex mismatch",
+        "note": "Wired issue."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SNR is the difference between signal strength and noise. Low SNR causes retransmissions and lower data rates."
+  },
+  {
+    "id": 26,
+    "domain": "D1",
+    "scenario": "Which device commonly causes interference in the 2.4 GHz band?",
+    "options": [
+      {
+        "text": "Microwave ovens",
+        "note": ""
+      },
+      {
+        "text": "Fiber patch cables",
+        "note": "No RF emission."
+      },
+      {
+        "text": "Layer 3 switches",
+        "note": "Not an RF source."
+      },
+      {
+        "text": "UPS batteries",
+        "note": "Not a 2.4 GHz source."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Microwave ovens, Bluetooth devices, cordless phones and some cameras use or leak into 2.4 GHz."
+  },
+  {
+    "id": 27,
+    "domain": "D1",
+    "scenario": "Employees should authenticate to Wi-Fi with their own credentials via a RADIUS server. Which mode should be used?",
+    "options": [
+      {
+        "text": "WPA2/WPA3-Enterprise (802.1X)",
+        "note": ""
+      },
+      {
+        "text": "WPA2-Personal",
+        "note": "One shared key."
+      },
+      {
+        "text": "Open with a captive portal",
+        "note": "No encryption by default."
+      },
+      {
+        "text": "WEP shared key",
+        "note": "Insecure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Enterprise mode authenticates each user with 802.1X/EAP against a RADIUS server."
+  },
+  {
+    "id": 28,
+    "domain": "D1",
+    "scenario": "On a Linux host, which command shows the IP addresses assigned to interfaces?",
+    "options": [
+      {
+        "text": "ip addr",
+        "note": ""
+      },
+      {
+        "text": "ipconfig /all",
+        "note": "Windows."
+      },
+      {
+        "text": "show ip interface brief",
+        "note": "Cisco IOS."
+      },
+      {
+        "text": "netsh wlan show interfaces",
+        "note": "Windows wireless."
+      }
+    ],
+    "answer": 0,
+    "explanation": "On Linux, ip addr (or ip a) shows addresses and ip route shows the routing table. macOS uses ifconfig, and Windows uses ipconfig."
+  },
+  {
+    "id": 29,
+    "domain": "D1",
+    "scenario": "A Windows client shows 169.254.10.20 as its IP address. What does this indicate?",
+    "options": [
+      {
+        "text": "The client didn't receive a DHCP address",
+        "note": ""
+      },
+      {
+        "text": "The client has a valid public address",
+        "note": "169.254.0.0/16 is link-local."
+      },
+      {
+        "text": "The client is configured for IPv6 only",
+        "note": "That's an IPv4 address."
+      },
+      {
+        "text": "The client's DNS server is down",
+        "note": "DNS doesn't assign addresses."
+      }
+    ],
+    "answer": 0,
+    "explanation": "APIPA addresses mean DHCP failed. Check the DHCP server, the DHCP relay and the switch port VLAN."
+  },
+  {
+    "id": 30,
+    "domain": "D1",
+    "scenario": "A user can ping 8.8.8.8 but can't open websites by name. Which command helps test DNS resolution on Windows?",
+    "options": [
+      {
+        "text": "nslookup",
+        "note": ""
+      },
+      {
+        "text": "tracert",
+        "note": "Traces the path."
+      },
+      {
+        "text": "arp -a",
+        "note": "Shows the ARP cache."
+      },
+      {
+        "text": "netstat -r",
+        "note": "Shows routes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "nslookup queries DNS servers directly to see whether names resolve and which server answers."
+  },
+  {
+    "id": 31,
+    "domain": "D1",
+    "scenario": "A laptop connects to the correct SSID but gets an \"authentication failed\" error, while other users are fine. What should be checked first?",
+    "options": [
+      {
+        "text": "The client's security settings and credentials",
+        "note": ""
+      },
+      {
+        "text": "The OSPF configuration on the core router",
+        "note": "Unrelated to client authentication."
+      },
+      {
+        "text": "The switch's STP root bridge priority",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The DNS MX records for the domain",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "If others connect, check the client's security type (WPA2 vs WPA3, Personal vs Enterprise), password or certificate, and saved profile."
+  },
+  {
+    "id": 32,
+    "domain": "D1",
+    "scenario": "On macOS, which command displays network interface configuration from the terminal?",
+    "options": [
+      {
+        "text": "ifconfig",
+        "note": ""
+      },
+      {
+        "text": "ipconfig /all",
+        "note": "Windows."
+      },
+      {
+        "text": "show interfaces",
+        "note": "Cisco IOS."
+      },
+      {
+        "text": "Get-NetAdapter only",
+        "note": "PowerShell on Windows."
+      }
+    ],
+    "answer": 0,
+    "explanation": "macOS uses ifconfig (and networksetup), and Linux uses ip addr."
+  },
+  {
+    "id": 33,
+    "domain": "D1",
+    "scenario": "Which IOS command makes a router forward client DHCP broadcasts to a DHCP server at 10.10.10.5?",
+    "options": [
+      {
+        "text": "ip helper-address 10.10.10.5",
+        "note": ""
+      },
+      {
+        "text": "ip dhcp server 10.10.10.5",
+        "note": "Not a valid relay command."
+      },
+      {
+        "text": "ip default-gateway 10.10.10.5",
+        "note": "Sets a switch's gateway."
+      },
+      {
+        "text": "ip route 0.0.0.0 0.0.0.0 10.10.10.5",
+        "note": "A static route doesn't relay DHCP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ip helper-address configures the interface as a DHCP relay agent, forwarding broadcasts as unicast to the server."
+  },
+  {
+    "id": 34,
+    "domain": "D1",
+    "scenario": "Which commands configure a router as a DHCP server for 192.168.1.0/24 with gateway 192.168.1.1?",
+    "options": [
+      {
+        "text": "ip dhcp pool LAN / network 192.168.1.0 255.255.255.0 / default-router 192.168.1.1",
+        "note": ""
+      },
+      {
+        "text": "interface g0/0 / ip helper-address 192.168.1.1",
+        "note": "Configures a relay, not a server."
+      },
+      {
+        "text": "ip address dhcp",
+        "note": "Makes the interface a DHCP client."
+      },
+      {
+        "text": "service dhcp / dhcp enable 192.168.1.0 255.255.255.0",
+        "note": "Not valid IOS syntax."
+      }
+    ],
+    "answer": 0,
+    "explanation": "An IOS DHCP pool defines the network, default-router, dns-server and lease. Use ip dhcp excluded-address to reserve static addresses."
+  },
+  {
+    "id": 35,
+    "domain": "D1",
+    "scenario": "Which command prevents an IOS DHCP server from handing out 192.168.1.1 through 192.168.1.10?",
+    "options": [
+      {
+        "text": "ip dhcp excluded-address 192.168.1.1 192.168.1.10",
+        "note": ""
+      },
+      {
+        "text": "no ip dhcp pool 192.168.1.1 192.168.1.10",
+        "note": "Not valid."
+      },
+      {
+        "text": "ip dhcp reserve 192.168.1.1 192.168.1.10",
+        "note": "Not valid IOS syntax."
+      },
+      {
+        "text": "ip dhcp pool LAN / network 192.168.1.11 255.255.255.0",
+        "note": "Network statements need a network address."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Excluded addresses are configured in global configuration mode, outside the pool."
+  },
+  {
+    "id": 36,
+    "domain": "D1",
+    "scenario": "Which command shows the IP addresses an IOS DHCP server has leased to clients?",
+    "options": [
+      {
+        "text": "show ip dhcp binding",
+        "note": ""
+      },
+      {
+        "text": "show ip route connected",
+        "note": "Routing table."
+      },
+      {
+        "text": "show dhcp lease",
+        "note": "Shows a DHCP client's own lease, not server bindings."
+      },
+      {
+        "text": "show ip interface brief",
+        "note": "Interface status."
+      }
+    ],
+    "answer": 0,
+    "explanation": "show ip dhcp binding lists leased addresses with client hardware addresses and lease expiration."
+  },
+  {
+    "id": 37,
+    "domain": "D1",
+    "scenario": "A router interface should obtain its address from the ISP's DHCP server. Which command is used on the interface?",
+    "options": [
+      {
+        "text": "ip address dhcp",
+        "note": ""
+      },
+      {
+        "text": "ip helper-address",
+        "note": "Relay agent."
+      },
+      {
+        "text": "ip dhcp pool",
+        "note": "Server configuration."
+      },
+      {
+        "text": "ipv6 address autoconfig",
+        "note": "IPv6 SLAAC."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ip address dhcp makes the router interface a DHCP client."
+  },
+  {
+    "id": 38,
+    "domain": "D1",
+    "scenario": "Clients on VLAN 30 aren't getting DHCP addresses. The SVI for VLAN 30 has no helper address, and the DHCP server is on VLAN 99. What is the fix?",
+    "options": [
+      {
+        "text": "Add ip helper-address <server IP> to interface Vlan30",
+        "note": ""
+      },
+      {
+        "text": "Add ip helper-address <server IP> to interface Vlan99",
+        "note": "It must be on the client-facing interface."
+      },
+      {
+        "text": "Enable PortFast on the DHCP server's port",
+        "note": "Doesn't relay DHCP."
+      },
+      {
+        "text": "Change the VTP mode to transparent",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The relay must be configured on the interface that receives the client broadcasts, which is the client VLAN's gateway interface."
+  },
+  {
+    "id": 39,
+    "domain": "D1",
+    "scenario": "Which DHCP message does a client send to accept an offered address?",
+    "options": [
+      {
+        "text": "DHCPREQUEST",
+        "note": ""
+      },
+      {
+        "text": "DHCPDISCOVER",
+        "note": "Finds servers."
+      },
+      {
+        "text": "DHCPOFFER",
+        "note": "Sent by the server."
+      },
+      {
+        "text": "DHCPACK",
+        "note": "Sent by the server to confirm."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The DORA process: Discover (client), Offer (server), Request (client), Acknowledge (server)."
+  },
+  {
+    "id": 40,
+    "domain": "D1",
+    "scenario": "Which statement about an IPv4 /31 on a point-to-point link is correct?",
+    "options": [
+      {
+        "text": "Both addresses are usable as host addresses",
+        "note": ""
+      },
+      {
+        "text": "It provides no usable addresses",
+        "note": "Special handling makes both usable."
+      },
+      {
+        "text": "It still requires a dedicated broadcast address",
+        "note": "No broadcast on /31 links."
+      },
+      {
+        "text": "It's only valid for IPv6",
+        "note": "/31 is an IPv4 practice."
+      }
+    ],
+    "answer": 0,
+    "explanation": "On point-to-point links, a /31 saves addresses by using both addresses for the two endpoints."
+  },
+  {
+    "id": 41,
+    "domain": "D1",
+    "scenario": "What is the purpose of the loopback interface commonly configured on routers?",
+    "options": [
+      {
+        "text": "A stable, always-up address for management",
+        "note": ""
+      },
+      {
+        "text": "To provide the physical connection to the ISP",
+        "note": "A physical interface does that."
+      },
+      {
+        "text": "To supply PoE to connected devices",
+        "note": "Unrelated."
+      },
+      {
+        "text": "To act as a DHCP relay for every VLAN",
+        "note": "Configured on client-facing interfaces."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Loopback interfaces never go down unless shut, so they're ideal for OSPF router IDs, management and BGP peering."
+  },
+  {
+    "id": 42,
+    "domain": "D1",
+    "scenario": "A host sends to 10.2.0.50 from 10.1.0.25/16. How does the host decide whether to use the default gateway?",
+    "options": [
+      {
+        "text": "It compares the destination with its own subnet",
+        "note": ""
+      },
+      {
+        "text": "It always sends all traffic to the gateway",
+        "note": "Local traffic goes directly."
+      },
+      {
+        "text": "It asks the DNS server whether the host is local",
+        "note": "DNS resolves names, not routing decisions."
+      },
+      {
+        "text": "It broadcasts an ARP request for the remote host",
+        "note": "Not how forwarding decisions are made."
+      }
+    ],
+    "answer": 0,
+    "explanation": "10.1.0.0/16 and 10.2.0.0/16 are different networks, so the host ARPs for its default gateway and sends the packet there."
+  },
+  {
+    "id": 43,
+    "domain": "D2",
+    "scenario": "Which commands make a switch port an 802.1Q trunk that carries only VLANs 10 and 20?",
+    "options": [
+      {
+        "text": "switchport mode trunk / switchport trunk allowed vlan 10,20",
+        "note": ""
+      },
+      {
+        "text": "switchport mode access / switchport access vlan 10,20",
+        "note": "Access ports carry one data VLAN."
+      },
+      {
+        "text": "switchport mode trunk / switchport trunk native vlan 10,20",
+        "note": "Native VLAN takes one VLAN ID."
+      },
+      {
+        "text": "vlan 10,20 trunk",
+        "note": "Not valid interface syntax."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The allowed VLAN list restricts which VLANs cross the trunk. On some platforms, switchport trunk encapsulation dot1q is required first."
+  },
+  {
+    "id": 44,
+    "domain": "D2",
+    "scenario": "CDP logs \"%CDP-4-NATIVE_VLAN_MISMATCH\" on a trunk. What is the problem?",
+    "options": [
+      {
+        "text": "The two ends of the trunk use different native VLANs",
+        "note": ""
+      },
+      {
+        "text": "The trunk allows too many VLANs to pass",
+        "note": "Not a CDP warning."
+      },
+      {
+        "text": "The trunk port has PortFast enabled",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The trunk's interface MTU is set too high",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The native VLAN must match on both ends; otherwise untagged traffic leaks between VLANs."
+  },
+  {
+    "id": 45,
+    "domain": "D2",
+    "scenario": "Which command assigns an access port to VLAN 30?",
+    "options": [
+      {
+        "text": "switchport access vlan 30",
+        "note": ""
+      },
+      {
+        "text": "vlan 30 access",
+        "note": "Not valid."
+      },
+      {
+        "text": "switchport trunk allowed vlan 30",
+        "note": "For trunks."
+      },
+      {
+        "text": "encapsulation dot1q 30",
+        "note": "Used on router subinterfaces."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use switchport mode access and switchport access vlan 30. The VLAN is created automatically if it doesn't exist (on most platforms)."
+  },
+  {
+    "id": 46,
+    "domain": "D2",
+    "scenario": "An IP phone and a PC share a port. The phone's traffic should use VLAN 50 and the PC's VLAN 10. What should be configured?",
+    "options": [
+      {
+        "text": "switchport access vlan 10 / switchport voice vlan 50",
+        "note": ""
+      },
+      {
+        "text": "switchport mode trunk with native VLAN 50",
+        "note": "Overly permissive."
+      },
+      {
+        "text": "Two separate cables, one for each device",
+        "note": "The phone has a built-in switch."
+      },
+      {
+        "text": "switchport access vlan 50 / switchport voice vlan 10",
+        "note": "Reversed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The voice VLAN is communicated to the phone (usually via CDP or LLDP-MED); the phone tags voice traffic while the PC's traffic stays untagged."
+  },
+  {
+    "id": 47,
+    "domain": "D2",
+    "scenario": "Which DTP setting stops a port from negotiating a trunk?",
+    "options": [
+      {
+        "text": "switchport nonegotiate",
+        "note": ""
+      },
+      {
+        "text": "switchport mode dynamic desirable",
+        "note": "Actively tries to form a trunk."
+      },
+      {
+        "text": "switchport mode dynamic auto",
+        "note": "Forms a trunk if the other side asks."
+      },
+      {
+        "text": "spanning-tree portfast trunk",
+        "note": "STP setting, not DTP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Disabling DTP and setting access or trunk mode statically prevents switch spoofing attacks."
+  },
+  {
+    "id": 48,
+    "domain": "D2",
+    "scenario": "Which output shows which VLANs are allowed and active on each trunk?",
+    "options": [
+      {
+        "text": "show interfaces trunk",
+        "note": ""
+      },
+      {
+        "text": "show vlan brief",
+        "note": "Shows access port VLAN assignments, not trunks."
+      },
+      {
+        "text": "show ip route connected",
+        "note": "Routing table."
+      },
+      {
+        "text": "show cdp neighbors",
+        "note": "Neighbor list."
+      }
+    ],
+    "answer": 0,
+    "explanation": "show interfaces trunk lists trunk ports, encapsulation, native VLAN, allowed VLANs and VLANs forwarding."
+  },
+  {
+    "id": 49,
+    "domain": "D2",
+    "scenario": "On a multilayer switch, which commands create a routed gateway for VLAN 20?",
+    "options": [
+      {
+        "text": "interface vlan 20 / ip address 10.20.0.1 255.255.255.0",
+        "note": ""
+      },
+      {
+        "text": "interface vlan 20 / switchport access vlan 20 / no shutdown",
+        "note": "SVIs don't use switchport commands."
+      },
+      {
+        "text": "vlan 20 / ip address 10.20.0.1 255.255.255.0",
+        "note": "VLAN configuration mode doesn't take IP addresses."
+      },
+      {
+        "text": "router vlan 20 / ip address 10.20.0.1 255.255.255.0",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SVIs provide inter-VLAN routing on layer 3 switches. ip routing must also be enabled for the switch to route between them."
+  },
+  {
+    "id": 50,
+    "domain": "D2",
+    "scenario": "Which command turns a switch port into a routed (layer 3) port?",
+    "options": [
+      {
+        "text": "no switchport",
+        "note": ""
+      },
+      {
+        "text": "switchport mode routed",
+        "note": "Not valid syntax."
+      },
+      {
+        "text": "ip routing",
+        "note": "Enables routing globally."
+      },
+      {
+        "text": "switchport mode trunk on each member",
+        "note": "Makes it a trunk."
+      }
+    ],
+    "answer": 0,
+    "explanation": "no switchport converts the interface to a routed port that can take an IP address directly."
+  },
+  {
+    "id": 51,
+    "domain": "D2",
+    "scenario": "A router uses one interface for VLANs 10 and 20. Which configuration is correct for VLAN 10?",
+    "options": [
+      {
+        "text": "interface g0/0.10 / encapsulation dot1q 10 / ip address 10.10.0.1 255.255.255.0",
+        "note": ""
+      },
+      {
+        "text": "interface g0/0 / switchport access vlan 10 / ip address 10.10.0.1 255.255.255.0",
+        "note": "Routers don't use switchport commands."
+      },
+      {
+        "text": "interface vlan 10 / ip address 10.10.0.1 255.255.255.0 on the router",
+        "note": "Router-on-a-stick uses subinterfaces."
+      },
+      {
+        "text": "interface g0/0.10 / vlan 10 / ip address 10.10.0.1 255.255.255.0",
+        "note": "Missing encapsulation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Router-on-a-stick uses subinterfaces with 802.1Q encapsulation; the switch port facing the router must be a trunk."
+  },
+  {
+    "id": 52,
+    "domain": "D2",
+    "scenario": "Which LACP modes form an EtherChannel between two switches?",
+    "options": [
+      {
+        "text": "active–active or active–passive",
+        "note": ""
+      },
+      {
+        "text": "passive–passive on both switches",
+        "note": "Neither side initiates."
+      },
+      {
+        "text": "desirable–auto",
+        "note": "These are PAgP modes."
+      },
+      {
+        "text": "on–active",
+        "note": "Mixing static on with LACP doesn't negotiate."
+      }
+    ],
+    "answer": 0,
+    "explanation": "LACP active initiates negotiation, passive responds. At least one side must be active."
+  },
+  {
+    "id": 53,
+    "domain": "D2",
+    "scenario": "Which command bundles an interface into port-channel 1 using LACP active mode?",
+    "options": [
+      {
+        "text": "channel-group 1 mode active",
+        "note": ""
+      },
+      {
+        "text": "channel-group 1 mode desirable",
+        "note": "PAgP mode."
+      },
+      {
+        "text": "port-channel 1 lacp",
+        "note": "Not valid."
+      },
+      {
+        "text": "lacp enable 1",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "channel-group with mode active (or passive) uses LACP; desirable and auto use Cisco's PAgP; on forms a static channel."
+  },
+  {
+    "id": 54,
+    "domain": "D2",
+    "scenario": "An EtherChannel won't form. One member port is a trunk and the other is an access port. Why?",
+    "options": [
+      {
+        "text": "Member ports must have matching settings",
+        "note": ""
+      },
+      {
+        "text": "EtherChannel only works on layer 3 routed ports",
+        "note": "Works on layer 2 and layer 3."
+      },
+      {
+        "text": "LACP requires PortFast",
+        "note": "Not required."
+      },
+      {
+        "text": "EtherChannel requires different speeds",
+        "note": "Speeds must match."
+      }
+    ],
+    "answer": 0,
+    "explanation": "All member interfaces need consistent configuration, or they'll be suspended from the bundle."
+  },
+  {
+    "id": 55,
+    "domain": "D2",
+    "scenario": "A layer 3 EtherChannel is needed between two distribution switches. What must be configured on the port-channel interface?",
+    "options": [
+      {
+        "text": "no switchport and an IP address",
+        "note": ""
+      },
+      {
+        "text": "switchport mode trunk on each member",
+        "note": "That's a layer 2 channel."
+      },
+      {
+        "text": "A voice VLAN on the port-channel",
+        "note": "Access-port feature."
+      },
+      {
+        "text": "PortFast",
+        "note": "STP feature."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A layer 3 EtherChannel is a routed port-channel; members are also configured with no switchport."
+  },
+  {
+    "id": 56,
+    "domain": "D2",
+    "scenario": "A new access point won't power on, and the switch log shows it was denied power. What should be checked?",
+    "options": [
+      {
+        "text": "The switch's PoE budget and the AP's power class",
+        "note": ""
+      },
+      {
+        "text": "The OSPF router ID on the switch",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The NAT pool on the edge router",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The ACL applied to the WAN interface",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "show power inline displays available and used PoE. APs may need PoE+ or more power than the switch can supply."
+  },
+  {
+    "id": 57,
+    "domain": "D2",
+    "scenario": "A controller-based (lightweight) AP connects to an access switch. How is its switch port usually configured in local mode?",
+    "options": [
+      {
+        "text": "As an access port in the AP management VLAN",
+        "note": ""
+      },
+      {
+        "text": "As a routed port with its own IP subnet",
+        "note": "APs need layer 2 connectivity to their VLAN."
+      },
+      {
+        "text": "As a trunk carrying all VLANs, always",
+        "note": "Typically for FlexConnect or autonomous APs."
+      },
+      {
+        "text": "Shut down until the controller is reachable",
+        "note": "It needs the link to find the controller."
+      }
+    ],
+    "answer": 0,
+    "explanation": "In local mode, client traffic is tunneled to the WLC with CAPWAP, so the AP needs only one access VLAN. FlexConnect or autonomous APs that switch traffic locally use trunks."
+  },
+  {
+    "id": 58,
+    "domain": "D2",
+    "scenario": "Which command shows the neighbor's IP address, platform and connected port?",
+    "options": [
+      {
+        "text": "show cdp neighbors detail",
+        "note": ""
+      },
+      {
+        "text": "show ip route connected",
+        "note": "Routing table."
+      },
+      {
+        "text": "show mac address-table",
+        "note": "MAC-to-port mappings."
+      },
+      {
+        "text": "show running-config",
+        "note": "Local config."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CDP detail shows neighbor device ID, IP addresses, platform, software version and the local and remote interfaces."
+  },
+  {
+    "id": 59,
+    "domain": "D2",
+    "scenario": "A network includes switches from several vendors. Which protocol should be used to discover neighbors and validate cabling documentation?",
+    "options": [
+      {
+        "text": "LLDP",
+        "note": ""
+      },
+      {
+        "text": "CDP",
+        "note": "Cisco proprietary."
+      },
+      {
+        "text": "VTP",
+        "note": "VLAN propagation."
+      },
+      {
+        "text": "DTP",
+        "note": "Trunk negotiation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "LLDP (IEEE 802.1AB) is vendor-neutral. On Cisco IOS it's enabled globally with lldp run."
+  },
+  {
+    "id": 60,
+    "domain": "D2",
+    "scenario": "For security, CDP should be disabled on a port facing an ISP. Which interface command does this?",
+    "options": [
+      {
+        "text": "no cdp enable",
+        "note": ""
+      },
+      {
+        "text": "no cdp run",
+        "note": "Disables CDP globally on the whole device."
+      },
+      {
+        "text": "no lldp transmit",
+        "note": "LLDP, not CDP."
+      },
+      {
+        "text": "shutdown",
+        "note": "Disables the port."
+      }
+    ],
+    "answer": 0,
+    "explanation": "no cdp enable disables CDP on one interface; no cdp run disables it on the whole device."
+  },
+  {
+    "id": 61,
+    "domain": "D2",
+    "scenario": "Which command gives a quick summary of every interface's IP address and up/down status?",
+    "options": [
+      {
+        "text": "show ip interface brief",
+        "note": ""
+      },
+      {
+        "text": "show running-config",
+        "note": "Full config, not a status summary."
+      },
+      {
+        "text": "show version",
+        "note": "Hardware and software."
+      },
+      {
+        "text": "show vlan brief",
+        "note": "VLAN assignments."
+      }
+    ],
+    "answer": 0,
+    "explanation": "show ip interface brief is the fastest way to check addressing and interface status."
+  },
+  {
+    "id": 62,
+    "domain": "D2",
+    "scenario": "From router R1, a technician wants to ping a remote host using R1's loopback address as the source. What should they use?",
+    "options": [
+      {
+        "text": "An extended ping",
+        "note": ""
+      },
+      {
+        "text": "A standard ping only",
+        "note": "Uses the exit interface address."
+      },
+      {
+        "text": "traceroute",
+        "note": "Traces the path."
+      },
+      {
+        "text": "show arp",
+        "note": "Displays the ARP table."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Extended ping lets you set the source address or interface, repeat count, size and more. It's useful for testing routing for specific networks."
+  },
+  {
+    "id": 63,
+    "domain": "D2",
+    "scenario": "A traceroute from a router shows the first two hops, then asterisks on every following line. What does this suggest?",
+    "options": [
+      {
+        "text": "Traffic or ICMP is being dropped after hop two",
+        "note": ""
+      },
+      {
+        "text": "The destination is reachable but slow to answer",
+        "note": "No response from later hops."
+      },
+      {
+        "text": "The router's local outbound interface is down",
+        "note": "The first hops answered."
+      },
+      {
+        "text": "DNS isn't configured, so hop names can't resolve",
+        "note": "Doesn't affect traceroute by IP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Asterisks mean no reply within the timeout. Check routing and ACLs on or after the last responding hop."
+  },
+  {
+    "id": 64,
+    "domain": "D2",
+    "scenario": "Which command lists the MAC addresses learned on each switch port?",
+    "options": [
+      {
+        "text": "show mac address-table",
+        "note": ""
+      },
+      {
+        "text": "show ip arp on the switch",
+        "note": "IP-to-MAC mappings."
+      },
+      {
+        "text": "show interfaces trunk",
+        "note": "Trunk details."
+      },
+      {
+        "text": "show spanning-tree",
+        "note": "STP details."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The MAC address table maps MACs to ports and VLANs. It's useful to locate where a device is connected."
+  },
+  {
+    "id": 65,
+    "domain": "D2",
+    "scenario": "A switch log shows \"%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet1/0/5, changed state to down\" repeatedly. What does it suggest?",
+    "options": [
+      {
+        "text": "A flapping link, such as a bad cable",
+        "note": ""
+      },
+      {
+        "text": "An STP root bridge change in the VLAN",
+        "note": "Different message."
+      },
+      {
+        "text": "A DHCP failure for the attached host",
+        "note": "Different message."
+      },
+      {
+        "text": "An ACL denying traffic on the port",
+        "note": "ACLs don't change line protocol state."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Repeated up/down messages indicate an unstable link. Check cabling, transceivers, NIC power settings and the connected device."
+  },
+  {
+    "id": 66,
+    "domain": "D2",
+    "scenario": "Which show command displays the switch logs stored in its buffer?",
+    "options": [
+      {
+        "text": "show logging",
+        "note": ""
+      },
+      {
+        "text": "show history all",
+        "note": "Command history."
+      },
+      {
+        "text": "show users",
+        "note": "Logged-in users."
+      },
+      {
+        "text": "show clock",
+        "note": "Time."
+      }
+    ],
+    "answer": 0,
+    "explanation": "show logging displays buffered syslog messages. Accurate time (NTP) makes logs much easier to correlate."
+  },
+  {
+    "id": 67,
+    "domain": "D2",
+    "scenario": "Which command makes switch SW1 the root bridge for VLAN 10, setting the priority low enough to win?",
+    "options": [
+      {
+        "text": "spanning-tree vlan 10 root primary",
+        "note": ""
+      },
+      {
+        "text": "spanning-tree vlan 10 priority 65535",
+        "note": "A higher number is worse."
+      },
+      {
+        "text": "spanning-tree portfast",
+        "note": "Edge port feature."
+      },
+      {
+        "text": "spanning-tree mode rapid-pvst",
+        "note": "Changes STP mode only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "root primary sets priority to 24576, or lower if needed to beat the current root. root secondary sets 28672 for a backup root."
+  },
+  {
+    "id": 68,
+    "domain": "D2",
+    "scenario": "What is the default STP bridge priority on a Cisco switch for VLAN 1 with the extended system ID?",
+    "options": [
+      {
+        "text": "32769",
+        "note": ""
+      },
+      {
+        "text": "32768",
+        "note": "Base priority before adding the VLAN ID."
+      },
+      {
+        "text": "4096",
+        "note": "The increment size."
+      },
+      {
+        "text": "0",
+        "note": "Highest possible priority, not the default."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The bridge priority is 32768 plus the VLAN ID (the extended system ID), so VLAN 1 gives 32769."
+  },
+  {
+    "id": 69,
+    "domain": "D2",
+    "scenario": "Which RSTP port role provides a backup path to the root bridge and stays discarding?",
+    "options": [
+      {
+        "text": "Alternate",
+        "note": ""
+      },
+      {
+        "text": "Designated",
+        "note": "Forwards toward a segment."
+      },
+      {
+        "text": "Root",
+        "note": "Best path to the root."
+      },
+      {
+        "text": "Edge",
+        "note": "A PortFast-enabled access port."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Alternate ports are backup paths to the root through another switch. Backup ports are backups to a segment through the same switch."
+  },
+  {
+    "id": 70,
+    "domain": "D2",
+    "scenario": "What are the RSTP port states?",
+    "options": [
+      {
+        "text": "Discarding, learning, forwarding",
+        "note": ""
+      },
+      {
+        "text": "Blocking, listening, learning, forwarding",
+        "note": "Those are legacy 802.1D states."
+      },
+      {
+        "text": "Init, 2-Way, Full",
+        "note": "OSPF neighbor states."
+      },
+      {
+        "text": "Active, standby, listen",
+        "note": "HSRP states."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RSTP combines blocking, listening and disabled into discarding."
+  },
+  {
+    "id": 71,
+    "domain": "D2",
+    "scenario": "Which feature lets an access port connected to a PC go straight to forwarding without waiting through STP states?",
+    "options": [
+      {
+        "text": "PortFast",
+        "note": ""
+      },
+      {
+        "text": "Root Guard",
+        "note": "Protects root placement."
+      },
+      {
+        "text": "Loop Guard",
+        "note": "Protects against unidirectional failures."
+      },
+      {
+        "text": "UplinkFast",
+        "note": "Legacy uplink feature."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PortFast is for edge ports to hosts only. Pair it with BPDU Guard to protect against someone connecting a switch."
+  },
+  {
+    "id": 72,
+    "domain": "D2",
+    "scenario": "A user connects a small switch to a PortFast port, and the port goes err-disabled. Which feature caused this?",
+    "options": [
+      {
+        "text": "BPDU Guard",
+        "note": ""
+      },
+      {
+        "text": "Root Guard",
+        "note": "Puts the port in root-inconsistent state instead."
+      },
+      {
+        "text": "Storm control",
+        "note": "Limits traffic rates."
+      },
+      {
+        "text": "DHCP snooping",
+        "note": "Filters DHCP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BPDU Guard err-disables an edge port that receives a BPDU, preventing unauthorized switches and loops."
+  },
+  {
+    "id": 73,
+    "domain": "D2",
+    "scenario": "A distribution switch should never accept a superior BPDU on ports facing the access layer, so no access switch becomes root. Which feature fits?",
+    "options": [
+      {
+        "text": "Root Guard",
+        "note": ""
+      },
+      {
+        "text": "BPDU Guard on access ports",
+        "note": "Shuts down on any BPDU; too aggressive for switch links."
+      },
+      {
+        "text": "PortFast",
+        "note": "For edge ports."
+      },
+      {
+        "text": "Port security",
+        "note": "Limits MACs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Root Guard puts a port in a root-inconsistent (blocked) state if it receives a superior BPDU, and recovers when it stops."
+  },
+  {
+    "id": 74,
+    "domain": "D2",
+    "scenario": "A fiber link becomes unidirectional, and a blocking port stops receiving BPDUs and would start forwarding, creating a loop. Which feature prevents this?",
+    "options": [
+      {
+        "text": "Loop Guard",
+        "note": ""
+      },
+      {
+        "text": "Root Guard",
+        "note": "About superior BPDUs."
+      },
+      {
+        "text": "PortFast",
+        "note": "Would make it worse."
+      },
+      {
+        "text": "BPDU filter",
+        "note": "Stops BPDUs; can cause loops."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Loop Guard puts a root or alternate port in a loop-inconsistent state when BPDUs stop arriving, instead of transitioning to forwarding."
+  },
+  {
+    "id": 75,
+    "domain": "D2",
+    "scenario": "In Rapid PVST+, how many STP instances run?",
+    "options": [
+      {
+        "text": "One per VLAN",
+        "note": ""
+      },
+      {
+        "text": "One for the entire switch",
+        "note": "That's single-instance STP or MST with one instance."
+      },
+      {
+        "text": "One per port",
+        "note": "Not how it works."
+      },
+      {
+        "text": "Two, one for each direction",
+        "note": "Not how it works."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Per-VLAN STP lets different VLANs use different root bridges and paths, balancing load across links."
+  },
+  {
+    "id": 76,
+    "domain": "D2",
+    "scenario": "Which port on a non-root switch becomes the root port?",
+    "options": [
+      {
+        "text": "The port with the lowest cost path to the root bridge",
+        "note": ""
+      },
+      {
+        "text": "The port connected to the neighbor with the highest MAC address",
+        "note": "Not the criterion."
+      },
+      {
+        "text": "The first port to come up",
+        "note": "Not the criterion."
+      },
+      {
+        "text": "Any port that has PortFast enabled",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Root port selection: lowest root path cost, then lowest neighbor bridge ID, then lowest neighbor port priority/ID."
+  },
+  {
+    "id": 77,
+    "domain": "D2",
+    "scenario": "A port is in err-disabled state after a security violation. How can it be recovered manually?",
+    "options": [
+      {
+        "text": "shutdown then no shutdown on the interface",
+        "note": ""
+      },
+      {
+        "text": "clear mac address-table dynamic on the switch",
+        "note": "Doesn't re-enable the port."
+      },
+      {
+        "text": "reload the entire switch",
+        "note": "Excessive."
+      },
+      {
+        "text": "spanning-tree portfast",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Err-disabled ports stay down until manually re-enabled or errdisable recovery is configured."
+  },
+  {
+    "id": 78,
+    "domain": "D2",
+    "scenario": "Which command displays the status of all VLANs and their assigned access ports?",
+    "options": [
+      {
+        "text": "show vlan brief",
+        "note": ""
+      },
+      {
+        "text": "show interfaces trunk",
+        "note": "Trunk ports."
+      },
+      {
+        "text": "show spanning-tree",
+        "note": "STP."
+      },
+      {
+        "text": "show cdp neighbors",
+        "note": "Neighbors."
+      }
+    ],
+    "answer": 0,
+    "explanation": "show vlan brief lists VLAN IDs, names, status and access ports. Trunk ports aren't listed there."
+  },
+  {
+    "id": 79,
+    "domain": "D2",
+    "scenario": "Hosts in VLAN 10 on two switches can't communicate. Both access ports are in VLAN 10, and the trunk is up. What should be checked next?",
+    "options": [
+      {
+        "text": "Whether VLAN 10 is allowed on the trunk",
+        "note": ""
+      },
+      {
+        "text": "The OSPF area of the distribution switch",
+        "note": "Same VLAN traffic is layer 2."
+      },
+      {
+        "text": "The NAT configuration on the edge router",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The DNS server used by the hosts",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "If a VLAN isn't in the allowed list, or doesn't exist on one switch, its traffic won't cross the trunk. Check show interfaces trunk."
+  },
+  {
+    "id": 80,
+    "domain": "D2",
+    "scenario": "Which configuration is recommended for unused switch ports?",
+    "options": [
+      {
+        "text": "Shut them down and assign them to an unused VLAN",
+        "note": ""
+      },
+      {
+        "text": "Configure them as trunks in case they're needed",
+        "note": "Increases risk."
+      },
+      {
+        "text": "Leave them in VLAN 1 and enabled",
+        "note": "Increases risk."
+      },
+      {
+        "text": "Enable DTP desirable",
+        "note": "Allows trunk negotiation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Disabling unused ports and placing them in a parking VLAN reduces the risk of unauthorized access."
+  },
+  {
+    "id": 81,
+    "domain": "D2",
+    "scenario": "A switch needs remote management. What must be configured?",
+    "options": [
+      {
+        "text": "An SVI with an IP address and a default gateway",
+        "note": ""
+      },
+      {
+        "text": "A routed port with an IP address on every interface",
+        "note": "Not required."
+      },
+      {
+        "text": "A DHCP pool configured on the switch itself",
+        "note": "Not required for management."
+      },
+      {
+        "text": "A voice VLAN on the port-channel",
+        "note": "For phones."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A layer 2 switch is managed through an SVI IP address, with ip default-gateway for reaching other subnets."
+  },
+  {
+    "id": 82,
+    "domain": "D2",
+    "scenario": "Two switches are connected with three links, and Rapid PVST+ is running. How many links forward traffic for a given VLAN?",
+    "options": [
+      {
+        "text": "One; the others are discarding",
+        "note": ""
+      },
+      {
+        "text": "All three, load-balanced",
+        "note": "STP blocks redundant paths unless they're bundled."
+      },
+      {
+        "text": "None, until PortFast is enabled",
+        "note": "One stays forwarding."
+      },
+      {
+        "text": "Two",
+        "note": "Only one forwards per VLAN."
+      }
+    ],
+    "answer": 0,
+    "explanation": "STP allows one forwarding path per VLAN between two switches. Bundle the links in an EtherChannel to use all of them."
+  },
+  {
+    "id": 83,
+    "domain": "D2",
+    "scenario": "On a trunk, which VLAN's traffic is sent without an 802.1Q tag by default?",
+    "options": [
+      {
+        "text": "VLAN 1 (the default native VLAN)",
+        "note": ""
+      },
+      {
+        "text": "VLAN 1002",
+        "note": "Reserved for legacy media."
+      },
+      {
+        "text": "The highest-numbered VLAN",
+        "note": "Not the case."
+      },
+      {
+        "text": "No VLAN; 802.1Q tags all traffic on a trunk",
+        "note": "The native VLAN is untagged by default."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Changing the native VLAN to an unused VLAN and tagging it is a security best practice against VLAN hopping."
+  },
+  {
+    "id": 84,
+    "domain": "D2",
+    "scenario": "Which output confirms that port Gi1/0/2 is part of a working EtherChannel?",
+    "options": [
+      {
+        "text": "show etherchannel summary",
+        "note": ""
+      },
+      {
+        "text": "show vlan brief",
+        "note": "VLAN information."
+      },
+      {
+        "text": "show ip route connected",
+        "note": "Routes."
+      },
+      {
+        "text": "show cdp neighbors",
+        "note": "Neighbors."
+      }
+    ],
+    "answer": 0,
+    "explanation": "In show etherchannel summary, P means bundled in the port-channel, and s or I flags mean suspended or standalone."
+  },
+  {
+    "id": 85,
+    "domain": "D3",
+    "scenario": "Based on the routing table below, which next hop does R1 use for a packet to 10.2.5.9?",
+    "options": [
+      {
+        "text": "10.1.1.3",
+        "note": ""
+      },
+      {
+        "text": "10.1.1.2",
+        "note": "That route (10.2.0.0/16) is less specific."
+      },
+      {
+        "text": "203.0.113.1",
+        "note": "The default route is used only if nothing more specific matches."
+      },
+      {
+        "text": "The packet is dropped",
+        "note": "Several routes match."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The longest prefix match wins: 10.2.5.0/24 is more specific than 10.2.0.0/16, so the next hop is 10.1.1.3.",
+    "code": "R1# show ip route\nGateway of last resort is 203.0.113.1 to network 0.0.0.0\n\nS*    0.0.0.0/0 [1/0] via 203.0.113.1\n      10.0.0.0/8 is variably subnetted, 4 subnets, 3 masks\nC        10.1.1.0/24 is directly connected, GigabitEthernet0/0\nL        10.1.1.1/32 is directly connected, GigabitEthernet0/0\nO        10.2.0.0/16 [110/2] via 10.1.1.2, 00:12:44, GigabitEthernet0/0\nO        10.2.5.0/24 [110/3] via 10.1.1.3, 00:12:44, GigabitEthernet0/0"
+  },
+  {
+    "id": 86,
+    "domain": "D3",
+    "scenario": "Based on the routing table below, where does R1 send a packet for 172.16.4.4?",
+    "options": [
+      {
+        "text": "To 203.0.113.1 via the default route",
+        "note": ""
+      },
+      {
+        "text": "To 10.1.1.2",
+        "note": "No 172.16.x route points there."
+      },
+      {
+        "text": "It's dropped because there's no specific route",
+        "note": "The default route matches."
+      },
+      {
+        "text": "Out GigabitEthernet0/0 as directly connected",
+        "note": "172.16.4.4 isn't connected."
+      }
+    ],
+    "answer": 0,
+    "explanation": "S* marks a static default route (0.0.0.0/0), the gateway of last resort for destinations with no more specific match.",
+    "code": "R1# show ip route\nGateway of last resort is 203.0.113.1 to network 0.0.0.0\n\nS*    0.0.0.0/0 [1/0] via 203.0.113.1\n      10.0.0.0/8 is variably subnetted, 4 subnets, 3 masks\nC        10.1.1.0/24 is directly connected, GigabitEthernet0/0\nL        10.1.1.1/32 is directly connected, GigabitEthernet0/0\nO        10.2.0.0/16 [110/2] via 10.1.1.2, 00:12:44, GigabitEthernet0/0\nO        10.2.5.0/24 [110/3] via 10.1.1.3, 00:12:44, GigabitEthernet0/0"
+  },
+  {
+    "id": 87,
+    "domain": "D3",
+    "scenario": "In the routing table below, what do the values in [110/2] mean?",
+    "options": [
+      {
+        "text": "Administrative distance 110, metric 2",
+        "note": ""
+      },
+      {
+        "text": "Metric 110, administrative distance 2",
+        "note": "Reversed."
+      },
+      {
+        "text": "OSPF area 110 and a hop count of 2",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "OSPF process ID 110 and an interface cost of 2",
+        "note": "AD is first, not process ID."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The bracket shows [administrative distance/metric]. OSPF's default AD is 110, and the metric is the OSPF cost.",
+    "code": "R1# show ip route\nGateway of last resort is 203.0.113.1 to network 0.0.0.0\n\nS*    0.0.0.0/0 [1/0] via 203.0.113.1\n      10.0.0.0/8 is variably subnetted, 4 subnets, 3 masks\nC        10.1.1.0/24 is directly connected, GigabitEthernet0/0\nL        10.1.1.1/32 is directly connected, GigabitEthernet0/0\nO        10.2.0.0/16 [110/2] via 10.1.1.2, 00:12:44, GigabitEthernet0/0\nO        10.2.5.0/24 [110/3] via 10.1.1.3, 00:12:44, GigabitEthernet0/0"
+  },
+  {
+    "id": 88,
+    "domain": "D3",
+    "scenario": "What does the code \"L\" mean in an IOS routing table?",
+    "options": [
+      {
+        "text": "A /32 route for the router's own interface IP",
+        "note": ""
+      },
+      {
+        "text": "A route learned from an OSPF router LSA",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "A route leaked into the table from another VRF",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "A network on a loopback interface",
+        "note": "Loopback networks show as C plus L."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IOS adds an L (local) host route for each interface IP address, alongside the C (connected) network route."
+  },
+  {
+    "id": 89,
+    "domain": "D3",
+    "scenario": "A router learns 10.5.0.0/24 from EIGRP (AD 90) and from OSPF (AD 110). Which route is installed?",
+    "options": [
+      {
+        "text": "The EIGRP route",
+        "note": ""
+      },
+      {
+        "text": "The OSPF route",
+        "note": "Higher AD is less preferred."
+      },
+      {
+        "text": "Both, load-balanced",
+        "note": "Not across different protocols."
+      },
+      {
+        "text": "Whichever has the lower metric",
+        "note": "Metrics aren't compared across protocols."
+      }
+    ],
+    "answer": 0,
+    "explanation": "When prefix lengths match, the lowest administrative distance wins. Metrics are only compared within the same protocol."
+  },
+  {
+    "id": 90,
+    "domain": "D3",
+    "scenario": "Which administrative distance values are correct for Cisco IOS?",
+    "options": [
+      {
+        "text": "Connected 0, static 1, EIGRP 90, OSPF 110",
+        "note": ""
+      },
+      {
+        "text": "Connected 1, static 0, EIGRP 110, OSPF 90",
+        "note": "Swapped values."
+      },
+      {
+        "text": "Connected 0, static 5, OSPF 100, EIGRP 120",
+        "note": "Incorrect values."
+      },
+      {
+        "text": "All route sources share an AD of 1 by default",
+        "note": "AD differs by source."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Other common values: eBGP 20, RIP 120, external EIGRP 170, iBGP 200. An AD of 255 means the route is never used."
+  },
+  {
+    "id": 91,
+    "domain": "D3",
+    "scenario": "Which command creates a static default route via next hop 198.51.100.1?",
+    "options": [
+      {
+        "text": "ip route 0.0.0.0 0.0.0.0 198.51.100.1",
+        "note": ""
+      },
+      {
+        "text": "ip default-gateway 198.51.100.1",
+        "note": "Used on switches without routing."
+      },
+      {
+        "text": "ip route 198.51.100.1 0.0.0.0 0.0.0.0",
+        "note": "Wrong argument order."
+      },
+      {
+        "text": "route 0.0.0.0/0 198.51.100.1 permanent",
+        "note": "Not IOS syntax."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The syntax is ip route destination mask next-hop (or exit interface)."
+  },
+  {
+    "id": 92,
+    "domain": "D3",
+    "scenario": "A backup static route should be used only if the OSPF-learned route to 10.9.0.0/16 disappears. How is it configured?",
+    "options": [
+      {
+        "text": "ip route 10.9.0.0 255.255.0.0 192.0.2.1 120",
+        "note": ""
+      },
+      {
+        "text": "ip route 10.9.0.0 255.255.0.0 192.0.2.1 1",
+        "note": "AD 1 would override OSPF."
+      },
+      {
+        "text": "ip route 10.9.0.0 255.255.0.0 192.0.2.1 permanent",
+        "note": "Keeps the route installed even if the interface is down; doesn't make it a backup."
+      },
+      {
+        "text": "ip route 10.9.0.0 255.255.0.0 null0",
+        "note": "Discards the traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A floating static route has an administrative distance higher than the primary route's, so it's installed only when the primary disappears."
+  },
+  {
+    "id": 93,
+    "domain": "D3",
+    "scenario": "Which static route matches only the single host 10.4.4.10?",
+    "options": [
+      {
+        "text": "ip route 10.4.4.10 255.255.255.255 10.1.1.2",
+        "note": ""
+      },
+      {
+        "text": "ip route 10.4.4.0 255.255.255.0 10.1.1.2",
+        "note": "A network route."
+      },
+      {
+        "text": "ip route 0.0.0.0 0.0.0.0 10.4.4.10",
+        "note": "A default route."
+      },
+      {
+        "text": "ip route 10.4.4.10 0.0.0.0 10.1.1.2",
+        "note": "Mask 0.0.0.0 would make this a default route."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A host route uses a /32 mask (255.255.255.255)."
+  },
+  {
+    "id": 94,
+    "domain": "D3",
+    "scenario": "Which command creates an IPv6 static default route via next hop 2001:db8:ffff::1?",
+    "options": [
+      {
+        "text": "ipv6 route ::/0 2001:db8:ffff::1",
+        "note": ""
+      },
+      {
+        "text": "ip route ::/0 2001:db8:ffff::1",
+        "note": "IPv4 command."
+      },
+      {
+        "text": "ipv6 route 0::0 2001:db8:ffff::1",
+        "note": "Missing the prefix length."
+      },
+      {
+        "text": "ipv6 default-gateway 2001:db8:ffff::1",
+        "note": "Not valid on routers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IPv6 static routes use ipv6 route prefix/length next-hop. ipv6 unicast-routing must be enabled."
+  },
+  {
+    "id": 95,
+    "domain": "D3",
+    "scenario": "An IPv6 static route uses a link-local next hop such as FE80::2. What else must the command include?",
+    "options": [
+      {
+        "text": "The exit interface",
+        "note": ""
+      },
+      {
+        "text": "The OSPF area of the distribution switch",
+        "note": "Not needed for static routes."
+      },
+      {
+        "text": "An AD of 0",
+        "note": "Not required."
+      },
+      {
+        "text": "The keyword permanent",
+        "note": "Not required."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Link-local addresses are only unique on a link, so you specify the interface: ipv6 route 2001:db8:5::/64 g0/1 fe80::2."
+  },
+  {
+    "id": 96,
+    "domain": "D3",
+    "scenario": "R1 has a static route to 10.20.0.0/16 via 10.1.1.2, but pings to 10.20.1.1 fail. R1 can ping 10.1.1.2. What is a likely cause?",
+    "options": [
+      {
+        "text": "The remote network has no route back to R1's network",
+        "note": ""
+      },
+      {
+        "text": "R1's static route syntax is invalid",
+        "note": "It's installed, so it's valid."
+      },
+      {
+        "text": "R1 needs a default route to reach any remote network",
+        "note": "Not needed for this destination."
+      },
+      {
+        "text": "The ping uses UDP, which static routes don't forward",
+        "note": "Ping uses ICMP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Routing must work in both directions. Check the return path on the remote router as well as routing tables along the path."
+  },
+  {
+    "id": 97,
+    "domain": "D3",
+    "scenario": "How does OSPF choose its router ID if none is configured manually?",
+    "options": [
+      {
+        "text": "Highest loopback IPv4 address, else highest active interface IPv4",
+        "note": ""
+      },
+      {
+        "text": "The lowest IPv4 address on any active interface, including loopbacks",
+        "note": "Highest, not lowest."
+      },
+      {
+        "text": "The MAC address of the first interface that came up",
+        "note": "Not used."
+      },
+      {
+        "text": "A random 32-bit number generated at startup",
+        "note": "Not random."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Configure router-id manually for predictability. Changes take effect after clearing the OSPF process (clear ip ospf process)."
+  },
+  {
+    "id": 98,
+    "domain": "D3",
+    "scenario": "Two OSPF routers on the same subnet are stuck and never become neighbors. One has hello/dead timers of 10/40, the other 5/20. What is the problem?",
+    "options": [
+      {
+        "text": "Hello and dead timers must match",
+        "note": ""
+      },
+      {
+        "text": "Router IDs must match on both routers",
+        "note": "Router IDs must be unique, not matching."
+      },
+      {
+        "text": "Interface priorities must match on the subnet",
+        "note": "Priorities can differ."
+      },
+      {
+        "text": "Process IDs must match",
+        "note": "OSPF process IDs are locally significant."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Neighbors must agree on area ID, subnet, hello/dead timers, authentication and stub flags. MTU mismatches stall adjacency in ExStart/Exchange."
+  },
+  {
+    "id": 99,
+    "domain": "D3",
+    "scenario": "Two OSPF neighbors are stuck in the ExStart/Exchange state. Which mismatch is most likely?",
+    "options": [
+      {
+        "text": "Interface MTU",
+        "note": ""
+      },
+      {
+        "text": "OSPF process ID",
+        "note": "Locally significant."
+      },
+      {
+        "text": "Hostname",
+        "note": "Irrelevant."
+      },
+      {
+        "text": "Interface description",
+        "note": "Irrelevant."
+      }
+    ],
+    "answer": 0,
+    "explanation": "MTU mismatches prevent database description exchange. Match MTUs, or use ip ospf mtu-ignore as a workaround."
+  },
+  {
+    "id": 100,
+    "domain": "D3",
+    "scenario": "Which commands enable OSPF area 0 on GigabitEthernet0/1 using interface configuration?",
+    "options": [
+      {
+        "text": "interface g0/1 / ip ospf 1 area 0",
+        "note": ""
+      },
+      {
+        "text": "router ospf 1 / network g0/1 area 0",
+        "note": "network statements take addresses and wildcards."
+      },
+      {
+        "text": "interface g0/1 / ospf enable area 0",
+        "note": "Not valid syntax."
+      },
+      {
+        "text": "router ospf 1 / interface g0/1 area 0",
+        "note": "Not valid syntax."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OSPF can be enabled per interface (ip ospf process-id area area-id) or with network address wildcard area statements under router ospf."
+  },
+  {
+    "id": 101,
+    "domain": "D3",
+    "scenario": "Which network statement enables OSPF area 0 on all interfaces in 10.1.0.0/16?",
+    "options": [
+      {
+        "text": "network 10.1.0.0 0.0.255.255 area 0",
+        "note": ""
+      },
+      {
+        "text": "network 10.1.0.0 255.255.0.0 area 0",
+        "note": "OSPF network statements use wildcard masks."
+      },
+      {
+        "text": "network 10.1.0.0/16 area 0",
+        "note": "IOS doesn't accept prefix notation here."
+      },
+      {
+        "text": "network 10.1.0.0 area 0 with no mask",
+        "note": "Missing the wildcard."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OSPF network statements use wildcard masks to select interfaces."
+  },
+  {
+    "id": 102,
+    "domain": "D3",
+    "scenario": "An OSPF router shouldn't send hello packets out its LAN interface facing users, but the LAN should still be advertised. What should be configured?",
+    "options": [
+      {
+        "text": "passive-interface on that interface",
+        "note": ""
+      },
+      {
+        "text": "shutdown on the LAN interface",
+        "note": "Would stop all traffic."
+      },
+      {
+        "text": "ip ospf cost 65535",
+        "note": "Still sends hellos."
+      },
+      {
+        "text": "no network statement for the LAN",
+        "note": "The LAN wouldn't be advertised."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Passive interfaces are advertised in OSPF but don't form adjacencies, which improves security and reduces overhead."
+  },
+  {
+    "id": 103,
+    "domain": "D3",
+    "scenario": "On a broadcast segment, which router becomes the OSPF DR?",
+    "options": [
+      {
+        "text": "Highest interface priority, then highest router ID",
+        "note": ""
+      },
+      {
+        "text": "Lowest interface priority, then lowest router ID",
+        "note": "Highest wins."
+      },
+      {
+        "text": "The router with the most neighbors",
+        "note": "Not the criterion."
+      },
+      {
+        "text": "Always the first router to boot",
+        "note": "It can win only because election isn't preemptive."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Default priority is 1. Priority 0 means the router can't become DR or BDR. The election isn't preemptive: a better router added later doesn't take over until the DR fails."
+  },
+  {
+    "id": 104,
+    "domain": "D3",
+    "scenario": "Which OSPF interface priority prevents a router from ever becoming DR or BDR?",
+    "options": [
+      {
+        "text": "0",
+        "note": ""
+      },
+      {
+        "text": "1",
+        "note": "The default; it can win."
+      },
+      {
+        "text": "255",
+        "note": "The highest priority."
+      },
+      {
+        "text": "100",
+        "note": "It can win."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Set ip ospf priority 0 on routers that shouldn't take part in DR election."
+  },
+  {
+    "id": 105,
+    "domain": "D3",
+    "scenario": "Two routers connect over a point-to-point Ethernet link and run OSPF. How can DR/BDR election and its delay be avoided?",
+    "options": [
+      {
+        "text": "ip ospf network point-to-point on both interfaces",
+        "note": ""
+      },
+      {
+        "text": "ip ospf priority 255 on both interfaces",
+        "note": "Still elects a DR."
+      },
+      {
+        "text": "Put each interface in a different OSPF area",
+        "note": "Breaks the adjacency."
+      },
+      {
+        "text": "Disable hello packets on the link",
+        "note": "Breaks OSPF."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OSPF point-to-point network type doesn't elect a DR or BDR, which speeds up adjacency on two-router links."
+  },
+  {
+    "id": 106,
+    "domain": "D3",
+    "scenario": "On a broadcast segment with a DR and BDR, which state do two DROTHER routers reach with each other?",
+    "options": [
+      {
+        "text": "2-Way",
+        "note": ""
+      },
+      {
+        "text": "Full",
+        "note": "DROTHERs reach Full only with the DR and BDR."
+      },
+      {
+        "text": "Init",
+        "note": "Means hellos are one-way only."
+      },
+      {
+        "text": "Down",
+        "note": "They see each other's hellos."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DROTHERs stay in 2-Way with each other, which is normal. They form Full adjacencies with the DR and BDR."
+  },
+  {
+    "id": 107,
+    "domain": "D3",
+    "scenario": "OSPF calculates the same cost of 1 for 1 Gbps and 10 Gbps links. Why?",
+    "options": [
+      {
+        "text": "The default reference bandwidth is 100 Mbps",
+        "note": ""
+      },
+      {
+        "text": "OSPF uses hop count rather than bandwidth",
+        "note": "OSPF uses cost."
+      },
+      {
+        "text": "OSPF ignores bandwidth on Ethernet links",
+        "note": "Cost is derived from bandwidth."
+      },
+      {
+        "text": "The links are in different areas",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cost = reference bandwidth / interface bandwidth, with a minimum of 1. Raise it with auto-cost reference-bandwidth (consistently on all routers)."
+  },
+  {
+    "id": 108,
+    "domain": "D3",
+    "scenario": "Which command makes an OSPF router advertise its default route to other OSPF routers?",
+    "options": [
+      {
+        "text": "default-information originate",
+        "note": ""
+      },
+      {
+        "text": "redistribute static default",
+        "note": "Not the standard command."
+      },
+      {
+        "text": "ip default-network",
+        "note": "Legacy and not OSPF-specific."
+      },
+      {
+        "text": "network 0.0.0.0 255.255.255.255 area 0",
+        "note": "Enables OSPF on all interfaces."
+      }
+    ],
+    "answer": 0,
+    "explanation": "default-information originate advertises a default route if the router has one (or always, with the always keyword)."
+  },
+  {
+    "id": 109,
+    "domain": "D3",
+    "scenario": "Which multicast address do all OSPFv2 routers listen to for hello packets?",
+    "options": [
+      {
+        "text": "224.0.0.5",
+        "note": ""
+      },
+      {
+        "text": "224.0.0.6",
+        "note": "DR/BDR address."
+      },
+      {
+        "text": "224.0.0.9",
+        "note": "RIPv2."
+      },
+      {
+        "text": "224.0.0.10",
+        "note": "EIGRP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "224.0.0.5 reaches all OSPF routers; 224.0.0.6 reaches the DR and BDR. OSPFv3 uses FF02::5 and FF02::6."
+  },
+  {
+    "id": 110,
+    "domain": "D3",
+    "scenario": "Which command verifies OSPF neighbors and their states?",
+    "options": [
+      {
+        "text": "show ip ospf neighbor",
+        "note": ""
+      },
+      {
+        "text": "show ip route ospf",
+        "note": "Shows OSPF routes, not neighbors."
+      },
+      {
+        "text": "show ip ospf database",
+        "note": "Shows protocol settings."
+      },
+      {
+        "text": "show cdp neighbors",
+        "note": "Layer 2 neighbors."
+      }
+    ],
+    "answer": 0,
+    "explanation": "show ip ospf neighbor lists neighbor IDs, priorities, states (such as FULL/DR) and interfaces."
+  },
+  {
+    "id": 111,
+    "domain": "D3",
+    "scenario": "How is OSPFv3 enabled for IPv6 on an interface?",
+    "options": [
+      {
+        "text": "ipv6 ospf 1 area 0",
+        "note": ""
+      },
+      {
+        "text": "ip ospf 1 area 0",
+        "note": "OSPFv2 for IPv4."
+      },
+      {
+        "text": "ospfv3 network ::/0 area 0",
+        "note": "Not valid."
+      },
+      {
+        "text": "ipv6 router area 0",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OSPFv3 is configured per interface. It uses link-local addresses for neighbor communication and still needs a 32-bit router ID."
+  },
+  {
+    "id": 112,
+    "domain": "D3",
+    "scenario": "What must be true for OSPFv3 to start if a router has no IPv4 addresses at all?",
+    "options": [
+      {
+        "text": "A router ID must be configured manually",
+        "note": ""
+      },
+      {
+        "text": "An IPv6 global address is used as the router ID",
+        "note": "Router IDs are 32-bit."
+      },
+      {
+        "text": "OSPFv3 doesn't need a router ID",
+        "note": "It does."
+      },
+      {
+        "text": "The router must also run OSPFv2",
+        "note": "Not required."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OSPFv3 router IDs are 32-bit numbers. Without IPv4 addresses, set router-id manually."
+  },
+  {
+    "id": 113,
+    "domain": "D3",
+    "scenario": "In OSPF, which state indicates that two routers have fully synchronized their link-state databases?",
+    "options": [
+      {
+        "text": "Full",
+        "note": ""
+      },
+      {
+        "text": "2-Way",
+        "note": "Bidirectional communication only."
+      },
+      {
+        "text": "Loading",
+        "note": "Still requesting LSAs."
+      },
+      {
+        "text": "ExStart",
+        "note": "Starting database exchange."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Neighbor states: Down, Init, 2-Way, ExStart, Exchange, Loading, Full."
+  },
+  {
+    "id": 114,
+    "domain": "D3",
+    "scenario": "<code>show standby brief</code> on R2 shows State \"Standby\" and Active router 10.1.1.2. What does this mean?",
+    "options": [
+      {
+        "text": "R2 is the backup and takes over on failure",
+        "note": ""
+      },
+      {
+        "text": "R2 is forwarding traffic for the virtual IP",
+        "note": "That's the active router."
+      },
+      {
+        "text": "HSRP isn't working and no router is forwarding",
+        "note": "Standby is a normal state."
+      },
+      {
+        "text": "R2 is the VRRP master for the group",
+        "note": "That's VRRP terminology."
+      }
+    ],
+    "answer": 0,
+    "explanation": "In HSRP, the active router forwards traffic for the virtual IP and MAC; the standby router monitors and takes over on failure."
+  },
+  {
+    "id": 115,
+    "domain": "D3",
+    "scenario": "Which statement is true about HSRP preemption on Cisco routers?",
+    "options": [
+      {
+        "text": "It's off by default and must be enabled with standby preempt",
+        "note": ""
+      },
+      {
+        "text": "It's always on by default and can't be disabled",
+        "note": "It's configurable."
+      },
+      {
+        "text": "It only applies to VRRP, not to HSRP",
+        "note": "Both protocols have preemption."
+      },
+      {
+        "text": "It requires OSPF to track the uplink",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HSRP's default priority is 100 and preemption is off. VRRP enables preemption by default."
+  },
+  {
+    "id": 116,
+    "domain": "D3",
+    "scenario": "Which first hop redundancy protocol is an open standard?",
+    "options": [
+      {
+        "text": "VRRP",
+        "note": ""
+      },
+      {
+        "text": "HSRP",
+        "note": "Cisco proprietary."
+      },
+      {
+        "text": "GLBP",
+        "note": "Cisco proprietary."
+      },
+      {
+        "text": "CDP",
+        "note": "Not an FHRP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "VRRP is an IETF standard. Its roles are master and backup; HSRP uses active and standby."
+  },
+  {
+    "id": 117,
+    "domain": "D3",
+    "scenario": "What do end hosts use as their default gateway when an FHRP is configured?",
+    "options": [
+      {
+        "text": "The virtual IP address shared by the routers",
+        "note": ""
+      },
+      {
+        "text": "The active router's physical interface IP",
+        "note": "Would break failover."
+      },
+      {
+        "text": "The standby router's physical interface IP",
+        "note": "Would break normal operation."
+      },
+      {
+        "text": "The subnet's broadcast address",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hosts use the virtual IP, which maps to a virtual MAC, so failover is transparent to them."
+  },
+  {
+    "id": 118,
+    "domain": "D3",
+    "scenario": "Two routers both show HSRP state \"Active\" for the same group. What is a likely cause?",
+    "options": [
+      {
+        "text": "They can't exchange HSRP hellos",
+        "note": ""
+      },
+      {
+        "text": "Both have priority 100",
+        "note": "They'd still elect one active."
+      },
+      {
+        "text": "Preemption is enabled",
+        "note": "Doesn't cause dual active."
+      },
+      {
+        "text": "The virtual IP is in the same subnet",
+        "note": "That's required."
+      }
+    ],
+    "answer": 0,
+    "explanation": "If routers can't hear each other's hellos, each assumes it's active. Check layer 2 connectivity, VLANs and group numbers."
+  },
+  {
+    "id": 119,
+    "domain": "D3",
+    "scenario": "Which command increases R1's HSRP priority so it can become active (with preemption)?",
+    "options": [
+      {
+        "text": "standby 1 priority 110 and standby 1 preempt",
+        "note": ""
+      },
+      {
+        "text": "standby 1 priority 90 and standby 1 preempt",
+        "note": "Lower than the default 100."
+      },
+      {
+        "text": "vrrp 1 priority 110",
+        "note": "VRRP command."
+      },
+      {
+        "text": "ip ospf priority 110",
+        "note": "OSPF DR election."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Higher priority wins the active role. With preemption, R1 takes over even if another router is already active."
+  },
+  {
+    "id": 120,
+    "domain": "D3",
+    "scenario": "R1's routing table shows two equal-cost OSPF routes to the same network via different next hops. What does R1 do?",
+    "options": [
+      {
+        "text": "Load-balances traffic across both paths",
+        "note": ""
+      },
+      {
+        "text": "Uses only the first route learned and keeps the other as backup",
+        "note": "Equal-cost paths are both installed."
+      },
+      {
+        "text": "Drops traffic because the routes are ambiguous",
+        "note": "Not the case."
+      },
+      {
+        "text": "Uses the path with the lower router ID",
+        "note": "Not how forwarding works."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OSPF supports equal-cost multipath (ECMP), with up to four paths by default on IOS (configurable with maximum-paths)."
+  },
+  {
+    "id": 121,
+    "domain": "D4",
+    "scenario": "Which command creates a local user with an encrypted (hashed) password on IOS?",
+    "options": [
+      {
+        "text": "username admin secret Str0ngPass",
+        "note": ""
+      },
+      {
+        "text": "username admin password Str0ngPass",
+        "note": "Stored with weak or no encryption."
+      },
+      {
+        "text": "enable password Str0ngPass",
+        "note": "Sets the enable password, not a user."
+      },
+      {
+        "text": "line vty 0 4 / password Str0ngPass",
+        "note": "A line password, not a user."
+      }
+    ],
+    "answer": 0,
+    "explanation": "secret stores a strong hash. Combine local users with login local on VTY lines and SSH."
+  },
+  {
+    "id": 122,
+    "domain": "D4",
+    "scenario": "Network admins should authenticate to routers using a TACACS+ server, falling back to local accounts if the server is unreachable. Which command does this?",
+    "options": [
+      {
+        "text": "aaa authentication login default group tacacs+ local",
+        "note": ""
+      },
+      {
+        "text": "aaa authentication login default local group tacacs+",
+        "note": "Tries local first."
+      },
+      {
+        "text": "login tacacs+ local on the VTY lines",
+        "note": "Not valid."
+      },
+      {
+        "text": "tacacs-server host 10.0.0.5 fallback local",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "aaa new-model must be enabled first. Methods are tried in order; local is used only if the server doesn't respond."
+  },
+  {
+    "id": 123,
+    "domain": "D4",
+    "scenario": "Which is a key advantage of TACACS+ over RADIUS for device administration?",
+    "options": [
+      {
+        "text": "It encrypts the full payload and authorizes per command",
+        "note": ""
+      },
+      {
+        "text": "It uses UDP 1812 for faster authentication",
+        "note": "TACACS+ uses TCP 49."
+      },
+      {
+        "text": "It's required for 802.1X port authentication",
+        "note": "RADIUS is used for 802.1X."
+      },
+      {
+        "text": "It's an open IEEE standard used by all vendors",
+        "note": "Originally Cisco-developed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "TACACS+ separates authentication, authorization and accounting. RADIUS (UDP 1812/1813) combines authentication and authorization and encrypts only the password."
+  },
+  {
+    "id": 124,
+    "domain": "D4",
+    "scenario": "Which steps are required to enable SSH on a Cisco router?",
+    "options": [
+      {
+        "text": "Hostname, domain name, RSA keys, and transport input ssh",
+        "note": ""
+      },
+      {
+        "text": "Enable Telnet and set a VTY password",
+        "note": "Telnet isn't SSH."
+      },
+      {
+        "text": "Configure an ACL that permits TCP 22 only",
+        "note": "Doesn't enable SSH."
+      },
+      {
+        "text": "Enable ip http server and set a password",
+        "note": "For web management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Typical steps: hostname, ip domain-name, crypto key generate rsa (2048+ bits), ip ssh version 2, local users or AAA, and transport input ssh with login local on VTY lines."
+  },
+  {
+    "id": 125,
+    "domain": "D4",
+    "scenario": "Which command restricts SSH access to the router to the management subnet using ACL 10?",
+    "options": [
+      {
+        "text": "access-class 10 in (on the VTY lines)",
+        "note": ""
+      },
+      {
+        "text": "ip access-group 10 in (on every interface)",
+        "note": "Filters transit traffic too."
+      },
+      {
+        "text": "access-list 10 permit any",
+        "note": "Doesn't restrict."
+      },
+      {
+        "text": "transport input telnet",
+        "note": "Allows Telnet."
+      }
+    ],
+    "answer": 0,
+    "explanation": "access-class applies an ACL to VTY lines to control which source addresses can open management sessions."
+  },
+  {
+    "id": 126,
+    "domain": "D4",
+    "scenario": "Which protocol should be used to copy an IOS image to a router securely?",
+    "options": [
+      {
+        "text": "SCP or SFTP",
+        "note": ""
+      },
+      {
+        "text": "TFTP",
+        "note": "Unencrypted and unauthenticated."
+      },
+      {
+        "text": "FTP",
+        "note": "Sends credentials in clear text."
+      },
+      {
+        "text": "Telnet",
+        "note": "Not a file transfer protocol."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SCP and SFTP run over SSH. On IOS, the SCP server is enabled with ip scp server enable."
+  },
+  {
+    "id": 127,
+    "domain": "D4",
+    "scenario": "Which command backs up the running configuration to an SCP server?",
+    "options": [
+      {
+        "text": "copy running-config scp://user@10.0.0.5/r1.cfg",
+        "note": ""
+      },
+      {
+        "text": "write memory scp 10.0.0.5",
+        "note": "Not valid."
+      },
+      {
+        "text": "copy startup-config flash:r1-backup.cfg",
+        "note": "Copies to local flash."
+      },
+      {
+        "text": "backup running-config scp 10.0.0.5",
+        "note": "Not valid IOS syntax."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IOS copy commands accept URL-style destinations such as scp://, sftp:// and tftp://."
+  },
+  {
+    "id": 128,
+    "domain": "D4",
+    "scenario": "Which command configures PAT so inside hosts in ACL 1 share the address of interface G0/1?",
+    "options": [
+      {
+        "text": "ip nat inside source list 1 interface g0/1 overload",
+        "note": ""
+      },
+      {
+        "text": "ip nat outside source list 1 interface g0/1",
+        "note": "Wrong direction."
+      },
+      {
+        "text": "ip nat inside source static 10.0.0.0 g0/1",
+        "note": "Static NAT syntax."
+      },
+      {
+        "text": "ip nat pool overload g0/1 netmask 255.255.255.0",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The overload keyword enables PAT. Interfaces also need ip nat inside and ip nat outside."
+  },
+  {
+    "id": 129,
+    "domain": "D4",
+    "scenario": "A web server at 10.1.1.10 must be reachable from the internet at 203.0.113.10. Which command creates this mapping?",
+    "options": [
+      {
+        "text": "ip nat inside source static 10.1.1.10 203.0.113.10",
+        "note": ""
+      },
+      {
+        "text": "ip nat outside source static 10.1.1.10 203.0.113.10",
+        "note": "Translates outside addresses."
+      },
+      {
+        "text": "ip nat inside source list 1 pool WEB",
+        "note": "Dynamic NAT."
+      },
+      {
+        "text": "ip route 203.0.113.10 255.255.255.255 10.1.1.10",
+        "note": "A route, not NAT."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Static NAT creates a permanent one-to-one mapping, allowing inbound connections to the inside server."
+  },
+  {
+    "id": 130,
+    "domain": "D4",
+    "scenario": "In Cisco NAT terminology, what is the \"inside global\" address?",
+    "options": [
+      {
+        "text": "The public address representing an inside host",
+        "note": ""
+      },
+      {
+        "text": "The private address assigned to the inside host",
+        "note": "That's inside local."
+      },
+      {
+        "text": "The address of the remote server as seen outside",
+        "note": "That's outside global."
+      },
+      {
+        "text": "The router's loopback address used for NAT",
+        "note": "Not a NAT term."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Inside local = private address on the inside. Inside global = translated public address. Outside global = the external host's real address."
+  },
+  {
+    "id": 131,
+    "domain": "D4",
+    "scenario": "Users can't reach the internet. <code>show ip nat translations</code> shows no entries. What should be checked first?",
+    "options": [
+      {
+        "text": "The ip nat inside/outside interfaces and the NAT ACL",
+        "note": ""
+      },
+      {
+        "text": "The OSPF priority on the internet-facing interface",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The STP root bridge for the user VLANs",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The DHCP excluded addresses on the LAN pool",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Common NAT faults: missing or swapped inside/outside interface statements, an ACL that doesn't match the inside network, or no route to the internet."
+  },
+  {
+    "id": 132,
+    "domain": "D4",
+    "scenario": "Users can reach a web server by IP address but not by its name, www.example.com. Which DNS record should be checked first?",
+    "options": [
+      {
+        "text": "The A record for www.example.com",
+        "note": ""
+      },
+      {
+        "text": "The MX record",
+        "note": "Mail routing."
+      },
+      {
+        "text": "The PTR record",
+        "note": "Reverse lookup."
+      },
+      {
+        "text": "The NS record of an unrelated domain",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A records map names to IPv4 addresses and AAAA records map names to IPv6 addresses. A missing or wrong record breaks name-based access."
+  },
+  {
+    "id": 133,
+    "domain": "D4",
+    "scenario": "Email to @example.com is bouncing, but the website works. Which DNS record is most likely wrong?",
+    "options": [
+      {
+        "text": "MX",
+        "note": ""
+      },
+      {
+        "text": "A for www",
+        "note": "The website works."
+      },
+      {
+        "text": "CNAME for ftp",
+        "note": "Unrelated."
+      },
+      {
+        "text": "PTR for the web server",
+        "note": "Reverse lookup."
+      }
+    ],
+    "answer": 0,
+    "explanation": "MX records direct mail to the domain's mail servers. Check that they point to a hostname that has a valid A or AAAA record."
+  },
+  {
+    "id": 134,
+    "domain": "D4",
+    "scenario": "shop.example.com should point to the same server as www.example.com, and follow it if its address changes. Which record should be used?",
+    "options": [
+      {
+        "text": "CNAME",
+        "note": ""
+      },
+      {
+        "text": "A with a copy of the IP address",
+        "note": "Must be updated manually if the IP changes."
+      },
+      {
+        "text": "MX",
+        "note": "Mail routing."
+      },
+      {
+        "text": "NS",
+        "note": "Delegates a zone."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A CNAME is an alias to another name, so it follows the target's address automatically."
+  },
+  {
+    "id": 135,
+    "domain": "D4",
+    "scenario": "Logs show IP addresses instead of hostnames because reverse lookups fail. Which record type is missing?",
+    "options": [
+      {
+        "text": "PTR",
+        "note": ""
+      },
+      {
+        "text": "A",
+        "note": "Forward lookup."
+      },
+      {
+        "text": "MX",
+        "note": "Mail."
+      },
+      {
+        "text": "CNAME",
+        "note": "Alias."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PTR records in the reverse zone (in-addr.arpa or ip6.arpa) map IP addresses back to names."
+  },
+  {
+    "id": 136,
+    "domain": "D4",
+    "scenario": "Which DNS record identifies the authoritative name servers for a zone?",
+    "options": [
+      {
+        "text": "NS",
+        "note": ""
+      },
+      {
+        "text": "MX",
+        "note": "Mail servers."
+      },
+      {
+        "text": "A",
+        "note": "Name to IPv4."
+      },
+      {
+        "text": "PTR",
+        "note": "IP to name."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NS records delegate a zone to its authoritative servers. Wrong NS records at the registrar break resolution for the whole domain."
+  },
+  {
+    "id": 137,
+    "domain": "D4",
+    "scenario": "Which command makes a Cisco router resolve hostnames using DNS server 8.8.8.8?",
+    "options": [
+      {
+        "text": "ip name-server 8.8.8.8",
+        "note": ""
+      },
+      {
+        "text": "ip dns server 8.8.8.8",
+        "note": "Enables the router as a DNS server."
+      },
+      {
+        "text": "ip host 8.8.8.8",
+        "note": "Creates a static host entry."
+      },
+      {
+        "text": "dns-server 8.8.8.8",
+        "note": "DHCP pool command."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ip name-server configures DNS servers for the router's own lookups. dns-server inside a DHCP pool hands addresses to clients."
+  },
+  {
+    "id": 138,
+    "domain": "D4",
+    "scenario": "Two branch routers need an always-on encrypted tunnel between their LANs over the internet. Which VPN type fits?",
+    "options": [
+      {
+        "text": "Site-to-site IPsec VPN",
+        "note": ""
+      },
+      {
+        "text": "Remote-access VPN",
+        "note": "For individual users."
+      },
+      {
+        "text": "A GRE tunnel without IPsec protection",
+        "note": "No encryption."
+      },
+      {
+        "text": "SSL clientless portal for each branch",
+        "note": "For browser-based user access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Site-to-site VPNs connect networks via gateways. Remote-access VPNs connect individual users with a client."
+  },
+  {
+    "id": 139,
+    "domain": "D4",
+    "scenario": "Which IPsec protocol provides encryption?",
+    "options": [
+      {
+        "text": "ESP",
+        "note": ""
+      },
+      {
+        "text": "AH",
+        "note": "Integrity and authentication only."
+      },
+      {
+        "text": "IKE",
+        "note": "Negotiates keys and SAs."
+      },
+      {
+        "text": "GRE",
+        "note": "Tunneling without encryption."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ESP provides confidentiality, integrity and authentication. IKE (UDP 500, or 4500 with NAT traversal) builds the security associations."
+  },
+  {
+    "id": 140,
+    "domain": "D4",
+    "scenario": "What is the difference between IPsec tunnel mode and transport mode?",
+    "options": [
+      {
+        "text": "Tunnel mode protects the whole original packet; transport mode protects only the payload",
+        "note": ""
+      },
+      {
+        "text": "Transport mode is used between VPN gateways; tunnel mode is host-to-host",
+        "note": "Tunnel mode is."
+      },
+      {
+        "text": "Tunnel mode only adds a header and doesn't encrypt anything",
+        "note": "It does with ESP."
+      },
+      {
+        "text": "They're the same, but tunnel mode uses AH",
+        "note": "They differ in what's protected."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Site-to-site VPNs typically use tunnel mode. Transport mode is used host-to-host or with GRE over IPsec."
+  },
+  {
+    "id": 141,
+    "domain": "D4",
+    "scenario": "Which ACL type filters only on source IP address?",
+    "options": [
+      {
+        "text": "Standard (1–99, 1300–1999)",
+        "note": ""
+      },
+      {
+        "text": "Extended (100–199, 2000–2699)",
+        "note": "Can match protocol, source, destination and ports."
+      },
+      {
+        "text": "Named extended only",
+        "note": "Extended can match much more."
+      },
+      {
+        "text": "MAC ACL",
+        "note": "Layer 2."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Standard ACLs match source addresses only. Place them as close to the destination as possible."
+  },
+  {
+    "id": 142,
+    "domain": "D4",
+    "scenario": "Where should an extended ACL generally be placed?",
+    "options": [
+      {
+        "text": "As close to the source as possible",
+        "note": ""
+      },
+      {
+        "text": "As close to the destination as possible",
+        "note": "That's the guidance for standard ACLs."
+      },
+      {
+        "text": "Only on the internet-facing interface",
+        "note": "Not necessarily."
+      },
+      {
+        "text": "Only on VTY lines, using access-class",
+        "note": "That's access-class."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Extended ACLs are specific enough to drop unwanted traffic early, saving bandwidth along the path."
+  },
+  {
+    "id": 143,
+    "domain": "D4",
+    "scenario": "Which ACL entry permits HTTPS from any host to web server 10.1.1.10?",
+    "options": [
+      {
+        "text": "access-list 110 permit tcp any host 10.1.1.10 eq 443",
+        "note": ""
+      },
+      {
+        "text": "access-list 10 permit host 10.1.1.10 eq 443",
+        "note": "Standard ACLs can't match ports."
+      },
+      {
+        "text": "access-list 110 permit udp any host 10.1.1.10 eq 443",
+        "note": "HTTPS uses TCP (HTTP/3 uses UDP, but classic HTTPS is TCP)."
+      },
+      {
+        "text": "access-list 110 permit tcp host 10.1.1.10 any eq 443",
+        "note": "Source and destination reversed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Extended ACL syntax: permit/deny, protocol, source, destination, then port operators such as eq."
+  },
+  {
+    "id": 144,
+    "domain": "D4",
+    "scenario": "An ACL contains only <code>access-list 101 deny tcp any any eq 23</code> and is applied inbound. What happens to web traffic?",
+    "options": [
+      {
+        "text": "It's denied by the implicit deny at the end",
+        "note": ""
+      },
+      {
+        "text": "It's permitted because only Telnet is denied",
+        "note": "There's no permit statement."
+      },
+      {
+        "text": "It's logged and permitted",
+        "note": "No permit or log keyword."
+      },
+      {
+        "text": "The ACL is ignored",
+        "note": "It's applied."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Every ACL ends with an implicit deny any. Add permit ip any any (or specific permits) after the deny lines."
+  },
+  {
+    "id": 145,
+    "domain": "D4",
+    "scenario": "Which wildcard mask in an ACL matches the subnet 10.10.16.0/20?",
+    "options": [
+      {
+        "text": "0.0.15.255",
+        "note": ""
+      },
+      {
+        "text": "0.0.31.255",
+        "note": "Matches a /19."
+      },
+      {
+        "text": "255.255.240.0",
+        "note": "That's the subnet mask."
+      },
+      {
+        "text": "0.0.16.255",
+        "note": "Not a valid contiguous wildcard for a /20."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Wildcard = 255.255.255.255 − subnet mask. 255.255.240.0 becomes 0.0.15.255."
+  },
+  {
+    "id": 146,
+    "domain": "D4",
+    "scenario": "Which command applies named ACL BLOCK-GUEST to traffic entering G0/2?",
+    "options": [
+      {
+        "text": "ip access-group BLOCK-GUEST in",
+        "note": ""
+      },
+      {
+        "text": "access-class BLOCK-GUEST in",
+        "note": "For VTY lines."
+      },
+      {
+        "text": "ip access-list BLOCK-GUEST in",
+        "note": "Creates or edits the ACL."
+      },
+      {
+        "text": "apply access-list BLOCK-GUEST inbound",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ip access-group name-or-number in|out applies an ACL to an interface. Each interface supports one ACL per direction per protocol."
+  },
+  {
+    "id": 147,
+    "domain": "D4",
+    "scenario": "Which keyword in an ACL matches a single host?",
+    "options": [
+      {
+        "text": "host",
+        "note": ""
+      },
+      {
+        "text": "any",
+        "note": "Matches everything."
+      },
+      {
+        "text": "eq",
+        "note": "Matches ports."
+      },
+      {
+        "text": "log",
+        "note": "Logs matches."
+      }
+    ],
+    "answer": 0,
+    "explanation": "host 10.1.1.10 is the same as 10.1.1.10 0.0.0.0. any is the same as 0.0.0.0 255.255.255.255."
+  },
+  {
+    "id": 148,
+    "domain": "D4",
+    "scenario": "Which feature stops rogue DHCP servers by allowing DHCP server messages only on trusted ports?",
+    "options": [
+      {
+        "text": "DHCP snooping",
+        "note": ""
+      },
+      {
+        "text": "Port security",
+        "note": "Limits MAC addresses."
+      },
+      {
+        "text": "Storm control",
+        "note": "Limits broadcast rates."
+      },
+      {
+        "text": "RA Guard",
+        "note": "Filters IPv6 router advertisements."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Mark uplinks toward legitimate DHCP servers as trusted; access ports stay untrusted. Snooping also builds a binding table used by DAI."
+  },
+  {
+    "id": 149,
+    "domain": "D4",
+    "scenario": "Which feature uses the DHCP snooping binding table to block forged ARP replies?",
+    "options": [
+      {
+        "text": "Dynamic ARP Inspection",
+        "note": ""
+      },
+      {
+        "text": "BPDU Guard on access ports",
+        "note": "STP protection."
+      },
+      {
+        "text": "Port security",
+        "note": "MAC limits."
+      },
+      {
+        "text": "PortFast",
+        "note": "STP edge ports."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DAI validates ARP packets on untrusted ports against IP-to-MAC bindings, preventing ARP poisoning."
+  },
+  {
+    "id": 150,
+    "domain": "D4",
+    "scenario": "Port security is configured with maximum 1 and the default violation mode. What happens when a second MAC address appears?",
+    "options": [
+      {
+        "text": "The port goes err-disabled (shutdown mode)",
+        "note": ""
+      },
+      {
+        "text": "Traffic from the new MAC is dropped silently and nothing is logged",
+        "note": "That's protect mode."
+      },
+      {
+        "text": "Traffic is dropped and a counter increments, but the port stays up",
+        "note": "That's restrict mode."
+      },
+      {
+        "text": "Both MACs are allowed",
+        "note": "Exceeds the maximum."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Violation modes: shutdown (default), restrict (drop and log) and protect (drop silently)."
+  },
+  {
+    "id": 151,
+    "domain": "D4",
+    "scenario": "Which port security option dynamically learns MAC addresses and saves them to the running configuration?",
+    "options": [
+      {
+        "text": "switchport port-security mac-address sticky",
+        "note": ""
+      },
+      {
+        "text": "switchport port-security maximum 0",
+        "note": "Invalid; allows no addresses."
+      },
+      {
+        "text": "switchport port-security violation protect",
+        "note": "Sets violation mode."
+      },
+      {
+        "text": "mac address-table static",
+        "note": "Manually set static entries."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sticky MAC addresses are learned and added to the running config; save the config to keep them after a reload."
+  },
+  {
+    "id": 152,
+    "domain": "D4",
+    "scenario": "A broadcast storm should be automatically limited on access ports. Which feature fits?",
+    "options": [
+      {
+        "text": "Storm control",
+        "note": ""
+      },
+      {
+        "text": "DHCP snooping",
+        "note": "Filters DHCP."
+      },
+      {
+        "text": "CDP",
+        "note": "Neighbor discovery."
+      },
+      {
+        "text": "HSRP",
+        "note": "Gateway redundancy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Storm control drops (or shuts the port) when broadcast, multicast or unknown unicast traffic exceeds a threshold."
+  },
+  {
+    "id": 153,
+    "domain": "D4",
+    "scenario": "Which feature blocks IPv6 router advertisements from unauthorized devices on access ports?",
+    "options": [
+      {
+        "text": "RA Guard",
+        "note": ""
+      },
+      {
+        "text": "DAI",
+        "note": "IPv4 ARP inspection."
+      },
+      {
+        "text": "DHCP snooping",
+        "note": "DHCPv4."
+      },
+      {
+        "text": "Root Guard",
+        "note": "STP protection."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Rogue RAs can redirect IPv6 traffic. RA Guard allows RAs only from authorized router ports."
+  },
+  {
+    "id": 154,
+    "domain": "D4",
+    "scenario": "With DHCP snooping enabled, legitimate clients stop getting addresses. The DHCP server is reached through the uplink. What is the likely fix?",
+    "options": [
+      {
+        "text": "Trust the uplink toward the DHCP server",
+        "note": ""
+      },
+      {
+        "text": "Disable PortFast on the client access ports",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Change the native VLAN on the uplink",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Enable BPDU Guard on the uplink",
+        "note": "Would harm the uplink."
+      }
+    ],
+    "answer": 0,
+    "explanation": "All ports are untrusted by default, so server replies on the uplink are dropped until it's trusted (ip dhcp snooping trust)."
+  },
+  {
+    "id": 155,
+    "domain": "D4",
+    "scenario": "Which is the most secure way to manage network devices remotely?",
+    "options": [
+      {
+        "text": "SSH with AAA from a restricted management subnet",
+        "note": ""
+      },
+      {
+        "text": "Telnet with a strong password",
+        "note": "Telnet is unencrypted."
+      },
+      {
+        "text": "HTTP web interface with local accounts",
+        "note": "Unencrypted."
+      },
+      {
+        "text": "SNMPv1 read-write with a private community",
+        "note": "Insecure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use encrypted protocols (SSH, HTTPS, SNMPv3), centralized AAA, and restrict management access by source address."
+  },
+  {
+    "id": 156,
+    "domain": "D4",
+    "scenario": "Which ACL statement number range identifies an extended IPv4 ACL?",
+    "options": [
+      {
+        "text": "100–199",
+        "note": ""
+      },
+      {
+        "text": "1–99",
+        "note": "Standard."
+      },
+      {
+        "text": "200–299",
+        "note": "Ethernet type codes (legacy), not extended IP."
+      },
+      {
+        "text": "700–799",
+        "note": "MAC address ACLs (legacy)."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Numbered extended IPv4 ACLs use 100–199 and 2000–2699. Named ACLs are easier to read and edit."
+  },
+  {
+    "id": 157,
+    "domain": "D5",
+    "scenario": "What distinguishes agentic AI from a basic generative AI chatbot in network operations?",
+    "options": [
+      {
+        "text": "It can plan steps and use tools to take actions toward a goal",
+        "note": ""
+      },
+      {
+        "text": "It only generates text answers to the questions it's asked",
+        "note": "That's basic generative AI."
+      },
+      {
+        "text": "It requires no permissions, guardrails or oversight",
+        "note": "Agentic AI needs strict guardrails."
+      },
+      {
+        "text": "It replaces routing protocols with learned paths",
+        "note": "Not its role."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Agentic AI systems pursue goals by calling tools and APIs. In networking they need least-privilege access, approval steps for changes and human review."
+  },
+  {
+    "id": 158,
+    "domain": "D5",
+    "scenario": "An engineer asks a public generative AI tool to troubleshoot a config. What should they do with the configuration first?",
+    "options": [
+      {
+        "text": "Remove or mask passwords, keys and other sensitive data",
+        "note": ""
+      },
+      {
+        "text": "Paste it exactly as is so the AI has full context",
+        "note": "May leak secrets."
+      },
+      {
+        "text": "Encrypt it first so the AI provider can't read it",
+        "note": "Then it can't help."
+      },
+      {
+        "text": "Convert it to a screenshot so the text isn't stored",
+        "note": "Still exposes data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Consider data classification before prompting. Don't share confidential data with tools that aren't approved for it."
+  },
+  {
+    "id": 159,
+    "domain": "D5",
+    "scenario": "An engineer wants an AI assistant to produce an ACL. Which prompt is most likely to get a useful result?",
+    "options": [
+      {
+        "text": "As a Cisco engineer, write an IOS extended ACL permitting HTTPS from 10.1.0.0/16 to 10.9.9.10, denying all else. Output only commands.",
+        "note": ""
+      },
+      {
+        "text": "Make an ACL for my network that blocks the bad traffic.",
+        "note": "Too vague."
+      },
+      {
+        "text": "Fix my network, it's slow and some users can't connect to the server.",
+        "note": "No context or instructions."
+      },
+      {
+        "text": "Write something about network security and ACLs for our company.",
+        "note": "No specific task or format."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Effective prompts give a persona, clear instructions, context and the desired output format, while respecting data classification."
+  },
+  {
+    "id": 160,
+    "domain": "D5",
+    "scenario": "An AI assistant recommends a configuration change for a production router. What should happen before it's applied?",
+    "options": [
+      {
+        "text": "An engineer validates and tests it, then it goes through change control",
+        "note": ""
+      },
+      {
+        "text": "Apply it immediately, because AI recommendations are always correct",
+        "note": "AI can make mistakes."
+      },
+      {
+        "text": "Apply it to all routers at once during business hours",
+        "note": "Increases risk."
+      },
+      {
+        "text": "Ignore it entirely, because AI output can't be used in production",
+        "note": "Recommendations can be useful after review."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AI output must be evaluated by people. Validate recommendations, test them, and follow change management."
+  },
+  {
+    "id": 161,
+    "domain": "D5",
+    "scenario": "Which is an appropriate task for predictive AI in network operations?",
+    "options": [
+      {
+        "text": "Forecasting when link utilization will run out",
+        "note": ""
+      },
+      {
+        "text": "Replacing STP with a learned loop-free topology",
+        "note": "Not an AI task."
+      },
+      {
+        "text": "Assigning MAC addresses to new interfaces",
+        "note": "Not an AI task."
+      },
+      {
+        "text": "Creating new IP protocols for the WAN",
+        "note": "Not realistic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Predictive AI and machine learning analyze telemetry to forecast trends and detect anomalies. Generative AI produces text, code and summaries."
+  },
+  {
+    "id": 162,
+    "domain": "D5",
+    "scenario": "A company manages hundreds of switches through a central dashboard hosted by the vendor, accessible from anywhere. Which management approach is this?",
+    "options": [
+      {
+        "text": "Cloud-based management",
+        "note": ""
+      },
+      {
+        "text": "Device-based CLI management",
+        "note": "Configures each device individually."
+      },
+      {
+        "text": "Out-of-band console only",
+        "note": "Local access."
+      },
+      {
+        "text": "Manual documentation",
+        "note": "Not a management platform."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud-managed platforms (such as Meraki) provide centralized configuration and monitoring without on-premises controllers."
+  },
+  {
+    "id": 163,
+    "domain": "D5",
+    "scenario": "A central controller pushes policies to switches and routers, separating the control plane from the devices. Which approach is this?",
+    "options": [
+      {
+        "text": "Controller-based management",
+        "note": ""
+      },
+      {
+        "text": "Device-by-device CLI management over SSH",
+        "note": "Traditional approach."
+      },
+      {
+        "text": "Cloud-based management only",
+        "note": "Controllers may be on premises or in the cloud."
+      },
+      {
+        "text": "Unmanaged switching with static VLANs",
+        "note": "No management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "In controller-based networks, a controller (such as Catalyst Center) uses northbound APIs to apps and southbound APIs to devices."
+  },
+  {
+    "id": 164,
+    "domain": "D5",
+    "scenario": "What is a key benefit of infrastructure as code for network configuration?",
+    "options": [
+      {
+        "text": "Configurations are version-controlled, reviewable and repeatable",
+        "note": ""
+      },
+      {
+        "text": "It removes the need for testing changes before deployment",
+        "note": "Testing is still needed."
+      },
+      {
+        "text": "It only works with one vendor's devices",
+        "note": "Many tools are multi-vendor."
+      },
+      {
+        "text": "It eliminates IP addressing",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IaC tools (such as Ansible or Terraform) define desired state in files stored in source control, reducing configuration drift and manual errors."
+  },
+  {
+    "id": 165,
+    "domain": "D5",
+    "scenario": "Which statement about Ansible is correct?",
+    "options": [
+      {
+        "text": "It's agentless and uses YAML playbooks, often over SSH",
+        "note": ""
+      },
+      {
+        "text": "It requires an agent installed on every router",
+        "note": "Ansible is agentless."
+      },
+      {
+        "text": "It uses XML templates and requires NETCONF on every device",
+        "note": "It uses YAML."
+      },
+      {
+        "text": "It replaces SNMP monitoring and syslog",
+        "note": "Different purpose."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Ansible uses an inventory of devices and playbooks of tasks, and has modules for running commands on network devices (for example ios_command)."
+  },
+  {
+    "id": 166,
+    "domain": "D5",
+    "scenario": "Which file in an Ansible project lists the devices to be managed?",
+    "options": [
+      {
+        "text": "The inventory",
+        "note": ""
+      },
+      {
+        "text": "The playbook",
+        "note": "Defines tasks."
+      },
+      {
+        "text": "The MIB",
+        "note": "SNMP object definitions."
+      },
+      {
+        "text": "The syslog file",
+        "note": "Logs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The inventory lists hosts and groups. Playbooks describe the tasks to run against them."
+  },
+  {
+    "id": 167,
+    "domain": "D5",
+    "scenario": "What is the role of an SNMP agent?",
+    "options": [
+      {
+        "text": "It runs on the managed device and answers the manager",
+        "note": ""
+      },
+      {
+        "text": "It's the central monitoring server that polls devices",
+        "note": "That's the manager (NMS)."
+      },
+      {
+        "text": "It collects and forwards syslog messages to the server",
+        "note": "Different protocol."
+      },
+      {
+        "text": "It encrypts all management traffic between devices",
+        "note": "Only SNMPv3 can encrypt."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SNMP managers poll agents (UDP 161) for MIB data, and agents send traps or informs (UDP 162) for events."
+  },
+  {
+    "id": 168,
+    "domain": "D5",
+    "scenario": "Which SNMP version should be used for secure monitoring?",
+    "options": [
+      {
+        "text": "SNMPv3 with authPriv",
+        "note": ""
+      },
+      {
+        "text": "SNMPv2c with community public",
+        "note": "Clear-text community string."
+      },
+      {
+        "text": "SNMPv1",
+        "note": "No security."
+      },
+      {
+        "text": "SNMPv2c with a long community string",
+        "note": "Still clear text."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SNMPv3 authPriv provides authentication and encryption."
+  },
+  {
+    "id": 169,
+    "domain": "D5",
+    "scenario": "What is the difference between an SNMP trap and an inform?",
+    "options": [
+      {
+        "text": "Informs are acknowledged by the manager; traps aren't",
+        "note": ""
+      },
+      {
+        "text": "A trap is sent by the manager to request data",
+        "note": "Traps come from agents."
+      },
+      {
+        "text": "Informs use TCP 22, while traps use UDP 162",
+        "note": "Not the case."
+      },
+      {
+        "text": "There's no difference other than the name",
+        "note": "Informs are acknowledged."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Informs are more reliable because the agent resends them if they aren't acknowledged."
+  },
+  {
+    "id": 170,
+    "domain": "D5",
+    "scenario": "What do the parts of the syslog message %LINK-3-UPDOWN mean?",
+    "options": [
+      {
+        "text": "Facility LINK, severity 3, mnemonic UPDOWN",
+        "note": ""
+      },
+      {
+        "text": "Severity LINK, facility 3, interface UPDOWN",
+        "note": "Facility comes first."
+      },
+      {
+        "text": "Process 3 for interface LINK",
+        "note": "Not the format."
+      },
+      {
+        "text": "A level 3 debug message",
+        "note": "3 is error; debug is 7."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cisco syslog format is %FACILITY-SEVERITY-MNEMONIC: description."
+  },
+  {
+    "id": 171,
+    "domain": "D5",
+    "scenario": "Which syslog severity level corresponds to warnings?",
+    "options": [
+      {
+        "text": "4",
+        "note": ""
+      },
+      {
+        "text": "2",
+        "note": "Critical."
+      },
+      {
+        "text": "6",
+        "note": "Informational."
+      },
+      {
+        "text": "7",
+        "note": "Debugging."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Levels: 0 emergencies, 1 alerts, 2 critical, 3 errors, 4 warnings, 5 notifications, 6 informational, 7 debugging."
+  },
+  {
+    "id": 172,
+    "domain": "D5",
+    "scenario": "The command <code>logging trap 4</code> is configured. Which messages are sent to the syslog server?",
+    "options": [
+      {
+        "text": "Severity 0 through 4",
+        "note": ""
+      },
+      {
+        "text": "Only severity 4 messages",
+        "note": "It includes all more severe levels."
+      },
+      {
+        "text": "Severity 4 through 7",
+        "note": "Those are less severe."
+      },
+      {
+        "text": "All messages from level 0 through level 7",
+        "note": "Levels 5–7 are excluded."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A logging level sends that level and all more severe (lower-numbered) messages."
+  },
+  {
+    "id": 173,
+    "domain": "D5",
+    "scenario": "Why should network devices synchronize time with NTP before sending logs to a syslog server?",
+    "options": [
+      {
+        "text": "So timestamps are accurate and events can be correlated",
+        "note": ""
+      },
+      {
+        "text": "NTP encrypts the syslog messages in transit",
+        "note": "It doesn't."
+      },
+      {
+        "text": "Syslog messages won't be sent at all without NTP",
+        "note": "It works, but timestamps may be wrong."
+      },
+      {
+        "text": "NTP reduces the bandwidth used by syslog",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Consistent timestamps (with service timestamps log datetime) are essential for troubleshooting and security investigations."
+  },
+  {
+    "id": 174,
+    "domain": "D5",
+    "scenario": "Which syslog facility appears in the message %SEC-6-IPACCESSLOGP?",
+    "options": [
+      {
+        "text": "SEC",
+        "note": ""
+      },
+      {
+        "text": "6",
+        "note": "That's the severity."
+      },
+      {
+        "text": "IPACCESSLOGP",
+        "note": "That's the mnemonic."
+      },
+      {
+        "text": "LINK",
+        "note": "A different facility."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SEC is the facility, 6 is informational severity, and IPACCESSLOGP indicates an ACL log entry."
+  },
+  {
+    "id": 175,
+    "domain": "D1",
+    "scenario": "A branch needs 50 usable host addresses in one subnet with as little waste as possible. Which prefix length should be used?",
+    "options": [
+      {
+        "text": "/26",
+        "note": ""
+      },
+      {
+        "text": "/27",
+        "note": "Only 30 usable hosts."
+      },
+      {
+        "text": "/25",
+        "note": "126 hosts; more waste than needed."
+      },
+      {
+        "text": "/28",
+        "note": "Only 14 usable hosts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A /26 gives 64 addresses (62 usable), the smallest block that fits 50 hosts."
+  },
+  {
+    "id": 176,
+    "domain": "D1",
+    "scenario": "Which address is a valid host in the subnet 192.168.20.64/27?",
+    "options": [
+      {
+        "text": "192.168.20.90",
+        "note": ""
+      },
+      {
+        "text": "192.168.20.64",
+        "note": "The network address."
+      },
+      {
+        "text": "192.168.20.95",
+        "note": "The broadcast address."
+      },
+      {
+        "text": "192.168.20.97",
+        "note": "In the next subnet (.96/27)."
+      }
+    ],
+    "answer": 0,
+    "explanation": "192.168.20.64/27 spans .64–.95. Usable hosts are .65 through .94."
+  },
+  {
+    "id": 177,
+    "domain": "D1",
+    "scenario": "Two buildings 10 km apart must be connected with a 10 Gbps fiber link. Which fiber type fits?",
+    "options": [
+      {
+        "text": "Single-mode fiber with long-reach optics",
+        "note": ""
+      },
+      {
+        "text": "Multimode OM3 fiber with short-reach optics",
+        "note": "Multimode reaches only a few hundred meters at 10 Gbps."
+      },
+      {
+        "text": "Cat6a copper with 10GBASE-T ports",
+        "note": "Copper is limited to 100 meters."
+      },
+      {
+        "text": "Multimode OM4 fiber with SR optics",
+        "note": "Still limited to a few hundred meters."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Single-mode fiber uses a small core and lasers for long distances (10GBASE-LR reaches 10 km). Multimode suits shorter runs inside buildings."
+  },
+  {
+    "id": 178,
+    "domain": "D1",
+    "scenario": "What is the compressed form of 2001:0db8:0000:0000:0000:ff00:0042:8329?",
+    "options": [
+      {
+        "text": "2001:db8::ff00:42:8329",
+        "note": ""
+      },
+      {
+        "text": "2001:db8:0:0:ff00:42:8329",
+        "note": "Drops one zero group; invalid."
+      },
+      {
+        "text": "2001:db8::ff:42:8329",
+        "note": "Removed significant zeros from ff00."
+      },
+      {
+        "text": "2001:db8::ff00::42:8329",
+        "note": ":: can appear only once."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Remove leading zeros in each group and replace one run of all-zero groups with ::."
+  },
+  {
+    "id": 179,
+    "domain": "D1",
+    "scenario": "A host needs to resolve the MAC address of its IPv6 default gateway. Which mechanism does it use?",
+    "options": [
+      {
+        "text": "NDP neighbor solicitation",
+        "note": ""
+      },
+      {
+        "text": "ARP request to the gateway",
+        "note": "IPv4 only."
+      },
+      {
+        "text": "DHCPv6 relay",
+        "note": "Address assignment, not resolution."
+      },
+      {
+        "text": "ICMPv6 echo request to FF02::2",
+        "note": "That's ping."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IPv6 uses Neighbor Discovery (ICMPv6 types 135/136) instead of ARP. Routers are found with RS/RA messages."
+  },
+  {
+    "id": 180,
+    "domain": "D1",
+    "scenario": "Which wireless architecture uses lightweight APs that tunnel client traffic to a WLC with CAPWAP?",
+    "options": [
+      {
+        "text": "Split-MAC, controller-based",
+        "note": ""
+      },
+      {
+        "text": "Autonomous APs",
+        "note": "Each AP is configured individually."
+      },
+      {
+        "text": "Ad hoc (IBSS)",
+        "note": "Client-to-client, no AP."
+      },
+      {
+        "text": "Mesh with no controller",
+        "note": "Not the CAPWAP model described."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lightweight APs handle real-time functions, while the WLC handles management. CAPWAP uses UDP 5246 (control) and 5247 (data)."
+  },
+  {
+    "id": 181,
+    "domain": "D1",
+    "scenario": "Which IPv6 address type is automatically created on every IPv6-enabled interface and used for neighbor discovery?",
+    "options": [
+      {
+        "text": "Link-local (FE80::/10)",
+        "note": ""
+      },
+      {
+        "text": "Global unicast (2000::/3)",
+        "note": "Must be configured or learned."
+      },
+      {
+        "text": "Unique local (FC00::/7)",
+        "note": "Must be configured."
+      },
+      {
+        "text": "Anycast (from the unicast space)",
+        "note": "Assigned deliberately to several devices."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Every IPv6 interface has a link-local address. Routing protocols such as OSPFv3 use link-local addresses as next hops."
+  },
+  {
+    "id": 182,
+    "domain": "D1",
+    "scenario": "Hosts should build their own global IPv6 addresses from the prefix in router advertisements, without a DHCPv6 server. What is this called?",
+    "options": [
+      {
+        "text": "SLAAC",
+        "note": ""
+      },
+      {
+        "text": "Stateful DHCPv6",
+        "note": "Requires a DHCPv6 server."
+      },
+      {
+        "text": "DHCPv6 relay",
+        "note": "Forwards DHCPv6 messages."
+      },
+      {
+        "text": "NAT64",
+        "note": "Translates between IPv6 and IPv4."
+      }
+    ],
+    "answer": 0,
+    "explanation": "With SLAAC, hosts combine the RA prefix with a self-generated interface ID (EUI-64 or random). Stateless DHCPv6 can add options like DNS servers."
+  },
+  {
+    "id": 183,
+    "domain": "D2",
+    "scenario": "A switch receives a frame for a destination MAC that isn't in its MAC address table. What does it do?",
+    "options": [
+      {
+        "text": "Floods it out all other ports in the VLAN",
+        "note": ""
+      },
+      {
+        "text": "Drops the frame and logs an error",
+        "note": "It floods unknown unicast."
+      },
+      {
+        "text": "Sends it to the default gateway",
+        "note": "Switches don't route at layer 2."
+      },
+      {
+        "text": "Sends it only out the trunk ports",
+        "note": "It floods within the VLAN."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Unknown unicast frames are flooded. The switch learns source MAC addresses from incoming frames."
+  },
+  {
+    "id": 184,
+    "domain": "D2",
+    "scenario": "How long does a Cisco switch keep a dynamically learned MAC address by default if no traffic is seen?",
+    "options": [
+      {
+        "text": "300 seconds",
+        "note": ""
+      },
+      {
+        "text": "30 seconds",
+        "note": "Too short."
+      },
+      {
+        "text": "4 hours",
+        "note": "That's the default ARP timeout on routers."
+      },
+      {
+        "text": "Indefinitely",
+        "note": "Dynamic entries age out."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The default MAC address aging time is 300 seconds (5 minutes)."
+  },
+  {
+    "id": 185,
+    "domain": "D2",
+    "scenario": "Which DTP mode combination results in a trunk?",
+    "options": [
+      {
+        "text": "dynamic desirable and dynamic auto",
+        "note": ""
+      },
+      {
+        "text": "dynamic auto and dynamic auto",
+        "note": "Both wait; no trunk forms."
+      },
+      {
+        "text": "access and dynamic desirable",
+        "note": "Access mode never trunks."
+      },
+      {
+        "text": "nonegotiate and dynamic auto",
+        "note": "nonegotiate sends no DTP frames."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Best practice is to hard-code trunks with switchport mode trunk and disable DTP using switchport nonegotiate."
+  },
+  {
+    "id": 186,
+    "domain": "D2",
+    "scenario": "A switch port is err-disabled, and the log shows %PORT_SECURITY-2-PSECURE_VIOLATION. What happened?",
+    "options": [
+      {
+        "text": "A port security violation, such as too many MAC addresses",
+        "note": ""
+      },
+      {
+        "text": "A BPDU was received on a PortFast edge port",
+        "note": "That logs a BPDU Guard message."
+      },
+      {
+        "text": "The link flapped too many times in a short period",
+        "note": "That logs a link-flap error."
+      },
+      {
+        "text": "A duplex mismatch was detected by CDP",
+        "note": "CDP logs a duplex mismatch warning only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "In the default shutdown mode, a port security violation err-disables the port. Fix the cause, then shut/no shut the port or configure errdisable recovery."
+  },
+  {
+    "id": 187,
+    "domain": "D2",
+    "scenario": "Which command changes the native VLAN on a trunk to unused VLAN 999?",
+    "options": [
+      {
+        "text": "switchport trunk native vlan 999",
+        "note": ""
+      },
+      {
+        "text": "switchport access vlan 999",
+        "note": "Sets the access VLAN."
+      },
+      {
+        "text": "switchport trunk allowed vlan 999",
+        "note": "Restricts the allowed VLAN list."
+      },
+      {
+        "text": "switchport voice vlan 999",
+        "note": "Sets the voice VLAN."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use an unused native VLAN, set it the same on both ends, and avoid carrying user traffic in it to reduce VLAN-hopping risk."
+  },
+  {
+    "id": 188,
+    "domain": "D2",
+    "scenario": "A branch AP is managed by a WLC at headquarters, but branch client traffic should be switched locally instead of tunneled to the WLC. Which AP mode fits?",
+    "options": [
+      {
+        "text": "FlexConnect local switching",
+        "note": ""
+      },
+      {
+        "text": "Local mode with central switching",
+        "note": "Traffic is tunneled to the WLC."
+      },
+      {
+        "text": "Monitor mode",
+        "note": "Doesn't serve clients."
+      },
+      {
+        "text": "Sniffer mode",
+        "note": "Captures traffic only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "FlexConnect APs can switch client traffic locally at a branch while still being managed by a remote WLC."
+  },
+  {
+    "id": 189,
+    "domain": "D2",
+    "scenario": "A WLAN must map to VLAN 30 on a WLC. What must exist on the WLC to support this?",
+    "options": [
+      {
+        "text": "A dynamic interface tied to VLAN 30",
+        "note": ""
+      },
+      {
+        "text": "An SVI for VLAN 30 on each AP",
+        "note": "APs don't have SVIs for WLANs."
+      },
+      {
+        "text": "A routed port with an IP in VLAN 30",
+        "note": "Not the WLC model."
+      },
+      {
+        "text": "An OSPF process for VLAN 30",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "WLC dynamic interfaces map WLANs to VLANs. The WLC's distribution port is typically an 802.1Q trunk."
+  },
+  {
+    "id": 190,
+    "domain": "D2",
+    "scenario": "Which protocol keeps an EtherChannel working when both ends must be standards-based and vendor-neutral?",
+    "options": [
+      {
+        "text": "LACP",
+        "note": ""
+      },
+      {
+        "text": "PAgP",
+        "note": "Cisco proprietary."
+      },
+      {
+        "text": "DTP",
+        "note": "Negotiates trunking."
+      },
+      {
+        "text": "VTP",
+        "note": "Distributes VLAN information."
+      }
+    ],
+    "answer": 0,
+    "explanation": "LACP uses active/passive modes. PAgP uses desirable/auto. Static mode on doesn't negotiate."
+  },
+  {
+    "id": 191,
+    "domain": "D3",
+    "scenario": "R1 has routes to 192.168.0.0/16, 192.168.1.0/24 and 192.168.1.128/25. Which route is used for 192.168.1.200?",
+    "options": [
+      {
+        "text": "192.168.1.128/25",
+        "note": ""
+      },
+      {
+        "text": "192.168.1.0/24",
+        "note": "Matches, but less specific."
+      },
+      {
+        "text": "192.168.0.0/16",
+        "note": "Matches, but least specific."
+      },
+      {
+        "text": "The default route",
+        "note": "A more specific route exists."
+      }
+    ],
+    "answer": 0,
+    "explanation": "192.168.1.200 is in .128–.255, so the /25 is the longest matching prefix."
+  },
+  {
+    "id": 192,
+    "domain": "D3",
+    "scenario": "Which command shows OSPF interface details such as cost, state, DR and timers?",
+    "options": [
+      {
+        "text": "show ip ospf interface",
+        "note": ""
+      },
+      {
+        "text": "show ip ospf neighbor",
+        "note": "Lists neighbors only."
+      },
+      {
+        "text": "show ip interface brief",
+        "note": "Addresses and status only."
+      },
+      {
+        "text": "show ip ospf database",
+        "note": "Shows LSAs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "show ip ospf interface (or interface brief) shows area, cost, network type, DR/BDR and hello/dead timers."
+  },
+  {
+    "id": 193,
+    "domain": "D3",
+    "scenario": "Which command sets the OSPF cost on interface G0/1 to 50?",
+    "options": [
+      {
+        "text": "ip ospf cost 50",
+        "note": ""
+      },
+      {
+        "text": "bandwidth 50",
+        "note": "Changes bandwidth, which indirectly affects cost."
+      },
+      {
+        "text": "ospf metric 50",
+        "note": "Not valid syntax."
+      },
+      {
+        "text": "auto-cost reference-bandwidth 50",
+        "note": "Changes reference bandwidth for all interfaces."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ip ospf cost overrides the calculated cost on an interface."
+  },
+  {
+    "id": 194,
+    "domain": "D3",
+    "scenario": "A router has an OSPF route to 10.30.0.0/24 and a static route to the same prefix with the default AD. Which is installed?",
+    "options": [
+      {
+        "text": "The static route",
+        "note": ""
+      },
+      {
+        "text": "The OSPF route",
+        "note": "OSPF's AD (110) is higher than static (1)."
+      },
+      {
+        "text": "Both, load-balanced",
+        "note": "Different sources aren't load-balanced."
+      },
+      {
+        "text": "Neither",
+        "note": "One is installed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Static routes have AD 1 by default and are preferred over OSPF (110) for the same prefix length."
+  },
+  {
+    "id": 195,
+    "domain": "D4",
+    "scenario": "Which NTP feature makes sure a router only accepts time from trusted servers?",
+    "options": [
+      {
+        "text": "NTP authentication",
+        "note": ""
+      },
+      {
+        "text": "NTP broadcast mode",
+        "note": "Doesn't verify the source."
+      },
+      {
+        "text": "Setting the clock manually",
+        "note": "Doesn't use NTP."
+      },
+      {
+        "text": "Increasing the stratum",
+        "note": "Doesn't authenticate."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Configure ntp authenticate, ntp authentication-key and ntp trusted-key to verify NTP sources."
+  },
+  {
+    "id": 196,
+    "domain": "D4",
+    "scenario": "Which statement about NTP stratum is correct?",
+    "options": [
+      {
+        "text": "Lower stratum numbers are closer to the reference",
+        "note": ""
+      },
+      {
+        "text": "Stratum 16 is the most accurate time source",
+        "note": "Stratum 16 means unsynchronized."
+      },
+      {
+        "text": "Stratum numbers measure latency in milliseconds",
+        "note": "They measure distance from the source."
+      },
+      {
+        "text": "Clients must use stratum 1 servers only",
+        "note": "Not required."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Stratum 0 is the reference clock, stratum 1 servers connect to it directly, and so on."
+  },
+  {
+    "id": 197,
+    "domain": "D4",
+    "scenario": "Which command makes a router an NTP client of 10.0.0.1?",
+    "options": [
+      {
+        "text": "ntp server 10.0.0.1",
+        "note": ""
+      },
+      {
+        "text": "ntp master 10.0.0.1",
+        "note": "ntp master makes the router an authoritative source."
+      },
+      {
+        "text": "clock set 10.0.0.1",
+        "note": "Sets the time manually."
+      },
+      {
+        "text": "ip ntp client 10.0.0.1",
+        "note": "Not valid syntax."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ntp server configures a time source. Verify with show ntp status and show ntp associations."
+  },
+  {
+    "id": 198,
+    "domain": "D4",
+    "scenario": "A router is a DHCP relay for remote clients. Which command is configured, and where?",
+    "options": [
+      {
+        "text": "ip helper-address on the client-facing interface",
+        "note": ""
+      },
+      {
+        "text": "ip helper-address on the DHCP server's NIC",
+        "note": "The server doesn't need it."
+      },
+      {
+        "text": "ip dhcp relay 10.0.0.5 on the WAN interface",
+        "note": "Not the IOS command."
+      },
+      {
+        "text": "ip forward-protocol udp 67 on the client",
+        "note": "Hosts don't run this."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The relay converts client broadcasts into unicasts to the server and sets the giaddr so the server picks the correct pool."
+  },
+  {
+    "id": 199,
+    "domain": "D5",
+    "scenario": "Which REST API HTTP method is typically used to retrieve data from a network controller?",
+    "options": [
+      {
+        "text": "GET",
+        "note": ""
+      },
+      {
+        "text": "POST",
+        "note": "Creates data."
+      },
+      {
+        "text": "DELETE",
+        "note": "Removes data."
+      },
+      {
+        "text": "PUT",
+        "note": "Replaces data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CRUD maps to POST (create), GET (read), PUT/PATCH (update) and DELETE (delete). JSON is the most common data format."
+  },
+  {
+    "id": 200,
+    "domain": "D5",
+    "scenario": "Which data format is shown below, commonly returned by REST APIs?",
+    "options": [
+      {
+        "text": "JSON",
+        "note": ""
+      },
+      {
+        "text": "XML",
+        "note": "Uses tags such as <hostname>."
+      },
+      {
+        "text": "YAML",
+        "note": "Uses indentation, not braces."
+      },
+      {
+        "text": "CSV",
+        "note": "Comma-separated rows."
+      }
+    ],
+    "answer": 0,
+    "explanation": "JSON uses key-value pairs in braces, arrays in square brackets, and strings in double quotes.",
+    "code": "{\n  \"hostname\": \"R1\",\n  \"interfaces\": [\"Gi0/0\", \"Gi0/1\"],\n  \"ospf\": true\n}"
+  }
+]

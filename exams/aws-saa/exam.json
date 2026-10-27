@@ -1,0 +1,18 @@
+{
+  "slug": "aws-saa",
+  "code": "SAA-C03",
+  "name": "AWS Certified Solutions Architect – Associate",
+  "vendor": "Amazon Web Services",
+  "domains": {
+    "D1": { "name": "Design secure architectures", "weight": "30%", "pct": 30 },
+    "D2": { "name": "Design resilient architectures", "weight": "26%", "pct": 26 },
+    "D3": { "name": "Design high-performing architectures", "weight": "24%", "pct": 24 },
+    "D4": { "name": "Design cost-optimized architectures", "weight": "20%", "pct": 20 }
+  },
+  "scoring": { "min": 100, "max": 1000, "pass": 720 },
+  "minutesPerQuestion": 2,
+  "defaultSize": 65,
+  "sizeOptions": [20, 40, 65],
+  "realExamNote": "The real exam has 65 questions (50 scored) in 130 minutes and includes multiple-response questions; this simulator uses single-answer questions.",
+  "scoreNote": "AWS uses scaled scoring, so treat 720+ as a readiness signal, not a guarantee."
+}

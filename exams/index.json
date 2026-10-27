@@ -11,5 +11,23 @@
     "code": "N10-009",
     "name": "CompTIA Network+",
     "vendor": "CompTIA"
+  },
+  {
+    "slug": "security-plus",
+    "code": "SY0-701",
+    "name": "CompTIA Security+",
+    "vendor": "CompTIA"
+  },
+  {
+    "slug": "ccna",
+    "code": "CCNA 200-301",
+    "name": "Cisco Certified Network Associate",
+    "vendor": "Cisco"
+  },
+  {
+    "slug": "aws-saa",
+    "code": "SAA-C03",
+    "name": "AWS Certified Solutions Architect – Associate",
+    "vendor": "Amazon Web Services"
   }
 ]

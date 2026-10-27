@@ -1,0 +1,4877 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "A company posts signs warning that the premises are under video surveillance. What type of control is the sign?",
+    "options": [
+      {
+        "text": "Deterrent",
+        "note": ""
+      },
+      {
+        "text": "Detective",
+        "note": "The cameras detect; the sign discourages."
+      },
+      {
+        "text": "Corrective",
+        "note": "Fixes a problem after it occurs."
+      },
+      {
+        "text": "Compensating",
+        "note": "Substitutes for another control."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Deterrent controls discourage attackers from trying. The cameras themselves are detective controls; the sign is a deterrent."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "A firewall rule blocks inbound traffic to a database server. Which control category and type is this?",
+    "options": [
+      {
+        "text": "Technical, preventive",
+        "note": ""
+      },
+      {
+        "text": "Managerial, detective",
+        "note": "Managerial controls are policies and risk processes."
+      },
+      {
+        "text": "Operational, corrective",
+        "note": "Operational controls are carried out by people."
+      },
+      {
+        "text": "Physical, deterrent",
+        "note": "Physical controls protect facilities."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Technical (logical) controls are implemented in systems. Blocking traffic stops an action before it happens, so it's preventive."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "A legacy system can't be patched, so the team isolates it on its own VLAN with strict ACLs. What type of control is the isolation?",
+    "options": [
+      {
+        "text": "Compensating",
+        "note": ""
+      },
+      {
+        "text": "Directive",
+        "note": "Instructs people what to do, like a policy."
+      },
+      {
+        "text": "Deterrent",
+        "note": "Discourages attempts."
+      },
+      {
+        "text": "Detective",
+        "note": "Identifies events."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A compensating control provides alternative protection when the primary control (patching) isn't possible."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "Security guards review access logs each morning for unusual entries. What type of control is this?",
+    "options": [
+      {
+        "text": "Operational, detective",
+        "note": ""
+      },
+      {
+        "text": "Technical, preventive",
+        "note": "Nothing is blocked automatically."
+      },
+      {
+        "text": "Managerial, directive",
+        "note": "A policy is directive, not log review."
+      },
+      {
+        "text": "Physical, corrective",
+        "note": "Nothing is being fixed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Operational controls are performed by people, and log review identifies events after they happen, so it's detective."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "A written policy requires employees to lock their screens when away from their desks. What type of control is it?",
+    "options": [
+      {
+        "text": "Directive",
+        "note": ""
+      },
+      {
+        "text": "Corrective",
+        "note": "Restores systems after an incident."
+      },
+      {
+        "text": "Compensating",
+        "note": "Replaces another control."
+      },
+      {
+        "text": "Detective",
+        "note": "Finds events."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Directive controls tell people what they must or must not do. Policies and procedures are typical directive (managerial) controls."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "A user sends a contract with a digital signature and later claims they never sent it. Which security goal does the signature support?",
+    "options": [
+      {
+        "text": "Non-repudiation",
+        "note": ""
+      },
+      {
+        "text": "Availability",
+        "note": "About access to systems."
+      },
+      {
+        "text": "Confidentiality",
+        "note": "About preventing disclosure."
+      },
+      {
+        "text": "Authorization",
+        "note": "About what a user may do."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A digital signature proves the message came from the holder of the private key, so the sender can't credibly deny sending it."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "In zero trust, which component makes the decision to grant or deny access based on policy and signals such as identity and device health?",
+    "options": [
+      {
+        "text": "Policy engine",
+        "note": ""
+      },
+      {
+        "text": "Policy enforcement point",
+        "note": "Enforces the decision; doesn't make it."
+      },
+      {
+        "text": "Implicit trust zone",
+        "note": "An area where trust is assumed, which zero trust minimizes."
+      },
+      {
+        "text": "Data plane",
+        "note": "Carries the traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "In the control plane, the policy engine decides and the policy administrator communicates the decision. The policy enforcement point in the data plane allows or blocks the connection."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "Which zero trust concept limits each user to only the resources required for the task, reducing what an attacker could reach?",
+    "options": [
+      {
+        "text": "Threat scope reduction",
+        "note": ""
+      },
+      {
+        "text": "Implicit trust zones",
+        "note": "The opposite of zero trust."
+      },
+      {
+        "text": "Physical isolation",
+        "note": "Air gaps, not a zero trust principle."
+      },
+      {
+        "text": "Load balancing",
+        "note": "Distributes traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Threat scope reduction applies least privilege and segmentation so a compromised identity or device can reach as little as possible. Adaptive identity and policy-driven access control are related concepts."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which physical control prevents vehicles from driving into a building's entrance while still letting pedestrians through?",
+    "options": [
+      {
+        "text": "Bollards",
+        "note": ""
+      },
+      {
+        "text": "An access control vestibule",
+        "note": "Controls people, not vehicles."
+      },
+      {
+        "text": "Infrared sensors",
+        "note": "Detect, don't block."
+      },
+      {
+        "text": "Lighting",
+        "note": "Deters and aids visibility."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Bollards are short, sturdy posts that stop vehicles from reaching a building or other protected area."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "An entrance has two doors, and the second door won't open until the first closes, so only one person can pass at a time. What is this?",
+    "options": [
+      {
+        "text": "An access control vestibule",
+        "note": ""
+      },
+      {
+        "text": "A bollard",
+        "note": "Stops vehicles."
+      },
+      {
+        "text": "A security guard station",
+        "note": "Not a real control."
+      },
+      {
+        "text": "A honeypot",
+        "note": "A decoy system."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Access control vestibules prevent tailgating by holding each person between two doors until they're authorized."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "Security places a file named passwords.xlsx on a file share. No one should ever open it, and any access triggers an alert. What is this?",
+    "options": [
+      {
+        "text": "A honeyfile",
+        "note": ""
+      },
+      {
+        "text": "A honeynet",
+        "note": "A network of decoy systems."
+      },
+      {
+        "text": "Steganography",
+        "note": "Hiding data inside other data."
+      },
+      {
+        "text": "A logic bomb",
+        "note": "Malware triggered by a condition."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Honeyfiles (and honeytokens such as fake credentials) are deception technologies. Any interaction with them is suspicious by design."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "Before a firewall change is approved, the change advisory board wants to know what to do if the change causes an outage. What should the request include?",
+    "options": [
+      {
+        "text": "A backout plan",
+        "note": ""
+      },
+      {
+        "text": "A risk appetite statement",
+        "note": "Describes how much risk the organization accepts."
+      },
+      {
+        "text": "A legal hold",
+        "note": "Preserves evidence."
+      },
+      {
+        "text": "A tabletop exercise",
+        "note": "A discussion-based IR test."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Change management requests include impact analysis, test results, approvals, a maintenance window and a backout (rollback) plan."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "A patch requires restarting a service that an older application depends on. Which change management consideration does this highlight?",
+    "options": [
+      {
+        "text": "Dependencies",
+        "note": ""
+      },
+      {
+        "text": "Data sovereignty",
+        "note": "About legal location of data."
+      },
+      {
+        "text": "Key escrow",
+        "note": "Stores keys with a third party."
+      },
+      {
+        "text": "Risk transference",
+        "note": "Shifting risk, for example to an insurer."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Technical change considerations include service and application restarts, downtime, legacy applications and dependencies that may break."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Which type of encryption uses the same key to encrypt and decrypt data and is fast enough for bulk data?",
+    "options": [
+      {
+        "text": "Symmetric",
+        "note": ""
+      },
+      {
+        "text": "Asymmetric",
+        "note": "Uses a public/private key pair; slower."
+      },
+      {
+        "text": "Hashing",
+        "note": "One-way; not encryption."
+      },
+      {
+        "text": "Steganography",
+        "note": "Hides data; doesn't encrypt it."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Symmetric algorithms such as AES are efficient for bulk data. Asymmetric cryptography is typically used to exchange the symmetric key."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "Alice wants to send Bob a message that only Bob can read. Which key does she use to encrypt it?",
+    "options": [
+      {
+        "text": "Bob's public key",
+        "note": ""
+      },
+      {
+        "text": "Alice's private key",
+        "note": "That creates a signature, not confidentiality."
+      },
+      {
+        "text": "Bob's private key",
+        "note": "Only Bob has it."
+      },
+      {
+        "text": "Alice's public key",
+        "note": "Only Alice could decrypt that."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Encrypting with the recipient's public key means only the recipient's private key can decrypt it. Signing uses the sender's private key."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "Which property makes a hash function suitable for verifying that a downloaded file hasn't been altered?",
+    "options": [
+      {
+        "text": "Any change alters the digest",
+        "note": ""
+      },
+      {
+        "text": "It can be reversed with a key",
+        "note": "Hashes are one-way."
+      },
+      {
+        "text": "It encrypts the file contents",
+        "note": "Hashing isn't encryption."
+      },
+      {
+        "text": "It compresses the file safely",
+        "note": "Not the purpose of hashing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Comparing the published hash with one you compute verifies integrity. Strong algorithms such as SHA-256 make collisions impractical."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "Before hashing stored passwords, a random value unique to each user is added to each password. What is this, and what does it defeat?",
+    "options": [
+      {
+        "text": "Salting; rainbow table attacks",
+        "note": ""
+      },
+      {
+        "text": "Key stretching; phishing",
+        "note": "Phishing isn't a hash attack."
+      },
+      {
+        "text": "Tokenization; SQL injection",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Steganography; brute force",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A salt makes identical passwords produce different hashes, so precomputed rainbow tables are useless. Key stretching (for example PBKDF2 or bcrypt) slows brute-force attempts."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "A payment system replaces card numbers with random values that map back to the real numbers only in a secure vault. What is this?",
+    "options": [
+      {
+        "text": "Tokenization",
+        "note": ""
+      },
+      {
+        "text": "Hashing",
+        "note": "One-way; can't map back."
+      },
+      {
+        "text": "Data masking",
+        "note": "Hides part of the value for display."
+      },
+      {
+        "text": "Salting",
+        "note": "Adds randomness before hashing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tokenization substitutes sensitive data with tokens that have no exploitable meaning. It reduces PCI DSS scope for systems that only see tokens."
+  },
+  {
+    "id": 19,
+    "domain": "D1",
+    "scenario": "A help desk screen shows only the last four digits of a customer's card number. What technique is this?",
+    "options": [
+      {
+        "text": "Data masking",
+        "note": ""
+      },
+      {
+        "text": "Encryption",
+        "note": "Encrypted data looks unreadable, not partially shown."
+      },
+      {
+        "text": "Tokenization",
+        "note": "Replaces the whole value."
+      },
+      {
+        "text": "Hashing",
+        "note": "Produces a digest."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Masking hides part of the data so users see only what they need."
+  },
+  {
+    "id": 20,
+    "domain": "D1",
+    "scenario": "An attacker hides a command-and-control configuration inside the pixels of an image file. What is this?",
+    "options": [
+      {
+        "text": "Steganography",
+        "note": ""
+      },
+      {
+        "text": "Tokenization",
+        "note": "Replaces data with tokens."
+      },
+      {
+        "text": "Key escrow",
+        "note": "Stores keys for recovery."
+      },
+      {
+        "text": "Salting",
+        "note": "Adds randomness to hashes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Steganography conceals data within other files such as images or audio, which makes the hidden data hard to notice."
+  },
+  {
+    "id": 21,
+    "domain": "D1",
+    "scenario": "Which hardware component on a laptop's motherboard securely stores keys used for full-disk encryption and verifies boot integrity?",
+    "options": [
+      {
+        "text": "TPM",
+        "note": ""
+      },
+      {
+        "text": "HSM",
+        "note": "A separate appliance or card for enterprise key management."
+      },
+      {
+        "text": "KMS",
+        "note": "A key management service, often in the cloud."
+      },
+      {
+        "text": "SED firmware only",
+        "note": "Self-encrypting drives store their own keys, not platform keys."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A Trusted Platform Module stores keys and measurements for secure boot and disk encryption such as BitLocker."
+  },
+  {
+    "id": 22,
+    "domain": "D1",
+    "scenario": "A bank needs tamper-resistant hardware to generate and protect the private keys of its certificate authority. What should it use?",
+    "options": [
+      {
+        "text": "A hardware security module (HSM)",
+        "note": ""
+      },
+      {
+        "text": "A TPM in a workstation",
+        "note": "Tied to one device; not for enterprise CAs."
+      },
+      {
+        "text": "A password manager",
+        "note": "Stores user passwords."
+      },
+      {
+        "text": "A spreadsheet in an encrypted folder",
+        "note": "Not tamper-resistant hardware."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HSMs provide dedicated, tamper-resistant hardware for key generation, storage and cryptographic operations."
+  },
+  {
+    "id": 23,
+    "domain": "D1",
+    "scenario": "A browser needs to check whether a server's certificate has been revoked, with a real-time query rather than downloading a full list. What does it use?",
+    "options": [
+      {
+        "text": "OCSP",
+        "note": ""
+      },
+      {
+        "text": "CRL",
+        "note": "A full list that must be downloaded."
+      },
+      {
+        "text": "CSR",
+        "note": "A request to have a certificate issued."
+      },
+      {
+        "text": "PKCS #12",
+        "note": "A file format for certificates and keys."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OCSP returns the status of a single certificate. OCSP stapling lets the server provide a signed status response itself."
+  },
+  {
+    "id": 24,
+    "domain": "D1",
+    "scenario": "An administrator wants one certificate to cover www.example.com, mail.example.com and shop.example.com. Which certificate type fits?",
+    "options": [
+      {
+        "text": "A wildcard certificate",
+        "note": ""
+      },
+      {
+        "text": "A self-signed certificate",
+        "note": "Not trusted by browsers."
+      },
+      {
+        "text": "A code-signing certificate",
+        "note": "Signs software."
+      },
+      {
+        "text": "A client certificate",
+        "note": "Authenticates users or devices."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A wildcard covers all first-level subdomains of the domain. A SAN (subject alternative name) certificate can list specific names instead."
+  },
+  {
+    "id": 25,
+    "domain": "D1",
+    "scenario": "To obtain a certificate from a public CA, an administrator generates a key pair and sends which item to the CA?",
+    "options": [
+      {
+        "text": "A CSR",
+        "note": ""
+      },
+      {
+        "text": "The private key",
+        "note": "The private key must never be shared."
+      },
+      {
+        "text": "A CRL",
+        "note": "Lists revoked certificates."
+      },
+      {
+        "text": "An OCSP response",
+        "note": "Revocation status."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The CSR contains the public key and identifying information. The CA verifies it and returns a signed certificate."
+  },
+  {
+    "id": 26,
+    "domain": "D1",
+    "scenario": "A government requires that a copy of encryption keys be held by a trusted third party so data can be recovered under a court order. What is this?",
+    "options": [
+      {
+        "text": "Key escrow",
+        "note": ""
+      },
+      {
+        "text": "Key stretching",
+        "note": "Strengthens weak keys or passwords."
+      },
+      {
+        "text": "Key exchange",
+        "note": "Securely sharing keys between parties."
+      },
+      {
+        "text": "Certificate pinning",
+        "note": "Ties an app to specific certificates."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Key escrow stores copies of keys with a trusted party for recovery."
+  },
+  {
+    "id": 27,
+    "domain": "D1",
+    "scenario": "Which technology uses an open, distributed ledger in which each block is cryptographically linked to the previous one?",
+    "options": [
+      {
+        "text": "Blockchain",
+        "note": ""
+      },
+      {
+        "text": "A certificate revocation list",
+        "note": "A list from one CA."
+      },
+      {
+        "text": "A hardware security module",
+        "note": "A key storage device."
+      },
+      {
+        "text": "Tokenization",
+        "note": "Data substitution."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Blockchain links blocks with hashes, so altering an earlier block breaks the chain. It's an example of an open public ledger."
+  },
+  {
+    "id": 28,
+    "domain": "D1",
+    "scenario": "An organization compares its current security controls against a framework to find what's missing. What is this?",
+    "options": [
+      {
+        "text": "A gap analysis",
+        "note": ""
+      },
+      {
+        "text": "A penetration test",
+        "note": "Tests exploitability."
+      },
+      {
+        "text": "A business impact analysis",
+        "note": "Assesses effects of disruption."
+      },
+      {
+        "text": "Threat hunting",
+        "note": "Searches for active threats."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A gap analysis identifies the difference between the current state and a target state, such as a framework or standard."
+  },
+  {
+    "id": 29,
+    "domain": "D1",
+    "scenario": "Which AAA function records what an authenticated administrator did and when?",
+    "options": [
+      {
+        "text": "Accounting",
+        "note": ""
+      },
+      {
+        "text": "Authentication",
+        "note": "Verifies identity."
+      },
+      {
+        "text": "Authorization",
+        "note": "Determines what's allowed."
+      },
+      {
+        "text": "Attestation",
+        "note": "Confirms a state or claim."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Accounting (auditing) logs user activity, such as commands run and session times."
+  },
+  {
+    "id": 30,
+    "domain": "D1",
+    "scenario": "Which encryption level protects data if a database file is copied, while still allowing the database to read individual records normally?",
+    "options": [
+      {
+        "text": "Record-level encryption",
+        "note": ""
+      },
+      {
+        "text": "TLS encryption only",
+        "note": "Protects data in transit."
+      },
+      {
+        "text": "Steganography",
+        "note": "Hides data."
+      },
+      {
+        "text": "Hashing the whole database",
+        "note": "Hashing makes data unreadable permanently."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Encryption can be applied at many levels: full disk, partition, volume, file, database or record. Database and record-level encryption protect data at rest within the database."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "A well-funded attacker with advanced capabilities targets a country's power grid to disrupt services during a political conflict. Which threat actor is most likely?",
+    "options": [
+      {
+        "text": "Nation-state",
+        "note": ""
+      },
+      {
+        "text": "Unskilled attacker",
+        "note": "Lacks resources and sophistication."
+      },
+      {
+        "text": "Hacktivist",
+        "note": "Motivated by causes; usually fewer resources."
+      },
+      {
+        "text": "Shadow IT",
+        "note": "Unsanctioned IT use, not an attacker."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Nation-state actors have high resources and sophistication, and are motivated by espionage, disruption or war."
+  },
+  {
+    "id": 32,
+    "domain": "D2",
+    "scenario": "A group defaces a company's website to protest its environmental practices. Which threat actor is this?",
+    "options": [
+      {
+        "text": "Hacktivist",
+        "note": ""
+      },
+      {
+        "text": "Organized crime",
+        "note": "Motivated mainly by money."
+      },
+      {
+        "text": "Nation-state",
+        "note": "Typically espionage or disruption for a government."
+      },
+      {
+        "text": "Insider threat",
+        "note": "Comes from within the organization."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hacktivists are motivated by political or philosophical beliefs, often using defacement or DDoS."
+  },
+  {
+    "id": 33,
+    "domain": "D2",
+    "scenario": "A department signs up for an unapproved cloud file-sharing service to work faster. What is this?",
+    "options": [
+      {
+        "text": "Shadow IT",
+        "note": ""
+      },
+      {
+        "text": "A supply chain attack",
+        "note": "Compromise through vendors."
+      },
+      {
+        "text": "A watering hole attack",
+        "note": "Compromising a site targets visit."
+      },
+      {
+        "text": "Hacktivism",
+        "note": "Cause-driven attacks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Shadow IT is technology used without IT approval. It bypasses security controls and can expose data."
+  },
+  {
+    "id": 34,
+    "domain": "D2",
+    "scenario": "Criminals encrypt a hospital's files and demand cryptocurrency for the key. Which threat actor and motivation fit best?",
+    "options": [
+      {
+        "text": "Organized crime; financial gain",
+        "note": ""
+      },
+      {
+        "text": "Hacktivist; philosophical beliefs",
+        "note": "Not typically ransom-driven."
+      },
+      {
+        "text": "Insider; revenge",
+        "note": "Possible, but ransomware for payment points to criminal groups."
+      },
+      {
+        "text": "Unskilled attacker; curiosity",
+        "note": "Ransomware operations are usually organized."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Organized crime groups are motivated by money and run operations such as ransomware and fraud."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "An attacker sends text messages pretending to be the bank and asks users to click a link to verify their account. What is this?",
+    "options": [
+      {
+        "text": "Smishing",
+        "note": ""
+      },
+      {
+        "text": "Vishing",
+        "note": "Voice phishing."
+      },
+      {
+        "text": "Whaling",
+        "note": "Phishing targeting executives."
+      },
+      {
+        "text": "Typosquatting",
+        "note": "Registering misspelled domains."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Smishing is SMS phishing. Vishing uses voice calls; phishing usually refers to email."
+  },
+  {
+    "id": 36,
+    "domain": "D2",
+    "scenario": "An attacker compromises a website that employees of a target company often visit, so it infects their browsers. What is this?",
+    "options": [
+      {
+        "text": "A watering hole attack",
+        "note": ""
+      },
+      {
+        "text": "Pretexting",
+        "note": "A fabricated scenario to get information."
+      },
+      {
+        "text": "Typosquatting",
+        "note": "Misspelled domains."
+      },
+      {
+        "text": "A brute-force attack",
+        "note": "Guessing passwords."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Watering hole attacks compromise a trusted site the targets visit rather than attacking them directly."
+  },
+  {
+    "id": 37,
+    "domain": "D2",
+    "scenario": "An attacker registers examp1e.com, hoping users mistype example.com. What is this?",
+    "options": [
+      {
+        "text": "Typosquatting",
+        "note": ""
+      },
+      {
+        "text": "Business email compromise",
+        "note": "Using a compromised or spoofed business email."
+      },
+      {
+        "text": "DNS poisoning",
+        "note": "Corrupting DNS records."
+      },
+      {
+        "text": "A watering hole attack",
+        "note": "Compromising a site targets visit."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Typosquatting (URL hijacking) relies on typing mistakes or look-alike characters."
+  },
+  {
+    "id": 38,
+    "domain": "D2",
+    "scenario": "Someone calls an employee claiming to be from IT, says there's an urgent security issue, and asks for the employee's MFA code. What technique is being used?",
+    "options": [
+      {
+        "text": "Vishing",
+        "note": ""
+      },
+      {
+        "text": "Smishing",
+        "note": "Text-based."
+      },
+      {
+        "text": "Shoulder surfing",
+        "note": "Watching someone's screen."
+      },
+      {
+        "text": "Tailgating",
+        "note": "Following someone through a door."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Vishing is voice phishing. Attackers impersonate trusted parties and create urgency to pressure victims."
+  },
+  {
+    "id": 39,
+    "domain": "D2",
+    "scenario": "An attacker gains access to a supplier's software update server and pushes a malicious update to all of the supplier's customers. What is this?",
+    "options": [
+      {
+        "text": "A supply chain attack",
+        "note": ""
+      },
+      {
+        "text": "A zero-day exploit only",
+        "note": "The vector here is the trusted supplier."
+      },
+      {
+        "text": "Shadow IT",
+        "note": "Unapproved IT."
+      },
+      {
+        "text": "A replay attack",
+        "note": "Reusing captured data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Supply chain attacks compromise vendors, MSPs or software to reach many downstream targets."
+  },
+  {
+    "id": 40,
+    "domain": "D2",
+    "scenario": "An attacker spoofs the CEO's email address and asks the finance team to urgently wire money to a new account. What is this?",
+    "options": [
+      {
+        "text": "Business email compromise",
+        "note": ""
+      },
+      {
+        "text": "A watering hole attack",
+        "note": "Compromising a website."
+      },
+      {
+        "text": "Smishing",
+        "note": "SMS-based."
+      },
+      {
+        "text": "Typosquatting",
+        "note": "Misspelled domains."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BEC uses compromised or spoofed business email accounts for fraud, often invoice or wire transfer fraud."
+  },
+  {
+    "id": 41,
+    "domain": "D2",
+    "scenario": "Unused services listening on a server are an example of what type of threat vector?",
+    "options": [
+      {
+        "text": "Open service ports",
+        "note": ""
+      },
+      {
+        "text": "Removable media",
+        "note": "Physical devices."
+      },
+      {
+        "text": "Message-based vectors",
+        "note": "Email, SMS, IM."
+      },
+      {
+        "text": "Supply chain",
+        "note": "Vendors and suppliers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Every listening service increases the attack surface. Disable services that aren't needed."
+  },
+  {
+    "id": 42,
+    "domain": "D2",
+    "scenario": "An application writes more data into a memory buffer than it can hold, overwriting adjacent memory. What vulnerability is this?",
+    "options": [
+      {
+        "text": "Buffer overflow",
+        "note": ""
+      },
+      {
+        "text": "Race condition",
+        "note": "Timing issue between operations."
+      },
+      {
+        "text": "SQL injection",
+        "note": "Database query manipulation."
+      },
+      {
+        "text": "Directory traversal",
+        "note": "Accessing files outside a folder."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Buffer overflows can crash programs or let attackers execute code. Input validation and memory-safe practices prevent them."
+  },
+  {
+    "id": 43,
+    "domain": "D2",
+    "scenario": "A program checks a file's permissions, and then an attacker swaps the file before the program uses it. What vulnerability is this?",
+    "options": [
+      {
+        "text": "A TOCTOU race condition",
+        "note": ""
+      },
+      {
+        "text": "Buffer overflow",
+        "note": "Memory overwrite."
+      },
+      {
+        "text": "Cross-site scripting",
+        "note": "Script injection in web pages."
+      },
+      {
+        "text": "Default credentials",
+        "note": "Unchanged passwords."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Race conditions occur when the outcome depends on timing. TOCTOU exploits the gap between a check and the use of a resource."
+  },
+  {
+    "id": 44,
+    "domain": "D2",
+    "scenario": "A web form takes the input <code>' OR 1=1 --</code> and returns every user record. What vulnerability is this?",
+    "options": [
+      {
+        "text": "SQL injection",
+        "note": ""
+      },
+      {
+        "text": "Cross-site scripting",
+        "note": "Injects scripts into pages."
+      },
+      {
+        "text": "Buffer overflow",
+        "note": "Overwrites memory."
+      },
+      {
+        "text": "CSRF",
+        "note": "Forges requests from a user's browser."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SQL injection inserts SQL into queries. Parameterized queries (prepared statements) and input validation prevent it."
+  },
+  {
+    "id": 45,
+    "domain": "D2",
+    "scenario": "An attacker posts a comment containing JavaScript, and other visitors' browsers run it when they view the page. What is this?",
+    "options": [
+      {
+        "text": "Stored cross-site scripting",
+        "note": ""
+      },
+      {
+        "text": "SQL injection",
+        "note": "Targets the database."
+      },
+      {
+        "text": "Server-side request forgery",
+        "note": "Makes the server send requests."
+      },
+      {
+        "text": "Directory traversal",
+        "note": "Accesses files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "XSS injects scripts that run in other users' browsers. Output encoding and input validation mitigate it."
+  },
+  {
+    "id": 46,
+    "domain": "D2",
+    "scenario": "An attacker in a VM breaks out and accesses the hypervisor and other VMs. What is this called?",
+    "options": [
+      {
+        "text": "VM escape",
+        "note": ""
+      },
+      {
+        "text": "Resource reuse",
+        "note": "Data left in reallocated resources."
+      },
+      {
+        "text": "Sideloading",
+        "note": "Installing apps outside the official store."
+      },
+      {
+        "text": "Jailbreaking",
+        "note": "Removing OS restrictions on mobile devices."
+      }
+    ],
+    "answer": 0,
+    "explanation": "VM escape is one of the most serious virtualization vulnerabilities, because it breaks isolation between workloads."
+  },
+  {
+    "id": 47,
+    "domain": "D2",
+    "scenario": "A user installs an app on their phone from a website instead of the official app store. What is this called?",
+    "options": [
+      {
+        "text": "Sideloading",
+        "note": ""
+      },
+      {
+        "text": "Rooting the hypervisor",
+        "note": "Not a mobile term."
+      },
+      {
+        "text": "Typosquatting",
+        "note": "Misspelled domains."
+      },
+      {
+        "text": "Bluejacking",
+        "note": "Unsolicited Bluetooth messages."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sideloading bypasses app store vetting. Jailbreaking (iOS) or rooting (Android) removes OS restrictions, also increasing risk. MDM can block both."
+  },
+  {
+    "id": 48,
+    "domain": "D2",
+    "scenario": "An attacker exploits a flaw that the vendor doesn't yet know about, and no patch exists. What is this?",
+    "options": [
+      {
+        "text": "A zero-day vulnerability",
+        "note": ""
+      },
+      {
+        "text": "A misconfiguration",
+        "note": "A setup error."
+      },
+      {
+        "text": "An EOL vulnerability",
+        "note": "Product no longer supported."
+      },
+      {
+        "text": "A known CVE with a patch",
+        "note": "Patches exist for those."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Zero-days have no fix when first exploited. Defense in depth, behavior-based detection and segmentation reduce their impact."
+  },
+  {
+    "id": 49,
+    "domain": "D2",
+    "scenario": "A company still runs an operating system that no longer receives vendor updates. What risk does this create?",
+    "options": [
+      {
+        "text": "Unpatched EOL vulnerabilities",
+        "note": ""
+      },
+      {
+        "text": "A race condition",
+        "note": "A timing flaw."
+      },
+      {
+        "text": "Typosquatting",
+        "note": "Domain trick."
+      },
+      {
+        "text": "Data sovereignty violations",
+        "note": "About data location laws."
+      }
+    ],
+    "answer": 0,
+    "explanation": "End-of-life and legacy systems accumulate unpatched vulnerabilities. Replace them, or isolate them with compensating controls."
+  },
+  {
+    "id": 50,
+    "domain": "D2",
+    "scenario": "Malware spreads across the network by itself, exploiting a vulnerability, without any user action. What type of malware is this?",
+    "options": [
+      {
+        "text": "Worm",
+        "note": ""
+      },
+      {
+        "text": "Trojan",
+        "note": "Disguised as legitimate software; needs to be run."
+      },
+      {
+        "text": "Virus",
+        "note": "Attaches to files and needs execution."
+      },
+      {
+        "text": "Logic bomb",
+        "note": "Triggers on a condition."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Worms self-replicate across networks. Patching and segmentation limit their spread."
+  },
+  {
+    "id": 51,
+    "domain": "D2",
+    "scenario": "A disgruntled developer adds code that deletes the payroll database if their account is ever disabled. What is this?",
+    "options": [
+      {
+        "text": "A logic bomb",
+        "note": ""
+      },
+      {
+        "text": "A rootkit",
+        "note": "Hides malicious activity at a low level."
+      },
+      {
+        "text": "Spyware",
+        "note": "Collects information."
+      },
+      {
+        "text": "Bloatware",
+        "note": "Unwanted preinstalled software."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A logic bomb executes when a specific condition is met, such as a date or event."
+  },
+  {
+    "id": 52,
+    "domain": "D2",
+    "scenario": "Malware hides deep in the operating system and conceals its own processes and files from antivirus tools. What type is it?",
+    "options": [
+      {
+        "text": "Rootkit",
+        "note": ""
+      },
+      {
+        "text": "Keylogger",
+        "note": "Records keystrokes."
+      },
+      {
+        "text": "Worm",
+        "note": "Self-propagating."
+      },
+      {
+        "text": "Adware",
+        "note": "Displays ads."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Rootkits operate at a privileged level (kernel or firmware) to hide. They're often removed by reimaging."
+  },
+  {
+    "id": 53,
+    "domain": "D2",
+    "scenario": "A free game that a user downloaded also secretly installs a remote access tool. What type of malware is this?",
+    "options": [
+      {
+        "text": "A Trojan",
+        "note": ""
+      },
+      {
+        "text": "A worm",
+        "note": "Spreads by itself."
+      },
+      {
+        "text": "A logic bomb",
+        "note": "Condition-triggered code."
+      },
+      {
+        "text": "Ransomware",
+        "note": "Encrypts data for ransom."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Trojans disguise themselves as legitimate software. A remote access Trojan (RAT) gives attackers control of the system."
+  },
+  {
+    "id": 54,
+    "domain": "D2",
+    "scenario": "Many accounts across the organization are locked out after failed logins, each with only a few attempts, using common passwords. What attack is this?",
+    "options": [
+      {
+        "text": "Password spraying",
+        "note": ""
+      },
+      {
+        "text": "Credential stuffing with unique passwords",
+        "note": "Uses leaked username/password pairs."
+      },
+      {
+        "text": "A birthday attack",
+        "note": "A hash collision attack."
+      },
+      {
+        "text": "Pass-the-hash",
+        "note": "Reuses captured hashes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Password spraying tries a few common passwords across many accounts to avoid per-account lockout thresholds."
+  },
+  {
+    "id": 55,
+    "domain": "D2",
+    "scenario": "A user logs in from New York and, ten minutes later, from Singapore. Which indicator does this match?",
+    "options": [
+      {
+        "text": "Impossible travel",
+        "note": ""
+      },
+      {
+        "text": "Resource consumption",
+        "note": "High CPU or bandwidth."
+      },
+      {
+        "text": "Blocked content",
+        "note": "Content filters triggered."
+      },
+      {
+        "text": "Out-of-cycle logging",
+        "note": "Logs at unusual times."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Impossible travel suggests stolen credentials being used from another location. Conditional access policies can block such sign-ins."
+  },
+  {
+    "id": 56,
+    "domain": "D2",
+    "scenario": "An attacker forces a client and server to agree on an older, weaker version of TLS. What attack is this?",
+    "options": [
+      {
+        "text": "A downgrade attack",
+        "note": ""
+      },
+      {
+        "text": "A collision attack",
+        "note": "Two inputs with the same hash."
+      },
+      {
+        "text": "A replay attack",
+        "note": "Resending captured data."
+      },
+      {
+        "text": "Directory traversal",
+        "note": "File path manipulation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Downgrade attacks exploit backward compatibility. Disabling old protocol versions and weak ciphers prevents them."
+  },
+  {
+    "id": 57,
+    "domain": "D2",
+    "scenario": "Attackers send small DNS queries with the victim's spoofed IP address to open resolvers, which send much larger responses to the victim. What is this?",
+    "options": [
+      {
+        "text": "A reflected DDoS attack",
+        "note": ""
+      },
+      {
+        "text": "DNS tunneling",
+        "note": "Hides data in DNS queries."
+      },
+      {
+        "text": "Domain hijacking",
+        "note": "Taking control of a domain registration."
+      },
+      {
+        "text": "ARP poisoning",
+        "note": "Local network attack."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reflection uses third-party servers; amplification makes their responses much larger than the requests. DNS, NTP and memcached have been abused this way."
+  },
+  {
+    "id": 58,
+    "domain": "D2",
+    "scenario": "A user's browser, while logged in to their bank, is tricked by a malicious page into sending a funds transfer request. What attack is this?",
+    "options": [
+      {
+        "text": "Cross-site request forgery (CSRF)",
+        "note": ""
+      },
+      {
+        "text": "Server-side request forgery (SSRF)",
+        "note": "The server makes the forged requests."
+      },
+      {
+        "text": "SQL injection",
+        "note": "Database manipulation."
+      },
+      {
+        "text": "Buffer overflow",
+        "note": "Memory corruption."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CSRF abuses an authenticated session. Anti-CSRF tokens and SameSite cookies mitigate it."
+  },
+  {
+    "id": 59,
+    "domain": "D2",
+    "scenario": "A URL parameter changes from <code>file=report.pdf</code> to <code>file=../../etc/passwd</code> and returns a system file. What is this?",
+    "options": [
+      {
+        "text": "Directory traversal",
+        "note": ""
+      },
+      {
+        "text": "Cross-site scripting",
+        "note": "Script injection."
+      },
+      {
+        "text": "Privilege escalation",
+        "note": "Gaining higher permissions."
+      },
+      {
+        "text": "Replay",
+        "note": "Reusing captured data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Directory (path) traversal uses ../ sequences to access files outside the intended directory. Validate and canonicalize file paths."
+  },
+  {
+    "id": 60,
+    "domain": "D2",
+    "scenario": "An attacker captures a valid authentication message and sends it again later to gain access. What attack is this?",
+    "options": [
+      {
+        "text": "Replay attack",
+        "note": ""
+      },
+      {
+        "text": "Downgrade attack",
+        "note": "Forces weaker protocols."
+      },
+      {
+        "text": "Birthday attack",
+        "note": "Hash collisions."
+      },
+      {
+        "text": "Brute force",
+        "note": "Guessing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Replay attacks reuse captured data. Timestamps, nonces and session tokens prevent them."
+  },
+  {
+    "id": 61,
+    "domain": "D2",
+    "scenario": "A standard user exploits a service vulnerability to gain administrator rights. What is this?",
+    "options": [
+      {
+        "text": "Privilege escalation",
+        "note": ""
+      },
+      {
+        "text": "Lateral movement",
+        "note": "Moving to other systems."
+      },
+      {
+        "text": "Pretexting",
+        "note": "Social engineering."
+      },
+      {
+        "text": "Data exfiltration",
+        "note": "Stealing data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Vertical privilege escalation gains higher-level permissions. Patching and least privilege reduce the risk."
+  },
+  {
+    "id": 62,
+    "domain": "D2",
+    "scenario": "Someone clones employees' proximity badges using a reader hidden in a bag. What attack is this?",
+    "options": [
+      {
+        "text": "RFID cloning",
+        "note": ""
+      },
+      {
+        "text": "Bluesnarfing",
+        "note": "Stealing data over Bluetooth."
+      },
+      {
+        "text": "Shoulder surfing",
+        "note": "Watching screens."
+      },
+      {
+        "text": "War driving",
+        "note": "Finding Wi-Fi networks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RFID cloning copies badge credentials. Encrypted smart cards and multifactor physical access reduce the risk."
+  },
+  {
+    "id": 63,
+    "domain": "D2",
+    "scenario": "A security team notices logs are missing for a two-hour window on a critical server. Which type of indicator is this?",
+    "options": [
+      {
+        "text": "Missing logs",
+        "note": ""
+      },
+      {
+        "text": "Blocked content",
+        "note": "Content filtering events."
+      },
+      {
+        "text": "Account lockout",
+        "note": "Failed login thresholds."
+      },
+      {
+        "text": "Concurrent session usage",
+        "note": "Same account in multiple sessions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Attackers often clear or stop logs to hide activity. Forwarding logs to a central SIEM preserves them."
+  },
+  {
+    "id": 64,
+    "domain": "D2",
+    "scenario": "Only approved applications should be able to run on kiosk computers. What should be implemented?",
+    "options": [
+      {
+        "text": "An application allow list",
+        "note": ""
+      },
+      {
+        "text": "A deny list of known malware",
+        "note": "Blocks only known bad software."
+      },
+      {
+        "text": "A larger hard drive",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Disabling hypervisor logging",
+        "note": "Reduces visibility."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Allow listing (whitelisting) permits only approved software, blocking unknown malware by default."
+  },
+  {
+    "id": 65,
+    "domain": "D2",
+    "scenario": "Which mitigation removes unnecessary software, closes unused ports and changes default passwords on a new server?",
+    "options": [
+      {
+        "text": "Hardening",
+        "note": ""
+      },
+      {
+        "text": "Decommissioning",
+        "note": "Retiring a system."
+      },
+      {
+        "text": "Tokenization",
+        "note": "Data substitution."
+      },
+      {
+        "text": "Risk transference",
+        "note": "Shifting risk to others."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hardening reduces the attack surface. Hardening techniques also include host-based firewalls, HIPS and EDR."
+  },
+  {
+    "id": 66,
+    "domain": "D2",
+    "scenario": "A compromised IoT camera should not be able to reach finance servers. Which mitigation is most directly relevant?",
+    "options": [
+      {
+        "text": "Segmentation",
+        "note": ""
+      },
+      {
+        "text": "Encryption at rest",
+        "note": "Doesn't stop network access."
+      },
+      {
+        "text": "Key escrow",
+        "note": "Key recovery."
+      },
+      {
+        "text": "Salting",
+        "note": "Password hashing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Segmentation separates systems by trust level, limiting lateral movement after a compromise."
+  },
+  {
+    "id": 67,
+    "domain": "D2",
+    "scenario": "A company retires an old file server. Which mitigation ensures it can't become a forgotten attack surface?",
+    "options": [
+      {
+        "text": "Decommissioning",
+        "note": ""
+      },
+      {
+        "text": "Archiving it in place",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Disabling its antivirus",
+        "note": "Increases risk."
+      },
+      {
+        "text": "Renaming the server",
+        "note": "Doesn't remove it."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Decommissioning removes systems from the network, sanitizes data and updates inventories, so unmanaged systems don't linger."
+  },
+  {
+    "id": 68,
+    "domain": "D2",
+    "scenario": "Endpoints need continuous monitoring with behavioral detection and the ability to isolate a compromised host remotely. What should be deployed?",
+    "options": [
+      {
+        "text": "EDR",
+        "note": ""
+      },
+      {
+        "text": "A deny list only",
+        "note": "Blocks known items only."
+      },
+      {
+        "text": "A KMS",
+        "note": "Manages keys."
+      },
+      {
+        "text": "A CRL",
+        "note": "Lists revoked certificates."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Endpoint detection and response records endpoint activity, detects suspicious behavior and supports response actions like isolation."
+  },
+  {
+    "id": 69,
+    "domain": "D2",
+    "scenario": "Users should have only the permissions they need for their jobs. Which principle is this?",
+    "options": [
+      {
+        "text": "Least privilege",
+        "note": ""
+      },
+      {
+        "text": "Separation of duties",
+        "note": "Splits tasks among people."
+      },
+      {
+        "text": "Defense in depth",
+        "note": "Layered controls."
+      },
+      {
+        "text": "Implicit trust",
+        "note": "The opposite."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Least privilege limits the damage a compromised account or insider can do."
+  },
+  {
+    "id": 70,
+    "domain": "D2",
+    "scenario": "Which mitigation ensures a lost laptop doesn't expose sensitive files?",
+    "options": [
+      {
+        "text": "Full-disk encryption",
+        "note": ""
+      },
+      {
+        "text": "A host-based firewall",
+        "note": "Network filtering."
+      },
+      {
+        "text": "Application allow listing",
+        "note": "Controls what runs."
+      },
+      {
+        "text": "A screen saver",
+        "note": "Doesn't protect a stolen drive."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Full-disk encryption protects data at rest if the device is lost or stolen."
+  },
+  {
+    "id": 71,
+    "domain": "D2",
+    "scenario": "An attacker uses a vulnerability to read data from memory that a previous VM released but that wasn't cleared. What is this?",
+    "options": [
+      {
+        "text": "Resource reuse",
+        "note": ""
+      },
+      {
+        "text": "VM escape",
+        "note": "Breaking out to the hypervisor."
+      },
+      {
+        "text": "SQL injection",
+        "note": "Database attack."
+      },
+      {
+        "text": "Typosquatting",
+        "note": "Domain attack."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Resource reuse vulnerabilities expose residual data when memory or storage is reallocated without being cleared."
+  },
+  {
+    "id": 72,
+    "domain": "D2",
+    "scenario": "A software vendor's update channel is hijacked to distribute malware. Which application vulnerability category is this?",
+    "options": [
+      {
+        "text": "Malicious update",
+        "note": ""
+      },
+      {
+        "text": "Memory injection",
+        "note": "Injecting code into a process's memory."
+      },
+      {
+        "text": "Race condition",
+        "note": "Timing flaw."
+      },
+      {
+        "text": "Weak encryption",
+        "note": "Cryptographic weakness."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Malicious updates abuse the trust in update mechanisms. Code signing and verifying update integrity reduce the risk."
+  },
+  {
+    "id": 73,
+    "domain": "D3",
+    "scenario": "In an IaaS cloud deployment, who is responsible for patching the guest operating system?",
+    "options": [
+      {
+        "text": "The customer",
+        "note": ""
+      },
+      {
+        "text": "The cloud provider",
+        "note": "The provider manages the physical hosts and hypervisor."
+      },
+      {
+        "text": "Both equally, by default",
+        "note": "Responsibilities are defined in the shared responsibility model."
+      },
+      {
+        "text": "The internet service provider",
+        "note": "Not involved."
+      }
+    ],
+    "answer": 0,
+    "explanation": "In IaaS, the provider secures physical infrastructure and virtualization, and the customer secures the OS, applications and data. In SaaS, the provider handles almost everything except data and access."
+  },
+  {
+    "id": 74,
+    "domain": "D3",
+    "scenario": "A team deploys identical environments from version-controlled templates, so configurations are consistent and reviewable. What is this?",
+    "options": [
+      {
+        "text": "Infrastructure as code",
+        "note": ""
+      },
+      {
+        "text": "Shadow IT",
+        "note": "Unapproved IT."
+      },
+      {
+        "text": "Air gapping",
+        "note": "Physical isolation."
+      },
+      {
+        "text": "Serverless computing",
+        "note": "Running code without managing servers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IaC defines infrastructure in code, reducing configuration drift and enabling review, testing and repeatable deployments."
+  },
+  {
+    "id": 75,
+    "domain": "D3",
+    "scenario": "A system that controls a nuclear plant's safety equipment has no network connection to any other network. What is this?",
+    "options": [
+      {
+        "text": "An air gap",
+        "note": ""
+      },
+      {
+        "text": "A screened subnet",
+        "note": "A DMZ that's still connected."
+      },
+      {
+        "text": "A VPN",
+        "note": "Encrypted connection over another network."
+      },
+      {
+        "text": "SD-WAN",
+        "note": "Software-defined WAN."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Air gapping physically isolates a system. Removable media remains a risk, so it needs strict controls."
+  },
+  {
+    "id": 76,
+    "domain": "D3",
+    "scenario": "Developers run code as functions triggered by events, without managing servers. Which architecture is this?",
+    "options": [
+      {
+        "text": "Serverless computing",
+        "note": ""
+      },
+      {
+        "text": "Microservices on VMs",
+        "note": "Still requires server management."
+      },
+      {
+        "text": "Mainframe",
+        "note": "Centralized computing."
+      },
+      {
+        "text": "Air-gapped",
+        "note": "Isolated networks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Serverless shifts server management to the provider. Security focuses on code, permissions and configuration."
+  },
+  {
+    "id": 77,
+    "domain": "D3",
+    "scenario": "An application is split into many small, independently deployable services that communicate through APIs. Which architecture is this?",
+    "options": [
+      {
+        "text": "Microservices",
+        "note": ""
+      },
+      {
+        "text": "Monolithic",
+        "note": "One single deployable unit."
+      },
+      {
+        "text": "Air-gapped",
+        "note": "Isolated network."
+      },
+      {
+        "text": "RTOS",
+        "note": "Real-time operating system."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Microservices improve scalability and resilience, but increase the number of APIs and service-to-service connections to secure."
+  },
+  {
+    "id": 78,
+    "domain": "D3",
+    "scenario": "Industrial equipment runs on an operating system that must respond to inputs within strict, guaranteed time limits. What is this?",
+    "options": [
+      {
+        "text": "An RTOS",
+        "note": ""
+      },
+      {
+        "text": "A hypervisor",
+        "note": "Runs virtual machines."
+      },
+      {
+        "text": "A serverless platform",
+        "note": "Event-driven cloud functions."
+      },
+      {
+        "text": "A container runtime",
+        "note": "Runs containers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RTOSs are common in embedded and industrial systems. They're often hard to patch and need network isolation."
+  },
+  {
+    "id": 79,
+    "domain": "D3",
+    "scenario": "Why are SCADA and ICS environments often especially hard to secure?",
+    "options": [
+      {
+        "text": "They run legacy systems that are hard to patch",
+        "note": ""
+      },
+      {
+        "text": "They never connect to any network",
+        "note": "Many are networked."
+      },
+      {
+        "text": "They only run modern cloud software",
+        "note": "Often the opposite."
+      },
+      {
+        "text": "They have no physical components",
+        "note": "They control physical processes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Operational technology prioritizes availability and safety, uses long-lived equipment, and often relies on segmentation and monitoring instead of frequent patching."
+  },
+  {
+    "id": 80,
+    "domain": "D3",
+    "scenario": "A firewall fails. Security policy requires that it block all traffic rather than pass it until it's repaired. What failure mode is this?",
+    "options": [
+      {
+        "text": "Fail-closed",
+        "note": ""
+      },
+      {
+        "text": "Fail-open",
+        "note": "Lets traffic pass on failure."
+      },
+      {
+        "text": "Active-active",
+        "note": "An HA design."
+      },
+      {
+        "text": "Load balanced",
+        "note": "Distributes traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fail-closed (fail-secure) favors security over availability. Fail-open favors availability."
+  },
+  {
+    "id": 81,
+    "domain": "D3",
+    "scenario": "An IPS is placed inline so it can drop malicious packets, rather than receiving a copy of traffic from a tap. What is this attribute?",
+    "options": [
+      {
+        "text": "Active, inline",
+        "note": ""
+      },
+      {
+        "text": "Passive, via a tap",
+        "note": "Receives copies; can't block."
+      },
+      {
+        "text": "Fail-open mode",
+        "note": "A failure behavior."
+      },
+      {
+        "text": "Air gapped",
+        "note": "No network connection."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Inline devices can block traffic but become part of the path. Passive (tap or SPAN) devices can only detect and alert."
+  },
+  {
+    "id": 82,
+    "domain": "D3",
+    "scenario": "Which firewall inspects HTTP traffic to protect a web application from attacks like SQL injection and XSS?",
+    "options": [
+      {
+        "text": "A web application firewall",
+        "note": ""
+      },
+      {
+        "text": "A stateless packet filter",
+        "note": "Only checks headers."
+      },
+      {
+        "text": "A layer 4 firewall",
+        "note": "Inspects ports, not HTTP content."
+      },
+      {
+        "text": "A host-based firewall only",
+        "note": "Generally doesn't parse web application requests."
+      }
+    ],
+    "answer": 0,
+    "explanation": "WAFs operate at layer 7 and inspect HTTP requests and responses for application attacks."
+  },
+  {
+    "id": 83,
+    "domain": "D3",
+    "scenario": "A small business wants one appliance that combines firewall, IPS, antivirus, URL filtering and VPN. What should it buy?",
+    "options": [
+      {
+        "text": "A UTM appliance",
+        "note": ""
+      },
+      {
+        "text": "A jump server",
+        "note": "Admin access point."
+      },
+      {
+        "text": "A load balancer",
+        "note": "Distributes traffic."
+      },
+      {
+        "text": "A packet sniffer",
+        "note": "Captures traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "UTM consolidates several security functions in one device. Next-generation firewalls (NGFWs) similarly add application awareness and IPS."
+  },
+  {
+    "id": 84,
+    "domain": "D3",
+    "scenario": "Administrators must connect to a secure network segment only through one hardened, monitored server. What is it?",
+    "options": [
+      {
+        "text": "A jump server",
+        "note": ""
+      },
+      {
+        "text": "A proxy server",
+        "note": "Mediates client web requests."
+      },
+      {
+        "text": "A honeypot",
+        "note": "A decoy."
+      },
+      {
+        "text": "A load balancer",
+        "note": "Distributes traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Jump servers (jump boxes) centralize and control administrative access to sensitive zones."
+  },
+  {
+    "id": 85,
+    "domain": "D3",
+    "scenario": "Switch ports should require devices to authenticate with certificates (using EAP) before granting network access. Which standard is this?",
+    "options": [
+      {
+        "text": "802.1X",
+        "note": ""
+      },
+      {
+        "text": "802.11ac",
+        "note": "Wi-Fi standard."
+      },
+      {
+        "text": "802.3af",
+        "note": "Power over Ethernet."
+      },
+      {
+        "text": "802.1Q",
+        "note": "VLAN tagging."
+      }
+    ],
+    "answer": 0,
+    "explanation": "802.1X port-based authentication uses EAP and a RADIUS server, supporting methods such as EAP-TLS with certificates."
+  },
+  {
+    "id": 86,
+    "domain": "D3",
+    "scenario": "A company replaces branch VPNs with a cloud service that combines SD-WAN with secure web gateway, CASB and zero trust access. What is this?",
+    "options": [
+      {
+        "text": "SASE",
+        "note": ""
+      },
+      {
+        "text": "SCADA",
+        "note": "Industrial control."
+      },
+      {
+        "text": "UTM",
+        "note": "An on-premises appliance."
+      },
+      {
+        "text": "IPsec transport mode",
+        "note": "A VPN mode."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Secure Access Service Edge delivers networking and security as a cloud service close to users."
+  },
+  {
+    "id": 87,
+    "domain": "D3",
+    "scenario": "Which IPsec mode encrypts the entire original IP packet and adds a new header, as used in site-to-site VPNs?",
+    "options": [
+      {
+        "text": "Tunnel mode",
+        "note": ""
+      },
+      {
+        "text": "Transport mode",
+        "note": "Encrypts only the payload."
+      },
+      {
+        "text": "AH-only mode",
+        "note": "Doesn't encrypt."
+      },
+      {
+        "text": "Passive mode",
+        "note": "An FTP concept."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tunnel mode protects the whole original packet and is used between gateways. Transport mode protects the payload, typically between hosts."
+  },
+  {
+    "id": 88,
+    "domain": "D3",
+    "scenario": "Which classification is appropriate for a company's unreleased product designs?",
+    "options": [
+      {
+        "text": "Confidential",
+        "note": ""
+      },
+      {
+        "text": "Public",
+        "note": "Anyone can see it."
+      },
+      {
+        "text": "Non-human-readable",
+        "note": "A data format, not a classification."
+      },
+      {
+        "text": "Critical infrastructure",
+        "note": "Not a data classification."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Organizations classify data by sensitivity (for example public, private, sensitive, confidential, restricted, critical) to decide the right protections."
+  },
+  {
+    "id": 89,
+    "domain": "D3",
+    "scenario": "Laws require that a citizen's personal data be stored and processed only within their country. What is this concept?",
+    "options": [
+      {
+        "text": "Data sovereignty",
+        "note": ""
+      },
+      {
+        "text": "Data masking",
+        "note": "Hiding parts of data."
+      },
+      {
+        "text": "Tokenization",
+        "note": "Replacing data with tokens."
+      },
+      {
+        "text": "Non-repudiation",
+        "note": "Proof of origin."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data sovereignty means data is subject to the laws of the country where it's stored. Geographic restrictions help comply."
+  },
+  {
+    "id": 90,
+    "domain": "D3",
+    "scenario": "A database record is being processed in memory by an application. Which data state is this?",
+    "options": [
+      {
+        "text": "In use",
+        "note": ""
+      },
+      {
+        "text": "At rest",
+        "note": "Stored on disk."
+      },
+      {
+        "text": "In transit",
+        "note": "Moving across a network."
+      },
+      {
+        "text": "Archived",
+        "note": "Long-term storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data in use is the hardest to protect. Techniques include secure enclaves and confidential computing."
+  },
+  {
+    "id": 91,
+    "domain": "D3",
+    "scenario": "Two web servers share traffic, and if one fails the other continues serving users. Which high-availability approach is this?",
+    "options": [
+      {
+        "text": "Load balancing",
+        "note": ""
+      },
+      {
+        "text": "A cold site",
+        "note": "A recovery facility."
+      },
+      {
+        "text": "Journaling",
+        "note": "Recording changes."
+      },
+      {
+        "text": "Air gapping",
+        "note": "Isolation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Load balancing distributes traffic and removes failed nodes. Clustering is another HA approach, where nodes work together and fail over."
+  },
+  {
+    "id": 92,
+    "domain": "D3",
+    "scenario": "Which disaster recovery site is fully equipped with up-to-date data and can take over almost immediately?",
+    "options": [
+      {
+        "text": "Hot site",
+        "note": ""
+      },
+      {
+        "text": "Warm site",
+        "note": "Has equipment but needs data restored."
+      },
+      {
+        "text": "A cold site",
+        "note": "Space and power only."
+      },
+      {
+        "text": "Mobile site",
+        "note": "Defined by portability."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hot sites are the most expensive and the fastest to recover. Geographic dispersion keeps them clear of the same regional disaster."
+  },
+  {
+    "id": 93,
+    "domain": "D3",
+    "scenario": "A company runs critical workloads on both Windows and Linux servers and on two cloud providers, so one vulnerability or outage doesn't take everything down. What is this?",
+    "options": [
+      {
+        "text": "Platform diversity",
+        "note": ""
+      },
+      {
+        "text": "Shadow IT",
+        "note": "Unapproved IT."
+      },
+      {
+        "text": "Vendor consolidation",
+        "note": "The opposite."
+      },
+      {
+        "text": "Air gapping",
+        "note": "Isolation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Diversity reduces the chance that one flaw or provider outage affects every system."
+  },
+  {
+    "id": 94,
+    "domain": "D3",
+    "scenario": "Which type of DR test switches production to the recovery site to prove it works?",
+    "options": [
+      {
+        "text": "A failover test",
+        "note": ""
+      },
+      {
+        "text": "A tabletop exercise",
+        "note": "Discussion only."
+      },
+      {
+        "text": "A simulation with no system changes",
+        "note": "Doesn't actually move production."
+      },
+      {
+        "text": "A gap analysis",
+        "note": "Compares controls with a framework."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Failover tests are the most realistic and riskiest. Tabletop exercises and simulations are lower-risk options."
+  },
+  {
+    "id": 95,
+    "domain": "D3",
+    "scenario": "Backups are taken nightly, but the business can't lose more than 15 minutes of transactions. Which technique helps meet this?",
+    "options": [
+      {
+        "text": "Continuous replication",
+        "note": ""
+      },
+      {
+        "text": "Weekly full backups only",
+        "note": "Up to a week of loss."
+      },
+      {
+        "text": "Monthly snapshots",
+        "note": "Even more loss."
+      },
+      {
+        "text": "Encrypting the backups",
+        "note": "Protects confidentiality, not frequency."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Replication and journaling capture changes continuously, reducing the recovery point well below a nightly backup schedule."
+  },
+  {
+    "id": 96,
+    "domain": "D3",
+    "scenario": "Why should backups be encrypted and kept at least partly offsite or offline?",
+    "options": [
+      {
+        "text": "To survive theft, disasters and ransomware",
+        "note": ""
+      },
+      {
+        "text": "To make restores much faster",
+        "note": "Encryption can slow restores slightly."
+      },
+      {
+        "text": "To reduce long-term storage costs",
+        "note": "Not the purpose."
+      },
+      {
+        "text": "Because snapshots require it",
+        "note": "Not a requirement."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Offsite and offline (or immutable) copies survive local disasters and ransomware. Encryption protects backup confidentiality."
+  },
+  {
+    "id": 97,
+    "domain": "D3",
+    "scenario": "During a power outage, which device keeps servers running for the few minutes it takes generators to start?",
+    "options": [
+      {
+        "text": "UPS",
+        "note": ""
+      },
+      {
+        "text": "PDU",
+        "note": "Distributes power."
+      },
+      {
+        "text": "Surge protector",
+        "note": "No battery."
+      },
+      {
+        "text": "HSM",
+        "note": "Key storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Uninterruptible power supplies bridge the gap until generators provide long-term power."
+  },
+  {
+    "id": 98,
+    "domain": "D3",
+    "scenario": "Which consideration is a key drawback of embedded and IoT devices?",
+    "options": [
+      {
+        "text": "They're often hard to patch",
+        "note": ""
+      },
+      {
+        "text": "They always have powerful CPUs",
+        "note": "Often limited compute."
+      },
+      {
+        "text": "They never connect to networks",
+        "note": "IoT devices are networked."
+      },
+      {
+        "text": "They require dedicated HSMs",
+        "note": "Not typical."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Constrained power, compute and vendor support make many embedded and IoT devices hard to update. Segmentation is the main mitigation."
+  },
+  {
+    "id": 99,
+    "domain": "D3",
+    "scenario": "A plan defines how essential business functions continue during and after a major disruption. What is this?",
+    "options": [
+      {
+        "text": "COOP",
+        "note": ""
+      },
+      {
+        "text": "A change request",
+        "note": "Requests a change."
+      },
+      {
+        "text": "An AUP",
+        "note": "Acceptable use rules."
+      },
+      {
+        "text": "A vulnerability scan",
+        "note": "Finds vulnerabilities."
+      }
+    ],
+    "answer": 0,
+    "explanation": "COOP (and business continuity planning) ensures essential functions continue, even with workarounds, while recovery happens."
+  },
+  {
+    "id": 100,
+    "domain": "D3",
+    "scenario": "When planning capacity for incident recovery, which three areas should be considered?",
+    "options": [
+      {
+        "text": "People, technology, infrastructure",
+        "note": ""
+      },
+      {
+        "text": "Backup media and tape rotation",
+        "note": "Too narrow."
+      },
+      {
+        "text": "WAN bandwidth and latency",
+        "note": "Too narrow."
+      },
+      {
+        "text": "Software licenses and renewals",
+        "note": "Too narrow."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Capacity planning covers staff availability, systems and supporting infrastructure, so recovery can actually be carried out."
+  },
+  {
+    "id": 101,
+    "domain": "D3",
+    "scenario": "Which firewall can make decisions based on applications and users rather than just IP addresses and ports?",
+    "options": [
+      {
+        "text": "A next-generation firewall",
+        "note": ""
+      },
+      {
+        "text": "A stateless packet filter",
+        "note": "Only uses header fields."
+      },
+      {
+        "text": "A layer 2 switch",
+        "note": "Not a firewall."
+      },
+      {
+        "text": "A hub",
+        "note": "No filtering."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NGFWs add application awareness, user identity, IPS and threat intelligence to traditional stateful filtering."
+  },
+  {
+    "id": 102,
+    "domain": "D3",
+    "scenario": "Where should a public-facing web server be placed in a network with an internal LAN and the internet?",
+    "options": [
+      {
+        "text": "In a screened subnet (DMZ)",
+        "note": ""
+      },
+      {
+        "text": "On the internal LAN with the domain controllers",
+        "note": "Exposes internal systems."
+      },
+      {
+        "text": "Directly on the internet with no firewall",
+        "note": "No protection."
+      },
+      {
+        "text": "In an air-gapped network",
+        "note": "Then it can't be public."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A screened subnet lets internet users reach public services while firewall rules protect the internal network."
+  },
+  {
+    "id": 103,
+    "domain": "D3",
+    "scenario": "Which approach reduces the attack surface of a virtualized environment?",
+    "options": [
+      {
+        "text": "Patching hypervisors and restricting management",
+        "note": ""
+      },
+      {
+        "text": "Running all VMs with admin rights",
+        "note": "Increases risk."
+      },
+      {
+        "text": "Allowing unfiltered VM-to-VM traffic",
+        "note": "Increases lateral movement risk."
+      },
+      {
+        "text": "Disabling hypervisor logging",
+        "note": "Reduces visibility."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Secure virtualization relies on patched hypervisors, restricted management access and segmentation between workloads."
+  },
+  {
+    "id": 104,
+    "domain": "D3",
+    "scenario": "A company uses a cloud provider and a separate SaaS email vendor. Whose responsibility is configuring user access rights in the SaaS application?",
+    "options": [
+      {
+        "text": "The customer",
+        "note": ""
+      },
+      {
+        "text": "The SaaS vendor alone",
+        "note": "Vendors provide the controls; customers configure who gets access."
+      },
+      {
+        "text": "The cloud provider",
+        "note": "Not involved in the SaaS app."
+      },
+      {
+        "text": "The ISP",
+        "note": "Not involved."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Even in SaaS, customers are responsible for their data, accounts and access configuration."
+  },
+  {
+    "id": 105,
+    "domain": "D3",
+    "scenario": "Why might a company choose a centralized security architecture?",
+    "options": [
+      {
+        "text": "Consistency, at the risk of a single failure point",
+        "note": ""
+      },
+      {
+        "text": "It removes all single points of failure",
+        "note": "Centralization can create one."
+      },
+      {
+        "text": "It requires no network connectivity",
+        "note": "Not true."
+      },
+      {
+        "text": "It eliminates the need for logging",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Centralized designs simplify management and visibility. Decentralized designs improve resilience but are harder to manage consistently."
+  },
+  {
+    "id": 106,
+    "domain": "D4",
+    "scenario": "Which deployment model lets employees use company-owned phones that also allow some personal use?",
+    "options": [
+      {
+        "text": "COPE",
+        "note": ""
+      },
+      {
+        "text": "BYOD",
+        "note": "Employees own the devices."
+      },
+      {
+        "text": "CYOD",
+        "note": "Choose from approved devices; may be company-owned but focus is choice."
+      },
+      {
+        "text": "VDI",
+        "note": "Virtual desktops."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Corporately owned, personally enabled (COPE) gives the company control of the device while allowing personal use. MDM manages the corporate side."
+  },
+  {
+    "id": 107,
+    "domain": "D4",
+    "scenario": "Employees use personal phones for work email. What should the company use to enforce a passcode and remotely wipe corporate data?",
+    "options": [
+      {
+        "text": "MDM",
+        "note": ""
+      },
+      {
+        "text": "A WAF",
+        "note": "Protects web apps."
+      },
+      {
+        "text": "A jump server",
+        "note": "Admin access."
+      },
+      {
+        "text": "A honeypot",
+        "note": "A decoy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "MDM enforces policies such as passcodes, encryption, app control and remote wipe, often with containerization of work data on BYOD devices."
+  },
+  {
+    "id": 108,
+    "domain": "D4",
+    "scenario": "Which Wi-Fi security setting provides the strongest protection for a home-style network with a shared passphrase?",
+    "options": [
+      {
+        "text": "WPA3-Personal (SAE)",
+        "note": ""
+      },
+      {
+        "text": "WPA2-Personal (TKIP)",
+        "note": "Weaker and outdated."
+      },
+      {
+        "text": "WEP",
+        "note": "Broken."
+      },
+      {
+        "text": "Open with MAC filtering",
+        "note": "Easily bypassed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "WPA3-Personal uses Simultaneous Authentication of Equals, which resists offline dictionary attacks."
+  },
+  {
+    "id": 109,
+    "domain": "D4",
+    "scenario": "A web application should reject input that doesn't match the expected format, such as letters in a phone number field. What is this?",
+    "options": [
+      {
+        "text": "Input validation",
+        "note": ""
+      },
+      {
+        "text": "Code signing",
+        "note": "Verifies software origin."
+      },
+      {
+        "text": "Sandboxing",
+        "note": "Isolates execution."
+      },
+      {
+        "text": "Fuzzing results",
+        "note": "A testing technique."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Input validation (server-side, ideally with allow lists) prevents many injection attacks."
+  },
+  {
+    "id": 110,
+    "domain": "D4",
+    "scenario": "Developers analyze source code for vulnerabilities without running the application. What is this?",
+    "options": [
+      {
+        "text": "Static code analysis",
+        "note": ""
+      },
+      {
+        "text": "Dynamic analysis (DAST)",
+        "note": "Tests the running application."
+      },
+      {
+        "text": "Penetration testing",
+        "note": "Simulates attacks on running systems."
+      },
+      {
+        "text": "Fuzzing",
+        "note": "Sends random input to running code."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Static analysis finds issues like hard-coded secrets and injection flaws early in development."
+  },
+  {
+    "id": 111,
+    "domain": "D4",
+    "scenario": "Users must be able to confirm that a downloaded driver came from the vendor and wasn't modified. What should the vendor do?",
+    "options": [
+      {
+        "text": "Code signing",
+        "note": ""
+      },
+      {
+        "text": "Data masking",
+        "note": "Hides data."
+      },
+      {
+        "text": "Input validation",
+        "note": "Checks user input."
+      },
+      {
+        "text": "Steganography",
+        "note": "Hides data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Code signing uses the vendor's private key to sign software; users verify the signature with the vendor's certificate."
+  },
+  {
+    "id": 112,
+    "domain": "D4",
+    "scenario": "Untrusted email attachments are opened in an isolated environment where they can't affect the real system. What is this?",
+    "options": [
+      {
+        "text": "Sandboxing",
+        "note": ""
+      },
+      {
+        "text": "Tokenization",
+        "note": "Data substitution."
+      },
+      {
+        "text": "Journaling",
+        "note": "Change recording."
+      },
+      {
+        "text": "Federation",
+        "note": "Shared identity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sandboxing isolates code execution so malicious behavior can be observed or contained."
+  },
+  {
+    "id": 113,
+    "domain": "D4",
+    "scenario": "Which cookie settings help protect session cookies from theft through scripts and over unencrypted connections?",
+    "options": [
+      {
+        "text": "HttpOnly and Secure flags",
+        "note": ""
+      },
+      {
+        "text": "Longer expiration times",
+        "note": "Increases exposure."
+      },
+      {
+        "text": "Storing passwords in cookies",
+        "note": "Very insecure."
+      },
+      {
+        "text": "Disabling HTTPS",
+        "note": "The opposite."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HttpOnly blocks JavaScript access to the cookie, Secure sends it only over HTTPS, and SameSite helps prevent CSRF."
+  },
+  {
+    "id": 114,
+    "domain": "D4",
+    "scenario": "Which is the best starting point for hardening many identical servers consistently?",
+    "options": [
+      {
+        "text": "A secure baseline applied and monitored",
+        "note": ""
+      },
+      {
+        "text": "Hardening each server manually from memory",
+        "note": "Inconsistent."
+      },
+      {
+        "text": "Leaving defaults in place",
+        "note": "Defaults are often insecure."
+      },
+      {
+        "text": "Disabling all logging",
+        "note": "Reduces visibility."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Secure baselines define approved configurations. They're applied, monitored for drift and updated over time."
+  },
+  {
+    "id": 115,
+    "domain": "D4",
+    "scenario": "A company disposes of old hard drives that held customer data. What provides proof that the data was destroyed?",
+    "options": [
+      {
+        "text": "A certificate of destruction",
+        "note": ""
+      },
+      {
+        "text": "A signed purchase order",
+        "note": "Proves acquisition."
+      },
+      {
+        "text": "An asset tag record",
+        "note": "Identifies the asset."
+      },
+      {
+        "text": "A change request",
+        "note": "Approves changes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Disposal includes sanitization or physical destruction, often by a vendor that provides a certificate of destruction."
+  },
+  {
+    "id": 116,
+    "domain": "D4",
+    "scenario": "Which data sanitization method makes data on an SSD unrecoverable while allowing the drive to be reused?",
+    "options": [
+      {
+        "text": "A secure-erase command",
+        "note": ""
+      },
+      {
+        "text": "Deleting the files",
+        "note": "Data can be recovered."
+      },
+      {
+        "text": "A quick format",
+        "note": "Data can be recovered."
+      },
+      {
+        "text": "Degaussing",
+        "note": "Doesn't work on SSDs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Degaussing affects magnetic media only. SSDs need secure erase or crypto erase; physical destruction is used when reuse isn't needed."
+  },
+  {
+    "id": 117,
+    "domain": "D4",
+    "scenario": "Which asset management activity helps ensure every device has an accountable owner and a data classification?",
+    "options": [
+      {
+        "text": "Assignment and accounting",
+        "note": ""
+      },
+      {
+        "text": "Disposal and destruction",
+        "note": "End of life."
+      },
+      {
+        "text": "Penetration testing",
+        "note": "Security testing."
+      },
+      {
+        "text": "Threat hunting",
+        "note": "Searching for threats."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Assignment establishes ownership and classification, and inventory tracking supports monitoring through the asset's life cycle."
+  },
+  {
+    "id": 118,
+    "domain": "D4",
+    "scenario": "A vulnerability scanner reports a flaw, but investigation shows the system isn't actually vulnerable. What is this?",
+    "options": [
+      {
+        "text": "A false positive",
+        "note": ""
+      },
+      {
+        "text": "A false negative",
+        "note": "A real vulnerability that wasn't reported."
+      },
+      {
+        "text": "A true positive",
+        "note": "A correctly reported vulnerability."
+      },
+      {
+        "text": "A zero-day",
+        "note": "An unknown vulnerability."
+      }
+    ],
+    "answer": 0,
+    "explanation": "False positives waste time; false negatives are more dangerous because real issues go unnoticed."
+  },
+  {
+    "id": 119,
+    "domain": "D4",
+    "scenario": "Which scoring system rates the severity of vulnerabilities from 0 to 10?",
+    "options": [
+      {
+        "text": "CVSS",
+        "note": ""
+      },
+      {
+        "text": "CVE",
+        "note": "Identifies vulnerabilities; doesn't score them."
+      },
+      {
+        "text": "SCAP",
+        "note": "A suite of standards for automation."
+      },
+      {
+        "text": "STIX",
+        "note": "A threat intelligence format."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CVSS scores severity. CVE assigns unique identifiers (such as CVE-2024-12345) to publicly known vulnerabilities."
+  },
+  {
+    "id": 120,
+    "domain": "D4",
+    "scenario": "Two vulnerabilities have the same CVSS score, but one is on an internet-facing payment server. How should they be prioritized?",
+    "options": [
+      {
+        "text": "Fix the exposed payment server first",
+        "note": ""
+      },
+      {
+        "text": "Treat them identically by score",
+        "note": "Context matters."
+      },
+      {
+        "text": "Fix the internal server first",
+        "note": "Exposure suggests the opposite."
+      },
+      {
+        "text": "Wait for the next patch cycle",
+        "note": "Compensating controls may be needed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Prioritization considers environmental variables, exposure, asset criticality and organizational impact, not just base scores."
+  },
+  {
+    "id": 121,
+    "domain": "D4",
+    "scenario": "A critical vulnerability can't be patched for three months because of vendor certification. What should the team do?",
+    "options": [
+      {
+        "text": "Add compensating controls and an exception",
+        "note": ""
+      },
+      {
+        "text": "Do nothing until the patch is available",
+        "note": "Leaves risk unmanaged."
+      },
+      {
+        "text": "Delete the scan results",
+        "note": "Hides the problem."
+      },
+      {
+        "text": "Disable all monitoring on it",
+        "note": "Increases risk."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Responses include patching, segmentation, compensating controls, insurance and documented exceptions or exemptions with risk acceptance."
+  },
+  {
+    "id": 122,
+    "domain": "D4",
+    "scenario": "After patching a vulnerability, what should be done to confirm the fix?",
+    "options": [
+      {
+        "text": "Rescan the system",
+        "note": ""
+      },
+      {
+        "text": "Close the ticket immediately",
+        "note": "No verification."
+      },
+      {
+        "text": "Change the CVSS score",
+        "note": "Doesn't verify anything."
+      },
+      {
+        "text": "Disable the scanner",
+        "note": "Prevents verification."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Validation includes rescanning, audits and verification that the remediation worked."
+  },
+  {
+    "id": 123,
+    "domain": "D4",
+    "scenario": "A company pays external researchers for responsibly reporting vulnerabilities in its products. What is this?",
+    "options": [
+      {
+        "text": "A bug bounty program",
+        "note": ""
+      },
+      {
+        "text": "A tabletop exercise",
+        "note": "An IR discussion."
+      },
+      {
+        "text": "A gap analysis",
+        "note": "Compares to a framework."
+      },
+      {
+        "text": "A honeynet",
+        "note": "Decoy network."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Bug bounties are a form of responsible disclosure that rewards external testers."
+  },
+  {
+    "id": 124,
+    "domain": "D4",
+    "scenario": "Which source provides threat intelligence collected from publicly available information?",
+    "options": [
+      {
+        "text": "OSINT",
+        "note": ""
+      },
+      {
+        "text": "A proprietary paid feed only",
+        "note": "Not public."
+      },
+      {
+        "text": "A classified government briefing",
+        "note": "Not public."
+      },
+      {
+        "text": "Internal logs",
+        "note": "Not external intelligence."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Open-source intelligence comes from public sources. Other sources include proprietary feeds, information-sharing organizations (ISACs) and dark web monitoring."
+  },
+  {
+    "id": 125,
+    "domain": "D4",
+    "scenario": "A system collects logs from firewalls, servers and endpoints, correlates events and alerts the SOC. What is it?",
+    "options": [
+      {
+        "text": "SIEM",
+        "note": ""
+      },
+      {
+        "text": "DLP",
+        "note": "Prevents data leakage."
+      },
+      {
+        "text": "MDM",
+        "note": "Manages mobile devices."
+      },
+      {
+        "text": "HSM",
+        "note": "Protects keys."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A SIEM aggregates and correlates logs and generates alerts. Alert tuning reduces false positives."
+  },
+  {
+    "id": 126,
+    "domain": "D4",
+    "scenario": "Users are emailing customer Social Security numbers outside the company. Which tool detects and blocks this?",
+    "options": [
+      {
+        "text": "DLP",
+        "note": ""
+      },
+      {
+        "text": "NAC",
+        "note": "Controls network access."
+      },
+      {
+        "text": "EDR",
+        "note": "Endpoint threat detection."
+      },
+      {
+        "text": "SCAP",
+        "note": "Configuration standards."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data loss prevention inspects content (email, web, endpoints, cloud) for sensitive data patterns and blocks or alerts."
+  },
+  {
+    "id": 127,
+    "domain": "D4",
+    "scenario": "An organization wants to automatically check systems against security configuration standards using a common format. Which standard suite helps?",
+    "options": [
+      {
+        "text": "SCAP",
+        "note": ""
+      },
+      {
+        "text": "SNMP",
+        "note": "Device monitoring."
+      },
+      {
+        "text": "SAML",
+        "note": "Federated authentication."
+      },
+      {
+        "text": "SASE",
+        "note": "Cloud-delivered security."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The Security Content Automation Protocol standardizes how configuration benchmarks and vulnerabilities are expressed and checked."
+  },
+  {
+    "id": 128,
+    "domain": "D4",
+    "scenario": "Critical system files on a web server should trigger an alert if they're changed. What should be deployed?",
+    "options": [
+      {
+        "text": "File integrity monitoring",
+        "note": ""
+      },
+      {
+        "text": "DNS filtering",
+        "note": "Blocks malicious domains."
+      },
+      {
+        "text": "A captive portal",
+        "note": "Guest access page."
+      },
+      {
+        "text": "A load balancer",
+        "note": "Distributes traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "FIM compares file hashes against a baseline and alerts on unexpected changes."
+  },
+  {
+    "id": 129,
+    "domain": "D4",
+    "scenario": "Employees' computers should be blocked from resolving known malicious domains. What is a simple control for this?",
+    "options": [
+      {
+        "text": "DNS filtering",
+        "note": ""
+      },
+      {
+        "text": "Disk encryption",
+        "note": "Protects data at rest."
+      },
+      {
+        "text": "Code signing",
+        "note": "Verifies software."
+      },
+      {
+        "text": "Key escrow",
+        "note": "Key recovery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DNS filtering blocks lookups of malicious or categorized domains before connections are made."
+  },
+  {
+    "id": 130,
+    "domain": "D4",
+    "scenario": "Which email security record specifies which servers are allowed to send mail for a domain?",
+    "options": [
+      {
+        "text": "SPF",
+        "note": ""
+      },
+      {
+        "text": "DKIM",
+        "note": "Signs messages cryptographically."
+      },
+      {
+        "text": "DMARC",
+        "note": "Sets policy for handling failed checks."
+      },
+      {
+        "text": "MX",
+        "note": "Directs inbound mail."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SPF lists authorized senders. DKIM signs messages, and DMARC tells receivers what to do when SPF or DKIM checks fail, and sends reports."
+  },
+  {
+    "id": 131,
+    "domain": "D4",
+    "scenario": "A domain owner wants receivers to reject spoofed messages that fail SPF and DKIM and to send reports back. What should be configured?",
+    "options": [
+      {
+        "text": "A DMARC policy of reject",
+        "note": ""
+      },
+      {
+        "text": "An SPF record only",
+        "note": "No reporting or enforcement policy."
+      },
+      {
+        "text": "A wildcard certificate",
+        "note": "TLS, not email authentication."
+      },
+      {
+        "text": "Key escrow",
+        "note": "Key recovery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DMARC builds on SPF and DKIM, with policies of none, quarantine or reject, plus aggregate and forensic reporting."
+  },
+  {
+    "id": 132,
+    "domain": "D4",
+    "scenario": "Devices that don't meet security posture requirements (patches, antivirus) should be placed in a remediation VLAN. What provides this?",
+    "options": [
+      {
+        "text": "NAC",
+        "note": ""
+      },
+      {
+        "text": "DLP",
+        "note": "Data leakage prevention."
+      },
+      {
+        "text": "FIM",
+        "note": "File integrity."
+      },
+      {
+        "text": "A WAF",
+        "note": "Web app protection."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NAC checks device identity and health before granting access, often with 802.1X and posture agents."
+  },
+  {
+    "id": 133,
+    "domain": "D4",
+    "scenario": "A tool learns users' normal behavior and alerts when an account suddenly downloads thousands of files at 3 a.m. What capability is this?",
+    "options": [
+      {
+        "text": "UEBA",
+        "note": ""
+      },
+      {
+        "text": "A signature IDS",
+        "note": "Matches known patterns."
+      },
+      {
+        "text": "Port security",
+        "note": "MAC limits."
+      },
+      {
+        "text": "SPF",
+        "note": "Email sender policy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "UEBA establishes baselines and detects anomalous behavior that may indicate compromised accounts or insiders."
+  },
+  {
+    "id": 134,
+    "domain": "D4",
+    "scenario": "Which Linux security feature enforces mandatory access control policies on processes?",
+    "options": [
+      {
+        "text": "SELinux",
+        "note": ""
+      },
+      {
+        "text": "Group Policy",
+        "note": "Windows configuration management."
+      },
+      {
+        "text": "BitLocker",
+        "note": "Windows disk encryption."
+      },
+      {
+        "text": "UAC",
+        "note": "Windows elevation prompts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SELinux applies mandatory access control. In Windows, Group Policy centrally enforces security settings."
+  },
+  {
+    "id": 135,
+    "domain": "D4",
+    "scenario": "An IDS keeps alerting on traffic that's actually legitimate backup activity. What should the analyst do?",
+    "options": [
+      {
+        "text": "Tune the alert rules",
+        "note": ""
+      },
+      {
+        "text": "Disable the IDS",
+        "note": "Removes detection entirely."
+      },
+      {
+        "text": "Ignore all IDS alerts",
+        "note": "Real attacks would be missed."
+      },
+      {
+        "text": "Increase the logging level",
+        "note": "Doesn't fix the false alerts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Alert tuning keeps detections useful and avoids alert fatigue."
+  },
+  {
+    "id": 136,
+    "domain": "D4",
+    "scenario": "Which network monitoring data shows who talked to whom, when, and how much data was sent, without full packet contents?",
+    "options": [
+      {
+        "text": "NetFlow (flow data)",
+        "note": ""
+      },
+      {
+        "text": "Full packet capture",
+        "note": "Includes contents."
+      },
+      {
+        "text": "Syslog only",
+        "note": "Device logs, not traffic summaries."
+      },
+      {
+        "text": "SNMP traps",
+        "note": "Device alerts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Flow data supports traffic analysis and anomaly detection at lower storage cost than full packet capture."
+  },
+  {
+    "id": 137,
+    "domain": "D4",
+    "scenario": "A former employee's account is still active two months after they left. Which process failed?",
+    "options": [
+      {
+        "text": "De-provisioning",
+        "note": ""
+      },
+      {
+        "text": "Identity proofing",
+        "note": "Verifying identity before issuing an account."
+      },
+      {
+        "text": "Federation",
+        "note": "Sharing identities between organizations."
+      },
+      {
+        "text": "Attestation",
+        "note": "Periodic confirmation of access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "De-provisioning removes access promptly when people leave or change roles. Automated identity life cycle management helps."
+  },
+  {
+    "id": 138,
+    "domain": "D4",
+    "scenario": "A user signs in to a partner's portal with their own company credentials, because the two organizations trust each other's identity providers. What is this?",
+    "options": [
+      {
+        "text": "Federation",
+        "note": ""
+      },
+      {
+        "text": "Password vaulting",
+        "note": "Stores privileged credentials."
+      },
+      {
+        "text": "Shadow IT",
+        "note": "Unapproved IT."
+      },
+      {
+        "text": "Key escrow",
+        "note": "Key recovery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Federation lets identities from one organization be trusted by another, typically using SAML or OpenID Connect."
+  },
+  {
+    "id": 139,
+    "domain": "D4",
+    "scenario": "An app lets users grant it limited access to their calendar in another service without sharing their password. Which standard is this?",
+    "options": [
+      {
+        "text": "OAuth",
+        "note": ""
+      },
+      {
+        "text": "LDAP",
+        "note": "Directory queries."
+      },
+      {
+        "text": "RADIUS",
+        "note": "Network access AAA."
+      },
+      {
+        "text": "Kerberos",
+        "note": "Ticket-based authentication within a domain."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OAuth is an authorization framework that issues access tokens with limited scope. OpenID Connect adds authentication on top of it."
+  },
+  {
+    "id": 140,
+    "domain": "D4",
+    "scenario": "Access to files is based on security labels (Secret, Top Secret) assigned by the system, and users can't change them. Which access control model is this?",
+    "options": [
+      {
+        "text": "Mandatory access control (MAC)",
+        "note": ""
+      },
+      {
+        "text": "Discretionary access control (DAC)",
+        "note": "Owners decide."
+      },
+      {
+        "text": "Role-based access control",
+        "note": "Based on job roles."
+      },
+      {
+        "text": "Rule-based access control",
+        "note": "Based on rules like time of day."
+      }
+    ],
+    "answer": 0,
+    "explanation": "MAC uses labels and clearances enforced by the system. DAC lets resource owners grant access."
+  },
+  {
+    "id": 141,
+    "domain": "D4",
+    "scenario": "Access decisions consider user department, device type, location and time together. Which model is this?",
+    "options": [
+      {
+        "text": "Attribute-based access control",
+        "note": ""
+      },
+      {
+        "text": "Discretionary access control",
+        "note": "Owner-based."
+      },
+      {
+        "text": "Mandatory access control",
+        "note": "Label-based."
+      },
+      {
+        "text": "Time-of-day restrictions only",
+        "note": "Only one attribute."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ABAC evaluates many attributes of the user, resource and environment, enabling fine-grained policies."
+  },
+  {
+    "id": 142,
+    "domain": "D4",
+    "scenario": "Which login uses \"something you have\" and \"something you are\"?",
+    "options": [
+      {
+        "text": "A security key and a fingerprint",
+        "note": ""
+      },
+      {
+        "text": "A password and a PIN",
+        "note": "Both are something you know."
+      },
+      {
+        "text": "A PIN and a security question",
+        "note": "Both are something you know."
+      },
+      {
+        "text": "Two different passwords",
+        "note": "Same factor."
+      }
+    ],
+    "answer": 0,
+    "explanation": "MFA combines different factor types: something you know, something you have, something you are and somewhere you are."
+  },
+  {
+    "id": 143,
+    "domain": "D4",
+    "scenario": "Administrators get elevated rights only for a limited time when they request it for a task. What is this?",
+    "options": [
+      {
+        "text": "Just-in-time permissions",
+        "note": ""
+      },
+      {
+        "text": "Standing admin access",
+        "note": "Permanent privileges."
+      },
+      {
+        "text": "Shared accounts",
+        "note": "Poor practice."
+      },
+      {
+        "text": "Password reuse",
+        "note": "Poor practice."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Just-in-time access, password vaulting and ephemeral credentials are privileged access management (PAM) techniques that reduce standing privilege."
+  },
+  {
+    "id": 144,
+    "domain": "D4",
+    "scenario": "Which password practice is most effective according to modern guidance?",
+    "options": [
+      {
+        "text": "Long passphrases, breach checks and MFA",
+        "note": ""
+      },
+      {
+        "text": "Short complex passwords changed monthly",
+        "note": "Leads to predictable patterns."
+      },
+      {
+        "text": "Writing passwords on sticky notes",
+        "note": "Insecure."
+      },
+      {
+        "text": "Reusing one strong password everywhere",
+        "note": "One breach exposes everything."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Length, avoiding reuse, password managers and MFA matter more than frequent forced changes. Passwordless options (such as passkeys) remove passwords entirely."
+  },
+  {
+    "id": 145,
+    "domain": "D4",
+    "scenario": "Managers must periodically confirm that their team members still need their current access. What is this?",
+    "options": [
+      {
+        "text": "Access attestation",
+        "note": ""
+      },
+      {
+        "text": "Identity proofing",
+        "note": "Verifies a new user's identity."
+      },
+      {
+        "text": "Federation",
+        "note": "Shared identities."
+      },
+      {
+        "text": "Provisioning",
+        "note": "Granting initial access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Attestation catches permission creep and access that is no longer needed."
+  },
+  {
+    "id": 146,
+    "domain": "D4",
+    "scenario": "Which is a benefit of security automation and orchestration?",
+    "options": [
+      {
+        "text": "Faster, consistent responses",
+        "note": ""
+      },
+      {
+        "text": "No human oversight is needed",
+        "note": "Humans still need to oversee."
+      },
+      {
+        "text": "It eliminates technical debt",
+        "note": "It can add complexity."
+      },
+      {
+        "text": "It can't be a single point of failure",
+        "note": "It can."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Automation speeds up response, enforces standards and scales work. Considerations include complexity, cost, technical debt and single points of failure."
+  },
+  {
+    "id": 147,
+    "domain": "D4",
+    "scenario": "A new hire's accounts, group memberships and mailbox are created automatically from an HR record. Which use case is this?",
+    "options": [
+      {
+        "text": "User provisioning",
+        "note": ""
+      },
+      {
+        "text": "Threat hunting",
+        "note": "Searching for threats."
+      },
+      {
+        "text": "Penetration testing",
+        "note": "Security testing."
+      },
+      {
+        "text": "Legal hold",
+        "note": "Evidence preservation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Automating provisioning and de-provisioning improves speed and accuracy and reduces orphaned accounts."
+  },
+  {
+    "id": 148,
+    "domain": "D4",
+    "scenario": "What is the correct order of the incident response process?",
+    "options": [
+      {
+        "text": "Preparation, detection, analysis, containment, eradication, recovery, lessons learned",
+        "note": ""
+      },
+      {
+        "text": "Detection, preparation, analysis, containment, recovery, eradication, lessons learned",
+        "note": "Out of order."
+      },
+      {
+        "text": "Preparation, containment, detection, analysis, eradication, recovery, lessons learned",
+        "note": "Out of order."
+      },
+      {
+        "text": "Detection, analysis, containment, recovery, eradication, preparation, lessons learned",
+        "note": "Out of order."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lessons learned feed back into preparation. NIST groups detection and analysis together, and containment, eradication and recovery together."
+  },
+  {
+    "id": 149,
+    "domain": "D4",
+    "scenario": "Malware is spreading. The team disconnects infected hosts from the network to stop further spread. Which incident response phase is this?",
+    "options": [
+      {
+        "text": "Containment",
+        "note": ""
+      },
+      {
+        "text": "Eradication",
+        "note": "Removes the malware."
+      },
+      {
+        "text": "Recovery",
+        "note": "Restores systems."
+      },
+      {
+        "text": "Preparation",
+        "note": "Before incidents happen."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Containment limits damage. Eradication removes the cause, and recovery restores normal operations."
+  },
+  {
+    "id": 150,
+    "domain": "D4",
+    "scenario": "Analysts proactively search through logs and endpoints for signs of attackers that haven't triggered any alerts. What is this?",
+    "options": [
+      {
+        "text": "Threat hunting",
+        "note": ""
+      },
+      {
+        "text": "Vulnerability scanning",
+        "note": "Finds weaknesses, not intruders."
+      },
+      {
+        "text": "Tabletop exercise",
+        "note": "Discussion-based test."
+      },
+      {
+        "text": "Change management",
+        "note": "Approves changes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Threat hunting assumes a breach and looks for hidden activity using hypotheses and threat intelligence."
+  },
+  {
+    "id": 151,
+    "domain": "D4",
+    "scenario": "Legal counsel instructs IT to preserve all email and files related to a lawsuit, overriding normal deletion policies. What is this?",
+    "options": [
+      {
+        "text": "A legal hold",
+        "note": ""
+      },
+      {
+        "text": "Data masking",
+        "note": "Hides data."
+      },
+      {
+        "text": "Chain of custody",
+        "note": "Tracks evidence handling."
+      },
+      {
+        "text": "A retention exception",
+        "note": "Not the standard term."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A legal hold preserves potentially relevant data. E-discovery is the process of finding and producing it."
+  },
+  {
+    "id": 152,
+    "domain": "D4",
+    "scenario": "Documentation records every person who handled a seized laptop, when and why. What is this?",
+    "options": [
+      {
+        "text": "Chain of custody",
+        "note": ""
+      },
+      {
+        "text": "A legal hold",
+        "note": "Preservation instruction."
+      },
+      {
+        "text": "Acquisition",
+        "note": "Collecting the evidence."
+      },
+      {
+        "text": "Attestation",
+        "note": "Confirmation of access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Chain of custody preserves the integrity and admissibility of evidence."
+  },
+  {
+    "id": 153,
+    "domain": "D4",
+    "scenario": "When collecting digital evidence, which data should be captured first?",
+    "options": [
+      {
+        "text": "The contents of RAM",
+        "note": ""
+      },
+      {
+        "text": "Archived backups",
+        "note": "Least volatile."
+      },
+      {
+        "text": "Printed documents",
+        "note": "Not volatile."
+      },
+      {
+        "text": "A full hard drive image",
+        "note": "RAM would be lost."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The order of volatility collects data that disappears fastest first: CPU registers and cache, RAM, network state, then disk, then archives."
+  },
+  {
+    "id": 154,
+    "domain": "D4",
+    "scenario": "After an incident, the team identifies that a missing patch allowed initial access. What is this activity?",
+    "options": [
+      {
+        "text": "Root cause analysis",
+        "note": ""
+      },
+      {
+        "text": "Threat hunting",
+        "note": "Proactive search."
+      },
+      {
+        "text": "Containment",
+        "note": "Limiting spread."
+      },
+      {
+        "text": "Provisioning",
+        "note": "Granting access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Root cause analysis finds the underlying cause so lessons learned can prevent recurrence."
+  },
+  {
+    "id": 155,
+    "domain": "D4",
+    "scenario": "An analyst needs to see the actual contents of suspicious network traffic. Which data source is most useful?",
+    "options": [
+      {
+        "text": "A packet capture",
+        "note": ""
+      },
+      {
+        "text": "A vulnerability scan report",
+        "note": "Shows weaknesses, not traffic."
+      },
+      {
+        "text": "A dashboard summary",
+        "note": "Aggregated metrics."
+      },
+      {
+        "text": "An asset inventory",
+        "note": "Lists devices."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Packet captures contain full traffic for detailed analysis. Logs, NetFlow and metadata give broader but less detailed views."
+  },
+  {
+    "id": 156,
+    "domain": "D4",
+    "scenario": "Which log source shows which processes ran and which files changed on a specific laptop?",
+    "options": [
+      {
+        "text": "Endpoint logs",
+        "note": ""
+      },
+      {
+        "text": "Firewall logs",
+        "note": "Network connections only."
+      },
+      {
+        "text": "Router logs",
+        "note": "Routing events."
+      },
+      {
+        "text": "DNS server logs only",
+        "note": "Name lookups only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Endpoint and OS-specific security logs record local activity such as logons, process execution and file changes."
+  },
+  {
+    "id": 157,
+    "domain": "D5",
+    "scenario": "Which document defines how employees may and may not use company computers and networks?",
+    "options": [
+      {
+        "text": "Acceptable use policy (AUP)",
+        "note": ""
+      },
+      {
+        "text": "Service-level agreement",
+        "note": "Defines service commitments."
+      },
+      {
+        "text": "Memorandum of understanding",
+        "note": "A non-binding agreement."
+      },
+      {
+        "text": "A BIA",
+        "note": "Assesses disruption impact."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The AUP sets rules for using organizational resources, and employees typically acknowledge it."
+  },
+  {
+    "id": 158,
+    "domain": "D5",
+    "scenario": "What is the relationship between policies, standards and procedures?",
+    "options": [
+      {
+        "text": "Policies set intent; standards are mandatory; procedures are steps",
+        "note": ""
+      },
+      {
+        "text": "Procedures set intent; policies are step-by-step instructions",
+        "note": "Reversed."
+      },
+      {
+        "text": "They're interchangeable terms for one document",
+        "note": "Each has a different role."
+      },
+      {
+        "text": "Standards are optional; procedures are mandatory",
+        "note": "Guidelines are optional; standards are mandatory."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Policies state what and why, standards specify mandatory requirements (such as password length), procedures describe how, and guidelines are recommendations."
+  },
+  {
+    "id": 159,
+    "domain": "D5",
+    "scenario": "Which role is accountable for a data set and decides its classification and who should have access?",
+    "options": [
+      {
+        "text": "Data owner",
+        "note": ""
+      },
+      {
+        "text": "Data custodian",
+        "note": "Implements and maintains protections."
+      },
+      {
+        "text": "Data processor",
+        "note": "Processes data on behalf of a controller."
+      },
+      {
+        "text": "Data subject",
+        "note": "The person the data is about."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Owners are accountable (often senior business staff), and custodians or stewards handle day-to-day protection and management."
+  },
+  {
+    "id": 160,
+    "domain": "D5",
+    "scenario": "Under GDPR, a payroll company processes employee data on behalf of a client company. What is the payroll company's role?",
+    "options": [
+      {
+        "text": "Processor",
+        "note": ""
+      },
+      {
+        "text": "Controller",
+        "note": "Decides why and how data is processed."
+      },
+      {
+        "text": "Data subject",
+        "note": "The individual."
+      },
+      {
+        "text": "Data owner",
+        "note": "An internal accountability role."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The controller determines the purpose and means of processing; the processor acts on the controller's instructions."
+  },
+  {
+    "id": 161,
+    "domain": "D5",
+    "scenario": "Playbooks that guide analysts through responding to a specific type of incident are what type of governance document?",
+    "options": [
+      {
+        "text": "Procedures",
+        "note": ""
+      },
+      {
+        "text": "Policies",
+        "note": "High-level intent."
+      },
+      {
+        "text": "Standards",
+        "note": "Mandatory requirements."
+      },
+      {
+        "text": "Contracts",
+        "note": "Legal agreements."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Playbooks are procedures: step-by-step instructions for specific scenarios, such as phishing or ransomware."
+  },
+  {
+    "id": 162,
+    "domain": "D5",
+    "scenario": "A server worth $20,000 would lose 50% of its value in a fire, and a fire is expected once every 10 years. What is the annualized loss expectancy (ALE)?",
+    "options": [
+      {
+        "text": "$1,000",
+        "note": ""
+      },
+      {
+        "text": "$10,000",
+        "note": "That's the single loss expectancy."
+      },
+      {
+        "text": "$2,000",
+        "note": "Uses the wrong annual rate."
+      },
+      {
+        "text": "$100,000",
+        "note": "Multiplies instead of using the ARO."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SLE = asset value × exposure factor = $20,000 × 0.5 = $10,000. ARO = 0.1 (once in 10 years). ALE = SLE × ARO = $1,000."
+  },
+  {
+    "id": 163,
+    "domain": "D5",
+    "scenario": "What does the exposure factor represent in quantitative risk analysis?",
+    "options": [
+      {
+        "text": "Percent of asset value lost per incident",
+        "note": ""
+      },
+      {
+        "text": "How often the event occurs per year",
+        "note": "That's the ARO."
+      },
+      {
+        "text": "The total expected yearly loss",
+        "note": "That's the ALE."
+      },
+      {
+        "text": "The asset's purchase price",
+        "note": "That's the asset value."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SLE = asset value × exposure factor. ALE = SLE × ARO."
+  },
+  {
+    "id": 164,
+    "domain": "D5",
+    "scenario": "Risks are rated as low, medium or high based on expert judgment rather than dollar values. What type of analysis is this?",
+    "options": [
+      {
+        "text": "Qualitative",
+        "note": ""
+      },
+      {
+        "text": "Quantitative",
+        "note": "Uses numbers and monetary values."
+      },
+      {
+        "text": "Penetration testing",
+        "note": "A security test."
+      },
+      {
+        "text": "A gap analysis",
+        "note": "Compares to a framework."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Qualitative analysis uses ratings such as likelihood and impact on a scale. Quantitative analysis calculates monetary values."
+  },
+  {
+    "id": 165,
+    "domain": "D5",
+    "scenario": "A company buys cyber insurance to cover losses from ransomware. Which risk strategy is this?",
+    "options": [
+      {
+        "text": "Transfer",
+        "note": ""
+      },
+      {
+        "text": "Avoid",
+        "note": "Stops the risky activity."
+      },
+      {
+        "text": "Accept",
+        "note": "Takes on the risk."
+      },
+      {
+        "text": "Mitigate",
+        "note": "Reduces likelihood or impact."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Transferring shifts the financial impact to another party such as an insurer. Accepting is used when cost exceeds benefit, sometimes via formal exceptions."
+  },
+  {
+    "id": 166,
+    "domain": "D5",
+    "scenario": "A company stops offering a risky legacy service altogether to eliminate the risk. Which strategy is this?",
+    "options": [
+      {
+        "text": "Avoid",
+        "note": ""
+      },
+      {
+        "text": "Transfer",
+        "note": "Moves the impact to someone else."
+      },
+      {
+        "text": "Mitigate",
+        "note": "Reduces the risk but keeps the activity."
+      },
+      {
+        "text": "Accept",
+        "note": "Keeps the risk."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Avoidance eliminates the activity that causes the risk."
+  },
+  {
+    "id": 167,
+    "domain": "D5",
+    "scenario": "Which document lists identified risks, their owners, ratings and treatment status?",
+    "options": [
+      {
+        "text": "A risk register",
+        "note": ""
+      },
+      {
+        "text": "An AUP",
+        "note": "Acceptable use rules."
+      },
+      {
+        "text": "A CRL",
+        "note": "Revoked certificates."
+      },
+      {
+        "text": "A runbook",
+        "note": "Operational procedures."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A risk register tracks risks, owners, key risk indicators and responses over time."
+  },
+  {
+    "id": 168,
+    "domain": "D5",
+    "scenario": "Leadership says it's willing to accept higher risk to pursue rapid growth. Which risk appetite is this?",
+    "options": [
+      {
+        "text": "Expansionary",
+        "note": ""
+      },
+      {
+        "text": "Conservative",
+        "note": "Low willingness to take risk."
+      },
+      {
+        "text": "Neutral",
+        "note": "Balanced."
+      },
+      {
+        "text": "Avoidant",
+        "note": "Not a standard appetite type."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Risk appetite describes how much risk the organization will pursue (expansionary, neutral or conservative). Risk tolerance is the acceptable variation around it."
+  },
+  {
+    "id": 169,
+    "domain": "D5",
+    "scenario": "Which analysis identifies critical business functions and the impact of their disruption, and sets RTO and RPO targets?",
+    "options": [
+      {
+        "text": "A BIA",
+        "note": ""
+      },
+      {
+        "text": "A gap analysis",
+        "note": "Compares to a framework."
+      },
+      {
+        "text": "A penetration test",
+        "note": "Tests exploitability."
+      },
+      {
+        "text": "Root cause analysis",
+        "note": "Finds incident causes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The BIA drives recovery priorities and metrics such as RTO, RPO, MTTR and MTBF."
+  },
+  {
+    "id": 170,
+    "domain": "D5",
+    "scenario": "A metric is tracked because a sharp rise in it warns that a risk is becoming more likely, such as the number of failed logins. What is it?",
+    "options": [
+      {
+        "text": "A key risk indicator (KRI)",
+        "note": ""
+      },
+      {
+        "text": "A risk owner",
+        "note": "A person accountable for a risk."
+      },
+      {
+        "text": "Annualized rate of occurrence",
+        "note": "Frequency estimate."
+      },
+      {
+        "text": "An SLA",
+        "note": "Service commitment."
+      }
+    ],
+    "answer": 0,
+    "explanation": "KRIs provide early warning when risk exposure is increasing, compared against risk thresholds."
+  },
+  {
+    "id": 171,
+    "domain": "D5",
+    "scenario": "A contract clause lets the customer inspect the vendor's security controls. What is it called?",
+    "options": [
+      {
+        "text": "Right-to-audit clause",
+        "note": ""
+      },
+      {
+        "text": "Non-disclosure clause",
+        "note": "Protects confidentiality."
+      },
+      {
+        "text": "Force majeure",
+        "note": "Covers uncontrollable events."
+      },
+      {
+        "text": "Rules of engagement",
+        "note": "Defines penetration test scope."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Right-to-audit clauses support vendor assessment along with independent assessments, internal audit evidence and questionnaires."
+  },
+  {
+    "id": 172,
+    "domain": "D5",
+    "scenario": "Which agreement defines a vendor's measurable uptime and response commitments?",
+    "options": [
+      {
+        "text": "SLA",
+        "note": ""
+      },
+      {
+        "text": "NDA",
+        "note": "Confidentiality."
+      },
+      {
+        "text": "MOU",
+        "note": "A non-binding statement of intent."
+      },
+      {
+        "text": "BPA",
+        "note": "A business partnership agreement."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SLAs define measurable service levels and often penalties. An MSA sets overall terms, with SOWs or work orders for specific projects."
+  },
+  {
+    "id": 173,
+    "domain": "D5",
+    "scenario": "Two organizations sign a framework contract covering general terms, and each new project gets its own document describing the work and deliverables. What are these?",
+    "options": [
+      {
+        "text": "An MSA and SOWs",
+        "note": ""
+      },
+      {
+        "text": "An NDA and an AUP",
+        "note": "Different purposes."
+      },
+      {
+        "text": "An MOU and a BPA",
+        "note": "Unrelated."
+      },
+      {
+        "text": "An SLA and an MOA",
+        "note": "Different purposes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The MSA covers legal terms, and each SOW or work order defines specific work, timelines and deliverables."
+  },
+  {
+    "id": 174,
+    "domain": "D5",
+    "scenario": "Before signing with a new cloud vendor, a company reviews its security certifications, financial stability and history of breaches. What is this?",
+    "options": [
+      {
+        "text": "Vendor due diligence",
+        "note": ""
+      },
+      {
+        "text": "Threat hunting",
+        "note": "Searches for attackers."
+      },
+      {
+        "text": "Chain of custody",
+        "note": "Evidence tracking."
+      },
+      {
+        "text": "A legal hold",
+        "note": "Evidence preservation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Vendor due diligence includes questionnaires, reviewing audits and certifications, and checking for conflicts of interest."
+  },
+  {
+    "id": 175,
+    "domain": "D5",
+    "scenario": "A penetration testing firm and the client agree on scope, allowed techniques, timing and contacts. What is this document?",
+    "options": [
+      {
+        "text": "Rules of engagement",
+        "note": ""
+      },
+      {
+        "text": "A risk register",
+        "note": "Lists risks."
+      },
+      {
+        "text": "An AUP",
+        "note": "User rules."
+      },
+      {
+        "text": "A CRL",
+        "note": "Revoked certificates."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Rules of engagement define the boundaries and conditions of a security test, including legal authorization."
+  },
+  {
+    "id": 176,
+    "domain": "D5",
+    "scenario": "Which consequence of non-compliance is most likely to affect a company's customers' trust?",
+    "options": [
+      {
+        "text": "Reputational damage",
+        "note": ""
+      },
+      {
+        "text": "Lower electricity bills",
+        "note": "Not a consequence."
+      },
+      {
+        "text": "Faster audits",
+        "note": "Not a consequence."
+      },
+      {
+        "text": "Higher CVSS scores",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Consequences include fines, sanctions, reputational damage, loss of license and contractual impacts."
+  },
+  {
+    "id": 177,
+    "domain": "D5",
+    "scenario": "Under privacy laws such as GDPR, a customer asks the company to delete all of their personal data. Which right is this?",
+    "options": [
+      {
+        "text": "The right to erasure",
+        "note": ""
+      },
+      {
+        "text": "The right to audit",
+        "note": "A contract clause."
+      },
+      {
+        "text": "Data sovereignty",
+        "note": "Location-based law."
+      },
+      {
+        "text": "Non-repudiation",
+        "note": "Proof of origin."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data subjects can request erasure under certain conditions. Organizations need data inventories to find all of the person's data."
+  },
+  {
+    "id": 178,
+    "domain": "D5",
+    "scenario": "What's the difference between due diligence and due care?",
+    "options": [
+      {
+        "text": "Diligence is investigating; care is acting on it",
+        "note": ""
+      },
+      {
+        "text": "They're the same thing",
+        "note": "They're related but distinct."
+      },
+      {
+        "text": "Care is investigating; diligence is acting",
+        "note": "Typically the reverse."
+      },
+      {
+        "text": "Diligence covers only physical security",
+        "note": "Applies broadly."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Due diligence is investigating and knowing; due care is doing what a reasonable organization would do to protect assets."
+  },
+  {
+    "id": 179,
+    "domain": "D5",
+    "scenario": "A penetration tester receives full network diagrams and source code before testing. What type of test is this?",
+    "options": [
+      {
+        "text": "Known environment (white box)",
+        "note": ""
+      },
+      {
+        "text": "Unknown environment (black box)",
+        "note": "No prior information."
+      },
+      {
+        "text": "Partially known environment (gray box)",
+        "note": "Some information."
+      },
+      {
+        "text": "Passive reconnaissance only",
+        "note": "Doesn't involve testing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Known environment tests are thorough and efficient. Unknown environment tests simulate an external attacker with no inside knowledge."
+  },
+  {
+    "id": 180,
+    "domain": "D5",
+    "scenario": "Before testing, a pen tester searches public websites, DNS records and social media about the target without touching its systems. What is this?",
+    "options": [
+      {
+        "text": "Passive reconnaissance",
+        "note": ""
+      },
+      {
+        "text": "Active reconnaissance",
+        "note": "Directly interacts with target systems, such as port scans."
+      },
+      {
+        "text": "Exploitation",
+        "note": "Attacking vulnerabilities."
+      },
+      {
+        "text": "Lateral movement",
+        "note": "Moving between systems."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Passive reconnaissance gathers information without directly engaging the target, so it's hard to detect."
+  },
+  {
+    "id": 181,
+    "domain": "D5",
+    "scenario": "A team acts as attackers while another team defends, and they then work together to improve detection. What is this?",
+    "options": [
+      {
+        "text": "Integrated testing",
+        "note": ""
+      },
+      {
+        "text": "Physical testing only",
+        "note": "Tests facility security."
+      },
+      {
+        "text": "Passive reconnaissance",
+        "note": "Information gathering."
+      },
+      {
+        "text": "A gap analysis",
+        "note": "Framework comparison."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Offensive (red) and defensive (blue) testing can be integrated (purple) so findings directly improve defenses."
+  },
+  {
+    "id": 182,
+    "domain": "D5",
+    "scenario": "An independent firm reviews a company's controls and issues a formal report used by customers. What is this?",
+    "options": [
+      {
+        "text": "A third-party audit",
+        "note": ""
+      },
+      {
+        "text": "A self-assessment",
+        "note": "Done internally."
+      },
+      {
+        "text": "A tabletop exercise",
+        "note": "IR discussion."
+      },
+      {
+        "text": "A bug bounty",
+        "note": "External vulnerability reporting."
+      }
+    ],
+    "answer": 0,
+    "explanation": "External audits (such as SOC 2 reports) give customers and regulators independent assurance. Internal audits and self-assessments support continuous compliance."
+  },
+  {
+    "id": 183,
+    "domain": "D5",
+    "scenario": "A tester tries to enter a data center by tailgating staff and picking locks, with written authorization. What type of test is this?",
+    "options": [
+      {
+        "text": "A physical pen test",
+        "note": ""
+      },
+      {
+        "text": "A vulnerability scan",
+        "note": "Automated technical scanning."
+      },
+      {
+        "text": "A code review",
+        "note": "Reviews software."
+      },
+      {
+        "text": "A tabletop exercise",
+        "note": "Discussion only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Physical penetration testing evaluates locks, badges, guards and staff awareness."
+  },
+  {
+    "id": 184,
+    "domain": "D5",
+    "scenario": "The security team sends simulated phishing emails and provides training to employees who click. What is this?",
+    "options": [
+      {
+        "text": "A phishing simulation",
+        "note": ""
+      },
+      {
+        "text": "A real phishing attack",
+        "note": "Authorized and educational."
+      },
+      {
+        "text": "Threat hunting",
+        "note": "Searches for attackers."
+      },
+      {
+        "text": "A server penetration test",
+        "note": "Different focus."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Phishing simulations measure and improve users' ability to recognize and report phishing."
+  },
+  {
+    "id": 185,
+    "domain": "D5",
+    "scenario": "Employees are trained to report a coworker who suddenly downloads large amounts of data unrelated to their job. Which awareness topic is this?",
+    "options": [
+      {
+        "text": "Insider threat awareness",
+        "note": ""
+      },
+      {
+        "text": "Password management",
+        "note": "About credentials."
+      },
+      {
+        "text": "Removable media policy",
+        "note": "Narrower topic."
+      },
+      {
+        "text": "Clean desk policy",
+        "note": "About physical documents."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Awareness programs teach recognition of risky, unexpected or unintentional behavior and how to report it."
+  },
+  {
+    "id": 186,
+    "domain": "D5",
+    "scenario": "Why should employees avoid plugging in USB drives they find in the parking lot?",
+    "options": [
+      {
+        "text": "They may contain planted malware",
+        "note": ""
+      },
+      {
+        "text": "They're always blank",
+        "note": "Not necessarily."
+      },
+      {
+        "text": "They may be lost property",
+        "note": "Unrelated."
+      },
+      {
+        "text": "It voids the warranty",
+        "note": "Not the main reason."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Dropped USB devices (and malicious cables) are a common social engineering vector. Training covers removable media and cables."
+  },
+  {
+    "id": 187,
+    "domain": "D5",
+    "scenario": "Remote workers should use company VPNs, lock screens and avoid discussing confidential work in public places. Which awareness area is this?",
+    "options": [
+      {
+        "text": "Remote work security",
+        "note": ""
+      },
+      {
+        "text": "Data sovereignty",
+        "note": "Data location law."
+      },
+      {
+        "text": "Risk transference",
+        "note": "Insurance and contracts."
+      },
+      {
+        "text": "Change management",
+        "note": "Approving changes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Remote work training covers home networks, device security, situational awareness and operational security."
+  },
+  {
+    "id": 188,
+    "domain": "D5",
+    "scenario": "How should the effectiveness of a security awareness program be measured?",
+    "options": [
+      {
+        "text": "Track click and report rates over time",
+        "note": ""
+      },
+      {
+        "text": "Count the training modules completed",
+        "note": "Not an outcome measure."
+      },
+      {
+        "text": "Measure attendance only",
+        "note": "Attendance isn't effectiveness."
+      },
+      {
+        "text": "Survey whether employees enjoyed it",
+        "note": "No way to improve."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reporting and monitoring (initial and recurring) show whether behavior is improving and where training should focus."
+  },
+  {
+    "id": 189,
+    "domain": "D5",
+    "scenario": "A new employee completes security training on their first day, and all staff repeat it annually. What does this describe?",
+    "options": [
+      {
+        "text": "Initial and recurring training",
+        "note": ""
+      },
+      {
+        "text": "A one-time awareness event",
+        "note": "Not recurring."
+      },
+      {
+        "text": "A penetration test",
+        "note": "Security testing."
+      },
+      {
+        "text": "A risk register",
+        "note": "Risk tracking."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Effective programs train at onboarding and periodically, with updates for new threats."
+  },
+  {
+    "id": 190,
+    "domain": "D5",
+    "scenario": "Which is a common external consideration when writing security policies?",
+    "options": [
+      {
+        "text": "Regulatory and legal requirements",
+        "note": ""
+      },
+      {
+        "text": "The current IT budget only",
+        "note": "Irrelevant."
+      },
+      {
+        "text": "The number of servers owned",
+        "note": "Irrelevant."
+      },
+      {
+        "text": "The vendor's product roadmap",
+        "note": "Irrelevant."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Policies must reflect regulatory, legal, industry, and local, national and global requirements."
+  },
+  {
+    "id": 191,
+    "domain": "D5",
+    "scenario": "An organization's security decisions are made by a central committee that sets policy for all business units. What governance structure is this?",
+    "options": [
+      {
+        "text": "Centralized",
+        "note": ""
+      },
+      {
+        "text": "Decentralized",
+        "note": "Units make their own decisions."
+      },
+      {
+        "text": "Federated identity",
+        "note": "An IAM concept."
+      },
+      {
+        "text": "Air gapped",
+        "note": "Network isolation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Centralized governance gives consistency; decentralized governance gives flexibility to individual units. Boards and committees often oversee both."
+  },
+  {
+    "id": 192,
+    "domain": "D5",
+    "scenario": "Which onboarding step helps reduce insider risk from new employees?",
+    "options": [
+      {
+        "text": "Background checks and policy sign-off",
+        "note": ""
+      },
+      {
+        "text": "Granting admin rights by default",
+        "note": "Violates least privilege."
+      },
+      {
+        "text": "Sharing a team password",
+        "note": "Poor practice."
+      },
+      {
+        "text": "Delaying training for 90 days",
+        "note": "Leaves gaps."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Onboarding procedures include background checks where appropriate, policy acknowledgment (such as an AUP and NDA) and role-based access."
+  },
+  {
+    "id": 193,
+    "domain": "D5",
+    "scenario": "Which offboarding step is most critical for security?",
+    "options": [
+      {
+        "text": "Disabling accounts and recovering assets",
+        "note": ""
+      },
+      {
+        "text": "Sending a farewell email",
+        "note": "Not a security control."
+      },
+      {
+        "text": "Archiving their desk phone voicemail",
+        "note": "Not a security control."
+      },
+      {
+        "text": "Keeping access active for a month",
+        "note": "Creates risk."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Offboarding should promptly remove access, recover devices and badges, and transfer data ownership."
+  },
+  {
+    "id": 194,
+    "domain": "D5",
+    "scenario": "How often should the organization's security policies be reviewed?",
+    "options": [
+      {
+        "text": "Regularly and after major changes",
+        "note": ""
+      },
+      {
+        "text": "Never, once approved",
+        "note": "Policies become outdated."
+      },
+      {
+        "text": "Only when an auditor asks",
+        "note": "Too reactive."
+      },
+      {
+        "text": "Every day",
+        "note": "Impractical."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Monitoring and revising governance documents keeps them aligned with new threats, technology and regulations."
+  },
+  {
+    "id": 195,
+    "domain": "D5",
+    "scenario": "Which is the purpose of a compliance attestation?",
+    "options": [
+      {
+        "text": "A formal statement of compliance",
+        "note": ""
+      },
+      {
+        "text": "A malware detection method",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A type of encryption",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A risk scoring formula",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Attestation confirms compliance, often signed by management or verified by auditors."
+  }
+]

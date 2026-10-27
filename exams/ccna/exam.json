@@ -1,0 +1,19 @@
+{
+  "slug": "ccna",
+  "code": "CCNA 200-301",
+  "name": "Cisco Certified Network Associate (v2.0)",
+  "vendor": "Cisco",
+  "domains": {
+    "D1": { "name": "Network infrastructure and connectivity", "weight": "25%", "pct": 25 },
+    "D2": { "name": "Switching and network access", "weight": "25%", "pct": 25 },
+    "D3": { "name": "IP routing", "weight": "20%", "pct": 20 },
+    "D4": { "name": "Network services and security", "weight": "20%", "pct": 20 },
+    "D5": { "name": "AI, network operations and management", "weight": "10%", "pct": 10 }
+  },
+  "scoring": { "min": 0, "max": 1000, "pass": 825 },
+  "minutesPerQuestion": 1.2,
+  "defaultSize": 100,
+  "sizeOptions": [25, 50, 100],
+  "realExamNote": "Built for CCNA v2.0 (testing from February 3, 2027); most topics also apply to v1.1, which retires February 2, 2027. The real exam is 120 minutes and includes simulations; this simulator is multiple choice only.",
+  "scoreNote": "Cisco doesn't publish an official passing score; 825 of 1000 is the commonly cited target."
+}
