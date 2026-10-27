@@ -814,8 +814,12 @@ async function renderInvites() {
     </div>`;
   $('invite-form').addEventListener('submit', async (e) => {
     e.preventDefault();
-    try { await Auth.addInvite($('invite-email').value, $('invite-note').value); toast('Invited. They can now sign in with that email.'); renderInvites(); }
+    const btn = e.target.querySelector('button');
+    if (btn.disabled) return; // ignore double submits
+    btn.disabled = true;
+    try { await Auth.addInvite($('invite-email').value, $('invite-note').value); toast('Invited. They can now sign in with that email.'); }
     catch (err) { toast(/duplicate|already/i.test(err.message) ? 'That email is already invited.' : `Couldn't invite: ${err.message}`); }
+    finally { renderInvites(); } // always show the current list
   });
   box.querySelectorAll('[data-uninvite]').forEach((b) => b.addEventListener('click', async () => {
     if (!(await confirmModal('Remove invite?', `${escapeHtml(b.dataset.uninvite)} won't be able to create an account. If they already have one, it stays until you delete the user in Supabase.`, 'Remove'))) return;
