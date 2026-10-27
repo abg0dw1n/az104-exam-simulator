@@ -10,8 +10,8 @@ const SB_KEY = 'sb_publishable_SeSN5dU6RLpAYOc7o60CJA_ePJMgEOq'; // public by de
 // OAuth providers switched on in the Supabase dashboard (Authentication → Sign In / Providers).
 // Email magic links always work.
 export const PROVIDERS = [
-  // { id: 'google', label: 'Continue with Google' },
-  // { id: 'azure', label: 'Continue with Microsoft', scopes: 'email' },
+  { id: 'google', label: 'Continue with Google' },
+  { id: 'azure', label: 'Continue with Microsoft', scopes: 'email' },
 ];
 
 // Flip to true once the Supabase dashboard setup is done (hook, URLs, email).
