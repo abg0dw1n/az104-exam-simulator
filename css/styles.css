@@ -302,3 +302,13 @@ kbd { font: 11px var(--mono); padding: 1px 5px; border-radius: 4px; border: 1px 
   .score-banner h2 { font-size: 26px; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* ── Exam size picker ───────────────────────────────── */
+.exam-size { display: grid; gap: 8px; }
+.exam-size > label { font-weight: 600; font-size: 14px; }
+.size-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.size-row input {
+  width: 84px; padding: 7px 10px; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--panel-2); color: var(--text); font: 600 13px var(--mono);
+}
+.btn-ghost.active-size { border-color: var(--azure); color: var(--azure-text); background: var(--azure-soft); }
