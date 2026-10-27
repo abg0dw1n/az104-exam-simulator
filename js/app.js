@@ -699,6 +699,8 @@ function currentSlug() {
   return /^[a-z0-9-]+$/.test(slug) && slug !== 'index.html' ? slug : '';
 }
 
+const vendorKey = (v = '') => v.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
 async function renderHome() {
   document.body.classList.add('home');
   $('navigator').hidden = true;
@@ -710,10 +712,10 @@ async function renderHome() {
     const saved = readSaved(e.slug, e.legacyStorageKey);
     const last = saved?.history?.[0];
     const answered = saved ? Object.keys(saved.practice?.answers || {}).length : 0;
-    return `<a class="panel exam-card" href="/${e.slug}">
+    return `<a class="panel exam-card" href="/${e.slug}" data-vendor="${vendorKey(e.vendor)}">
       <span class="exam-vendor">${e.vendor}</span>
       <h2>${e.name}</h2>
-      <span class="chip chip-azure">${e.code}</span>
+      <span class="chip chip-vendor">${e.code}</span>
       <p class="muted small">${count ? `${count} questions` : ''}${answered ? ` · ${answered} practiced` : ''}${last ? ` · last exam <b class="${last.passed ? 'good' : 'weak'}">${last.score}</b>` : ''}</p>
     </a>`;
   }));
@@ -736,6 +738,7 @@ async function init() {
     return;
   }
   document.title = `${EXAM.code} Exam Simulator`;
+  document.body.dataset.vendor = vendorKey(EXAM.vendor);
   $('brand-title').textContent = `${EXAM.code} Exam Simulator`;
   $('brand-sub').textContent = `${EXAM.name} · ${QUESTIONS.length} questions`;
   $('mode-tabs').hidden = false;

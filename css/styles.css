@@ -328,5 +328,22 @@ body.home .exams-link { display: none; }
 }
 .exam-card:hover { border-color: var(--azure); transform: translateY(-1px); }
 .exam-card h2 { font-size: 18px; font-weight: 650; }
-.exam-vendor { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.exam-vendor { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--v-text, var(--muted)); }
+
+/* Vendor colors: --v (accent), --v-soft (tint), --v-text (readable text on panels). */
+[data-vendor] { --v: var(--azure); --v-soft: var(--azure-soft); --v-text: var(--azure-text); }
+[data-vendor="microsoft"]           { --v: #0078d4; --v-soft: rgba(0,120,212,.16);  --v-text: #5cb0f2; }
+[data-vendor="comptia"]             { --v: #e0353f; --v-soft: rgba(224,53,63,.15);  --v-text: #f47c83; }
+[data-vendor="cisco"]               { --v: #00a5a8; --v-soft: rgba(0,165,168,.16);  --v-text: #3fd0d2; }
+[data-vendor="amazon-web-services"] { --v: #ff9900; --v-soft: rgba(255,153,0,.15);  --v-text: #ffb547; }
+@media (prefers-color-scheme: light) {
+  [data-vendor="microsoft"]           { --v-soft: rgba(0,120,212,.10); --v-text: #005ba1; }
+  [data-vendor="comptia"]             { --v-soft: rgba(224,53,63,.10); --v-text: #b4212a; }
+  [data-vendor="cisco"]               { --v-soft: rgba(0,165,168,.12); --v-text: #00787a; }
+  [data-vendor="amazon-web-services"] { --v-soft: rgba(255,153,0,.14); --v-text: #a35c00; }
+}
+.exam-card[data-vendor] { border-top: 4px solid var(--v); }
+.exam-card[data-vendor]:hover { border-color: var(--v); }
+.chip-vendor { background: var(--v-soft, var(--azure-soft)); border-color: transparent; color: var(--v-text, var(--azure-text)); }
+body[data-vendor] .brand-mark rect { fill: var(--v); }
 @media (max-width: 600px) { .exams-link { padding: 7px 10px; } }
