@@ -98,7 +98,9 @@
     "name": "CompTIA A+ Core 2",
     "vendor": "CompTIA",
     "level": "beginner",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "learning": true,
+    "learningDescription": "Prepare for Windows, macOS, and Linux support; endpoint and network security; software troubleshooting; and safe, professional IT operations."
   },
   {
     "slug": "sc-900",
