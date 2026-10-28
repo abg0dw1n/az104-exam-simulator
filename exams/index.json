@@ -199,5 +199,21 @@
     "vendor": "Google Cloud",
     "level": "advanced",
     "updated": "2026-10-28"
+  },
+  {
+    "slug": "data-plus",
+    "code": "DA0-002",
+    "name": "CompTIA Data+",
+    "vendor": "CompTIA",
+    "level": "intermediate",
+    "updated": "2026-10-28"
+  },
+  {
+    "slug": "tableau-foundations",
+    "code": "Analytics-101",
+    "name": "Tableau Desktop Foundations",
+    "vendor": "Salesforce",
+    "level": "beginner",
+    "updated": "2026-10-28"
   }
 ]

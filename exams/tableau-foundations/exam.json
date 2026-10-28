@@ -1,0 +1,42 @@
+{
+  "slug": "tableau-foundations",
+  "code": "Analytics-101",
+  "name": "Salesforce Certified Tableau Desktop Foundations",
+  "vendor": "Salesforce",
+  "domains": {
+    "D1": {
+      "name": "Connecting to and preparing data",
+      "weight": "23%",
+      "pct": 23
+    },
+    "D2": {
+      "name": "Exploring and analyzing data",
+      "weight": "37%",
+      "pct": 37
+    },
+    "D3": {
+      "name": "Sharing insights",
+      "weight": "25%",
+      "pct": 25
+    },
+    "D4": {
+      "name": "Understanding Tableau concepts",
+      "weight": "15%",
+      "pct": 15
+    }
+  },
+  "scoring": {
+    "min": 0,
+    "max": 100,
+    "pass": 48
+  },
+  "minutesPerQuestion": 1.55,
+  "defaultSize": 45,
+  "sizeOptions": [
+    15,
+    30,
+    45
+  ],
+  "realExamNote": "Tableau Desktop Foundations replaced Tableau Desktop Specialist. The real exam has 40 scored questions (plus up to 5 unscored) in 70 minutes.",
+  "scoreNote": "The published passing score is 48% for the English exam; aim higher for a comfortable margin."
+}

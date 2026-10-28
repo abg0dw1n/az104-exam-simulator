@@ -1,0 +1,2002 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "A dashboard must load quickly and work offline from a large database. Which connection type fits?",
+    "options": [
+      {
+        "text": "An extract",
+        "note": ""
+      },
+      {
+        "text": "A live connection with no caching",
+        "note": "Depends on the database being reachable and fast."
+      },
+      {
+        "text": "A web data connector only",
+        "note": "A connection method, not offline storage."
+      },
+      {
+        "text": "A data source filter",
+        "note": "Limits data; not a connection type."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Extracts (.hyper files) are snapshots that can be refreshed on a schedule."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "When should a live connection be used instead of an extract?",
+    "options": [
+      {
+        "text": "When users need up-to-the-minute data from a fast database",
+        "note": ""
+      },
+      {
+        "text": "When analysts must work offline while traveling",
+        "note": "Needs an extract."
+      },
+      {
+        "text": "When the database is slow and overloaded",
+        "note": "An extract reduces load."
+      },
+      {
+        "text": "When the data never changes",
+        "note": "An extract is fine."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Live connections query the source each time the view changes."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "Which method combines two tables with the same columns, like monthly sales files, into one longer table?",
+    "options": [
+      {
+        "text": "Union",
+        "note": ""
+      },
+      {
+        "text": "Join",
+        "note": "Adds columns by matching keys."
+      },
+      {
+        "text": "Blend",
+        "note": "Combines sources at the aggregate level."
+      },
+      {
+        "text": "Pivot",
+        "note": "Turns columns into rows."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Wildcard unions can combine many files that match a pattern."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "In Tableau's data model, what's the default way to combine tables in the logical layer?",
+    "options": [
+      {
+        "text": "Relationships",
+        "note": ""
+      },
+      {
+        "text": "Physical joins",
+        "note": "Created in the physical layer."
+      },
+      {
+        "text": "Data blending",
+        "note": "Combines separate data sources."
+      },
+      {
+        "text": "Unions",
+        "note": "Stack rows."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Relationships keep tables separate and join them only as needed for each view."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "Which join returns only rows that have matching values in both tables?",
+    "options": [
+      {
+        "text": "Inner join",
+        "note": ""
+      },
+      {
+        "text": "Left join",
+        "note": "Keeps all rows from the left."
+      },
+      {
+        "text": "Full outer join",
+        "note": "Keeps all rows from both."
+      },
+      {
+        "text": "Right join",
+        "note": "Keeps all rows from the right."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Joins are defined in the physical layer by double-clicking a logical table."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "Which technique combines data from two different data sources at the aggregate level on a sheet?",
+    "options": [
+      {
+        "text": "Data blending",
+        "note": ""
+      },
+      {
+        "text": "A union",
+        "note": "Combines rows from the same structure."
+      },
+      {
+        "text": "A cross-database inner join",
+        "note": "Combines at the row level."
+      },
+      {
+        "text": "A data source filter",
+        "note": "Limits data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The primary source shows a blue check; secondary sources show an orange check."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "A spreadsheet has extra title rows and merged headers. Which feature can clean it automatically?",
+    "options": [
+      {
+        "text": "Data Interpreter",
+        "note": ""
+      },
+      {
+        "text": "Show Me",
+        "note": "Suggests chart types."
+      },
+      {
+        "text": "Analytics pane",
+        "note": "Adds reference lines and models."
+      },
+      {
+        "text": "Story points",
+        "note": "Present insights."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Review the results Data Interpreter produces."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "Monthly sales are stored as separate columns (Jan, Feb, Mar). What should be done for easier analysis?",
+    "options": [
+      {
+        "text": "Pivot the columns into rows",
+        "note": ""
+      },
+      {
+        "text": "Hide the columns",
+        "note": "Loses data in views."
+      },
+      {
+        "text": "Rename each column to 'Sales'",
+        "note": "Not allowed and confusing."
+      },
+      {
+        "text": "Create a set from the columns",
+        "note": "Sets group members of a dimension."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pivoting produces a Month field and a Sales value field."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which filter limits the data available to every sheet that uses a data source?",
+    "options": [
+      {
+        "text": "Data source filter",
+        "note": ""
+      },
+      {
+        "text": "Dimension filter on one sheet",
+        "note": "Only that sheet."
+      },
+      {
+        "text": "Quick filter card",
+        "note": "A sheet-level control."
+      },
+      {
+        "text": "Highlight action",
+        "note": "Highlights, not filters."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Extract filters reduce what is stored in the extract."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "In Tableau's order of operations, which filter is applied first?",
+    "options": [
+      {
+        "text": "Extract filter",
+        "note": ""
+      },
+      {
+        "text": "Measure filter",
+        "note": "Late in the order."
+      },
+      {
+        "text": "Table calculation filter",
+        "note": "Last."
+      },
+      {
+        "text": "Dimension filter",
+        "note": "After context filters."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Order: extract, data source, context, FIXED LOD, dimension, INCLUDE/EXCLUDE, measure, table calc filters."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "Which feature splits a 'Full Name' field into First and Last name fields?",
+    "options": [
+      {
+        "text": "Split (or custom split)",
+        "note": ""
+      },
+      {
+        "text": "Group",
+        "note": "Combines members."
+      },
+      {
+        "text": "Bin",
+        "note": "Creates ranges."
+      },
+      {
+        "text": "Alias",
+        "note": "Renames members."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Split uses separators like spaces or commas."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "A field with ZIP codes was imported as a number. What should be changed?",
+    "options": [
+      {
+        "text": "Its data type and geographic role",
+        "note": ""
+      },
+      {
+        "text": "Its default aggregation from SUM to AVG",
+        "note": "Meaningless for ZIPs."
+      },
+      {
+        "text": "Its color palette",
+        "note": "Not the issue."
+      },
+      {
+        "text": "Its sort order",
+        "note": "Not the issue."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Assigning a ZIP Code geographic role enables map plotting."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "Which feature changes how a dimension's members are displayed without changing the data, like 'NY' to 'New York'?",
+    "options": [
+      {
+        "text": "Aliases",
+        "note": ""
+      },
+      {
+        "text": "Groups",
+        "note": "Combines members."
+      },
+      {
+        "text": "Sets",
+        "note": "Defines subsets."
+      },
+      {
+        "text": "Calculated fields",
+        "note": "Possible but heavier than needed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Aliases are set by right-clicking a field and choosing Aliases."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Which file type packages a workbook with its local data and images so others can open it?",
+    "options": [
+      {
+        "text": ".twbx (packaged workbook)",
+        "note": ""
+      },
+      {
+        "text": ".twb (workbook only)",
+        "note": "References data; no data included."
+      },
+      {
+        "text": ".tds (data source)",
+        "note": "Data source definition only."
+      },
+      {
+        "text": ".hyper (extract only)",
+        "note": "Data only, no worksheets."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use .twbx when sharing with people who can't reach your data."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "Which feature restricts each salesperson to seeing only their own rows when publishing?",
+    "options": [
+      {
+        "text": "User filters (row-level security)",
+        "note": ""
+      },
+      {
+        "text": "Highlight actions on the dashboard",
+        "note": "Visual emphasis."
+      },
+      {
+        "text": "Aliases",
+        "note": "Display names."
+      },
+      {
+        "text": "Bins",
+        "note": "Ranges."
+      }
+    ],
+    "answer": 0,
+    "explanation": "User functions like USERNAME() support row-level security."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "When does an extract refresh pull new data?",
+    "options": [
+      {
+        "text": "When refreshed manually or on a schedule",
+        "note": ""
+      },
+      {
+        "text": "Every time a mark is clicked",
+        "note": "That's a live connection behavior."
+      },
+      {
+        "text": "Never; extracts are permanent",
+        "note": "They can be refreshed."
+      },
+      {
+        "text": "Only when Tableau Desktop is reinstalled or updated",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Incremental refreshes add only new rows based on a field."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "Which field type do numeric fields like Sales usually become when connecting to data?",
+    "options": [
+      {
+        "text": "Measures",
+        "note": ""
+      },
+      {
+        "text": "Dimensions",
+        "note": "Usually categorical fields."
+      },
+      {
+        "text": "Parameters",
+        "note": "User inputs."
+      },
+      {
+        "text": "Sets",
+        "note": "Subsets of members."
+      }
+    ],
+    "answer": 0,
+    "explanation": "You can convert fields between dimensions and measures."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "Which tool is designed for cleaning and shaping data before analysis in a visual flow?",
+    "options": [
+      {
+        "text": "Tableau Prep Builder",
+        "note": ""
+      },
+      {
+        "text": "Tableau Reader",
+        "note": "Views workbooks only."
+      },
+      {
+        "text": "Tableau Public viewer",
+        "note": "Views public workbooks."
+      },
+      {
+        "text": "Tableau Pulse",
+        "note": "Delivers metric insights."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Prep flows can output extracts or published data sources."
+  },
+  {
+    "id": 19,
+    "domain": "D2",
+    "scenario": "Blue pills in a Tableau view indicate which kind of field?",
+    "options": [
+      {
+        "text": "Discrete",
+        "note": ""
+      },
+      {
+        "text": "Continuous",
+        "note": "Green pills."
+      },
+      {
+        "text": "Calculated only",
+        "note": "Color shows discrete/continuous, not calculation."
+      },
+      {
+        "text": "Filtered",
+        "note": "Not indicated by blue."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Discrete fields create headers; continuous fields create axes."
+  },
+  {
+    "id": 20,
+    "domain": "D2",
+    "scenario": "What does placing a continuous field on Columns create?",
+    "options": [
+      {
+        "text": "An axis",
+        "note": ""
+      },
+      {
+        "text": "Headers",
+        "note": "Discrete fields create headers."
+      },
+      {
+        "text": "A set",
+        "note": "Not created by placement."
+      },
+      {
+        "text": "A filter",
+        "note": "Not created by placement."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Continuous dates create a timeline axis."
+  },
+  {
+    "id": 21,
+    "domain": "D2",
+    "scenario": "What is the default aggregation for a numeric measure like Sales?",
+    "options": [
+      {
+        "text": "SUM",
+        "note": ""
+      },
+      {
+        "text": "AVG",
+        "note": "Can be chosen, not default."
+      },
+      {
+        "text": "COUNT",
+        "note": "Can be chosen, not default."
+      },
+      {
+        "text": "MEDIAN",
+        "note": "Can be chosen, not default."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Change aggregation by right-clicking the pill."
+  },
+  {
+    "id": 22,
+    "domain": "D2",
+    "scenario": "Which Marks card property adds a field so marks are split without changing color or size?",
+    "options": [
+      {
+        "text": "Detail",
+        "note": ""
+      },
+      {
+        "text": "Tooltip",
+        "note": "Shows on hover only."
+      },
+      {
+        "text": "Label",
+        "note": "Shows text on marks."
+      },
+      {
+        "text": "Shape",
+        "note": "Changes mark shapes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Detail increases the level of detail of the view."
+  },
+  {
+    "id": 23,
+    "domain": "D2",
+    "scenario": "Which chart type is best for comparing sales across product categories?",
+    "options": [
+      {
+        "text": "Bar chart",
+        "note": ""
+      },
+      {
+        "text": "Line chart",
+        "note": "Trends over time."
+      },
+      {
+        "text": "Scatter plot",
+        "note": "Two measures."
+      },
+      {
+        "text": "Pie chart with many slices",
+        "note": "Hard to compare."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sort bars to make comparisons easier."
+  },
+  {
+    "id": 24,
+    "domain": "D2",
+    "scenario": "Which chart shows the relationship between Sales and Profit for each customer?",
+    "options": [
+      {
+        "text": "Scatter plot",
+        "note": ""
+      },
+      {
+        "text": "Bar chart",
+        "note": "Category comparison."
+      },
+      {
+        "text": "Highlight table",
+        "note": "Colored table."
+      },
+      {
+        "text": "Packed bubbles",
+        "note": "Size comparison."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Add a trend line from the Analytics pane."
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "scenario": "Which feature creates a histogram by grouping a measure into equal ranges?",
+    "options": [
+      {
+        "text": "Bins",
+        "note": ""
+      },
+      {
+        "text": "Sets",
+        "note": "Subsets of members."
+      },
+      {
+        "text": "Groups",
+        "note": "Combine dimension members."
+      },
+      {
+        "text": "Parameters",
+        "note": "User inputs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Right-click a measure and choose Create > Bins."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "Which feature combines dimension members, like merging 'NY' and 'New York' into one?",
+    "options": [
+      {
+        "text": "Groups",
+        "note": ""
+      },
+      {
+        "text": "Bins",
+        "note": "Ranges of measures."
+      },
+      {
+        "text": "Sets",
+        "note": "In/out subsets."
+      },
+      {
+        "text": "Parameters",
+        "note": "User inputs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Groups can also be created by selecting marks in a view."
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "scenario": "Which feature defines a custom subset of data, like Top 10 customers by sales, that can be used in/out of the set?",
+    "options": [
+      {
+        "text": "Sets",
+        "note": ""
+      },
+      {
+        "text": "Groups",
+        "note": "Combine members."
+      },
+      {
+        "text": "Bins",
+        "note": "Ranges."
+      },
+      {
+        "text": "Aliases",
+        "note": "Display names."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sets can be fixed or dynamic and support set actions."
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "scenario": "Which feature lets users enter a value, like a target, that calculations can use?",
+    "options": [
+      {
+        "text": "Parameter",
+        "note": ""
+      },
+      {
+        "text": "Set",
+        "note": "Subset of members."
+      },
+      {
+        "text": "Group",
+        "note": "Combined members."
+      },
+      {
+        "text": "Bin",
+        "note": "Ranges."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Show the parameter control so users can change it."
+  },
+  {
+    "id": 29,
+    "domain": "D2",
+    "scenario": "Which calculation returns the number of days between Order Date and Ship Date?",
+    "options": [
+      {
+        "text": "DATEDIFF('day', [Order Date], [Ship Date])",
+        "note": ""
+      },
+      {
+        "text": "DATEADD('day', [Order Date], [Ship Date])",
+        "note": "Adds intervals."
+      },
+      {
+        "text": "DATEPART('day', [Ship Date])",
+        "note": "Extracts a date part."
+      },
+      {
+        "text": "DATETRUNC('day', [Order Date])",
+        "note": "Truncates a date."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The order of the dates determines the sign of the result."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "Which function replaces NULL numeric values with zero?",
+    "options": [
+      {
+        "text": "ZN()",
+        "note": ""
+      },
+      {
+        "text": "ISNULL()",
+        "note": "Tests for NULL; returns true/false."
+      },
+      {
+        "text": "ABS()",
+        "note": "Absolute value."
+      },
+      {
+        "text": "ROUND()",
+        "note": "Rounds numbers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IFNULL(expr, value) replaces NULL with any value."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "Which LOD expression computes total sales per customer regardless of other dimensions in the view?",
+    "options": [
+      {
+        "text": "{FIXED [Customer]: SUM([Sales])}",
+        "note": ""
+      },
+      {
+        "text": "{INCLUDE [Customer]: SUM([Sales])}",
+        "note": "Adds Customer to the view level."
+      },
+      {
+        "text": "{EXCLUDE [Customer]: SUM([Sales])}",
+        "note": "Removes Customer from the view level."
+      },
+      {
+        "text": "RUNNING_SUM(SUM([Sales]))",
+        "note": "A table calculation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "FIXED ignores view dimensions and is computed before dimension filters."
+  },
+  {
+    "id": 32,
+    "domain": "D2",
+    "scenario": "Which LOD expression removes a dimension from the view's level of detail, like computing region totals in a state view?",
+    "options": [
+      {
+        "text": "EXCLUDE",
+        "note": ""
+      },
+      {
+        "text": "INCLUDE",
+        "note": "Adds detail."
+      },
+      {
+        "text": "FIXED with no dimension",
+        "note": "Grand total."
+      },
+      {
+        "text": "WINDOW_SUM",
+        "note": "A table calculation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "EXCLUDE is computed after dimension filters."
+  },
+  {
+    "id": 33,
+    "domain": "D2",
+    "scenario": "Which quick table calculation shows each category's share of the total?",
+    "options": [
+      {
+        "text": "Percent of Total",
+        "note": ""
+      },
+      {
+        "text": "Running Total",
+        "note": "Cumulative."
+      },
+      {
+        "text": "Difference",
+        "note": "Change from previous."
+      },
+      {
+        "text": "Moving Average",
+        "note": "Smoothing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check Compute Using to control the direction."
+  },
+  {
+    "id": 34,
+    "domain": "D2",
+    "scenario": "A running total restarts in each region, but the user wants one continuous total. What should be changed?",
+    "options": [
+      {
+        "text": "The table calculation's Compute Using setting",
+        "note": ""
+      },
+      {
+        "text": "The field's data type",
+        "note": "Not the issue."
+      },
+      {
+        "text": "The color palette assigned to Region",
+        "note": "Not the issue."
+      },
+      {
+        "text": "The extract refresh schedule",
+        "note": "Not the issue."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Table calculations compute along chosen dimensions (addressing) and restart per partition."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "Which filter should be made a context filter so a Top 10 filter is applied within a selected region?",
+    "options": [
+      {
+        "text": "The Region filter",
+        "note": ""
+      },
+      {
+        "text": "The Top 10 filter",
+        "note": "It should be evaluated after context."
+      },
+      {
+        "text": "A table calculation filter",
+        "note": "Applied last."
+      },
+      {
+        "text": "A measure filter on Profit",
+        "note": "Not needed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Context filters are applied before Top N and FIXED LOD calculations."
+  },
+  {
+    "id": 36,
+    "domain": "D2",
+    "scenario": "Which Analytics pane item shows the average sales across the view?",
+    "options": [
+      {
+        "text": "Average line (reference line)",
+        "note": ""
+      },
+      {
+        "text": "Cluster",
+        "note": "Groups marks."
+      },
+      {
+        "text": "Forecast",
+        "note": "Predicts future values."
+      },
+      {
+        "text": "Box plot only",
+        "note": "Shows distribution."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reference lines, bands and distributions summarize data."
+  },
+  {
+    "id": 37,
+    "domain": "D2",
+    "scenario": "Which Analytics pane feature predicts future values on a time series?",
+    "options": [
+      {
+        "text": "Forecast",
+        "note": ""
+      },
+      {
+        "text": "Cluster",
+        "note": "Groups similar marks."
+      },
+      {
+        "text": "Trend line",
+        "note": "Fits a model to existing data."
+      },
+      {
+        "text": "Totals",
+        "note": "Sums rows or columns."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Forecasting uses exponential smoothing models."
+  },
+  {
+    "id": 38,
+    "domain": "D2",
+    "scenario": "Which Analytics pane feature groups marks into similar segments automatically?",
+    "options": [
+      {
+        "text": "Cluster",
+        "note": ""
+      },
+      {
+        "text": "Forecast",
+        "note": "Time prediction."
+      },
+      {
+        "text": "Reference band",
+        "note": "Shaded range."
+      },
+      {
+        "text": "Totals",
+        "note": "Sums."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tableau uses k-means clustering."
+  },
+  {
+    "id": 39,
+    "domain": "D2",
+    "scenario": "Which feature puts two measures on the same chart with separate axes, like bars for Sales and a line for Profit?",
+    "options": [
+      {
+        "text": "Dual axis",
+        "note": ""
+      },
+      {
+        "text": "Blended axis using Measure Values",
+        "note": "Shares one axis."
+      },
+      {
+        "text": "A parameter",
+        "note": "User input."
+      },
+      {
+        "text": "A group",
+        "note": "Combined members."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Synchronize axes when the measures use the same scale."
+  },
+  {
+    "id": 40,
+    "domain": "D2",
+    "scenario": "Order Date is placed on Columns as the discrete date part MONTH. What does the view show?",
+    "options": [
+      {
+        "text": "A discrete date part that groups all years' months together",
+        "note": ""
+      },
+      {
+        "text": "A continuous date value for each month and year",
+        "note": "That's an exact date value."
+      },
+      {
+        "text": "A set containing the selected months",
+        "note": "Not created automatically."
+      },
+      {
+        "text": "A parameter",
+        "note": "Not created automatically."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Date values (continuous) keep each month-year separate."
+  },
+  {
+    "id": 41,
+    "domain": "D2",
+    "scenario": "Which calculation returns 'High' when Sales > 1000 and 'Low' otherwise?",
+    "options": [
+      {
+        "text": "IF [Sales] > 1000 THEN 'High' ELSE 'Low' END",
+        "note": ""
+      },
+      {
+        "text": "CASE [Sales] WHEN 'High' THEN 1000 END",
+        "note": "Wrong logic."
+      },
+      {
+        "text": "SUM([Sales]) > 'High'",
+        "note": "Invalid comparison."
+      },
+      {
+        "text": "ZN([Sales], 'High')",
+        "note": "Invalid use."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IIF() is a shorter alternative for simple conditions."
+  },
+  {
+    "id": 42,
+    "domain": "D2",
+    "scenario": "Which sort option orders bars by the value of a measure?",
+    "options": [
+      {
+        "text": "Sort by field (descending Sales)",
+        "note": ""
+      },
+      {
+        "text": "Alphabetic sort",
+        "note": "By name."
+      },
+      {
+        "text": "Data source order",
+        "note": "Original order."
+      },
+      {
+        "text": "Manual sort only",
+        "note": "Drag-and-drop."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use the sort buttons in the toolbar for quick sorts."
+  },
+  {
+    "id": 43,
+    "domain": "D2",
+    "scenario": "Which filter shows the top 5 products by profit?",
+    "options": [
+      {
+        "text": "A Top N filter on the Product dimension",
+        "note": ""
+      },
+      {
+        "text": "A measure filter on Profit > 5",
+        "note": "Filters by value, not rank."
+      },
+      {
+        "text": "A data source filter on Product",
+        "note": "Limits all sheets."
+      },
+      {
+        "text": "A highlight action on the five largest marks",
+        "note": "Doesn't filter."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use a parameter to let users change N."
+  },
+  {
+    "id": 44,
+    "domain": "D2",
+    "scenario": "Which feature creates a drill-down from Category to Sub-Category in a view?",
+    "options": [
+      {
+        "text": "A hierarchy",
+        "note": ""
+      },
+      {
+        "text": "A set",
+        "note": "Subset of members."
+      },
+      {
+        "text": "A bin",
+        "note": "Ranges."
+      },
+      {
+        "text": "An alias",
+        "note": "Display names."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Click the + on the pill to drill down."
+  },
+  {
+    "id": 45,
+    "domain": "D2",
+    "scenario": "Which Measure Names/Measure Values approach shows several measures in one table?",
+    "options": [
+      {
+        "text": "Put Measure Names on Rows and Measure Values on Text",
+        "note": ""
+      },
+      {
+        "text": "Create a parameter for each measure",
+        "note": "Not needed."
+      },
+      {
+        "text": "Use a data source filter on each measure",
+        "note": "Limits data."
+      },
+      {
+        "text": "Create a set of measures",
+        "note": "Sets are for dimension members."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Measure Values holds all measures in one field."
+  },
+  {
+    "id": 46,
+    "domain": "D2",
+    "scenario": "Which mark type is best for a map showing sales by state as filled areas?",
+    "options": [
+      {
+        "text": "Map (filled map)",
+        "note": ""
+      },
+      {
+        "text": "Line",
+        "note": "Trends."
+      },
+      {
+        "text": "Gantt bar",
+        "note": "Durations."
+      },
+      {
+        "text": "Square",
+        "note": "Heatmaps and treemaps."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Symbol maps use circles sized by a measure."
+  },
+  {
+    "id": 47,
+    "domain": "D2",
+    "scenario": "Which chart type is best for showing project tasks with start dates and durations?",
+    "options": [
+      {
+        "text": "Gantt chart",
+        "note": ""
+      },
+      {
+        "text": "Pie chart",
+        "note": "Composition."
+      },
+      {
+        "text": "Histogram",
+        "note": "Distribution."
+      },
+      {
+        "text": "Scatter plot",
+        "note": "Relationships."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Put duration on Size with a Gantt Bar mark."
+  },
+  {
+    "id": 48,
+    "domain": "D2",
+    "scenario": "Which table calculation function ranks products by sales within the view?",
+    "options": [
+      {
+        "text": "RANK(SUM([Sales]))",
+        "note": ""
+      },
+      {
+        "text": "SUM([Sales])",
+        "note": "Aggregates only."
+      },
+      {
+        "text": "COUNTD([Product])",
+        "note": "Counts distinct products."
+      },
+      {
+        "text": "ATTR([Product])",
+        "note": "Returns a single value or *."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RANK variants include RANK_DENSE and RANK_UNIQUE."
+  },
+  {
+    "id": 49,
+    "domain": "D3",
+    "scenario": "Which dashboard object arranges sheets so they resize together and don't overlap?",
+    "options": [
+      {
+        "text": "Tiled layout containers",
+        "note": ""
+      },
+      {
+        "text": "Floating objects only",
+        "note": "Can overlap."
+      },
+      {
+        "text": "Story points",
+        "note": "Present sequences."
+      },
+      {
+        "text": "Tooltips",
+        "note": "Hover details."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Horizontal and vertical containers keep layouts tidy."
+  },
+  {
+    "id": 50,
+    "domain": "D3",
+    "scenario": "Which dashboard action lets clicking a bar filter other sheets?",
+    "options": [
+      {
+        "text": "Filter action",
+        "note": ""
+      },
+      {
+        "text": "Highlight action",
+        "note": "Emphasizes related marks without removing data."
+      },
+      {
+        "text": "URL action",
+        "note": "Opens a web page."
+      },
+      {
+        "text": "Go to Sheet action",
+        "note": "Navigates to another sheet."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Actions can run on select, hover or menu."
+  },
+  {
+    "id": 51,
+    "domain": "D3",
+    "scenario": "Which action emphasizes related marks in other sheets while keeping all data visible?",
+    "options": [
+      {
+        "text": "Highlight action",
+        "note": ""
+      },
+      {
+        "text": "Filter action",
+        "note": "Removes other data."
+      },
+      {
+        "text": "URL action",
+        "note": "Opens links."
+      },
+      {
+        "text": "Set action",
+        "note": "Changes set members."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Highlighting helps users see relationships."
+  },
+  {
+    "id": 52,
+    "domain": "D3",
+    "scenario": "Which action opens a web page with details about the selected product?",
+    "options": [
+      {
+        "text": "URL action",
+        "note": ""
+      },
+      {
+        "text": "Filter action",
+        "note": "Filters sheets."
+      },
+      {
+        "text": "Highlight action",
+        "note": "Emphasizes marks."
+      },
+      {
+        "text": "Parameter action",
+        "note": "Changes a parameter value."
+      }
+    ],
+    "answer": 0,
+    "explanation": "URL actions can insert field values into the link."
+  },
+  {
+    "id": 53,
+    "domain": "D3",
+    "scenario": "Which action lets clicking a mark change a parameter's value?",
+    "options": [
+      {
+        "text": "Parameter action",
+        "note": ""
+      },
+      {
+        "text": "Filter action",
+        "note": "Filters data."
+      },
+      {
+        "text": "Highlight action",
+        "note": "Emphasizes marks."
+      },
+      {
+        "text": "Go to Sheet action",
+        "note": "Navigates."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Parameter actions enable interactive what-if analysis."
+  },
+  {
+    "id": 54,
+    "domain": "D3",
+    "scenario": "Which feature presents a sequence of sheets or dashboards to tell a data story?",
+    "options": [
+      {
+        "text": "Story",
+        "note": ""
+      },
+      {
+        "text": "Dashboard action",
+        "note": "Interactivity."
+      },
+      {
+        "text": "Data source filter",
+        "note": "Limits data."
+      },
+      {
+        "text": "Extract",
+        "note": "Data snapshot."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Each story point captures a view with a caption."
+  },
+  {
+    "id": 55,
+    "domain": "D3",
+    "scenario": "How can a dashboard be optimized for phones?",
+    "options": [
+      {
+        "text": "Add a phone device layout",
+        "note": ""
+      },
+      {
+        "text": "Make every sheet floating",
+        "note": "Hard to manage."
+      },
+      {
+        "text": "Remove all filters",
+        "note": "Not required."
+      },
+      {
+        "text": "Use the largest fixed size",
+        "note": "Too big for phones."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Device Designer previews desktop, tablet and phone layouts."
+  },
+  {
+    "id": 56,
+    "domain": "D3",
+    "scenario": "Which dashboard sizing option adapts to the viewer's window?",
+    "options": [
+      {
+        "text": "Automatic (or range)",
+        "note": ""
+      },
+      {
+        "text": "Fixed size",
+        "note": "Same size everywhere."
+      },
+      {
+        "text": "Letter portrait only",
+        "note": "A print size."
+      },
+      {
+        "text": "Tooltip size",
+        "note": "Not a dashboard size."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fixed sizes can render faster because they're cached."
+  },
+  {
+    "id": 57,
+    "domain": "D3",
+    "scenario": "Where can a workbook be published so anyone on the internet can view it for free?",
+    "options": [
+      {
+        "text": "Tableau Public",
+        "note": ""
+      },
+      {
+        "text": "Tableau Server behind a firewall",
+        "note": "Private to an organization."
+      },
+      {
+        "text": "Tableau Cloud site with licenses",
+        "note": "Private to an organization."
+      },
+      {
+        "text": "A local .twb file",
+        "note": "Not published."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Don't publish sensitive data to Tableau Public."
+  },
+  {
+    "id": 58,
+    "domain": "D3",
+    "scenario": "Which export option gives a stakeholder the data behind a view in a spreadsheet?",
+    "options": [
+      {
+        "text": "Export as crosstab",
+        "note": ""
+      },
+      {
+        "text": "Export as image",
+        "note": "Picture only."
+      },
+      {
+        "text": "Export as PDF",
+        "note": "Static document."
+      },
+      {
+        "text": "Copy as a story",
+        "note": "Not an export."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Download options depend on permissions when published."
+  },
+  {
+    "id": 59,
+    "domain": "D3",
+    "scenario": "Which tooltip feature shows a mini chart when hovering over a mark?",
+    "options": [
+      {
+        "text": "Viz in Tooltip",
+        "note": ""
+      },
+      {
+        "text": "Data Interpreter",
+        "note": "Cleans data."
+      },
+      {
+        "text": "Story point caption",
+        "note": "Story text."
+      },
+      {
+        "text": "Alias",
+        "note": "Display names."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Insert a sheet into the tooltip from the Tooltip editor."
+  },
+  {
+    "id": 60,
+    "domain": "D3",
+    "scenario": "Which feature lets users subscribe to receive a dashboard snapshot by email on a schedule?",
+    "options": [
+      {
+        "text": "Subscriptions on Tableau Cloud or Server",
+        "note": ""
+      },
+      {
+        "text": "Data source filters",
+        "note": "Limit data."
+      },
+      {
+        "text": "Story points shared by link",
+        "note": "A presentation, not scheduled delivery."
+      },
+      {
+        "text": "Bins",
+        "note": "Ranges."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data-driven alerts notify users when values cross thresholds."
+  },
+  {
+    "id": 61,
+    "domain": "D3",
+    "scenario": "Which dashboard object adds space between items to improve layout?",
+    "options": [
+      {
+        "text": "Blank object",
+        "note": ""
+      },
+      {
+        "text": "Extension",
+        "note": "Adds third-party features."
+      },
+      {
+        "text": "Web page object",
+        "note": "Embeds a page."
+      },
+      {
+        "text": "Navigation button",
+        "note": "Moves between sheets."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Padding settings also control spacing."
+  },
+  {
+    "id": 62,
+    "domain": "D3",
+    "scenario": "Which object lets users move between dashboards with a click?",
+    "options": [
+      {
+        "text": "Navigation button",
+        "note": ""
+      },
+      {
+        "text": "Blank object",
+        "note": "Spacing only."
+      },
+      {
+        "text": "Image object",
+        "note": "Displays images."
+      },
+      {
+        "text": "Text object",
+        "note": "Displays text."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Go to Sheet actions can do this from marks too."
+  },
+  {
+    "id": 63,
+    "domain": "D3",
+    "scenario": "A filter should apply to all sheets on a dashboard that use the same data source. What's the setting?",
+    "options": [
+      {
+        "text": "Apply to Worksheets > All Using This Data Source",
+        "note": ""
+      },
+      {
+        "text": "Only This Worksheet",
+        "note": "One sheet."
+      },
+      {
+        "text": "Selected Worksheets with none chosen",
+        "note": "No effect."
+      },
+      {
+        "text": "Make it a context filter",
+        "note": "Different purpose."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Related data sources can also share filters."
+  },
+  {
+    "id": 64,
+    "domain": "D3",
+    "scenario": "Which file format is best for sharing a static, printable version of a dashboard?",
+    "options": [
+      {
+        "text": "PDF",
+        "note": ""
+      },
+      {
+        "text": ".hyper",
+        "note": "Extract data file."
+      },
+      {
+        "text": ".tds",
+        "note": "Data source file."
+      },
+      {
+        "text": ".tflx",
+        "note": "Prep flow."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PowerPoint export is also available."
+  },
+  {
+    "id": 65,
+    "domain": "D3",
+    "scenario": "Which feature lets viewers on Tableau Cloud ask questions or get AI summaries of metrics?",
+    "options": [
+      {
+        "text": "Tableau Pulse (with AI insights)",
+        "note": ""
+      },
+      {
+        "text": "Data Interpreter",
+        "note": "Cleans data."
+      },
+      {
+        "text": "Viz in Tooltip summaries",
+        "note": "Shows charts on hover, not AI insights."
+      },
+      {
+        "text": "Aliases",
+        "note": "Display names."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tableau Pulse delivers metric insights in natural language."
+  },
+  {
+    "id": 66,
+    "domain": "D3",
+    "scenario": "Which dashboard practice improves readability?",
+    "options": [
+      {
+        "text": "Limit the number of views and use clear titles",
+        "note": ""
+      },
+      {
+        "text": "Use many fonts and colors",
+        "note": "Distracting."
+      },
+      {
+        "text": "Hide legends and labels",
+        "note": "Confusing."
+      },
+      {
+        "text": "Pack as many charts as possible",
+        "note": "Cluttered."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Place the most important view at the top left."
+  },
+  {
+    "id": 67,
+    "domain": "D3",
+    "scenario": "Which permission determines whether a viewer can download a workbook from Tableau Cloud?",
+    "options": [
+      {
+        "text": "Download/Save a Copy capability",
+        "note": ""
+      },
+      {
+        "text": "The extract refresh schedule",
+        "note": "Data updates."
+      },
+      {
+        "text": "The dashboard size",
+        "note": "Layout."
+      },
+      {
+        "text": "The workbook's default color palette",
+        "note": "Style."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Site roles and project permissions control capabilities."
+  },
+  {
+    "id": 68,
+    "domain": "D3",
+    "scenario": "Which feature lets a user save a custom version of a published dashboard with their filters applied?",
+    "options": [
+      {
+        "text": "Custom views",
+        "note": ""
+      },
+      {
+        "text": "Story points",
+        "note": "Presentation sequences."
+      },
+      {
+        "text": "Data source filters",
+        "note": "Author-level filters."
+      },
+      {
+        "text": "Packaged workbooks",
+        "note": "Files, not saved views."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Custom views can be set as the user's default."
+  },
+  {
+    "id": 69,
+    "domain": "D4",
+    "scenario": "Which product is used to author workbooks on a computer?",
+    "options": [
+      {
+        "text": "Tableau Desktop",
+        "note": ""
+      },
+      {
+        "text": "Tableau Reader",
+        "note": "Views only."
+      },
+      {
+        "text": "Tableau Cloud viewer role",
+        "note": "Views published content."
+      },
+      {
+        "text": "Tableau Pulse",
+        "note": "Metric insights."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tableau Cloud also supports web authoring."
+  },
+  {
+    "id": 70,
+    "domain": "D4",
+    "scenario": "Which offering is Tableau's fully hosted SaaS platform for sharing content?",
+    "options": [
+      {
+        "text": "Tableau Cloud",
+        "note": ""
+      },
+      {
+        "text": "Tableau Server",
+        "note": "Self-hosted by the organization."
+      },
+      {
+        "text": "Tableau Public",
+        "note": "Free and public."
+      },
+      {
+        "text": "Tableau Desktop",
+        "note": "Authoring app."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tableau Cloud was formerly called Tableau Online."
+  },
+  {
+    "id": 71,
+    "domain": "D4",
+    "scenario": "What's the difference between dimensions and measures?",
+    "options": [
+      {
+        "text": "Dimensions categorize; measures are numbers you aggregate",
+        "note": ""
+      },
+      {
+        "text": "Dimensions are always numbers",
+        "note": "Usually categories."
+      },
+      {
+        "text": "Measures can't be aggregated",
+        "note": "They usually are."
+      },
+      {
+        "text": "They're identical except for pill color",
+        "note": "Different roles."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Dimensions often determine the view's level of detail."
+  },
+  {
+    "id": 72,
+    "domain": "D4",
+    "scenario": "Which engine powers fast extracts in Tableau?",
+    "options": [
+      {
+        "text": "Hyper",
+        "note": ""
+      },
+      {
+        "text": "Prep Conductor",
+        "note": "Schedules Prep flows."
+      },
+      {
+        "text": "VizQL Server only",
+        "note": "Renders visualizations."
+      },
+      {
+        "text": "Tableau Bridge",
+        "note": "Connects Cloud to private data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hyper is an in-memory data engine optimized for analytics."
+  },
+  {
+    "id": 73,
+    "domain": "D4",
+    "scenario": "Which tool keeps Tableau Cloud connected to data behind a company firewall?",
+    "options": [
+      {
+        "text": "Tableau Bridge",
+        "note": ""
+      },
+      {
+        "text": "Tableau Reader",
+        "note": "Views workbooks."
+      },
+      {
+        "text": "Tableau Public",
+        "note": "Public hosting."
+      },
+      {
+        "text": "Tableau Prep Builder",
+        "note": "Data preparation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Bridge refreshes extracts and supports live queries to private data."
+  },
+  {
+    "id": 74,
+    "domain": "D4",
+    "scenario": "Which data type is assigned to a field with values like 2026-10-28?",
+    "options": [
+      {
+        "text": "Date",
+        "note": ""
+      },
+      {
+        "text": "String",
+        "note": "Text."
+      },
+      {
+        "text": "Boolean",
+        "note": "True/false."
+      },
+      {
+        "text": "Geographic",
+        "note": "Location role."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Date & time fields also include a time component."
+  },
+  {
+    "id": 75,
+    "domain": "D4",
+    "scenario": "What does a green pill with an axis usually represent?",
+    "options": [
+      {
+        "text": "A continuous field",
+        "note": ""
+      },
+      {
+        "text": "A discrete field",
+        "note": "Blue pills."
+      },
+      {
+        "text": "A set",
+        "note": "Not color-coded green."
+      },
+      {
+        "text": "A parameter",
+        "note": "Not shown as pills this way."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Continuous measures and dates create axes."
+  },
+  {
+    "id": 76,
+    "domain": "D4",
+    "scenario": "Which is a benefit of publishing a data source separately to Tableau Cloud?",
+    "options": [
+      {
+        "text": "Many workbooks can reuse one governed source",
+        "note": ""
+      },
+      {
+        "text": "It makes the data public on the internet automatically",
+        "note": "Not by default."
+      },
+      {
+        "text": "It removes the need for permissions",
+        "note": "Permissions still apply."
+      },
+      {
+        "text": "It prevents extract refreshes",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Certified data sources signal trusted content."
+  },
+  {
+    "id": 77,
+    "domain": "D4",
+    "scenario": "What does ATTR() return when a field has more than one value for a mark?",
+    "options": [
+      {
+        "text": "An asterisk (*)",
+        "note": ""
+      },
+      {
+        "text": "The sum of the values",
+        "note": "That's SUM."
+      },
+      {
+        "text": "The first value alphabetically",
+        "note": "That's MIN."
+      },
+      {
+        "text": "NULL always",
+        "note": "Not typical."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ATTR returns the value if all rows match; otherwise *."
+  },
+  {
+    "id": 78,
+    "domain": "D4",
+    "scenario": "Which file stores only the workbook's structure and references external data?",
+    "options": [
+      {
+        "text": ".twb",
+        "note": ""
+      },
+      {
+        "text": ".twbx",
+        "note": "Includes local data."
+      },
+      {
+        "text": ".hyper",
+        "note": "Extract data."
+      },
+      {
+        "text": ".tdsx",
+        "note": "Packaged data source."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Share .twbx when recipients can't reach the data."
+  },
+  {
+    "id": 79,
+    "domain": "D4",
+    "scenario": "Which Tableau component determines the level of detail of a view?",
+    "options": [
+      {
+        "text": "The dimensions in the view (rows, columns, marks)",
+        "note": ""
+      },
+      {
+        "text": "The color palette and font choices",
+        "note": "Style."
+      },
+      {
+        "text": "The workbook file size",
+        "note": "Not related."
+      },
+      {
+        "text": "The dashboard size",
+        "note": "Layout."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Adding a dimension to Detail increases granularity."
+  },
+  {
+    "id": 80,
+    "domain": "D4",
+    "scenario": "Which field is created automatically for every data source and counts rows?",
+    "options": [
+      {
+        "text": "Count of the table (e.g., Orders (Count))",
+        "note": ""
+      },
+      {
+        "text": "Measure Values",
+        "note": "Holds all measures."
+      },
+      {
+        "text": "Latitude (generated)",
+        "note": "For maps."
+      },
+      {
+        "text": "Number of Customers (default field)",
+        "note": "Must be created."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Older versions showed a Number of Records field."
+  }
+]

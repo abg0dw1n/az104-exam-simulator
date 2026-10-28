@@ -337,12 +337,14 @@ body.home .exams-link { display: none; }
 [data-vendor="cisco"]               { --v: #00a5a8; --v-soft: rgba(0,165,168,.16);  --v-text: #3fd0d2; }
 [data-vendor="amazon-web-services"] { --v: #ff9900; --v-soft: rgba(255,153,0,.15);  --v-text: #ffb547; }
 [data-vendor="google-cloud"]        { --v: #34a853; --v-soft: rgba(52,168,83,.16);  --v-text: #5fd17f; }
+[data-vendor="salesforce"]          { --v: #7c6cf0; --v-soft: rgba(124,108,240,.16); --v-text: #a99ff7; }
 @media (prefers-color-scheme: light) {
   [data-vendor="microsoft"]           { --v-soft: rgba(0,120,212,.10); --v-text: #005ba1; }
   [data-vendor="comptia"]             { --v-soft: rgba(224,53,63,.10); --v-text: #b4212a; }
   [data-vendor="cisco"]               { --v-soft: rgba(0,165,168,.12); --v-text: #00787a; }
   [data-vendor="amazon-web-services"] { --v-soft: rgba(255,153,0,.14); --v-text: #a35c00; }
   [data-vendor="google-cloud"]        { --v-soft: rgba(52,168,83,.12); --v-text: #1e7b3a; }
+  [data-vendor="salesforce"]          { --v-soft: rgba(124,108,240,.12); --v-text: #4f3fc4; }
 }
 .exam-card[data-vendor] { border-top: 4px solid var(--v); }
 .exam-card[data-vendor]:hover { border-color: var(--v); }

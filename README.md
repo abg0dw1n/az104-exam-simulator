@@ -22,6 +22,8 @@ Practice questions and timed exams for IT certifications, live at https://it-exa
 | Google Associate Cloud Engineer | `exams/google-ace` | 89 | ~70% (Google doesn't publish a cut score) |
 | Google Associate Data Practitioner | `exams/google-adp` | 85 | ~70% (Google doesn't publish a cut score) |
 | Google Professional Cloud Architect | `exams/google-pca` | 88 | ~70% (Google doesn't publish a cut score) |
+| CompTIA Data+ (DA0-002) | `exams/data-plus` | 95 | 675 on 100–900 to pass |
+| Tableau Desktop Foundations (Analytics-101) · beginner | `exams/tableau-foundations` | 80 | 48% to pass |
 | Microsoft Azure Administrator (AZ-104) | `exams/az-104` | 198 | 700 / 1000 to pass |
 | CompTIA Network+ (N10-009) | `exams/network-plus` | 237 | 720 on 100–900 to pass |
 | CompTIA Security+ (SY0-701) | `exams/security-plus` | 195 | 750 on 100–900 to pass |

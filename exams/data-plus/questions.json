@@ -1,0 +1,2377 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "Which database type stores data in tables linked by keys and is queried with SQL?",
+    "options": [
+      {
+        "text": "Relational database",
+        "note": ""
+      },
+      {
+        "text": "Document (NoSQL) database",
+        "note": "Stores flexible JSON-like documents."
+      },
+      {
+        "text": "Key-value store",
+        "note": "Simple key lookups."
+      },
+      {
+        "text": "Graph database",
+        "note": "Stores nodes and relationships."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Examples include PostgreSQL, MySQL and SQL Server."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "In a star schema, which table holds numeric measurements like sales amounts?",
+    "options": [
+      {
+        "text": "Fact table",
+        "note": ""
+      },
+      {
+        "text": "Dimension table",
+        "note": "Describes entities like products or dates."
+      },
+      {
+        "text": "Lookup index",
+        "note": "Not a schema table."
+      },
+      {
+        "text": "Bridge table for many-to-many links",
+        "note": "Resolves relationships, not measures."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Dimension tables hold descriptive attributes used for filtering and grouping."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "What's the main difference between a star schema and a snowflake schema?",
+    "options": [
+      {
+        "text": "Snowflake normalizes dimension tables into sub-tables",
+        "note": ""
+      },
+      {
+        "text": "Star schemas have no fact table and store only dimensions",
+        "note": "They do."
+      },
+      {
+        "text": "Snowflake schemas store only unstructured data",
+        "note": "Not true."
+      },
+      {
+        "text": "They are identical designs",
+        "note": "Different normalization."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Star schemas are simpler and often faster for reporting."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "Which system is optimized for many small inserts and updates, like recording sales at checkout?",
+    "options": [
+      {
+        "text": "OLTP",
+        "note": ""
+      },
+      {
+        "text": "OLAP cube for reporting",
+        "note": "Optimized for analysis."
+      },
+      {
+        "text": "Data lake",
+        "note": "Raw storage."
+      },
+      {
+        "text": "Data mart",
+        "note": "Subject-specific analytics."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OLAP systems are optimized for complex read queries across history."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "Which store keeps large volumes of raw data in its original format for later analysis?",
+    "options": [
+      {
+        "text": "Data lake",
+        "note": ""
+      },
+      {
+        "text": "Data mart",
+        "note": "Curated subset for one department."
+      },
+      {
+        "text": "OLTP database",
+        "note": "Transactional."
+      },
+      {
+        "text": "Spreadsheet workbook",
+        "note": "Not scalable."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A lakehouse adds warehouse-style management to lake storage."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "A JSON file with nested objects and varying fields is which data type?",
+    "options": [
+      {
+        "text": "Semi-structured",
+        "note": ""
+      },
+      {
+        "text": "Structured",
+        "note": "Fixed rows and columns."
+      },
+      {
+        "text": "Unstructured",
+        "note": "JSON has some structure."
+      },
+      {
+        "text": "Discrete numeric data",
+        "note": "Not a data structure type."
+      }
+    ],
+    "answer": 0,
+    "explanation": "XML is also semi-structured."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Which data type has a limited set of categories with a natural order, like Low, Medium, High?",
+    "options": [
+      {
+        "text": "Ordinal",
+        "note": ""
+      },
+      {
+        "text": "Nominal",
+        "note": "Categories with no order."
+      },
+      {
+        "text": "Continuous",
+        "note": "Any value in a range."
+      },
+      {
+        "text": "Interval data with a true zero",
+        "note": "That's ratio data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Nominal examples: color, city. Ordinal examples: ratings, sizes."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "Which variable is continuous?",
+    "options": [
+      {
+        "text": "Body temperature",
+        "note": ""
+      },
+      {
+        "text": "Number of children",
+        "note": "Discrete counts."
+      },
+      {
+        "text": "Customer ID",
+        "note": "Identifier."
+      },
+      {
+        "text": "T-shirt size (S, M, L)",
+        "note": "Ordinal category."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Discrete data is counted; continuous data is measured."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which file format is columnar and efficient for analytics?",
+    "options": [
+      {
+        "text": "Parquet",
+        "note": ""
+      },
+      {
+        "text": "CSV",
+        "note": "Row-based text."
+      },
+      {
+        "text": "TXT",
+        "note": "Plain text."
+      },
+      {
+        "text": "JSON with nested arrays",
+        "note": "Text, row-oriented."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Columnar formats read only the needed columns."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "What does an API commonly return when an app requests data from a web service?",
+    "options": [
+      {
+        "text": "Data in a format like JSON",
+        "note": ""
+      },
+      {
+        "text": "A printed report",
+        "note": "Not an API response."
+      },
+      {
+        "text": "A compiled executable file",
+        "note": "Not typical."
+      },
+      {
+        "text": "A database backup image",
+        "note": "Not typical."
+      }
+    ],
+    "answer": 0,
+    "explanation": "REST APIs often return JSON over HTTPS."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "Which tool is most associated with statistical analysis and data science scripting?",
+    "options": [
+      {
+        "text": "Python or R",
+        "note": ""
+      },
+      {
+        "text": "HTML",
+        "note": "Web markup."
+      },
+      {
+        "text": "CSS",
+        "note": "Web styling."
+      },
+      {
+        "text": "A word processor",
+        "note": "Documents."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Libraries like pandas and dplyr help clean and analyze data."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "What is a data mart?",
+    "options": [
+      {
+        "text": "A subject-focused subset of a data warehouse",
+        "note": ""
+      },
+      {
+        "text": "A marketplace where companies buy third-party data",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "A raw file landing zone",
+        "note": "That's closer to a data lake."
+      },
+      {
+        "text": "A transactional order system",
+        "note": "That's OLTP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Example: a sales data mart for the sales team."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "Which describes a slowly changing dimension (Type 2)?",
+    "options": [
+      {
+        "text": "History is kept by adding a new row for each change",
+        "note": ""
+      },
+      {
+        "text": "Old values are overwritten with no history",
+        "note": "That's Type 1."
+      },
+      {
+        "text": "The dimension never changes after it is first loaded",
+        "note": "That's Type 0."
+      },
+      {
+        "text": "Changes are stored only in log files",
+        "note": "Not SCD Type 2."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Type 2 rows often include effective dates and a current flag."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Which environment is commonly used to write and run analysis code with notes and charts together?",
+    "options": [
+      {
+        "text": "A Jupyter notebook",
+        "note": ""
+      },
+      {
+        "text": "A firewall console",
+        "note": "Security."
+      },
+      {
+        "text": "A BIOS setup screen",
+        "note": "Firmware."
+      },
+      {
+        "text": "An email client",
+        "note": "Messaging."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Notebooks combine code, results and narrative."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "Where does a business intelligence (BI) tool typically get its data for dashboards?",
+    "options": [
+      {
+        "text": "A data warehouse or semantic model",
+        "note": ""
+      },
+      {
+        "text": "The CPU cache",
+        "note": "Not a data source."
+      },
+      {
+        "text": "Printed reports",
+        "note": "Not live data."
+      },
+      {
+        "text": "The operating system registry on each user's PC",
+        "note": "Not business data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Examples of BI tools: Power BI, Tableau, Looker."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "Which describes AI and machine learning use in data analytics?",
+    "options": [
+      {
+        "text": "Finding patterns and making predictions from data",
+        "note": ""
+      },
+      {
+        "text": "Replacing the need for any data",
+        "note": "Needs data."
+      },
+      {
+        "text": "Guaranteeing perfectly accurate results",
+        "note": "Not guaranteed."
+      },
+      {
+        "text": "Only storing data more cheaply in compressed formats",
+        "note": "Not its purpose."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Generative AI can also help write queries and summaries, but outputs must be checked."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "What is metadata?",
+    "options": [
+      {
+        "text": "Data that describes other data",
+        "note": ""
+      },
+      {
+        "text": "Data that has been deleted",
+        "note": "Not metadata."
+      },
+      {
+        "text": "Encrypted data",
+        "note": "Not metadata."
+      },
+      {
+        "text": "Duplicate records copied into a backup table",
+        "note": "Not metadata."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Examples: column names, data types, creation dates and owners."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "Which key uniquely identifies each row in a table?",
+    "options": [
+      {
+        "text": "Primary key",
+        "note": ""
+      },
+      {
+        "text": "Foreign key",
+        "note": "References another table."
+      },
+      {
+        "text": "Composite index on two columns",
+        "note": "Not necessarily unique."
+      },
+      {
+        "text": "Sort key",
+        "note": "Orders data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A composite primary key uses more than one column."
+  },
+  {
+    "id": 19,
+    "domain": "D1",
+    "scenario": "Which cloud data service model delivers a fully managed analytics database you query without managing servers?",
+    "options": [
+      {
+        "text": "A managed (PaaS or serverless) data warehouse",
+        "note": ""
+      },
+      {
+        "text": "A physical server in your office",
+        "note": "You manage it."
+      },
+      {
+        "text": "A USB hard drive",
+        "note": "Not a service."
+      },
+      {
+        "text": "A self-built cluster of VMs that you patch and back up",
+        "note": "IaaS, you manage it."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Examples include BigQuery, Snowflake, Redshift and Fabric Warehouse."
+  },
+  {
+    "id": 20,
+    "domain": "D2",
+    "scenario": "What does ETL stand for?",
+    "options": [
+      {
+        "text": "Extract, transform, load",
+        "note": ""
+      },
+      {
+        "text": "Encrypt, transfer, log",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "Evaluate, transfer, launch",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "Export, tabulate, link",
+        "note": "Not the meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ELT loads raw data first and transforms it in the target system."
+  },
+  {
+    "id": 21,
+    "domain": "D2",
+    "scenario": "A dataset has the same customer entered twice with slightly different spellings. What's this problem?",
+    "options": [
+      {
+        "text": "Duplicate data",
+        "note": ""
+      },
+      {
+        "text": "Missing values in required fields",
+        "note": "A different issue."
+      },
+      {
+        "text": "Data outliers",
+        "note": "Extreme values."
+      },
+      {
+        "text": "Data type mismatch",
+        "note": "Wrong type."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fuzzy matching and standardization help find near-duplicates."
+  },
+  {
+    "id": 22,
+    "domain": "D2",
+    "scenario": "Which technique replaces missing numeric values with the column's average?",
+    "options": [
+      {
+        "text": "Mean imputation",
+        "note": ""
+      },
+      {
+        "text": "Deleting the whole table",
+        "note": "Too drastic."
+      },
+      {
+        "text": "Normalization to a 0–1 range",
+        "note": "Rescales values."
+      },
+      {
+        "text": "One-hot encoding",
+        "note": "Converts categories."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Imputation can bias results; document the choice."
+  },
+  {
+    "id": 23,
+    "domain": "D2",
+    "scenario": "Which data quality dimension checks that values follow the expected format, like valid email addresses?",
+    "options": [
+      {
+        "text": "Validity",
+        "note": ""
+      },
+      {
+        "text": "Timeliness",
+        "note": "How current the data is."
+      },
+      {
+        "text": "Completeness",
+        "note": "Whether values are present."
+      },
+      {
+        "text": "Uniqueness of records",
+        "note": "No duplicates."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Other dimensions: accuracy, consistency, integrity."
+  },
+  {
+    "id": 24,
+    "domain": "D2",
+    "scenario": "A 'State' column contains 'OH', 'Ohio' and 'ohio'. What should be done?",
+    "options": [
+      {
+        "text": "Standardize the values to one format",
+        "note": ""
+      },
+      {
+        "text": "Delete the column",
+        "note": "Loses data."
+      },
+      {
+        "text": "Leave it; analysts will guess",
+        "note": "Causes errors."
+      },
+      {
+        "text": "Convert each value to a random numeric code",
+        "note": "Meaningless."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Consistent values make grouping and joining accurate."
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "scenario": "Which SQL statement combines rows from two tables with matching keys only?",
+    "options": [
+      {
+        "text": "INNER JOIN",
+        "note": ""
+      },
+      {
+        "text": "LEFT JOIN",
+        "note": "Keeps all left rows."
+      },
+      {
+        "text": "FULL OUTER JOIN",
+        "note": "Keeps all rows from both."
+      },
+      {
+        "text": "UNION ALL",
+        "note": "Stacks rows, no matching."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Choose join types based on whether unmatched rows matter."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "Which SQL operation stacks rows from two queries with the same columns and removes duplicates?",
+    "options": [
+      {
+        "text": "UNION",
+        "note": ""
+      },
+      {
+        "text": "UNION ALL",
+        "note": "Keeps duplicates."
+      },
+      {
+        "text": "INNER JOIN",
+        "note": "Combines columns by key."
+      },
+      {
+        "text": "CROSS JOIN",
+        "note": "Every combination."
+      }
+    ],
+    "answer": 0,
+    "explanation": "UNION ALL is faster when duplicates don't matter."
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "scenario": "What does a LEFT JOIN return?",
+    "options": [
+      {
+        "text": "All rows from the left table and matching rows from the right",
+        "note": ""
+      },
+      {
+        "text": "Only rows that match in both tables",
+        "note": "INNER JOIN."
+      },
+      {
+        "text": "Only rows from the right table",
+        "note": "Not a LEFT JOIN."
+      },
+      {
+        "text": "Every combination of rows from both tables",
+        "note": "CROSS JOIN."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Unmatched right columns appear as NULL."
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "scenario": "Which technique converts a category column like Color into separate 0/1 columns for modeling?",
+    "options": [
+      {
+        "text": "One-hot encoding",
+        "note": ""
+      },
+      {
+        "text": "Mean imputation",
+        "note": "Fills missing values."
+      },
+      {
+        "text": "Binning",
+        "note": "Groups numbers into ranges."
+      },
+      {
+        "text": "Aggregation by category",
+        "note": "Summarizes rows."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Each category gets its own indicator column."
+  },
+  {
+    "id": 29,
+    "domain": "D2",
+    "scenario": "Which technique groups ages into ranges like 18–24 and 25–34?",
+    "options": [
+      {
+        "text": "Binning",
+        "note": ""
+      },
+      {
+        "text": "Parsing",
+        "note": "Splitting text."
+      },
+      {
+        "text": "Concatenation",
+        "note": "Joining text."
+      },
+      {
+        "text": "Transposing",
+        "note": "Swapping rows and columns."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Binning simplifies continuous data for reporting."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "Which process splits a 'Full Name' field into First and Last name columns?",
+    "options": [
+      {
+        "text": "Parsing",
+        "note": ""
+      },
+      {
+        "text": "Merging",
+        "note": "Combines data."
+      },
+      {
+        "text": "Imputation",
+        "note": "Fills missing values."
+      },
+      {
+        "text": "Normalization",
+        "note": "Rescales numbers or reduces redundancy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Text functions like SPLIT, LEFT and RIGHT help parse fields."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "Which method collects data by automatically extracting it from web pages?",
+    "options": [
+      {
+        "text": "Web scraping",
+        "note": ""
+      },
+      {
+        "text": "Survey sampling",
+        "note": "Asks people questions."
+      },
+      {
+        "text": "Manual data entry",
+        "note": "Typed by people."
+      },
+      {
+        "text": "Observation studies",
+        "note": "Records behavior."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check terms of use and privacy rules before scraping."
+  },
+  {
+    "id": 32,
+    "domain": "D2",
+    "scenario": "A survey only reaches people who visit the company website. What risk does this create?",
+    "options": [
+      {
+        "text": "Sampling bias",
+        "note": ""
+      },
+      {
+        "text": "Data duplication",
+        "note": "Not the main risk."
+      },
+      {
+        "text": "Overfitting",
+        "note": "A modeling issue."
+      },
+      {
+        "text": "Encryption failure",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Random sampling helps make results representative."
+  },
+  {
+    "id": 33,
+    "domain": "D2",
+    "scenario": "Which data source is considered primary data?",
+    "options": [
+      {
+        "text": "A survey your team ran directly",
+        "note": ""
+      },
+      {
+        "text": "A government census report",
+        "note": "Secondary."
+      },
+      {
+        "text": "A purchased industry dataset",
+        "note": "Secondary."
+      },
+      {
+        "text": "Figures quoted in a news article",
+        "note": "Secondary."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Secondary data was collected by someone else for another purpose."
+  },
+  {
+    "id": 34,
+    "domain": "D2",
+    "scenario": "Which approach reduces load time by loading only new or changed records since the last run?",
+    "options": [
+      {
+        "text": "Incremental (delta) loading",
+        "note": ""
+      },
+      {
+        "text": "Full reload every time",
+        "note": "Slower."
+      },
+      {
+        "text": "Manual copy-paste",
+        "note": "Error-prone."
+      },
+      {
+        "text": "Random sampling of rows each night",
+        "note": "Incomplete."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Change data capture (CDC) tracks changed records."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "Which value often signals a placeholder that should be cleaned, like '9999-12-31' in a date column?",
+    "options": [
+      {
+        "text": "A sentinel or default value",
+        "note": ""
+      },
+      {
+        "text": "A primary key",
+        "note": "Identifier."
+      },
+      {
+        "text": "A foreign key",
+        "note": "Reference."
+      },
+      {
+        "text": "A valid, meaningful timestamp",
+        "note": "It may look valid but means unknown."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Replace placeholders with NULLs or documented values."
+  },
+  {
+    "id": 36,
+    "domain": "D2",
+    "scenario": "Which transformation rescales values to a common range, such as 0 to 1?",
+    "options": [
+      {
+        "text": "Normalization (min-max scaling)",
+        "note": ""
+      },
+      {
+        "text": "Concatenation",
+        "note": "Joins text."
+      },
+      {
+        "text": "Deduplication of rows",
+        "note": "Removes duplicates."
+      },
+      {
+        "text": "Pivoting",
+        "note": "Reshapes data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Standardization (z-scores) is another scaling method."
+  },
+  {
+    "id": 37,
+    "domain": "D2",
+    "scenario": "Which operation turns rows of months into columns for a summary table?",
+    "options": [
+      {
+        "text": "Pivot",
+        "note": ""
+      },
+      {
+        "text": "Unpivot",
+        "note": "Columns to rows."
+      },
+      {
+        "text": "Join",
+        "note": "Combines tables."
+      },
+      {
+        "text": "Filter",
+        "note": "Removes rows."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Unpivot is useful when data arrives in wide format."
+  },
+  {
+    "id": 38,
+    "domain": "D2",
+    "scenario": "Which issue occurs when a numeric column is stored as text, preventing math?",
+    "options": [
+      {
+        "text": "Data type mismatch",
+        "note": ""
+      },
+      {
+        "text": "Duplicate records",
+        "note": "Different issue."
+      },
+      {
+        "text": "Outlier values",
+        "note": "Different issue."
+      },
+      {
+        "text": "Sampling bias in the source",
+        "note": "Different issue."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cast or convert the column to a numeric type."
+  },
+  {
+    "id": 39,
+    "domain": "D2",
+    "scenario": "What's the purpose of data profiling before analysis?",
+    "options": [
+      {
+        "text": "Understand the data's structure, quality and distributions",
+        "note": ""
+      },
+      {
+        "text": "Encrypt the data",
+        "note": "Not profiling."
+      },
+      {
+        "text": "Delete old records",
+        "note": "Not profiling."
+      },
+      {
+        "text": "Assign user permissions on each table",
+        "note": "Not profiling."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Profiling reveals nulls, ranges, distinct counts and anomalies."
+  },
+  {
+    "id": 40,
+    "domain": "D2",
+    "scenario": "Which approach should be used when merging data from two systems that use different customer IDs?",
+    "options": [
+      {
+        "text": "Create a mapping (crosswalk) table between IDs",
+        "note": ""
+      },
+      {
+        "text": "Join on customer first name only",
+        "note": "Unreliable."
+      },
+      {
+        "text": "Ignore one of the systems",
+        "note": "Loses data."
+      },
+      {
+        "text": "Assign new random IDs to every customer",
+        "note": "Breaks links."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Master data management keeps a single customer record."
+  },
+  {
+    "id": 41,
+    "domain": "D3",
+    "scenario": "The values are 2, 3, 3, 5 and 12. What is the median?",
+    "options": [
+      {
+        "text": "3",
+        "note": ""
+      },
+      {
+        "text": "5",
+        "note": "The mean."
+      },
+      {
+        "text": "12",
+        "note": "The maximum."
+      },
+      {
+        "text": "4",
+        "note": "Not a value here."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The median is the middle value when sorted; it resists outliers."
+  },
+  {
+    "id": 42,
+    "domain": "D3",
+    "scenario": "The values are 2, 3, 3, 5 and 12. What is the mean?",
+    "options": [
+      {
+        "text": "5",
+        "note": ""
+      },
+      {
+        "text": "3",
+        "note": "The median and mode."
+      },
+      {
+        "text": "12",
+        "note": "The maximum."
+      },
+      {
+        "text": "25",
+        "note": "The sum."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Mean = sum ÷ count = 25 ÷ 5 = 5."
+  },
+  {
+    "id": 43,
+    "domain": "D3",
+    "scenario": "Which measure of central tendency is the most frequent value?",
+    "options": [
+      {
+        "text": "Mode",
+        "note": ""
+      },
+      {
+        "text": "Mean",
+        "note": "The average."
+      },
+      {
+        "text": "Median",
+        "note": "The middle value."
+      },
+      {
+        "text": "Range",
+        "note": "A measure of spread."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data can have more than one mode."
+  },
+  {
+    "id": 44,
+    "domain": "D3",
+    "scenario": "Which statistic measures how spread out values are around the mean?",
+    "options": [
+      {
+        "text": "Standard deviation",
+        "note": ""
+      },
+      {
+        "text": "Median",
+        "note": "Central tendency."
+      },
+      {
+        "text": "Mode",
+        "note": "Central tendency."
+      },
+      {
+        "text": "Count",
+        "note": "Number of values."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Variance is the square of the standard deviation."
+  },
+  {
+    "id": 45,
+    "domain": "D3",
+    "scenario": "In a normal distribution, about what percentage of values fall within one standard deviation of the mean?",
+    "options": [
+      {
+        "text": "About 68%",
+        "note": ""
+      },
+      {
+        "text": "About 95%",
+        "note": "Within two standard deviations."
+      },
+      {
+        "text": "About 99.7%",
+        "note": "Within three."
+      },
+      {
+        "text": "About 50%",
+        "note": "Not correct."
+      }
+    ],
+    "answer": 0,
+    "explanation": "This is the empirical (68-95-99.7) rule."
+  },
+  {
+    "id": 46,
+    "domain": "D3",
+    "scenario": "Which result suggests a strong negative linear relationship between two variables?",
+    "options": [
+      {
+        "text": "A correlation of −0.9",
+        "note": ""
+      },
+      {
+        "text": "A correlation of 0.1",
+        "note": "Weak positive."
+      },
+      {
+        "text": "A correlation of 0",
+        "note": "No linear relationship."
+      },
+      {
+        "text": "A correlation of 0.5",
+        "note": "Moderate positive."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Correlation ranges from −1 to +1 and doesn't prove causation."
+  },
+  {
+    "id": 47,
+    "domain": "D3",
+    "scenario": "A p-value of 0.02 is found in a test with a 0.05 significance level. What should be concluded?",
+    "options": [
+      {
+        "text": "Reject the null hypothesis",
+        "note": ""
+      },
+      {
+        "text": "Accept the null hypothesis as proven",
+        "note": "You fail to reject; you don't prove it."
+      },
+      {
+        "text": "The test is invalid",
+        "note": "Not implied."
+      },
+      {
+        "text": "The effect must be large",
+        "note": "Significance isn't size."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A small p-value means the result is unlikely if the null hypothesis were true."
+  },
+  {
+    "id": 48,
+    "domain": "D3",
+    "scenario": "Which analysis type explains what happened in the past, like last quarter's sales?",
+    "options": [
+      {
+        "text": "Descriptive analysis",
+        "note": ""
+      },
+      {
+        "text": "Predictive analysis",
+        "note": "Forecasts the future."
+      },
+      {
+        "text": "Prescriptive analysis",
+        "note": "Recommends actions."
+      },
+      {
+        "text": "Inferential testing of hypotheses",
+        "note": "Draws conclusions about populations."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Diagnostic analysis explains why something happened."
+  },
+  {
+    "id": 49,
+    "domain": "D3",
+    "scenario": "Which analysis type forecasts future values, like next month's demand?",
+    "options": [
+      {
+        "text": "Predictive analysis",
+        "note": ""
+      },
+      {
+        "text": "Descriptive analysis",
+        "note": "Summarizes the past."
+      },
+      {
+        "text": "Diagnostic analysis",
+        "note": "Explains why."
+      },
+      {
+        "text": "Exploratory profiling only",
+        "note": "Initial exploration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Regression and time series models are common predictive tools."
+  },
+  {
+    "id": 50,
+    "domain": "D3",
+    "scenario": "Which analysis recommends what action to take, such as optimal pricing?",
+    "options": [
+      {
+        "text": "Prescriptive analysis",
+        "note": ""
+      },
+      {
+        "text": "Descriptive analysis",
+        "note": "What happened."
+      },
+      {
+        "text": "Diagnostic analysis",
+        "note": "Why it happened."
+      },
+      {
+        "text": "Predictive analysis",
+        "note": "What will happen."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Prescriptive analysis often uses optimization and simulation."
+  },
+  {
+    "id": 51,
+    "domain": "D3",
+    "scenario": "Which value is likely an outlier: 12, 14, 13, 15, 98?",
+    "options": [
+      {
+        "text": "98",
+        "note": ""
+      },
+      {
+        "text": "12",
+        "note": "Within the cluster."
+      },
+      {
+        "text": "15",
+        "note": "Within the cluster."
+      },
+      {
+        "text": "13",
+        "note": "Within the cluster."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The IQR rule flags values beyond 1.5 × IQR from the quartiles."
+  },
+  {
+    "id": 52,
+    "domain": "D3",
+    "scenario": "Which SQL clause filters groups after aggregation, like regions with total sales over $1M?",
+    "options": [
+      {
+        "text": "HAVING",
+        "note": ""
+      },
+      {
+        "text": "WHERE",
+        "note": "Filters rows before grouping."
+      },
+      {
+        "text": "ORDER BY",
+        "note": "Sorts results."
+      },
+      {
+        "text": "LIMIT",
+        "note": "Caps rows returned."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use WHERE for row filters and HAVING for aggregate filters."
+  },
+  {
+    "id": 53,
+    "domain": "D3",
+    "scenario": "Which SQL function counts unique customers?",
+    "options": [
+      {
+        "text": "COUNT(DISTINCT customer_id)",
+        "note": ""
+      },
+      {
+        "text": "COUNT(*)",
+        "note": "Counts all rows."
+      },
+      {
+        "text": "SUM(customer_id)",
+        "note": "Adds IDs, meaningless."
+      },
+      {
+        "text": "COUNT(customer_id) GROUP BY customer_id",
+        "note": "Returns one count per customer, not one total."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DISTINCT removes duplicates before counting."
+  },
+  {
+    "id": 54,
+    "domain": "D3",
+    "scenario": "Which calculation shows growth from 200 last year to 250 this year?",
+    "options": [
+      {
+        "text": "25% increase",
+        "note": ""
+      },
+      {
+        "text": "50% increase",
+        "note": "Wrong base."
+      },
+      {
+        "text": "20% increase",
+        "note": "That's the change as a share of the new value."
+      },
+      {
+        "text": "80% increase",
+        "note": "Not correct."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Percent change = (new − old) ÷ old × 100."
+  },
+  {
+    "id": 55,
+    "domain": "D3",
+    "scenario": "Which test compares the means of two groups, like conversion rates for two web page versions?",
+    "options": [
+      {
+        "text": "A t-test (or A/B test analysis)",
+        "note": ""
+      },
+      {
+        "text": "A chi-square test of independence",
+        "note": "Compares categorical frequencies."
+      },
+      {
+        "text": "A correlation coefficient",
+        "note": "Measures association."
+      },
+      {
+        "text": "A histogram",
+        "note": "A chart, not a test."
+      }
+    ],
+    "answer": 0,
+    "explanation": "For proportions, a z-test for proportions is also common."
+  },
+  {
+    "id": 56,
+    "domain": "D3",
+    "scenario": "Which test checks whether two categorical variables are related, like region and product preference?",
+    "options": [
+      {
+        "text": "Chi-square test",
+        "note": ""
+      },
+      {
+        "text": "t-test",
+        "note": "Compares means."
+      },
+      {
+        "text": "Linear regression",
+        "note": "Predicts numeric outcomes."
+      },
+      {
+        "text": "Moving average",
+        "note": "Smooths time series."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Chi-square compares observed and expected frequencies."
+  },
+  {
+    "id": 57,
+    "domain": "D3",
+    "scenario": "Which technique smooths short-term fluctuations in a time series?",
+    "options": [
+      {
+        "text": "Moving average",
+        "note": ""
+      },
+      {
+        "text": "One-hot encoding",
+        "note": "Encodes categories."
+      },
+      {
+        "text": "Deduplication",
+        "note": "Removes duplicates."
+      },
+      {
+        "text": "Primary key constraint",
+        "note": "Database rule."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Seasonality and trend can be separated with decomposition."
+  },
+  {
+    "id": 58,
+    "domain": "D3",
+    "scenario": "What does a window function like ROW_NUMBER() OVER (PARTITION BY region ORDER BY sales DESC) do?",
+    "options": [
+      {
+        "text": "Ranks rows within each region by sales",
+        "note": ""
+      },
+      {
+        "text": "Deletes duplicate regions",
+        "note": "Not deletion."
+      },
+      {
+        "text": "Sums all sales into one row",
+        "note": "That would be aggregation."
+      },
+      {
+        "text": "Creates a new table of ranked regions",
+        "note": "Not table creation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Window functions calculate across rows without collapsing them."
+  },
+  {
+    "id": 59,
+    "domain": "D3",
+    "scenario": "Which mistake confuses correlation with causation?",
+    "options": [
+      {
+        "text": "Assuming ice cream sales cause drownings because both rise in summer",
+        "note": ""
+      },
+      {
+        "text": "Measuring two variables together",
+        "note": "Normal practice."
+      },
+      {
+        "text": "Calculating a correlation coefficient between them",
+        "note": "Normal practice."
+      },
+      {
+        "text": "Using a scatter plot",
+        "note": "Normal practice."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A hidden third variable (temperature) drives both."
+  },
+  {
+    "id": 60,
+    "domain": "D3",
+    "scenario": "A sample's 95% confidence interval for average spend is $40–$50. What does it mean?",
+    "options": [
+      {
+        "text": "The method captures the true mean 95% of the time",
+        "note": ""
+      },
+      {
+        "text": "95% of customers spend $40–$50",
+        "note": "Not about individuals."
+      },
+      {
+        "text": "The true mean is exactly $45",
+        "note": "Not certain."
+      },
+      {
+        "text": "The data contains a 5% error rate",
+        "note": "Not the meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Larger samples give narrower intervals."
+  },
+  {
+    "id": 61,
+    "domain": "D3",
+    "scenario": "Which AI-assisted practice is appropriate when using a chatbot to write SQL?",
+    "options": [
+      {
+        "text": "Review and test the generated query before trusting it",
+        "note": ""
+      },
+      {
+        "text": "Run it on production without checking",
+        "note": "Risky."
+      },
+      {
+        "text": "Paste confidential data into a public tool",
+        "note": "Privacy risk."
+      },
+      {
+        "text": "Assume results are always correct if the query runs",
+        "note": "Risky."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Validate outputs against known totals."
+  },
+  {
+    "id": 62,
+    "domain": "D3",
+    "scenario": "Which measure is best to describe typical home prices when a few mansions skew the data?",
+    "options": [
+      {
+        "text": "Median",
+        "note": ""
+      },
+      {
+        "text": "Mean",
+        "note": "Pulled up by outliers."
+      },
+      {
+        "text": "Maximum",
+        "note": "Extreme value."
+      },
+      {
+        "text": "Sum",
+        "note": "Not typical value."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Medians are robust to skewed distributions."
+  },
+  {
+    "id": 63,
+    "domain": "D3",
+    "scenario": "What is the interquartile range (IQR)?",
+    "options": [
+      {
+        "text": "The spread between the 25th and 75th percentiles",
+        "note": ""
+      },
+      {
+        "text": "The difference between max and min",
+        "note": "That's the range."
+      },
+      {
+        "text": "The average of all values",
+        "note": "That's the mean."
+      },
+      {
+        "text": "The most common value in the data",
+        "note": "That's the mode."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Box plots display the IQR as the box."
+  },
+  {
+    "id": 64,
+    "domain": "D4",
+    "scenario": "Which chart best shows a trend in monthly revenue over two years?",
+    "options": [
+      {
+        "text": "Line chart",
+        "note": ""
+      },
+      {
+        "text": "Pie chart",
+        "note": "Parts of a whole."
+      },
+      {
+        "text": "Scatter plot",
+        "note": "Relationships between two variables."
+      },
+      {
+        "text": "Treemap of categories",
+        "note": "Hierarchical proportions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Time usually goes on the x-axis."
+  },
+  {
+    "id": 65,
+    "domain": "D4",
+    "scenario": "Which chart best compares sales across 8 product categories?",
+    "options": [
+      {
+        "text": "Bar chart",
+        "note": ""
+      },
+      {
+        "text": "Line chart over time",
+        "note": "Better for trends."
+      },
+      {
+        "text": "Pie chart with 8 slices",
+        "note": "Hard to compare many slices."
+      },
+      {
+        "text": "Histogram",
+        "note": "Shows distributions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sort bars to make comparisons easier."
+  },
+  {
+    "id": 66,
+    "domain": "D4",
+    "scenario": "Which chart shows the distribution of a single numeric variable, like order sizes?",
+    "options": [
+      {
+        "text": "Histogram",
+        "note": ""
+      },
+      {
+        "text": "Pie chart",
+        "note": "Parts of a whole."
+      },
+      {
+        "text": "Line chart",
+        "note": "Trends."
+      },
+      {
+        "text": "Stacked bar chart of categories",
+        "note": "Category composition."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Box plots also show distribution and outliers."
+  },
+  {
+    "id": 67,
+    "domain": "D4",
+    "scenario": "Which chart best shows the relationship between advertising spend and sales?",
+    "options": [
+      {
+        "text": "Scatter plot",
+        "note": ""
+      },
+      {
+        "text": "Pie chart",
+        "note": "Composition."
+      },
+      {
+        "text": "Gauge",
+        "note": "Single value."
+      },
+      {
+        "text": "Stacked area chart",
+        "note": "Composition over time."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Add a trend line to show correlation."
+  },
+  {
+    "id": 68,
+    "domain": "D4",
+    "scenario": "When is a pie chart most appropriate?",
+    "options": [
+      {
+        "text": "Showing a few parts of a whole that add to 100%",
+        "note": ""
+      },
+      {
+        "text": "Comparing 20 categories",
+        "note": "Too many slices."
+      },
+      {
+        "text": "Showing change over time",
+        "note": "Use a line chart."
+      },
+      {
+        "text": "Showing correlation between two measures",
+        "note": "Use a scatter plot."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Limit pie charts to a handful of slices."
+  },
+  {
+    "id": 69,
+    "domain": "D4",
+    "scenario": "Which visual is best for a single KPI like current month revenue versus target?",
+    "options": [
+      {
+        "text": "A KPI card or gauge",
+        "note": ""
+      },
+      {
+        "text": "A scatter plot",
+        "note": "Relationships."
+      },
+      {
+        "text": "A histogram",
+        "note": "Distributions."
+      },
+      {
+        "text": "A network diagram of sales reps",
+        "note": "Connections."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Include the target and trend for context."
+  },
+  {
+    "id": 70,
+    "domain": "D4",
+    "scenario": "Which design practice makes a dashboard easier for executives to use?",
+    "options": [
+      {
+        "text": "Put the most important metrics at the top left",
+        "note": ""
+      },
+      {
+        "text": "Use as many colors as possible",
+        "note": "Distracting."
+      },
+      {
+        "text": "Include every available chart",
+        "note": "Cluttered."
+      },
+      {
+        "text": "Hide the date range to keep it clean",
+        "note": "Misleading."
+      }
+    ],
+    "answer": 0,
+    "explanation": "People usually scan from the top left."
+  },
+  {
+    "id": 71,
+    "domain": "D4",
+    "scenario": "A bar chart's y-axis starts at 90 instead of 0, making small differences look huge. What is this?",
+    "options": [
+      {
+        "text": "A misleading truncated axis",
+        "note": ""
+      },
+      {
+        "text": "A best practice for bar charts",
+        "note": "Bars should start at zero."
+      },
+      {
+        "text": "A logarithmic scale",
+        "note": "Different technique."
+      },
+      {
+        "text": "A secondary axis",
+        "note": "Different technique."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Truncated axes exaggerate differences in bar charts."
+  },
+  {
+    "id": 72,
+    "domain": "D4",
+    "scenario": "Which color practice improves accessibility in charts?",
+    "options": [
+      {
+        "text": "Use color-blind-safe palettes and labels",
+        "note": ""
+      },
+      {
+        "text": "Use red and green to show good and bad only",
+        "note": "Hard for many color-blind viewers."
+      },
+      {
+        "text": "Use low-contrast colors",
+        "note": "Hard to read."
+      },
+      {
+        "text": "Rely on color alone for meaning",
+        "note": "Excludes some users."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Add text labels or patterns as well as color."
+  },
+  {
+    "id": 73,
+    "domain": "D4",
+    "scenario": "Which report type is delivered automatically on a schedule, like a weekly sales email?",
+    "options": [
+      {
+        "text": "A recurring (scheduled) report",
+        "note": ""
+      },
+      {
+        "text": "An ad hoc report",
+        "note": "One-time request."
+      },
+      {
+        "text": "A self-service exploration",
+        "note": "User-driven."
+      },
+      {
+        "text": "A real-time alert when a threshold is crossed",
+        "note": "Event-driven, not scheduled."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Ad hoc reports answer one-off questions."
+  },
+  {
+    "id": 74,
+    "domain": "D4",
+    "scenario": "Which dashboard type updates continuously, like a live call-center queue?",
+    "options": [
+      {
+        "text": "Real-time (operational) dashboard",
+        "note": ""
+      },
+      {
+        "text": "Static annual report",
+        "note": "Not live."
+      },
+      {
+        "text": "Printed handout",
+        "note": "Not live."
+      },
+      {
+        "text": "Monthly PDF summary",
+        "note": "Not live."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Strategic dashboards track longer-term goals."
+  },
+  {
+    "id": 75,
+    "domain": "D4",
+    "scenario": "Which element helps viewers explore a dashboard by region or date?",
+    "options": [
+      {
+        "text": "Filters and slicers",
+        "note": ""
+      },
+      {
+        "text": "Watermarks",
+        "note": "Decorative."
+      },
+      {
+        "text": "Footnotes only",
+        "note": "Static text."
+      },
+      {
+        "text": "Larger fonts and bold headings",
+        "note": "Readability."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Drill-downs let users move from summary to detail."
+  },
+  {
+    "id": 76,
+    "domain": "D4",
+    "scenario": "What should every report include so readers trust it?",
+    "options": [
+      {
+        "text": "Data sources, refresh date and definitions",
+        "note": ""
+      },
+      {
+        "text": "The analyst's personal opinions",
+        "note": "Not appropriate."
+      },
+      {
+        "text": "Every raw record",
+        "note": "Too much detail."
+      },
+      {
+        "text": "Assumptions kept off the report",
+        "note": "Reduces trust."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Document metric definitions consistently."
+  },
+  {
+    "id": 77,
+    "domain": "D4",
+    "scenario": "Who should a technical report with detailed methodology be written for?",
+    "options": [
+      {
+        "text": "Analysts and technical stakeholders",
+        "note": ""
+      },
+      {
+        "text": "The general public with no context",
+        "note": "Too detailed."
+      },
+      {
+        "text": "Executives wanting a one-line summary",
+        "note": "Too detailed."
+      },
+      {
+        "text": "No one in particular",
+        "note": "Know your audience."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tailor detail and format to the audience."
+  },
+  {
+    "id": 78,
+    "domain": "D4",
+    "scenario": "Which chart shows how parts contribute to a total across categories, like sales by region per year?",
+    "options": [
+      {
+        "text": "Stacked bar chart",
+        "note": ""
+      },
+      {
+        "text": "Scatter plot",
+        "note": "Relationships."
+      },
+      {
+        "text": "Histogram",
+        "note": "Distribution."
+      },
+      {
+        "text": "Single KPI card per region",
+        "note": "One value."
+      }
+    ],
+    "answer": 0,
+    "explanation": "100% stacked bars show proportions."
+  },
+  {
+    "id": 79,
+    "domain": "D4",
+    "scenario": "Which visual shows geographic patterns, like sales by state?",
+    "options": [
+      {
+        "text": "Choropleth (filled) map",
+        "note": ""
+      },
+      {
+        "text": "Line chart",
+        "note": "Trends."
+      },
+      {
+        "text": "Box plot",
+        "note": "Distribution."
+      },
+      {
+        "text": "Gauge per state",
+        "note": "Single value."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Normalize by population when comparing regions."
+  },
+  {
+    "id": 80,
+    "domain": "D4",
+    "scenario": "An executive asks why sales dropped. What's the best way to present findings?",
+    "options": [
+      {
+        "text": "Lead with the key insight, then supporting visuals",
+        "note": ""
+      },
+      {
+        "text": "Show raw data tables first",
+        "note": "Hard to digest."
+      },
+      {
+        "text": "Present every analysis step in order",
+        "note": "Too long."
+      },
+      {
+        "text": "Avoid any recommendation so the data speaks for itself",
+        "note": "Less useful."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data storytelling connects insights to decisions."
+  },
+  {
+    "id": 81,
+    "domain": "D4",
+    "scenario": "Which practice helps maintain consistency across many company dashboards?",
+    "options": [
+      {
+        "text": "A shared style guide and certified datasets",
+        "note": ""
+      },
+      {
+        "text": "Let each analyst invent new colors",
+        "note": "Inconsistent."
+      },
+      {
+        "text": "Use different metric definitions per team",
+        "note": "Conflicting numbers."
+      },
+      {
+        "text": "Avoid documenting calculations to save time",
+        "note": "Hard to maintain."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Governed semantic models keep metrics consistent."
+  },
+  {
+    "id": 82,
+    "domain": "D4",
+    "scenario": "A dashboard loads slowly. What's a common fix?",
+    "options": [
+      {
+        "text": "Pre-aggregate data or reduce visuals and queries",
+        "note": ""
+      },
+      {
+        "text": "Add more charts",
+        "note": "Slower."
+      },
+      {
+        "text": "Increase the font size and spacing",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Remove all filters and show raw rows",
+        "note": "Slower."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Extracts or materialized views can speed dashboards."
+  },
+  {
+    "id": 83,
+    "domain": "D5",
+    "scenario": "Which information is personally identifiable information (PII)?",
+    "options": [
+      {
+        "text": "A customer's name with their home address",
+        "note": ""
+      },
+      {
+        "text": "A company's annual revenue",
+        "note": "Not personal."
+      },
+      {
+        "text": "A product SKU",
+        "note": "Not personal."
+      },
+      {
+        "text": "The average order value for all customers",
+        "note": "Aggregate, not personal."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Protect PII with access controls, masking and encryption."
+  },
+  {
+    "id": 84,
+    "domain": "D5",
+    "scenario": "Which regulation governs personal data of people in the European Union?",
+    "options": [
+      {
+        "text": "GDPR",
+        "note": ""
+      },
+      {
+        "text": "HIPAA",
+        "note": "US health data."
+      },
+      {
+        "text": "SOX",
+        "note": "Financial reporting."
+      },
+      {
+        "text": "PCI DSS",
+        "note": "Payment card data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CCPA/CPRA covers California residents."
+  },
+  {
+    "id": 85,
+    "domain": "D5",
+    "scenario": "Which technique hides part of a value, like showing only the last 4 digits of a card number?",
+    "options": [
+      {
+        "text": "Data masking",
+        "note": ""
+      },
+      {
+        "text": "Data duplication",
+        "note": "Copies data."
+      },
+      {
+        "text": "Data normalization",
+        "note": "Restructures data."
+      },
+      {
+        "text": "Data aggregation",
+        "note": "Summarizes data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Masking supports least-privilege access to sensitive fields."
+  },
+  {
+    "id": 86,
+    "domain": "D5",
+    "scenario": "Which technique removes identifiers so data can't be linked back to individuals?",
+    "options": [
+      {
+        "text": "Anonymization",
+        "note": ""
+      },
+      {
+        "text": "Encryption with a shared key",
+        "note": "Reversible."
+      },
+      {
+        "text": "Compression",
+        "note": "Reduces size."
+      },
+      {
+        "text": "Indexing",
+        "note": "Speeds queries."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pseudonymization replaces identifiers with tokens that can be reversed by authorized parties."
+  },
+  {
+    "id": 87,
+    "domain": "D5",
+    "scenario": "Who is usually responsible for defining data quality rules and meaning for a business domain?",
+    "options": [
+      {
+        "text": "Data steward",
+        "note": ""
+      },
+      {
+        "text": "Network administrator",
+        "note": "Infrastructure."
+      },
+      {
+        "text": "Help desk technician",
+        "note": "Support."
+      },
+      {
+        "text": "Hardware vendor",
+        "note": "External."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data owners are accountable; stewards manage day-to-day quality."
+  },
+  {
+    "id": 88,
+    "domain": "D5",
+    "scenario": "What is a data dictionary?",
+    "options": [
+      {
+        "text": "Documentation of fields, definitions and data types",
+        "note": ""
+      },
+      {
+        "text": "A spell-check tool for report titles",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "A backup of the database",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "A list of user passwords",
+        "note": "Never."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data dictionaries help analysts use data consistently."
+  },
+  {
+    "id": 89,
+    "domain": "D5",
+    "scenario": "What does data lineage show?",
+    "options": [
+      {
+        "text": "Where data came from and how it was transformed",
+        "note": ""
+      },
+      {
+        "text": "Who is allowed to view a report",
+        "note": "Access control."
+      },
+      {
+        "text": "How fast a query runs",
+        "note": "Performance."
+      },
+      {
+        "text": "The monthly cost of storage",
+        "note": "Billing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lineage supports impact analysis and audits."
+  },
+  {
+    "id": 90,
+    "domain": "D5",
+    "scenario": "Which access approach limits analysts to only the data they need?",
+    "options": [
+      {
+        "text": "Role-based access control with least privilege",
+        "note": ""
+      },
+      {
+        "text": "Shared admin accounts for the analytics team",
+        "note": "No accountability."
+      },
+      {
+        "text": "Public read access",
+        "note": "Exposes data."
+      },
+      {
+        "text": "Emailing exports to everyone",
+        "note": "Uncontrolled."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Row-level security can further limit which rows users see."
+  },
+  {
+    "id": 91,
+    "domain": "D5",
+    "scenario": "What does a data retention policy define?",
+    "options": [
+      {
+        "text": "How long data is kept and when it's deleted",
+        "note": ""
+      },
+      {
+        "text": "Which charts to use",
+        "note": "Visualization."
+      },
+      {
+        "text": "How fast queries run",
+        "note": "Performance."
+      },
+      {
+        "text": "Which colors and fonts reports use",
+        "note": "Style."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Retention balances legal requirements and storage costs."
+  },
+  {
+    "id": 92,
+    "domain": "D5",
+    "scenario": "Which practice ensures one consistent version of key business entities like customers across systems?",
+    "options": [
+      {
+        "text": "Master data management (MDM)",
+        "note": ""
+      },
+      {
+        "text": "Ad hoc reporting",
+        "note": "One-off analysis."
+      },
+      {
+        "text": "Data scraping",
+        "note": "Collection method."
+      },
+      {
+        "text": "Stratified sampling",
+        "note": "Subset selection."
+      }
+    ],
+    "answer": 0,
+    "explanation": "MDM creates a golden record."
+  },
+  {
+    "id": 93,
+    "domain": "D5",
+    "scenario": "Which data quality check confirms that totals in a report match the source system?",
+    "options": [
+      {
+        "text": "Reconciliation",
+        "note": ""
+      },
+      {
+        "text": "Binning",
+        "note": "Grouping."
+      },
+      {
+        "text": "Pivoting",
+        "note": "Reshaping."
+      },
+      {
+        "text": "Concatenation of text fields",
+        "note": "Joining text."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reconcile row counts and key totals after each load."
+  },
+  {
+    "id": 94,
+    "domain": "D5",
+    "scenario": "Which describes data sovereignty?",
+    "options": [
+      {
+        "text": "Data is subject to the laws of the country where it's stored",
+        "note": ""
+      },
+      {
+        "text": "Data belongs to the analyst who created it",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "Data must be public once it's in the cloud",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "Data can only be stored in one file",
+        "note": "Not the meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud region choice affects sovereignty."
+  },
+  {
+    "id": 95,
+    "domain": "D5",
+    "scenario": "Which environment should analysts use to test changes to a dashboard before releasing it?",
+    "options": [
+      {
+        "text": "A development or test environment",
+        "note": ""
+      },
+      {
+        "text": "The live production dashboard",
+        "note": "Risky."
+      },
+      {
+        "text": "A personal email account",
+        "note": "Not an environment."
+      },
+      {
+        "text": "A public file share for draft dashboards",
+        "note": "Uncontrolled."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Version control and change approval reduce errors."
+  }
+]

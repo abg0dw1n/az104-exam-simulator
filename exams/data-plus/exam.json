@@ -1,0 +1,47 @@
+{
+  "slug": "data-plus",
+  "code": "DA0-002",
+  "name": "CompTIA Data+",
+  "vendor": "CompTIA",
+  "domains": {
+    "D1": {
+      "name": "Data concepts and environments",
+      "weight": "20%",
+      "pct": 20
+    },
+    "D2": {
+      "name": "Data acquisition and preparation",
+      "weight": "22%",
+      "pct": 22
+    },
+    "D3": {
+      "name": "Data analysis",
+      "weight": "24%",
+      "pct": 24
+    },
+    "D4": {
+      "name": "Visualization and reporting",
+      "weight": "20%",
+      "pct": 20
+    },
+    "D5": {
+      "name": "Data governance",
+      "weight": "14%",
+      "pct": 14
+    }
+  },
+  "scoring": {
+    "min": 100,
+    "max": 900,
+    "pass": 675
+  },
+  "minutesPerQuestion": 1,
+  "defaultSize": 90,
+  "sizeOptions": [
+    30,
+    60,
+    90
+  ],
+  "realExamNote": "Based on Data+ V2 (DA0-002), launched October 14, 2025. The real exam has up to 90 questions in 90 minutes, including performance-based items; this simulator is multiple choice only.",
+  "scoreNote": "CompTIA uses scaled scoring, so treat 675+ as a readiness signal, not a guarantee."
+}
