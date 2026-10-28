@@ -9,6 +9,16 @@
     {
       "title": "Microsoft Learn: AZ-104 learning paths",
       "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-administrator/"
+    },
+    {
+      "title": "Microsoft Learn: AZ-104 Azure Administrator video course (YouTube playlist)",
+      "url": "https://www.youtube.com/playlist?list=PLahhVEj9XNTcj4dwEwRHozO3xcxI_UHYG",
+      "note": "Free · full course · compare with the current study guide"
+    },
+    {
+      "title": "Microsoft Learn: Prepare for the AZ-104 exam (June 2026 video)",
+      "url": "https://www.youtube.com/watch?v=w_G1Rufop-s",
+      "note": "Free · official exam prep · published June 2026"
     }
   ],
   "modules": [
