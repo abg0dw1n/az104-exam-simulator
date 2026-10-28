@@ -59,18 +59,25 @@ function open(moduleId, tab = 'guide') {
 }
 
 function studySupport() {
-  const resources = [...(data.resources || []), ...(data.sources || [])];
-  const unique = [...new Map(resources.filter((r) => r?.url && r?.title).map((r) => [r.url, r])).values()];
-  return `<aside class="learn-study-support" aria-label="Study scope and free supplemental resources">
+  return `<aside class="learn-study-support" aria-label="Study scope">
     <div class="learn-study-disclaimer">
       <span class="learn-support-label">Study scope</span>
-      <p>These materials provide a basic introduction across every published exam domain, but they are not exhaustive and do not guarantee exam readiness. Use the current official objectives, the free resources below, and hands-on practice where applicable.</p>
+      <p>These materials provide a basic introduction across every published exam domain, but they are not exhaustive and do not guarantee exam readiness. Use the current official objectives and hands-on practice where applicable.</p>
     </div>
-    ${unique.length ? `<div class="learn-support-resources">
-      <h3>Free supplemental resources</h3>
-      <ul>${unique.map((r) => `<li><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}</a><span>${esc(r.note || 'Free')}</span></li>`).join('')}</ul>
-    </div>` : ''}
   </aside>`;
+}
+
+function learningResources() {
+  const resources = [...(data.resources || []), ...(data.sources || [])];
+  const unique = [...new Map(resources.filter((r) => r?.url && r?.title).map((r) => [r.url, r])).values()];
+  if (!unique.length) return '';
+  return `<section class="panel learn-resources-card" aria-labelledby="learn-resources-title">
+    <div>
+      <span class="learn-support-label">Keep studying</span>
+      <h3 id="learn-resources-title">Free supplemental resources</h3>
+    </div>
+    <ul>${unique.map((r) => `<li><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}</a><span>${esc(r.note || 'Free')}</span></li>`).join('')}</ul>
+  </section>`;
 }
 
 // ── Module list ──────────────────────────────────────────────────────────────
@@ -95,7 +102,7 @@ function renderIndex(main) {
       <div class="stack" style="gap:6px"><h2 class="home-title">Learn ${esc(ctx.exam.code)}</h2>
       <p class="muted">${esc(data.intro || 'Work through each domain: read the study guide, flip through the slides, then watch the video lesson.')}</p></div>
       ${studySupport()}
-      <div class="learn-grid">${cards}</div>
+      <div class="learn-grid">${cards}${learningResources()}</div>
     </section>`;
   main.querySelectorAll('[data-open]').forEach((b) => b.addEventListener('click', () => open(b.dataset.open, b.dataset.tab)));
 }
