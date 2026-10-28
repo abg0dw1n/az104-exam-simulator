@@ -987,6 +987,17 @@ async function renderHome() {
       </div>
       <div class="learning-path-grid">${learningCards}</div>
     </section>
+    <section class="request-section" aria-labelledby="request-title">
+      <div class="request-copy">
+        <span class="eyebrow">HELP SHAPE WHAT COMES NEXT</span>
+        <h2 id="request-title">Request a course or exam</h2>
+        <p>Tell us which certification you’re studying for and what learning materials would help. Requests help us prioritize future additions.</p>
+      </div>
+      <div class="request-action">
+        <a class="btn btn-primary" href="https://github.com/abg0dw1n/az104-exam-simulator/issues/new?template=course-exam-request.yml" target="_blank" rel="noopener noreferrer">Submit a request ${icon("right","icon")}</a>
+        <p>Requests are public on GitHub. A GitHub account is required. Please don’t include personal or sensitive information.</p>
+      </div>
+    </section>
     <section class="practice-section" id="practice" aria-labelledby="practice-title">
     <div class="catalog-heading">
       <div class="stack" style="gap:6px"><span class="eyebrow">CERTIFICATION LIBRARY</span><h2 class="home-title" id="practice-title">Choose a certification to practice</h2>
