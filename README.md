@@ -159,6 +159,10 @@ Hosted on Vercel; every push to `main` deploys automatically. No build settings 
 `updated` in `exams/index.json` records when each exam's files last changed.
 After committing question changes, run `node scripts/stamp-updated.mjs` and commit `exams/index.json`. It also records each bank's question count (`"questions"`), which the home page shows without downloading every bank; `validate-questions.mjs` fails if a count is out of date.
 
+## Feature requests
+
+Signed-in users can suggest site features from the home page ("Have an idea for the site?") or the Account page. Requests go to the `feature_requests` table: people see only their own, with its status (Submitted, Planned, In progress, Done, Not planned) and any note from the site owner; admins see everyone's on the Account page and update status/notes there. Limited to 10 requests per person per day.
+
 ## Guest mode
 
 The sign-in screen has **Continue as guest**. Guests can use everything except question reports, but nothing is saved to an account: progress is kept in `sessionStorage` for that tab only and is cleared when the tab closes. A banner reminds guests of this, with a link to sign in (which discards the guest progress). Guests can read the Most popular ranking but don't add views.

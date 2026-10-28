@@ -1113,7 +1113,13 @@ async function renderHome() {
         <p>Requests are public on GitHub. A GitHub account is required. Please don’t include personal or sensitive information.</p>
       </div>
     </section>
+    ${Auth.currentUser() ? `<section class="feature-strip" aria-labelledby="feature-strip-title">
+      <div><h3 id="feature-strip-title">${icon('bulb')}Have an idea for the site?</h3>
+        <p class="muted small">Suggest a feature or improvement. Only the site owner sees it, and you can follow its status on your <a href="/account#features">Account page</a>.</p></div>
+      <button class="btn btn-ghost" data-feature-new>Suggest a feature</button>
+    </section>` : ''}
   </section>`;
+  $('main').querySelector('[data-feature-new]')?.addEventListener('click', () => openFeatureForm());
   const grid = $('exam-grid');
   const search = $('exam-search');
   let activeProvider = 'all';
@@ -1248,6 +1254,7 @@ async function renderAccountPage() {
         <div class="account-actions"><a class="btn btn-ghost btn-sm" href="/privacy">Privacy policy</a>
           ${user ? '<button id="btn-signout" class="btn btn-ghost btn-sm">Sign out</button>' : ''}</div>
       </div>
+      <div id="features" class="stack"></div>
       <div id="invites" class="stack"></div>
     </section>`;
   $('btn-signout')?.addEventListener('click', async () => {
@@ -1257,6 +1264,95 @@ async function renderAccountPage() {
     location.assign('/');
   });
   renderInvites();
+  renderFeatureRequests();
+}
+
+// ── Feature requests ─────────────────────────────────────────────────────────
+const FEATURE_CATEGORIES = {
+  learning: 'Learning paths and lessons', practice: 'Practice questions', exams: 'Timed exams and scoring',
+  design: 'Look and feel', account: 'Account and sign-in', other: 'Something else',
+};
+const FEATURE_STATUS = { new: 'Submitted', planned: 'Planned', 'in-progress': 'In progress', done: 'Done', declined: 'Not planned' };
+
+// Opens the suggestion form; reopens with the same text if the title is too short.
+async function openFeatureForm(prefill = {}) {
+  const body = `<div class="report-form">
+      <p class="small">Suggest something that would make the site better. Only the site owner sees your request.</p>
+      <label class="small">Area
+        <select id="feature-category">${Object.entries(FEATURE_CATEGORIES).map(([k, v]) =>
+          `<option value="${k}" ${prefill.category === k ? 'selected' : ''}>${v}</option>`).join('')}</select>
+      </label>
+      <label class="small">Your idea, in a few words
+        <input id="feature-title" type="text" maxlength="120" required placeholder="For example: flashcards for key terms" value="${escapeHtml(prefill.title || '')}">
+      </label>
+      <label class="small">Details (optional)
+        <textarea id="feature-details" rows="4" maxlength="2000" placeholder="What would it help you do? How would you use it?">${escapeHtml(prefill.details || '')}</textarea>
+      </label>
+    </div>`;
+  if (!(await confirmModal('Suggest a feature', body, 'Send suggestion'))) return;
+  const form = { category: $('feature-category').value, title: $('feature-title').value.trim(), details: $('feature-details').value };
+  if (form.title.length < 3) { toast('Add a short title for your idea (at least 3 characters).'); return openFeatureForm(form); }
+  try {
+    await Auth.submitFeatureRequest(form);
+    toast('Thanks! Your suggestion was sent. Track it on your Account page.');
+    if ($('features')) renderFeatureRequests();
+  } catch (err) {
+    toast(`Couldn't send your suggestion: ${err.message}`);
+  }
+}
+
+async function renderFeatureRequests() {
+  const box = $('features');
+  if (!box || !Auth.currentUser()) return;
+  let rows = [];
+  let isAdmin = false;
+  try {
+    [rows, isAdmin] = await Promise.all([
+      Auth.listFeatureRequests(),
+      Auth.listInvites().then((r) => !!r?.length).catch(() => false),
+    ]);
+  } catch { rows = []; }
+  const me = Auth.currentUser().id;
+  const fmt = (d) => new Date(d).toLocaleDateString(undefined, { dateStyle: 'medium' });
+  const open = rows.filter((r) => r.status === 'new').length;
+  box.innerHTML = `<div class="panel card-pad stack" style="gap:14px" id="feature-panel">
+      <div class="feature-head">
+        <div><h2 class="section-title">${isAdmin ? 'Feature requests' : 'Your feature requests'}
+          ${isAdmin && open ? `<span class="chip chip-review">${open} new</span>` : ''}</h2>
+          <p class="muted small" style="margin-top:6px">${isAdmin
+            ? 'Suggestions from everyone who uses the site. Set a status and an optional note; the person who sent it sees both.'
+            : 'Ideas you’ve suggested and where they stand. Only you and the site owner can see them.'}</p></div>
+        <button class="btn btn-primary btn-sm" data-feature-new>${icon('bulb')}Suggest a feature</button>
+      </div>
+      ${rows.length ? `<ul class="invite-list feature-list">${rows.map((r) => `<li class="report-item">
+        <span class="feature-body"><b>${escapeHtml(r.title)}</b>
+          <span class="muted small">${escapeHtml(FEATURE_CATEGORIES[r.category] || r.category)} · ${fmt(r.created_at)}${isAdmin && r.user_id !== me ? ` · ${escapeHtml(r.requester_email || '')}` : ''}</span>
+          ${r.details ? `<span class="small feature-details">${escapeHtml(r.details)}</span>` : ''}
+          ${r.admin_note ? `<span class="small feature-note"><b>Site owner:</b> ${escapeHtml(r.admin_note)}</span>` : ''}</span>
+        <span class="report-actions"><span class="chip feature-status" data-status="${escapeHtml(r.status)}">${FEATURE_STATUS[r.status] || escapeHtml(r.status)}</span>
+          ${isAdmin ? `<button class="btn btn-ghost btn-sm" data-feature-edit="${r.id}">Update</button>` : ''}</span></li>`).join('')}</ul>`
+        : `<p class="muted small">${isAdmin ? 'No feature requests yet.' : 'You haven’t suggested anything yet.'}</p>`}
+    </div>`;
+  box.querySelector('[data-feature-new]').addEventListener('click', () => openFeatureForm());
+  box.querySelectorAll('[data-feature-edit]').forEach((b) => b.addEventListener('click', async () => {
+    const r = rows.find((x) => String(x.id) === b.dataset.featureEdit);
+    const body = `<div class="report-form">
+        <p class="small"><b>${escapeHtml(r.title)}</b></p>
+        <label class="small">Status
+          <select id="feature-status">${Object.entries(FEATURE_STATUS).map(([k, v]) => `<option value="${k}" ${r.status === k ? 'selected' : ''}>${v}</option>`).join('')}</select>
+        </label>
+        <label class="small">Note to the requester (optional)
+          <textarea id="feature-note" rows="3" maxlength="500" placeholder="For example: planned for next month">${escapeHtml(r.admin_note || '')}</textarea>
+        </label>
+      </div>`;
+    if (!(await confirmModal('Update feature request', body, 'Save'))) return;
+    try {
+      await Auth.updateFeatureRequest(r.id, { status: $('feature-status').value, admin_note: $('feature-note').value });
+      toast('Feature request updated.');
+      renderFeatureRequests();
+    } catch (err) { toast(`Couldn't update: ${err.message}`); }
+  }));
+  if (location.hash === '#features') box.scrollIntoView({ block: 'start' });
 }
 
 // ── Invites (shown to admins only) ───────────────────────────────────────────

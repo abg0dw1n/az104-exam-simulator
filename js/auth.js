@@ -215,3 +215,24 @@ export async function popularExams(days = 30, limit = 6) {
   await ensureFresh(); // guests call it with the public key only
   return api('/rest/v1/rpc/popular_exams', { method: 'POST', body: { days, max_rows: limit } });
 }
+
+// ── Feature requests ─────────────────────────────────────────────────────────
+// Signed-in users file requests and see their own; admins see all and set status (RLS).
+export async function submitFeatureRequest({ category, title, details }) {
+  await ensureFresh();
+  return api('/rest/v1/feature_requests', {
+    method: 'POST', headers: { Prefer: 'return=minimal' },
+    body: { category, title: title.trim().slice(0, 120), details: (details || '').trim().slice(0, 2000) || null },
+  });
+}
+export async function listFeatureRequests() {
+  await ensureFresh();
+  return api('/rest/v1/feature_requests?select=id,category,title,details,status,admin_note,requester_email,created_at,updated_at,user_id&order=created_at.desc&limit=200');
+}
+export async function updateFeatureRequest(id, { status, admin_note }) {
+  await ensureFresh();
+  return api(`/rest/v1/feature_requests?id=eq.${Number(id)}`, {
+    method: 'PATCH', headers: { Prefer: 'return=minimal' },
+    body: { status, admin_note: (admin_note || '').trim().slice(0, 500) || null, updated_at: new Date().toISOString() },
+  });
+}

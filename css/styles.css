@@ -737,3 +737,21 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 .guest-banner a { color: var(--azure-text); font-weight: 650; }
 .guest-actions { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; }
 .guest-banner .btn { padding: 4px 10px; }
+
+/* Feature requests */
+.feature-strip { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 16px 20px; border: 1px dashed var(--border-strong); border-radius: 14px; background: var(--panel-2); }
+.feature-strip h3 { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 650; }
+.feature-strip h3 .icon { color: var(--warn-text); }
+.feature-strip p { margin-top: 4px; max-width: 70ch; }
+.feature-strip a { color: var(--azure-text); }
+.feature-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+.feature-body { display: grid; gap: 3px; min-width: 0; }
+.feature-details { color: var(--text-2); white-space: pre-line; }
+.feature-note { padding: 6px 9px; border-radius: 8px; background: var(--azure-soft); color: var(--text-2); margin-top: 2px; }
+.feature-status { white-space: nowrap; }
+.feature-status[data-status="planned"], .feature-status[data-status="in-progress"] { background: var(--azure-soft); color: var(--azure-text); border-color: transparent; }
+.feature-status[data-status="done"] { background: var(--ok-soft); color: var(--ok-text); border-color: transparent; }
+.feature-status[data-status="declined"] { color: var(--muted); }
+.report-form input[type="text"] { width: 100%; padding: 10px 12px; border-radius: 9px; border: 1px solid var(--border); background: var(--panel-2); color: var(--text); font: inherit; }
+#features { scroll-margin-top: 90px; }
+@media (max-width: 600px) { .feature-strip .btn { width: 100%; justify-content: center; } }
