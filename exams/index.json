@@ -260,7 +260,9 @@
     "level": "intermediate",
     "updated": "2026-10-28",
     "learning": true,
-    "learningDescription": "Code surgery, E/M, anesthesia, radiology, lab, and medicine services; apply ICD-10-CM and HCPCS Level II rules, modifiers, and compliance; and read notes with confident terminology and anatomy."
+    "learningDescription": "Code surgery, E/M, anesthesia, radiology, lab, and medicine services; apply ICD-10-CM and HCPCS Level II rules, modifiers, and compliance; and read notes with confident terminology and anatomy.",
+    "learningModules": 5,
+    "questions": 152
   },
   {
     "slug": "cbcs",
@@ -270,7 +272,9 @@
     "level": "beginner",
     "updated": "2026-10-28",
     "learning": true,
-    "learningDescription": "Follow the revenue cycle, verify insurance and payer rules, code diagnoses and services, and build, post, and appeal claims for timely, compliant payment."
+    "learningDescription": "Follow the revenue cycle, verify insurance and payer rules, code diagnoses and services, and build, post, and appeal claims for timely, compliant payment.",
+    "learningModules": 4,
+    "questions": 106
   },
   {
     "slug": "cmaa",
@@ -280,6 +284,8 @@
     "level": "beginner",
     "updated": "2026-10-28",
     "learning": true,
-    "learningDescription": "Run the front office: communicate professionally, protect patient privacy, schedule and register patients, support billing, and manage records and daily operations."
+    "learningDescription": "Run the front office: communicate professionally, protect patient privacy, schedule and register patients, support billing, and manage records and daily operations.",
+    "learningModules": 7,
+    "questions": 109
   }
 ]
