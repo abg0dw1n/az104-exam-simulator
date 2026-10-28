@@ -87,7 +87,8 @@
     "name": "CompTIA A+ Core 1",
     "vendor": "CompTIA",
     "level": "beginner",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "learning": true
   },
   {
     "slug": "a-plus-core2",
