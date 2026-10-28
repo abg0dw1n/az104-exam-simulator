@@ -636,10 +636,7 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 .exam-card-code { color: var(--v-text); font-size: 13px; font-weight: 700; }
 .exam-card-meta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 4px 10px; color: var(--muted); font-size: 12px; }
 .exam-card-meta .level-meter { padding: 0; font-size: 11.5px; }
-.exam-learning-badge { justify-self: start; padding: 4px 8px; border-radius: 999px; background: var(--azure-soft); color: var(--azure-text); font-size: 11px; font-weight: 600; }
 .exam-card-progress { color: var(--muted); font-size: 11.5px; }
-.exam-card-action { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; border-top: 1px solid var(--border); color: var(--azure-text); font-size: 12.5px; font-weight: 650; }
-.exam-card-action .icon { width: 15px; height: 15px; }
 .catalog-empty { padding: 22px; text-align: center; color: var(--muted); }
 @media (max-width: 760px) {
   .catalog-tools { grid-template-columns: 1fr; }
@@ -810,3 +807,17 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 
 /* Keep question text a readable line length on wide screens */
 .qcard .scenario { max-width: 80ch; }
+
+/* Exam cards: whole card opens the exam; Learn / Practice buttons go straight there */
+.exam-card { position: relative; }
+.exam-card h2 a.exam-card-link { color: inherit; text-decoration: none; }
+.exam-card h2 a.exam-card-link::after { content: ""; position: absolute; inset: 0; border-radius: inherit; }
+.exam-card h2 a.exam-card-link:focus-visible { outline: none; }
+.exam-card:has(.exam-card-link:focus-visible) { outline: 2px solid var(--v, var(--azure)); outline-offset: 2px; }
+.exam-card-actions { position: relative; z-index: 1; grid-row: -2; justify-self: stretch; display: flex; gap: 8px; padding-top: 10px; border-top: 1px solid var(--border); align-self: end; }
+.card-btn { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 36px; padding: 6px 10px; border-radius: 9px; border: 1px solid var(--border); background: var(--panel-2); color: var(--text); font-size: 12.5px; font-weight: 650; text-decoration: none; transition: border-color .15s, background .15s; }
+.card-btn .icon { width: 15px; height: 15px; }
+.card-btn:hover { border-color: var(--v, var(--azure)); }
+.card-btn-primary { background: var(--azure-soft); border-color: transparent; color: var(--azure-text); }
+.card-btn-primary:hover { background: color-mix(in srgb, var(--azure) 24%, transparent); border-color: transparent; }
+.card-btn:focus-visible { outline: 2px solid var(--azure); outline-offset: 2px; }

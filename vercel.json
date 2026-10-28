@@ -60,5 +60,40 @@
       "source": "/:slug",
       "destination": "/"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "it-learn-and-practice.vercel.app"
+        }
+      ],
+      "destination": "https://it-study-hall.vercel.app/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "it-exam-simulator.vercel.app"
+        }
+      ],
+      "destination": "https://it-study-hall.vercel.app/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "az104-exam-simulator-drab.vercel.app"
+        }
+      ],
+      "destination": "https://it-study-hall.vercel.app/:path*",
+      "permanent": false
+    }
   ]
 }

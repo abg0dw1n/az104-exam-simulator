@@ -1046,14 +1046,17 @@ async function renderHome() {
     const last = saved?.history?.[0];
     const answered = saved ? Object.keys(saved.practice?.answers || {}).length : 0;
     const vendor = vendorKey(e.vendor);
-    return `<a class="panel exam-card" href="/${e.slug}" data-vendor="${vendor}" data-name="${escapeHtml(`${e.name} ${e.code} ${e.vendor}`.toLowerCase())}">
+    // The whole card opens the exam (a stretched link on the title); the buttons go straight to Learn or Practice.
+    return `<div class="panel exam-card" data-vendor="${vendor}" data-name="${escapeHtml(`${e.name} ${e.code} ${e.vendor}`.toLowerCase())}">
       <span class="exam-card-code">${escapeHtml(e.code)}</span>
-      <h2>${escapeHtml(e.name)}</h2>
+      <h2><a class="exam-card-link" href="/${e.slug}">${escapeHtml(e.name)}</a></h2>
       <span class="exam-card-meta"><span>${count} questions</span>${levelMeter(e.level)}</span>
-      ${e.learning ? '<span class="exam-learning-badge">Study guide · slides · lessons</span>' : ''}
       ${answered || last ? `<span class="exam-card-progress">${answered ? `${answered} practiced` : ''}${answered && last ? ' · ' : ''}${last ? `Last score <b class="${last.passed ? 'good' : 'weak'}">${last.score}</b>` : ''}</span>` : ''}
-      <span class="exam-card-action">Open exam ${icon('right', 'icon')}</span>
-    </a>`;
+      <span class="exam-card-actions">
+        ${e.learning ? `<a class="card-btn" href="/${e.slug}?mode=learn" aria-label="Learn ${escapeHtml(e.code)}">${icon('learn')}Learn</a>` : ''}
+        <a class="card-btn card-btn-primary" href="/${e.slug}?mode=practice" aria-label="Practice ${escapeHtml(e.code)}">${icon('book')}Practice</a>
+      </span>
+    </div>`;
   }));
   const cardFor = Object.fromEntries(exams.map((e, i) => [e.slug, cards[i]]));
 
@@ -1607,6 +1610,8 @@ async function init() {
   $('brand-sub').textContent = `${EXAM.code} · ${EXAM.name}`;
   LEARN = await (slug === initialSlug ? learnFiles : Learn.loadLearn(slug));
   if (initialMode === 'learn' && LEARN) state.mode = 'learn';
+  if (initialMode === 'practice') state.mode = 'practice';
+  if (initialMode) history.replaceState(null, '', location.pathname); // keep the address tidy after honoring ?mode
   $('btn-mode-learn').hidden = !LEARN;
   $('mode-tabs').hidden = false;
   $('btn-drawer').hidden = false;
