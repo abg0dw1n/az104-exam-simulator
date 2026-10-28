@@ -1,0 +1,1135 @@
+{
+  "intro": "Four modules follow the 220-1202 Core 2 domains and their exam weights. Each combines a practical study guide, exam tips, key terms, visual slides, and a narrated lesson. These summaries are a starting point; use the official objectives and hands-on practice to cover the full exam scope.",
+  "updated": "2026-10-28",
+  "sources": [
+    {
+      "title": "CompTIA A+ Core 2 (220-1202 V15) exam objectives",
+      "url": "https://assets.ctfassets.net/82ripq7fjls2/6I8WL66IBa1AUovioDGrnM/f74a7eca336fd4e4c8e723a1f893086d/CompTIA-A-220-1202-Exam-Objectives-3.0.pdf"
+    },
+    {
+      "title": "Professor Messer: free 220-1202 Core 2 video course",
+      "url": "https://www.professormesser.com/free-a-plus-training/220-1202/220-1202-video/220-1202-training-course/"
+    },
+    {
+      "title": "Microsoft Learn: Windows client documentation",
+      "url": "https://learn.microsoft.com/en-us/windows/"
+    },
+    {
+      "title": "CISA: Secure Our World",
+      "url": "https://www.cisa.gov/secure-our-world"
+    }
+  ],
+  "modules": [
+    {
+      "id": "D1",
+      "short": "Operating systems",
+      "title": "Install, configure, and support operating systems",
+      "summary": "Choose and install the right OS, work with Windows tools and commands, configure macOS and Linux basics, manage applications and cloud productivity tools, and troubleshoot common OS problems.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>Operating Systems is <b>28%</b> of Core 2. Be ready to choose an operating system for a user, install or upgrade it safely, configure Windows, and recognize the corresponding tools in macOS and Linux. Scenarios test the next useful action, not just a definition.</p><p>Start by identifying the platform, the user's requirement, the constraints, and the risk to existing data. Confirm compatibility and backup status before changing partitions, drivers, accounts, or applications.</p>"
+        },
+        {
+          "h": "Plan an installation or upgrade",
+          "html": "<p>Match the installation method to the situation: clean install, in-place upgrade, image deployment, remote/network installation, zero-touch deployment, recovery partition, or repair installation. Select a boot method the device supports, such as USB, network, internal recovery, or internet recovery.</p><p>Before an upgrade, verify CPU, memory, storage, firmware, TPM/UEFI requirements, application and driver support, license, and product lifecycle. Back up user files and preferences. Understand GPT versus MBR and format the target drive only after confirming the correct disk and data-retention plan.</p><p>For managed fleets, image or zero-touch deployment improves consistency, but still requires testing, drivers, enrollment, and a rollback path.</p>"
+        },
+        {
+          "h": "Use Windows editions, settings, and tools",
+          "html": "<p>Windows Home, Pro, Pro for Workstations, and Enterprise differ in management, encryption, remote access, and organizational features. Choose an edition based on requirements such as domain joining, BitLocker, Group Policy, or hosting Remote Desktop; do not assume a UI difference means a capability is present.</p><p>Use Task Manager for processes, startup, performance, services, and users. Event Viewer records system and application events; Device Manager handles drivers; Disk Management handles volumes; Task Scheduler runs defined jobs. Resource Monitor, Performance Monitor, System Information, System Configuration, and Registry Editor answer more specialized questions. Prefer supported settings and management tools over undocumented registry changes.</p>"
+        },
+        {
+          "h": "Command line and cross-platform basics",
+          "html": "<p>On Windows, know what common commands reveal: <code>ipconfig</code> for network configuration, <code>ping</code> for reachability, <code>tracert</code> for path clues, <code>nslookup</code> for DNS, <code>netstat</code> for connections, and <code>sfc</code> or <code>chkdsk</code> for targeted integrity checks. Use PowerShell for structured, repeatable administration, but verify commands and scope before running them.</p><p>On macOS, recognize Finder, System Settings, Activity Monitor, Disk Utility, Time Machine, Keychain, FileVault, Terminal, and application packages such as <code>.app</code>, <code>.dmg</code>, and <code>.pkg</code>. On Linux, recognize paths and commands such as <code>ls</code>, <code>pwd</code>, <code>cp</code>, <code>mv</code>, <code>grep</code>, <code>chmod</code>, <code>sudo</code>, <code>apt</code>, and <code>systemctl</code>. Confirm the distribution and package manager before changing a system.</p>"
+        },
+        {
+          "h": "Configure connectivity, applications, and cloud tools",
+          "html": "<p>For a Windows client, verify IP address, subnet mask, gateway, DNS, and whether settings are static or DHCP. Check wired, Wi-Fi, cellular, VPN, proxy, firewall profile, and metered-connection settings. A domain-joined device and a workgroup device may have different access and policy behavior.</p><p>Install software only from trusted sources after checking OS, CPU architecture, memory, graphics, storage, and hardware-token requirements. Consider network and business impact. Cloud productivity setup can include mail, storage sync, collaboration apps, identity synchronization, and license assignment. Confirm the user is signed into the intended account and that sync scope matches policy.</p>"
+        },
+        {
+          "h": "Troubleshoot with evidence",
+          "html": "<p>For slow performance, crashes, boot failures, shutdowns, services that will not start, low-memory alerts, slow profiles, or clock drift, establish when the problem began and whether it affects one user, one device, or many. Check recent changes, available resources, logs, service state, updates, drivers, and storage health.</p><p>Use a controlled test and change one variable at a time. Preserve user data before repair or reinstallation. After the fix, reproduce the original task, check for side effects, document the change, and tell the user what to expect next.</p>"
+        }
+      ],
+      "tips": [
+        "Back up first, then verify the target disk and installation method before changing partitions or reinstalling.",
+        "Choose a Windows edition by required management or security features, not by its name alone.",
+        "Use the tool that matches the question: Event Viewer for logged events, Device Manager for drivers, and Task Manager for active processes.",
+        "Treat command output as evidence; a successful ping to an IP address does not prove DNS or application access works."
+      ],
+      "terms": [
+        [
+          "GPT",
+          "A modern partition-table format commonly paired with UEFI."
+        ],
+        [
+          "NTFS",
+          "A Windows file system supporting permissions and features such as compression and encryption."
+        ],
+        [
+          "Device Manager",
+          "A Windows console for viewing hardware, driver state, and device errors."
+        ],
+        [
+          "sudo",
+          "A Linux command that runs an authorized command with elevated privileges."
+        ],
+        [
+          "Zero-touch deployment",
+          "Automated provisioning that applies an organization’s configuration with limited manual setup."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Operating systems in the support role",
+          "bullets": [
+            "28% of Core 2",
+            "Windows, macOS, Linux, ChromeOS, and mobile platforms",
+            "Pick tools and actions for the actual platform"
+          ],
+          "script": [
+            "Welcome to Core 2 Operating Systems. This is the largest exam domain, and it covers installation, configuration, utilities, applications, cloud productivity, and troubleshooting. Start every scenario by identifying the platform and the user's goal.",
+            "We will focus on choosing a safe, appropriate next step and verifying that it worked."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Windows",
+                "d": "Settings, MMC, PowerShell"
+              },
+              {
+                "t": "macOS",
+                "d": "System Settings, Finder, Terminal"
+              },
+              {
+                "t": "Linux",
+                "d": "Shell, package tools, systemd"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Choose the installation path",
+          "bullets": [
+            "Clean install, upgrade, image, recovery, or repair",
+            "Confirm compatibility and licensing",
+            "Protect data before disk changes"
+          ],
+          "script": [
+            "An installation is a plan, not just a bootable USB. First confirm the hardware, firmware, storage, application compatibility, and license. Next decide whether the user needs an upgrade, a clean install, an image, a network deployment, or recovery.",
+            "Back up important data and verify which disk you are changing. A wrong target selection can turn a routine install into data loss."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Assess",
+                "d": "Requirements and state"
+              },
+              {
+                "t": "Protect",
+                "d": "Backup and recovery plan"
+              },
+              {
+                "t": "Deploy",
+                "d": "Method and target"
+              },
+              {
+                "t": "Verify",
+                "d": "Drivers, apps, user data"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Windows editions and management",
+          "bullets": [
+            "Match edition to feature needs",
+            "Home, Pro, Workstations, Enterprise",
+            "Check RDP, BitLocker, domain, and policy requirements"
+          ],
+          "script": [
+            "Edition questions are requirement questions. If the scenario needs domain management, Group Policy, BitLocker, or a device that accepts Remote Desktop connections, verify which Windows edition supports it.",
+            "Confirm hardware requirements too. TPM and UEFI requirements matter for supported Windows 11 installation paths."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Need",
+              "Check"
+            ],
+            "rows": [
+              [
+                "Encryption",
+                "BitLocker support and policy"
+              ],
+              [
+                "Organization",
+                "Domain join and management"
+              ],
+              [
+                "Remote access",
+                "Host RDP versus client use"
+              ],
+              [
+                "Deployment",
+                "Edition, license, and hardware"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Find the right Windows tool",
+          "bullets": [
+            "Task Manager: processes and startup",
+            "Event Viewer: recorded events",
+            "MMC and utilities: targeted management"
+          ],
+          "script": [
+            "Use the utility that matches the symptom. Task Manager helps inspect a running process, startup impact, or service. Event Viewer helps find recorded system or application errors around the time the issue occurred.",
+            "Device Manager, Disk Management, Task Scheduler, and Performance Monitor each answer different questions. Avoid changing settings simply because a tool is available."
+          ],
+          "visual": {
+            "type": "tree",
+            "levels": [
+              [
+                "Windows support"
+              ],
+              [
+                "Task Manager",
+                "Event Viewer",
+                "Device Manager"
+              ],
+              [
+                "Live activity",
+                "Event history",
+                "Driver state"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Commands and other operating systems",
+          "bullets": [
+            "Use commands to test one layer at a time",
+            "Recognize macOS and Linux utilities",
+            "Review scope before elevated commands"
+          ],
+          "script": [
+            "A command should answer a specific question. Use ipconfig to inspect Windows addressing, nslookup for name resolution, and tracert for clues about a route. One successful test does not validate every network layer.",
+            "On Linux, recognize file, network, package, and service commands. On macOS, know where to find storage, backups, activity, security, and system settings."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Windows",
+                "d": "ipconfig · nslookup · sfc"
+              },
+              {
+                "t": "macOS",
+                "d": "Disk Utility · Activity Monitor"
+              },
+              {
+                "t": "Linux",
+                "d": "ip · grep · systemctl"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Configure applications and cloud tools",
+          "bullets": [
+            "Check app and OS requirements first",
+            "Use trusted installers and packages",
+            "Verify identity, sync, and licenses"
+          ],
+          "script": [
+            "Before installing an application, compare its requirements with the device: operating system, processor, memory, graphics, storage, and any external token. Consider the effect on the user, the network, and business operations.",
+            "For cloud tools, confirm the correct identity, assigned license, mail, sync settings, and collaboration access. A successful installation does not necessarily mean the account is configured correctly."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Check",
+                "d": "Requirements and source"
+              },
+              {
+                "t": "Install",
+                "d": "Approved method"
+              },
+              {
+                "t": "Configure",
+                "d": "Identity and settings"
+              },
+              {
+                "t": "Confirm",
+                "d": "User workflow"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Troubleshoot methodically",
+          "bullets": [
+            "Define scope and timing",
+            "Check logs, resources, services, and changes",
+            "Verify the original task after the fix"
+          ],
+          "script": [
+            "When a computer slows down, crashes, or fails to boot, ask what changed and when. Determine whether the issue follows a user, a device, a network, or an application.",
+            "Collect evidence from logs and system tools, then test one likely cause. Preserve data, avoid broad changes, and confirm the user's original task works before closing the issue."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Scope",
+                "d": "Who and what is affected?"
+              },
+              {
+                "t": "Inspect",
+                "d": "Logs and resources"
+              },
+              {
+                "t": "Test",
+                "d": "One hypothesis"
+              },
+              {
+                "t": "Verify",
+                "d": "User task restored"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: Operating Systems",
+          "bullets": [
+            "Safe installs begin with compatibility and backup",
+            "Use built-in tools to answer focused questions",
+            "Practice across Windows, macOS, and Linux"
+          ],
+          "script": [
+            "You have completed the Operating Systems overview. Review installation methods, Windows editions and tools, command-line basics, macOS and Linux utilities, application requirements, cloud productivity setup, and troubleshooting.",
+            "When you practice, explain why your next action is safe and what evidence would confirm the result. Then use the domain question set to check your recall."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "short": "Security",
+      "title": "Apply endpoint, account, and network security",
+      "summary": "Protect devices and accounts with physical controls, least privilege, authentication, Windows security settings, wireless protections, safe browsing, and a careful malware-removal process.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>Security represents <b>28%</b> of Core 2. It spans physical access, identity and permissions, endpoint controls, Wi-Fi and browser settings, malware response, and secure SOHO networks. Questions often describe a risk and ask for the control that addresses it with the least disruption.</p><p>Separate prevention, detection, containment, and recovery. Confirm organizational policy and authorization before disabling protections, collecting evidence, changing access, or removing malicious files.</p>"
+        },
+        {
+          "h": "Protect facilities, identities, and access",
+          "html": "<p>Physical controls include locks, badges, smart cards, biometrics, cameras, alarms, barriers, lighting, and guards. Match the control to the threat: an equipment lock protects a device; a badge reader helps control entry; surveillance supports detection and investigation.</p><p>Logical controls include access control lists, directory services, identity and access management, mobile device management, data loss prevention, single sign-on, and multifactor authentication. Least privilege grants only required access. Zero Trust verifies access explicitly. Just-in-time privileged access reduces standing administrator rights.</p><p>MFA combines different factor types; two passwords are still one factor type. Use approved identity and recovery processes rather than bypassing controls for convenience.</p>"
+        },
+        {
+          "h": "Harden Windows and wireless networks",
+          "html": "<p>Use standard accounts for routine work and elevate only for approved tasks. Configure Defender Antivirus, firewall profiles and exceptions, Windows Hello or other approved sign-in methods, UAC, BitLocker, and appropriate NTFS and share permissions. Permission inheritance can affect nested folders, so test effective access.</p><p>On a SOHO router, replace default administrative credentials, update firmware, secure management access, use WPA2 or WPA3 as supported, and configure a guest network when appropriate. Disable unused services and ports; review UPnP and port forwarding deliberately. Hiding an SSID is not encryption and should not substitute for strong authentication.</p>"
+        },
+        {
+          "h": "Secure browsers and remove malware safely",
+          "html": "<p>Install browsers and extensions from trusted sources, keep them patched, validate HTTPS certificates, and use a password manager. Understand pop-up blocking, clearing cache and browsing data, private browsing, synchronization, proxy settings, and secure DNS. Private browsing does not make traffic anonymous or override organizational monitoring.</p><p>For suspected malware, follow policy: verify symptoms, isolate or quarantine the affected system, disable System Restore when directed, remediate using approved tools, update protections, scan, and restore from a known-clean source if needed. Validate system behavior and educate the user. Preserve evidence and escalate when the event may involve a breach.</p>"
+        },
+        {
+          "h": "Respond to security symptoms",
+          "html": "<p>Warning signs include unexpected pop-ups or redirects, fake antivirus alerts, disabled protections, altered or missing files, unusual network traffic, update failures, or loss of access. Browser certificate warnings can indicate a misconfiguration or interception; do not train users to click through them.</p><p>Do not assume every symptom proves malware. Collect details, isolate risk when appropriate, check security status and logs, and follow incident-response guidance. Avoid destructive cleanup before evidence or backups are considered.</p>"
+        }
+      ],
+      "tips": [
+        "Use least privilege and MFA; do not solve access problems by permanently granting administrator rights.",
+        "Hiding a Wi-Fi network name does not replace WPA2/WPA3 encryption and a strong credential.",
+        "For malware scenarios, follow the ordered response and organizational procedure instead of immediately deleting files.",
+        "A valid HTTPS connection protects a connection to a certificate-validated site; it does not prove the site itself is trustworthy."
+      ],
+      "terms": [
+        [
+          "Least privilege",
+          "Giving a user or process only the access required for its task."
+        ],
+        [
+          "MFA",
+          "Authentication using two or more different factor categories."
+        ],
+        [
+          "BitLocker",
+          "Windows full-volume encryption used to protect data at rest."
+        ],
+        [
+          "UAC",
+          "Windows prompts and controls for actions that require elevated privileges."
+        ],
+        [
+          "Quarantine",
+          "Isolating a suspected malicious file or system to limit spread while it is assessed."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Security is layered",
+          "bullets": [
+            "28% of Core 2",
+            "Prevent, detect, contain, and recover",
+            "Choose a control for the stated risk"
+          ],
+          "script": [
+            "Welcome to the Security module. The exam asks you to reason about physical access, accounts, endpoint settings, browsers, wireless networks, and malware response.",
+            "Ask what is being protected, who is authorized, and which control lowers the risk without creating a larger problem."
+          ],
+          "visual": {
+            "type": "layers",
+            "items": [
+              {
+                "t": "Physical",
+                "d": "Facilities and devices"
+              },
+              {
+                "t": "Identity",
+                "d": "Authentication and access"
+              },
+              {
+                "t": "Endpoint",
+                "d": "Firewall, encryption, updates"
+              },
+              {
+                "t": "Response",
+                "d": "Contain, remediate, verify"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Identity and access controls",
+          "bullets": [
+            "Least privilege limits permissions",
+            "MFA combines different factor types",
+            "JIT and PAM reduce standing privilege"
+          ],
+          "script": [
+            "Least privilege means access is limited to what the person needs. Multifactor authentication combines different categories, such as something you know and something you have.",
+            "Single sign-on can simplify access while still relying on strong identity controls. Just-in-time privilege grants elevated rights for a limited need and period."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Verify",
+                "d": "Identity and context"
+              },
+              {
+                "t": "Authorize",
+                "d": "Required access only"
+              },
+              {
+                "t": "Elevate",
+                "d": "Just in time, if needed"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Secure the Windows endpoint",
+          "bullets": [
+            "Standard user for everyday tasks",
+            "Defender, Firewall, UAC, and encryption",
+            "Check file and share permissions together"
+          ],
+          "script": [
+            "Windows protection is a set of controls. Keep antivirus and firewall active, use standard accounts for routine work, and elevate only when necessary.",
+            "BitLocker protects data at rest. NTFS permissions and share permissions may both apply to network access, so check the effective result instead of assuming one setting tells the whole story."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Identity",
+                "d": "Standard account · Windows Hello"
+              },
+              {
+                "t": "Protection",
+                "d": "Defender · Firewall · UAC"
+              },
+              {
+                "t": "Data",
+                "d": "BitLocker · NTFS permissions"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Harden a SOHO network",
+          "bullets": [
+            "Replace default admin credentials",
+            "Update firmware and secure management",
+            "Use WPA2/WPA3; limit exposed services"
+          ],
+          "script": [
+            "A secure router starts with changing default administrative credentials and installing approved firmware updates. Restrict management access and disable features or services that are not needed.",
+            "Use supported Wi-Fi encryption and a strong passphrase. Guest access can separate visitors from trusted devices. Port forwarding and UPnP create exposure, so enable them only for a documented requirement."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Admin",
+                "d": "Unique credential"
+              },
+              {
+                "t": "Update",
+                "d": "Router firmware"
+              },
+              {
+                "t": "Wi-Fi",
+                "d": "WPA2/WPA3 and guest"
+              },
+              {
+                "t": "Review",
+                "d": "Ports and remote access"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Browser security and user choices",
+          "bullets": [
+            "Trusted downloads and extensions",
+            "Keep browser patched; validate certificates",
+            "Private mode does not make browsing anonymous"
+          ],
+          "script": [
+            "A browser is software that needs updates and careful configuration. Check extension sources, downloads, certificate warnings, password manager use, synchronization, and proxy or secure DNS settings.",
+            "Private browsing mainly limits local history and session data. It does not conceal activity from a network provider or an organization's controls. Never encourage bypassing a certificate warning without investigating."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Setting",
+              "What it helps with"
+            ],
+            "rows": [
+              [
+                "Patch browser",
+                "Fix known vulnerabilities"
+              ],
+              [
+                "Trusted extension",
+                "Limit risky code sources"
+              ],
+              [
+                "Private window",
+                "Reduce local session traces"
+              ],
+              [
+                "Valid certificate",
+                "Authenticate the site connection"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Malware response",
+          "bullets": [
+            "Verify symptoms and follow policy",
+            "Contain before remediation",
+            "Scan, restore cleanly, and validate"
+          ],
+          "script": [
+            "When malware is suspected, first verify the symptoms and follow the organization's response procedure. Isolate the system when appropriate to limit spread and protect other devices.",
+            "Use approved tools for remediation, update signatures, scan, and restore from a known-clean source if required. Preserve evidence if the incident may be serious, then validate that the system is healthy."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Verify",
+                "d": "Symptoms and scope"
+              },
+              {
+                "t": "Contain",
+                "d": "Isolate or quarantine"
+              },
+              {
+                "t": "Remediate",
+                "d": "Approved process"
+              },
+              {
+                "t": "Validate",
+                "d": "Scan and test"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Recognize warning signs",
+          "bullets": [
+            "Pop-ups, redirects, and fake alerts",
+            "Unexpected file changes or protection failures",
+            "Do not click through unexplained warnings"
+          ],
+          "script": [
+            "A sudden wave of ads or redirects can indicate an unwanted extension or infection. Missing or renamed files, disabled security, and unexpected network behavior deserve investigation.",
+            "Use evidence to decide how to respond. A certificate warning may be caused by time, configuration, or a more serious interception issue, so identify the cause before continuing."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Browser",
+                "d": "Redirects · certificate warnings"
+              },
+              {
+                "t": "Endpoint",
+                "d": "Alerts · changed files"
+              },
+              {
+                "t": "Network",
+                "d": "Unexpected traffic or blocked access"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: Security",
+          "bullets": [
+            "Layer physical, identity, endpoint, and network controls",
+            "Follow malware response procedures",
+            "Balance protection with verified user needs"
+          ],
+          "script": [
+            "You have completed the Security overview. Revisit access, Windows controls, wireless security, browser settings, and malware response.",
+            "Practice explaining which risk a control addresses and why your response order matters. Then try the Security question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "short": "Software troubleshooting",
+      "title": "Troubleshoot operating systems, apps, and security symptoms",
+      "summary": "Diagnose Windows and mobile OS failures, distinguish application and connectivity issues, recognize malware symptoms, and restore service using a safe, evidence-led process.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>Software Troubleshooting is <b>23%</b> of the exam. It focuses on common Windows, mobile, application, and security-related symptoms. The best answer usually begins with scope and evidence, avoids unnecessary changes, and ends by verifying the user's task.</p>"
+        },
+        {
+          "h": "Troubleshoot Windows symptoms",
+          "html": "<p>For a blue screen, slow performance, boot failure, repeated shutdown, application crash, low-memory warning, missing OS, slow profile, time drift, or service that will not start, note exact messages, timing, recent changes, and affected users. Check Event Viewer, Task Manager, startup items, services, free disk space, updates, drivers, and system resources.</p><p>Use safe mode or recovery options when they help isolate a driver or startup issue. Make a backup before repair operations that can affect data. Avoid changing several settings at once; a controlled test tells you whether the suspected cause mattered.</p>"
+        },
+        {
+          "h": "Troubleshoot mobile operating systems and apps",
+          "html": "<p>For an app that will not install, launch, update, close, or respond, verify OS version, storage, permissions, network, app source, and vendor status. Update or reinstall only after considering local data and account sync. Random reboots or battery drain may involve a recent app, update, battery condition, or resource use.</p><p>For Wi-Fi, Bluetooth, NFC, or cellular issues, check range, airplane mode, pairing state, permissions, saved network credentials, and whether the problem affects multiple apps. For rotation issues, confirm rotation lock and sensor behavior.</p>"
+        },
+        {
+          "h": "Investigate security and browser symptoms",
+          "html": "<p>Unexpected ads, fake security notices, changed settings, high data use, altered files, redirection, certificate warnings, failed security updates, and lost connectivity can indicate compromise or a configuration problem. Ask what changed, when it started, and whether other users or devices show the same behavior.</p><p>Do not install an untrusted cleaner or security tool in response to a pop-up. Follow the malware process in the Security module; contain and escalate when required. If the issue is isolated to a browser, compare a clean profile or approved browser after preserving relevant evidence.</p>"
+        },
+        {
+          "h": "Choose and verify the next step",
+          "html": "<p>Follow a repeatable sequence: identify the problem, establish a theory, test the theory, plan the fix, implement one change, verify full functionality, and document the outcome. Prefer reversible steps and obtain user consent where changes affect data or workflow.</p><p>Test the actual workflow that failed, not just whether the device powers on. Confirm sync, network access, application behavior, and security protections as relevant. Tell the user what changed and when to report a recurrence.</p>"
+        }
+      ],
+      "tips": [
+        "Reproduce and define the symptom before changing configuration; record exact messages and timing.",
+        "If multiple users are affected, check shared dependencies before rebuilding one workstation.",
+        "For mobile connectivity, test one radio or service at a time and check airplane mode, pairing, and permissions.",
+        "After repair, test the user’s original workflow and document what evidence supports closure."
+      ],
+      "terms": [
+        [
+          "Safe Mode",
+          "A diagnostic startup mode that loads a reduced set of drivers and services."
+        ],
+        [
+          "Event Viewer",
+          "A Windows utility for reviewing system, application, and security event records."
+        ],
+        [
+          "Application spoofing",
+          "A malicious or deceptive app impersonating a legitimate application."
+        ],
+        [
+          "System Restore",
+          "A Windows recovery feature that can roll back certain system settings and files."
+        ],
+        [
+          "Baseline",
+          "A known normal state used to compare current performance or behavior."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Troubleshooting starts with scope",
+          "bullets": [
+            "23% of Core 2",
+            "Windows, mobile, and application symptoms",
+            "Find the layer and the recent change"
+          ],
+          "script": [
+            "Welcome to Software Troubleshooting. The symptoms can look similar even when their causes differ. A slow computer may be short on resources, waiting on a service, or affected by an application.",
+            "Start with scope: what fails, when it started, who is affected, and what changed. This prevents guesswork and helps choose a focused test."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Define",
+                "d": "Symptom and scope"
+              },
+              {
+                "t": "Compare",
+                "d": "Changes and baseline"
+              },
+              {
+                "t": "Test",
+                "d": "One likely cause"
+              },
+              {
+                "t": "Verify",
+                "d": "Original workflow"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Windows failures",
+          "bullets": [
+            "Boot, performance, crash, and service issues",
+            "Use logs and resource tools",
+            "Preserve data before repair"
+          ],
+          "script": [
+            "For Windows failures, capture the exact error and time. Event Viewer may reveal related errors. Task Manager and Resource Monitor help show whether CPU, memory, disk, or a process is consuming resources.",
+            "Check recent updates and drivers, startup items, services, free storage, and profile behavior. Before repair or restore operations, consider backups and user data."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Symptoms",
+                "d": "BSOD · slow boot · crashes"
+              },
+              {
+                "t": "Evidence",
+                "d": "Events · services · resources"
+              },
+              {
+                "t": "Care",
+                "d": "Backup before risky repair"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Mobile apps and connectivity",
+          "bullets": [
+            "Check app compatibility, storage, and permissions",
+            "Isolate Wi-Fi, Bluetooth, NFC, or cellular",
+            "Consider battery and update history"
+          ],
+          "script": [
+            "A mobile app may fail because it is incompatible, out of storage, missing a permission, or unable to reach its service. Check whether other apps work before blaming the whole connection.",
+            "For Bluetooth, Wi-Fi, or NFC, test the relevant setting, distance, pairing, and network. Note recent updates and battery behavior before resetting or reinstalling."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Symptom",
+              "First checks"
+            ],
+            "rows": [
+              [
+                "App won't install",
+                "OS, storage, source, compatibility"
+              ],
+              [
+                "No Wi-Fi",
+                "Airplane mode, credentials, other devices"
+              ],
+              [
+                "Bluetooth issue",
+                "Pairing, range, permissions"
+              ],
+              [
+                "Fast battery drain",
+                "Recent apps, updates, usage"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Security-related software symptoms",
+          "bullets": [
+            "Treat redirects and fake alerts cautiously",
+            "Check for changed files and failed updates",
+            "Contain and escalate per policy"
+          ],
+          "script": [
+            "Some symptoms may signal compromise: repeated redirects, fake warnings, unexpected files, or security settings that have changed. They can also have less serious causes, so collect evidence and follow policy.",
+            "Do not click an alert to install its suggested tool. Isolate a system when appropriate and use approved malware-response steps."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Notice",
+                "d": "Unexpected behavior"
+              },
+              {
+                "t": "Protect",
+                "d": "Contain risk"
+              },
+              {
+                "t": "Investigate",
+                "d": "Approved tools"
+              },
+              {
+                "t": "Escalate",
+                "d": "If breach is possible"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Run a controlled test",
+          "bullets": [
+            "Change one variable at a time",
+            "Prefer reversible steps",
+            "Compare against the original failure"
+          ],
+          "script": [
+            "A good test changes one thing and predicts what you expect to see. If the result does not fit, return to the evidence and update the theory.",
+            "This avoids stacking changes that hide the root cause. A workaround can restore service, but document it and identify any follow-up fix."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Theory",
+                "d": "Explain evidence"
+              },
+              {
+                "t": "Prediction",
+                "d": "Expected result"
+              },
+              {
+                "t": "Test",
+                "d": "One controlled change"
+              },
+              {
+                "t": "Decision",
+                "d": "Keep or roll back"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Verify and communicate",
+          "bullets": [
+            "Test the user's actual workflow",
+            "Check related functions and protections",
+            "Document resolution and follow-up"
+          ],
+          "script": [
+            "Once the change is made, test the task the user could not perform. Check adjacent functions such as syncing, printing, or security controls if the repair might affect them.",
+            "Record the symptoms, evidence, steps, result, and any follow-up. Explain the outcome in plain language and set expectations if monitoring is needed."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Function",
+                "d": "Does the task work now?"
+              },
+              {
+                "t": "Safety",
+                "d": "Are protections still active?"
+              },
+              {
+                "t": "Record",
+                "d": "Steps, result, next action"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: Software Troubleshooting",
+          "bullets": [
+            "Windows and mobile symptoms need platform-aware checks",
+            "Security symptoms require careful handling",
+            "Verify the task, then document"
+          ],
+          "script": [
+            "You have completed the Software Troubleshooting overview. Review Windows boot and performance issues, mobile apps and connections, browser and endpoint security symptoms, and the troubleshooting sequence.",
+            "Use the question set to practice selecting a safe first action and a meaningful verification step."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "short": "Operational procedures",
+      "title": "Work safely, document clearly, and support users professionally",
+      "summary": "Follow workplace processes for tickets, changes, backups, safety, privacy, communication, scripting, remote access, and responsible use of AI.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>Operational Procedures is <b>21%</b> of Core 2. It covers the habits that make technical work safe and repeatable: documentation, asset management, change control, backups, physical safety, environmental care, privacy, communication, scripting, remote support, and AI use.</p><p>Look for authorization, impact, documentation, user communication, and verification in each scenario. Technical skill includes knowing when to stop and escalate.</p>"
+        },
+        {
+          "h": "Document work and manage changes",
+          "html": "<p>A useful ticket records the requester and device, symptoms, category and severity, troubleshooting steps, progress, resolution, and escalation. Keep notes factual and concise. Asset records include identifiers, assigned user, configuration, warranty, license, and lifecycle details. SOPs, onboarding/offboarding checklists, SLAs, and knowledge articles help teams work consistently.</p><p>Change management defines the purpose, scope, type, schedule, impact, risk, responsible staff, approvals, implementation, peer review, user acceptance, and rollback plan. Test in a sandbox when possible, back up first, and respect maintenance windows or change freezes. Emergency changes still need documentation and follow-up review.</p>"
+        },
+        {
+          "h": "Backups, recovery, and safety",
+          "html": "<p>A full backup copies selected data; incremental backups capture changes since the last backup; differential backups capture changes since the last full backup. A synthetic full combines backup sets without rereading all source data. Understand recovery time and restore dependencies, and test restores on a schedule.</p><p>The 3-2-1 rule means multiple copies on different media with an offsite copy. Rotation schemes such as grandfather-father-son organize generations. For hardware work, use ESD straps and mats, disconnect power, protect components in antistatic packaging, manage cables, and use safe lifting and fire procedures.</p>"
+        },
+        {
+          "h": "Protect privacy and the environment",
+          "html": "<p>Handle PII, payment details, government identifiers, and health data according to policy and applicable retention requirements. Respect licenses, EULAs, DRM, NDA obligations, acceptable-use policies, and personal-versus-commercial software terms. During a security incident, preserve chain of custody, document actions, and follow the order of volatility where evidence collection is required.</p><p>Dispose of batteries, toner, and devices using approved environmental procedures. Maintain suitable temperature, humidity, ventilation, and dust control. Use a UPS for power interruptions and a surge suppressor for transient voltage protection; they serve different purposes.</p>"
+        },
+        {
+          "h": "Communicate professionally and use tools responsibly",
+          "html": "<p>Listen without interruption, ask open-ended questions, clarify the issue, avoid jargon, and set realistic timelines. Protect confidential content on screens, printers, and storage. Explain options and obtain approval for actions that affect user data or availability.</p><p>Scripts can automate updates, backups, data collection, or drive mappings, but test them and review privileges, scope, and rollback. Remote access tools such as RDP, VPN, SSH, VNC, WinRM, RMM, and screen sharing have different security needs; use approved, authenticated, encrypted methods and end sessions when finished.</p><p>AI tools can assist with drafting or summarizing, but may be inaccurate or biased. Follow policy, protect private data, verify outputs, avoid plagiarism, and do not treat generated commands as safe without review.</p>"
+        }
+      ],
+      "tips": [
+        "A change plan includes impact, approval, a maintenance window, a backup, and a rollback path.",
+        "A backup is not proven until a restore is tested and the recovered data is checked.",
+        "For a customer interaction, listen, clarify, avoid jargon, set expectations, and document the agreed action.",
+        "Never paste confidential or regulated data into a public AI service; verify generated information and code before use."
+      ],
+      "terms": [
+        [
+          "SLA",
+          "A service-level agreement defining expected service targets and responsibilities."
+        ],
+        [
+          "Rollback plan",
+          "A documented way to return a system to its prior state if a change fails."
+        ],
+        [
+          "3-2-1 backup rule",
+          "A strategy using three copies, two media types, and one offsite copy."
+        ],
+        [
+          "Chain of custody",
+          "A documented record of evidence handling that helps preserve its integrity."
+        ],
+        [
+          "PII",
+          "Personally identifiable information that can identify or help identify an individual."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Operations make support repeatable",
+          "bullets": [
+            "21% of Core 2",
+            "Document, protect, communicate, and verify",
+            "Use policy and authorization as guardrails"
+          ],
+          "script": [
+            "Welcome to Operational Procedures. The technical fix is only one part of support. You also need clear records, approved changes, safe handling, reliable recovery, and communication the user understands.",
+            "The scenarios reward disciplined work: protect people and data, follow process, and confirm the outcome."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Plan",
+                "d": "Scope, impact, approval"
+              },
+              {
+                "t": "Perform",
+                "d": "Safe and authorized work"
+              },
+              {
+                "t": "Prove",
+                "d": "Verify and document"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Tickets, assets, and changes",
+          "bullets": [
+            "Record facts and progress in tickets",
+            "Track asset ownership and lifecycle",
+            "Plan impact, approvals, and rollback"
+          ],
+          "script": [
+            "A support ticket should let another technician understand the problem, what has been tried, and what remains. Keep the notes factual and include the resolution.",
+            "Before a change, document scope, risk, schedule, approval, affected users, and rollback. Test safely, communicate the window, and record the result, including emergency changes."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Request",
+                "d": "Purpose and scope"
+              },
+              {
+                "t": "Assess",
+                "d": "Impact and risk"
+              },
+              {
+                "t": "Approve",
+                "d": "People and timing"
+              },
+              {
+                "t": "Change",
+                "d": "Test and rollback"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Back up and recover",
+          "bullets": [
+            "Full, incremental, differential, synthetic full",
+            "Use offsite copies and retention rotation",
+            "Test restores, not just backup jobs"
+          ],
+          "script": [
+            "Backup types differ by what changed since the last backup. Incremental sets are smaller, while a differential grows from the last full backup. The recovery plan must account for the sets needed to restore.",
+            "Use an appropriate onsite and offsite rotation and test restoration. A successful job message does not prove that the data can be recovered."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Method",
+              "Captures"
+            ],
+            "rows": [
+              [
+                "Full",
+                "All selected data"
+              ],
+              [
+                "Incremental",
+                "Changes since last backup"
+              ],
+              [
+                "Differential",
+                "Changes since last full"
+              ],
+              [
+                "Restore test",
+                "Proves recovery path"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Work safely and protect assets",
+          "bullets": [
+            "Control ESD and electrical hazards",
+            "Use safe lifting and fire procedures",
+            "Dispose of batteries and toner correctly"
+          ],
+          "script": [
+            "Before service, disconnect power and use the right electrostatic-discharge protections. Handle and store components safely, manage cables, and follow workplace procedures for lifting and fire hazards.",
+            "Protect the environment too: use approved disposal for batteries, toner, and retired equipment. Keep ventilation, temperature, humidity, and dust within safe operating ranges."
+          ],
+          "visual": {
+            "type": "layers",
+            "items": [
+              {
+                "t": "Personal safety",
+                "d": "Power, lifting, fire"
+              },
+              {
+                "t": "Device safety",
+                "d": "ESD and component handling"
+              },
+              {
+                "t": "Environment",
+                "d": "Airflow and disposal"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Privacy, professionalism, and incident evidence",
+          "bullets": [
+            "Protect regulated and confidential data",
+            "Use approved licenses and follow policies",
+            "Preserve evidence when required"
+          ],
+          "script": [
+            "A technician may see personal, health, payment, or government data. Access only what the work requires and follow retention, privacy, license, and acceptable-use rules.",
+            "During an incident, follow the response plan, preserve evidence, and document who handled it. Communicate respectfully, avoid blame, clarify the user's need, and provide a realistic timeline."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Respect",
+                "d": "Privacy and policy"
+              },
+              {
+                "t": "Preserve",
+                "d": "Evidence integrity"
+              },
+              {
+                "t": "Communicate",
+                "d": "Clear and professional"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Scripting, remote access, and AI",
+          "bullets": [
+            "Automate only reviewed, scoped tasks",
+            "Secure and end remote sessions",
+            "Keep private data out of public AI tools"
+          ],
+          "script": [
+            "Scripts can repeat useful work, but an error may affect many systems. Review the source, permissions, target scope, and recovery plan; test before deployment.",
+            "Use approved remote tools with strong authentication and encryption. AI can help with routine drafting, but verify facts and commands and never expose protected data to a public service."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Scripting",
+                "d": "Review · test · scope"
+              },
+              {
+                "t": "Remote access",
+                "d": "Authenticate · encrypt · end session"
+              },
+              {
+                "t": "AI",
+                "d": "Protect data · verify output"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: Operational Procedures",
+          "bullets": [
+            "Make changes with approval and a rollback",
+            "Test backups and restore workflows",
+            "Communicate clearly and protect information"
+          ],
+          "script": [
+            "You have completed the Operational Procedures overview. Review ticket and asset records, change control, backup strategy, safety, privacy, customer communication, scripting, remote access, and AI limitations.",
+            "Practice choosing the process that protects the user and organization while still restoring service. Then finish with the Operational Procedures question set."
+          ]
+        }
+      ]
+    }
+  ]
+}
