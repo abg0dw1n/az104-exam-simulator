@@ -981,7 +981,7 @@ function learningPathCard(e) {
 // /learning-paths: every course with Learn content.
 async function renderLearningPathsPage() {
   document.body.classList.add('home', 'subpage');
-  document.title = 'Learning paths · IT Learn & Practice';
+  document.title = 'Learning paths · The IT Study Hall';
   $('navigator').hidden = true;
   let exams = [];
   try { exams = await fetchIndex(); } catch { /* offline */ }
@@ -1268,7 +1268,7 @@ function leaveGuest() {
 // ── Account page (/account): profile, sign out, and admin tools ──────────────
 async function renderAccountPage() {
   document.body.classList.add('home', 'account-page');
-  document.title = 'Account · IT Learn & Practice';
+  document.title = 'Account · The IT Study Hall';
   $('navigator').hidden = true;
   $('account').classList.add('active');
   const user = Auth.currentUser();
@@ -1572,9 +1572,9 @@ async function init() {
     return;
   }
   logView(slug);
-  document.title = `${EXAM.code} · IT Learn & Practice`;
+  document.title = `${EXAM.code} · The IT Study Hall`;
   document.body.dataset.vendor = vendorKey(EXAM.vendor);
-  $('brand-title').textContent = 'IT Learn & Practice';
+  $('brand-title').textContent = 'The IT Study Hall';
   $('brand-sub').textContent = `${EXAM.code} · ${EXAM.name}`;
   LEARN = await (slug === initialSlug ? learnFiles : Learn.loadLearn(slug));
   if (initialMode === 'learn' && LEARN) state.mode = 'learn';

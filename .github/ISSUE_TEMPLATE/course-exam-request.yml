@@ -1,5 +1,5 @@
 name: Course or exam request
-description: Suggest a certification exam or learning path for IT Learn & Practice.
+description: Suggest a certification exam or learning path for The IT Study Hall.
 title: "[Request] "
 body:
   - type: markdown
