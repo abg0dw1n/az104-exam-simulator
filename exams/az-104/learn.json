@@ -1,5 +1,5 @@
 {
- "intro": "Five modules, one per AZ-104 skill area. Each has a study guide, a slideshow and a narrated video lesson, aligned with the skills measured as of April 17, 2026.",
+ "intro": "Five modules, one per AZ-104 skill area. Each has a study guide, slideshow, narrated lesson and worked exam scenario, aligned with the skills measured as of April 17, 2026.",
  "updated": "2026-10-28",
  "sources": [
   {
@@ -49,6 +49,10 @@
     {
      "h": "Managing costs",
      "html": "\n<ul>\n<li><b>Cost analysis</b> shows spending by service, resource group, tag and more.</li>\n<li><b>Budgets</b> send alerts when actual or forecast spending crosses thresholds. Budgets don't stop resources by themselves, but alerts can trigger an action group (for example, an Automation runbook).</li>\n<li><b>Cost alerts</b> include budget alerts, credit alerts and department spending quota alerts.</li>\n<li><b>Azure Advisor</b> gives recommendations in five categories: cost, security, reliability, operational excellence and performance — for example, resizing or shutting down underused VMs.</li>\n<li>Savings options include <b>reservations</b>, <b>savings plans</b>, <b>Azure Hybrid Benefit</b> and <b>Spot VMs</b>.</li>\n</ul>\n"
+    },
+    {
+     "h": "Worked scenario: least-privilege access for an auditor",
+     "html": "<p><b>Scenario:</b> An external auditor needs to inspect Azure resource settings in one production resource group for a short review. They must not be able to change resources or administer the directory.</p>\n<p class=\"note\"><b>Pause and decide:</b> Which identity, role and scope meet the requirement with the narrowest practical access?</p>\n<h4>Recommended design</h4>\n<ol>\n<li>Invite the auditor as a Microsoft Entra <b>guest</b> using B2B collaboration.</li>\n<li>Add the guest to a dedicated <b>security group</b> used for the review.</li>\n<li>Assign the Azure RBAC <b>Reader</b> role to that group at the target <b>resource-group scope</b>.</li>\n<li>After the review, remove the role assignment or group membership and retire the guest account according to the organization's access process.</li>\n</ol>\n<p><b>Why this fits:</b> Reader grants control-plane visibility without resource changes. Resource-group scope keeps the assignment inside the review boundary; it doesn't grant a Microsoft Entra directory role or access to sibling resource groups. Check the exact data-plane permissions separately if the auditor also needs to read data stored inside a service.</p>\n<p class=\"small\"><a href=\"https://learn.microsoft.com/en-us/azure/active-directory/role-based-access-control-what-is\" target=\"_blank\" rel=\"noopener\">Microsoft Learn: Azure RBAC</a></p>"
     }
    ],
    "tips": [
@@ -511,6 +515,51 @@
      ]
     },
     {
+     "title": "Scenario: Give an external auditor read access",
+     "bullets": [
+      "An auditor is outside the tenant",
+      "They need to inspect resources in one production resource group",
+      "They must not change resources or administer the directory",
+      "Pause and choose the identity, role and scope"
+     ],
+     "script": [
+      "A company has invited an external auditor to review the Azure resources in one production resource group. The auditor needs to inspect configuration, but must not make changes or administer the directory. Pause the lesson and choose the right identity, role and scope before moving on."
+     ]
+    },
+    {
+     "title": "Solution: guest identity, Reader role, resource-group scope",
+     "bullets": [
+      "Invite the auditor as an Entra guest",
+      "Add the guest to a dedicated security group",
+      "Assign Azure RBAC Reader to the group at the target resource group",
+      "Remove access when the review ends"
+     ],
+     "visual": {
+      "type": "flow",
+      "steps": [
+       {
+        "t": "Invite",
+        "d": "Entra B2B guest"
+       },
+       {
+        "t": "Group",
+        "d": "Audit readers"
+       },
+       {
+        "t": "Assign",
+        "d": "Reader at one resource group"
+       },
+       {
+        "t": "Review ends",
+        "d": "Remove access"
+       }
+      ]
+     },
+     "script": [
+      "Use Microsoft Entra B2B to invite the auditor as a guest. Put the guest in a dedicated security group, then assign the Azure RBAC Reader role to that group at the target resource-group scope. Reader lets the auditor inspect Azure resource settings without changing them. The resource-group scope avoids granting access to sibling groups. Reader is a control-plane role, so check data-plane access separately if the audit also includes stored data. Remove the assignment or group membership when the review is complete."
+     ]
+    },
+    {
      "title": "Module 1 recap",
      "bullets": [
       "Entra roles manage identities; RBAC manages resources",
@@ -568,6 +617,10 @@
     {
      "h": "Blob Storage features",
      "html": "\n<p><b>Access tiers</b> for block blobs:</p>\n<table><thead><tr><th>Tier</th><th>Minimum retention</th><th>Notes</th></tr></thead><tbody>\n<tr><td>Hot</td><td>—</td><td>Frequent access; highest storage cost, lowest access cost</td></tr>\n<tr><td>Cool</td><td>30 days</td><td>Infrequent access</td></tr>\n<tr><td>Cold</td><td>90 days</td><td>Rare access, but still online</td></tr>\n<tr><td>Archive</td><td>180 days</td><td>Offline; <b>rehydrate</b> to Hot, Cool or Cold first (up to 15 hours at standard priority)</td></tr>\n</tbody></table>\n<p>Deleting or moving a blob before the minimum period incurs an early deletion charge.</p>\n<ul>\n<li><b>Lifecycle management</b> — JSON rules that move blobs to cooler tiers or delete them based on age (last modified, created, or last accessed with access tracking enabled). Rules run once a day.</li>\n<li><b>Blob soft delete</b> — recovers deleted blobs and snapshots for 1–365 days. <b>Container soft delete</b> does the same for containers.</li>\n<li><b>Versioning</b> — automatically keeps previous versions whenever a blob is overwritten or deleted.</li>\n<li><b>Snapshots</b> — manual read-only copies of a blob at a point in time.</li>\n<li><b>Point-in-time restore</b> — restores block blobs to an earlier state; needs versioning, change feed and soft delete.</li>\n<li><b>Immutable storage</b> — time-based retention or legal hold policies for WORM (write once, read many) compliance.</li>\n</ul>\n"
+    },
+    {
+     "h": "Worked scenario: revocable, read-only container access",
+     "html": "<p><b>Scenario:</b> A contractor needs temporary read access to a Blob Storage container while migrating data. The access should be limited to the required operations and revocable without rotating the storage account keys.</p>\n<p class=\"note\"><b>Pause and decide:</b> Which SAS type supports a stored access policy, and what should the policy restrict?</p>\n<h4>Recommended design</h4>\n<ol>\n<li>Create a <b>stored access policy</b> on the container with the required start and expiry times and only the needed permissions, such as read and list.</li>\n<li>Create a <b>service SAS</b> for that container that references the policy. Require HTTPS and share the token through an approved secret-sharing channel.</li>\n<li>If access must end early, change or remove the stored access policy to revoke the service SAS.</li>\n</ol>\n<p><b>Exam distinction:</b> A user delegation SAS is signed with Microsoft Entra credentials and is a strong default for Blob access, but it must be ad hoc; it cannot reference a stored access policy. If policy-based revocation is a requirement, the service SAS is the matching answer. Treat either SAS as a bearer secret.</p>\n<p class=\"small\"><a href=\"https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview\" target=\"_blank\" rel=\"noopener\">Microsoft Learn: Shared access signatures</a></p>"
     }
    ],
    "tips": [
@@ -1028,6 +1081,51 @@
      ]
     },
     {
+     "title": "Scenario: temporary access for a migration contractor",
+     "bullets": [
+      "The contractor needs read-only access to one blob container",
+      "Access must expire after the migration",
+      "You need a way to revoke it early",
+      "Pause and choose the SAS type"
+     ],
+     "script": [
+      "A contractor needs temporary read-only access to one Blob Storage container for a migration. The access should expire, and the storage team must be able to revoke it early without rotating account keys. Pause and choose which SAS type and control meet those requirements."
+     ]
+    },
+    {
+     "title": "Solution: service SAS tied to a stored access policy",
+     "bullets": [
+      "Create a container stored access policy with narrow permissions and dates",
+      "Issue a service SAS that references the policy",
+      "Require HTTPS and protect the token as a secret",
+      "Change or delete the policy to revoke associated SAS tokens"
+     ],
+     "visual": {
+      "type": "flow",
+      "steps": [
+       {
+        "t": "Stored policy",
+        "d": "Read/list + validity window"
+       },
+       {
+        "t": "Service SAS",
+        "d": "References policy"
+       },
+       {
+        "t": "Container",
+        "d": "Contractor access"
+       },
+       {
+        "t": "Revoke",
+        "d": "Change or remove policy"
+       }
+      ]
+     },
+     "script": [
+      "For policy-based revocation, use a service SAS associated with a stored access policy on the container. Limit the policy to the required read and list operations and the migration window. Require HTTPS and share the SAS URI securely because anyone holding it can use its permissions. If the task instead asks for a Microsoft Entra signed Blob SAS without policy-based revocation, consider a user delegation SAS. User delegation SAS tokens are ad hoc and cannot use a stored access policy."
+     ]
+    },
+    {
      "title": "Module 2 recap",
      "bullets": [
       "GPv2 is the default account type",
@@ -1077,6 +1175,10 @@
     {
      "h": "Azure App Service",
      "html": "\n<ul>\n<li>An <b>App Service plan</b> defines the region, OS, VM size and count. All apps in a plan share those resources.</li>\n<li>Tiers: Free and Shared (dev/test), Basic (custom domains and SSL), Standard (autoscale, <b>deployment slots</b>, backups), Premium (more scale and slots), Isolated (an App Service Environment in your VNet).</li>\n<li><b>Scale up</b> changes the tier/size; <b>scale out</b> adds instances, manually or with autoscale rules.</li>\n<li><b>Deployment slots</b> (Standard and above) run staging versions; <b>swap</b> to production with warm-up and instant rollback. Settings marked <b>deployment slot setting</b> stay with the slot.</li>\n<li><b>Custom domains</b> need a DNS record (CNAME or A) plus a TXT record (<code>asuid</code>) to verify ownership. <b>TLS</b> certificates can be free App Service managed certificates, imported from Key Vault, or uploaded.</li>\n<li><b>Backups</b> can be automatic or custom (custom backups need a storage account). <b>Networking</b>: VNet integration for outbound calls to private resources; private endpoints for private inbound access.</li>\n</ul>\n"
+    },
+    {
+     "h": "Worked scenario: stage and safely release an App Service update",
+     "html": "<p><b>Scenario:</b> A team needs to validate a new web app version before users receive it. The production app has environment-specific settings, and the team needs a straightforward way to return to the previous version if validation fails.</p>\n<p class=\"note\"><b>Pause and decide:</b> Which App Service feature provides a separate staging environment, and which settings must stay with each slot?</p>\n<h4>Recommended release path</h4>\n<ol>\n<li>Use an App Service plan that supports deployment slots, such as Standard or higher, then deploy the candidate to a <b>staging slot</b>.</li>\n<li>Mark environment-specific app settings and connection strings as <b>deployment slot settings</b> so they remain with the intended slot during a swap.</li>\n<li>Warm up and validate the staging slot, then swap it with production.</li>\n<li>If the new version fails after release, swap back to restore the previous production version, then investigate in staging.</li>\n</ol>\n<p><b>Keep the concepts separate:</b> A slot swap promotes an app deployment; it doesn't replace backups. For a custom domain, configure DNS ownership and a certificate binding separately. App Service VNet integration is for outbound access; a private endpoint provides private inbound access.</p>\n<p class=\"small\"><a href=\"https://learn.microsoft.com/en-us/azure/app-service/deploy-staging-slots\" target=\"_blank\" rel=\"noopener\">Microsoft Learn: App Service deployment slots</a></p>"
     }
    ],
    "tips": [
@@ -1469,7 +1571,7 @@
      "title": "Deployment slots",
      "bullets": [
       "Run staging versions alongside production",
-      "<b>Swap</b> with warm-up and instant rollback",
+      "Swap after warm-up; swap back to restore the previous version",
       "Slot settings stay with the slot",
       "Standard tier and above"
      ],
@@ -1493,7 +1595,7 @@
      "script": [
       "Deployment slots are live apps with their own host names.",
       "Deploy to a staging slot, test it, then swap it with production. Azure warms up the instances first, so there's no downtime.",
-      "If something goes wrong, swap back.",
+      "Deploy to a staging slot, validate it, then swap it with production. The swap warms up the target before routing traffic, which helps reduce disruption; validate the result in your own app.",
       "App settings marked as deployment slot settings stay with their slot instead of moving during a swap."
      ]
     },
@@ -1510,6 +1612,55 @@
       "Secure it with a free App Service managed certificate, a certificate from Key Vault, or one you upload.",
       "App Service can back up apps automatically. Custom backups need a storage account.",
       "For networking, VNet integration lets the app reach private resources, and a private endpoint gives the app a private inbound address."
+     ]
+    },
+    {
+     "title": "Scenario: release a web app with a safe rollback path",
+     "bullets": [
+      "Validate the new version before users see it",
+      "Production and staging use different connection settings",
+      "Promote only after a health check",
+      "Pause and choose an App Service release feature"
+     ],
+     "script": [
+      "A team is updating a web app in Azure App Service. They need to validate the new version before users see it, preserve different settings for staging and production, and return to the previous version if the health check fails. Pause and choose an App Service release feature that fits."
+     ]
+    },
+    {
+     "title": "Solution: deployment slots with sticky settings",
+     "bullets": [
+      "Deploy the candidate to a staging slot on a supported plan",
+      "Mark environment-specific settings as slot settings",
+      "Warm up and validate, then swap staging with production",
+      "If needed, swap back to the previous production version"
+     ],
+     "visual": {
+      "type": "table",
+      "head": [
+       "Need",
+       "Use"
+      ],
+      "rows": [
+       [
+        "Separate test environment",
+        "Staging deployment slot"
+       ],
+       [
+        "Keep each slot's connection settings",
+        "Deployment slot settings"
+       ],
+       [
+        "Promote the validated build",
+        "Warm up, then swap"
+       ],
+       [
+        "Restore the prior version",
+        "Swap back"
+       ]
+      ]
+     },
+     "script": [
+      "Use a staging deployment slot in an App Service plan that supports slots, such as Standard or higher. Mark environment-specific settings as slot settings so they stay with their slot instead of swapping with the application content. Warm up the staging app, run the health check, and swap it into production. If validation fails after release, swap back to restore the previous production version. A slot swap is a release technique; keep backup and recovery configured separately."
      ]
     },
     {
@@ -1570,6 +1721,10 @@
     {
      "h": "Load balancing",
      "html": "\n<table><thead><tr><th>Service</th><th>Layer</th><th>Scope</th><th>Typical use</th></tr></thead><tbody>\n<tr><td>Azure Load Balancer</td><td>4 (TCP/UDP)</td><td>Regional</td><td>Distribute traffic to VMs</td></tr>\n<tr><td>Application Gateway</td><td>7 (HTTP/S)</td><td>Regional</td><td>URL routing, TLS termination, WAF</td></tr>\n<tr><td>Azure Front Door</td><td>7</td><td>Global</td><td>Global web apps, CDN, WAF</td></tr>\n<tr><td>Traffic Manager</td><td>DNS</td><td>Global</td><td>DNS-based routing between regions</td></tr>\n</tbody></table>\n<p>Azure Load Balancer components: <b>frontend IP</b> (public or internal), <b>backend pool</b>, <b>health probe</b>, <b>load-balancing rule</b>, and <b>inbound NAT rules</b> (for example, RDP to a specific VM). <b>Session persistence</b> can keep a client on the same backend. The <b>Standard</b> SKU is secure by default: you need an NSG to allow traffic to backends.</p>\n<p>If a backend isn't receiving traffic, check the <b>health probe</b> and the NSG (it must allow the <code>AzureLoadBalancer</code> service tag).</p>\n"
+    },
+    {
+     "h": "Worked scenario: private endpoint works by IP, not by name",
+     "html": "<p><b>Scenario:</b> An app in one virtual network must reach a Storage account through a private endpoint in a peered virtual network. The endpoint is provisioned, but the app resolves the storage name to a public IP.</p>\n<p class=\"note\"><b>Pause and decide:</b> Is the remaining problem routing, network security, or name resolution?</p>\n<h4>Recommended investigation</h4>\n<ol>\n<li>Verify that VNet peering and the relevant network security rules allow a path to the private endpoint's IP.</li>\n<li>Check DNS from the app's network. The service name must resolve through the appropriate <code>privatelink</code> DNS zone to the private endpoint address.</li>\n<li>Link the private DNS zone to the client VNet, or configure the organization's DNS forwarding path to resolve that zone.</li>\n<li>Retest name resolution and connectivity. A successful IP test alone doesn't prove that application clients are using the private endpoint.</li>\n</ol>\n<p><b>Exam distinction:</b> Peering provides network connectivity between VNets, but the client still needs the correct DNS answer. A service endpoint keeps the service's public endpoint; a private endpoint adds a private IP for a specific service resource.</p>\n<p class=\"small\"><a href=\"https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-dns-integration\" target=\"_blank\" rel=\"noopener\">Microsoft Learn: Private endpoint DNS integration</a></p>"
     }
    ],
    "tips": [
@@ -2062,6 +2217,51 @@
      ]
     },
     {
+     "title": "Scenario: a private endpoint resolves to a public IP",
+     "bullets": [
+      "An app VNet is peered with the VNet hosting a Storage private endpoint",
+      "The endpoint is provisioned and network rules allow the path",
+      "The app's storage hostname still resolves to a public IP",
+      "Pause and identify the next thing to troubleshoot"
+     ],
+     "script": [
+      "An application is in one virtual network. A Storage private endpoint is in a peered virtual network, and the network path is allowed. Yet the application resolves the storage hostname to a public IP. Pause and decide whether to change the route, the network security rule, or DNS."
+     ]
+    },
+    {
+     "title": "Solution: resolve the service name to the private endpoint",
+     "bullets": [
+      "Check connectivity and NSG rules to the private endpoint IP",
+      "Resolve the service hostname through its private-link DNS zone",
+      "Link the zone to the client VNet or configure DNS forwarding",
+      "Retest from the app's network"
+     ],
+     "visual": {
+      "type": "flow",
+      "steps": [
+       {
+        "t": "App query",
+        "d": "Storage hostname"
+       },
+       {
+        "t": "Private DNS",
+        "d": "privatelink zone"
+       },
+       {
+        "t": "Private IP",
+        "d": "Endpoint address"
+       },
+       {
+        "t": "Peered path",
+        "d": "Allowed by network"
+       }
+      ]
+     },
+     "script": [
+      "When an application hostname resolves to a public IP, check DNS before changing a route that is already allowed. Configure the appropriate private-link DNS zone and make it resolvable from the client VNet. That can mean linking the zone to the VNet or configuring the existing DNS forwarding design. Then verify the hostname returns the private endpoint address and retest the application. Peering carries traffic; it doesn't by itself supply the correct private DNS answer."
+     ]
+    },
+    {
      "title": "Module 4 recap",
      "bullets": [
       "5 reserved IPs per subnet",
@@ -2115,6 +2315,10 @@
     {
      "h": "Azure Site Recovery",
      "html": "\n<p>Site Recovery <b>replicates</b> VMs continuously to a secondary region (or from on-premises to Azure) so you can <b>fail over</b> during an outage.</p>\n<ul>\n<li>Uses a <b>Recovery Services vault</b> in the <b>target</b> (secondary) region.</li>\n<li><b>Recovery plans</b> group machines and order failover steps, with scripts and manual actions.</li>\n<li><b>Test failover</b> runs into an isolated network without affecting production replication.</li>\n<li>Failover types: <b>planned</b> (no data loss) and <b>unplanned</b>. After failover, <b>commit</b>, then <b>re-protect</b> to replicate back, and <b>fail back</b> later.</li>\n<li>Backup = point-in-time copies for restore (RPO in hours/days); Site Recovery = disaster recovery with low RPO and RTO (minutes).</li>\n</ul>\n"
+    },
+    {
+     "h": "Worked scenario: alert on CPU without maintenance noise",
+     "html": "<p><b>Scenario:</b> A team wants to know when a VM's CPU exceeds a threshold. The signal is numeric and available as a platform metric. Planned maintenance happens every Saturday night, when notifications should be suppressed.</p>\n<p class=\"note\"><b>Pause and decide:</b> Which alert type matches the signal, and what should change during the maintenance window?</p>\n<h4>Recommended design</h4>\n<ol>\n<li>Create a <b>metric alert rule</b> scoped to the VM and configure the CPU condition and evaluation settings.</li>\n<li>Attach an <b>action group</b> for the required notifications or automation.</li>\n<li>Create a scheduled <b>alert processing rule</b> to suppress the action group during the maintenance window.</li>\n<li>After the window, confirm the processing rule schedule and alert action behavior are back to normal.</li>\n</ol>\n<p><b>Exam distinction:</b> Metric alerts evaluate numeric metric signals. Log search alerts evaluate a Log Analytics query. Alert processing rules modify or suppress actions for triggered alerts; they are useful for planned notification windows without deleting the alert rule.</p>\n<p class=\"small\"><a href=\"https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview\" target=\"_blank\" rel=\"noopener\">Microsoft Learn: Azure Monitor alerts</a></p>"
     }
    ],
    "tips": [
@@ -2529,6 +2733,51 @@
       "Backup keeps point-in-time copies so you can recover data after deletion or corruption.",
       "Site Recovery keeps the whole application ready to run in another region, with a recovery point objective of seconds to minutes.",
       "Most organizations use both."
+     ]
+    },
+    {
+     "title": "Scenario: CPU alerts during a maintenance window",
+     "bullets": [
+      "A VM's CPU metric needs a threshold alert",
+      "Notify the operations team when it fires",
+      "Suppress notifications during scheduled Saturday maintenance",
+      "Pause and choose the alert and maintenance controls"
+     ],
+     "script": [
+      "A team needs a notification when a virtual machine's CPU metric crosses a threshold. During scheduled Saturday maintenance, the notification should be suppressed. Pause and choose the alert type, notification action, and maintenance control."
+     ]
+    },
+    {
+     "title": "Solution: metric alert, action group, processing rule",
+     "bullets": [
+      "Use a metric alert for the VM's CPU signal",
+      "Attach an action group for notifications or automation",
+      "Schedule an alert processing rule to suppress actions during maintenance",
+      "Keep the alert rule so monitoring resumes after the window"
+     ],
+     "visual": {
+      "type": "flow",
+      "steps": [
+       {
+        "t": "CPU metric",
+        "d": "Threshold condition"
+       },
+       {
+        "t": "Metric alert",
+        "d": "Scope + evaluation"
+       },
+       {
+        "t": "Processing rule",
+        "d": "Suppress in schedule"
+       },
+       {
+        "t": "Action group",
+        "d": "Notify or automate"
+       }
+      ]
+     },
+     "script": [
+      "CPU is a numeric platform metric, so create a metric alert rule for the VM and define the threshold and evaluation behavior. Attach an action group for the operations team's notification or automation. Use a scheduled alert processing rule to suppress the action group during the maintenance window. Keep the alert rule in place so the same monitoring can notify the team outside the scheduled suppression period. A log search alert would be the better fit for a condition that must be evaluated from Log Analytics query results."
      ]
     },
     {
