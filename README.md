@@ -46,7 +46,7 @@ Open the site to pick an exam, or go straight to one at `/<folder>` (e.g. `/az-1
 - **Learn** – training content for exams that have it (AZ-104 so far). One module per exam domain, each with:
   - a **study guide** (sections, exam tips, key terms, and a link to practice that domain),
   - a **slideshow** (arrow keys, speaker notes, full screen), and
-  - a **video lesson** – the slides animate while the device's built-in text-to-speech voice reads the script, with captions, speed and voice controls. No audio files are hosted; if a device has no voice, the lesson plays with captions only.
+  - a **video lesson** – AZ-104 slides animate with prerecorded Andrew Neural narration and captions; other courses use the device's built-in text-to-speech voice until recordings are added.
 
   Module progress (guide read, slides finished, video watched) is saved with the rest of your progress.
 

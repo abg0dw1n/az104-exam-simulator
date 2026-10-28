@@ -1,6 +1,6 @@
 // Learn tab: per-domain modules with a study guide, a slideshow and a narrated video lesson.
-// Content comes from /exams/<slug>/learn.json. Narration uses the browser's speech synthesis,
-// so no audio files are needed; without a voice the lesson still plays with captions.
+// Content comes from /exams/<slug>/learn.json. AZ-104 uses prerecorded narration;
+// other courses can use browser speech synthesis until recordings are available.
 
 const $ = (id) => document.getElementById(id);
 const esc = (t = '') => String(t).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -8,10 +8,12 @@ const icon = (name) => `<svg class="icon" aria-hidden="true"><use href="#i-${nam
 
 let ctx = null;      // { exam, state, save, practiceDomain }
 let data = null;     // learn.json
+let learnSlug = null;
 let player = null;   // active video player
 let keyHandler = null;
 
 export async function loadLearn(slug) {
+  learnSlug = slug;
   try {
     const res = await fetch(`/exams/${slug}/learn.json`, { cache: 'no-cache' });
     if (!res.ok) return null;
@@ -238,7 +240,8 @@ function englishVoices() {
 function renderVideo(body, m) {
   const scenes = m.slides.map((s) => ({ slide: s, lines: scriptOf(s).length ? scriptOf(s) : [s.title] }));
   const total = scenes.reduce((n, s) => n + s.lines.length, 0);
-  const tts = 'speechSynthesis' in window;
+  const prerecorded = learnSlug === 'az-104';
+  const tts = !prerecorded && 'speechSynthesis' in window;
   body.innerHTML = `<div class="video">
       <div class="stage video-stage" id="video-stage">
         <div id="video-slide"></div>
@@ -258,11 +261,13 @@ function renderVideo(body, m) {
         ${tts ? '<label class="small muted v-ctl">Voice <select id="v-voice"></select></label>' : ''}
         <button class="btn btn-ghost btn-sm" id="v-full">Full screen</button>
       </div>
-      ${tts ? '' : '<p class="muted small">Your browser can\'t read text aloud, so this lesson plays with captions only.</p>'}
+      ${prerecorded ? '<p class="muted small">Narration: Andrew (standard Neural). Captions follow the narration; use the timeline to move between slides.</p>' : tts ? '' : '<p class="muted small">Your browser can\'t read text aloud, so this lesson plays with captions only.</p>'}
     </div>`;
 
   const st = { scene: 0, line: 0, playing: false, token: 0, cc: true, rate: Number(pref(RATE_KEY, '1')) || 1 };
   const el = { slide: $('video-slide'), cap: $('video-caption'), prog: $('video-progress'), play: $('v-play'), big: $('video-big'), time: $('v-time') };
+  const audio = prerecorded ? new Audio(`/exams/${learnSlug}/media/${encodeURIComponent(m.id)}.mp3`) : null;
+  if (audio) audio.preload = 'metadata';
   $('v-rate').value = String(st.rate);
   let timer = null;
 
@@ -276,6 +281,26 @@ function renderVideo(body, m) {
   if (tts) { fillVoices(); window.speechSynthesis.onvoiceschanged = fillVoices; }
 
   const pos = () => scenes.slice(0, st.scene).reduce((n, s) => n + s.lines.length, 0) + st.line;
+  const segments = scenes.flatMap((scene, sceneIndex) => scene.lines.map((text, lineIndex) => ({
+    scene: sceneIndex, line: lineIndex, text, weight: Math.max(1, words(text)),
+  })));
+  const totalWeight = segments.reduce((n, segment) => n + segment.weight, 0);
+  const weightBeforeScene = (sceneIndex) => segments.filter((segment) => segment.scene < sceneIndex)
+    .reduce((n, segment) => n + segment.weight, 0);
+  const syncAudio = () => {
+    if (!audio?.duration || !Number.isFinite(audio.duration)) return;
+    const target = Math.min(totalWeight - 1, (audio.currentTime / audio.duration) * totalWeight);
+    let elapsed = 0;
+    const segment = segments.find((item) => {
+      elapsed += item.weight;
+      return target < elapsed;
+    }) || segments[segments.length - 1];
+    const changed = segment.scene !== st.scene || segment.line !== st.line;
+    st.scene = segment.scene; st.line = segment.line;
+    el.cap.textContent = segment.text;
+    if (changed) drawSlide();
+    drawChrome();
+  };
   const drawSlide = () => {
     const sc = scenes[st.scene]; const b = sc.slide.bullets?.length || 0;
     const reveal = b ? Math.ceil(((st.line + 1) / sc.lines.length) * b) : 0;
@@ -337,27 +362,66 @@ function renderVideo(body, m) {
     speakLine();
   };
   const play = () => {
+    if (audio) {
+      if (audio.ended) audio.currentTime = 0;
+      st.playing = true;
+      audio.playbackRate = st.rate;
+      audio.play().then(syncAudio).catch(() => {
+        st.playing = false;
+        el.cap.textContent = 'Narration audio could not be played. Check the MP3 file and reload the lesson.';
+        drawChrome();
+      });
+      syncAudio(); drawChrome();
+      return;
+    }
     if (pos() >= total) { st.scene = 0; st.line = 0; }
     st.playing = true; speakLine();
   };
   const stop = () => {
     st.playing = false; st.token += 1; clearTimeout(timer);
-    if (tts) window.speechSynthesis.cancel();
+    if (audio) audio.pause();
+    else if (tts) window.speechSynthesis.cancel();
     drawChrome();
   };
   const seek = (scene) => {
     const was = st.playing; stop();
     st.scene = Math.min(Math.max(scene, 0), scenes.length - 1); st.line = 0;
+    if (audio?.duration && Number.isFinite(audio.duration)) {
+      audio.currentTime = (weightBeforeScene(st.scene) / totalWeight) * audio.duration;
+      el.cap.textContent = scenes[st.scene].lines[0];
+      if (was) play(); else { drawSlide(); drawChrome(); }
+      return;
+    }
     el.cap.textContent = scenes[st.scene].lines[0];
     if (was) play(); else { drawSlide(); drawChrome(); }
   };
+
+  if (audio) {
+    audio.addEventListener('timeupdate', syncAudio);
+    audio.addEventListener('ended', () => {
+      st.playing = false;
+      st.scene = scenes.length - 1;
+      st.line = scenes[scenes.length - 1].lines.length - 1;
+      el.cap.textContent = '';
+      mark(m.id, 'video'); drawSlide(); drawChrome();
+    });
+    audio.addEventListener('error', () => {
+      st.playing = false;
+      el.cap.textContent = 'Narration audio could not be loaded. Check the MP3 file and reload the lesson.';
+      drawChrome();
+    });
+  }
 
   el.play.onclick = () => (st.playing ? stop() : play());
   el.big.onclick = play;
   $('v-prev').onclick = () => seek(st.scene - 1);
   $('v-next').onclick = () => seek(st.scene + 1);
   $('v-cc').onclick = (e) => { st.cc = !st.cc; e.currentTarget.setAttribute('aria-pressed', String(st.cc)); drawChrome(); };
-  $('v-rate').onchange = (e) => { st.rate = Number(e.target.value); setPref(RATE_KEY, e.target.value); if (st.playing) speakLine(); };
+  $('v-rate').onchange = (e) => {
+    st.rate = Number(e.target.value); setPref(RATE_KEY, e.target.value);
+    if (audio) audio.playbackRate = st.rate;
+    else if (st.playing) speakLine();
+  };
   $('v-voice')?.addEventListener('change', (e) => { setPref(VOICE_KEY, e.target.value); if (st.playing) speakLine(); });
   $('v-full').onclick = () => fullscreen($('video-stage'));
   el.prog.addEventListener('click', (e) => {

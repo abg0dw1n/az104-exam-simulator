@@ -5,6 +5,7 @@
   "type": "module",
   "description": "Practice and timed exam simulator for IT certifications (AZ-104, Network+)",
   "scripts": {
-    "validate": "node scripts/validate-questions.mjs"
+    "validate": "node scripts/validate-questions.mjs",
+    "speech:az104": "node scripts/render-az104-speech.mjs"
   }
 }
