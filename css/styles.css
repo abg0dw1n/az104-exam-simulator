@@ -735,3 +735,5 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 .guest-banner .icon { color: var(--warn-text); }
 .guest-banner b { color: var(--warn-text); }
 .guest-banner a { color: var(--azure-text); font-weight: 650; }
+.guest-actions { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.guest-banner .btn { padding: 4px 10px; }

@@ -71,7 +71,10 @@
   <div id="guest-banner" class="guest-banner" role="status" hidden>
     <svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>
     <span><b>Guest mode:</b> your progress isn't saved and is cleared when you close this tab.</span>
-    <a href="/" id="guest-signin">Sign in to save progress</a>
+    <span class="guest-actions">
+      <a href="/" data-guest-exit="signin">Sign in to save progress</a>
+      <button type="button" class="btn btn-ghost btn-sm" data-guest-exit="exit">Exit guest mode</button>
+    </span>
   </div>
 
   <div class="layout">

@@ -1202,7 +1202,14 @@ function renderAccount() {
   if (guest) { link.title = 'Guest: progress is not saved'; link.querySelector('span').textContent = 'Guest'; }
 }
 
-// Leave guest mode: discard this tab's guest progress and show the sign-in screen.
+// Leave guest mode (after confirming): discard this tab's guest progress and show the sign-in screen.
+async function confirmLeaveGuest(kind) {
+  const ok = kind === 'exit'
+    ? await confirmModal('Exit guest mode?', "Your guest progress in this tab will be discarded and you'll return to the sign-in screen.", 'Exit guest mode', 'Stay')
+    : await confirmModal('Sign in to save progress?', "Your guest progress in this tab will be discarded and you'll go to the sign-in screen, where you can sign in with an invited email.", 'Go to sign-in', 'Stay');
+  if (ok) leaveGuest();
+}
+
 function leaveGuest() {
   Auth.endGuest();
   try { sessionStorage.removeItem('examsim:guest'); } catch { /* ignore */ }
@@ -1222,16 +1229,13 @@ async function renderAccountPage() {
       <p class="muted">You're using the site as a guest.</p></div>
       <div class="panel card-pad account-card">
         <div class="account-avatar" aria-hidden="true">${icon('user')}</div>
-        <div class="account-who"><span class="muted small">Signed in as</span><b>Guest</b>
+        <div class="account-who"><span class="muted small">Browsing as</span><b>Guest</b>
           <span class="muted small">Progress isn't saved. It's cleared when you close this tab and can't be moved to an account.</span></div>
         <div class="account-actions"><a class="btn btn-ghost btn-sm" href="/privacy">Privacy policy</a>
-          <button id="btn-guest-signin" class="btn btn-primary btn-sm">Sign in to save progress</button></div>
+          <button class="btn btn-ghost btn-sm" data-guest-exit="exit">Exit guest mode</button>
+          <button class="btn btn-primary btn-sm" data-guest-exit="signin">Sign in to save progress</button></div>
       </div>
     </section>`;
-    $('btn-guest-signin').addEventListener('click', async () => {
-      if (!(await confirmModal('Leave guest mode?', 'Your guest progress in this tab will be discarded, and you can sign in with an invited email.', 'Continue to sign in'))) return;
-      leaveGuest();
-    });
     return;
   }
   $('main').innerHTML = `<section class="stack">
@@ -1482,10 +1486,12 @@ async function init() {
   save(); // persist anything created on first render (e.g. a new practice round)
 }
 
-$('guest-signin').addEventListener('click', async (e) => {
+// "Exit guest mode" / "Sign in to save progress" in the banner and on the Account page.
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-guest-exit]');
+  if (!b) return;
   e.preventDefault();
-  if (!(await confirmModal('Leave guest mode?', 'Your guest progress in this tab will be discarded, and you can sign in with an invited email.', 'Continue to sign in'))) return;
-  leaveGuest();
+  confirmLeaveGuest(b.dataset.guestExit);
 });
 
 init();
