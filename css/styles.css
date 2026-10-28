@@ -63,6 +63,10 @@
   --shadow: 0 1px 2px rgba(41,36,42,.06), 0 6px 20px rgba(41,36,42,.07);
 }
 
+/* Page width: wide on the home-style pages, a little narrower where people read questions. */
+:root { --page-max: 1440px; --page-pad: clamp(16px, 2.2vw, 32px); }
+body.home { --page-max: 1600px; }
+
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
@@ -100,7 +104,7 @@ code {
   content: ""; position: absolute; z-index: -1; inset-inline: 0; bottom: -1px; height: 2px; opacity: .72; pointer-events: none;
   background: linear-gradient(90deg, transparent 4%, color-mix(in srgb, var(--azure) 42%, transparent) 20%, var(--azure) 50%, color-mix(in srgb, var(--azure) 42%, transparent) 80%, transparent 96%);
 }
-.topbar-inner { max-width: 1280px; min-height: 76px; margin: 0 auto; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.topbar-inner { max-width: var(--page-max); min-height: 76px; margin: 0 auto; padding: 12px var(--page-pad); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
 .brand > div { display: grid; gap: 3px; }
 .brand h1 { font-size: 17px; font-weight: 650; letter-spacing: -.015em; white-space: nowrap; }
@@ -139,7 +143,7 @@ code {
 }
 
 /* ── Layout ──────────────────────────────────────────── */
-.layout { flex: 1; width: 100%; max-width: 1280px; margin: 0 auto; padding: 20px 16px 40px; display: flex; gap: 20px; align-items: flex-start; }
+.layout { flex: 1; width: 100%; max-width: var(--page-max); margin: 0 auto; padding: 20px var(--page-pad) 40px; display: flex; gap: 20px; align-items: flex-start; }
 .panel { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
 .main { flex: 1; min-width: 0; }
 
@@ -803,3 +807,6 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
   .topbar .segmented button { padding-left: 9px; padding-right: 9px; }
 }
 @media (max-width: 340px) { .topbar-actions .exams-link { display: none !important; } } /* the site name links home */
+
+/* Keep question text a readable line length on wide screens */
+.qcard .scenario { max-width: 80ch; }
