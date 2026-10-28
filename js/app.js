@@ -883,6 +883,18 @@ async function loadBank(slug, files = fetchBank(slug)) {
   if (state.mode === 'review' && !state.review?.ids.length) state.mode = 'exam';
 }
 
+// Feeds the home page "Most popular" folder. Throttled so refreshes don't inflate counts.
+function logView(slug) {
+  if (!Auth.currentUser()) return;
+  const KEY = 'examsim:views';
+  let seen = {};
+  try { seen = JSON.parse(localStorage.getItem(KEY)) || {}; } catch { /* ignore */ }
+  if (Date.now() - (seen[slug] || 0) < 60 * 60 * 1000) return;
+  seen[slug] = Date.now();
+  try { localStorage.setItem(KEY, JSON.stringify(seen)); } catch { /* ignore */ }
+  Auth.recordView(slug).catch(() => { /* best effort */ });
+}
+
 // /az-104 or /network-plus selects an exam; / shows the exam picker.
 function currentSlug() {
   const fromQuery = new URLSearchParams(location.search).get('exam');
@@ -904,10 +916,47 @@ const levelMeter = (l) => {
     <span class="sr-only">Difficulty: </span>${label}</span>`;
 };
 
+// What this person has done in an exam, or null if they haven't started it.
+function recentActivity(e, saved) {
+  if (!saved) return null;
+  const answered = Object.keys(saved.practice?.answers || {}).length;
+  const modules = Object.values(saved.learn?.progress || {});
+  const parts = modules.reduce((n, p) => n + ['guide', 'slides', 'video'].filter((k) => p?.[k]).length, 0);
+  const examRunning = !!(saved.exam && !saved.exam.result);
+  const last = saved.history?.[0];
+  const openedModule = !!saved.learn?.view?.module; // reading a module counts as started
+  if (!answered && !parts && !examRunning && !last && !openedModule) return null;
+  return { answered, parts, totalParts: (e.learningModules || 0) * 3, examRunning, last, openedModule, mode: saved.mode };
+}
+
+function recentCard({ e, activity: a }) {
+  const pct = (n, total) => (total ? Math.min(100, Math.round((n / total) * 100)) : 0);
+  const rows = [];
+  if (e.learning && (a.parts || a.openedModule)) {
+    rows.push(`<span class="recent-row"><span>Learning</span><b>${a.totalParts ? `${a.parts} / ${a.totalParts} parts` : `${a.parts} parts`}</b></span>
+      <span class="recent-bar"><i style="width:${pct(a.parts, a.totalParts)}%"></i></span>`);
+  }
+  if (a.answered || !rows.length) {
+    rows.push(`<span class="recent-row"><span>Practice</span><b>${a.answered}${e.questions ? ` / ${e.questions}` : ''} answered</b></span>
+      <span class="recent-bar"><i style="width:${pct(a.answered, e.questions)}%"></i></span>`);
+  }
+  if (a.examRunning) rows.push('<span class="recent-row"><span>Timed exam</span><b class="running">In progress</b></span>');
+  else if (a.last) rows.push(`<span class="recent-row"><span>Last exam</span><b class="${a.last.passed ? 'good' : 'weak'}">${a.last.score}</b></span>`);
+  const learnFirst = a.mode === 'learn' && e.learning;
+  const action = a.examRunning ? 'Resume exam' : learnFirst ? 'Continue learning' : 'Continue practice';
+  return `<a class="panel learning-path-card recent-card" href="/${e.slug}${learnFirst ? '?mode=learn' : ''}" data-vendor="${vendorKey(e.vendor)}">
+      <span class="learning-path-eyebrow">${escapeHtml(e.vendor.toUpperCase())} · ${escapeHtml(e.code)}</span>
+      <h3>${escapeHtml(e.name)}</h3>
+      <span class="recent-rows">${rows.join('')}</span>
+      <span class="learning-path-action">${action} ${icon('right', 'icon')}</span>
+    </a>`;
+}
+
 async function renderHome() {
   document.body.classList.add('home');
   $('navigator').hidden = true;
   let exams = [];
+  const popularRequest = Auth.currentUser() ? Auth.popularExams(30, 6).catch(() => []) : Promise.resolve([]);
   try { exams = await fetchIndex(); } catch { /* offline with nothing cached */ }
   const cards = await Promise.all(exams.map(async (e) => {
     // Counts are kept in index.json by scripts/stamp-updated.mjs; fall back to the bank if missing.
@@ -926,22 +975,43 @@ async function renderHome() {
       <span class="exam-card-action">Open exam ${icon('right', 'icon')}</span>
     </a>`;
   }));
+  const cardFor = Object.fromEntries(exams.map((e, i) => [e.slug, cards[i]]));
+
+  // ── Recents: exams this person has studied or practiced, most recently opened first.
+  const recents = exams.map((e) => ({ e, saved: readSaved(e.slug, e.legacyStorageKey) }))
+    .map(({ e, saved }) => ({ e, saved, activity: recentActivity(e, saved) }))
+    .filter((r) => r.activity)
+    .sort((a, b) => (b.saved.updatedAt || 0) - (a.saved.updatedAt || 0))
+    .slice(0, 6);
   const learningExams = exams.filter((e) => e.learning);
-  const learningCards = learningExams.length ? learningExams.map((e) => `
+  const learningCards = learningExams.map((e) => `
     <a class="panel learning-path-card" href="/${e.slug}?mode=learn" data-vendor="${vendorKey(e.vendor)}">
       <span class="learning-path-eyebrow">LEARNING PATH · ${escapeHtml(e.code)}</span>
       <h3>${escapeHtml(e.name)}</h3>
       <p>${escapeHtml(e.learningDescription || `Structured study materials for ${e.name}, organized by exam domain.`)}</p>
       <span class="learning-path-meta"><span>One module per exam domain</span><span>Guides · slides · video</span></span>
       <span class="learning-path-action">Start learning ${icon('right', 'icon')}</span>
-    </a>`).join('') : `
-    <div class="panel learning-coming-card">
-      <span class="learning-path-eyebrow">LEARNING PATHS</span>
-      <h3>Study materials are on the way</h3>
-      <p>Structured guides, slides, and lessons will be added alongside the practice exams.</p>
-    </div>`;
+    </a>`).join('');
+  const recentsBody = recents.length
+    ? `<div class="learning-path-grid">${recents.map(recentCard).join('')}</div>`
+    : learningCards
+      ? `<p class="recents-empty">Nothing in progress yet. Start with a learning path, or open any practice exam below.</p>
+         <div class="learning-path-grid">${learningCards}</div>`
+      : '<p class="recents-empty">Courses and exams you start will appear here.</p>';
+
+  // ── Most popular: an open folder of the most-viewed exams (all users, last 30 days).
+  const popular = ((await popularRequest) || []).filter((p) => cardFor[p?.exam]);
+  const popularFolder = popular.length ? `<details class="vendor-folder popular-folder" data-provider-group="popular" open>
+      <summary>
+        ${icon('trend', 'icon folder-icon')}
+        <span class="folder-name">Most popular</span>
+        <span class="folder-count">Last 30 days</span>
+      </summary>
+      <div class="exam-grid">${popular.map((p) => cardFor[p.exam]).join('')}</div>
+    </details>` : '';
+
   const providers = [...new Set(exams.map((e) => e.vendor))];
-  const examGroups = providers.map((provider) => {
+  const examGroups = popularFolder + providers.map((provider) => {
     const key = vendorKey(provider);
     const entries = exams.map((exam, index) => ({ exam, card: cards[index] }))
       .filter(({ exam }) => exam.vendor === provider)
@@ -949,7 +1019,7 @@ async function renderHome() {
         || a.exam.code.localeCompare(b.exam.code, undefined, { numeric: true }));
     const preview = entries.slice(0, 5).map(({ exam }) =>
       `<span class="folder-code" data-level="${exam.level || ''}">${escapeHtml(exam.code)}</span>`).join('');
-    return `<details class="vendor-folder" data-provider-group="${key}" data-vendor="${key}" open>
+    return `<details class="vendor-folder" data-provider-group="${key}" data-vendor="${key}">
       <summary>
         ${icon('folder', 'icon folder-icon')}
         <span class="folder-name">${escapeHtml(provider)}</span>
@@ -971,7 +1041,7 @@ async function renderHome() {
         <h2>Learn the concepts.<br><span>Practice with confidence.</span></h2>
         <p>Start with a guided learning path, sharpen your skills with practice questions, and see how ready you are for exam day.</p>
         <div class="home-hero-actions">
-          <a class="btn btn-primary" href="#learning">${icon('learn')}Explore learning</a>
+          <a class="btn btn-primary" href="#recents">${icon('learn')}${recents.length ? 'Continue where you left off' : 'Explore learning'}</a>
           <a class="btn btn-ghost" href="#practice">Browse practice exams</a>
         </div>
       </div>
@@ -981,13 +1051,13 @@ async function renderHome() {
         <div><span class="hero-step-icon">03</span><span><b>Get exam-ready</b><small>Timed tests and progress</small></span></div>
       </div>
     </section>
-    <section class="learning-section" id="learning" aria-labelledby="learning-title">
+    <section class="learning-section" id="recents" aria-labelledby="recents-title">
       <div class="section-heading">
-        <div><span class="eyebrow">LEARN</span><h2 id="learning-title">Build your knowledge first</h2>
-          <p class="muted">Follow a structured path with focused study material for each exam domain.</p></div>
-        <span class="learning-count">${learningExams.length} learning path${learningExams.length === 1 ? '' : 's'} available</span>
+        <div><span class="eyebrow">RECENTS</span><h2 id="recents-title">${recents.length ? 'Pick up where you left off' : 'Start learning'}</h2>
+          <p class="muted">${recents.length ? 'Your in-progress courses and practice exams, most recent first.' : 'Courses and exams you start will appear here.'}</p></div>
+        ${recents.length ? `<span class="learning-count">${recents.length} in progress</span>` : ''}
       </div>
-      <div class="learning-path-grid">${learningCards}</div>
+      ${recentsBody}
     </section>
     <section class="request-section" aria-labelledby="request-title">
       <div class="request-copy">
@@ -1021,7 +1091,9 @@ async function renderHome() {
   const applyFilters = () => {
     const query = search.value.trim().toLowerCase();
     let visible = 0;
+    const filtering = !!query || activeProvider !== 'all';
     grid.querySelectorAll('.vendor-folder').forEach((group) => {
+      const isPopular = group.dataset.providerGroup === 'popular';
       const providerMatch = activeProvider === 'all' || group.dataset.providerGroup === activeProvider;
       let groupVisible = 0;
       group.querySelectorAll('.exam-card').forEach((card) => {
@@ -1029,7 +1101,11 @@ async function renderHome() {
         card.hidden = !match;
         if (match) groupVisible++;
       });
-      group.hidden = !providerMatch || groupVisible === 0;
+      // "Most popular" repeats exams from the vendor folders, so hide it while filtering.
+      group.hidden = isPopular ? filtering : !providerMatch || groupVisible === 0;
+      if (isPopular) return;
+      // Vendor folders start collapsed; open the ones with matches while searching or filtering.
+      group.open = filtering && !group.hidden;
       group.querySelector('.folder-count').textContent = `${groupVisible} exam${groupVisible === 1 ? '' : 's'}`;
       visible += groupVisible;
     });
@@ -1223,6 +1299,7 @@ async function init() {
     $('navigator').hidden = true;
     return;
   }
+  logView(slug);
   document.title = `${EXAM.code} · IT Learn & Practice`;
   document.body.dataset.vendor = vendorKey(EXAM.vendor);
   $('brand-title').textContent = 'IT Learn & Practice';

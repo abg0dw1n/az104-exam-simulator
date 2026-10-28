@@ -193,3 +193,16 @@ export async function resolveReport(id) {
     body: { status: 'resolved', resolved_at: new Date().toISOString() },
   });
 }
+
+// ── Popularity (anonymous view counts for the home page "Most popular" folder) ──
+// Rows hold only the exam slug and a timestamp; users can insert but not read them.
+export async function recordView(exam) {
+  if (!session) return;
+  await ensureFresh();
+  return api('/rest/v1/exam_views', { method: 'POST', headers: { Prefer: 'return=minimal' }, body: { exam } });
+}
+export async function popularExams(days = 30, limit = 6) {
+  if (!session) return [];
+  await ensureFresh();
+  return api('/rest/v1/rpc/popular_exams', { method: 'POST', body: { days, max_rows: limit } });
+}

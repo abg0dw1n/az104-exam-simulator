@@ -159,6 +159,11 @@ Hosted on Vercel; every push to `main` deploys automatically. No build settings 
 `updated` in `exams/index.json` records when each exam's files last changed.
 After committing question changes, run `node scripts/stamp-updated.mjs` and commit `exams/index.json`. It also records each bank's question count (`"questions"`), which the home page shows without downloading every bank; `validate-questions.mjs` fails if a count is out of date.
 
+## Home page: Recents and Most popular
+
+- **Recents** lists the exams a signed-in person has started (learning parts completed, practice questions answered, timed exams), most recently opened first. New users see the learning paths instead.
+- **Most popular** is an open folder above the vendor folders (which start collapsed). It ranks exams by views from all users over the last 30 days. Opening an exam page logs an anonymous view (exam slug + time, no user id; at most once an hour per exam per device) to the `exam_views` table; the `popular_exams()` function returns only aggregated counts. The folder is hidden until there are views.
+
 ## Weak spots and reports
 
 - Every answer (practice and exams) updates a per-question spaced-repetition box. **Order → Weak spots first**
