@@ -1154,7 +1154,14 @@ async function syncFromCloud() {
 }
 
 async function init() {
-  $('main').innerHTML = '<div class="panel empty" role="status"><p>Loading the exam simulator…</p></div>';
+  const initialSlug = currentSlug();
+  const initialMode = new URLSearchParams(location.search).get('mode');
+  const loadingMessage = initialSlug === 'account'
+    ? 'Loading your account…'
+    : initialSlug
+      ? initialMode === 'learn' ? 'Loading learning materials…' : 'Loading exam…'
+      : 'Loading the learning and practice library…';
+  $('main').innerHTML = `<div class="panel empty" role="status"><p>${loadingMessage}</p></div>`;
   if (Auth.AUTH_ENABLED) {
     const auth = await Auth.initAuth();
     renderAccount();
