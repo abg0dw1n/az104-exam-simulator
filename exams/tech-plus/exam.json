@@ -1,0 +1,52 @@
+{
+  "slug": "tech-plus",
+  "code": "FC0-U71",
+  "name": "CompTIA Tech+",
+  "vendor": "CompTIA",
+  "domains": {
+    "D1": {
+      "name": "Tech concepts and terminology",
+      "weight": "13%",
+      "pct": 13
+    },
+    "D2": {
+      "name": "Infrastructure",
+      "weight": "24%",
+      "pct": 24
+    },
+    "D3": {
+      "name": "Applications and software",
+      "weight": "18%",
+      "pct": 18
+    },
+    "D4": {
+      "name": "Software development concepts",
+      "weight": "13%",
+      "pct": 13
+    },
+    "D5": {
+      "name": "Data and database fundamentals",
+      "weight": "13%",
+      "pct": 13
+    },
+    "D6": {
+      "name": "Security",
+      "weight": "19%",
+      "pct": 19
+    }
+  },
+  "scoring": {
+    "min": 100,
+    "max": 900,
+    "pass": 650
+  },
+  "minutesPerQuestion": 0.857,
+  "defaultSize": 70,
+  "sizeOptions": [
+    20,
+    40,
+    70
+  ],
+  "realExamNote": "The real exam has up to 70 questions in 60 minutes. Tech+ replaced IT Fundamentals+ (ITF+).",
+  "scoreNote": "CompTIA uses scaled scoring, so treat 650+ as a readiness signal, not a guarantee."
+}

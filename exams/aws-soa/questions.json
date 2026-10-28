@@ -1,0 +1,2302 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "An operations team needs memory and disk usage metrics from EC2 instances. What must they install?",
+    "options": [
+      {
+        "text": "The CloudWatch agent",
+        "note": ""
+      },
+      {
+        "text": "The X-Ray daemon",
+        "note": "Traces requests, not OS metrics."
+      },
+      {
+        "text": "The CodeDeploy agent",
+        "note": "Runs deployments."
+      },
+      {
+        "text": "Nothing; these are default metrics",
+        "note": "EC2 doesn't report memory by default."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Default EC2 metrics include CPU, network and disk I/O for instance store, but not memory."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "Which CloudWatch Logs feature turns matching log events into a metric for alarms?",
+    "options": [
+      {
+        "text": "Metric filters",
+        "note": ""
+      },
+      {
+        "text": "Subscription filters",
+        "note": "Stream logs to other services."
+      },
+      {
+        "text": "Log retention settings",
+        "note": "Control storage time."
+      },
+      {
+        "text": "Contributor Insights rules only",
+        "note": "Find top contributors."
+      }
+    ],
+    "answer": 0,
+    "explanation": "For example, count occurrences of 'ERROR' and alarm when it exceeds a threshold."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "An alarm should notify only when both CPU is high AND a health check fails. What should be used?",
+    "options": [
+      {
+        "text": "A composite alarm",
+        "note": ""
+      },
+      {
+        "text": "Two separate alarms with SNS",
+        "note": "Would notify on each one."
+      },
+      {
+        "text": "A metric filter",
+        "note": "Creates metrics from logs."
+      },
+      {
+        "text": "An EventBridge schedule",
+        "note": "Runs on a schedule."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Composite alarms reduce alert noise using AND/OR logic."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "Which service can automatically run a Systems Manager Automation runbook when an alarm fires?",
+    "options": [
+      {
+        "text": "Amazon EventBridge",
+        "note": ""
+      },
+      {
+        "text": "AWS CloudTrail",
+        "note": "Records API calls."
+      },
+      {
+        "text": "AWS Trusted Advisor checks",
+        "note": "Best-practice checks."
+      },
+      {
+        "text": "AWS Config aggregator",
+        "note": "Aggregates compliance data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CloudWatch alarms can also trigger Systems Manager actions directly."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "Which service recommends right-sized EC2 instance types and EBS volumes based on usage?",
+    "options": [
+      {
+        "text": "AWS Compute Optimizer",
+        "note": ""
+      },
+      {
+        "text": "AWS Config rules for instance types",
+        "note": "Configuration compliance."
+      },
+      {
+        "text": "AWS Health Dashboard notifications",
+        "note": "Service events."
+      },
+      {
+        "text": "Amazon Inspector",
+        "note": "Vulnerabilities."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Compute Optimizer also covers Lambda, ECS on Fargate and Auto Scaling groups."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "An EBS gp3 volume needs more IOPS without increasing size. What can be done?",
+    "options": [
+      {
+        "text": "Modify the volume to provision more IOPS",
+        "note": ""
+      },
+      {
+        "text": "Detach and reattach the volume",
+        "note": "Doesn't change performance."
+      },
+      {
+        "text": "Take a snapshot and restore it to a new volume",
+        "note": "Same performance settings."
+      },
+      {
+        "text": "Enable EBS encryption",
+        "note": "Security only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "gp3 lets you set IOPS and throughput independently of size."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Which EC2 placement group gives the lowest network latency between instances for HPC workloads?",
+    "options": [
+      {
+        "text": "Cluster",
+        "note": ""
+      },
+      {
+        "text": "Spread",
+        "note": "Separates instances on distinct hardware."
+      },
+      {
+        "text": "Partition",
+        "note": "Separates groups of instances."
+      },
+      {
+        "text": "Dedicated Host",
+        "note": "Not a placement group."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cluster groups pack instances close together in one AZ."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "Which CloudWatch feature collects metrics and logs from containers in ECS and EKS?",
+    "options": [
+      {
+        "text": "Container Insights",
+        "note": ""
+      },
+      {
+        "text": "Logs Insights",
+        "note": "Queries logs."
+      },
+      {
+        "text": "Synthetics canaries",
+        "note": "Canary scripts."
+      },
+      {
+        "text": "Application Signals only",
+        "note": "Application-level SLOs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Container Insights provides CPU, memory, network and restart metrics."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which managed service stores and queries Prometheus metrics from Kubernetes clusters?",
+    "options": [
+      {
+        "text": "Amazon Managed Service for Prometheus",
+        "note": ""
+      },
+      {
+        "text": "Amazon Managed Grafana",
+        "note": "Visualizes data."
+      },
+      {
+        "text": "CloudWatch Synthetics",
+        "note": "Synthetic tests."
+      },
+      {
+        "text": "AWS X-Ray service map",
+        "note": "Tracing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Amazon Managed Grafana is commonly used to build dashboards on top of it."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "Which CloudWatch feature runs scripts on a schedule to test a website's availability from outside?",
+    "options": [
+      {
+        "text": "CloudWatch Synthetics canaries",
+        "note": ""
+      },
+      {
+        "text": "CloudWatch agent",
+        "note": "Collects instance metrics."
+      },
+      {
+        "text": "Metric math expressions on ELB metrics",
+        "note": "Combines metrics."
+      },
+      {
+        "text": "Logs Insights",
+        "note": "Queries logs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Canaries can check APIs, broken links and visual changes."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "An alarm is stuck in INSUFFICIENT_DATA. What's the likely reason?",
+    "options": [
+      {
+        "text": "The metric isn't receiving data points",
+        "note": ""
+      },
+      {
+        "text": "The threshold is too low",
+        "note": "Would cause ALARM."
+      },
+      {
+        "text": "The alarm's SNS topic was deleted",
+        "note": "Affects notification, not state."
+      },
+      {
+        "text": "The alarm has too many actions configured",
+        "note": "Not a cause."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check that the metric name, dimensions and namespace match."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "Which tool runs commands on many EC2 instances at once without SSH?",
+    "options": [
+      {
+        "text": "Systems Manager Run Command",
+        "note": ""
+      },
+      {
+        "text": "EC2 Instance Connect",
+        "note": "One SSH session at a time."
+      },
+      {
+        "text": "AWS CloudShell sessions",
+        "note": "Your own shell, not targets."
+      },
+      {
+        "text": "EC2 user data scripts",
+        "note": "Run at first boot only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Instances need the SSM Agent and an instance profile with SSM permissions."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "Which Systems Manager feature keeps instances in a defined state, such as an agent always installed?",
+    "options": [
+      {
+        "text": "State Manager",
+        "note": ""
+      },
+      {
+        "text": "Parameter Store",
+        "note": "Configuration values."
+      },
+      {
+        "text": "Session Manager",
+        "note": "Interactive shell."
+      },
+      {
+        "text": "OpsCenter",
+        "note": "Operational issues."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Associations reapply the desired configuration on a schedule."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Which Systems Manager feature aggregates operational issues as OpsItems for investigation?",
+    "options": [
+      {
+        "text": "OpsCenter",
+        "note": ""
+      },
+      {
+        "text": "Explorer",
+        "note": "Dashboards of operational data."
+      },
+      {
+        "text": "Inventory",
+        "note": "Lists software."
+      },
+      {
+        "text": "Distributor",
+        "note": "Distributes packages."
+      }
+    ],
+    "answer": 0,
+    "explanation": "EventBridge rules and alarms can create OpsItems automatically."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "An RDS database has high read latency due to many reporting queries. What helps without changing the primary?",
+    "options": [
+      {
+        "text": "Add a read replica for reporting",
+        "note": ""
+      },
+      {
+        "text": "Enable Multi-AZ",
+        "note": "Standby is not readable in classic Multi-AZ."
+      },
+      {
+        "text": "Increase backup retention",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Increase the instance's storage size",
+        "note": "Not a read-scaling fix."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Point reporting tools to the replica endpoint."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "Which RDS feature shows which SQL queries and waits consume the most database load?",
+    "options": [
+      {
+        "text": "Performance Insights / Database Insights",
+        "note": ""
+      },
+      {
+        "text": "Enhanced Monitoring OS metrics",
+        "note": "OS-level metrics."
+      },
+      {
+        "text": "Automated backups",
+        "note": "Recovery."
+      },
+      {
+        "text": "DB parameter group settings",
+        "note": "Configuration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CloudWatch Database Insights extends Performance Insights with fleet-wide views."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "A CloudWatch Logs group is costing too much. What's the simplest fix?",
+    "options": [
+      {
+        "text": "Set a retention policy on the log group",
+        "note": ""
+      },
+      {
+        "text": "Delete the CloudWatch agent",
+        "note": "Loses visibility."
+      },
+      {
+        "text": "Enable detailed monitoring",
+        "note": "Adds cost."
+      },
+      {
+        "text": "Create more metric filters on the group",
+        "note": "Doesn't reduce storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Default retention is 'never expire'; export old logs to S3 if needed."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "Which EventBridge capability can react to an EC2 instance state change to 'stopped'?",
+    "options": [
+      {
+        "text": "A rule matching the EC2 state-change event",
+        "note": ""
+      },
+      {
+        "text": "A CloudFormation change set",
+        "note": "Previews stack updates."
+      },
+      {
+        "text": "An S3 lifecycle rule",
+        "note": "Object management."
+      },
+      {
+        "text": "A Route 53 health check on the instance",
+        "note": "Endpoint health."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Targets can be Lambda, SNS, SSM Automation and more."
+  },
+  {
+    "id": 19,
+    "domain": "D1",
+    "scenario": "Which metric shows if an EC2 burstable (T-family) instance is running out of CPU credits?",
+    "options": [
+      {
+        "text": "CPUCreditBalance",
+        "note": ""
+      },
+      {
+        "text": "NetworkIn",
+        "note": "Network traffic."
+      },
+      {
+        "text": "StatusCheckFailed",
+        "note": "Health checks."
+      },
+      {
+        "text": "DiskReadOps",
+        "note": "Disk I/O."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Unlimited mode avoids throttling but can add charges."
+  },
+  {
+    "id": 20,
+    "domain": "D1",
+    "scenario": "Which EC2 status check failure usually requires stopping and starting the instance to move hosts?",
+    "options": [
+      {
+        "text": "System status check",
+        "note": ""
+      },
+      {
+        "text": "Instance status check",
+        "note": "Usually OS-level issues."
+      },
+      {
+        "text": "EBS status check",
+        "note": "Volume issues."
+      },
+      {
+        "text": "Billing status check",
+        "note": "Not a check."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CloudWatch alarm actions can recover instances automatically."
+  },
+  {
+    "id": 21,
+    "domain": "D2",
+    "scenario": "An Auto Scaling group should keep average CPU at 50%. Which policy type fits best?",
+    "options": [
+      {
+        "text": "Target tracking scaling",
+        "note": ""
+      },
+      {
+        "text": "Simple scaling",
+        "note": "Single adjustment with cooldown."
+      },
+      {
+        "text": "Scheduled scaling",
+        "note": "Time-based."
+      },
+      {
+        "text": "Manual capacity changes",
+        "note": "Not automatic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Target tracking adds and removes capacity to stay near the target."
+  },
+  {
+    "id": 22,
+    "domain": "D2",
+    "scenario": "Traffic always spikes at 9 AM on weekdays. Which scaling option prepares capacity in advance?",
+    "options": [
+      {
+        "text": "Scheduled scaling (or predictive scaling)",
+        "note": ""
+      },
+      {
+        "text": "Target tracking only",
+        "note": "Reacts after load rises."
+      },
+      {
+        "text": "A larger health check grace period",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Disabling scale-in for the group",
+        "note": "Wastes capacity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Predictive scaling forecasts load from historical patterns."
+  },
+  {
+    "id": 23,
+    "domain": "D2",
+    "scenario": "An Auto Scaling group must run a script before an instance is terminated. What should be used?",
+    "options": [
+      {
+        "text": "A lifecycle hook",
+        "note": ""
+      },
+      {
+        "text": "A launch template version",
+        "note": "Defines the instance."
+      },
+      {
+        "text": "A warm pool",
+        "note": "Pre-initialized instances."
+      },
+      {
+        "text": "A scaling cooldown",
+        "note": "Pauses scaling."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lifecycle hooks pause instances in a wait state during launch or termination."
+  },
+  {
+    "id": 24,
+    "domain": "D2",
+    "scenario": "What does RDS Multi-AZ (single standby) mainly provide?",
+    "options": [
+      {
+        "text": "Automatic failover for high availability",
+        "note": ""
+      },
+      {
+        "text": "More read capacity from the standby",
+        "note": "Use read replicas."
+      },
+      {
+        "text": "Cross-Region disaster recovery",
+        "note": "Use cross-Region replicas."
+      },
+      {
+        "text": "Lower storage cost",
+        "note": "Costs more."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Multi-AZ DB clusters add readable standbys for some engines."
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "scenario": "Which RDS feature restores a database to any second within the retention period?",
+    "options": [
+      {
+        "text": "Point-in-time recovery from automated backups",
+        "note": ""
+      },
+      {
+        "text": "Manual snapshots only",
+        "note": "Restore to snapshot time only."
+      },
+      {
+        "text": "Promoting a read replica",
+        "note": "Not backups."
+      },
+      {
+        "text": "Parameter groups",
+        "note": "Configuration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Retention can be set from 1 to 35 days."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "Which service centrally manages backup plans across EBS, RDS, DynamoDB and EFS?",
+    "options": [
+      {
+        "text": "AWS Backup",
+        "note": ""
+      },
+      {
+        "text": "AWS DataSync",
+        "note": "Moves data."
+      },
+      {
+        "text": "Amazon S3 Lifecycle",
+        "note": "Object tiering."
+      },
+      {
+        "text": "AWS Storage Gateway",
+        "note": "Hybrid storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Backup vaults can be locked to prevent deletion."
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "scenario": "Which Route 53 routing policy sends traffic to a secondary site only when the primary is unhealthy?",
+    "options": [
+      {
+        "text": "Failover routing with health checks",
+        "note": ""
+      },
+      {
+        "text": "Weighted routing",
+        "note": "Splits by percentage."
+      },
+      {
+        "text": "Latency routing",
+        "note": "Lowest latency Region."
+      },
+      {
+        "text": "Geoproximity routing with bias",
+        "note": "Routes by location."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Health checks can monitor endpoints or CloudWatch alarms."
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "scenario": "Which S3 feature protects against accidental overwrites and deletions?",
+    "options": [
+      {
+        "text": "Versioning",
+        "note": ""
+      },
+      {
+        "text": "Transfer Acceleration",
+        "note": "Speeds uploads."
+      },
+      {
+        "text": "Requester Pays",
+        "note": "Billing."
+      },
+      {
+        "text": "Static website hosting",
+        "note": "Serves content."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Add MFA Delete or Object Lock for more protection."
+  },
+  {
+    "id": 29,
+    "domain": "D2",
+    "scenario": "A company must keep a copy of S3 objects in another Region for disaster recovery. What should be configured?",
+    "options": [
+      {
+        "text": "S3 Cross-Region Replication",
+        "note": ""
+      },
+      {
+        "text": "S3 Same-Region Replication",
+        "note": "Same Region."
+      },
+      {
+        "text": "S3 Intelligent-Tiering",
+        "note": "Storage cost."
+      },
+      {
+        "text": "S3 Batch Operations copy jobs",
+        "note": "One-time copies, not continuous replication."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Replication requires versioning on both buckets."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "Which ELB setting determines when an unhealthy target stops receiving traffic?",
+    "options": [
+      {
+        "text": "Health check thresholds and interval",
+        "note": ""
+      },
+      {
+        "text": "Listener port and protocol",
+        "note": "Incoming connections."
+      },
+      {
+        "text": "Stickiness duration",
+        "note": "Session affinity."
+      },
+      {
+        "text": "Access log settings",
+        "note": "Request logging."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Auto Scaling can use ELB health checks to replace instances."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "Which disaster recovery strategy has the lowest cost but the longest recovery time?",
+    "options": [
+      {
+        "text": "Backup and restore",
+        "note": ""
+      },
+      {
+        "text": "Pilot light",
+        "note": "Core services running."
+      },
+      {
+        "text": "Warm standby",
+        "note": "Scaled-down copy running."
+      },
+      {
+        "text": "Multi-site active/active",
+        "note": "Highest cost."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Choose based on RTO and RPO requirements."
+  },
+  {
+    "id": 32,
+    "domain": "D2",
+    "scenario": "Which DR strategy keeps a minimal core (like a replicated database) running and scales up on failover?",
+    "options": [
+      {
+        "text": "Pilot light",
+        "note": ""
+      },
+      {
+        "text": "Backup and restore",
+        "note": "Nothing running."
+      },
+      {
+        "text": "Multi-site active/active",
+        "note": "Fully running."
+      },
+      {
+        "text": "Cold archive",
+        "note": "Not a standard strategy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Warm standby runs a scaled-down but functional copy."
+  },
+  {
+    "id": 33,
+    "domain": "D2",
+    "scenario": "Which DynamoDB feature enables restoring a table to any point in the last 35 days?",
+    "options": [
+      {
+        "text": "Point-in-time recovery (PITR)",
+        "note": ""
+      },
+      {
+        "text": "DynamoDB Streams",
+        "note": "24-hour change log."
+      },
+      {
+        "text": "Global tables",
+        "note": "Multi-Region replication."
+      },
+      {
+        "text": "Time to Live (TTL)",
+        "note": "Expires items."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PITR is enabled per table."
+  },
+  {
+    "id": 34,
+    "domain": "D2",
+    "scenario": "Which DynamoDB feature replicates tables across Regions for multi-Region apps?",
+    "options": [
+      {
+        "text": "Global tables",
+        "note": ""
+      },
+      {
+        "text": "DAX",
+        "note": "In-memory cache."
+      },
+      {
+        "text": "Streams only",
+        "note": "Change capture."
+      },
+      {
+        "text": "On-demand backup",
+        "note": "Snapshots."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Global tables are multi-active."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "Which EC2 feature can automatically recover an instance on new hardware after a system failure?",
+    "options": [
+      {
+        "text": "Simplified automatic recovery or a CloudWatch recover action",
+        "note": ""
+      },
+      {
+        "text": "Hibernation",
+        "note": "Saves RAM to disk."
+      },
+      {
+        "text": "Termination protection",
+        "note": "Prevents termination."
+      },
+      {
+        "text": "An Elastic IP address",
+        "note": "Static address."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The recovered instance keeps its ID, IPs and EBS volumes."
+  },
+  {
+    "id": 36,
+    "domain": "D2",
+    "scenario": "Which Aurora feature provides fast cross-Region disaster recovery with a secondary cluster?",
+    "options": [
+      {
+        "text": "Aurora Global Database",
+        "note": ""
+      },
+      {
+        "text": "Aurora Serverless v2 only",
+        "note": "Scaling, not DR."
+      },
+      {
+        "text": "Aurora Backtrack",
+        "note": "Rewinds in place."
+      },
+      {
+        "text": "Aurora cloning",
+        "note": "Copy-on-write clones."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Secondary Regions can be promoted in about a minute."
+  },
+  {
+    "id": 37,
+    "domain": "D2",
+    "scenario": "Which EFS feature reduces costs by moving infrequently used files to cheaper storage?",
+    "options": [
+      {
+        "text": "Lifecycle management to EFS Infrequent Access",
+        "note": ""
+      },
+      {
+        "text": "Provisioned throughput",
+        "note": "Performance."
+      },
+      {
+        "text": "Mount targets",
+        "note": "Network access."
+      },
+      {
+        "text": "Access points",
+        "note": "Application entry points."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Intelligent-Tiering can move files back on access."
+  },
+  {
+    "id": 38,
+    "domain": "D2",
+    "scenario": "Which load balancer feature spreads traffic evenly across targets in all enabled AZs?",
+    "options": [
+      {
+        "text": "Cross-zone load balancing",
+        "note": ""
+      },
+      {
+        "text": "Sticky sessions",
+        "note": "Pin users to targets."
+      },
+      {
+        "text": "Connection draining",
+        "note": "Graceful deregistration."
+      },
+      {
+        "text": "Slow start mode",
+        "note": "Gradual traffic ramp."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cross-zone is on by default for ALBs."
+  },
+  {
+    "id": 39,
+    "domain": "D2",
+    "scenario": "Which ELB setting lets in-flight requests finish before a target is removed?",
+    "options": [
+      {
+        "text": "Deregistration delay (connection draining)",
+        "note": ""
+      },
+      {
+        "text": "Health check interval",
+        "note": "Health detection."
+      },
+      {
+        "text": "Idle timeout",
+        "note": "Idle connection time."
+      },
+      {
+        "text": "Session stickiness",
+        "note": "Session affinity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The default deregistration delay is 300 seconds."
+  },
+  {
+    "id": 40,
+    "domain": "D2",
+    "scenario": "Which AWS Backup feature prevents anyone, even root, from deleting recovery points for a set period?",
+    "options": [
+      {
+        "text": "Vault Lock in compliance mode",
+        "note": ""
+      },
+      {
+        "text": "Backup plans",
+        "note": "Schedules."
+      },
+      {
+        "text": "Resource assignments",
+        "note": "Choose resources."
+      },
+      {
+        "text": "Cross-account copy of recovery points",
+        "note": "Copies backups."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Governance mode allows privileged users to change settings."
+  },
+  {
+    "id": 41,
+    "domain": "D3",
+    "scenario": "Which service deploys a CloudFormation stack across many accounts and Regions in one operation?",
+    "options": [
+      {
+        "text": "CloudFormation StackSets",
+        "note": ""
+      },
+      {
+        "text": "Nested stacks",
+        "note": "Within one stack."
+      },
+      {
+        "text": "Change sets",
+        "note": "Preview updates."
+      },
+      {
+        "text": "Drift detection on each stack",
+        "note": "Detects manual changes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "StackSets integrate with AWS Organizations for automatic deployment to new accounts."
+  },
+  {
+    "id": 42,
+    "domain": "D3",
+    "scenario": "Someone changed a security group manually that's managed by CloudFormation. Which feature finds this?",
+    "options": [
+      {
+        "text": "Drift detection",
+        "note": ""
+      },
+      {
+        "text": "Stack policies",
+        "note": "Protect resources."
+      },
+      {
+        "text": "Termination protection",
+        "note": "Prevents deletion."
+      },
+      {
+        "text": "Rollback triggers",
+        "note": "Roll back on alarms."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Drift shows differences between the template and actual resources."
+  },
+  {
+    "id": 43,
+    "domain": "D3",
+    "scenario": "A stack update failed and rolled back. Where should the operator look for the cause?",
+    "options": [
+      {
+        "text": "The stack's Events tab",
+        "note": ""
+      },
+      {
+        "text": "The S3 access logs",
+        "note": "Bucket access."
+      },
+      {
+        "text": "VPC Flow Logs",
+        "note": "Network flows."
+      },
+      {
+        "text": "The AWS Health Dashboard",
+        "note": "Service events."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The first failed event usually shows the root cause."
+  },
+  {
+    "id": 44,
+    "domain": "D3",
+    "scenario": "Which service automates building and patching golden AMIs on a schedule?",
+    "options": [
+      {
+        "text": "EC2 Image Builder",
+        "note": ""
+      },
+      {
+        "text": "AWS Backup",
+        "note": "Backups."
+      },
+      {
+        "text": "AWS CodeArtifact",
+        "note": "Packages."
+      },
+      {
+        "text": "Amazon ECR image scanning",
+        "note": "Container images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pipelines can test images and distribute them to other Regions and accounts."
+  },
+  {
+    "id": 45,
+    "domain": "D3",
+    "scenario": "Which Systems Manager feature schedules OS patching across a fleet using patch baselines?",
+    "options": [
+      {
+        "text": "Patch Manager",
+        "note": ""
+      },
+      {
+        "text": "Session Manager",
+        "note": "Shell access."
+      },
+      {
+        "text": "Parameter Store",
+        "note": "Configuration data."
+      },
+      {
+        "text": "Fleet Manager",
+        "note": "GUI fleet management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Maintenance windows control when patching occurs."
+  },
+  {
+    "id": 46,
+    "domain": "D3",
+    "scenario": "How can an admin securely connect to a private EC2 instance's shell without opening port 22 or using a bastion?",
+    "options": [
+      {
+        "text": "Systems Manager Session Manager",
+        "note": ""
+      },
+      {
+        "text": "A public IP and SSH",
+        "note": "Opens port 22."
+      },
+      {
+        "text": "EC2 Serial Console",
+        "note": "For troubleshooting boot issues."
+      },
+      {
+        "text": "Telnet over a VPN",
+        "note": "Insecure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Session Manager logs sessions to S3 or CloudWatch Logs."
+  },
+  {
+    "id": 47,
+    "domain": "D3",
+    "scenario": "Where should application configuration values and secure strings be centrally stored for scripts?",
+    "options": [
+      {
+        "text": "Systems Manager Parameter Store",
+        "note": ""
+      },
+      {
+        "text": "EC2 user data",
+        "note": "Visible and per-instance."
+      },
+      {
+        "text": "Tags on the AMI",
+        "note": "Not for secrets."
+      },
+      {
+        "text": "The instance's hosts file",
+        "note": "Not configuration storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SecureString parameters are encrypted with KMS."
+  },
+  {
+    "id": 48,
+    "domain": "D3",
+    "scenario": "Which EC2 feature runs a script automatically at first boot?",
+    "options": [
+      {
+        "text": "User data",
+        "note": ""
+      },
+      {
+        "text": "Instance metadata tags",
+        "note": "Read-only info."
+      },
+      {
+        "text": "Placement groups",
+        "note": "Placement."
+      },
+      {
+        "text": "Elastic Network Adapter",
+        "note": "Networking."
+      }
+    ],
+    "answer": 0,
+    "explanation": "User data runs as root on Linux via cloud-init."
+  },
+  {
+    "id": 49,
+    "domain": "D3",
+    "scenario": "Which Auto Scaling component defines the AMI, instance type and security groups for new instances?",
+    "options": [
+      {
+        "text": "Launch template",
+        "note": ""
+      },
+      {
+        "text": "Scaling policy",
+        "note": "When to scale."
+      },
+      {
+        "text": "Load balancer target group",
+        "note": "Load balancer targets."
+      },
+      {
+        "text": "Lifecycle hook",
+        "note": "Pauses instances."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Launch templates support versions; launch configurations are legacy."
+  },
+  {
+    "id": 50,
+    "domain": "D3",
+    "scenario": "Which ECS launch type runs containers without managing EC2 instances?",
+    "options": [
+      {
+        "text": "AWS Fargate",
+        "note": ""
+      },
+      {
+        "text": "EC2 launch type",
+        "note": "You manage instances."
+      },
+      {
+        "text": "ECS Anywhere",
+        "note": "Your own servers."
+      },
+      {
+        "text": "Amazon Lightsail",
+        "note": "Not an ECS launch type."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fargate bills per vCPU and memory used by tasks."
+  },
+  {
+    "id": 51,
+    "domain": "D3",
+    "scenario": "Which service stores and scans container images for an ECS or EKS deployment?",
+    "options": [
+      {
+        "text": "Amazon ECR",
+        "note": ""
+      },
+      {
+        "text": "Amazon S3 Glacier",
+        "note": "Archive storage."
+      },
+      {
+        "text": "AWS CodeCommit",
+        "note": "Source code."
+      },
+      {
+        "text": "Amazon EFS",
+        "note": "File storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ECR lifecycle policies remove old images."
+  },
+  {
+    "id": 52,
+    "domain": "D3",
+    "scenario": "A team needs to share an AMI with another AWS account. What should they do?",
+    "options": [
+      {
+        "text": "Modify the AMI's launch permissions to add the account",
+        "note": ""
+      },
+      {
+        "text": "Export the AMI as a file and email it",
+        "note": "Not possible."
+      },
+      {
+        "text": "Make the AMI public always",
+        "note": "Overexposes it."
+      },
+      {
+        "text": "Copy the EBS volume to S3",
+        "note": "Not how AMIs are shared."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Encrypted AMIs also need the KMS key shared."
+  },
+  {
+    "id": 53,
+    "domain": "D3",
+    "scenario": "Which feature copies EBS snapshots to another Region for DR automatically on a schedule?",
+    "options": [
+      {
+        "text": "Amazon Data Lifecycle Manager policies",
+        "note": ""
+      },
+      {
+        "text": "EBS Multi-Attach",
+        "note": "Shared volumes."
+      },
+      {
+        "text": "EBS fast snapshot restore only",
+        "note": "Faster restores."
+      },
+      {
+        "text": "Instance store volumes",
+        "note": "Ephemeral storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AWS Backup can also copy backups across Regions."
+  },
+  {
+    "id": 54,
+    "domain": "D3",
+    "scenario": "Which CloudFormation feature prevents critical resources like a database from being replaced during updates?",
+    "options": [
+      {
+        "text": "A stack policy",
+        "note": ""
+      },
+      {
+        "text": "Stack outputs",
+        "note": "Return values."
+      },
+      {
+        "text": "Mappings",
+        "note": "Lookup tables."
+      },
+      {
+        "text": "Parameters",
+        "note": "Inputs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DeletionPolicy: Retain or Snapshot also protects data on stack deletion."
+  },
+  {
+    "id": 55,
+    "domain": "D3",
+    "scenario": "Which CloudFormation attribute keeps an RDS snapshot when the stack is deleted?",
+    "options": [
+      {
+        "text": "DeletionPolicy: Snapshot",
+        "note": ""
+      },
+      {
+        "text": "DependsOn attribute",
+        "note": "Order of creation."
+      },
+      {
+        "text": "Condition",
+        "note": "Conditional creation."
+      },
+      {
+        "text": "UpdatePolicy",
+        "note": "Auto Scaling updates."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Retain keeps the resource itself."
+  },
+  {
+    "id": 56,
+    "domain": "D3",
+    "scenario": "A team wants infrastructure defined in Python that synthesizes to CloudFormation. What should they use?",
+    "options": [
+      {
+        "text": "AWS CDK",
+        "note": ""
+      },
+      {
+        "text": "AWS SAM CLI only",
+        "note": "YAML templates."
+      },
+      {
+        "text": "AWS OpsWorks",
+        "note": "Retired."
+      },
+      {
+        "text": "AWS Config",
+        "note": "Compliance."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Terraform is a popular third-party alternative."
+  },
+  {
+    "id": 57,
+    "domain": "D3",
+    "scenario": "Which service lets admins share resources like subnets or Transit Gateways across accounts?",
+    "options": [
+      {
+        "text": "AWS Resource Access Manager (RAM)",
+        "note": ""
+      },
+      {
+        "text": "AWS Artifact",
+        "note": "Compliance reports."
+      },
+      {
+        "text": "AWS Service Catalog",
+        "note": "Shares approved products, not subnets."
+      },
+      {
+        "text": "Amazon Inspector",
+        "note": "Vulnerabilities."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RAM works with AWS Organizations for easy sharing."
+  },
+  {
+    "id": 58,
+    "domain": "D3",
+    "scenario": "Which Systems Manager feature runs predefined or custom remediation workflows like restarting an instance?",
+    "options": [
+      {
+        "text": "Automation runbooks",
+        "note": ""
+      },
+      {
+        "text": "Inventory collection",
+        "note": "Software lists."
+      },
+      {
+        "text": "Parameter Store",
+        "note": "Values."
+      },
+      {
+        "text": "Compliance",
+        "note": "Reports."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AWS provides many AWS-* runbooks, like AWS-RestartEC2Instance."
+  },
+  {
+    "id": 59,
+    "domain": "D3",
+    "scenario": "An ECS service must roll out a new task definition gradually with automatic rollback on failure. What helps?",
+    "options": [
+      {
+        "text": "The deployment circuit breaker with rolling updates",
+        "note": ""
+      },
+      {
+        "text": "Stopping all tasks first",
+        "note": "Causes downtime."
+      },
+      {
+        "text": "Increasing task memory",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Using a larger container image",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Blue/green deployments with CodeDeploy are another option."
+  },
+  {
+    "id": 60,
+    "domain": "D3",
+    "scenario": "Which feature in AWS Organizations can automatically apply tag policies or backup policies across accounts?",
+    "options": [
+      {
+        "text": "Organizations management policies",
+        "note": ""
+      },
+      {
+        "text": "IAM account password policy",
+        "note": "Per-account password rules."
+      },
+      {
+        "text": "S3 bucket policies",
+        "note": "Per-bucket access."
+      },
+      {
+        "text": "VPC endpoint policies",
+        "note": "Endpoint access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Management policies include tag, backup, AI opt-out and declarative policies."
+  },
+  {
+    "id": 61,
+    "domain": "D4",
+    "scenario": "Which service continuously checks resources for compliance and can trigger automatic remediation?",
+    "options": [
+      {
+        "text": "AWS Config rules with SSM remediation",
+        "note": ""
+      },
+      {
+        "text": "AWS CloudTrail",
+        "note": "Logs API calls."
+      },
+      {
+        "text": "Amazon CloudWatch dashboards",
+        "note": "Visualization."
+      },
+      {
+        "text": "AWS Artifact reports",
+        "note": "Compliance reports."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Conformance packs bundle many Config rules."
+  },
+  {
+    "id": 62,
+    "domain": "D4",
+    "scenario": "Which service centralizes findings from GuardDuty, Inspector and Macie with security best-practice checks?",
+    "options": [
+      {
+        "text": "AWS Security Hub",
+        "note": ""
+      },
+      {
+        "text": "AWS Trusted Advisor",
+        "note": "Broad best-practice checks."
+      },
+      {
+        "text": "Amazon Detective",
+        "note": "Investigates findings."
+      },
+      {
+        "text": "AWS Firewall Manager",
+        "note": "Manages firewall rules."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Security Hub uses standards like AWS Foundational Security Best Practices."
+  },
+  {
+    "id": 63,
+    "domain": "D4",
+    "scenario": "Which IAM tool identifies resources shared with external accounts and unused permissions?",
+    "options": [
+      {
+        "text": "IAM Access Analyzer",
+        "note": ""
+      },
+      {
+        "text": "IAM credential report",
+        "note": "Lists credential status."
+      },
+      {
+        "text": "AWS Budgets",
+        "note": "Costs."
+      },
+      {
+        "text": "CloudWatch Synthetics",
+        "note": "Canary tests."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Access Analyzer can also validate and generate policies."
+  },
+  {
+    "id": 64,
+    "domain": "D4",
+    "scenario": "An S3 bucket must deny any request that isn't using HTTPS. What should be added?",
+    "options": [
+      {
+        "text": "A bucket policy denying aws:SecureTransport false",
+        "note": ""
+      },
+      {
+        "text": "Default encryption with SSE-S3",
+        "note": "At rest only."
+      },
+      {
+        "text": "S3 Versioning",
+        "note": "Object versions."
+      },
+      {
+        "text": "An S3 lifecycle rule",
+        "note": "Object management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "This enforces encryption in transit."
+  },
+  {
+    "id": 65,
+    "domain": "D4",
+    "scenario": "Which CloudTrail feature guarantees log files weren't modified after delivery?",
+    "options": [
+      {
+        "text": "Log file integrity validation",
+        "note": ""
+      },
+      {
+        "text": "Event history",
+        "note": "90 days of events."
+      },
+      {
+        "text": "Insights events",
+        "note": "Unusual activity."
+      },
+      {
+        "text": "Data events for S3 objects",
+        "note": "Object-level actions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Digest files are signed so tampering can be detected."
+  },
+  {
+    "id": 66,
+    "domain": "D4",
+    "scenario": "Which CloudTrail event type records S3 object-level actions like GetObject?",
+    "options": [
+      {
+        "text": "Data events",
+        "note": ""
+      },
+      {
+        "text": "Management events",
+        "note": "Control plane actions."
+      },
+      {
+        "text": "Insights events",
+        "note": "Unusual volumes."
+      },
+      {
+        "text": "Network activity events",
+        "note": "VPC endpoint activity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data events aren't logged by default and cost extra."
+  },
+  {
+    "id": 67,
+    "domain": "D4",
+    "scenario": "Which KMS feature lets a key be used by another AWS account?",
+    "options": [
+      {
+        "text": "A key policy granting that account access",
+        "note": ""
+      },
+      {
+        "text": "Automatic key rotation",
+        "note": "New key material."
+      },
+      {
+        "text": "A key alias shared with the account",
+        "note": "Friendly names."
+      },
+      {
+        "text": "Multi-Region keys only",
+        "note": "Replicas across Regions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The other account's IAM policies must also allow key use."
+  },
+  {
+    "id": 68,
+    "domain": "D4",
+    "scenario": "Which service manages WAF, Shield Advanced and security group policies across many accounts?",
+    "options": [
+      {
+        "text": "AWS Firewall Manager",
+        "note": ""
+      },
+      {
+        "text": "AWS Network Firewall",
+        "note": "VPC firewall."
+      },
+      {
+        "text": "Amazon GuardDuty",
+        "note": "Threat detection."
+      },
+      {
+        "text": "AWS Config",
+        "note": "Configuration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Firewall Manager requires AWS Organizations."
+  },
+  {
+    "id": 69,
+    "domain": "D4",
+    "scenario": "Which service scans EC2 instances, ECR images and Lambda functions for vulnerabilities?",
+    "options": [
+      {
+        "text": "Amazon Inspector",
+        "note": ""
+      },
+      {
+        "text": "Amazon Macie",
+        "note": "Sensitive data."
+      },
+      {
+        "text": "AWS Shield Advanced",
+        "note": "DDoS."
+      },
+      {
+        "text": "AWS WAF managed rules",
+        "note": "Web filtering."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Inspector findings flow into Security Hub."
+  },
+  {
+    "id": 70,
+    "domain": "D4",
+    "scenario": "Which feature enforces encryption on all new EBS volumes in a Region?",
+    "options": [
+      {
+        "text": "EBS encryption by default",
+        "note": ""
+      },
+      {
+        "text": "Volume tagging",
+        "note": "Labels only."
+      },
+      {
+        "text": "Snapshot lifecycle policies",
+        "note": "Backups."
+      },
+      {
+        "text": "Multi-Attach",
+        "note": "Sharing volumes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Existing unencrypted volumes must be copied to encrypt them."
+  },
+  {
+    "id": 71,
+    "domain": "D4",
+    "scenario": "A team must prevent anyone in member accounts from disabling CloudTrail. What should be used?",
+    "options": [
+      {
+        "text": "A service control policy",
+        "note": ""
+      },
+      {
+        "text": "An IAM user policy in each account",
+        "note": "Can be changed by admins."
+      },
+      {
+        "text": "A KMS key policy",
+        "note": "Key access only."
+      },
+      {
+        "text": "A bucket lifecycle rule",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "An organization trail also logs all member accounts centrally."
+  },
+  {
+    "id": 72,
+    "domain": "D4",
+    "scenario": "Which service detects threats such as crypto mining and unusual API activity from logs automatically?",
+    "options": [
+      {
+        "text": "Amazon GuardDuty",
+        "note": ""
+      },
+      {
+        "text": "AWS Config",
+        "note": "Configuration compliance."
+      },
+      {
+        "text": "Amazon Inspector",
+        "note": "Vulnerability scanning."
+      },
+      {
+        "text": "AWS Audit Manager",
+        "note": "Audit evidence."
+      }
+    ],
+    "answer": 0,
+    "explanation": "GuardDuty analyzes CloudTrail, VPC Flow Logs and DNS logs."
+  },
+  {
+    "id": 73,
+    "domain": "D4",
+    "scenario": "Which feature helps prove compliance by collecting evidence for frameworks like PCI DSS?",
+    "options": [
+      {
+        "text": "AWS Audit Manager",
+        "note": ""
+      },
+      {
+        "text": "AWS Compute Optimizer",
+        "note": "Rightsizing."
+      },
+      {
+        "text": "Amazon CloudFront",
+        "note": "CDN."
+      },
+      {
+        "text": "AWS Backup",
+        "note": "Backups."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Audit Manager maps evidence to controls automatically."
+  },
+  {
+    "id": 74,
+    "domain": "D4",
+    "scenario": "How can admins require MFA for sensitive API actions like terminating instances?",
+    "options": [
+      {
+        "text": "IAM policy condition aws:MultiFactorAuthPresent",
+        "note": ""
+      },
+      {
+        "text": "A security group rule on the instance",
+        "note": "Network-level."
+      },
+      {
+        "text": "An S3 lifecycle rule",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A Route 53 health check",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Conditions can also restrict source IPs and Regions."
+  },
+  {
+    "id": 75,
+    "domain": "D4",
+    "scenario": "Which service stores secrets with automatic rotation for RDS credentials?",
+    "options": [
+      {
+        "text": "AWS Secrets Manager",
+        "note": ""
+      },
+      {
+        "text": "Parameter Store standard tier",
+        "note": "No rotation."
+      },
+      {
+        "text": "AWS Certificate Manager",
+        "note": "Certificates."
+      },
+      {
+        "text": "S3 with SSE-KMS",
+        "note": "Not for secrets."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RDS can also manage master user passwords in Secrets Manager natively."
+  },
+  {
+    "id": 76,
+    "domain": "D5",
+    "scenario": "Instances in a private subnet need to download OS updates from the internet. What's needed?",
+    "options": [
+      {
+        "text": "A NAT gateway in a public subnet with a route",
+        "note": ""
+      },
+      {
+        "text": "An internet gateway route in the private subnet",
+        "note": "Would make it public."
+      },
+      {
+        "text": "A VPC gateway endpoint",
+        "note": "Only S3 and DynamoDB."
+      },
+      {
+        "text": "VPC peering",
+        "note": "Connects VPCs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Place one NAT gateway per AZ for resilience."
+  },
+  {
+    "id": 77,
+    "domain": "D5",
+    "scenario": "Which tool captures accepted and rejected IP traffic information for a VPC's network interfaces?",
+    "options": [
+      {
+        "text": "VPC Flow Logs",
+        "note": ""
+      },
+      {
+        "text": "CloudTrail management events",
+        "note": "API calls."
+      },
+      {
+        "text": "Route 53 query logs",
+        "note": "DNS queries."
+      },
+      {
+        "text": "ELB access logs",
+        "note": "Load balancer requests."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Flow Logs can be sent to CloudWatch Logs, S3 or Firehose."
+  },
+  {
+    "id": 78,
+    "domain": "D5",
+    "scenario": "Which tool checks whether a network path exists between two resources and shows the blocking component?",
+    "options": [
+      {
+        "text": "VPC Reachability Analyzer",
+        "note": ""
+      },
+      {
+        "text": "Traffic Mirroring",
+        "note": "Copies traffic."
+      },
+      {
+        "text": "CloudWatch Synthetics",
+        "note": "Synthetic tests."
+      },
+      {
+        "text": "AWS Config relationship view",
+        "note": "Configuration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It analyzes configuration without sending packets."
+  },
+  {
+    "id": 79,
+    "domain": "D5",
+    "scenario": "An EC2 instance can't receive traffic on port 443 from the internet. The NACL allows it. What else should be checked?",
+    "options": [
+      {
+        "text": "The instance's security group inbound rules",
+        "note": ""
+      },
+      {
+        "text": "The S3 bucket policy",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The instance's IAM role",
+        "note": "Doesn't control network traffic."
+      },
+      {
+        "text": "The EBS volume's KMS key policy",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Also verify the route table has a route to an internet gateway."
+  },
+  {
+    "id": 80,
+    "domain": "D5",
+    "scenario": "Why might return traffic be blocked even though inbound traffic is allowed by a network ACL?",
+    "options": [
+      {
+        "text": "NACLs are stateless; outbound ephemeral ports must be allowed",
+        "note": ""
+      },
+      {
+        "text": "NACLs track connection state",
+        "note": "They don't."
+      },
+      {
+        "text": "Security groups block return traffic",
+        "note": "They are stateful."
+      },
+      {
+        "text": "Route tables filter ports",
+        "note": "They don't."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Allow ephemeral ports (1024–65535) outbound for responses."
+  },
+  {
+    "id": 81,
+    "domain": "D5",
+    "scenario": "Which service connects many VPCs and on-premises networks through a central hub?",
+    "options": [
+      {
+        "text": "AWS Transit Gateway",
+        "note": ""
+      },
+      {
+        "text": "VPC peering mesh",
+        "note": "Hard to scale."
+      },
+      {
+        "text": "NAT gateway",
+        "note": "Outbound internet."
+      },
+      {
+        "text": "An internet gateway per VPC",
+        "note": "Internet access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Transit Gateway supports route tables for segmentation."
+  },
+  {
+    "id": 82,
+    "domain": "D5",
+    "scenario": "Which option privately exposes a service in one VPC to consumers in other VPCs without peering?",
+    "options": [
+      {
+        "text": "AWS PrivateLink (interface endpoint service)",
+        "note": ""
+      },
+      {
+        "text": "A public NLB",
+        "note": "Exposes publicly."
+      },
+      {
+        "text": "An internet gateway",
+        "note": "Public access."
+      },
+      {
+        "text": "A NAT instance in each VPC",
+        "note": "Outbound access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Consumers access the service through interface endpoints."
+  },
+  {
+    "id": 83,
+    "domain": "D5",
+    "scenario": "Which endpoint type lets private subnets reach S3 without a NAT gateway at no hourly cost?",
+    "options": [
+      {
+        "text": "Gateway VPC endpoint",
+        "note": ""
+      },
+      {
+        "text": "Interface VPC endpoint",
+        "note": "Hourly cost; also works for S3."
+      },
+      {
+        "text": "Internet gateway",
+        "note": "Public internet."
+      },
+      {
+        "text": "Egress-only internet gateway",
+        "note": "IPv6 outbound."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Gateway endpoints exist for S3 and DynamoDB."
+  },
+  {
+    "id": 84,
+    "domain": "D5",
+    "scenario": "Which CloudFront feature restricts S3 bucket access so content is only served through CloudFront?",
+    "options": [
+      {
+        "text": "Origin access control (OAC)",
+        "note": ""
+      },
+      {
+        "text": "Signed cookies only",
+        "note": "Restrict viewers, not origin."
+      },
+      {
+        "text": "Field-level encryption",
+        "note": "Protects form fields."
+      },
+      {
+        "text": "Geographic restriction",
+        "note": "Blocks countries."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OAC replaces the older origin access identity (OAI)."
+  },
+  {
+    "id": 85,
+    "domain": "D5",
+    "scenario": "Users report stale content after a website update served by CloudFront. What should be done?",
+    "options": [
+      {
+        "text": "Create an invalidation for the changed paths",
+        "note": ""
+      },
+      {
+        "text": "Delete the distribution",
+        "note": "Too drastic."
+      },
+      {
+        "text": "Disable HTTPS on the distribution",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Change the origin's Region",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Versioned file names avoid the need for invalidations."
+  },
+  {
+    "id": 86,
+    "domain": "D5",
+    "scenario": "Which Route 53 feature resolves on-premises DNS names from inside a VPC?",
+    "options": [
+      {
+        "text": "Route 53 Resolver outbound endpoints with forwarding rules",
+        "note": ""
+      },
+      {
+        "text": "Route 53 health checks",
+        "note": "Monitor endpoints."
+      },
+      {
+        "text": "Alias records to the DNS servers",
+        "note": "Point to AWS resources."
+      },
+      {
+        "text": "Traffic flow policies",
+        "note": "Routing policies."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Inbound endpoints let on-premises systems resolve VPC names."
+  },
+  {
+    "id": 87,
+    "domain": "D5",
+    "scenario": "Which Route 53 record type points a domain apex like example.com to a load balancer?",
+    "options": [
+      {
+        "text": "Alias A record",
+        "note": ""
+      },
+      {
+        "text": "CNAME at the apex",
+        "note": "Not allowed at the zone apex."
+      },
+      {
+        "text": "MX record",
+        "note": "Mail servers."
+      },
+      {
+        "text": "TXT record",
+        "note": "Text data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Alias records are free for queries to AWS resources."
+  },
+  {
+    "id": 88,
+    "domain": "D5",
+    "scenario": "Which service protects a VPC with stateful inspection and intrusion prevention rules?",
+    "options": [
+      {
+        "text": "AWS Network Firewall",
+        "note": ""
+      },
+      {
+        "text": "Network ACLs",
+        "note": "Stateless, no IPS."
+      },
+      {
+        "text": "AWS Shield Standard",
+        "note": "DDoS only."
+      },
+      {
+        "text": "AWS WAF on an ALB",
+        "note": "Web layer only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Network Firewall supports Suricata-compatible rules."
+  },
+  {
+    "id": 89,
+    "domain": "D5",
+    "scenario": "Which service improves global application performance using the AWS backbone and static anycast IPs?",
+    "options": [
+      {
+        "text": "AWS Global Accelerator",
+        "note": ""
+      },
+      {
+        "text": "Amazon CloudFront only",
+        "note": "Caches content."
+      },
+      {
+        "text": "AWS Direct Connect",
+        "note": "Private link to AWS."
+      },
+      {
+        "text": "Route 53 weighted routing",
+        "note": "DNS-based."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Global Accelerator also enables fast Regional failover."
+  },
+  {
+    "id": 90,
+    "domain": "D5",
+    "scenario": "Which connection provides a dedicated private link from a data center to AWS with consistent performance?",
+    "options": [
+      {
+        "text": "AWS Direct Connect",
+        "note": ""
+      },
+      {
+        "text": "Site-to-Site VPN",
+        "note": "Over the internet."
+      },
+      {
+        "text": "Client VPN",
+        "note": "For individual users."
+      },
+      {
+        "text": "VPC peering to a partner VPC",
+        "note": "Between VPCs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use a VPN over Direct Connect if encryption is required."
+  },
+  {
+    "id": 91,
+    "domain": "D5",
+    "scenario": "A VPC peering connection is active, but instances can't talk. What's often missing?",
+    "options": [
+      {
+        "text": "Routes in both VPCs' route tables",
+        "note": ""
+      },
+      {
+        "text": "An internet gateway",
+        "note": "Not needed."
+      },
+      {
+        "text": "A NAT gateway",
+        "note": "Not needed."
+      },
+      {
+        "text": "A CloudFront distribution in front",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Peering isn't transitive and CIDRs can't overlap."
+  },
+  {
+    "id": 92,
+    "domain": "D5",
+    "scenario": "Which tool copies network traffic from an ENI to a monitoring appliance for deep inspection?",
+    "options": [
+      {
+        "text": "VPC Traffic Mirroring",
+        "note": ""
+      },
+      {
+        "text": "VPC Flow Logs",
+        "note": "Metadata only."
+      },
+      {
+        "text": "CloudTrail network activity events",
+        "note": "API calls."
+      },
+      {
+        "text": "ELB access logs",
+        "note": "HTTP requests."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Mirrored traffic includes packet payloads."
+  }
+]

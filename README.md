@@ -9,6 +9,19 @@ Practice questions and timed exams for IT certifications, live at https://it-exa
 | AWS Certified Cloud Practitioner (CLF-C02) · beginner | `exams/aws-clf` | 130 | 700 on 100–1000 to pass |
 | CompTIA A+ Core 1 (220-1201) · beginner | `exams/a-plus-core1` | 128 | 675 on 100–900 to pass |
 | CompTIA A+ Core 2 (220-1202) · beginner | `exams/a-plus-core2` | 127 | 700 on 100–900 to pass |
+| Microsoft Security, Compliance, and Identity Fundamentals (SC-900) · beginner | `exams/sc-900` | 92 | 700 / 1000 to pass |
+| Microsoft Azure Data Fundamentals (DP-900) · beginner | `exams/dp-900` | 87 | 700 / 1000 to pass |
+| CompTIA Tech+ (FC0-U71) · beginner | `exams/tech-plus` | 93 | 650 on 100–900 to pass |
+| Cisco CCST Networking (100-150) · beginner | `exams/ccst-networking` | 91 | ~70% (Cisco doesn't publish a cut score) |
+| Cisco CCST Cybersecurity (100-160) · beginner | `exams/ccst-cybersecurity` | 83 | ~70% (Cisco doesn't publish a cut score) |
+| Cisco CCST IT Support (100-140) · beginner | `exams/ccst-it-support` | 90 | ~70% (Cisco doesn't publish a cut score) |
+| Cisco CCNA Cybersecurity (200-201) | `exams/ccna-cyber` | 99 | ~825 / 1000 (Cisco doesn't publish a cut score) |
+| AWS Certified Developer – Associate (DVA-C02) | `exams/aws-dva` | 93 | 720 on 100–1000 to pass |
+| AWS Certified CloudOps Engineer – Associate (SOA-C03) | `exams/aws-soa` | 92 | 720 on 100–1000 to pass |
+| Google Cloud Digital Leader · beginner | `exams/google-cdl` | 88 | ~70% (Google doesn't publish a cut score) |
+| Google Associate Cloud Engineer | `exams/google-ace` | 89 | ~70% (Google doesn't publish a cut score) |
+| Google Associate Data Practitioner | `exams/google-adp` | 85 | ~70% (Google doesn't publish a cut score) |
+| Google Professional Cloud Architect | `exams/google-pca` | 88 | ~70% (Google doesn't publish a cut score) |
 | Microsoft Azure Administrator (AZ-104) | `exams/az-104` | 198 | 700 / 1000 to pass |
 | CompTIA Network+ (N10-009) | `exams/network-plus` | 237 | 720 on 100–900 to pass |
 | CompTIA Security+ (SY0-701) | `exams/security-plus` | 195 | 750 on 100–900 to pass |

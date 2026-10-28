@@ -1,0 +1,52 @@
+{
+  "slug": "ccst-it-support",
+  "code": "100-140",
+  "name": "Cisco Certified Support Technician IT Support",
+  "vendor": "Cisco",
+  "domains": {
+    "D1": {
+      "name": "IT support job tasks and responsibilities",
+      "weight": "—",
+      "pct": 15
+    },
+    "D2": {
+      "name": "Hardware issues",
+      "weight": "—",
+      "pct": 18
+    },
+    "D3": {
+      "name": "Connectivity and resource access issues",
+      "weight": "—",
+      "pct": 19
+    },
+    "D4": {
+      "name": "Operating system and application issues",
+      "weight": "—",
+      "pct": 19
+    },
+    "D5": {
+      "name": "Common threats and preventions",
+      "weight": "—",
+      "pct": 16
+    },
+    "D6": {
+      "name": "Job tools",
+      "weight": "—",
+      "pct": 13
+    }
+  },
+  "scoring": {
+    "min": 0,
+    "max": 100,
+    "pass": 70
+  },
+  "minutesPerQuestion": 1,
+  "defaultSize": 50,
+  "sizeOptions": [
+    15,
+    30,
+    50
+  ],
+  "realExamNote": "The real exam is 50 minutes. Cisco doesn't publish domain weights for CCST exams, so these are estimates based on the number of topics in each domain.",
+  "scoreNote": "Cisco doesn't publish a passing score for CCST exams, so 70% is used here as a readiness target."
+}

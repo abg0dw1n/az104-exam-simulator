@@ -1,0 +1,47 @@
+{
+  "slug": "aws-soa",
+  "code": "SOA-C03",
+  "name": "AWS Certified CloudOps Engineer – Associate",
+  "vendor": "Amazon Web Services",
+  "domains": {
+    "D1": {
+      "name": "Monitoring, logging, analysis, remediation and performance",
+      "weight": "22%",
+      "pct": 22
+    },
+    "D2": {
+      "name": "Reliability and business continuity",
+      "weight": "22%",
+      "pct": 22
+    },
+    "D3": {
+      "name": "Deployment, provisioning and automation",
+      "weight": "22%",
+      "pct": 22
+    },
+    "D4": {
+      "name": "Security and compliance",
+      "weight": "16%",
+      "pct": 16
+    },
+    "D5": {
+      "name": "Networking and content delivery",
+      "weight": "18%",
+      "pct": 18
+    }
+  },
+  "scoring": {
+    "min": 100,
+    "max": 1000,
+    "pass": 720
+  },
+  "minutesPerQuestion": 2,
+  "defaultSize": 65,
+  "sizeOptions": [
+    20,
+    40,
+    65
+  ],
+  "realExamNote": "SOA-C03 replaced the SysOps Administrator – Associate exam (SOA-C02) on September 30, 2025. The real exam has 65 questions in 130 minutes and no hands-on labs.",
+  "scoreNote": "AWS uses scaled scoring, so treat 720+ as a readiness signal, not a guarantee."
+}

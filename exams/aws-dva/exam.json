@@ -1,0 +1,42 @@
+{
+  "slug": "aws-dva",
+  "code": "DVA-C02",
+  "name": "AWS Certified Developer – Associate",
+  "vendor": "Amazon Web Services",
+  "domains": {
+    "D1": {
+      "name": "Development with AWS services",
+      "weight": "32%",
+      "pct": 32
+    },
+    "D2": {
+      "name": "Security",
+      "weight": "26%",
+      "pct": 26
+    },
+    "D3": {
+      "name": "Deployment",
+      "weight": "24%",
+      "pct": 24
+    },
+    "D4": {
+      "name": "Troubleshooting and optimization",
+      "weight": "18%",
+      "pct": 18
+    }
+  },
+  "scoring": {
+    "min": 100,
+    "max": 1000,
+    "pass": 720
+  },
+  "minutesPerQuestion": 2,
+  "defaultSize": 65,
+  "sizeOptions": [
+    20,
+    40,
+    65
+  ],
+  "realExamNote": "The real exam has 65 questions (50 scored) in 130 minutes and includes multiple-response questions; this simulator uses single-answer questions.",
+  "scoreNote": "AWS uses scaled scoring, so treat 720+ as a readiness signal, not a guarantee."
+}

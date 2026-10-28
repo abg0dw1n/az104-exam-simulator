@@ -1,0 +1,2327 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "How many bits are in one byte?",
+    "options": [
+      {
+        "text": "8",
+        "note": ""
+      },
+      {
+        "text": "4",
+        "note": "That's a nibble."
+      },
+      {
+        "text": "16",
+        "note": "Two bytes."
+      },
+      {
+        "text": "1,024",
+        "note": "Bytes in a kibibyte."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Storage is measured in bytes (KB, MB, GB, TB); network speeds in bits per second (Kbps, Mbps, Gbps)."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "Which is larger: 1 TB or 1 GB?",
+    "options": [
+      {
+        "text": "1 TB",
+        "note": ""
+      },
+      {
+        "text": "1 GB",
+        "note": "One thousandth of a terabyte."
+      },
+      {
+        "text": "They're the same size",
+        "note": "TB is about 1,000 GB."
+      },
+      {
+        "text": "It depends on the drive brand",
+        "note": "Units are standard."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Order: bit, byte, KB, MB, GB, TB, PB."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "An internet plan is advertised as 500 Mbps. What does this measure?",
+    "options": [
+      {
+        "text": "Data transfer speed in megabits per second",
+        "note": ""
+      },
+      {
+        "text": "Monthly data allowance in megabytes",
+        "note": "An allowance, not a speed."
+      },
+      {
+        "text": "Processor clock speed in megahertz",
+        "note": "Measured in GHz or MHz."
+      },
+      {
+        "text": "Storage capacity in megabytes per second",
+        "note": "Capacity uses bytes, not a rate."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Divide by 8 to estimate megabytes per second: 500 Mbps is about 62.5 MB/s."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "What number is the binary value 1010 in decimal?",
+    "options": [
+      {
+        "text": "10",
+        "note": ""
+      },
+      {
+        "text": "2",
+        "note": "Too small."
+      },
+      {
+        "text": "12",
+        "note": "That would be 1100."
+      },
+      {
+        "text": "1,010",
+        "note": "Read as decimal by mistake."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Binary place values are 8, 4, 2, 1: 8 + 2 = 10."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "Which number system uses the digits 0–9 and A–F?",
+    "options": [
+      {
+        "text": "Hexadecimal",
+        "note": ""
+      },
+      {
+        "text": "Binary",
+        "note": "Only 0 and 1."
+      },
+      {
+        "text": "Decimal",
+        "note": "0–9 only."
+      },
+      {
+        "text": "Base-64 encoding",
+        "note": "Uses letters, digits, + and /."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hex is used for MAC addresses, IPv6 addresses and colors like #FF0000."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "What are the four basic steps of the computing cycle?",
+    "options": [
+      {
+        "text": "Input, processing, output, storage",
+        "note": ""
+      },
+      {
+        "text": "Boot, login, logout, shutdown",
+        "note": "Session steps."
+      },
+      {
+        "text": "Download, install, update, uninstall",
+        "note": "Software lifecycle."
+      },
+      {
+        "text": "Plan, build, test, release",
+        "note": "Development steps."
+      }
+    ],
+    "answer": 0,
+    "explanation": "For example, typing (input), calculating (processing), displaying (output) and saving (storage)."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Which troubleshooting step should come first?",
+    "options": [
+      {
+        "text": "Identify the problem",
+        "note": ""
+      },
+      {
+        "text": "Implement the solution",
+        "note": "Too early."
+      },
+      {
+        "text": "Document findings",
+        "note": "Done at the end."
+      },
+      {
+        "text": "Establish a plan of action",
+        "note": "After testing a theory."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Identify, theorize, test, plan, implement, verify, then document."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "After fixing a problem, what should a technician do before documenting it?",
+    "options": [
+      {
+        "text": "Verify full system functionality",
+        "note": ""
+      },
+      {
+        "text": "Identify the problem again",
+        "note": "Already done."
+      },
+      {
+        "text": "Escalate the ticket to a senior technician",
+        "note": "Only needed if you cannot fix it."
+      },
+      {
+        "text": "Close the ticket immediately",
+        "note": "Verify first."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Also implement preventive measures if applicable."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which describes the value of data for a business?",
+    "options": [
+      {
+        "text": "It can support decisions and create competitive advantage",
+        "note": ""
+      },
+      {
+        "text": "Its value depends only on how much storage it uses",
+        "note": "Not true."
+      },
+      {
+        "text": "It is only useful to the IT department",
+        "note": "Useful across the business."
+      },
+      {
+        "text": "It becomes more valuable when duplicated",
+        "note": "Duplicates add little."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data can be monetized, analyzed for trends and used to improve products."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "Which describes intellectual property protected by a trademark?",
+    "options": [
+      {
+        "text": "A brand name or logo",
+        "note": ""
+      },
+      {
+        "text": "An invention's design",
+        "note": "That's a patent."
+      },
+      {
+        "text": "A novel's text",
+        "note": "That's copyright."
+      },
+      {
+        "text": "A secret recipe",
+        "note": "That's a trade secret."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Copyright, patents, trademarks and trade secrets protect different things."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "What does an AI chatbot use to generate human-like text responses?",
+    "options": [
+      {
+        "text": "A large language model trained on lots of text",
+        "note": ""
+      },
+      {
+        "text": "A fixed list of every possible answer",
+        "note": "Not how LLMs work."
+      },
+      {
+        "text": "A spreadsheet of keywords only",
+        "note": "Too simple."
+      },
+      {
+        "text": "A live human agent typing each reply quickly",
+        "note": "Not automated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AI output can be wrong (hallucinations), so verify important answers."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "How many bytes are in 1 kilobyte, using the binary (base-2) definition?",
+    "options": [
+      {
+        "text": "1,024",
+        "note": ""
+      },
+      {
+        "text": "1,000",
+        "note": "The decimal (SI) definition."
+      },
+      {
+        "text": "100",
+        "note": "Too small."
+      },
+      {
+        "text": "8",
+        "note": "Bits in a byte."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Strictly, 1,024 bytes is a kibibyte (KiB); drive makers often use 1,000."
+  },
+  {
+    "id": 13,
+    "domain": "D2",
+    "scenario": "Which component is often called the brain of the computer?",
+    "options": [
+      {
+        "text": "CPU",
+        "note": ""
+      },
+      {
+        "text": "RAM",
+        "note": "Temporary working memory."
+      },
+      {
+        "text": "SSD",
+        "note": "Long-term storage."
+      },
+      {
+        "text": "PSU",
+        "note": "Supplies power."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The CPU executes instructions; speed is measured in GHz and cores."
+  },
+  {
+    "id": 14,
+    "domain": "D2",
+    "scenario": "Which component temporarily holds data the CPU is actively using and loses it when powered off?",
+    "options": [
+      {
+        "text": "RAM",
+        "note": ""
+      },
+      {
+        "text": "SSD",
+        "note": "Keeps data without power."
+      },
+      {
+        "text": "Hard disk drive",
+        "note": "Keeps data without power."
+      },
+      {
+        "text": "Optical disc",
+        "note": "Keeps data without power."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RAM is volatile; storage drives are non-volatile."
+  },
+  {
+    "id": 15,
+    "domain": "D2",
+    "scenario": "Which storage type has no moving parts and is much faster than a traditional hard drive?",
+    "options": [
+      {
+        "text": "Solid-state drive (SSD)",
+        "note": ""
+      },
+      {
+        "text": "Hard disk drive (HDD)",
+        "note": "Has spinning platters."
+      },
+      {
+        "text": "Linear tape drive (LTO)",
+        "note": "Sequential and slow."
+      },
+      {
+        "text": "DVD drive",
+        "note": "Optical and slow."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NVMe SSDs connect through PCIe for even higher speed."
+  },
+  {
+    "id": 16,
+    "domain": "D2",
+    "scenario": "Which component converts AC power from the wall into DC power for computer parts?",
+    "options": [
+      {
+        "text": "Power supply unit (PSU)",
+        "note": ""
+      },
+      {
+        "text": "Motherboard",
+        "note": "Connects components."
+      },
+      {
+        "text": "CPU",
+        "note": "Processes instructions."
+      },
+      {
+        "text": "Uninterruptible power supply (UPS)",
+        "note": "Provides battery backup."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PSUs are rated in watts."
+  },
+  {
+    "id": 17,
+    "domain": "D2",
+    "scenario": "Which component processes images and video and is important for gaming and AI?",
+    "options": [
+      {
+        "text": "Graphics processing unit (GPU)",
+        "note": ""
+      },
+      {
+        "text": "Network interface card",
+        "note": "Network connections."
+      },
+      {
+        "text": "Field-programmable gate array",
+        "note": "A reconfigurable chip, not the usual video processor."
+      },
+      {
+        "text": "BIOS chip",
+        "note": "Firmware."
+      }
+    ],
+    "answer": 0,
+    "explanation": "GPUs can be integrated into the CPU or on a separate card."
+  },
+  {
+    "id": 18,
+    "domain": "D2",
+    "scenario": "Which firmware initializes hardware and starts the boot process on modern PCs?",
+    "options": [
+      {
+        "text": "UEFI",
+        "note": ""
+      },
+      {
+        "text": "Windows Update",
+        "note": "Updates software."
+      },
+      {
+        "text": "Device Manager",
+        "note": "Manages drivers."
+      },
+      {
+        "text": "File Explorer",
+        "note": "Browses files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "UEFI replaced the legacy BIOS and supports Secure Boot."
+  },
+  {
+    "id": 19,
+    "domain": "D2",
+    "scenario": "Which port is commonly used today to charge laptops and connect displays with one cable?",
+    "options": [
+      {
+        "text": "USB-C",
+        "note": ""
+      },
+      {
+        "text": "VGA",
+        "note": "Older analog video only."
+      },
+      {
+        "text": "Lightning",
+        "note": "An older Apple phone connector."
+      },
+      {
+        "text": "HDMI 2.1",
+        "note": "Video and audio, but not laptop charging."
+      }
+    ],
+    "answer": 0,
+    "explanation": "USB-C can carry data, video and power (Thunderbolt uses the same connector)."
+  },
+  {
+    "id": 20,
+    "domain": "D2",
+    "scenario": "Which connector is used for wired Ethernet network cables?",
+    "options": [
+      {
+        "text": "RJ45",
+        "note": ""
+      },
+      {
+        "text": "RJ11",
+        "note": "Telephone."
+      },
+      {
+        "text": "HDMI",
+        "note": "Video and audio."
+      },
+      {
+        "text": "DisplayPort",
+        "note": "Video."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Twisted-pair cables like Cat 6 use RJ45 connectors."
+  },
+  {
+    "id": 21,
+    "domain": "D2",
+    "scenario": "Which device connects a home network to the internet and assigns local IP addresses?",
+    "options": [
+      {
+        "text": "A router",
+        "note": ""
+      },
+      {
+        "text": "A monitor",
+        "note": "Displays output."
+      },
+      {
+        "text": "A printer",
+        "note": "Prints."
+      },
+      {
+        "text": "A keyboard",
+        "note": "Input."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Home routers often include a switch, Wi-Fi access point and DHCP server."
+  },
+  {
+    "id": 22,
+    "domain": "D2",
+    "scenario": "Which device connects multiple wired devices within the same local network?",
+    "options": [
+      {
+        "text": "A switch",
+        "note": ""
+      },
+      {
+        "text": "A modem",
+        "note": "Connects to the ISP."
+      },
+      {
+        "text": "A firewall",
+        "note": "Filters traffic."
+      },
+      {
+        "text": "A projector",
+        "note": "Displays output."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Switches forward frames using MAC addresses."
+  },
+  {
+    "id": 23,
+    "domain": "D2",
+    "scenario": "Which service translates website names like example.com into IP addresses?",
+    "options": [
+      {
+        "text": "DNS",
+        "note": ""
+      },
+      {
+        "text": "DHCP",
+        "note": "Assigns IP addresses."
+      },
+      {
+        "text": "HTTP",
+        "note": "Transfers web pages."
+      },
+      {
+        "text": "SMTP",
+        "note": "Sends email."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DNS works like a phone book for the internet."
+  },
+  {
+    "id": 24,
+    "domain": "D2",
+    "scenario": "Which service automatically assigns IP addresses to devices on a network?",
+    "options": [
+      {
+        "text": "DHCP",
+        "note": ""
+      },
+      {
+        "text": "DNS",
+        "note": "Resolves names."
+      },
+      {
+        "text": "NTP",
+        "note": "Synchronizes time."
+      },
+      {
+        "text": "ARP",
+        "note": "Finds MAC addresses for IP addresses."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DHCP also provides the subnet mask, gateway and DNS server."
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "scenario": "Which is a valid IPv4 address?",
+    "options": [
+      {
+        "text": "192.168.1.25",
+        "note": ""
+      },
+      {
+        "text": "192.168.1.256",
+        "note": "Each number must be 0–255."
+      },
+      {
+        "text": "2001:db8::1",
+        "note": "That's IPv6."
+      },
+      {
+        "text": "00:1A:2B:3C:4D:5E",
+        "note": "That's a MAC address."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IPv4 addresses have four numbers from 0 to 255."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "Which wireless standard is also called Wi-Fi 6?",
+    "options": [
+      {
+        "text": "802.11ax",
+        "note": ""
+      },
+      {
+        "text": "802.11n",
+        "note": "Wi-Fi 4."
+      },
+      {
+        "text": "802.11ac",
+        "note": "Wi-Fi 5."
+      },
+      {
+        "text": "802.11b",
+        "note": "An early standard."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Wi-Fi 6E adds the 6 GHz band; Wi-Fi 7 is 802.11be."
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "scenario": "Which short-range wireless technology connects headphones and keyboards to a computer?",
+    "options": [
+      {
+        "text": "Bluetooth",
+        "note": ""
+      },
+      {
+        "text": "Cellular 5G",
+        "note": "Wide-area mobile network."
+      },
+      {
+        "text": "Ethernet",
+        "note": "Wired."
+      },
+      {
+        "text": "Fiber optic",
+        "note": "Wired, light-based."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NFC is even shorter range, used for tap-to-pay."
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "scenario": "Which internet connection type uses light through glass strands and offers very high speeds?",
+    "options": [
+      {
+        "text": "Fiber",
+        "note": ""
+      },
+      {
+        "text": "DSL",
+        "note": "Uses telephone lines."
+      },
+      {
+        "text": "Dial-up",
+        "note": "Very slow phone modem."
+      },
+      {
+        "text": "Satellite",
+        "note": "High latency."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cable internet uses coaxial cable; DSL uses phone lines."
+  },
+  {
+    "id": 29,
+    "domain": "D2",
+    "scenario": "Which is the main benefit of cloud storage like OneDrive or Google Drive?",
+    "options": [
+      {
+        "text": "Access files from any device with internet",
+        "note": ""
+      },
+      {
+        "text": "Files never need an internet connection",
+        "note": "Syncing needs a connection."
+      },
+      {
+        "text": "It replaces the need for passwords",
+        "note": "Still needs sign-in."
+      },
+      {
+        "text": "It makes files immune to viruses and ransomware",
+        "note": "Not guaranteed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud storage also enables sharing and automatic backup."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "Which cloud model provides ready-to-use software accessed through a browser, like webmail?",
+    "options": [
+      {
+        "text": "Software as a service (SaaS)",
+        "note": ""
+      },
+      {
+        "text": "Infrastructure as a service (IaaS)",
+        "note": "Virtual servers and networks."
+      },
+      {
+        "text": "Platform as a service (PaaS)",
+        "note": "Platform for developers."
+      },
+      {
+        "text": "On-premises software",
+        "note": "Installed locally."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Microsoft 365 and Gmail are SaaS examples."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "What is virtualization?",
+    "options": [
+      {
+        "text": "Running multiple virtual machines on one physical computer",
+        "note": ""
+      },
+      {
+        "text": "Connecting two monitors to one PC",
+        "note": "Multi-display."
+      },
+      {
+        "text": "Storing all files on a remote file server",
+        "note": "Not virtualization."
+      },
+      {
+        "text": "Running one app across several physical computers",
+        "note": "That describes clustering."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A hypervisor shares hardware among VMs."
+  },
+  {
+    "id": 32,
+    "domain": "D2",
+    "scenario": "Which device type is an example of the Internet of Things (IoT)?",
+    "options": [
+      {
+        "text": "A smart thermostat",
+        "note": ""
+      },
+      {
+        "text": "A laptop computer",
+        "note": "A general-purpose computer, not typically counted as IoT."
+      },
+      {
+        "text": "A desktop tower workstation",
+        "note": "A general-purpose computer."
+      },
+      {
+        "text": "A wired desk lamp with a dimmer",
+        "note": "Not connected."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IoT devices include smart speakers, cameras and sensors."
+  },
+  {
+    "id": 33,
+    "domain": "D2",
+    "scenario": "Which device stores files on a network so many users can access them?",
+    "options": [
+      {
+        "text": "Network-attached storage (NAS)",
+        "note": ""
+      },
+      {
+        "text": "A USB flash drive",
+        "note": "Local, portable storage."
+      },
+      {
+        "text": "Optical disc (Blu-ray)",
+        "note": "Removable media."
+      },
+      {
+        "text": "A local external hard drive",
+        "note": "Connected to one computer."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A NAS is a dedicated file server for a home or office."
+  },
+  {
+    "id": 34,
+    "domain": "D2",
+    "scenario": "A user's laptop is slow when many browser tabs are open. Which upgrade helps most?",
+    "options": [
+      {
+        "text": "More RAM",
+        "note": ""
+      },
+      {
+        "text": "A larger monitor",
+        "note": "Doesn't affect speed."
+      },
+      {
+        "text": "A new keyboard",
+        "note": "Input device."
+      },
+      {
+        "text": "A faster printer",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "More memory reduces the need to swap data to disk."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "Which describes the difference between a modem and a router?",
+    "options": [
+      {
+        "text": "A modem connects to the ISP; a router directs local traffic",
+        "note": ""
+      },
+      {
+        "text": "They are identical devices with different brand names",
+        "note": "Different roles."
+      },
+      {
+        "text": "A router only works with wired Ethernet cables",
+        "note": "Most include Wi-Fi."
+      },
+      {
+        "text": "A modem assigns local IP addresses",
+        "note": "Routers do that."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Many ISP-provided gateways combine both."
+  },
+  {
+    "id": 36,
+    "domain": "D3",
+    "scenario": "Which software manages hardware and provides a platform for applications?",
+    "options": [
+      {
+        "text": "Operating system",
+        "note": ""
+      },
+      {
+        "text": "Web browser",
+        "note": "An application."
+      },
+      {
+        "text": "Firmware utility",
+        "note": "Low-level code on a device, not the main platform."
+      },
+      {
+        "text": "Device driver",
+        "note": "Lets the OS talk to one device."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Examples: Windows, macOS, Linux, Android, iOS, ChromeOS."
+  },
+  {
+    "id": 37,
+    "domain": "D3",
+    "scenario": "Which software lets the operating system communicate with a specific piece of hardware, like a printer?",
+    "options": [
+      {
+        "text": "A driver",
+        "note": ""
+      },
+      {
+        "text": "A spreadsheet",
+        "note": "Productivity app."
+      },
+      {
+        "text": "A web browser",
+        "note": "Accesses websites."
+      },
+      {
+        "text": "A file manager",
+        "note": "Browses files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Outdated or missing drivers often cause hardware problems."
+  },
+  {
+    "id": 38,
+    "domain": "D3",
+    "scenario": "Which file system is the default for Windows system drives?",
+    "options": [
+      {
+        "text": "NTFS",
+        "note": ""
+      },
+      {
+        "text": "APFS",
+        "note": "macOS."
+      },
+      {
+        "text": "ext4",
+        "note": "Linux."
+      },
+      {
+        "text": "FAT32",
+        "note": "Older; 4 GB file limit."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NTFS supports permissions, encryption and large files."
+  },
+  {
+    "id": 39,
+    "domain": "D3",
+    "scenario": "Which file extension usually indicates a compressed archive?",
+    "options": [
+      {
+        "text": ".zip",
+        "note": ""
+      },
+      {
+        "text": ".exe",
+        "note": "A Windows program."
+      },
+      {
+        "text": ".docx",
+        "note": "A Word document."
+      },
+      {
+        "text": ".mp3",
+        "note": "An audio file."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Other archive formats include .7z, .rar and .tar.gz."
+  },
+  {
+    "id": 40,
+    "domain": "D3",
+    "scenario": "Which type of application is best for calculating budgets with formulas?",
+    "options": [
+      {
+        "text": "Spreadsheet software",
+        "note": ""
+      },
+      {
+        "text": "Presentation software",
+        "note": "Slides."
+      },
+      {
+        "text": "Word processing software",
+        "note": "Documents."
+      },
+      {
+        "text": "Image editing software",
+        "note": "Graphics."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Excel and Google Sheets are spreadsheet apps."
+  },
+  {
+    "id": 41,
+    "domain": "D3",
+    "scenario": "Which license type lets anyone view, modify and share the source code?",
+    "options": [
+      {
+        "text": "Open source",
+        "note": ""
+      },
+      {
+        "text": "Proprietary",
+        "note": "Source is closed."
+      },
+      {
+        "text": "Single-user commercial",
+        "note": "Restricted use."
+      },
+      {
+        "text": "OEM",
+        "note": "Tied to the hardware it came with."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Examples: Linux, Firefox, LibreOffice."
+  },
+  {
+    "id": 42,
+    "domain": "D3",
+    "scenario": "Which software license model charges a recurring fee for continued use?",
+    "options": [
+      {
+        "text": "Subscription",
+        "note": ""
+      },
+      {
+        "text": "Perpetual",
+        "note": "One-time purchase."
+      },
+      {
+        "text": "Freeware (no cost)",
+        "note": "Free to use."
+      },
+      {
+        "text": "Open source",
+        "note": "Usually free."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Microsoft 365 and Adobe Creative Cloud are subscriptions."
+  },
+  {
+    "id": 43,
+    "domain": "D3",
+    "scenario": "Where should a user look to see which apps start automatically with Windows?",
+    "options": [
+      {
+        "text": "Task Manager's Startup apps",
+        "note": ""
+      },
+      {
+        "text": "Control Panel > Programs and Features",
+        "note": "Lists installed apps, not startup apps."
+      },
+      {
+        "text": "File Explorer",
+        "note": "Image editor."
+      },
+      {
+        "text": "Windows Update settings",
+        "note": "Updates, not startup apps."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Disabling unneeded startup apps speeds up boot time."
+  },
+  {
+    "id": 44,
+    "domain": "D3",
+    "scenario": "Which browser feature prevents history and cookies from being saved after the session?",
+    "options": [
+      {
+        "text": "Private or incognito browsing",
+        "note": ""
+      },
+      {
+        "text": "Pop-up blocker",
+        "note": "Blocks pop-ups only."
+      },
+      {
+        "text": "Full-screen mode",
+        "note": "Hides the interface."
+      },
+      {
+        "text": "Reader mode",
+        "note": "Simplifies page layout."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Private browsing doesn't hide your activity from your network or ISP."
+  },
+  {
+    "id": 45,
+    "domain": "D3",
+    "scenario": "What's a common risk of installing browser extensions from unknown sources?",
+    "options": [
+      {
+        "text": "They can track activity or inject ads",
+        "note": ""
+      },
+      {
+        "text": "They always make the browser faster and safer",
+        "note": "Not true."
+      },
+      {
+        "text": "They can't access web pages",
+        "note": "Many can."
+      },
+      {
+        "text": "They block all operating system updates",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Install only trusted extensions and review their permissions."
+  },
+  {
+    "id": 46,
+    "domain": "D3",
+    "scenario": "Which type of software is installed on your computer rather than used in a browser?",
+    "options": [
+      {
+        "text": "Locally installed application",
+        "note": ""
+      },
+      {
+        "text": "Web application",
+        "note": "Runs in a browser."
+      },
+      {
+        "text": "Cloud-hosted SaaS",
+        "note": "Runs on remote servers."
+      },
+      {
+        "text": "Streaming media service",
+        "note": "Delivered online."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Local apps can work offline but need updates on each device."
+  },
+  {
+    "id": 47,
+    "domain": "D3",
+    "scenario": "Why should operating system updates be installed regularly?",
+    "options": [
+      {
+        "text": "They fix security flaws and bugs",
+        "note": ""
+      },
+      {
+        "text": "They make the screen brighter",
+        "note": "Not the purpose."
+      },
+      {
+        "text": "They delete personal files",
+        "note": "They shouldn't."
+      },
+      {
+        "text": "They remove the need for antivirus",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Many updates patch vulnerabilities attackers could exploit."
+  },
+  {
+    "id": 48,
+    "domain": "D3",
+    "scenario": "Which feature lets two or more people edit the same document at the same time?",
+    "options": [
+      {
+        "text": "Real-time collaboration in cloud apps",
+        "note": ""
+      },
+      {
+        "text": "Printing the file twice",
+        "note": "Not collaboration."
+      },
+      {
+        "text": "Saving the file to a shared USB drive",
+        "note": "One copy at a time."
+      },
+      {
+        "text": "Emailing a PDF copy to each person",
+        "note": "Not editable together."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Version history lets you restore earlier versions."
+  },
+  {
+    "id": 49,
+    "domain": "D3",
+    "scenario": "Which Windows feature lets you view and change file associations, like which app opens PDFs?",
+    "options": [
+      {
+        "text": "Default apps settings",
+        "note": ""
+      },
+      {
+        "text": "Personalization settings",
+        "note": "Themes and backgrounds."
+      },
+      {
+        "text": "Sound settings",
+        "note": "Audio options."
+      },
+      {
+        "text": "Storage settings",
+        "note": "Disk space."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Right-click a file and choose Open with to change it for one file type."
+  },
+  {
+    "id": 50,
+    "domain": "D3",
+    "scenario": "Which software protects a computer by scanning for and removing malicious programs?",
+    "options": [
+      {
+        "text": "Antivirus or anti-malware",
+        "note": ""
+      },
+      {
+        "text": "Disk Defragmenter",
+        "note": "Optimizes HDDs."
+      },
+      {
+        "text": "Backup software",
+        "note": "Copies files; doesn't remove malware."
+      },
+      {
+        "text": "Disk Cleanup utility",
+        "note": "Removes temporary files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Windows includes Microsoft Defender Antivirus."
+  },
+  {
+    "id": 51,
+    "domain": "D3",
+    "scenario": "What's the purpose of a password manager app?",
+    "options": [
+      {
+        "text": "Securely store and generate unique passwords",
+        "note": ""
+      },
+      {
+        "text": "Share one password across all sites",
+        "note": "Unsafe."
+      },
+      {
+        "text": "Disable multifactor authentication on accounts",
+        "note": "Reduces security."
+      },
+      {
+        "text": "Store passwords in plain text",
+        "note": "Insecure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A password manager means you only remember one strong master password."
+  },
+  {
+    "id": 52,
+    "domain": "D3",
+    "scenario": "Which is an example of a collaboration tool for chat and video meetings?",
+    "options": [
+      {
+        "text": "Microsoft Teams",
+        "note": ""
+      },
+      {
+        "text": "Microsoft OneNote",
+        "note": "Note-taking."
+      },
+      {
+        "text": "Disk Cleanup",
+        "note": "Removes files."
+      },
+      {
+        "text": "Microsoft Outlook calendar",
+        "note": "Schedules meetings but does not host chat or video."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Zoom, Slack and Google Meet are other examples."
+  },
+  {
+    "id": 53,
+    "domain": "D4",
+    "scenario": "Which type of programming language is translated into machine code all at once before running?",
+    "options": [
+      {
+        "text": "Compiled language",
+        "note": ""
+      },
+      {
+        "text": "Interpreted language",
+        "note": "Translated line by line at run time."
+      },
+      {
+        "text": "Markup language",
+        "note": "Describes structure, like HTML."
+      },
+      {
+        "text": "Query language",
+        "note": "Retrieves data, like SQL."
+      }
+    ],
+    "answer": 0,
+    "explanation": "C and C++ are compiled; Python and JavaScript are usually interpreted."
+  },
+  {
+    "id": 54,
+    "domain": "D4",
+    "scenario": "Which language is a markup language used to structure web pages?",
+    "options": [
+      {
+        "text": "HTML",
+        "note": ""
+      },
+      {
+        "text": "Python",
+        "note": "Programming language."
+      },
+      {
+        "text": "SQL",
+        "note": "Query language."
+      },
+      {
+        "text": "Java",
+        "note": "Programming language."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CSS styles pages; JavaScript adds behavior."
+  },
+  {
+    "id": 55,
+    "domain": "D4",
+    "scenario": "In programming, what is a variable?",
+    "options": [
+      {
+        "text": "A named place to store a value",
+        "note": ""
+      },
+      {
+        "text": "A fixed value that never changes",
+        "note": "That's a constant."
+      },
+      {
+        "text": "A repeated block of code",
+        "note": "That's a loop."
+      },
+      {
+        "text": "A type of computer virus",
+        "note": "Not a variable."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Variables have data types like integer, string and Boolean."
+  },
+  {
+    "id": 56,
+    "domain": "D4",
+    "scenario": "Which data type stores only true or false?",
+    "options": [
+      {
+        "text": "Boolean",
+        "note": ""
+      },
+      {
+        "text": "Integer",
+        "note": "Whole numbers."
+      },
+      {
+        "text": "String",
+        "note": "Text."
+      },
+      {
+        "text": "Float",
+        "note": "Decimal numbers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Booleans are used in conditions like if statements."
+  },
+  {
+    "id": 57,
+    "domain": "D4",
+    "scenario": "Which data type stores text like \"Hello\"?",
+    "options": [
+      {
+        "text": "String",
+        "note": ""
+      },
+      {
+        "text": "Integer",
+        "note": "Whole numbers."
+      },
+      {
+        "text": "Boolean",
+        "note": "True or false."
+      },
+      {
+        "text": "Float",
+        "note": "Decimal numbers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Char stores a single character."
+  },
+  {
+    "id": 58,
+    "domain": "D4",
+    "scenario": "Which programming structure repeats a block of code while a condition is true?",
+    "options": [
+      {
+        "text": "A loop",
+        "note": ""
+      },
+      {
+        "text": "A variable",
+        "note": "Stores a value."
+      },
+      {
+        "text": "A comment",
+        "note": "Ignored notes."
+      },
+      {
+        "text": "A constant",
+        "note": "Fixed value."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Common loops include for and while."
+  },
+  {
+    "id": 59,
+    "domain": "D4",
+    "scenario": "Which programming structure chooses between actions based on a condition?",
+    "options": [
+      {
+        "text": "An if/else statement (branching)",
+        "note": ""
+      },
+      {
+        "text": "A loop",
+        "note": "Repeats code."
+      },
+      {
+        "text": "An array",
+        "note": "Stores a list."
+      },
+      {
+        "text": "A function call",
+        "note": "Runs reusable code."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Branching lets programs make decisions."
+  },
+  {
+    "id": 60,
+    "domain": "D4",
+    "scenario": "What is a function in programming?",
+    "options": [
+      {
+        "text": "A reusable block of code that performs a task",
+        "note": ""
+      },
+      {
+        "text": "A hardware component on the motherboard",
+        "note": "Not code."
+      },
+      {
+        "text": "A single stored value",
+        "note": "That's a variable."
+      },
+      {
+        "text": "A note ignored by the program",
+        "note": "That's a comment."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Functions can take parameters and return values."
+  },
+  {
+    "id": 61,
+    "domain": "D4",
+    "scenario": "Which tool visually shows the steps and decisions in a process?",
+    "options": [
+      {
+        "text": "A flowchart",
+        "note": ""
+      },
+      {
+        "text": "A spreadsheet",
+        "note": "Calculations."
+      },
+      {
+        "text": "A database",
+        "note": "Stores data."
+      },
+      {
+        "text": "A compiler",
+        "note": "Translates code."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pseudocode is another way to plan logic before coding."
+  },
+  {
+    "id": 62,
+    "domain": "D4",
+    "scenario": "What is pseudocode?",
+    "options": [
+      {
+        "text": "Plain-language steps describing program logic",
+        "note": ""
+      },
+      {
+        "text": "Code that runs only on servers",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "Malicious code hidden in an app",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "Compiled machine code for the CPU",
+        "note": "Not the meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pseudocode isn't run; it helps plan."
+  },
+  {
+    "id": 63,
+    "domain": "D4",
+    "scenario": "Which data structure stores an ordered list of items accessed by index?",
+    "options": [
+      {
+        "text": "Array",
+        "note": ""
+      },
+      {
+        "text": "Boolean",
+        "note": "True or false."
+      },
+      {
+        "text": "Constant",
+        "note": "Fixed value."
+      },
+      {
+        "text": "Comment",
+        "note": "Not data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Indexes often start at 0."
+  },
+  {
+    "id": 64,
+    "domain": "D4",
+    "scenario": "In object-oriented programming, what is an object?",
+    "options": [
+      {
+        "text": "An instance of a class with properties and methods",
+        "note": ""
+      },
+      {
+        "text": "A loop that never ends",
+        "note": "Not an object."
+      },
+      {
+        "text": "A hardware component like a GPU",
+        "note": "Not an object."
+      },
+      {
+        "text": "A backup copy of the source code",
+        "note": "Not an object."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A class is a blueprint; objects are created from it."
+  },
+  {
+    "id": 65,
+    "domain": "D5",
+    "scenario": "Which type of database organizes data into tables with rows and columns?",
+    "options": [
+      {
+        "text": "Relational database",
+        "note": ""
+      },
+      {
+        "text": "Document database",
+        "note": "Stores JSON-like documents."
+      },
+      {
+        "text": "Key-value store",
+        "note": "Simple pairs."
+      },
+      {
+        "text": "Graph database",
+        "note": "Nodes and edges."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Relational databases use SQL; examples include MySQL and SQL Server."
+  },
+  {
+    "id": 66,
+    "domain": "D5",
+    "scenario": "In a database table, what does a single row represent?",
+    "options": [
+      {
+        "text": "A record",
+        "note": ""
+      },
+      {
+        "text": "A field",
+        "note": "A column."
+      },
+      {
+        "text": "A schema",
+        "note": "The overall structure."
+      },
+      {
+        "text": "A query",
+        "note": "A request for data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Each row is one record, like one customer."
+  },
+  {
+    "id": 67,
+    "domain": "D5",
+    "scenario": "In a database table, what does a column represent?",
+    "options": [
+      {
+        "text": "A field or attribute",
+        "note": ""
+      },
+      {
+        "text": "A record",
+        "note": "A row."
+      },
+      {
+        "text": "A primary database server",
+        "note": "The whole container."
+      },
+      {
+        "text": "A printed report",
+        "note": "Output."
+      }
+    ],
+    "answer": 0,
+    "explanation": "For example, a Customers table might have Name and Email fields."
+  },
+  {
+    "id": 68,
+    "domain": "D5",
+    "scenario": "Which language is used to query relational databases?",
+    "options": [
+      {
+        "text": "SQL",
+        "note": ""
+      },
+      {
+        "text": "HTML",
+        "note": "Web markup."
+      },
+      {
+        "text": "CSS",
+        "note": "Styles web pages."
+      },
+      {
+        "text": "XML",
+        "note": "Markup for data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SELECT retrieves data; INSERT, UPDATE and DELETE change it."
+  },
+  {
+    "id": 69,
+    "domain": "D5",
+    "scenario": "What is the purpose of a primary key?",
+    "options": [
+      {
+        "text": "Uniquely identify each record",
+        "note": ""
+      },
+      {
+        "text": "Encrypt the data in the table",
+        "note": "Not its purpose."
+      },
+      {
+        "text": "Sort records alphabetically",
+        "note": "Not its purpose."
+      },
+      {
+        "text": "Store user passwords securely",
+        "note": "Not its purpose."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A foreign key links to a primary key in another table."
+  },
+  {
+    "id": 70,
+    "domain": "D5",
+    "scenario": "Which is a NoSQL database type?",
+    "options": [
+      {
+        "text": "Document database",
+        "note": ""
+      },
+      {
+        "text": "Relational database",
+        "note": "Uses tables and SQL."
+      },
+      {
+        "text": "Spreadsheet",
+        "note": "Not a database."
+      },
+      {
+        "text": "Flat text file",
+        "note": "Not a database."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NoSQL includes document, key-value, column-family and graph databases."
+  },
+  {
+    "id": 71,
+    "domain": "D5",
+    "scenario": "Why use a database instead of a spreadsheet for a large business app?",
+    "options": [
+      {
+        "text": "It supports many users and larger data safely",
+        "note": ""
+      },
+      {
+        "text": "It's always free to license and host",
+        "note": "Not always."
+      },
+      {
+        "text": "It needs no planning or structure at all",
+        "note": "Databases have structure."
+      },
+      {
+        "text": "It can't be backed up",
+        "note": "They can be."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Databases add concurrency, integrity rules and security."
+  },
+  {
+    "id": 72,
+    "domain": "D5",
+    "scenario": "Which describes a database backup?",
+    "options": [
+      {
+        "text": "A copy of data used to restore after loss",
+        "note": ""
+      },
+      {
+        "text": "A query that sorts records",
+        "note": "Not a backup."
+      },
+      {
+        "text": "A redesign of the table structure",
+        "note": "Not a backup."
+      },
+      {
+        "text": "A permission that lets users read the table",
+        "note": "Not a backup."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Test restores regularly to make sure backups work."
+  },
+  {
+    "id": 73,
+    "domain": "D5",
+    "scenario": "Which file format stores data as comma-separated values?",
+    "options": [
+      {
+        "text": "CSV",
+        "note": ""
+      },
+      {
+        "text": "PNG",
+        "note": "An image."
+      },
+      {
+        "text": "MP4",
+        "note": "A video."
+      },
+      {
+        "text": "EXE",
+        "note": "A program."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CSV files open in spreadsheets and import into databases."
+  },
+  {
+    "id": 74,
+    "domain": "D5",
+    "scenario": "What does it mean when data is described as \"structured\"?",
+    "options": [
+      {
+        "text": "It follows a defined format, like table columns",
+        "note": ""
+      },
+      {
+        "text": "It's stored only in the cloud",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "It's always encrypted at rest and in transit",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "It includes photos and video",
+        "note": "That's unstructured."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Emails and social posts are often semi-structured or unstructured."
+  },
+  {
+    "id": 75,
+    "domain": "D5",
+    "scenario": "Which database action permanently removes matching records?",
+    "options": [
+      {
+        "text": "DELETE",
+        "note": ""
+      },
+      {
+        "text": "SELECT",
+        "note": "Reads data."
+      },
+      {
+        "text": "INSERT",
+        "note": "Adds data."
+      },
+      {
+        "text": "UPDATE",
+        "note": "Changes data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Always back up before bulk deletions."
+  },
+  {
+    "id": 76,
+    "domain": "D5",
+    "scenario": "Which tool turns data into charts and dashboards to help find trends?",
+    "options": [
+      {
+        "text": "Data visualization software",
+        "note": ""
+      },
+      {
+        "text": "A text editor",
+        "note": "Edits text."
+      },
+      {
+        "text": "A code compiler",
+        "note": "Translates code."
+      },
+      {
+        "text": "A database management system",
+        "note": "Stores data; visualization is separate."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Examples include Power BI, Tableau and spreadsheet charts."
+  },
+  {
+    "id": 77,
+    "domain": "D6",
+    "scenario": "Which part of the CIA triad keeps data private from unauthorized people?",
+    "options": [
+      {
+        "text": "Confidentiality",
+        "note": ""
+      },
+      {
+        "text": "Integrity",
+        "note": "Prevents unauthorized changes."
+      },
+      {
+        "text": "Availability",
+        "note": "Keeps data accessible."
+      },
+      {
+        "text": "Non-repudiation",
+        "note": "Proves who did something."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Encryption and access controls support confidentiality."
+  },
+  {
+    "id": 78,
+    "domain": "D6",
+    "scenario": "Which is the strongest password?",
+    "options": [
+      {
+        "text": "A long passphrase like Coffee-Window-Planet-42!",
+        "note": ""
+      },
+      {
+        "text": "Password123",
+        "note": "Common and short."
+      },
+      {
+        "text": "Your pet's name and birth year",
+        "note": "Easy to guess."
+      },
+      {
+        "text": "12345678",
+        "note": "Extremely common."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Length matters most; use unique passwords for each site."
+  },
+  {
+    "id": 79,
+    "domain": "D6",
+    "scenario": "Which is an example of multifactor authentication?",
+    "options": [
+      {
+        "text": "A password plus a code from an authenticator app",
+        "note": ""
+      },
+      {
+        "text": "Two different passwords",
+        "note": "Same factor type."
+      },
+      {
+        "text": "A username and a password",
+        "note": "One factor."
+      },
+      {
+        "text": "A PIN and a security question",
+        "note": "Both something you know."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Factors: something you know, have and are."
+  },
+  {
+    "id": 80,
+    "domain": "D6",
+    "scenario": "A user gets an email from their \"bank\" asking them to click a link and confirm their password. What is this?",
+    "options": [
+      {
+        "text": "Phishing",
+        "note": ""
+      },
+      {
+        "text": "A software update",
+        "note": "Not legitimate."
+      },
+      {
+        "text": "Spam filtering",
+        "note": "A defense."
+      },
+      {
+        "text": "Encryption",
+        "note": "Protects data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check the sender, hover over links and go to the site directly instead."
+  },
+  {
+    "id": 81,
+    "domain": "D6",
+    "scenario": "Which type of malware encrypts files and demands payment?",
+    "options": [
+      {
+        "text": "Ransomware",
+        "note": ""
+      },
+      {
+        "text": "Adware",
+        "note": "Shows ads."
+      },
+      {
+        "text": "Spyware",
+        "note": "Collects information."
+      },
+      {
+        "text": "A worm only",
+        "note": "Spreads itself."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Regular offline backups are the best protection."
+  },
+  {
+    "id": 82,
+    "domain": "D6",
+    "scenario": "Which device or software filters network traffic based on rules?",
+    "options": [
+      {
+        "text": "Firewall",
+        "note": ""
+      },
+      {
+        "text": "Network switch",
+        "note": "Forwards traffic but does not filter by rules."
+      },
+      {
+        "text": "Wireless access point",
+        "note": "Provides Wi-Fi connectivity."
+      },
+      {
+        "text": "Modem",
+        "note": "Connects to the ISP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Windows and macOS include host-based firewalls."
+  },
+  {
+    "id": 83,
+    "domain": "D6",
+    "scenario": "Which Wi-Fi security setting is the most secure for a home network?",
+    "options": [
+      {
+        "text": "WPA3",
+        "note": ""
+      },
+      {
+        "text": "WEP",
+        "note": "Easily cracked."
+      },
+      {
+        "text": "Open network",
+        "note": "No encryption."
+      },
+      {
+        "text": "WPA with TKIP",
+        "note": "Outdated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Also change the router's default admin password."
+  },
+  {
+    "id": 84,
+    "domain": "D6",
+    "scenario": "What does a website address starting with https:// indicate?",
+    "options": [
+      {
+        "text": "Traffic is encrypted between you and the site",
+        "note": ""
+      },
+      {
+        "text": "The site is guaranteed to be safe",
+        "note": "Scam sites can use HTTPS."
+      },
+      {
+        "text": "The site is government-owned",
+        "note": "Not what it means."
+      },
+      {
+        "text": "The site has been verified as trustworthy by the government",
+        "note": "Not what it means."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HTTPS uses TLS; still check the domain name carefully."
+  },
+  {
+    "id": 85,
+    "domain": "D6",
+    "scenario": "Someone follows an employee through a locked door without badging in. What is this?",
+    "options": [
+      {
+        "text": "Tailgating",
+        "note": ""
+      },
+      {
+        "text": "Phishing",
+        "note": "Email-based."
+      },
+      {
+        "text": "Shoulder surfing",
+        "note": "Watching a screen."
+      },
+      {
+        "text": "Malware",
+        "note": "Malicious software."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Never hold secure doors for people you don't know."
+  },
+  {
+    "id": 86,
+    "domain": "D6",
+    "scenario": "Which describes the principle of least privilege?",
+    "options": [
+      {
+        "text": "Give users only the access they need",
+        "note": ""
+      },
+      {
+        "text": "Give everyone admin rights",
+        "note": "Too much access."
+      },
+      {
+        "text": "Share accounts among staff to save time",
+        "note": "No accountability."
+      },
+      {
+        "text": "Disable all passwords for internal users",
+        "note": "Insecure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Least privilege limits damage from mistakes and attacks."
+  },
+  {
+    "id": 87,
+    "domain": "D6",
+    "scenario": "Which backup practice best protects against ransomware?",
+    "options": [
+      {
+        "text": "Keep an offline or immutable backup copy",
+        "note": ""
+      },
+      {
+        "text": "Store backups on the same drive",
+        "note": "Can be encrypted too."
+      },
+      {
+        "text": "Back up once a year to the cloud",
+        "note": "Too infrequent."
+      },
+      {
+        "text": "Back up only the operating system",
+        "note": "Leaves user data unprotected."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The 3-2-1 rule: 3 copies, 2 media types, 1 offsite."
+  },
+  {
+    "id": 88,
+    "domain": "D6",
+    "scenario": "Which is an example of biometric authentication?",
+    "options": [
+      {
+        "text": "Fingerprint scan",
+        "note": ""
+      },
+      {
+        "text": "Password",
+        "note": "Something you know."
+      },
+      {
+        "text": "Smart card",
+        "note": "Something you have."
+      },
+      {
+        "text": "Security question",
+        "note": "Something you know."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Face and iris recognition are also biometric."
+  },
+  {
+    "id": 89,
+    "domain": "D6",
+    "scenario": "What should you do before throwing away an old computer's hard drive?",
+    "options": [
+      {
+        "text": "Securely wipe or physically destroy it",
+        "note": ""
+      },
+      {
+        "text": "Delete files and empty the recycle bin",
+        "note": "Data can be recovered."
+      },
+      {
+        "text": "Rename all the files",
+        "note": "Data remains."
+      },
+      {
+        "text": "Unplug it for a week",
+        "note": "Doesn't erase data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use overwriting tools or a certified destruction service."
+  },
+  {
+    "id": 90,
+    "domain": "D6",
+    "scenario": "Which describes encryption at rest?",
+    "options": [
+      {
+        "text": "Protecting stored data, like on a laptop drive",
+        "note": ""
+      },
+      {
+        "text": "Protecting data moving across a network",
+        "note": "That's in transit."
+      },
+      {
+        "text": "Deleting data after use",
+        "note": "Not encryption."
+      },
+      {
+        "text": "Compressing large files",
+        "note": "Not encryption."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BitLocker and FileVault encrypt drives at rest."
+  },
+  {
+    "id": 91,
+    "domain": "D6",
+    "scenario": "Why should you lock your computer when stepping away?",
+    "options": [
+      {
+        "text": "To stop others using your signed-in session",
+        "note": ""
+      },
+      {
+        "text": "To save battery and printer power",
+        "note": "Unrelated."
+      },
+      {
+        "text": "To install updates faster",
+        "note": "Unrelated."
+      },
+      {
+        "text": "To let the screen saver protect the display",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Windows + L locks a Windows PC quickly."
+  },
+  {
+    "id": 92,
+    "domain": "D6",
+    "scenario": "Which describes social engineering?",
+    "options": [
+      {
+        "text": "Tricking people into revealing information",
+        "note": ""
+      },
+      {
+        "text": "Writing secure code for web apps",
+        "note": "Not social engineering."
+      },
+      {
+        "text": "Encrypting a hard drive",
+        "note": "A defense."
+      },
+      {
+        "text": "Building social media apps",
+        "note": "Not the security meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Phishing, vishing, pretexting and tailgating are social engineering."
+  },
+  {
+    "id": 93,
+    "domain": "D6",
+    "scenario": "Which network should you avoid for banking unless you use a VPN?",
+    "options": [
+      {
+        "text": "Public coffee shop Wi-Fi",
+        "note": ""
+      },
+      {
+        "text": "Your home Wi-Fi with WPA3",
+        "note": "Generally safe."
+      },
+      {
+        "text": "Your mobile data connection",
+        "note": "Generally safe."
+      },
+      {
+        "text": "A wired office network",
+        "note": "Managed by IT."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Attackers can set up fake hotspots (evil twins) on public networks."
+  }
+]

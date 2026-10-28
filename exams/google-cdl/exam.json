@@ -1,0 +1,52 @@
+{
+  "slug": "google-cdl",
+  "code": "CDL",
+  "name": "Google Cloud Digital Leader",
+  "vendor": "Google Cloud",
+  "domains": {
+    "D1": {
+      "name": "Digital transformation with Google Cloud",
+      "weight": "~18%",
+      "pct": 18
+    },
+    "D2": {
+      "name": "Data transformation",
+      "weight": "~18%",
+      "pct": 18
+    },
+    "D3": {
+      "name": "AI and machine learning",
+      "weight": "~18%",
+      "pct": 18
+    },
+    "D4": {
+      "name": "Infrastructure and application modernization",
+      "weight": "~18%",
+      "pct": 18
+    },
+    "D5": {
+      "name": "Trust and security",
+      "weight": "~18%",
+      "pct": 18
+    },
+    "D6": {
+      "name": "Scaling with Google Cloud operations",
+      "weight": "~10%",
+      "pct": 10
+    }
+  },
+  "scoring": {
+    "min": 0,
+    "max": 100,
+    "pass": 70
+  },
+  "minutesPerQuestion": 1.5,
+  "defaultSize": 60,
+  "sizeOptions": [
+    20,
+    40,
+    60
+  ],
+  "realExamNote": "Based on the exam guide in effect from August 12, 2026. The real exam has 50–60 questions in 90 minutes.",
+  "scoreNote": "Google doesn't publish a passing score, so 70% is used here as a readiness target."
+}

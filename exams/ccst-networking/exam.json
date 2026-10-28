@@ -1,0 +1,52 @@
+{
+  "slug": "ccst-networking",
+  "code": "100-150",
+  "name": "Cisco Certified Support Technician Networking",
+  "vendor": "Cisco",
+  "domains": {
+    "D1": {
+      "name": "Standards and concepts",
+      "weight": "—",
+      "pct": 17
+    },
+    "D2": {
+      "name": "Addressing and subnet formats",
+      "weight": "—",
+      "pct": 17
+    },
+    "D3": {
+      "name": "Endpoints and media types",
+      "weight": "—",
+      "pct": 16
+    },
+    "D4": {
+      "name": "Infrastructure",
+      "weight": "—",
+      "pct": 17
+    },
+    "D5": {
+      "name": "Diagnosing problems",
+      "weight": "—",
+      "pct": 17
+    },
+    "D6": {
+      "name": "Security",
+      "weight": "—",
+      "pct": 16
+    }
+  },
+  "scoring": {
+    "min": 0,
+    "max": 100,
+    "pass": 70
+  },
+  "minutesPerQuestion": 1,
+  "defaultSize": 50,
+  "sizeOptions": [
+    15,
+    30,
+    50
+  ],
+  "realExamNote": "The real exam is 50 minutes. Cisco doesn't publish domain weights for CCST exams, so domains are weighted evenly here.",
+  "scoreNote": "Cisco doesn't publish a passing score for CCST exams, so 70% is used here as a readiness target."
+}

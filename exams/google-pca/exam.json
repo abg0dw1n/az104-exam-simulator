@@ -1,0 +1,52 @@
+{
+  "slug": "google-pca",
+  "code": "PCA",
+  "name": "Google Professional Cloud Architect",
+  "vendor": "Google Cloud",
+  "domains": {
+    "D1": {
+      "name": "Designing and planning a cloud solution architecture",
+      "weight": "~25%",
+      "pct": 25
+    },
+    "D2": {
+      "name": "Managing and provisioning infrastructure",
+      "weight": "~17.5%",
+      "pct": 18
+    },
+    "D3": {
+      "name": "Designing for security and compliance",
+      "weight": "~17.5%",
+      "pct": 17
+    },
+    "D4": {
+      "name": "Analyzing and optimizing technical and business processes",
+      "weight": "~15%",
+      "pct": 15
+    },
+    "D5": {
+      "name": "Managing implementation",
+      "weight": "~12.5%",
+      "pct": 13
+    },
+    "D6": {
+      "name": "Ensuring solution and operations excellence",
+      "weight": "~12.5%",
+      "pct": 12
+    }
+  },
+  "scoring": {
+    "min": 0,
+    "max": 100,
+    "pass": 70
+  },
+  "minutesPerQuestion": 2,
+  "defaultSize": 50,
+  "sizeOptions": [
+    20,
+    35,
+    50
+  ],
+  "realExamNote": "The real exam has 50–60 questions in 2 hours, and 20–30% of them are based on two of four published case studies (Altostrat Media, Cymbal Retail, EHR Healthcare, KnightMotives Automotive).",
+  "scoreNote": "Google doesn't publish a passing score, so 70% is used here as a readiness target."
+}

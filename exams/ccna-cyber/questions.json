@@ -1,0 +1,2477 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "A SOC analyst must explain the difference between a threat and a vulnerability. Which statement is correct?",
+    "options": [
+      {
+        "text": "A threat can cause harm; a vulnerability is a weakness it may exploit",
+        "note": ""
+      },
+      {
+        "text": "A vulnerability is an attacker; a threat is a software flaw",
+        "note": "Reversed."
+      },
+      {
+        "text": "Both terms describe the likelihood and impact of a successful attack",
+        "note": "That's closer to risk."
+      },
+      {
+        "text": "A threat is always internal; a vulnerability is always external",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "An exploit is the method or code that takes advantage of a vulnerability."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "Which access control model assigns permissions based on job functions such as 'HR Manager'?",
+    "options": [
+      {
+        "text": "Role-based access control (RBAC)",
+        "note": ""
+      },
+      {
+        "text": "Mandatory access control (MAC)",
+        "note": "Uses labels and clearances."
+      },
+      {
+        "text": "Discretionary access control (DAC)",
+        "note": "Owners grant access."
+      },
+      {
+        "text": "Rule-based access control",
+        "note": "Uses rules like time of day."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Attribute-based access control (ABAC) evaluates attributes such as department and location."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "Which access control model uses security labels like Secret and Top Secret set by an administrator?",
+    "options": [
+      {
+        "text": "Mandatory access control",
+        "note": ""
+      },
+      {
+        "text": "Discretionary access control",
+        "note": "Owners decide."
+      },
+      {
+        "text": "Role-based access control",
+        "note": "Based on roles."
+      },
+      {
+        "text": "Time-based access control",
+        "note": "Based on schedules."
+      }
+    ],
+    "answer": 0,
+    "explanation": "MAC is common in government and military systems."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "In discretionary access control, who decides who can access a file?",
+    "options": [
+      {
+        "text": "The file's owner",
+        "note": ""
+      },
+      {
+        "text": "A central security administrator only",
+        "note": "That's MAC."
+      },
+      {
+        "text": "The operating system kernel based on labels",
+        "note": "That's MAC."
+      },
+      {
+        "text": "Anyone on the network",
+        "note": "Not DAC."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Windows NTFS permissions are an example of DAC."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "Which CVSS base metric describes whether an attacker needs prior access or privileges?",
+    "options": [
+      {
+        "text": "Privileges Required",
+        "note": ""
+      },
+      {
+        "text": "Attack Complexity",
+        "note": "Conditions beyond the attacker's control."
+      },
+      {
+        "text": "User Interaction",
+        "note": "Whether a user must take action."
+      },
+      {
+        "text": "Scope",
+        "note": "Whether impact crosses security boundaries."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Other base metrics: Attack Vector, Confidentiality, Integrity and Availability impact."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "A CVSS Attack Vector value of 'Network' means what?",
+    "options": [
+      {
+        "text": "The flaw can be exploited remotely across networks",
+        "note": ""
+      },
+      {
+        "text": "The attacker must have physical access",
+        "note": "That's Physical."
+      },
+      {
+        "text": "The attacker must be on the same local segment",
+        "note": "That's Adjacent."
+      },
+      {
+        "text": "The attacker must already have a local login session on the target",
+        "note": "That's Local."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Network attack vectors usually increase the CVSS score."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Which detection method compares traffic against known attack patterns?",
+    "options": [
+      {
+        "text": "Signature-based (rule-based) detection",
+        "note": ""
+      },
+      {
+        "text": "Behavioral (anomaly-based) detection",
+        "note": "Compares against a baseline."
+      },
+      {
+        "text": "Statistical sampling of NetFlow records over time",
+        "note": "Not pattern matching."
+      },
+      {
+        "text": "Heuristic detonation of files in a sandbox",
+        "note": "Observes behavior in a sandbox."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Signature detection is accurate for known threats but misses new ones."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "What's a main advantage of behavioral detection over rule-based detection?",
+    "options": [
+      {
+        "text": "It can detect previously unknown attacks",
+        "note": ""
+      },
+      {
+        "text": "It never produces false positives",
+        "note": "It often produces more."
+      },
+      {
+        "text": "It requires no baseline or tuning period at all",
+        "note": "It depends on a baseline."
+      },
+      {
+        "text": "It only inspects encrypted traffic",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Behavioral methods flag deviations from normal patterns."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which five fields make up the 5-tuple used to identify a network flow?",
+    "options": [
+      {
+        "text": "Source IP, destination IP, source port, destination port, protocol",
+        "note": ""
+      },
+      {
+        "text": "Source MAC, destination MAC, VLAN, TTL, protocol",
+        "note": "Not the 5-tuple."
+      },
+      {
+        "text": "Username, hostname, domain, source IP, time stamp, URL path",
+        "note": "Not the 5-tuple."
+      },
+      {
+        "text": "Source IP, destination IP, DNS name, URL, time",
+        "note": "Not the 5-tuple."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The 5-tuple helps isolate a host or session during investigations."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "What does defense in depth mean in a security deployment?",
+    "options": [
+      {
+        "text": "Layering multiple controls so one failure isn't catastrophic",
+        "note": ""
+      },
+      {
+        "text": "Placing all security at the internet edge",
+        "note": "Single layer."
+      },
+      {
+        "text": "Using a single trusted vendor for every security product",
+        "note": "Not the concept."
+      },
+      {
+        "text": "Encrypting every packet on the LAN",
+        "note": "One control only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Layers include network, endpoint, application, data and user awareness."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "Which security deployment is placed on an endpoint to detect and investigate malicious activity?",
+    "options": [
+      {
+        "text": "Endpoint detection and response (EDR)",
+        "note": ""
+      },
+      {
+        "text": "Network-based intrusion prevention system (NIPS)",
+        "note": "Inspects traffic on the network, not the host."
+      },
+      {
+        "text": "Web application firewall",
+        "note": "Protects web apps."
+      },
+      {
+        "text": "SIEM log collector",
+        "note": "Aggregates logs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "XDR extends detection across endpoints, network, email and cloud."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "What is a SOAR platform mainly used for?",
+    "options": [
+      {
+        "text": "Automating and orchestrating incident response tasks",
+        "note": ""
+      },
+      {
+        "text": "Storing long-term backups",
+        "note": "Not SOAR."
+      },
+      {
+        "text": "Scanning application source code for vulnerabilities",
+        "note": "SAST tools."
+      },
+      {
+        "text": "Assigning IP addresses dynamically",
+        "note": "DHCP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SOAR playbooks can block IPs, open tickets and enrich alerts automatically."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "Why does encryption create challenges for security monitoring?",
+    "options": [
+      {
+        "text": "Payload contents can't be inspected without decryption",
+        "note": ""
+      },
+      {
+        "text": "Encrypted traffic always uses UDP",
+        "note": "Not true."
+      },
+      {
+        "text": "Encryption removes IP headers",
+        "note": "Headers remain."
+      },
+      {
+        "text": "Encrypted traffic can't be logged or measured at all",
+        "note": "Metadata can be logged."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Analysts rely on metadata, certificates and TLS fingerprints like JA3/JA4."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Which describes the principle of least privilege?",
+    "options": [
+      {
+        "text": "Users get only the access needed for their tasks",
+        "note": ""
+      },
+      {
+        "text": "Admins share one account for efficiency",
+        "note": "No accountability."
+      },
+      {
+        "text": "All users get read access to everything",
+        "note": "Too broad."
+      },
+      {
+        "text": "Privileges increase automatically as users gain seniority",
+        "note": "Privilege creep, a problem."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Separation of duties splits critical tasks between people."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "What's the difference between a risk and an exploit?",
+    "options": [
+      {
+        "text": "Risk is likelihood and impact; an exploit is the attack method",
+        "note": ""
+      },
+      {
+        "text": "Both describe an unpatched system exposed to the internet",
+        "note": "Not true."
+      },
+      {
+        "text": "An exploit is a type of risk score",
+        "note": "Not true."
+      },
+      {
+        "text": "Risk is code; an exploit is a policy",
+        "note": "Reversed nonsense."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Risk = threat × vulnerability × impact, conceptually."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "Which CVSS metric group reflects characteristics that change over time, like exploit availability?",
+    "options": [
+      {
+        "text": "Temporal (Threat in CVSS v4)",
+        "note": ""
+      },
+      {
+        "text": "Base",
+        "note": "Doesn't change over time."
+      },
+      {
+        "text": "Environmental (organization-specific)",
+        "note": "Organization-specific."
+      },
+      {
+        "text": "Scope",
+        "note": "A base metric."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CVSS v4.0 renamed Temporal metrics to Threat metrics."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "A small team relies on one firewall and nothing else. Which concept is missing?",
+    "options": [
+      {
+        "text": "Defense in depth",
+        "note": ""
+      },
+      {
+        "text": "Least privilege",
+        "note": "About permissions."
+      },
+      {
+        "text": "Separation of duties",
+        "note": "Splits tasks between people."
+      },
+      {
+        "text": "Availability",
+        "note": "Part of CIA."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Add endpoint protection, monitoring and segmentation."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "Which data visibility challenge is caused by NAT at the network edge?",
+    "options": [
+      {
+        "text": "Internal host IPs are hidden behind one public address",
+        "note": ""
+      },
+      {
+        "text": "All traffic becomes encrypted",
+        "note": "NAT does not encrypt."
+      },
+      {
+        "text": "MAC addresses become visible on the internet",
+        "note": "Not true."
+      },
+      {
+        "text": "DNS lookups fail for internal servers",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Correlating NAT logs restores the mapping between internal and external addresses."
+  },
+  {
+    "id": 19,
+    "domain": "D1",
+    "scenario": "Which is a common way attackers evade detection by spreading data across many small packets?",
+    "options": [
+      {
+        "text": "Fragmentation",
+        "note": ""
+      },
+      {
+        "text": "Port mirroring",
+        "note": "A monitoring feature."
+      },
+      {
+        "text": "Load balancing",
+        "note": "Distributes traffic."
+      },
+      {
+        "text": "Link aggregation",
+        "note": "Bundles links."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Other evasion methods include encryption, tunneling and resource exhaustion."
+  },
+  {
+    "id": 20,
+    "domain": "D1",
+    "scenario": "What does a CVE ID identify?",
+    "options": [
+      {
+        "text": "A specific publicly disclosed vulnerability",
+        "note": ""
+      },
+      {
+        "text": "A known attacker group and its tools",
+        "note": "Tracked by threat intel."
+      },
+      {
+        "text": "A malware hash",
+        "note": "An indicator of compromise."
+      },
+      {
+        "text": "A vulnerability's severity score",
+        "note": "That's CVSS."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CVE entries are paired with CVSS scores in databases like the NVD."
+  },
+  {
+    "id": 21,
+    "domain": "D2",
+    "scenario": "Which data type records who talked to whom, when and how much, without packet payloads?",
+    "options": [
+      {
+        "text": "Session data (e.g., NetFlow)",
+        "note": ""
+      },
+      {
+        "text": "Full packet capture",
+        "note": "Includes payloads."
+      },
+      {
+        "text": "Alert data",
+        "note": "IDS output."
+      },
+      {
+        "text": "Transaction data (request and response pairs)",
+        "note": "Application-level exchanges."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NetFlow is efficient for long retention and behavioral analysis."
+  },
+  {
+    "id": 22,
+    "domain": "D2",
+    "scenario": "Which data type gives the most detail for investigations but needs the most storage?",
+    "options": [
+      {
+        "text": "Full packet capture",
+        "note": ""
+      },
+      {
+        "text": "Session data",
+        "note": "No payloads."
+      },
+      {
+        "text": "Statistical data (aggregated trends)",
+        "note": "Aggregated."
+      },
+      {
+        "text": "Metadata",
+        "note": "Summary fields."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PCAPs let analysts reconstruct files and sessions."
+  },
+  {
+    "id": 23,
+    "domain": "D2",
+    "scenario": "Which data type is produced when an IDS rule matches traffic?",
+    "options": [
+      {
+        "text": "Alert data",
+        "note": ""
+      },
+      {
+        "text": "Session data",
+        "note": "Flow records."
+      },
+      {
+        "text": "Full packet capture",
+        "note": "Raw packets."
+      },
+      {
+        "text": "Statistical data",
+        "note": "Aggregated trends."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Alerts point analysts to traffic worth investigating."
+  },
+  {
+    "id": 24,
+    "domain": "D2",
+    "scenario": "How does Tor affect security monitoring?",
+    "options": [
+      {
+        "text": "It hides the true source and destination of traffic",
+        "note": ""
+      },
+      {
+        "text": "It speeds up packet capture",
+        "note": "Not true."
+      },
+      {
+        "text": "It decrypts HTTPS sessions for the exit relay operator",
+        "note": "Tor does not decrypt HTTPS."
+      },
+      {
+        "text": "It blocks all malware",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Monitoring for connections to Tor entry nodes can flag policy violations."
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "scenario": "Which attack inserts malicious SQL into an input field to read or change database data?",
+    "options": [
+      {
+        "text": "SQL injection",
+        "note": ""
+      },
+      {
+        "text": "Cross-site scripting",
+        "note": "Injects script into pages."
+      },
+      {
+        "text": "Command injection",
+        "note": "Runs OS commands."
+      },
+      {
+        "text": "CSRF",
+        "note": "Forges requests from a user."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Parameterized queries prevent SQL injection."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "Which attack injects script into a web page that runs in other users' browsers?",
+    "options": [
+      {
+        "text": "Cross-site scripting (XSS)",
+        "note": ""
+      },
+      {
+        "text": "SQL injection",
+        "note": "Targets the database."
+      },
+      {
+        "text": "Buffer overflow",
+        "note": "Overruns memory."
+      },
+      {
+        "text": "Server-side request forgery (SSRF)",
+        "note": "Makes the server send requests."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Input validation and output encoding prevent XSS."
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "scenario": "Which attack tricks a logged-in user's browser into sending an unwanted request to a site?",
+    "options": [
+      {
+        "text": "Cross-site request forgery (CSRF)",
+        "note": ""
+      },
+      {
+        "text": "Cross-site scripting",
+        "note": "Runs injected scripts."
+      },
+      {
+        "text": "SQL injection",
+        "note": "Database queries."
+      },
+      {
+        "text": "Server-side request forgery (SSRF)",
+        "note": "The server, not the browser, sends requests."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Anti-CSRF tokens and SameSite cookies help prevent it."
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "scenario": "Which attack writes more data than a memory buffer can hold to run attacker code?",
+    "options": [
+      {
+        "text": "Buffer overflow",
+        "note": ""
+      },
+      {
+        "text": "SQL injection",
+        "note": "Database."
+      },
+      {
+        "text": "Phishing",
+        "note": "Social engineering."
+      },
+      {
+        "text": "Man-in-the-browser",
+        "note": "Malicious browser code."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Memory protections like ASLR and DEP make exploitation harder."
+  },
+  {
+    "id": 29,
+    "domain": "D2",
+    "scenario": "Which network attack floods a switch's MAC table so it forwards frames out all ports?",
+    "options": [
+      {
+        "text": "MAC flooding",
+        "note": ""
+      },
+      {
+        "text": "DHCP starvation",
+        "note": "Exhausts IP addresses."
+      },
+      {
+        "text": "DNS amplification",
+        "note": "Reflection DDoS."
+      },
+      {
+        "text": "Smurf attack",
+        "note": "ICMP broadcast flood."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Port security limits MAC addresses per port."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "An attacker sends small DNS queries with a spoofed source to get large replies sent to a victim. What is this?",
+    "options": [
+      {
+        "text": "DNS amplification (reflection) attack",
+        "note": ""
+      },
+      {
+        "text": "DNS tunneling",
+        "note": "Hides data in DNS."
+      },
+      {
+        "text": "DNS cache poisoning",
+        "note": "Inserts false records."
+      },
+      {
+        "text": "Domain generation algorithm (DGA) abuse",
+        "note": "Creates many C2 domains."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Open resolvers make amplification easier."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "Which technique hides data inside DNS queries to sneak it past firewalls?",
+    "options": [
+      {
+        "text": "DNS tunneling",
+        "note": ""
+      },
+      {
+        "text": "DNS amplification",
+        "note": "A DDoS technique."
+      },
+      {
+        "text": "Typosquatting",
+        "note": "Registers similar domains."
+      },
+      {
+        "text": "Fast flux",
+        "note": "Rapidly changing IPs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Look for long, random-looking subdomains and unusual query volumes."
+  },
+  {
+    "id": 32,
+    "domain": "D2",
+    "scenario": "Which social engineering attack targets a company's senior executives specifically?",
+    "options": [
+      {
+        "text": "Whaling",
+        "note": ""
+      },
+      {
+        "text": "Smishing",
+        "note": "Text messages."
+      },
+      {
+        "text": "Vishing",
+        "note": "Phone calls."
+      },
+      {
+        "text": "Baiting",
+        "note": "Leaves infected media."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Spear phishing targets specific individuals; whaling targets executives."
+  },
+  {
+    "id": 33,
+    "domain": "D2",
+    "scenario": "Which attack compromises a website frequently visited by a target group?",
+    "options": [
+      {
+        "text": "Watering hole attack",
+        "note": ""
+      },
+      {
+        "text": "Pharming",
+        "note": "Redirects DNS."
+      },
+      {
+        "text": "Tailgating",
+        "note": "Physical entry."
+      },
+      {
+        "text": "Typosquatting",
+        "note": "Registers look-alike domains."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Watering holes infect visitors with drive-by downloads."
+  },
+  {
+    "id": 34,
+    "domain": "D2",
+    "scenario": "Which endpoint attack runs malicious code only in memory to avoid leaving files on disk?",
+    "options": [
+      {
+        "text": "Fileless malware",
+        "note": ""
+      },
+      {
+        "text": "Boot sector virus",
+        "note": "Infects disk boot sectors."
+      },
+      {
+        "text": "Macro virus",
+        "note": "Stored in documents."
+      },
+      {
+        "text": "Adware",
+        "note": "Shows ads."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fileless attacks often abuse PowerShell and WMI."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "Which evasion technique alters malware so each copy has a different file hash?",
+    "options": [
+      {
+        "text": "Polymorphism",
+        "note": ""
+      },
+      {
+        "text": "Port knocking",
+        "note": "Hidden service access."
+      },
+      {
+        "text": "Load balancing",
+        "note": "Not evasion."
+      },
+      {
+        "text": "Tunneling over SSH",
+        "note": "Hides traffic, not code."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hash-based signatures can miss polymorphic malware."
+  },
+  {
+    "id": 36,
+    "domain": "D2",
+    "scenario": "Which certificate component confirms that a trusted CA vouches for the certificate?",
+    "options": [
+      {
+        "text": "The CA's digital signature",
+        "note": ""
+      },
+      {
+        "text": "The subject's public key",
+        "note": "Belongs to the server."
+      },
+      {
+        "text": "The serial number",
+        "note": "Identifies the certificate."
+      },
+      {
+        "text": "The subject alternative name list",
+        "note": "Lists covered hostnames."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Browsers verify the signature chain to a trusted root CA."
+  },
+  {
+    "id": 37,
+    "domain": "D2",
+    "scenario": "Which file format bundles a certificate and its private key, protected by a password?",
+    "options": [
+      {
+        "text": "PKCS #12 (.pfx/.p12)",
+        "note": ""
+      },
+      {
+        "text": "PEM certificate only",
+        "note": "Can hold certs, keys separately."
+      },
+      {
+        "text": "DER certificate only",
+        "note": "Binary cert format."
+      },
+      {
+        "text": "CSR",
+        "note": "A certificate request."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A CSR (certificate signing request) is sent to the CA to request a certificate."
+  },
+  {
+    "id": 38,
+    "domain": "D2",
+    "scenario": "Which protocol helps clients check if a certificate has been revoked in real time?",
+    "options": [
+      {
+        "text": "OCSP",
+        "note": ""
+      },
+      {
+        "text": "NTP",
+        "note": "Time sync."
+      },
+      {
+        "text": "SNMP",
+        "note": "Device monitoring."
+      },
+      {
+        "text": "LDAP",
+        "note": "Directory queries."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CRLs are published lists of revoked certificates."
+  },
+  {
+    "id": 39,
+    "domain": "D2",
+    "scenario": "How does load balancing affect security monitoring?",
+    "options": [
+      {
+        "text": "Traffic for one service may be spread across many servers",
+        "note": ""
+      },
+      {
+        "text": "It decrypts all traffic automatically",
+        "note": "Not by default."
+      },
+      {
+        "text": "It removes source IP information always",
+        "note": "Can be preserved with headers."
+      },
+      {
+        "text": "It disables logging on the back-end servers",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Analysts may need load balancer logs or X-Forwarded-For headers."
+  },
+  {
+    "id": 40,
+    "domain": "D2",
+    "scenario": "Which is an example of a social engineering pretext?",
+    "options": [
+      {
+        "text": "Pretending to be a vendor needing remote access",
+        "note": ""
+      },
+      {
+        "text": "Sending a ping sweep across a subnet",
+        "note": "Reconnaissance."
+      },
+      {
+        "text": "Flooding a server with SYN packets",
+        "note": "DoS."
+      },
+      {
+        "text": "Brute-forcing SSH passwords",
+        "note": "Password attack."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Verification procedures counter pretexting."
+  },
+  {
+    "id": 41,
+    "domain": "D2",
+    "scenario": "Which monitoring data source shows websites users visited and categories blocked?",
+    "options": [
+      {
+        "text": "Web proxy logs",
+        "note": ""
+      },
+      {
+        "text": "Switch MAC tables",
+        "note": "Layer 2 only."
+      },
+      {
+        "text": "DHCP leases",
+        "note": "IP assignments."
+      },
+      {
+        "text": "NTP logs",
+        "note": "Time sync."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Email filters and DNS logs are other useful sources."
+  },
+  {
+    "id": 42,
+    "domain": "D2",
+    "scenario": "How does peer-to-peer (P2P) traffic complicate monitoring?",
+    "options": [
+      {
+        "text": "It uses many dynamic ports and distributed hosts",
+        "note": ""
+      },
+      {
+        "text": "It always uses port 80",
+        "note": "Not always."
+      },
+      {
+        "text": "It can't be encrypted or obfuscated",
+        "note": "It can be."
+      },
+      {
+        "text": "It only runs on servers",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "P2P can be used for data exfiltration or malware distribution."
+  },
+  {
+    "id": 43,
+    "domain": "D2",
+    "scenario": "Which attack captures a valid authentication message and sends it again later?",
+    "options": [
+      {
+        "text": "Replay attack",
+        "note": ""
+      },
+      {
+        "text": "Cross-site scripting",
+        "note": "Web script."
+      },
+      {
+        "text": "Smurf attack",
+        "note": "ICMP flood."
+      },
+      {
+        "text": "Phishing",
+        "note": "Social engineering."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Nonces and time stamps defeat replay attacks."
+  },
+  {
+    "id": 44,
+    "domain": "D2",
+    "scenario": "Which attacker tool category records keystrokes to capture credentials?",
+    "options": [
+      {
+        "text": "Keylogger",
+        "note": ""
+      },
+      {
+        "text": "Rootkit",
+        "note": "Hides in the OS."
+      },
+      {
+        "text": "Botnet controller",
+        "note": "Commands bots."
+      },
+      {
+        "text": "Packet sniffer",
+        "note": "Captures network traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Keyloggers can be software or hardware."
+  },
+  {
+    "id": 45,
+    "domain": "D2",
+    "scenario": "Why can tunneling (e.g., GRE or SSH tunnels) hide malicious traffic from monitoring tools?",
+    "options": [
+      {
+        "text": "Inner traffic is encapsulated, hiding its real protocol",
+        "note": ""
+      },
+      {
+        "text": "Tunnels remove all headers",
+        "note": "They add headers."
+      },
+      {
+        "text": "Tunnels block monitoring ports",
+        "note": "Not how it works."
+      },
+      {
+        "text": "Tunnels always use port 53 to look like DNS",
+        "note": "Not always."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Inspect tunnel endpoints and unusual protocols leaving the network."
+  },
+  {
+    "id": 46,
+    "domain": "D3",
+    "scenario": "Which host-based technology monitors a single system for suspicious activity and file changes?",
+    "options": [
+      {
+        "text": "Host-based IDS (HIDS)",
+        "note": ""
+      },
+      {
+        "text": "Network IDS",
+        "note": "Monitors network traffic."
+      },
+      {
+        "text": "NetFlow collector on the core switch",
+        "note": "Flow records."
+      },
+      {
+        "text": "Network-based IDS sensor",
+        "note": "Monitors network segments."
+      }
+    ],
+    "answer": 0,
+    "explanation": "File integrity monitoring is a common HIDS feature."
+  },
+  {
+    "id": 47,
+    "domain": "D3",
+    "scenario": "Which Windows component stores configuration data that malware often modifies for persistence?",
+    "options": [
+      {
+        "text": "The Registry (e.g., Run keys)",
+        "note": ""
+      },
+      {
+        "text": "The Recycle Bin metadata",
+        "note": "Deleted files."
+      },
+      {
+        "text": "The page file",
+        "note": "Virtual memory."
+      },
+      {
+        "text": "The local DNS resolver cache",
+        "note": "Name lookups."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HKLM\\Software\\Microsoft\\Windows\\CurrentVersion\\Run is a common persistence location."
+  },
+  {
+    "id": 48,
+    "domain": "D3",
+    "scenario": "On Windows, which process is the parent of most user-launched programs?",
+    "options": [
+      {
+        "text": "explorer.exe",
+        "note": ""
+      },
+      {
+        "text": "lsass.exe",
+        "note": "Handles authentication."
+      },
+      {
+        "text": "svchost.exe",
+        "note": "Hosts services."
+      },
+      {
+        "text": "winlogon.exe",
+        "note": "Handles sign-in."
+      }
+    ],
+    "answer": 0,
+    "explanation": "An unexpected parent-child relationship can indicate compromise."
+  },
+  {
+    "id": 49,
+    "domain": "D3",
+    "scenario": "Which Windows process enforces security policy and is often targeted to dump credentials?",
+    "options": [
+      {
+        "text": "lsass.exe",
+        "note": ""
+      },
+      {
+        "text": "explorer.exe",
+        "note": "The desktop shell."
+      },
+      {
+        "text": "notepad.exe",
+        "note": "A text editor."
+      },
+      {
+        "text": "spoolsv.exe",
+        "note": "The print spooler."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Credential Guard helps protect LSASS memory."
+  },
+  {
+    "id": 50,
+    "domain": "D3",
+    "scenario": "Which Windows Event ID indicates a successful logon?",
+    "options": [
+      {
+        "text": "4624",
+        "note": ""
+      },
+      {
+        "text": "4625",
+        "note": "Failed logon."
+      },
+      {
+        "text": "4720",
+        "note": "User account created."
+      },
+      {
+        "text": "1102",
+        "note": "Audit log cleared."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Logon type 10 indicates Remote Desktop."
+  },
+  {
+    "id": 51,
+    "domain": "D3",
+    "scenario": "Which Windows Event ID shows that the security audit log was cleared?",
+    "options": [
+      {
+        "text": "1102",
+        "note": ""
+      },
+      {
+        "text": "4624",
+        "note": "Successful logon."
+      },
+      {
+        "text": "4688",
+        "note": "Process created."
+      },
+      {
+        "text": "4740",
+        "note": "Account locked out."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Attackers often clear logs to cover their tracks."
+  },
+  {
+    "id": 52,
+    "domain": "D3",
+    "scenario": "On Linux, which directory commonly stores system log files?",
+    "options": [
+      {
+        "text": "/var/log",
+        "note": ""
+      },
+      {
+        "text": "/etc",
+        "note": "Configuration files."
+      },
+      {
+        "text": "/bin",
+        "note": "Binaries."
+      },
+      {
+        "text": "/home/<user>",
+        "note": "User files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "systemd systems also use journalctl."
+  },
+  {
+    "id": 53,
+    "domain": "D3",
+    "scenario": "Which Linux file contains user account names but not password hashes on modern systems?",
+    "options": [
+      {
+        "text": "/etc/passwd",
+        "note": ""
+      },
+      {
+        "text": "/etc/shadow",
+        "note": "Stores password hashes."
+      },
+      {
+        "text": "/var/log/auth.log",
+        "note": "Authentication logs."
+      },
+      {
+        "text": "/etc/hosts",
+        "note": "Local name resolution."
+      }
+    ],
+    "answer": 0,
+    "explanation": "/etc/shadow is readable only by root."
+  },
+  {
+    "id": 54,
+    "domain": "D3",
+    "scenario": "Which evidence type directly proves a fact without inference, such as a video recording?",
+    "options": [
+      {
+        "text": "Direct evidence",
+        "note": ""
+      },
+      {
+        "text": "Circumstantial evidence",
+        "note": "Requires inference."
+      },
+      {
+        "text": "Corroborative evidence",
+        "note": "Supports other evidence."
+      },
+      {
+        "text": "Best evidence",
+        "note": "The original item."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Best evidence is the original, unaltered item."
+  },
+  {
+    "id": 55,
+    "domain": "D3",
+    "scenario": "A forensic image is made of a drive. Which evidence type is the original drive itself?",
+    "options": [
+      {
+        "text": "Best evidence",
+        "note": ""
+      },
+      {
+        "text": "Corroborative evidence",
+        "note": "Supports other evidence."
+      },
+      {
+        "text": "Hearsay",
+        "note": "Secondhand statement."
+      },
+      {
+        "text": "Indirect evidence",
+        "note": "Needs inference."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Investigators work on copies to preserve the original."
+  },
+  {
+    "id": 56,
+    "domain": "D3",
+    "scenario": "Which indicator in a sandbox report suggests a sample is trying to persist on the system?",
+    "options": [
+      {
+        "text": "It creates a scheduled task or Run key",
+        "note": ""
+      },
+      {
+        "text": "It reads its own file size and version",
+        "note": "Benign."
+      },
+      {
+        "text": "It loads a common DLL",
+        "note": "Normal behavior."
+      },
+      {
+        "text": "It checks the system time and locale",
+        "note": "Common, not persistence."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sandbox reports list file, registry, process and network activity."
+  },
+  {
+    "id": 57,
+    "domain": "D3",
+    "scenario": "Which file hash type is most recommended today for identifying malware samples?",
+    "options": [
+      {
+        "text": "SHA-256",
+        "note": ""
+      },
+      {
+        "text": "MD5",
+        "note": "Collision-prone."
+      },
+      {
+        "text": "CRC32 checksum",
+        "note": "A checksum, not cryptographic."
+      },
+      {
+        "text": "SHA-1",
+        "note": "Deprecated due to collisions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hashes are shared as indicators of compromise."
+  },
+  {
+    "id": 58,
+    "domain": "D3",
+    "scenario": "What does attribution mean in an investigation?",
+    "options": [
+      {
+        "text": "Identifying the threat actor behind an attack",
+        "note": ""
+      },
+      {
+        "text": "Naming the affected asset and its owner",
+        "note": "Asset identification."
+      },
+      {
+        "text": "Assigning a CVSS score to the exploited flaw",
+        "note": "Vulnerability scoring."
+      },
+      {
+        "text": "Restoring the system",
+        "note": "Recovery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Attribution uses assets, threat actors, indicators and chain of custody."
+  },
+  {
+    "id": 59,
+    "domain": "D3",
+    "scenario": "Which host-based firewall feature blocks an application from making outbound connections?",
+    "options": [
+      {
+        "text": "Outbound application rules",
+        "note": ""
+      },
+      {
+        "text": "Port mirroring on the uplink",
+        "note": "Copies traffic."
+      },
+      {
+        "text": "DHCP reservation",
+        "note": "Fixes IP addresses."
+      },
+      {
+        "text": "Inbound NAT port forwarding",
+        "note": "Exposes services; does not block apps."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Windows Defender Firewall supports program-based rules."
+  },
+  {
+    "id": 60,
+    "domain": "D3",
+    "scenario": "Which Linux command lists running processes with full details?",
+    "options": [
+      {
+        "text": "ps aux",
+        "note": ""
+      },
+      {
+        "text": "ls -la",
+        "note": "Lists files."
+      },
+      {
+        "text": "cat /etc/hosts",
+        "note": "Shows host mappings."
+      },
+      {
+        "text": "df -h",
+        "note": "Disk usage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "top shows processes interactively."
+  },
+  {
+    "id": 61,
+    "domain": "D3",
+    "scenario": "Why compare a suspicious file's hash against threat intelligence databases?",
+    "options": [
+      {
+        "text": "To see if it matches known malware",
+        "note": ""
+      },
+      {
+        "text": "To decrypt the file",
+        "note": "Hashes are one-way."
+      },
+      {
+        "text": "To compress the file",
+        "note": "Not hashing."
+      },
+      {
+        "text": "To change its file permissions safely",
+        "note": "Not hashing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "VirusTotal and vendor feeds provide hash lookups."
+  },
+  {
+    "id": 62,
+    "domain": "D3",
+    "scenario": "Which antimalware approach watches what a program does rather than matching its signature?",
+    "options": [
+      {
+        "text": "Behavior-based detection",
+        "note": ""
+      },
+      {
+        "text": "Signature-based detection",
+        "note": "Matches known patterns."
+      },
+      {
+        "text": "Allowlisting",
+        "note": "Permits approved apps only."
+      },
+      {
+        "text": "Hash matching",
+        "note": "Signature-like."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Behavioral detection can catch new malware variants."
+  },
+  {
+    "id": 63,
+    "domain": "D3",
+    "scenario": "Which Windows feature logs process creation with command lines when auditing is enabled?",
+    "options": [
+      {
+        "text": "Event ID 4688",
+        "note": ""
+      },
+      {
+        "text": "Event ID 4624",
+        "note": "Logon."
+      },
+      {
+        "text": "Event ID 4740",
+        "note": "Lockout."
+      },
+      {
+        "text": "Event ID 5156",
+        "note": "Network connection allowed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sysmon Event ID 1 provides even richer process creation details."
+  },
+  {
+    "id": 64,
+    "domain": "D3",
+    "scenario": "Which memory area on Windows is used for virtual memory and may contain evidence?",
+    "options": [
+      {
+        "text": "pagefile.sys",
+        "note": ""
+      },
+      {
+        "text": "hosts file",
+        "note": "Name mappings."
+      },
+      {
+        "text": "boot.ini",
+        "note": "Legacy boot config."
+      },
+      {
+        "text": "the SAM registry hive",
+        "note": "Stores local account hashes, not paged memory."
+      }
+    ],
+    "answer": 0,
+    "explanation": "hiberfil.sys can also contain memory contents."
+  },
+  {
+    "id": 65,
+    "domain": "D3",
+    "scenario": "A malware analysis report lists a domain contacted every 60 seconds. What does this suggest?",
+    "options": [
+      {
+        "text": "Command-and-control beaconing",
+        "note": ""
+      },
+      {
+        "text": "A normal software update",
+        "note": "Usually less frequent."
+      },
+      {
+        "text": "A DNS server failure and retries",
+        "note": "Not this pattern."
+      },
+      {
+        "text": "A misconfigured NTP client",
+        "note": "Would contact time servers, not one odd domain."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Regular beacon intervals are a classic C2 sign."
+  },
+  {
+    "id": 66,
+    "domain": "D4",
+    "scenario": "An IDS alert fires, but investigation shows the traffic was legitimate. What is this?",
+    "options": [
+      {
+        "text": "False positive",
+        "note": ""
+      },
+      {
+        "text": "True positive",
+        "note": "A real attack correctly detected."
+      },
+      {
+        "text": "False negative",
+        "note": "A real attack missed."
+      },
+      {
+        "text": "True negative",
+        "note": "Benign traffic, no alert."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tuning signatures reduces false positives."
+  },
+  {
+    "id": 67,
+    "domain": "D4",
+    "scenario": "An attack succeeds, but no alert was generated. What is this?",
+    "options": [
+      {
+        "text": "False negative",
+        "note": ""
+      },
+      {
+        "text": "False positive",
+        "note": "Alert on benign traffic."
+      },
+      {
+        "text": "True positive",
+        "note": "Correct alert."
+      },
+      {
+        "text": "True negative",
+        "note": "No alert, no attack."
+      }
+    ],
+    "answer": 0,
+    "explanation": "False negatives are the most dangerous outcome."
+  },
+  {
+    "id": 68,
+    "domain": "D4",
+    "scenario": "Which firewall type tracks connection state and allows return traffic automatically?",
+    "options": [
+      {
+        "text": "Stateful firewall",
+        "note": ""
+      },
+      {
+        "text": "Packet filter (stateless)",
+        "note": "Inspects packets alone."
+      },
+      {
+        "text": "Network tap",
+        "note": "Copies traffic."
+      },
+      {
+        "text": "Proxy cache",
+        "note": "Caches web content."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Deep packet inspection goes further by examining payloads."
+  },
+  {
+    "id": 69,
+    "domain": "D4",
+    "scenario": "What can deep packet inspection (DPI) do that a basic packet filter can't?",
+    "options": [
+      {
+        "text": "Inspect application payloads",
+        "note": ""
+      },
+      {
+        "text": "Read source IP addresses",
+        "note": "Packet filters can."
+      },
+      {
+        "text": "Block traffic by port number",
+        "note": "Packet filters can."
+      },
+      {
+        "text": "Read destination IP addresses",
+        "note": "Packet filters can."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DPI can identify applications regardless of port."
+  },
+  {
+    "id": 70,
+    "domain": "D4",
+    "scenario": "What's the difference between inline traffic inspection and using a tap?",
+    "options": [
+      {
+        "text": "Inline can block traffic; a tap only copies it",
+        "note": ""
+      },
+      {
+        "text": "A tap can block traffic; inline can't",
+        "note": "Reversed."
+      },
+      {
+        "text": "Both block traffic the same way",
+        "note": "Not true."
+      },
+      {
+        "text": "Neither can see encrypted traffic at all",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "An IPS is inline; an IDS usually uses a tap or SPAN port."
+  },
+  {
+    "id": 71,
+    "domain": "D4",
+    "scenario": "What's an advantage of a network tap over a switch SPAN port?",
+    "options": [
+      {
+        "text": "A tap won't drop packets when the switch is busy",
+        "note": ""
+      },
+      {
+        "text": "A tap can block attacks inline",
+        "note": "Taps don't block."
+      },
+      {
+        "text": "A tap requires no cabling",
+        "note": "It does."
+      },
+      {
+        "text": "A tap stores NetFlow records for later analysis",
+        "note": "Not its job."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SPAN ports can drop packets under heavy load."
+  },
+  {
+    "id": 72,
+    "domain": "D4",
+    "scenario": "Which protocol header field shows how many hops a packet can still travel?",
+    "options": [
+      {
+        "text": "IPv4 TTL",
+        "note": ""
+      },
+      {
+        "text": "TCP window size",
+        "note": "Flow control."
+      },
+      {
+        "text": "UDP length",
+        "note": "Datagram length."
+      },
+      {
+        "text": "Ethernet type",
+        "note": "Upper-layer protocol."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IPv6 uses the Hop Limit field instead."
+  },
+  {
+    "id": 73,
+    "domain": "D4",
+    "scenario": "Which TCP flags appear in the first packet of a three-way handshake?",
+    "options": [
+      {
+        "text": "SYN",
+        "note": ""
+      },
+      {
+        "text": "SYN-ACK",
+        "note": "Second packet."
+      },
+      {
+        "text": "ACK",
+        "note": "Third packet."
+      },
+      {
+        "text": "FIN",
+        "note": "Closes a connection."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RST abruptly resets a connection."
+  },
+  {
+    "id": 74,
+    "domain": "D4",
+    "scenario": "A PCAP shows many SYN packets to different ports from one source with no handshake completions. What is this?",
+    "options": [
+      {
+        "text": "A port scan",
+        "note": ""
+      },
+      {
+        "text": "A file transfer",
+        "note": "Would complete handshakes."
+      },
+      {
+        "text": "A DNS lookup",
+        "note": "Uses UDP 53."
+      },
+      {
+        "text": "A normal web session",
+        "note": "Would complete handshakes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SYN scans (half-open scans) are common with Nmap."
+  },
+  {
+    "id": 75,
+    "domain": "D4",
+    "scenario": "Which Wireshark feature reassembles a TCP conversation to view its contents?",
+    "options": [
+      {
+        "text": "Follow TCP Stream",
+        "note": ""
+      },
+      {
+        "text": "Capture filter",
+        "note": "Limits what is captured."
+      },
+      {
+        "text": "Coloring rules",
+        "note": "Highlights packets."
+      },
+      {
+        "text": "Time display format",
+        "note": "Changes time view."
+      }
+    ],
+    "answer": 0,
+    "explanation": "File > Export Objects can extract transferred files from HTTP or SMB."
+  },
+  {
+    "id": 76,
+    "domain": "D4",
+    "scenario": "Which regular expression matches any line containing 'error' or 'fail'?",
+    "options": [
+      {
+        "text": "error|fail",
+        "note": ""
+      },
+      {
+        "text": "error&fail",
+        "note": "& is not OR."
+      },
+      {
+        "text": "^error$fail",
+        "note": "Invalid logic."
+      },
+      {
+        "text": "[error][fail]",
+        "note": "Character classes, not words."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The pipe | means OR in regex."
+  },
+  {
+    "id": 77,
+    "domain": "D4",
+    "scenario": "What does the regex ^192\\.168\\. match?",
+    "options": [
+      {
+        "text": "Strings starting with 192.168.",
+        "note": ""
+      },
+      {
+        "text": "Strings ending with 192.168.",
+        "note": "^ anchors the start."
+      },
+      {
+        "text": "Any string containing a number",
+        "note": "Too broad."
+      },
+      {
+        "text": "Only the exact string 192.168",
+        "note": "Missing the trailing dot."
+      }
+    ],
+    "answer": 0,
+    "explanation": "^ anchors to the start; \\. matches a literal dot."
+  },
+  {
+    "id": 78,
+    "domain": "D4",
+    "scenario": "Which device type typically generates events with fields like URL, category and user?",
+    "options": [
+      {
+        "text": "Web proxy",
+        "note": ""
+      },
+      {
+        "text": "Layer 2 switch",
+        "note": "MAC-level events."
+      },
+      {
+        "text": "NTP server",
+        "note": "Time events."
+      },
+      {
+        "text": "Patch panel",
+        "note": "Passive."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Mapping event types to source technologies speeds up triage."
+  },
+  {
+    "id": 79,
+    "domain": "D4",
+    "scenario": "Which source technology produces 'deny' events showing blocked source and destination ports?",
+    "options": [
+      {
+        "text": "Firewall",
+        "note": ""
+      },
+      {
+        "text": "DHCP server",
+        "note": "Address leases."
+      },
+      {
+        "text": "Email client",
+        "note": "User mail."
+      },
+      {
+        "text": "Hypervisor",
+        "note": "VM events."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Firewall logs help confirm whether an attack was blocked."
+  },
+  {
+    "id": 80,
+    "domain": "D4",
+    "scenario": "What is 'benign' traffic that triggers an alert, like a vulnerability scanner run by IT?",
+    "options": [
+      {
+        "text": "A benign true positive",
+        "note": ""
+      },
+      {
+        "text": "A false negative",
+        "note": "An attack missed."
+      },
+      {
+        "text": "A true negative",
+        "note": "No alert generated."
+      },
+      {
+        "text": "A malicious true positive",
+        "note": "Real attack."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The rule fired correctly, but the activity was authorized."
+  },
+  {
+    "id": 81,
+    "domain": "D4",
+    "scenario": "Which field in an HTTP request identifies the client software, often abused by malware?",
+    "options": [
+      {
+        "text": "User-Agent",
+        "note": ""
+      },
+      {
+        "text": "Content-Length",
+        "note": "Body size."
+      },
+      {
+        "text": "Host",
+        "note": "Target domain."
+      },
+      {
+        "text": "Accept-Encoding",
+        "note": "Compression support."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Unusual User-Agent strings can indicate malware."
+  },
+  {
+    "id": 82,
+    "domain": "D4",
+    "scenario": "Which tool would an analyst use to extract a file transferred over HTTP from a PCAP?",
+    "options": [
+      {
+        "text": "Wireshark Export Objects",
+        "note": ""
+      },
+      {
+        "text": "ping",
+        "note": "Reachability."
+      },
+      {
+        "text": "tcpdump -c 100",
+        "note": "Captures packets but does not reassemble files."
+      },
+      {
+        "text": "nslookup",
+        "note": "DNS."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hash the extracted file and check it against threat intel."
+  },
+  {
+    "id": 83,
+    "domain": "D4",
+    "scenario": "Which IP header field could reveal IP spoofing if values are inconsistent for the same source?",
+    "options": [
+      {
+        "text": "TTL",
+        "note": ""
+      },
+      {
+        "text": "Destination port",
+        "note": "A TCP/UDP field."
+      },
+      {
+        "text": "HTTP method",
+        "note": "Application layer."
+      },
+      {
+        "text": "DNS query name",
+        "note": "Application layer."
+      }
+    ],
+    "answer": 0,
+    "explanation": "TTL values that don't match a host's usual hop distance can be suspicious."
+  },
+  {
+    "id": 84,
+    "domain": "D4",
+    "scenario": "In a PCAP, DNS queries for long random subdomains to one domain appear every few seconds. What is likely?",
+    "options": [
+      {
+        "text": "DNS tunneling or C2 traffic",
+        "note": ""
+      },
+      {
+        "text": "A normal web browsing session",
+        "note": "Not this pattern."
+      },
+      {
+        "text": "A DHCP renewal",
+        "note": "Different protocol."
+      },
+      {
+        "text": "A printer discovery broadcast",
+        "note": "Different pattern."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Entropy analysis helps detect encoded subdomains."
+  },
+  {
+    "id": 85,
+    "domain": "D5",
+    "scenario": "According to NIST SP 800-61, which phase includes isolating affected systems?",
+    "options": [
+      {
+        "text": "Containment, eradication and recovery",
+        "note": ""
+      },
+      {
+        "text": "Preparation and training",
+        "note": "Before incidents."
+      },
+      {
+        "text": "Detection and analysis",
+        "note": "Identifying incidents."
+      },
+      {
+        "text": "Post-incident activity",
+        "note": "Lessons learned."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NIST SP 800-61 Rev. 3 (2025) aligns incident response with the CSF 2.0 functions."
+  },
+  {
+    "id": 86,
+    "domain": "D5",
+    "scenario": "Which NIST SP 800-86 principle says to collect the most volatile evidence first?",
+    "options": [
+      {
+        "text": "Order of volatility",
+        "note": ""
+      },
+      {
+        "text": "Chain of custody",
+        "note": "Tracks handling."
+      },
+      {
+        "text": "Least privilege",
+        "note": "Access control."
+      },
+      {
+        "text": "Separation of duties",
+        "note": "Splits tasks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Collect CPU registers and cache, then RAM, then network state, then disk."
+  },
+  {
+    "id": 87,
+    "domain": "D5",
+    "scenario": "Which item is most volatile and should be collected first in a live response?",
+    "options": [
+      {
+        "text": "Contents of RAM",
+        "note": ""
+      },
+      {
+        "text": "Archived backups",
+        "note": "Least volatile."
+      },
+      {
+        "text": "Hard drive files",
+        "note": "Persistent."
+      },
+      {
+        "text": "Printed reports",
+        "note": "Not volatile."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Powering off loses RAM contents."
+  },
+  {
+    "id": 88,
+    "domain": "D5",
+    "scenario": "In the Cyber Kill Chain, which phase involves the malware calling back to the attacker?",
+    "options": [
+      {
+        "text": "Command and control",
+        "note": ""
+      },
+      {
+        "text": "Reconnaissance",
+        "note": "Gathering information."
+      },
+      {
+        "text": "Weaponization",
+        "note": "Building the payload."
+      },
+      {
+        "text": "Actions on objectives",
+        "note": "The attacker's final goals."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Phases: recon, weaponization, delivery, exploitation, installation, C2, actions on objectives."
+  },
+  {
+    "id": 89,
+    "domain": "D5",
+    "scenario": "In the Cyber Kill Chain, sending a phishing email with a malicious attachment is which phase?",
+    "options": [
+      {
+        "text": "Delivery",
+        "note": ""
+      },
+      {
+        "text": "Weaponization",
+        "note": "Creating the payload."
+      },
+      {
+        "text": "Installation",
+        "note": "Persisting on the host."
+      },
+      {
+        "text": "Actions on objectives",
+        "note": "Achieving goals."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Disrupting earlier phases stops attacks sooner."
+  },
+  {
+    "id": 90,
+    "domain": "D5",
+    "scenario": "Which four core features make up the Diamond Model of intrusion analysis?",
+    "options": [
+      {
+        "text": "Adversary, capability, infrastructure, victim",
+        "note": ""
+      },
+      {
+        "text": "People, process, technology, data",
+        "note": "Not the model."
+      },
+      {
+        "text": "Identify, protect, detect, respond",
+        "note": "NIST CSF functions."
+      },
+      {
+        "text": "Confidentiality, integrity, availability, safety",
+        "note": "Not the model."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The Diamond Model links these features for each intrusion event."
+  },
+  {
+    "id": 91,
+    "domain": "D5",
+    "scenario": "Which type of protected data includes medical records?",
+    "options": [
+      {
+        "text": "PHI",
+        "note": ""
+      },
+      {
+        "text": "PCI data",
+        "note": "Payment cards."
+      },
+      {
+        "text": "Intellectual property",
+        "note": "Creations and designs."
+      },
+      {
+        "text": "PSI",
+        "note": "Personal security information."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HIPAA governs PHI in the US."
+  },
+  {
+    "id": 92,
+    "domain": "D5",
+    "scenario": "Which SOC metric measures the average time to discover an incident after it starts?",
+    "options": [
+      {
+        "text": "Mean time to detect (MTTD)",
+        "note": ""
+      },
+      {
+        "text": "Mean time to respond (MTTR)",
+        "note": "Time to respond after detection."
+      },
+      {
+        "text": "Mean time between failures",
+        "note": "Reliability."
+      },
+      {
+        "text": "Recovery time objective",
+        "note": "A continuity target."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Mean time to contain (MTTC) is another common SOC metric."
+  },
+  {
+    "id": 93,
+    "domain": "D5",
+    "scenario": "Which management process ensures systems keep approved, documented settings?",
+    "options": [
+      {
+        "text": "Configuration management",
+        "note": ""
+      },
+      {
+        "text": "Asset tagging only",
+        "note": "Inventory, not settings."
+      },
+      {
+        "text": "Mobile device management",
+        "note": "Mobile devices."
+      },
+      {
+        "text": "Help desk ticketing",
+        "note": "Requests."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Baselines make unauthorized changes easier to detect."
+  },
+  {
+    "id": 94,
+    "domain": "D5",
+    "scenario": "What is the main purpose of network profiling?",
+    "options": [
+      {
+        "text": "Establish normal traffic patterns to spot anomalies",
+        "note": ""
+      },
+      {
+        "text": "Assign IP addresses to hosts automatically",
+        "note": "DHCP."
+      },
+      {
+        "text": "Encrypt traffic between sites",
+        "note": "VPN."
+      },
+      {
+        "text": "Back up switch configurations",
+        "note": "Configuration management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Profiles include throughput, session duration, ports used and critical assets."
+  },
+  {
+    "id": 95,
+    "domain": "D5",
+    "scenario": "Which server profiling element identifies which services are expected to run?",
+    "options": [
+      {
+        "text": "Listening ports and running services",
+        "note": ""
+      },
+      {
+        "text": "The server's rack position",
+        "note": "Physical location."
+      },
+      {
+        "text": "The server's purchase date",
+        "note": "Asset info."
+      },
+      {
+        "text": "The vendor support contract",
+        "note": "Administrative, not technical."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Unexpected listening ports can indicate compromise."
+  },
+  {
+    "id": 96,
+    "domain": "D5",
+    "scenario": "During incident handling, who are typical stakeholders that must be informed?",
+    "options": [
+      {
+        "text": "Management, legal, IT and affected business units",
+        "note": ""
+      },
+      {
+        "text": "Only the IT help desk",
+        "note": "Too narrow."
+      },
+      {
+        "text": "Only external social media followers",
+        "note": "Not appropriate."
+      },
+      {
+        "text": "No one until it's resolved",
+        "note": "Delays response."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The incident response plan should map stakeholders and contacts."
+  },
+  {
+    "id": 97,
+    "domain": "D5",
+    "scenario": "Why is patch management a key security procedure?",
+    "options": [
+      {
+        "text": "It closes known vulnerabilities before they're exploited",
+        "note": ""
+      },
+      {
+        "text": "It replaces the need for monitoring",
+        "note": "Monitoring is still needed."
+      },
+      {
+        "text": "It removes all malware already on systems",
+        "note": "Not true."
+      },
+      {
+        "text": "It encrypts systems at rest",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Prioritize patches by risk, such as CVSS score and exposure."
+  },
+  {
+    "id": 98,
+    "domain": "D5",
+    "scenario": "Which type of protected data includes a company's trade secrets and designs?",
+    "options": [
+      {
+        "text": "Intellectual property",
+        "note": ""
+      },
+      {
+        "text": "PHI",
+        "note": "Health info."
+      },
+      {
+        "text": "PII",
+        "note": "Personal info."
+      },
+      {
+        "text": "Payment card (PCI) data",
+        "note": "Card data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data loss prevention can protect intellectual property."
+  },
+  {
+    "id": 99,
+    "domain": "D5",
+    "scenario": "Which incident response element ensures evidence will be admissible in court?",
+    "options": [
+      {
+        "text": "Maintaining chain of custody",
+        "note": ""
+      },
+      {
+        "text": "Reimaging systems immediately",
+        "note": "Destroys evidence."
+      },
+      {
+        "text": "Sharing evidence publicly",
+        "note": "Compromises it."
+      },
+      {
+        "text": "Deleting logs after review",
+        "note": "Destroys evidence."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Document who collected evidence, when, and every transfer."
+  }
+]

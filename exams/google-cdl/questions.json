@@ -1,0 +1,2202 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "A retailer wants to move from buying servers every few years to paying monthly for what it uses. Which cloud benefit is this?",
+    "options": [
+      {
+        "text": "Shifting capital expenses to operational expenses",
+        "note": ""
+      },
+      {
+        "text": "Guaranteed zero downtime for every app",
+        "note": "No provider guarantees zero downtime."
+      },
+      {
+        "text": "Eliminating all security responsibilities for the business",
+        "note": "Security is shared."
+      },
+      {
+        "text": "Owning the physical hardware outright",
+        "note": "The provider owns it."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pay-as-you-go turns large upfront CapEx into ongoing OpEx."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "Which describes digital transformation?",
+    "options": [
+      {
+        "text": "Using technology to change how a business operates and delivers value",
+        "note": ""
+      },
+      {
+        "text": "Moving every file to a USB drive",
+        "note": "Not transformation."
+      },
+      {
+        "text": "Replacing staff with spreadsheets",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "Upgrading every employee's laptop and network equipment to the latest models",
+        "note": "An upgrade, not transformation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud enables new products, faster experiments and data-driven decisions."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "Which cloud model runs on infrastructure shared by many customers and managed by a provider?",
+    "options": [
+      {
+        "text": "Public cloud",
+        "note": ""
+      },
+      {
+        "text": "Private cloud",
+        "note": "Dedicated to one organization."
+      },
+      {
+        "text": "On-premises data center",
+        "note": "Run by the company itself."
+      },
+      {
+        "text": "Air-gapped cloud only",
+        "note": "Isolated deployments."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hybrid cloud combines on-premises or private cloud with public cloud."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "A company uses Google Cloud and another cloud provider for different workloads. What is this called?",
+    "options": [
+      {
+        "text": "Multicloud",
+        "note": ""
+      },
+      {
+        "text": "Hybrid cloud",
+        "note": "On-premises plus cloud."
+      },
+      {
+        "text": "Private cloud",
+        "note": "Dedicated environment."
+      },
+      {
+        "text": "Edge computing",
+        "note": "Processing near data sources."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Multicloud can avoid lock-in and use each provider's strengths."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "Which describes the shared responsibility model in the cloud?",
+    "options": [
+      {
+        "text": "The provider secures the infrastructure; customers secure their data and access",
+        "note": ""
+      },
+      {
+        "text": "The provider is responsible for everything, including customer data access and user accounts",
+        "note": "Customers still have duties."
+      },
+      {
+        "text": "Customers secure the data centers",
+        "note": "The provider does."
+      },
+      {
+        "text": "Responsibility is the same for every service",
+        "note": "It varies by service type."
+      }
+    ],
+    "answer": 0,
+    "explanation": "With SaaS the provider handles more; with IaaS the customer handles more."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "Which cloud service model gives the customer the most control over operating systems?",
+    "options": [
+      {
+        "text": "Infrastructure as a service (IaaS)",
+        "note": ""
+      },
+      {
+        "text": "Software as a service (SaaS)",
+        "note": "Least control."
+      },
+      {
+        "text": "Platform as a service (PaaS)",
+        "note": "OS managed for you."
+      },
+      {
+        "text": "Function as a service (event-driven code)",
+        "note": "Code only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Compute Engine is Google Cloud's IaaS for virtual machines."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "What's a Google Cloud region?",
+    "options": [
+      {
+        "text": "A geographic area containing multiple zones",
+        "note": ""
+      },
+      {
+        "text": "A single physical server rack",
+        "note": "Too small."
+      },
+      {
+        "text": "A billing account shared by several teams",
+        "note": "Not geography."
+      },
+      {
+        "text": "A virtual network spanning several projects",
+        "note": "That's a VPC."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Deploying across zones and regions improves availability."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "Which Google Cloud network feature carries traffic over Google's private fiber between regions?",
+    "options": [
+      {
+        "text": "Google's global backbone network",
+        "note": ""
+      },
+      {
+        "text": "The public internet only",
+        "note": "Not by default for Premium Tier."
+      },
+      {
+        "text": "Satellite links between data centers",
+        "note": "Not the backbone."
+      },
+      {
+        "text": "Customer-owned leased lines to each region",
+        "note": "Not Google infrastructure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Premium Tier networking keeps traffic on Google's network as long as possible."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "What's the main advantage of a cloud provider's economies of scale for customers?",
+    "options": [
+      {
+        "text": "Lower costs per unit of computing",
+        "note": ""
+      },
+      {
+        "text": "Unlimited free storage",
+        "note": "Storage is billed."
+      },
+      {
+        "text": "No need for any IT staff",
+        "note": "Skills still matter."
+      },
+      {
+        "text": "Guaranteed lowest price on every product",
+        "note": "Not guaranteed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Large providers buy and operate at lower cost per unit."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "Which term describes resources that grow or shrink automatically with demand?",
+    "options": [
+      {
+        "text": "Elasticity",
+        "note": ""
+      },
+      {
+        "text": "Durability",
+        "note": "Data survival."
+      },
+      {
+        "text": "Latency",
+        "note": "Delay."
+      },
+      {
+        "text": "Sovereignty",
+        "note": "Legal control of data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Autoscaling managed instance groups and serverless services scale automatically."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "What is total cost of ownership (TCO)?",
+    "options": [
+      {
+        "text": "All costs over time, including hardware, staff and power",
+        "note": ""
+      },
+      {
+        "text": "Only the purchase price of servers",
+        "note": "Too narrow."
+      },
+      {
+        "text": "Only the monthly cloud bill",
+        "note": "Too narrow."
+      },
+      {
+        "text": "The cost of software licenses and support contracts only",
+        "note": "Too narrow."
+      }
+    ],
+    "answer": 0,
+    "explanation": "TCO comparisons help build a business case for cloud."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "Which describes open source as part of Google Cloud's approach?",
+    "options": [
+      {
+        "text": "Support for open technologies like Kubernetes to reduce lock-in",
+        "note": ""
+      },
+      {
+        "text": "Only proprietary tools are supported",
+        "note": "Not true."
+      },
+      {
+        "text": "Customers must publish all of their own application code",
+        "note": "Not true."
+      },
+      {
+        "text": "Open source is banned in production",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Google created Kubernetes and TensorFlow and supports many open standards."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "Which describes Google Cloud's sustainability goal?",
+    "options": [
+      {
+        "text": "Run on carbon-free energy every hour by 2030",
+        "note": ""
+      },
+      {
+        "text": "Use only diesel generators",
+        "note": "Not a goal."
+      },
+      {
+        "text": "Stop building data centers",
+        "note": "Not a goal."
+      },
+      {
+        "text": "Charge customers extra for using low-carbon regions",
+        "note": "Not a goal."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Region pickers show low-carbon options."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "A bank wants data to stay in one country to satisfy regulators. Which concept is this?",
+    "options": [
+      {
+        "text": "Data residency",
+        "note": ""
+      },
+      {
+        "text": "Data durability",
+        "note": "Protection from loss."
+      },
+      {
+        "text": "Data latency",
+        "note": "Delay."
+      },
+      {
+        "text": "Data elasticity",
+        "note": "Not a standard term."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Choose regions and use organization policies to restrict resource locations."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "Which describes cloud-native application design?",
+    "options": [
+      {
+        "text": "Building apps from loosely coupled services that scale independently",
+        "note": ""
+      },
+      {
+        "text": "Running one large app on a single server",
+        "note": "That's a monolith on one host."
+      },
+      {
+        "text": "Avoiding automation so every change is reviewed by hand",
+        "note": "The opposite."
+      },
+      {
+        "text": "Storing all data on local disks",
+        "note": "Not cloud-native."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Containers, microservices and managed services are common cloud-native building blocks."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "Which Google Cloud resource level groups projects by department, like Finance or Engineering?",
+    "options": [
+      {
+        "text": "Folders",
+        "note": ""
+      },
+      {
+        "text": "Zones",
+        "note": "Locations."
+      },
+      {
+        "text": "Labels only",
+        "note": "Metadata on resources."
+      },
+      {
+        "text": "Billing SKUs",
+        "note": "Price items."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hierarchy: organization > folders > projects > resources."
+  },
+  {
+    "id": 17,
+    "domain": "D2",
+    "scenario": "Which Google Cloud service is a serverless data warehouse for analyzing large datasets with SQL?",
+    "options": [
+      {
+        "text": "BigQuery",
+        "note": ""
+      },
+      {
+        "text": "Cloud SQL",
+        "note": "Managed relational database for transactions."
+      },
+      {
+        "text": "Firestore",
+        "note": "NoSQL document database."
+      },
+      {
+        "text": "Memorystore",
+        "note": "In-memory cache."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BigQuery separates storage and compute and bills by data processed or reserved capacity."
+  },
+  {
+    "id": 18,
+    "domain": "D2",
+    "scenario": "Which service stores unstructured data like images and backups as objects?",
+    "options": [
+      {
+        "text": "Cloud Storage",
+        "note": ""
+      },
+      {
+        "text": "Persistent Disk",
+        "note": "Block storage for VMs."
+      },
+      {
+        "text": "Cloud SQL",
+        "note": "Relational database."
+      },
+      {
+        "text": "Bigtable",
+        "note": "Wide-column NoSQL."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Storage classes: Standard, Nearline, Coldline and Archive."
+  },
+  {
+    "id": 19,
+    "domain": "D2",
+    "scenario": "Which Cloud Storage feature automatically moves objects to cheaper classes based on access patterns?",
+    "options": [
+      {
+        "text": "Autoclass",
+        "note": ""
+      },
+      {
+        "text": "Object versioning",
+        "note": "Keeps old versions."
+      },
+      {
+        "text": "Signed URLs",
+        "note": "Temporary access."
+      },
+      {
+        "text": "Retention policies",
+        "note": "Prevent deletion."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Autoclass removes the need to write lifecycle rules for class changes."
+  },
+  {
+    "id": 20,
+    "domain": "D2",
+    "scenario": "Which Cloud Storage class is cheapest for data accessed less than once a year?",
+    "options": [
+      {
+        "text": "Archive",
+        "note": ""
+      },
+      {
+        "text": "Standard",
+        "note": "Frequent access."
+      },
+      {
+        "text": "Nearline",
+        "note": "About once a month."
+      },
+      {
+        "text": "Coldline",
+        "note": "About once a quarter."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Colder classes have lower storage costs but retrieval fees."
+  },
+  {
+    "id": 21,
+    "domain": "D2",
+    "scenario": "Which managed database is PostgreSQL-compatible and built for demanding transactional and analytical workloads?",
+    "options": [
+      {
+        "text": "AlloyDB for PostgreSQL",
+        "note": ""
+      },
+      {
+        "text": "Firestore",
+        "note": "Document database."
+      },
+      {
+        "text": "Bigtable with the HBase API",
+        "note": "Wide-column NoSQL."
+      },
+      {
+        "text": "Memorystore for Redis Cluster",
+        "note": "Caching."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud SQL also offers managed PostgreSQL, MySQL and SQL Server."
+  },
+  {
+    "id": 22,
+    "domain": "D2",
+    "scenario": "Which database offers global scale with strong consistency for relational data?",
+    "options": [
+      {
+        "text": "Spanner",
+        "note": ""
+      },
+      {
+        "text": "Cloud SQL",
+        "note": "Regional relational database."
+      },
+      {
+        "text": "Firestore in Datastore mode",
+        "note": "NoSQL."
+      },
+      {
+        "text": "BigQuery",
+        "note": "Analytics warehouse."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Spanner suits global financial and inventory systems."
+  },
+  {
+    "id": 23,
+    "domain": "D2",
+    "scenario": "Which service is a NoSQL document database often used for mobile and web apps?",
+    "options": [
+      {
+        "text": "Firestore",
+        "note": ""
+      },
+      {
+        "text": "Bigtable",
+        "note": "Wide-column for huge throughput."
+      },
+      {
+        "text": "Spanner",
+        "note": "Relational."
+      },
+      {
+        "text": "Cloud SQL",
+        "note": "Relational."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Firestore supports real-time sync and offline mode."
+  },
+  {
+    "id": 24,
+    "domain": "D2",
+    "scenario": "Which service handles very high-throughput, low-latency NoSQL workloads like IoT time series?",
+    "options": [
+      {
+        "text": "Bigtable",
+        "note": ""
+      },
+      {
+        "text": "Firestore",
+        "note": "Document app database."
+      },
+      {
+        "text": "Cloud SQL",
+        "note": "Relational."
+      },
+      {
+        "text": "Filestore",
+        "note": "File shares."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Bigtable is used for analytics and operational workloads at petabyte scale."
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "scenario": "Which service ingests streaming messages from many sources for real-time processing?",
+    "options": [
+      {
+        "text": "Pub/Sub",
+        "note": ""
+      },
+      {
+        "text": "Cloud Storage",
+        "note": "Object storage."
+      },
+      {
+        "text": "BigQuery Omni",
+        "note": "Multicloud analytics."
+      },
+      {
+        "text": "Cloud SQL",
+        "note": "Relational database."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pub/Sub decouples producers and consumers."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "Which service runs Apache Beam pipelines for batch and streaming data processing?",
+    "options": [
+      {
+        "text": "Dataflow",
+        "note": ""
+      },
+      {
+        "text": "Cloud Run",
+        "note": "Runs containers."
+      },
+      {
+        "text": "Firestore",
+        "note": "Database."
+      },
+      {
+        "text": "Cloud DNS",
+        "note": "Name resolution."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Dataflow is fully managed and autoscaling."
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "scenario": "Which service runs Apache Spark workloads, formerly known as Dataproc?",
+    "options": [
+      {
+        "text": "Managed Service for Apache Spark",
+        "note": ""
+      },
+      {
+        "text": "Managed Service for Apache Airflow",
+        "note": "Workflow orchestration, formerly Cloud Composer."
+      },
+      {
+        "text": "Pub/Sub Lite",
+        "note": "Messaging."
+      },
+      {
+        "text": "Cloud Tasks",
+        "note": "Task queues."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Google renamed Dataproc in April 2026; it supports clusters and serverless Spark."
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "scenario": "Which tool lets business users build interactive dashboards and reports from BigQuery data?",
+    "options": [
+      {
+        "text": "Looker",
+        "note": ""
+      },
+      {
+        "text": "Cloud Build",
+        "note": "CI/CD builds."
+      },
+      {
+        "text": "Cloud Armor",
+        "note": "Web security."
+      },
+      {
+        "text": "Cloud NAT",
+        "note": "Outbound internet."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data Studio (formerly Looker Studio) is a free self-service reporting tool."
+  },
+  {
+    "id": 29,
+    "domain": "D2",
+    "scenario": "What's the difference between a data lake and a data warehouse?",
+    "options": [
+      {
+        "text": "A lake stores raw data in any format; a warehouse stores structured, modeled data",
+        "note": ""
+      },
+      {
+        "text": "They are always the same system with two names",
+        "note": "Different purposes."
+      },
+      {
+        "text": "A warehouse holds only images",
+        "note": "Not true."
+      },
+      {
+        "text": "A lake requires a fixed schema and modeling before any data is loaded",
+        "note": "Lakes use schema-on-read."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lakehouses combine both approaches with open table formats."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "Which service catalogs and governs data across lakes and warehouses, formerly called Dataplex?",
+    "options": [
+      {
+        "text": "Knowledge Catalog",
+        "note": ""
+      },
+      {
+        "text": "Cloud Logging",
+        "note": "Logs."
+      },
+      {
+        "text": "Artifact Registry",
+        "note": "Container images."
+      },
+      {
+        "text": "Cloud CDN",
+        "note": "Content delivery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data governance includes discovery, quality, lineage and access policies."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "What is a benefit of storing business data in a single analytics platform like BigQuery?",
+    "options": [
+      {
+        "text": "Teams can combine data sources for better insights",
+        "note": ""
+      },
+      {
+        "text": "Data no longer needs any security",
+        "note": "Still needs controls."
+      },
+      {
+        "text": "It removes the need for backups of all source systems",
+        "note": "Not true."
+      },
+      {
+        "text": "Queries become free",
+        "note": "Not free."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Breaking down data silos supports better decisions."
+  },
+  {
+    "id": 32,
+    "domain": "D2",
+    "scenario": "Which service lets a company query data in BigQuery that lives in other clouds?",
+    "options": [
+      {
+        "text": "BigQuery Omni",
+        "note": ""
+      },
+      {
+        "text": "Cloud Interconnect",
+        "note": "Network connectivity."
+      },
+      {
+        "text": "Cloud Storage Transfer Service",
+        "note": "Copies data."
+      },
+      {
+        "text": "Bigtable replication",
+        "note": "Database replication."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Omni runs analytics close to data in AWS or Azure."
+  },
+  {
+    "id": 33,
+    "domain": "D3",
+    "scenario": "What is Google Cloud's unified platform for building, deploying and managing AI agents and models, formerly Vertex AI?",
+    "options": [
+      {
+        "text": "Gemini Enterprise Agent Platform",
+        "note": ""
+      },
+      {
+        "text": "Google Workspace with Gemini",
+        "note": "Productivity apps."
+      },
+      {
+        "text": "Cloud Run",
+        "note": "Runs containers."
+      },
+      {
+        "text": "Looker semantic layer",
+        "note": "Business intelligence."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Google renamed Vertex AI to Gemini Enterprise Agent Platform."
+  },
+  {
+    "id": 34,
+    "domain": "D3",
+    "scenario": "Which Google product gives employees an AI assistant that searches company data and runs agents?",
+    "options": [
+      {
+        "text": "Gemini Enterprise",
+        "note": ""
+      },
+      {
+        "text": "Cloud Armor",
+        "note": "Web protection."
+      },
+      {
+        "text": "Gemini Code Assist",
+        "note": "Helps developers write code."
+      },
+      {
+        "text": "Google Security Operations",
+        "note": "Security analytics."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Gemini Enterprise was formerly called Agentspace."
+  },
+  {
+    "id": 35,
+    "domain": "D3",
+    "scenario": "Which describes generative AI?",
+    "options": [
+      {
+        "text": "AI that creates new content like text and images",
+        "note": ""
+      },
+      {
+        "text": "AI that only sorts data into two categories",
+        "note": "Classification."
+      },
+      {
+        "text": "A database designed for storing prompts and responses",
+        "note": "Not generative AI."
+      },
+      {
+        "text": "A rule-based script with fixed answers",
+        "note": "Not generative."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Foundation models are trained on broad data and adapted to many tasks."
+  },
+  {
+    "id": 36,
+    "domain": "D3",
+    "scenario": "Which describes an AI agent?",
+    "options": [
+      {
+        "text": "A system that reasons, plans and takes actions toward a goal using tools",
+        "note": ""
+      },
+      {
+        "text": "A static dashboard that refreshes once a month",
+        "note": "Not an agent."
+      },
+      {
+        "text": "A human help desk worker",
+        "note": "Not an AI agent."
+      },
+      {
+        "text": "A virtual machine image with AI libraries installed",
+        "note": "Not an agent."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Agents can call APIs, search data and work with other agents."
+  },
+  {
+    "id": 37,
+    "domain": "D3",
+    "scenario": "A company wants to use a model without managing infrastructure. Which approach fits best?",
+    "options": [
+      {
+        "text": "Use a pre-trained model through a managed API",
+        "note": ""
+      },
+      {
+        "text": "Build a data center for GPUs",
+        "note": "Infrastructure-heavy."
+      },
+      {
+        "text": "Train a model from scratch on laptops",
+        "note": "Impractical."
+      },
+      {
+        "text": "Write and maintain rules for every possible case manually",
+        "note": "Not ML."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Model Garden offers Google, partner and open models."
+  },
+  {
+    "id": 38,
+    "domain": "D3",
+    "scenario": "Which Google Cloud offering provides optimized hardware and software for training and serving large AI models?",
+    "options": [
+      {
+        "text": "AI Hypercomputer",
+        "note": ""
+      },
+      {
+        "text": "Bare Metal Solution",
+        "note": "Dedicated servers for specialized workloads."
+      },
+      {
+        "text": "Cloud Scheduler",
+        "note": "Cron jobs."
+      },
+      {
+        "text": "Cloud TPU quotas only",
+        "note": "Hardware access, not the integrated offering."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It combines TPUs, GPUs, networking and software frameworks."
+  },
+  {
+    "id": 39,
+    "domain": "D3",
+    "scenario": "Which is a responsible AI practice?",
+    "options": [
+      {
+        "text": "Testing models for bias and explaining their outputs",
+        "note": ""
+      },
+      {
+        "text": "Hiding how decisions are made",
+        "note": "Not responsible."
+      },
+      {
+        "text": "Using any available data regardless of user consent",
+        "note": "Not responsible."
+      },
+      {
+        "text": "Skipping human review for high-stakes uses",
+        "note": "Not responsible."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Google's AI Principles guide fairness, safety, privacy and accountability."
+  },
+  {
+    "id": 40,
+    "domain": "D3",
+    "scenario": "Which technique grounds a model's answers in a company's own documents?",
+    "options": [
+      {
+        "text": "Retrieval-augmented generation (RAG)",
+        "note": ""
+      },
+      {
+        "text": "Increasing the model's temperature",
+        "note": "Adds randomness."
+      },
+      {
+        "text": "Removing the system prompt to save tokens",
+        "note": "Not grounding."
+      },
+      {
+        "text": "Lowering the context window size",
+        "note": "Reduces information."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Grounding reduces hallucinations and adds citations."
+  },
+  {
+    "id": 41,
+    "domain": "D3",
+    "scenario": "What is a hallucination in generative AI?",
+    "options": [
+      {
+        "text": "A confident answer that's false or unsupported",
+        "note": ""
+      },
+      {
+        "text": "A model that stops responding",
+        "note": "An outage."
+      },
+      {
+        "text": "A slow response time",
+        "note": "Latency."
+      },
+      {
+        "text": "An authentication error caused by a bad API key",
+        "note": "Authentication issue."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Grounding, human review and evaluation help reduce hallucinations."
+  },
+  {
+    "id": 42,
+    "domain": "D3",
+    "scenario": "Which Google Cloud tool lets non-developers build agents with a visual interface?",
+    "options": [
+      {
+        "text": "Agent Studio",
+        "note": ""
+      },
+      {
+        "text": "Cloud Shell",
+        "note": "Command line."
+      },
+      {
+        "text": "Cloud Build",
+        "note": "CI/CD."
+      },
+      {
+        "text": "Cloud Monitoring",
+        "note": "Observability."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Agent Studio was formerly part of Vertex AI Studio and Agent Builder."
+  },
+  {
+    "id": 43,
+    "domain": "D3",
+    "scenario": "Which is a common business use of AI in customer service?",
+    "options": [
+      {
+        "text": "Virtual agents that answer common questions 24/7",
+        "note": ""
+      },
+      {
+        "text": "Replacing the company's network firewall",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Printing customer invoices faster",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Encrypting backups",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Customer Engagement Suite provides conversational AI for contact centers."
+  },
+  {
+    "id": 44,
+    "domain": "D3",
+    "scenario": "Why is data quality important for machine learning?",
+    "options": [
+      {
+        "text": "Poor data leads to inaccurate predictions",
+        "note": ""
+      },
+      {
+        "text": "Models ignore their training data",
+        "note": "They learn from it."
+      },
+      {
+        "text": "Quality only matters for storage costs",
+        "note": "Not true."
+      },
+      {
+        "text": "More data always fixes bad or biased data",
+        "note": "Not always."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Garbage in, garbage out."
+  },
+  {
+    "id": 45,
+    "domain": "D3",
+    "scenario": "Which describes the difference between AI and machine learning?",
+    "options": [
+      {
+        "text": "ML is a subset of AI where systems learn from data",
+        "note": ""
+      },
+      {
+        "text": "They are completely unrelated",
+        "note": "ML is part of AI."
+      },
+      {
+        "text": "AI is a subset of ML",
+        "note": "Reversed."
+      },
+      {
+        "text": "ML only works with images and video",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Deep learning is a subset of ML using neural networks."
+  },
+  {
+    "id": 46,
+    "domain": "D3",
+    "scenario": "Which Google AI model family powers many Google Cloud generative AI features?",
+    "options": [
+      {
+        "text": "Gemini",
+        "note": ""
+      },
+      {
+        "text": "BigQuery",
+        "note": "Analytics warehouse."
+      },
+      {
+        "text": "Kubernetes",
+        "note": "Container orchestration."
+      },
+      {
+        "text": "Pub/Sub",
+        "note": "Messaging."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Gemini models are multimodal: text, images, audio, video and code."
+  },
+  {
+    "id": 47,
+    "domain": "D3",
+    "scenario": "Which BigQuery capability lets analysts create and run ML models with SQL?",
+    "options": [
+      {
+        "text": "BigQuery ML",
+        "note": ""
+      },
+      {
+        "text": "BigQuery Omni",
+        "note": "Multicloud queries."
+      },
+      {
+        "text": "BigQuery sharing",
+        "note": "Data exchange."
+      },
+      {
+        "text": "BigQuery slots",
+        "note": "Compute capacity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BigQuery can also call Gemini models from SQL."
+  },
+  {
+    "id": 48,
+    "domain": "D3",
+    "scenario": "A company wants AI help writing code and managing Google Cloud resources. Which tool fits?",
+    "options": [
+      {
+        "text": "Gemini Code Assist and Gemini Cloud Assist",
+        "note": ""
+      },
+      {
+        "text": "Cloud Armor adaptive protection",
+        "note": "Security."
+      },
+      {
+        "text": "Cloud CDN",
+        "note": "Caching."
+      },
+      {
+        "text": "Google Security Operations",
+        "note": "Security analytics."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Gemini Cloud Assist helps design, operate and troubleshoot cloud environments."
+  },
+  {
+    "id": 49,
+    "domain": "D4",
+    "scenario": "Which Google Cloud service provides virtual machines?",
+    "options": [
+      {
+        "text": "Compute Engine",
+        "note": ""
+      },
+      {
+        "text": "App Engine flexible environment",
+        "note": "Platform for apps."
+      },
+      {
+        "text": "Cloud Run",
+        "note": "Serverless containers."
+      },
+      {
+        "text": "BigQuery",
+        "note": "Analytics."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Compute Engine is IaaS; Spot VMs offer large discounts for interruptible work."
+  },
+  {
+    "id": 50,
+    "domain": "D4",
+    "scenario": "Which service runs containers serverlessly and scales to zero when idle?",
+    "options": [
+      {
+        "text": "Cloud Run",
+        "note": ""
+      },
+      {
+        "text": "Compute Engine",
+        "note": "VMs you manage."
+      },
+      {
+        "text": "Google Kubernetes Engine Standard",
+        "note": "You manage node pools."
+      },
+      {
+        "text": "Bare Metal Solution",
+        "note": "Dedicated hardware."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud Run functions (formerly Cloud Functions) run event-driven code."
+  },
+  {
+    "id": 51,
+    "domain": "D4",
+    "scenario": "Which service is Google's managed Kubernetes for running containerized apps at scale?",
+    "options": [
+      {
+        "text": "Google Kubernetes Engine (GKE)",
+        "note": ""
+      },
+      {
+        "text": "Cloud Run functions",
+        "note": "Event-driven functions."
+      },
+      {
+        "text": "App Engine standard",
+        "note": "Platform as a service."
+      },
+      {
+        "text": "Compute Engine managed instance groups",
+        "note": "VMs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "GKE Autopilot manages nodes for you."
+  },
+  {
+    "id": 52,
+    "domain": "D4",
+    "scenario": "Which modernization approach moves VMs to the cloud with few or no changes?",
+    "options": [
+      {
+        "text": "Lift and shift (rehost)",
+        "note": ""
+      },
+      {
+        "text": "Refactor into microservices",
+        "note": "Major changes."
+      },
+      {
+        "text": "Rebuild from scratch",
+        "note": "Highest effort."
+      },
+      {
+        "text": "Retire the app",
+        "note": "Turns it off."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Migration Center helps discover and plan migrations."
+  },
+  {
+    "id": 53,
+    "domain": "D4",
+    "scenario": "Why might a company containerize an application?",
+    "options": [
+      {
+        "text": "To run it consistently across environments",
+        "note": ""
+      },
+      {
+        "text": "To make it require a specific laptop",
+        "note": "The opposite."
+      },
+      {
+        "text": "To stop using version control",
+        "note": "Unrelated."
+      },
+      {
+        "text": "To prevent the app from scaling unexpectedly",
+        "note": "Containers help scaling."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Containers package code with dependencies."
+  },
+  {
+    "id": 54,
+    "domain": "D4",
+    "scenario": "Which service manages APIs, including security, analytics and rate limiting?",
+    "options": [
+      {
+        "text": "Apigee",
+        "note": ""
+      },
+      {
+        "text": "Cloud NAT",
+        "note": "Outbound internet."
+      },
+      {
+        "text": "Cloud DNS",
+        "note": "Domain names."
+      },
+      {
+        "text": "Filestore",
+        "note": "File storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "APIs let companies expose data and services to partners securely."
+  },
+  {
+    "id": 55,
+    "domain": "D4",
+    "scenario": "Which serverless option is best for running a small piece of code when a file is uploaded?",
+    "options": [
+      {
+        "text": "Cloud Run functions",
+        "note": ""
+      },
+      {
+        "text": "A large Compute Engine VM",
+        "note": "Always running."
+      },
+      {
+        "text": "Bare Metal Solution",
+        "note": "Dedicated hardware."
+      },
+      {
+        "text": "GKE Standard cluster",
+        "note": "More to manage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Functions are triggered by events from Cloud Storage, Pub/Sub and more."
+  },
+  {
+    "id": 56,
+    "domain": "D4",
+    "scenario": "Which service runs VMware workloads natively on Google Cloud?",
+    "options": [
+      {
+        "text": "Google Cloud VMware Engine",
+        "note": ""
+      },
+      {
+        "text": "Cloud Run",
+        "note": "Containers."
+      },
+      {
+        "text": "Migrate to Virtual Machines only",
+        "note": "Converts VMs to Compute Engine."
+      },
+      {
+        "text": "Bare Metal Solution",
+        "note": "Dedicated servers for specialized workloads like Oracle."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It speeds migration of existing VMware environments."
+  },
+  {
+    "id": 57,
+    "domain": "D4",
+    "scenario": "Which approach makes it easier to release small app changes frequently?",
+    "options": [
+      {
+        "text": "CI/CD pipelines with automated testing",
+        "note": ""
+      },
+      {
+        "text": "Manual deployments once a year",
+        "note": "Slow and risky."
+      },
+      {
+        "text": "Editing code directly in production",
+        "note": "Risky."
+      },
+      {
+        "text": "Avoiding version control to reduce overhead",
+        "note": "Bad practice."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud Build and Cloud Deploy support CI/CD."
+  },
+  {
+    "id": 58,
+    "domain": "D4",
+    "scenario": "Which Google Cloud service stores container images and language packages?",
+    "options": [
+      {
+        "text": "Artifact Registry",
+        "note": ""
+      },
+      {
+        "text": "Cloud SQL",
+        "note": "Databases."
+      },
+      {
+        "text": "Cloud Storage buckets",
+        "note": "Generic object storage."
+      },
+      {
+        "text": "Cloud Armor",
+        "note": "Security."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Artifact Registry replaced Container Registry."
+  },
+  {
+    "id": 59,
+    "domain": "D4",
+    "scenario": "A company has steady workloads that run 24/7 for three years. Which pricing option saves the most on VMs?",
+    "options": [
+      {
+        "text": "Committed use discounts",
+        "note": ""
+      },
+      {
+        "text": "Spot VMs for all workloads",
+        "note": "Can be preempted."
+      },
+      {
+        "text": "On-demand pricing only",
+        "note": "No discount."
+      },
+      {
+        "text": "Free tier usage",
+        "note": "Too limited."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sustained use discounts apply automatically to some VM types."
+  },
+  {
+    "id": 60,
+    "domain": "D4",
+    "scenario": "Which Google Cloud service gives dedicated, low-latency private connectivity from a data center?",
+    "options": [
+      {
+        "text": "Cloud Interconnect",
+        "note": ""
+      },
+      {
+        "text": "Cloud VPN only",
+        "note": "Encrypted over the internet."
+      },
+      {
+        "text": "Cloud CDN with edge caching",
+        "note": "Caches content."
+      },
+      {
+        "text": "Cloud DNS",
+        "note": "Name resolution."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Dedicated and Partner Interconnect options exist."
+  },
+  {
+    "id": 61,
+    "domain": "D4",
+    "scenario": "Which service caches website content at Google's edge locations to speed delivery?",
+    "options": [
+      {
+        "text": "Cloud CDN",
+        "note": ""
+      },
+      {
+        "text": "Cloud SQL",
+        "note": "Database."
+      },
+      {
+        "text": "Cloud Tasks",
+        "note": "Task queues."
+      },
+      {
+        "text": "Memorystore",
+        "note": "In-memory cache for apps."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud CDN works with Google Cloud load balancers."
+  },
+  {
+    "id": 62,
+    "domain": "D4",
+    "scenario": "Which Workspace-based approach helps employees collaborate in real time on documents?",
+    "options": [
+      {
+        "text": "Google Workspace apps like Docs and Drive",
+        "note": ""
+      },
+      {
+        "text": "Compute Engine VMs for each employee",
+        "note": "Infrastructure, not collaboration."
+      },
+      {
+        "text": "Cloud Storage FUSE",
+        "note": "Mounts buckets as file systems."
+      },
+      {
+        "text": "Bigtable",
+        "note": "Database."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Collaboration tools are part of many digital transformation efforts."
+  },
+  {
+    "id": 63,
+    "domain": "D4",
+    "scenario": "Which tool helps assess on-premises servers and estimate cloud costs before migration?",
+    "options": [
+      {
+        "text": "Migration Center",
+        "note": ""
+      },
+      {
+        "text": "Cloud Armor",
+        "note": "Security."
+      },
+      {
+        "text": "Cloud Scheduler",
+        "note": "Cron jobs."
+      },
+      {
+        "text": "Artifact Registry",
+        "note": "Packages."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It provides discovery, TCO estimates and migration planning."
+  },
+  {
+    "id": 64,
+    "domain": "D5",
+    "scenario": "Which Google Cloud service controls who can do what on which resources?",
+    "options": [
+      {
+        "text": "Identity and Access Management (IAM)",
+        "note": ""
+      },
+      {
+        "text": "Cloud Logging",
+        "note": "Records events."
+      },
+      {
+        "text": "Organization Policy Service",
+        "note": "Restricts configurations, not who can act."
+      },
+      {
+        "text": "Cloud Storage bucket labels",
+        "note": "Stores objects."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Grant roles to principals following least privilege."
+  },
+  {
+    "id": 65,
+    "domain": "D5",
+    "scenario": "Which security model assumes no user or device is trusted by default, even on the internal network?",
+    "options": [
+      {
+        "text": "Zero trust",
+        "note": ""
+      },
+      {
+        "text": "Perimeter-only security",
+        "note": "Trusts the inside."
+      },
+      {
+        "text": "Open access",
+        "note": "No security."
+      },
+      {
+        "text": "Security by obscurity",
+        "note": "Weak approach."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Google's BeyondCorp model inspired Chrome Enterprise Premium."
+  },
+  {
+    "id": 66,
+    "domain": "D5",
+    "scenario": "Which service protects web apps from DDoS attacks and common exploits?",
+    "options": [
+      {
+        "text": "Google Cloud Armor",
+        "note": ""
+      },
+      {
+        "text": "Cloud Next Generation Firewall",
+        "note": "VPC traffic rules."
+      },
+      {
+        "text": "Cloud SQL",
+        "note": "Database."
+      },
+      {
+        "text": "Identity-Aware Proxy",
+        "note": "Controls app access by identity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud Armor works with external Application Load Balancers."
+  },
+  {
+    "id": 67,
+    "domain": "D5",
+    "scenario": "Which product gives a centralized view of security risks and misconfigurations in Google Cloud?",
+    "options": [
+      {
+        "text": "Security Command Center",
+        "note": ""
+      },
+      {
+        "text": "Cloud Monitoring",
+        "note": "Performance metrics."
+      },
+      {
+        "text": "Google Security Operations",
+        "note": "SIEM/SOAR for investigations."
+      },
+      {
+        "text": "Artifact Registry",
+        "note": "Packages."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It detects threats, vulnerabilities and posture issues."
+  },
+  {
+    "id": 68,
+    "domain": "D5",
+    "scenario": "Which Google product is a cloud-native SIEM and SOAR platform for security teams?",
+    "options": [
+      {
+        "text": "Google Security Operations",
+        "note": ""
+      },
+      {
+        "text": "Cloud Logging",
+        "note": "Log storage."
+      },
+      {
+        "text": "Google Threat Intelligence",
+        "note": "Threat data."
+      },
+      {
+        "text": "Security Command Center",
+        "note": "Posture and risk management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Google Security Operations was formerly called Chronicle."
+  },
+  {
+    "id": 69,
+    "domain": "D5",
+    "scenario": "Which product provides threat intelligence from Mandiant and VirusTotal?",
+    "options": [
+      {
+        "text": "Google Threat Intelligence",
+        "note": ""
+      },
+      {
+        "text": "Cloud DNS",
+        "note": "Domains."
+      },
+      {
+        "text": "Security Command Center",
+        "note": "Posture management."
+      },
+      {
+        "text": "Sensitive Data Protection",
+        "note": "Finds sensitive data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Threat intelligence helps defenders understand attackers."
+  },
+  {
+    "id": 70,
+    "domain": "D5",
+    "scenario": "By default, how does Google Cloud protect customer data stored at rest?",
+    "options": [
+      {
+        "text": "It encrypts it automatically",
+        "note": ""
+      },
+      {
+        "text": "It leaves it unencrypted",
+        "note": "Not true."
+      },
+      {
+        "text": "Customers must encrypt it manually",
+        "note": "Encryption is automatic."
+      },
+      {
+        "text": "Only paid tiers encrypt data",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Customers can use their own keys with Cloud KMS (CMEK)."
+  },
+  {
+    "id": 71,
+    "domain": "D5",
+    "scenario": "Which service lets customers manage their own encryption keys?",
+    "options": [
+      {
+        "text": "Cloud Key Management Service (Cloud KMS)",
+        "note": ""
+      },
+      {
+        "text": "Cloud CDN",
+        "note": "Caching."
+      },
+      {
+        "text": "Secret Manager",
+        "note": "Stores secrets, not encryption keys."
+      },
+      {
+        "text": "Pub/Sub",
+        "note": "Messaging."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud HSM and External Key Manager provide more control."
+  },
+  {
+    "id": 72,
+    "domain": "D5",
+    "scenario": "Which service discovers and protects sensitive data like credit card numbers?",
+    "options": [
+      {
+        "text": "Sensitive Data Protection",
+        "note": ""
+      },
+      {
+        "text": "Cloud Armor",
+        "note": "Web application protection."
+      },
+      {
+        "text": "Cloud DNS",
+        "note": "Domains."
+      },
+      {
+        "text": "Cloud Key Management Service",
+        "note": "Manages encryption keys."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It can classify, mask and de-identify data."
+  },
+  {
+    "id": 73,
+    "domain": "D5",
+    "scenario": "Which tool lets administrators restrict where resources can be created, such as only in EU regions?",
+    "options": [
+      {
+        "text": "Organization Policy Service",
+        "note": ""
+      },
+      {
+        "text": "VPC Service Controls",
+        "note": "Limits data movement, not resource locations."
+      },
+      {
+        "text": "IAM custom roles",
+        "note": "Define permissions."
+      },
+      {
+        "text": "Cloud Run",
+        "note": "Containers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Organization policies apply constraints across the hierarchy."
+  },
+  {
+    "id": 74,
+    "domain": "D5",
+    "scenario": "Which feature creates a security perimeter around Google Cloud services to reduce data exfiltration?",
+    "options": [
+      {
+        "text": "VPC Service Controls",
+        "note": ""
+      },
+      {
+        "text": "Cloud Armor security policies",
+        "note": "Protects web apps."
+      },
+      {
+        "text": "Cloud SQL",
+        "note": "Database."
+      },
+      {
+        "text": "Organization Policy Service",
+        "note": "Constrains configurations."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Perimeters block data from leaving protected projects."
+  },
+  {
+    "id": 75,
+    "domain": "D5",
+    "scenario": "Where can customers find Google Cloud's compliance certifications like ISO 27001?",
+    "options": [
+      {
+        "text": "The Compliance Reports Manager",
+        "note": ""
+      },
+      {
+        "text": "Cloud Billing reports",
+        "note": "Costs."
+      },
+      {
+        "text": "Cloud Audit Logs",
+        "note": "Logs your own activity."
+      },
+      {
+        "text": "Security Command Center",
+        "note": "Your posture, not Google certifications."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Google Cloud supports many frameworks such as SOC 2, PCI DSS and HIPAA."
+  },
+  {
+    "id": 76,
+    "domain": "D5",
+    "scenario": "Which principle should guide IAM role assignment?",
+    "options": [
+      {
+        "text": "Least privilege",
+        "note": ""
+      },
+      {
+        "text": "Give everyone Owner",
+        "note": "Too broad."
+      },
+      {
+        "text": "Share accounts",
+        "note": "No accountability."
+      },
+      {
+        "text": "Use basic roles everywhere",
+        "note": "Too broad."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Prefer predefined or custom roles over basic roles."
+  },
+  {
+    "id": 77,
+    "domain": "D5",
+    "scenario": "Which feature requires users to prove identity with more than a password?",
+    "options": [
+      {
+        "text": "Multi-factor authentication (2-Step Verification)",
+        "note": ""
+      },
+      {
+        "text": "Longer passwords only",
+        "note": "Still one factor."
+      },
+      {
+        "text": "Password hints and reminders",
+        "note": "Weakens security."
+      },
+      {
+        "text": "Shared accounts with long passwords",
+        "note": "No accountability."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Security keys and passkeys are phishing-resistant."
+  },
+  {
+    "id": 78,
+    "domain": "D5",
+    "scenario": "Which describes Google Cloud's approach to customer data privacy?",
+    "options": [
+      {
+        "text": "Customers own their data and Google doesn't use it for ads",
+        "note": ""
+      },
+      {
+        "text": "Google sells customer data",
+        "note": "Not true."
+      },
+      {
+        "text": "All customer data is public by default",
+        "note": "Not true."
+      },
+      {
+        "text": "Google may use it for ads freely",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Access Transparency logs show when Google staff access data."
+  },
+  {
+    "id": 79,
+    "domain": "D5",
+    "scenario": "Which security approach keeps a whole app's software supply chain secure, from code to deployment?",
+    "options": [
+      {
+        "text": "Software supply chain security (e.g., Binary Authorization)",
+        "note": ""
+      },
+      {
+        "text": "Disabling logging to improve performance",
+        "note": "Reduces visibility."
+      },
+      {
+        "text": "Using shared admin accounts for deployments",
+        "note": "Insecure."
+      },
+      {
+        "text": "Skipping code reviews",
+        "note": "Increases risk."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Binary Authorization allows only trusted images to deploy."
+  },
+  {
+    "id": 80,
+    "domain": "D6",
+    "scenario": "Which Google Cloud tools help monitor app performance and logs?",
+    "options": [
+      {
+        "text": "Google Cloud Observability (Monitoring and Logging)",
+        "note": ""
+      },
+      {
+        "text": "Cloud Armor",
+        "note": "Security."
+      },
+      {
+        "text": "Cloud Asset Inventory",
+        "note": "Lists resources."
+      },
+      {
+        "text": "Security Command Center",
+        "note": "Security findings."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Alerts can notify teams before users notice problems."
+  },
+  {
+    "id": 81,
+    "domain": "D6",
+    "scenario": "What does site reliability engineering (SRE) focus on?",
+    "options": [
+      {
+        "text": "Applying software engineering to keep services reliable",
+        "note": ""
+      },
+      {
+        "text": "Designing marketing campaigns",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Selling cloud contracts",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Manually restarting servers when they fail",
+        "note": "SRE automates instead."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SRE uses SLIs, SLOs and error budgets."
+  },
+  {
+    "id": 82,
+    "domain": "D6",
+    "scenario": "Which term describes the target level of reliability for a service, like 99.9% availability?",
+    "options": [
+      {
+        "text": "Service level objective (SLO)",
+        "note": ""
+      },
+      {
+        "text": "Service level indicator (SLI)",
+        "note": "The measured metric."
+      },
+      {
+        "text": "Error budget",
+        "note": "Allowed unreliability."
+      },
+      {
+        "text": "Service level agreement (SLA)",
+        "note": "A contract with consequences, not the internal target."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SLAs are contractual commitments to customers."
+  },
+  {
+    "id": 83,
+    "domain": "D6",
+    "scenario": "Which tool helps teams understand and control cloud spending?",
+    "options": [
+      {
+        "text": "Cloud Billing reports and budgets",
+        "note": ""
+      },
+      {
+        "text": "Cloud Armor",
+        "note": "Security."
+      },
+      {
+        "text": "Cloud Asset Inventory",
+        "note": "Lists resources, not spend."
+      },
+      {
+        "text": "Cloud Monitoring dashboards",
+        "note": "Performance metrics."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Budgets can send alerts at spending thresholds."
+  },
+  {
+    "id": 84,
+    "domain": "D6",
+    "scenario": "Which practice organizes resources so costs can be tracked by team?",
+    "options": [
+      {
+        "text": "Using projects and labels",
+        "note": ""
+      },
+      {
+        "text": "Putting everything in one project",
+        "note": "Hard to track."
+      },
+      {
+        "text": "Deleting billing exports",
+        "note": "Loses data."
+      },
+      {
+        "text": "Disabling budgets and alerts",
+        "note": "Less control."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Export billing data to BigQuery for detailed analysis."
+  },
+  {
+    "id": 85,
+    "domain": "D6",
+    "scenario": "Which describes a blameless postmortem?",
+    "options": [
+      {
+        "text": "A review that focuses on fixing systems, not blaming people",
+        "note": ""
+      },
+      {
+        "text": "A meeting to assign punishment",
+        "note": "Not blameless."
+      },
+      {
+        "text": "A quarterly sales report",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A schedule of upcoming backups",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Postmortems improve reliability through learning."
+  },
+  {
+    "id": 86,
+    "domain": "D6",
+    "scenario": "Which Google Cloud support resource offers help for issues with paid technical support?",
+    "options": [
+      {
+        "text": "Cloud Customer Care",
+        "note": ""
+      },
+      {
+        "text": "Google Cloud Skills Boost",
+        "note": "Training, not support cases."
+      },
+      {
+        "text": "Cloud Run",
+        "note": "Containers."
+      },
+      {
+        "text": "Google Cloud community forums",
+        "note": "Free peer help, not paid support."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Plans include Standard, Enhanced and Premium Support."
+  },
+  {
+    "id": 87,
+    "domain": "D6",
+    "scenario": "What's a benefit of autoscaling for operations?",
+    "options": [
+      {
+        "text": "Capacity matches demand without manual work",
+        "note": ""
+      },
+      {
+        "text": "Costs always stay fixed",
+        "note": "They vary with use."
+      },
+      {
+        "text": "It removes the need for monitoring",
+        "note": "Monitoring still needed."
+      },
+      {
+        "text": "It prevents all outages and failures",
+        "note": "Not guaranteed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Autoscaling balances performance and cost."
+  },
+  {
+    "id": 88,
+    "domain": "D6",
+    "scenario": "Which describes infrastructure as code?",
+    "options": [
+      {
+        "text": "Defining infrastructure in files for repeatable deployments",
+        "note": ""
+      },
+      {
+        "text": "Writing notes about servers",
+        "note": "Not IaC."
+      },
+      {
+        "text": "Manually clicking every setting",
+        "note": "The opposite."
+      },
+      {
+        "text": "Drawing network diagrams in a design tool",
+        "note": "Documentation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Terraform is commonly used with Google Cloud."
+  }
+]

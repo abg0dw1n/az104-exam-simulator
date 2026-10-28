@@ -1,0 +1,2177 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "Data stored in tables with fixed columns and rows is best described as what?",
+    "options": [
+      {
+        "text": "Structured data",
+        "note": ""
+      },
+      {
+        "text": "Semi-structured data",
+        "note": "Flexible fields, like JSON."
+      },
+      {
+        "text": "Unstructured data",
+        "note": "No defined format, like video."
+      },
+      {
+        "text": "Streaming data",
+        "note": "Describes how data arrives."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Structured data follows a schema, as in relational databases."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "A JSON document where each item can have different fields is an example of what?",
+    "options": [
+      {
+        "text": "Semi-structured data",
+        "note": ""
+      },
+      {
+        "text": "Structured data",
+        "note": "Needs a fixed schema."
+      },
+      {
+        "text": "Unstructured data",
+        "note": "JSON has some structure."
+      },
+      {
+        "text": "Relational data",
+        "note": "Stored in tables."
+      }
+    ],
+    "answer": 0,
+    "explanation": "XML and YAML are other semi-structured formats."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "Which is an example of unstructured data?",
+    "options": [
+      {
+        "text": "A collection of video files",
+        "note": ""
+      },
+      {
+        "text": "A table of customer orders",
+        "note": "Structured."
+      },
+      {
+        "text": "A JSON product catalog",
+        "note": "Semi-structured."
+      },
+      {
+        "text": "A CSV file of sales figures",
+        "note": "Delimited, structured text."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Images, audio, video and free-form documents are unstructured."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "Which file format is columnar and optimized for analytics?",
+    "options": [
+      {
+        "text": "Parquet",
+        "note": ""
+      },
+      {
+        "text": "CSV",
+        "note": "Row-based text."
+      },
+      {
+        "text": "JSON",
+        "note": "Semi-structured text."
+      },
+      {
+        "text": "XML",
+        "note": "Markup-based text."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Parquet and ORC are columnar; Avro is row-based binary."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "Which file format is a row-based binary format often used for streaming and serialization?",
+    "options": [
+      {
+        "text": "Avro",
+        "note": ""
+      },
+      {
+        "text": "Parquet",
+        "note": "Columnar."
+      },
+      {
+        "text": "ORC",
+        "note": "Columnar."
+      },
+      {
+        "text": "Plain text CSV",
+        "note": "Not binary."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Avro stores the schema in JSON along with binary data."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "Which workload handles many small, fast transactions like orders and payments?",
+    "options": [
+      {
+        "text": "Online transaction processing (OLTP)",
+        "note": ""
+      },
+      {
+        "text": "Online analytical processing (OLAP)",
+        "note": "Complex analysis over history."
+      },
+      {
+        "text": "Scheduled batch reporting jobs",
+        "note": "Periodic, not real-time."
+      },
+      {
+        "text": "Data archiving",
+        "note": "Long-term storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OLTP systems are usually normalized and support ACID transactions."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Which workload runs complex queries over large amounts of historical data for reporting?",
+    "options": [
+      {
+        "text": "Analytical processing (OLAP)",
+        "note": ""
+      },
+      {
+        "text": "Transactional processing (OLTP)",
+        "note": "Many small writes."
+      },
+      {
+        "text": "Message queuing",
+        "note": "Passes messages between apps."
+      },
+      {
+        "text": "Point-of-sale processing",
+        "note": "A transactional system."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Analytical systems are often read-optimized and denormalized."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "What does ACID stand for in database transactions?",
+    "options": [
+      {
+        "text": "Atomicity, consistency, isolation, durability",
+        "note": ""
+      },
+      {
+        "text": "Access, control, integrity, design",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "Availability, capacity, indexing, distribution",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "Analysis, cleansing, ingestion, display",
+        "note": "Not the meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Atomicity means a transaction completes fully or not at all."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which ACID property guarantees that a committed transaction survives a power failure?",
+    "options": [
+      {
+        "text": "Durability",
+        "note": ""
+      },
+      {
+        "text": "Atomicity",
+        "note": "All or nothing."
+      },
+      {
+        "text": "Isolation",
+        "note": "Transactions don't interfere."
+      },
+      {
+        "text": "Consistency",
+        "note": "Data stays valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Committed changes are written to persistent storage."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "Which role is responsible for building pipelines that ingest and transform data?",
+    "options": [
+      {
+        "text": "Data engineer",
+        "note": ""
+      },
+      {
+        "text": "Data analyst",
+        "note": "Builds reports and insights."
+      },
+      {
+        "text": "Database administrator",
+        "note": "Manages databases, backups and security."
+      },
+      {
+        "text": "End user",
+        "note": "Consumes reports."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data engineers design and maintain data integration and storage."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "Which role is mainly responsible for backups, security and availability of databases?",
+    "options": [
+      {
+        "text": "Database administrator",
+        "note": ""
+      },
+      {
+        "text": "Data analyst",
+        "note": "Analyzes data."
+      },
+      {
+        "text": "Data engineer",
+        "note": "Builds pipelines."
+      },
+      {
+        "text": "Report consumer",
+        "note": "Reads reports."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DBAs also manage permissions, patching and performance."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "Which role explores data and creates reports and visualizations to support decisions?",
+    "options": [
+      {
+        "text": "Data analyst",
+        "note": ""
+      },
+      {
+        "text": "Database administrator",
+        "note": "Manages databases."
+      },
+      {
+        "text": "Data engineer",
+        "note": "Builds pipelines."
+      },
+      {
+        "text": "Network engineer",
+        "note": "Manages networks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data analysts often use Power BI."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "What is normalization in a relational database?",
+    "options": [
+      {
+        "text": "Splitting data into tables to reduce duplication",
+        "note": ""
+      },
+      {
+        "text": "Combining all data into one wide table",
+        "note": "That's denormalization."
+      },
+      {
+        "text": "Encrypting every column in every table",
+        "note": "Not normalization."
+      },
+      {
+        "text": "Copying the database to a second region",
+        "note": "Replication."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Normalized tables are linked by keys, which improves consistency for transactional systems."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "What is a primary key?",
+    "options": [
+      {
+        "text": "A column that uniquely identifies each row",
+        "note": ""
+      },
+      {
+        "text": "A column that links to another table",
+        "note": "That's a foreign key."
+      },
+      {
+        "text": "An index created on every column of the table",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "A password to the database",
+        "note": "Not the meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Primary keys can't contain duplicates or nulls."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "What is a foreign key?",
+    "options": [
+      {
+        "text": "A column that references a primary key in another table",
+        "note": ""
+      },
+      {
+        "text": "A key stored in a database in another country",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "An encryption key used to protect backups",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "A unique key for every row",
+        "note": "That's a primary key."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Foreign keys enforce relationships between tables."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "Which SQL statement category includes CREATE, ALTER and DROP?",
+    "options": [
+      {
+        "text": "Data definition language (DDL)",
+        "note": ""
+      },
+      {
+        "text": "Data manipulation language (DML)",
+        "note": "INSERT, UPDATE, DELETE, SELECT."
+      },
+      {
+        "text": "Data control language (DCL)",
+        "note": "GRANT, REVOKE, DENY."
+      },
+      {
+        "text": "Transaction control only",
+        "note": "COMMIT, ROLLBACK."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DDL defines database objects like tables and views."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "Which SQL statement category includes GRANT and REVOKE?",
+    "options": [
+      {
+        "text": "Data control language (DCL)",
+        "note": ""
+      },
+      {
+        "text": "Data definition language (DDL)",
+        "note": "Defines objects."
+      },
+      {
+        "text": "Data manipulation language (DML)",
+        "note": "Changes data."
+      },
+      {
+        "text": "Query language only",
+        "note": "SELECT is DML."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DCL manages permissions on database objects."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "Which SQL statement adds new rows to a table?",
+    "options": [
+      {
+        "text": "INSERT",
+        "note": ""
+      },
+      {
+        "text": "UPDATE",
+        "note": "Changes existing rows."
+      },
+      {
+        "text": "SELECT",
+        "note": "Reads rows."
+      },
+      {
+        "text": "ALTER",
+        "note": "Changes table structure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "INSERT, UPDATE, DELETE and SELECT are DML statements."
+  },
+  {
+    "id": 19,
+    "domain": "D1",
+    "scenario": "What is a view in a relational database?",
+    "options": [
+      {
+        "text": "A virtual table based on a query",
+        "note": ""
+      },
+      {
+        "text": "A physical copy of a table stored on disk",
+        "note": "Views store no data by default."
+      },
+      {
+        "text": "A backup of the database",
+        "note": "Not a view."
+      },
+      {
+        "text": "A type of index",
+        "note": "Not a view."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Views simplify queries and can limit which columns users see."
+  },
+  {
+    "id": 20,
+    "domain": "D1",
+    "scenario": "What is the main purpose of an index on a table?",
+    "options": [
+      {
+        "text": "Speed up queries that search or sort",
+        "note": ""
+      },
+      {
+        "text": "Encrypt the table data",
+        "note": "Indexes don't encrypt."
+      },
+      {
+        "text": "Store a second copy of the table for backup",
+        "note": "Not the purpose."
+      },
+      {
+        "text": "Prevent all duplicate rows",
+        "note": "Unique constraints do that."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Indexes speed reads but add overhead to writes."
+  },
+  {
+    "id": 21,
+    "domain": "D1",
+    "scenario": "What is a stored procedure?",
+    "options": [
+      {
+        "text": "Saved SQL code that runs with parameters",
+        "note": ""
+      },
+      {
+        "text": "A system table that stores error logs",
+        "note": "Not a procedure."
+      },
+      {
+        "text": "A copy of the database",
+        "note": "Not a procedure."
+      },
+      {
+        "text": "A schedule for automatic database backups",
+        "note": "Not a procedure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Stored procedures encapsulate logic and can improve security and performance."
+  },
+  {
+    "id": 22,
+    "domain": "D1",
+    "scenario": "Which processing type collects data over time and processes it in groups, like a nightly job?",
+    "options": [
+      {
+        "text": "Batch processing",
+        "note": ""
+      },
+      {
+        "text": "Stream processing",
+        "note": "Processes each event as it arrives."
+      },
+      {
+        "text": "Transaction processing",
+        "note": "Handles individual operations."
+      },
+      {
+        "text": "Interactive querying",
+        "note": "Ad-hoc questions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Batch is efficient for large volumes when latency isn't critical."
+  },
+  {
+    "id": 23,
+    "domain": "D1",
+    "scenario": "Which processing type handles sensor readings continuously as they arrive?",
+    "options": [
+      {
+        "text": "Stream processing",
+        "note": ""
+      },
+      {
+        "text": "Batch processing",
+        "note": "Processes data in groups later."
+      },
+      {
+        "text": "Archive processing",
+        "note": "Not a type."
+      },
+      {
+        "text": "Manual entry",
+        "note": "Not automated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Streaming supports real-time dashboards and alerts."
+  },
+  {
+    "id": 24,
+    "domain": "D1",
+    "scenario": "In a star schema, which table stores numeric measures like sales amount?",
+    "options": [
+      {
+        "text": "Fact table",
+        "note": ""
+      },
+      {
+        "text": "Dimension table",
+        "note": "Describes entities like product."
+      },
+      {
+        "text": "Lookup index",
+        "note": "Not a schema table."
+      },
+      {
+        "text": "Staging view",
+        "note": "Not a schema table."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Dimension tables hold descriptive attributes used to filter and group facts."
+  },
+  {
+    "id": 25,
+    "domain": "D1",
+    "scenario": "Which data store keeps raw files of any format at low cost for later analysis?",
+    "options": [
+      {
+        "text": "A data lake",
+        "note": ""
+      },
+      {
+        "text": "A relational OLTP database",
+        "note": "Structured transactions."
+      },
+      {
+        "text": "A key-value cache",
+        "note": "In-memory lookups."
+      },
+      {
+        "text": "A spreadsheet",
+        "note": "Not scalable."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A lakehouse combines data lake storage with warehouse-style querying."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "Which Azure SQL option is a fully managed PaaS database with no OS or instance to manage?",
+    "options": [
+      {
+        "text": "Azure SQL Database",
+        "note": ""
+      },
+      {
+        "text": "SQL Server on Azure VMs",
+        "note": "IaaS: you manage the OS."
+      },
+      {
+        "text": "SQL Server on premises",
+        "note": "Not in Azure."
+      },
+      {
+        "text": "Azure Table storage",
+        "note": "NoSQL key-value."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Azure SQL Database handles patching, backups and high availability."
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "scenario": "A company needs near-100% compatibility with on-premises SQL Server, including SQL Agent, in a managed service. What fits?",
+    "options": [
+      {
+        "text": "Azure SQL Managed Instance",
+        "note": ""
+      },
+      {
+        "text": "Azure SQL Database single database",
+        "note": "Fewer instance-level features."
+      },
+      {
+        "text": "Azure Cosmos DB",
+        "note": "NoSQL."
+      },
+      {
+        "text": "Azure Database for MySQL",
+        "note": "Different engine."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Managed Instance suits lift-and-shift migrations with minimal changes."
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "scenario": "A company needs full control of the OS and SQL Server configuration in Azure. What should it use?",
+    "options": [
+      {
+        "text": "SQL Server on Azure Virtual Machines",
+        "note": ""
+      },
+      {
+        "text": "Azure SQL Database",
+        "note": "No OS access."
+      },
+      {
+        "text": "Azure SQL Managed Instance (Business Critical)",
+        "note": "No OS access."
+      },
+      {
+        "text": "Azure Cosmos DB",
+        "note": "Not SQL Server."
+      }
+    ],
+    "answer": 0,
+    "explanation": "This is IaaS: you manage patching and configuration."
+  },
+  {
+    "id": 29,
+    "domain": "D2",
+    "scenario": "Which Azure services offer managed open-source relational databases?",
+    "options": [
+      {
+        "text": "Azure Database for PostgreSQL and MySQL",
+        "note": ""
+      },
+      {
+        "text": "Azure Cosmos DB for Apache Gremlin",
+        "note": "Graph."
+      },
+      {
+        "text": "Azure Blob Storage",
+        "note": "Object storage."
+      },
+      {
+        "text": "Azure Files",
+        "note": "File shares."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Flexible Server is the main deployment option for both."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "Which Azure SQL Database purchasing model lets you choose compute and storage separately?",
+    "options": [
+      {
+        "text": "vCore-based model",
+        "note": ""
+      },
+      {
+        "text": "DTU-based model",
+        "note": "Bundles compute, storage and I/O."
+      },
+      {
+        "text": "Per-user licensing",
+        "note": "Not a model."
+      },
+      {
+        "text": "Spot pricing",
+        "note": "Not for SQL Database."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The vCore model also supports Azure Hybrid Benefit for SQL Server licenses."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "Which Azure SQL Database option automatically pauses when idle and bills per second of compute?",
+    "options": [
+      {
+        "text": "Serverless compute tier",
+        "note": ""
+      },
+      {
+        "text": "Hyperscale with reserved capacity",
+        "note": "Not auto-pause."
+      },
+      {
+        "text": "Business Critical tier",
+        "note": "Always-on resources."
+      },
+      {
+        "text": "Elastic pool",
+        "note": "Shares resources between databases."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Serverless suits intermittent or unpredictable workloads."
+  },
+  {
+    "id": 32,
+    "domain": "D2",
+    "scenario": "Which option lets many Azure SQL databases share a pool of resources?",
+    "options": [
+      {
+        "text": "Elastic pool",
+        "note": ""
+      },
+      {
+        "text": "Read replica",
+        "note": "Copies data for reads."
+      },
+      {
+        "text": "Failover group",
+        "note": "Disaster recovery."
+      },
+      {
+        "text": "Managed instance link",
+        "note": "Hybrid replication."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Elastic pools suit SaaS apps with many databases and varying load."
+  },
+  {
+    "id": 33,
+    "domain": "D2",
+    "scenario": "Which SQL query returns only customers from Ohio?",
+    "options": [
+      {
+        "text": "SELECT * FROM Customers WHERE State = 'OH'",
+        "note": ""
+      },
+      {
+        "text": "SELECT * FROM Customers ORDER BY State",
+        "note": "Sorts, no filter."
+      },
+      {
+        "text": "UPDATE Customers SET State = 'OH'",
+        "note": "Changes data."
+      },
+      {
+        "text": "DELETE FROM Customers WHERE State = 'OH'",
+        "note": "Removes rows."
+      }
+    ],
+    "answer": 0,
+    "explanation": "WHERE filters rows; ORDER BY sorts; GROUP BY aggregates."
+  },
+  {
+    "id": 34,
+    "domain": "D2",
+    "scenario": "Which SQL clause combines rows from two tables based on a related column?",
+    "options": [
+      {
+        "text": "JOIN",
+        "note": ""
+      },
+      {
+        "text": "GROUP BY",
+        "note": "Aggregates rows."
+      },
+      {
+        "text": "ORDER BY",
+        "note": "Sorts rows."
+      },
+      {
+        "text": "HAVING",
+        "note": "Filters groups."
+      }
+    ],
+    "answer": 0,
+    "explanation": "INNER JOIN returns matches; LEFT JOIN keeps all rows from the left table."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "Which SQL clause groups rows to compute totals per category?",
+    "options": [
+      {
+        "text": "GROUP BY",
+        "note": ""
+      },
+      {
+        "text": "WHERE",
+        "note": "Filters individual rows."
+      },
+      {
+        "text": "JOIN",
+        "note": "Combines tables."
+      },
+      {
+        "text": "DISTINCT",
+        "note": "Removes duplicate rows."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use aggregate functions like SUM, COUNT and AVG with GROUP BY."
+  },
+  {
+    "id": 36,
+    "domain": "D2",
+    "scenario": "Which Azure SQL feature provides built-in high availability without extra configuration?",
+    "options": [
+      {
+        "text": "Automatic replicas managed by the service",
+        "note": ""
+      },
+      {
+        "text": "Manually configured log shipping",
+        "note": "You set it up."
+      },
+      {
+        "text": "Nightly exports of the data to Excel files",
+        "note": "Not HA."
+      },
+      {
+        "text": "A single VM with no backups",
+        "note": "No HA."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Azure SQL Database offers a 99.99% SLA; zone redundancy can add more resilience."
+  },
+  {
+    "id": 37,
+    "domain": "D2",
+    "scenario": "How long are automated backups kept by default for Azure SQL Database point-in-time restore?",
+    "options": [
+      {
+        "text": "7 days, configurable",
+        "note": ""
+      },
+      {
+        "text": "1 hour only",
+        "note": "Too short."
+      },
+      {
+        "text": "10 years by default",
+        "note": "Long-term retention is optional."
+      },
+      {
+        "text": "Backups aren't automatic",
+        "note": "They are."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Point-in-time restore can be set from 1 to 35 days; long-term retention can keep backups for years."
+  },
+  {
+    "id": 38,
+    "domain": "D2",
+    "scenario": "Which feature encrypts Azure SQL Database data at rest by default?",
+    "options": [
+      {
+        "text": "Transparent data encryption (TDE)",
+        "note": ""
+      },
+      {
+        "text": "Always Encrypted only",
+        "note": "Optional, client-side."
+      },
+      {
+        "text": "Dynamic data masking",
+        "note": "Hides values in results."
+      },
+      {
+        "text": "Row-level security policies",
+        "note": "Filters rows by user."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Always Encrypted protects sensitive columns even from DBAs."
+  },
+  {
+    "id": 39,
+    "domain": "D2",
+    "scenario": "Which feature hides sensitive values like credit card numbers in query results for non-privileged users?",
+    "options": [
+      {
+        "text": "Dynamic data masking",
+        "note": ""
+      },
+      {
+        "text": "Transparent data encryption",
+        "note": "Encrypts files at rest."
+      },
+      {
+        "text": "Elastic pools",
+        "note": "Share resources."
+      },
+      {
+        "text": "Read scale-out",
+        "note": "Offloads reads."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The data isn't changed; only the results are masked."
+  },
+  {
+    "id": 40,
+    "domain": "D2",
+    "scenario": "Which tool is a free, cross-platform app for querying Azure SQL and SQL Server?",
+    "options": [
+      {
+        "text": "VS Code with the mssql extension",
+        "note": ""
+      },
+      {
+        "text": "Azure Data Factory Studio",
+        "note": "Builds pipelines, not ad-hoc SQL queries."
+      },
+      {
+        "text": "Azure Storage Explorer only",
+        "note": "Storage, not SQL."
+      },
+      {
+        "text": "Power Automate cloud flows",
+        "note": "Workflow automation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SSMS runs on Windows; VS Code with the mssql extension runs on Windows, macOS and Linux."
+  },
+  {
+    "id": 41,
+    "domain": "D2",
+    "scenario": "Which deployment model for Azure SQL Database scales storage up to 128 TB for very large databases?",
+    "options": [
+      {
+        "text": "Hyperscale",
+        "note": ""
+      },
+      {
+        "text": "Basic",
+        "note": "Small databases."
+      },
+      {
+        "text": "Standard",
+        "note": "General workloads."
+      },
+      {
+        "text": "Elastic pool Basic",
+        "note": "Small shared pools."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hyperscale separates compute and storage for fast scaling."
+  },
+  {
+    "id": 42,
+    "domain": "D2",
+    "scenario": "What's a benefit of PaaS databases like Azure SQL Database over SQL Server on a VM?",
+    "options": [
+      {
+        "text": "Less administration, with automatic patching",
+        "note": ""
+      },
+      {
+        "text": "Full OS-level access",
+        "note": "IaaS benefit."
+      },
+      {
+        "text": "Ability to install any software on the server",
+        "note": "IaaS benefit."
+      },
+      {
+        "text": "Lower security requirements for data",
+        "note": "Not a benefit."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PaaS trades some control for reduced management."
+  },
+  {
+    "id": 43,
+    "domain": "D2",
+    "scenario": "Which relational database option should a company pick to migrate MariaDB workloads to Azure?",
+    "options": [
+      {
+        "text": "Azure Database for MySQL Flexible Server",
+        "note": ""
+      },
+      {
+        "text": "Azure Cosmos DB for Apache Cassandra",
+        "note": "Wide-column NoSQL."
+      },
+      {
+        "text": "Azure Blob Storage",
+        "note": "Object storage."
+      },
+      {
+        "text": "Azure SQL Managed Instance",
+        "note": "SQL Server engine."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Azure Database for MariaDB was retired; Microsoft recommends MySQL Flexible Server."
+  },
+  {
+    "id": 44,
+    "domain": "D2",
+    "scenario": "Which object enforces that a column can't contain empty values?",
+    "options": [
+      {
+        "text": "A NOT NULL constraint",
+        "note": ""
+      },
+      {
+        "text": "A view",
+        "note": "A saved query."
+      },
+      {
+        "text": "A stored procedure",
+        "note": "Saved code."
+      },
+      {
+        "text": "A clustered index only",
+        "note": "Orders data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Other constraints include UNIQUE, CHECK, PRIMARY KEY and FOREIGN KEY."
+  },
+  {
+    "id": 45,
+    "domain": "D2",
+    "scenario": "Which Azure feature lets a company use its existing SQL Server licenses to reduce Azure SQL costs?",
+    "options": [
+      {
+        "text": "Azure Hybrid Benefit",
+        "note": ""
+      },
+      {
+        "text": "Azure Reservations only",
+        "note": "Commit for discounts."
+      },
+      {
+        "text": "Spot VMs",
+        "note": "Interruptible compute."
+      },
+      {
+        "text": "Dev/Test pricing for production",
+        "note": "Not allowed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hybrid Benefit applies to the vCore model and SQL Server VMs."
+  },
+  {
+    "id": 46,
+    "domain": "D2",
+    "scenario": "Which Azure SQL feature continuously copies a database to another region for disaster recovery?",
+    "options": [
+      {
+        "text": "Active geo-replication or failover groups",
+        "note": ""
+      },
+      {
+        "text": "Dynamic data masking",
+        "note": "Masks results."
+      },
+      {
+        "text": "Elastic jobs across databases",
+        "note": "Run scheduled tasks."
+      },
+      {
+        "text": "Query Store snapshots",
+        "note": "Tracks query performance."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Failover groups add automatic failover and a single listener endpoint."
+  },
+  {
+    "id": 47,
+    "domain": "D3",
+    "scenario": "Which Azure Storage service stores large amounts of unstructured objects like images and videos?",
+    "options": [
+      {
+        "text": "Azure Blob Storage",
+        "note": ""
+      },
+      {
+        "text": "Azure Files",
+        "note": "SMB/NFS file shares."
+      },
+      {
+        "text": "Azure Table storage",
+        "note": "Key-value entities."
+      },
+      {
+        "text": "Azure Queue storage",
+        "note": "Messages."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Blobs are stored in containers within a storage account."
+  },
+  {
+    "id": 48,
+    "domain": "D3",
+    "scenario": "Which Blob access tier has the lowest storage cost but requires hours to rehydrate data?",
+    "options": [
+      {
+        "text": "Archive",
+        "note": ""
+      },
+      {
+        "text": "Hot",
+        "note": "Frequent access."
+      },
+      {
+        "text": "Cool",
+        "note": "Infrequent, instant access."
+      },
+      {
+        "text": "Cold",
+        "note": "Rare, but instant access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Archive is offline; you must rehydrate to hot, cool or cold before reading."
+  },
+  {
+    "id": 49,
+    "domain": "D3",
+    "scenario": "Which feature turns Blob Storage into Azure Data Lake Storage Gen2?",
+    "options": [
+      {
+        "text": "Enabling a hierarchical namespace",
+        "note": ""
+      },
+      {
+        "text": "Turning on soft delete",
+        "note": "Recovery feature."
+      },
+      {
+        "text": "Choosing the archive tier",
+        "note": "Access tier."
+      },
+      {
+        "text": "Adding a private endpoint to the account",
+        "note": "Network feature."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hierarchical namespace adds directories and POSIX-like permissions for analytics."
+  },
+  {
+    "id": 50,
+    "domain": "D3",
+    "scenario": "Which Azure service provides cloud file shares that can be mounted with SMB?",
+    "options": [
+      {
+        "text": "Azure Files",
+        "note": ""
+      },
+      {
+        "text": "Azure Blob Storage",
+        "note": "Object storage."
+      },
+      {
+        "text": "Azure Table storage",
+        "note": "NoSQL table."
+      },
+      {
+        "text": "Azure Cosmos DB",
+        "note": "Database."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Azure Files also supports NFS shares on premium accounts."
+  },
+  {
+    "id": 51,
+    "domain": "D3",
+    "scenario": "Which Azure Storage service stores key-value entities with a partition key and row key?",
+    "options": [
+      {
+        "text": "Azure Table storage",
+        "note": ""
+      },
+      {
+        "text": "Azure Files",
+        "note": "File shares."
+      },
+      {
+        "text": "Azure Blob Storage",
+        "note": "Objects."
+      },
+      {
+        "text": "Azure Disk Storage",
+        "note": "VM disks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cosmos DB for Table offers the same API with more performance and global distribution."
+  },
+  {
+    "id": 52,
+    "domain": "D3",
+    "scenario": "Which Azure database is globally distributed, multi-model NoSQL with single-digit millisecond latency?",
+    "options": [
+      {
+        "text": "Azure Cosmos DB",
+        "note": ""
+      },
+      {
+        "text": "Azure SQL Database",
+        "note": "Relational."
+      },
+      {
+        "text": "Azure Database for MySQL",
+        "note": "Relational."
+      },
+      {
+        "text": "Azure Synapse Analytics",
+        "note": "Analytics."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cosmos DB can replicate to any Azure region and offers multiple consistency levels."
+  },
+  {
+    "id": 53,
+    "domain": "D3",
+    "scenario": "Which Azure Cosmos DB API stores JSON documents and is queried with a SQL-like language?",
+    "options": [
+      {
+        "text": "API for NoSQL",
+        "note": ""
+      },
+      {
+        "text": "API for Apache Gremlin",
+        "note": "Graph queries."
+      },
+      {
+        "text": "API for Apache Cassandra",
+        "note": "Column-family, CQL."
+      },
+      {
+        "text": "API for Table",
+        "note": "Key-value."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The NoSQL API is Cosmos DB's native API."
+  },
+  {
+    "id": 54,
+    "domain": "D3",
+    "scenario": "A company is moving a MongoDB app to Azure with minimal code changes. Which service fits?",
+    "options": [
+      {
+        "text": "Azure Cosmos DB for MongoDB",
+        "note": ""
+      },
+      {
+        "text": "Azure SQL Database",
+        "note": "Relational."
+      },
+      {
+        "text": "Azure Database for PostgreSQL",
+        "note": "Relational."
+      },
+      {
+        "text": "Azure Files",
+        "note": "File shares."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cosmos DB for MongoDB is wire-protocol compatible with MongoDB drivers."
+  },
+  {
+    "id": 55,
+    "domain": "D3",
+    "scenario": "Which Azure Cosmos DB API is best for data about relationships, like social networks?",
+    "options": [
+      {
+        "text": "API for Apache Gremlin (graph)",
+        "note": ""
+      },
+      {
+        "text": "API for Table (key-value)",
+        "note": "Key-value."
+      },
+      {
+        "text": "API for MongoDB",
+        "note": "Documents."
+      },
+      {
+        "text": "API for Cassandra",
+        "note": "Wide-column."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Graph databases store nodes (vertices) and relationships (edges)."
+  },
+  {
+    "id": 56,
+    "domain": "D3",
+    "scenario": "Which Cosmos DB API suits apps already using Apache Cassandra's wide-column model?",
+    "options": [
+      {
+        "text": "API for Apache Cassandra",
+        "note": ""
+      },
+      {
+        "text": "API for Gremlin",
+        "note": "Graph."
+      },
+      {
+        "text": "API for NoSQL",
+        "note": "Documents."
+      },
+      {
+        "text": "API for PostgreSQL (distributed)",
+        "note": "Distributed relational."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Apps can keep using CQL queries."
+  },
+  {
+    "id": 57,
+    "domain": "D3",
+    "scenario": "In Azure Cosmos DB, what does the partition key do?",
+    "options": [
+      {
+        "text": "Distributes data across physical partitions for scale",
+        "note": ""
+      },
+      {
+        "text": "Encrypts each document with its own key",
+        "note": "It doesn't encrypt."
+      },
+      {
+        "text": "Sets the backup schedule for the container",
+        "note": "Not its role."
+      },
+      {
+        "text": "Defines user permissions",
+        "note": "Not its role."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Choose a key with many distinct values to spread load evenly."
+  },
+  {
+    "id": 58,
+    "domain": "D3",
+    "scenario": "Which unit measures throughput in Azure Cosmos DB?",
+    "options": [
+      {
+        "text": "Request units (RUs)",
+        "note": ""
+      },
+      {
+        "text": "DTUs",
+        "note": "Azure SQL Database."
+      },
+      {
+        "text": "vCores only",
+        "note": "Not the throughput unit."
+      },
+      {
+        "text": "IOPS per disk",
+        "note": "Disk storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Throughput can be provisioned, autoscale or serverless."
+  },
+  {
+    "id": 59,
+    "domain": "D3",
+    "scenario": "What's the main trade-off when choosing a consistency level in Cosmos DB?",
+    "options": [
+      {
+        "text": "Stronger consistency means higher latency and lower availability",
+        "note": ""
+      },
+      {
+        "text": "Weaker consistency always uses more storage space",
+        "note": "Not the trade-off."
+      },
+      {
+        "text": "Consistency settings only affect backup timing",
+        "note": "Not true."
+      },
+      {
+        "text": "There is no trade-off",
+        "note": "There is."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Levels range from strong to bounded staleness, session, consistent prefix and eventual."
+  },
+  {
+    "id": 60,
+    "domain": "D3",
+    "scenario": "Which is a typical use case for non-relational databases?",
+    "options": [
+      {
+        "text": "Product catalogs with varying attributes",
+        "note": ""
+      },
+      {
+        "text": "Double-entry accounting ledgers",
+        "note": "Usually relational."
+      },
+      {
+        "text": "Strictly normalized HR records with joins",
+        "note": "Usually relational."
+      },
+      {
+        "text": "Complex multi-table joins",
+        "note": "Relational strength."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NoSQL suits flexible schemas, high scale and low latency."
+  },
+  {
+    "id": 61,
+    "domain": "D3",
+    "scenario": "Which Azure Storage redundancy option copies data to a secondary region?",
+    "options": [
+      {
+        "text": "Geo-redundant storage (GRS)",
+        "note": ""
+      },
+      {
+        "text": "Locally redundant storage (LRS)",
+        "note": "One datacenter."
+      },
+      {
+        "text": "Zone-redundant storage (ZRS)",
+        "note": "Zones in one region."
+      },
+      {
+        "text": "Premium SSD",
+        "note": "A disk type."
+      }
+    ],
+    "answer": 0,
+    "explanation": "GZRS combines zone redundancy with a secondary region."
+  },
+  {
+    "id": 62,
+    "domain": "D3",
+    "scenario": "Which type of NoSQL database stores data as simple pairs for very fast lookups?",
+    "options": [
+      {
+        "text": "Key-value store",
+        "note": ""
+      },
+      {
+        "text": "Graph database",
+        "note": "Relationships."
+      },
+      {
+        "text": "Column-family store",
+        "note": "Wide columns."
+      },
+      {
+        "text": "Relational database",
+        "note": "Tables and joins."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Azure Table storage and Cosmos DB for Table are key-value stores."
+  },
+  {
+    "id": 63,
+    "domain": "D3",
+    "scenario": "Which feature lets you recover accidentally deleted blobs within a retention period?",
+    "options": [
+      {
+        "text": "Soft delete",
+        "note": ""
+      },
+      {
+        "text": "Archive tier",
+        "note": "Low-cost storage."
+      },
+      {
+        "text": "Hierarchical namespace",
+        "note": "Directory structure."
+      },
+      {
+        "text": "Static website hosting",
+        "note": "Hosts web pages."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Versioning and point-in-time restore add more protection."
+  },
+  {
+    "id": 64,
+    "domain": "D4",
+    "scenario": "What is Microsoft Fabric?",
+    "options": [
+      {
+        "text": "A unified analytics platform with a shared data lake (OneLake)",
+        "note": ""
+      },
+      {
+        "text": "A relational database engine for OLTP apps",
+        "note": "Not Fabric itself."
+      },
+      {
+        "text": "A virtual network service for hybrid connectivity",
+        "note": "Networking."
+      },
+      {
+        "text": "An identity service",
+        "note": "That's Entra ID."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fabric includes Data Factory, Data Engineering, Data Warehouse, Real-Time Intelligence and Power BI."
+  },
+  {
+    "id": 65,
+    "domain": "D4",
+    "scenario": "What is OneLake in Microsoft Fabric?",
+    "options": [
+      {
+        "text": "A single logical data lake for the whole organization",
+        "note": ""
+      },
+      {
+        "text": "A backup vault for Azure virtual machines",
+        "note": "Not OneLake."
+      },
+      {
+        "text": "A Cosmos DB API",
+        "note": "Not OneLake."
+      },
+      {
+        "text": "A color theme for Power BI reports",
+        "note": "Not OneLake."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OneLake is built on Azure Data Lake Storage Gen2 and stores tables in Delta Parquet format."
+  },
+  {
+    "id": 66,
+    "domain": "D4",
+    "scenario": "Which Fabric item combines data lake files with tables you can query with SQL and Spark?",
+    "options": [
+      {
+        "text": "Lakehouse",
+        "note": ""
+      },
+      {
+        "text": "Eventstream",
+        "note": "Ingests streaming data."
+      },
+      {
+        "text": "Power BI dashboard",
+        "note": "Visualization."
+      },
+      {
+        "text": "Dataflow only",
+        "note": "Data preparation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A lakehouse stores data in Delta format in OneLake."
+  },
+  {
+    "id": 67,
+    "domain": "D4",
+    "scenario": "Which open table format adds transactions and versioning to data lake files?",
+    "options": [
+      {
+        "text": "Delta Lake",
+        "note": ""
+      },
+      {
+        "text": "CSV",
+        "note": "Plain text."
+      },
+      {
+        "text": "XML",
+        "note": "Markup."
+      },
+      {
+        "text": "ZIP",
+        "note": "Compression."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Delta tables enable ACID transactions and time travel on Parquet files."
+  },
+  {
+    "id": 68,
+    "domain": "D4",
+    "scenario": "Which service orchestrates data movement and transformation with pipelines and connectors?",
+    "options": [
+      {
+        "text": "Azure Data Factory",
+        "note": ""
+      },
+      {
+        "text": "Azure Key Vault",
+        "note": "Secrets."
+      },
+      {
+        "text": "Azure Bastion",
+        "note": "VM access."
+      },
+      {
+        "text": "Azure DNS",
+        "note": "Name resolution."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fabric Data Factory provides similar pipelines inside Fabric."
+  },
+  {
+    "id": 69,
+    "domain": "D4",
+    "scenario": "What is ETL?",
+    "options": [
+      {
+        "text": "Extract, transform, load",
+        "note": ""
+      },
+      {
+        "text": "Encrypt, transfer, log",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "Evaluate, test, launch",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "Export, tabulate, link",
+        "note": "Not the meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ELT loads raw data first and transforms it in the destination."
+  },
+  {
+    "id": 70,
+    "domain": "D4",
+    "scenario": "Which service is an Apache Spark-based analytics platform for data engineering and data science?",
+    "options": [
+      {
+        "text": "Azure Databricks",
+        "note": ""
+      },
+      {
+        "text": "Azure SQL Database",
+        "note": "Relational database."
+      },
+      {
+        "text": "Azure Files",
+        "note": "File shares."
+      },
+      {
+        "text": "Azure Monitor",
+        "note": "Monitoring."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Spark also runs in Microsoft Fabric and Azure Synapse Analytics."
+  },
+  {
+    "id": 71,
+    "domain": "D4",
+    "scenario": "Which Microsoft tool creates interactive reports and dashboards from data models?",
+    "options": [
+      {
+        "text": "Power BI",
+        "note": ""
+      },
+      {
+        "text": "Azure Data Factory",
+        "note": "Moves data."
+      },
+      {
+        "text": "Azure Event Hubs",
+        "note": "Ingests events."
+      },
+      {
+        "text": "Azure Stream Analytics",
+        "note": "Processes streams."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Power BI Desktop builds reports; the Power BI service shares them."
+  },
+  {
+    "id": 72,
+    "domain": "D4",
+    "scenario": "In Power BI, what's the difference between a report and a dashboard?",
+    "options": [
+      {
+        "text": "Reports have multiple interactive pages; dashboards are single-page pinned tiles",
+        "note": ""
+      },
+      {
+        "text": "They're the same thing",
+        "note": "Different features."
+      },
+      {
+        "text": "Dashboards can only be built in Excel, reports only in Power BI",
+        "note": "Not true."
+      },
+      {
+        "text": "Reports hold raw tables; dashboards hold the visuals",
+        "note": "Both contain visuals."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Dashboards are created in the Power BI service by pinning visuals from reports."
+  },
+  {
+    "id": 73,
+    "domain": "D4",
+    "scenario": "Which Power BI visual is best for showing a trend over time?",
+    "options": [
+      {
+        "text": "Line chart",
+        "note": ""
+      },
+      {
+        "text": "Pie chart",
+        "note": "Shows parts of a whole."
+      },
+      {
+        "text": "Card",
+        "note": "A single number."
+      },
+      {
+        "text": "Map",
+        "note": "Geographic data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Bar or column charts compare categories."
+  },
+  {
+    "id": 74,
+    "domain": "D4",
+    "scenario": "Which service ingests millions of events per second from apps and devices?",
+    "options": [
+      {
+        "text": "Azure Event Hubs",
+        "note": ""
+      },
+      {
+        "text": "Azure SQL Database",
+        "note": "Transactional database."
+      },
+      {
+        "text": "Azure Files",
+        "note": "File shares."
+      },
+      {
+        "text": "Power BI",
+        "note": "Visualization."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Event Hubs is often paired with Stream Analytics or Fabric Real-Time Intelligence."
+  },
+  {
+    "id": 75,
+    "domain": "D4",
+    "scenario": "Which service runs SQL-like queries on streaming data in real time?",
+    "options": [
+      {
+        "text": "Azure Stream Analytics",
+        "note": ""
+      },
+      {
+        "text": "Azure Data Factory",
+        "note": "Mostly batch pipelines."
+      },
+      {
+        "text": "Azure Blob Storage",
+        "note": "Storage."
+      },
+      {
+        "text": "Azure SQL Managed Instance",
+        "note": "Relational database."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Stream Analytics supports windowing functions like tumbling and hopping windows."
+  },
+  {
+    "id": 76,
+    "domain": "D4",
+    "scenario": "Which Fabric experience handles streaming data with eventstreams and KQL databases?",
+    "options": [
+      {
+        "text": "Real-Time Intelligence",
+        "note": ""
+      },
+      {
+        "text": "Data Warehouse",
+        "note": "Batch analytics with T-SQL."
+      },
+      {
+        "text": "Power BI only",
+        "note": "Visualization."
+      },
+      {
+        "text": "Data Factory only",
+        "note": "Pipelines."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Eventhouses store event data and are queried with Kusto Query Language (KQL)."
+  },
+  {
+    "id": 77,
+    "domain": "D4",
+    "scenario": "What is a data warehouse?",
+    "options": [
+      {
+        "text": "A store of structured data optimized for analytical queries",
+        "note": ""
+      },
+      {
+        "text": "A store of raw files in any format",
+        "note": "That's a data lake."
+      },
+      {
+        "text": "A cache that stores frequently used web pages",
+        "note": "Not a warehouse."
+      },
+      {
+        "text": "A transactional order database",
+        "note": "That's OLTP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Warehouses usually use star or snowflake schemas."
+  },
+  {
+    "id": 78,
+    "domain": "D4",
+    "scenario": "Which service provides an enterprise analytics platform combining SQL pools, Spark and pipelines in Azure?",
+    "options": [
+      {
+        "text": "Azure Synapse Analytics",
+        "note": ""
+      },
+      {
+        "text": "Azure Cosmos DB",
+        "note": "NoSQL database."
+      },
+      {
+        "text": "Azure Database for PostgreSQL",
+        "note": "Relational database."
+      },
+      {
+        "text": "Azure Files",
+        "note": "File shares."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Microsoft Fabric is the newer unified platform for many of these workloads."
+  },
+  {
+    "id": 79,
+    "domain": "D4",
+    "scenario": "In data modeling for Power BI, what is a measure?",
+    "options": [
+      {
+        "text": "A calculation, like total sales, evaluated in context",
+        "note": ""
+      },
+      {
+        "text": "A table of customers",
+        "note": "That's a dimension."
+      },
+      {
+        "text": "A connection to an external data source",
+        "note": "Not a measure."
+      },
+      {
+        "text": "A report page",
+        "note": "Not a measure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Measures are written in DAX (Data Analysis Expressions)."
+  },
+  {
+    "id": 80,
+    "domain": "D4",
+    "scenario": "Why is a star schema common in analytical models?",
+    "options": [
+      {
+        "text": "It simplifies queries and improves performance",
+        "note": ""
+      },
+      {
+        "text": "It removes the need for any keys between tables",
+        "note": "Uses keys."
+      },
+      {
+        "text": "It stores only unstructured data",
+        "note": "Not true."
+      },
+      {
+        "text": "It prevents all data changes",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Facts link to dimensions by keys, making filtering and aggregation fast."
+  },
+  {
+    "id": 81,
+    "domain": "D4",
+    "scenario": "What's the main difference between batch and streaming analytics latency?",
+    "options": [
+      {
+        "text": "Streaming produces results in seconds; batch in minutes or hours",
+        "note": ""
+      },
+      {
+        "text": "Batch always returns results faster than streaming",
+        "note": "Not for latency."
+      },
+      {
+        "text": "Streaming only runs at night",
+        "note": "It runs continuously."
+      },
+      {
+        "text": "They have identical latency",
+        "note": "They differ."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Many architectures combine both (lambda or kappa patterns)."
+  },
+  {
+    "id": 82,
+    "domain": "D4",
+    "scenario": "Which Fabric item supports T-SQL for reading and writing structured data with full transactional support?",
+    "options": [
+      {
+        "text": "Warehouse",
+        "note": ""
+      },
+      {
+        "text": "Eventstream",
+        "note": "Ingests streams."
+      },
+      {
+        "text": "Notebook",
+        "note": "Spark code."
+      },
+      {
+        "text": "Semantic model",
+        "note": "Power BI model."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A lakehouse's SQL analytics endpoint is read-only; the warehouse supports writes."
+  },
+  {
+    "id": 83,
+    "domain": "D4",
+    "scenario": "A team wants to clean and shape data visually with Power Query before loading it. What should they use?",
+    "options": [
+      {
+        "text": "Dataflows",
+        "note": ""
+      },
+      {
+        "text": "Event Hubs",
+        "note": "Ingests events."
+      },
+      {
+        "text": "Key Vault",
+        "note": "Secrets."
+      },
+      {
+        "text": "Azure Bastion",
+        "note": "VM access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Dataflows Gen2 in Fabric use Power Query's low-code editor."
+  },
+  {
+    "id": 84,
+    "domain": "D4",
+    "scenario": "What is a semantic model in Power BI?",
+    "options": [
+      {
+        "text": "Tables, relationships and measures that reports are built on",
+        "note": ""
+      },
+      {
+        "text": "A machine learning model trained on report data",
+        "note": "Not in this context."
+      },
+      {
+        "text": "A storage account type",
+        "note": "Not a model."
+      },
+      {
+        "text": "A security policy",
+        "note": "Not a model."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Semantic models were formerly called datasets."
+  },
+  {
+    "id": 85,
+    "domain": "D4",
+    "scenario": "Which tool lets business users explore data with natural language questions in Power BI?",
+    "options": [
+      {
+        "text": "Copilot in Power BI (or Q&A)",
+        "note": ""
+      },
+      {
+        "text": "Azure Bastion",
+        "note": "VM access."
+      },
+      {
+        "text": "Azure Data Factory",
+        "note": "Pipelines."
+      },
+      {
+        "text": "SQL Server Agent jobs",
+        "note": "Job scheduling."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Copilot can also draft report pages and summaries."
+  },
+  {
+    "id": 86,
+    "domain": "D4",
+    "scenario": "What's the main purpose of data ingestion in an analytics solution?",
+    "options": [
+      {
+        "text": "Bringing data from sources into the analytics store",
+        "note": ""
+      },
+      {
+        "text": "Deleting old data",
+        "note": "Not ingestion."
+      },
+      {
+        "text": "Encrypting database backups at rest",
+        "note": "Not ingestion."
+      },
+      {
+        "text": "Managing user identities and permissions",
+        "note": "Not ingestion."
+      }
+    ],
+    "answer": 0,
+    "explanation": "After ingestion comes transformation, modeling and visualization."
+  },
+  {
+    "id": 87,
+    "domain": "D4",
+    "scenario": "Which component of a modern data warehouse typically stores raw data before it's transformed?",
+    "options": [
+      {
+        "text": "A data lake (often the bronze layer)",
+        "note": ""
+      },
+      {
+        "text": "A Power BI dashboard",
+        "note": "Presentation."
+      },
+      {
+        "text": "A Power BI semantic model",
+        "note": "The modeled, business-ready layer."
+      },
+      {
+        "text": "A VPN gateway",
+        "note": "Networking."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The medallion architecture uses bronze (raw), silver (cleaned) and gold (business-ready) layers."
+  }
+]

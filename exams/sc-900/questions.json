@@ -1,0 +1,2302 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "Which Zero Trust principle says every access request should be fully authenticated and authorized using all available signals?",
+    "options": [
+      {
+        "text": "Verify explicitly",
+        "note": ""
+      },
+      {
+        "text": "Assume breach",
+        "note": "Limits blast radius and uses analytics."
+      },
+      {
+        "text": "Use least privilege access",
+        "note": "Limits permissions."
+      },
+      {
+        "text": "Trust the corporate network",
+        "note": "The opposite of Zero Trust."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Signals include identity, location, device health, service, data classification and anomalies."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "Which Zero Trust principle recommends segmenting access and using end-to-end encryption to limit damage from an attack?",
+    "options": [
+      {
+        "text": "Assume breach",
+        "note": ""
+      },
+      {
+        "text": "Verify explicitly",
+        "note": "About authenticating every request."
+      },
+      {
+        "text": "Use least privilege access",
+        "note": "About limiting permissions."
+      },
+      {
+        "text": "Defense in depth",
+        "note": "A layered strategy, not a Zero Trust principle."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The three Zero Trust principles are verify explicitly, use least privilege access, and assume breach."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "Which Zero Trust principle is applied by giving just-in-time and just-enough access?",
+    "options": [
+      {
+        "text": "Use least privilege access",
+        "note": ""
+      },
+      {
+        "text": "Assume breach",
+        "note": "About limiting blast radius."
+      },
+      {
+        "text": "Verify explicitly",
+        "note": "About authentication signals."
+      },
+      {
+        "text": "Shared responsibility model",
+        "note": "About cloud duties."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Risk-based adaptive policies and data protection also support least privilege."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "In the shared responsibility model, which responsibility always stays with the customer, whatever the cloud service type?",
+    "options": [
+      {
+        "text": "Information and data",
+        "note": ""
+      },
+      {
+        "text": "Physical hosts",
+        "note": "The cloud provider's in IaaS, PaaS and SaaS."
+      },
+      {
+        "text": "Physical network infrastructure",
+        "note": "The cloud provider's."
+      },
+      {
+        "text": "Physical datacenter security",
+        "note": "The cloud provider's."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Customers also always own devices, accounts and identities."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "In which cloud model does the customer have the MOST responsibility?",
+    "options": [
+      {
+        "text": "Infrastructure as a service (IaaS)",
+        "note": ""
+      },
+      {
+        "text": "Software as a service (SaaS)",
+        "note": "Provider manages the most."
+      },
+      {
+        "text": "Platform as a service (PaaS)",
+        "note": "Provider manages the OS."
+      },
+      {
+        "text": "Responsibility is equal in all models",
+        "note": "Responsibility varies by model."
+      }
+    ],
+    "answer": 0,
+    "explanation": "With IaaS, the customer manages the OS, network controls and apps."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "What is defense in depth?",
+    "options": [
+      {
+        "text": "Using multiple layers of security controls",
+        "note": ""
+      },
+      {
+        "text": "Relying on one strong perimeter firewall for everything",
+        "note": "A single layer."
+      },
+      {
+        "text": "Encrypting only stored data",
+        "note": "One control only."
+      },
+      {
+        "text": "Trusting all users once they're on the internal network",
+        "note": "Contradicts the idea."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Layers include physical, identity, perimeter, network, compute, application and data."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Which part of the CIA triad ensures data hasn't been changed by unauthorized people?",
+    "options": [
+      {
+        "text": "Integrity",
+        "note": ""
+      },
+      {
+        "text": "Confidentiality",
+        "note": "Keeps data secret."
+      },
+      {
+        "text": "Availability",
+        "note": "Keeps data accessible."
+      },
+      {
+        "text": "Authentication",
+        "note": "Proves identity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hashing and digital signatures help verify integrity."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "Which process converts data into an unreadable form that can be reversed with a key?",
+    "options": [
+      {
+        "text": "Encryption",
+        "note": ""
+      },
+      {
+        "text": "Hashing",
+        "note": "One-way; can't be reversed."
+      },
+      {
+        "text": "Compression",
+        "note": "Reduces size."
+      },
+      {
+        "text": "Tokenization of passwords",
+        "note": "Not the general term."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Symmetric encryption uses one key; asymmetric uses a public and private key pair."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Why are passwords stored as salted hashes rather than encrypted?",
+    "options": [
+      {
+        "text": "Hashes can't be reversed to reveal the password",
+        "note": ""
+      },
+      {
+        "text": "Hashes are faster for the server to decrypt later",
+        "note": "Hashes can't be decrypted."
+      },
+      {
+        "text": "Hashes make passwords longer",
+        "note": "Not the purpose."
+      },
+      {
+        "text": "Encryption is not allowed for password storage",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A salt makes identical passwords produce different hashes, defeating precomputed tables."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "What's the difference between authentication and authorization?",
+    "options": [
+      {
+        "text": "Authentication proves identity; authorization grants access",
+        "note": ""
+      },
+      {
+        "text": "They mean the same thing",
+        "note": "They're different steps."
+      },
+      {
+        "text": "Authorization happens first, then authentication",
+        "note": "Authentication comes first."
+      },
+      {
+        "text": "Authentication decides which permissions a user gets",
+        "note": "That's authorization."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AuthN answers 'who are you?'; AuthZ answers 'what can you do?'."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "Which term describes rules from governments or industry that organizations must follow for data?",
+    "options": [
+      {
+        "text": "Regulatory compliance",
+        "note": ""
+      },
+      {
+        "text": "Data residency requirements only",
+        "note": "One aspect: where data is stored."
+      },
+      {
+        "text": "Encryption at rest for all data",
+        "note": "A control."
+      },
+      {
+        "text": "Zero Trust",
+        "note": "A security model."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Related concepts: data residency, data sovereignty and data privacy."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "What is data sovereignty?",
+    "options": [
+      {
+        "text": "Data is subject to the laws of the country where it's collected or stored",
+        "note": ""
+      },
+      {
+        "text": "Data must always be encrypted when stored anywhere",
+        "note": "A control, not sovereignty."
+      },
+      {
+        "text": "Data stored in the cloud becomes the provider's property",
+        "note": "Not true."
+      },
+      {
+        "text": "Data can never leave the device",
+        "note": "Not the meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data residency is about where data is physically stored."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "Which describes an identity provider (IdP)?",
+    "options": [
+      {
+        "text": "A service that authenticates users and issues tokens",
+        "note": ""
+      },
+      {
+        "text": "A firewall that blocks unauthorized network traffic",
+        "note": "Network security."
+      },
+      {
+        "text": "A central database that stores shared files",
+        "note": "Storage."
+      },
+      {
+        "text": "A backup service",
+        "note": "Data protection."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Modern authentication uses protocols like OpenID Connect, OAuth 2.0 and SAML. Microsoft Entra ID is an IdP."
+  },
+  {
+    "id": 14,
+    "domain": "D2",
+    "scenario": "What is Microsoft Entra ID?",
+    "options": [
+      {
+        "text": "A cloud-based identity and access management service",
+        "note": ""
+      },
+      {
+        "text": "An on-premises Windows Server domain controller",
+        "note": "That's Active Directory Domain Services."
+      },
+      {
+        "text": "An antivirus product for Windows devices",
+        "note": "That's Defender."
+      },
+      {
+        "text": "A data classification tool",
+        "note": "That's Purview."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Entra ID was formerly called Azure Active Directory."
+  },
+  {
+    "id": 15,
+    "domain": "D2",
+    "scenario": "Which feature lets users reset their own forgotten password without calling the help desk?",
+    "options": [
+      {
+        "text": "Self-service password reset (SSPR)",
+        "note": ""
+      },
+      {
+        "text": "Privileged Identity Management (PIM)",
+        "note": "Manages admin roles."
+      },
+      {
+        "text": "Conditional Access",
+        "note": "Access policies."
+      },
+      {
+        "text": "Access reviews",
+        "note": "Reviews access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SSPR requires users to register authentication methods first."
+  },
+  {
+    "id": 16,
+    "domain": "D2",
+    "scenario": "Which Entra feature evaluates signals like user, location and device to allow, block or require MFA?",
+    "options": [
+      {
+        "text": "Conditional Access",
+        "note": ""
+      },
+      {
+        "text": "Entra Connect",
+        "note": "Syncs identities."
+      },
+      {
+        "text": "Access packages",
+        "note": "Bundle resources."
+      },
+      {
+        "text": "Password protection",
+        "note": "Blocks weak passwords."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Conditional Access policies are 'if-then' statements: if conditions are met, then apply controls."
+  },
+  {
+    "id": 17,
+    "domain": "D2",
+    "scenario": "Which authentication method is passwordless?",
+    "options": [
+      {
+        "text": "A FIDO2 security key or passkey",
+        "note": ""
+      },
+      {
+        "text": "A password plus a one-time SMS code",
+        "note": "Still uses a password."
+      },
+      {
+        "text": "A long, complex password",
+        "note": "Still a password."
+      },
+      {
+        "text": "Security questions answered at each sign-in",
+        "note": "Weak and not passwordless."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Windows Hello for Business and Microsoft Authenticator are other passwordless options."
+  },
+  {
+    "id": 18,
+    "domain": "D2",
+    "scenario": "Which MFA method is considered the least secure?",
+    "options": [
+      {
+        "text": "SMS text message codes",
+        "note": ""
+      },
+      {
+        "text": "FIDO2 security keys",
+        "note": "Phishing-resistant."
+      },
+      {
+        "text": "Windows Hello for Business",
+        "note": "Strong."
+      },
+      {
+        "text": "Microsoft Authenticator push with number matching",
+        "note": "Strong."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SMS can be intercepted or redirected by SIM swapping."
+  },
+  {
+    "id": 19,
+    "domain": "D2",
+    "scenario": "Which service provides just-in-time, time-limited activation of administrator roles?",
+    "options": [
+      {
+        "text": "Privileged Identity Management (PIM)",
+        "note": ""
+      },
+      {
+        "text": "Microsoft Entra ID Protection",
+        "note": "Detects risky sign-ins."
+      },
+      {
+        "text": "Self-service password reset",
+        "note": "Resets passwords."
+      },
+      {
+        "text": "Microsoft Entra Connect Sync",
+        "note": "Syncs users."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PIM can require approval and justification, and it logs activations."
+  },
+  {
+    "id": 20,
+    "domain": "D2",
+    "scenario": "Which service detects risky sign-ins, such as leaked credentials or impossible travel?",
+    "options": [
+      {
+        "text": "Microsoft Entra ID Protection",
+        "note": ""
+      },
+      {
+        "text": "Microsoft Purview",
+        "note": "Data governance."
+      },
+      {
+        "text": "Azure Firewall",
+        "note": "Network filtering."
+      },
+      {
+        "text": "Microsoft Defender for Cloud Apps",
+        "note": "Controls SaaS app usage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Risk levels can feed Conditional Access policies, such as requiring a password change."
+  },
+  {
+    "id": 21,
+    "domain": "D2",
+    "scenario": "Which Entra ID Governance feature lets managers regularly confirm whether users still need access?",
+    "options": [
+      {
+        "text": "Access reviews",
+        "note": ""
+      },
+      {
+        "text": "Conditional Access",
+        "note": "Real-time access control."
+      },
+      {
+        "text": "Password protection",
+        "note": "Weak passwords."
+      },
+      {
+        "text": "Entra Connect",
+        "note": "Hybrid sync."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Access reviews help remove stale access to groups, apps and roles."
+  },
+  {
+    "id": 22,
+    "domain": "D2",
+    "scenario": "Which feature bundles groups, apps and sites so users can request access in one step?",
+    "options": [
+      {
+        "text": "Entitlement management access packages",
+        "note": ""
+      },
+      {
+        "text": "Administrative units for delegation",
+        "note": "Delegate admin scope."
+      },
+      {
+        "text": "Dynamic membership groups",
+        "note": "Rule-based membership."
+      },
+      {
+        "text": "Security defaults for the tenant",
+        "note": "Baseline MFA settings."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Access packages can include approvals and expiration dates."
+  },
+  {
+    "id": 23,
+    "domain": "D2",
+    "scenario": "Which tool synchronizes on-premises Active Directory users to Microsoft Entra ID?",
+    "options": [
+      {
+        "text": "Microsoft Entra Connect (or Cloud Sync)",
+        "note": ""
+      },
+      {
+        "text": "Microsoft Entra Domain Services",
+        "note": "Managed domain services, not sync."
+      },
+      {
+        "text": "Microsoft Intune",
+        "note": "Device management."
+      },
+      {
+        "text": "Azure Bastion",
+        "note": "Secure VM access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hybrid sign-in options include password hash sync, pass-through authentication and federation."
+  },
+  {
+    "id": 24,
+    "domain": "D2",
+    "scenario": "Which hybrid authentication option stores a hash of the on-premises password hash in the cloud?",
+    "options": [
+      {
+        "text": "Password hash synchronization",
+        "note": ""
+      },
+      {
+        "text": "Pass-through authentication",
+        "note": "Validates on premises."
+      },
+      {
+        "text": "Federation",
+        "note": "Uses an external IdP like AD FS."
+      },
+      {
+        "text": "Kerberos constrained delegation",
+        "note": "Not a cloud sign-in method."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Password hash sync is the simplest option and also enables leaked credential detection."
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "scenario": "A company wants partner employees to sign in to its apps using their own work accounts. Which feature fits?",
+    "options": [
+      {
+        "text": "Entra External ID B2B collaboration",
+        "note": ""
+      },
+      {
+        "text": "Creating local accounts for partners",
+        "note": "More to manage."
+      },
+      {
+        "text": "Sharing admin passwords",
+        "note": "Never."
+      },
+      {
+        "text": "Self-service password reset",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "B2B guests authenticate with their home identity provider."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "Which identity type should an Azure app use to access Key Vault without storing credentials in code?",
+    "options": [
+      {
+        "text": "A managed identity",
+        "note": ""
+      },
+      {
+        "text": "A shared user account",
+        "note": "Not for apps."
+      },
+      {
+        "text": "A guest account",
+        "note": "For external users."
+      },
+      {
+        "text": "A global administrator",
+        "note": "Far too much privilege."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Managed identities are service principals whose credentials Azure manages automatically."
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "scenario": "Which Entra feature blocks users from setting commonly used weak passwords?",
+    "options": [
+      {
+        "text": "Microsoft Entra Password Protection",
+        "note": ""
+      },
+      {
+        "text": "Conditional Access",
+        "note": "Controls access at sign-in."
+      },
+      {
+        "text": "Self-service password reset (SSPR)",
+        "note": "Lets users reset passwords; it does not ban weak ones."
+      },
+      {
+        "text": "Privileged Identity Management",
+        "note": "Admin roles."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It uses a global banned list plus an optional custom banned list."
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "scenario": "What are security defaults in Microsoft Entra ID?",
+    "options": [
+      {
+        "text": "Preconfigured baseline settings like requiring MFA",
+        "note": ""
+      },
+      {
+        "text": "Custom Conditional Access policies",
+        "note": "More flexible, needs P1."
+      },
+      {
+        "text": "Default Azure Firewall rules for all VNets",
+        "note": "Not Entra."
+      },
+      {
+        "text": "Default sensitivity labels for documents",
+        "note": "Purview."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Security defaults are free and good for organizations without Conditional Access."
+  },
+  {
+    "id": 29,
+    "domain": "D2",
+    "scenario": "What is a device's state when it's registered to Entra ID but owned by the user (BYOD)?",
+    "options": [
+      {
+        "text": "Microsoft Entra registered",
+        "note": ""
+      },
+      {
+        "text": "Microsoft Entra joined",
+        "note": "Organization-owned devices."
+      },
+      {
+        "text": "Hybrid joined",
+        "note": "Joined to on-premises AD too."
+      },
+      {
+        "text": "Active Directory domain joined",
+        "note": "On-premises AD only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Joined devices are organization owned; hybrid joined devices are in both AD DS and Entra ID."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "Which Entra ID role type controls who can manage Entra ID itself, such as creating users?",
+    "options": [
+      {
+        "text": "Microsoft Entra roles",
+        "note": ""
+      },
+      {
+        "text": "Azure RBAC roles",
+        "note": "Manage Azure resources."
+      },
+      {
+        "text": "SharePoint permissions",
+        "note": "Site access."
+      },
+      {
+        "text": "NTFS permissions",
+        "note": "File system."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Azure RBAC roles (Owner, Contributor, Reader) apply to Azure resources instead."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "Which Microsoft product provides secure access to internal apps and the internet as part of Global Secure Access?",
+    "options": [
+      {
+        "text": "Microsoft Entra Private Access and Internet Access",
+        "note": ""
+      },
+      {
+        "text": "Azure DDoS Network Protection",
+        "note": "DDoS mitigation."
+      },
+      {
+        "text": "Microsoft Purview DLP",
+        "note": "Data loss prevention."
+      },
+      {
+        "text": "Microsoft Defender for Cloud Apps",
+        "note": "SaaS app control (CASB)."
+      }
+    ],
+    "answer": 0,
+    "explanation": "These are Microsoft's identity-centric security service edge (SSE) solutions."
+  },
+  {
+    "id": 32,
+    "domain": "D2",
+    "scenario": "Which protocol is commonly used for modern app authorization, letting apps access APIs for a user?",
+    "options": [
+      {
+        "text": "OAuth 2.0",
+        "note": ""
+      },
+      {
+        "text": "NTLM v2",
+        "note": "Legacy Windows authentication."
+      },
+      {
+        "text": "Kerberos",
+        "note": "Used by on-premises Active Directory."
+      },
+      {
+        "text": "SMTP",
+        "note": "Email delivery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OpenID Connect adds authentication on top of OAuth 2.0; SAML is common for enterprise SSO."
+  },
+  {
+    "id": 33,
+    "domain": "D2",
+    "scenario": "Which feature gives users one sign-in for many applications?",
+    "options": [
+      {
+        "text": "Single sign-on (SSO)",
+        "note": ""
+      },
+      {
+        "text": "Multifactor authentication",
+        "note": "Adds factors."
+      },
+      {
+        "text": "Password expiration",
+        "note": "Forces changes."
+      },
+      {
+        "text": "Account lockout",
+        "note": "Blocks after failures."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SSO reduces password fatigue and helps users avoid reusing passwords."
+  },
+  {
+    "id": 34,
+    "domain": "D2",
+    "scenario": "Which logs show who signed in to Entra ID, from where, and whether it succeeded?",
+    "options": [
+      {
+        "text": "Sign-in logs",
+        "note": ""
+      },
+      {
+        "text": "Audit logs",
+        "note": "Show changes to the directory."
+      },
+      {
+        "text": "Provisioning logs",
+        "note": "Show provisioning activity."
+      },
+      {
+        "text": "Activity log for VMs",
+        "note": "Azure resource operations."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Audit logs record changes such as adding users or changing roles."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "Which Entra ID Governance feature automates tasks when employees join, move or leave?",
+    "options": [
+      {
+        "text": "Lifecycle workflows",
+        "note": ""
+      },
+      {
+        "text": "Conditional Access",
+        "note": "Access at sign-in."
+      },
+      {
+        "text": "Password protection",
+        "note": "Weak passwords."
+      },
+      {
+        "text": "Security defaults",
+        "note": "Baseline settings."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Examples include sending a welcome email or removing access on the last day."
+  },
+  {
+    "id": 36,
+    "domain": "D2",
+    "scenario": "What does Microsoft Entra Verified ID provide?",
+    "options": [
+      {
+        "text": "Digital credentials that users can share and others verify",
+        "note": ""
+      },
+      {
+        "text": "Antivirus protection for user endpoints",
+        "note": "Defender."
+      },
+      {
+        "text": "Network firewalls for hybrid networks",
+        "note": "Azure Firewall."
+      },
+      {
+        "text": "Email encryption only",
+        "note": "Purview."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Verified ID is based on open standards for decentralized identity."
+  },
+  {
+    "id": 37,
+    "domain": "D2",
+    "scenario": "Which group type adds members automatically based on user attributes like department?",
+    "options": [
+      {
+        "text": "Dynamic membership group",
+        "note": ""
+      },
+      {
+        "text": "Assigned membership group",
+        "note": "Members added manually."
+      },
+      {
+        "text": "Microsoft 365 group",
+        "note": "Membership is assigned unless set to dynamic."
+      },
+      {
+        "text": "Administrative unit",
+        "note": "Delegates admin scope."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Dynamic groups require Microsoft Entra ID P1 or higher."
+  },
+  {
+    "id": 38,
+    "domain": "D2",
+    "scenario": "Which license tier is needed for risk-based Conditional Access with Entra ID Protection?",
+    "options": [
+      {
+        "text": "Microsoft Entra ID P2",
+        "note": ""
+      },
+      {
+        "text": "Microsoft Entra ID Free",
+        "note": "No Conditional Access."
+      },
+      {
+        "text": "Microsoft Entra ID P1",
+        "note": "Conditional Access, but not risk-based."
+      },
+      {
+        "text": "No license is required",
+        "note": "A premium feature."
+      }
+    ],
+    "answer": 0,
+    "explanation": "P2 also includes Privileged Identity Management."
+  },
+  {
+    "id": 39,
+    "domain": "D3",
+    "scenario": "Which Azure service protects resources from distributed denial-of-service attacks with adaptive tuning and attack analytics?",
+    "options": [
+      {
+        "text": "Azure DDoS Protection",
+        "note": ""
+      },
+      {
+        "text": "Azure Bastion",
+        "note": "Secure VM access."
+      },
+      {
+        "text": "Azure Key Vault",
+        "note": "Secrets."
+      },
+      {
+        "text": "Microsoft Defender for Cloud Apps",
+        "note": "SaaS app control."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Basic infrastructure protection is automatic; DDoS Network Protection adds tuning, alerts and support."
+  },
+  {
+    "id": 40,
+    "domain": "D3",
+    "scenario": "Which managed, stateful firewall service filters traffic across Azure virtual networks with threat intelligence?",
+    "options": [
+      {
+        "text": "Azure Firewall",
+        "note": ""
+      },
+      {
+        "text": "Network security groups",
+        "note": "Basic allow/deny rules per subnet or NIC."
+      },
+      {
+        "text": "Azure Bastion",
+        "note": "Remote access."
+      },
+      {
+        "text": "Azure Monitor",
+        "note": "Monitoring."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Azure Firewall supports centralized policies and FQDN filtering."
+  },
+  {
+    "id": 41,
+    "domain": "D3",
+    "scenario": "Which service lets admins connect to VMs over RDP or SSH through the Azure portal without public IP addresses?",
+    "options": [
+      {
+        "text": "Azure Bastion",
+        "note": ""
+      },
+      {
+        "text": "Azure Firewall",
+        "note": "Filters traffic."
+      },
+      {
+        "text": "Azure DDoS Protection",
+        "note": "DDoS defense."
+      },
+      {
+        "text": "Azure Key Vault",
+        "note": "Secrets."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Bastion uses TLS through the browser, reducing exposure of RDP/SSH ports."
+  },
+  {
+    "id": 42,
+    "domain": "D3",
+    "scenario": "Which Azure feature filters traffic to and from resources in a subnet using allow and deny rules?",
+    "options": [
+      {
+        "text": "Network security groups",
+        "note": ""
+      },
+      {
+        "text": "Azure Policy",
+        "note": "Governance rules."
+      },
+      {
+        "text": "Microsoft Sentinel",
+        "note": "SIEM."
+      },
+      {
+        "text": "Microsoft Defender for Office 365",
+        "note": "Email protection."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NSG rules use source, destination, port and protocol with priorities."
+  },
+  {
+    "id": 43,
+    "domain": "D3",
+    "scenario": "Which service protects web apps from attacks like SQL injection and cross-site scripting?",
+    "options": [
+      {
+        "text": "Web Application Firewall (WAF)",
+        "note": ""
+      },
+      {
+        "text": "Network security groups",
+        "note": "Can't inspect HTTP requests."
+      },
+      {
+        "text": "Azure DDoS Protection",
+        "note": "Volumetric attacks."
+      },
+      {
+        "text": "Microsoft Entra Conditional Access",
+        "note": "Identity, not web traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "WAF runs on Application Gateway, Front Door and Azure CDN."
+  },
+  {
+    "id": 44,
+    "domain": "D3",
+    "scenario": "Which service securely stores secrets, keys and certificates?",
+    "options": [
+      {
+        "text": "Azure Key Vault",
+        "note": ""
+      },
+      {
+        "text": "Azure Blob Storage",
+        "note": "Not designed for secrets."
+      },
+      {
+        "text": "Microsoft Sentinel",
+        "note": "SIEM."
+      },
+      {
+        "text": "Azure Bastion",
+        "note": "VM access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Key Vault centralizes secrets and logs access to them."
+  },
+  {
+    "id": 45,
+    "domain": "D3",
+    "scenario": "Which Microsoft service is a cloud-native SIEM and SOAR solution?",
+    "options": [
+      {
+        "text": "Microsoft Sentinel",
+        "note": ""
+      },
+      {
+        "text": "Microsoft Defender for Cloud",
+        "note": "Posture and workload protection."
+      },
+      {
+        "text": "Microsoft Purview",
+        "note": "Compliance."
+      },
+      {
+        "text": "Microsoft Intune",
+        "note": "Device management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sentinel collects data, detects threats, investigates incidents and automates responses with playbooks."
+  },
+  {
+    "id": 46,
+    "domain": "D3",
+    "scenario": "What does SOAR stand for and do?",
+    "options": [
+      {
+        "text": "Security orchestration, automation and response; automates responses",
+        "note": ""
+      },
+      {
+        "text": "Security operations analytics reporting; builds reports",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "System of audit records; stores logs",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "Secure online access routing; routes user traffic",
+        "note": "Not the meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "In Sentinel, automation rules and playbooks (Logic Apps) provide SOAR."
+  },
+  {
+    "id": 47,
+    "domain": "D3",
+    "scenario": "Which feature in Microsoft Defender for Cloud measures your security posture as a percentage?",
+    "options": [
+      {
+        "text": "Secure score",
+        "note": ""
+      },
+      {
+        "text": "Compliance score",
+        "note": "In Purview Compliance Manager."
+      },
+      {
+        "text": "Risk level",
+        "note": "In Entra ID Protection."
+      },
+      {
+        "text": "Exposure index",
+        "note": "Not the name."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Recommendations show what to fix to raise the score."
+  },
+  {
+    "id": 48,
+    "domain": "D3",
+    "scenario": "What are the two main capabilities of Microsoft Defender for Cloud?",
+    "options": [
+      {
+        "text": "Cloud security posture management and workload protection",
+        "note": ""
+      },
+      {
+        "text": "Email filtering and phishing protection",
+        "note": "Defender for Office 365."
+      },
+      {
+        "text": "Identity governance and privileged access management",
+        "note": "Entra."
+      },
+      {
+        "text": "Data classification and labeling",
+        "note": "Purview."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Defender for Cloud covers Azure, hybrid and other clouds like AWS and Google Cloud."
+  },
+  {
+    "id": 49,
+    "domain": "D3",
+    "scenario": "What is Microsoft Defender XDR?",
+    "options": [
+      {
+        "text": "A unified suite correlating threats across endpoints, identities, email and apps",
+        "note": ""
+      },
+      {
+        "text": "A next-generation network firewall for Azure VNets",
+        "note": "Azure Firewall."
+      },
+      {
+        "text": "A password manager for Microsoft 365 users",
+        "note": "Not Defender XDR."
+      },
+      {
+        "text": "A backup service",
+        "note": "Not Defender XDR."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Defender XDR includes Defender for Endpoint, Office 365, Identity and Cloud Apps."
+  },
+  {
+    "id": 50,
+    "domain": "D3",
+    "scenario": "Which service protects email from phishing and malicious attachments in Microsoft 365?",
+    "options": [
+      {
+        "text": "Microsoft Defender for Office 365",
+        "note": ""
+      },
+      {
+        "text": "Microsoft Defender for Identity",
+        "note": "On-premises AD threats."
+      },
+      {
+        "text": "Microsoft Defender for Endpoint",
+        "note": "Devices."
+      },
+      {
+        "text": "Microsoft Defender for Cloud Apps",
+        "note": "SaaS apps, not email filtering."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Features include Safe Links, Safe Attachments and attack simulation training."
+  },
+  {
+    "id": 51,
+    "domain": "D3",
+    "scenario": "Which service detects threats against on-premises Active Directory, such as pass-the-hash attacks?",
+    "options": [
+      {
+        "text": "Microsoft Defender for Identity",
+        "note": ""
+      },
+      {
+        "text": "Microsoft Defender for Office 365",
+        "note": "Email."
+      },
+      {
+        "text": "Microsoft Purview",
+        "note": "Compliance."
+      },
+      {
+        "text": "Azure DDoS Protection",
+        "note": "DDoS."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It uses sensors on domain controllers to analyze activity."
+  },
+  {
+    "id": 52,
+    "domain": "D3",
+    "scenario": "Which service is Microsoft's cloud access security broker (CASB) for discovering and controlling SaaS apps?",
+    "options": [
+      {
+        "text": "Microsoft Defender for Cloud Apps",
+        "note": ""
+      },
+      {
+        "text": "Microsoft Defender for Endpoint",
+        "note": "Devices."
+      },
+      {
+        "text": "Azure Firewall",
+        "note": "Network."
+      },
+      {
+        "text": "Microsoft Defender for Identity",
+        "note": "On-premises AD threats."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It can find shadow IT and apply session controls."
+  },
+  {
+    "id": 53,
+    "domain": "D3",
+    "scenario": "Which service provides endpoint detection and response (EDR) for devices?",
+    "options": [
+      {
+        "text": "Microsoft Defender for Endpoint",
+        "note": ""
+      },
+      {
+        "text": "Microsoft Defender for Cloud Apps",
+        "note": "SaaS apps."
+      },
+      {
+        "text": "Microsoft Sentinel",
+        "note": "SIEM."
+      },
+      {
+        "text": "Azure Key Vault",
+        "note": "Secrets."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It also includes vulnerability management and automated investigation."
+  },
+  {
+    "id": 54,
+    "domain": "D3",
+    "scenario": "Which Microsoft tool is a generative AI assistant for security teams, for tasks like summarizing incidents?",
+    "options": [
+      {
+        "text": "Microsoft Security Copilot",
+        "note": ""
+      },
+      {
+        "text": "Microsoft Purview Audit",
+        "note": "Logs."
+      },
+      {
+        "text": "Microsoft Defender Threat Intelligence",
+        "note": "Threat data, not an AI assistant."
+      },
+      {
+        "text": "Microsoft Intune",
+        "note": "Device management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Security Copilot works with Defender, Sentinel, Intune, Entra and Purview."
+  },
+  {
+    "id": 55,
+    "domain": "D3",
+    "scenario": "Where in Microsoft Sentinel are related alerts grouped for investigation?",
+    "options": [
+      {
+        "text": "Incidents",
+        "note": ""
+      },
+      {
+        "text": "Workbooks",
+        "note": "Dashboards."
+      },
+      {
+        "text": "Data connectors",
+        "note": "Ingest data."
+      },
+      {
+        "text": "Watchlists",
+        "note": "Reference data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Analytics rules create alerts, which are grouped into incidents."
+  },
+  {
+    "id": 56,
+    "domain": "D3",
+    "scenario": "Which Microsoft Sentinel component brings data in from sources like Microsoft 365 and firewalls?",
+    "options": [
+      {
+        "text": "Data connectors",
+        "note": ""
+      },
+      {
+        "text": "Playbooks",
+        "note": "Automate responses."
+      },
+      {
+        "text": "Workbooks",
+        "note": "Visualize data."
+      },
+      {
+        "text": "Hunting queries",
+        "note": "Search proactively."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sentinel stores data in a Log Analytics workspace."
+  },
+  {
+    "id": 57,
+    "domain": "D3",
+    "scenario": "What is threat hunting?",
+    "options": [
+      {
+        "text": "Proactively searching for threats that haven't triggered alerts",
+        "note": ""
+      },
+      {
+        "text": "Blocking all email that comes from outside the company",
+        "note": "Not hunting."
+      },
+      {
+        "text": "Encrypting stored data in every storage account",
+        "note": "Data protection."
+      },
+      {
+        "text": "Resetting user passwords",
+        "note": "Account management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sentinel and Defender XDR provide hunting queries using KQL."
+  },
+  {
+    "id": 58,
+    "domain": "D3",
+    "scenario": "Which Defender for Cloud plan protects workloads like servers, storage and databases?",
+    "options": [
+      {
+        "text": "Cloud workload protection (Defender plans)",
+        "note": ""
+      },
+      {
+        "text": "Foundational CSPM recommendations",
+        "note": "Posture, not workload protection."
+      },
+      {
+        "text": "Microsoft Secure Score",
+        "note": "A measure, not a plan."
+      },
+      {
+        "text": "Purview DLP",
+        "note": "Data loss prevention."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Examples: Defender for Servers, Defender for Storage, Defender for SQL."
+  },
+  {
+    "id": 59,
+    "domain": "D3",
+    "scenario": "Which feature shows how a cloud environment could be attacked by tracing connected weaknesses?",
+    "options": [
+      {
+        "text": "Attack path analysis",
+        "note": ""
+      },
+      {
+        "text": "Secure score",
+        "note": "Overall posture number."
+      },
+      {
+        "text": "Microsoft Entra sign-in logs",
+        "note": "Identity events."
+      },
+      {
+        "text": "Sensitivity labels",
+        "note": "Data classification."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Attack path analysis is part of Defender CSPM."
+  },
+  {
+    "id": 60,
+    "domain": "D3",
+    "scenario": "Which Azure feature restricts Azure PaaS services to private IP addresses inside a VNet?",
+    "options": [
+      {
+        "text": "Private endpoints (Private Link)",
+        "note": ""
+      },
+      {
+        "text": "Public IP addresses",
+        "note": "Exposes services."
+      },
+      {
+        "text": "Azure DNS private zones alone",
+        "note": "Name resolution."
+      },
+      {
+        "text": "Network Watcher",
+        "note": "Diagnostics."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Private Link keeps traffic on the Microsoft backbone network."
+  },
+  {
+    "id": 61,
+    "domain": "D3",
+    "scenario": "Which Azure feature groups VMs by application role so NSG rules can reference them instead of IP addresses?",
+    "options": [
+      {
+        "text": "Application security groups",
+        "note": ""
+      },
+      {
+        "text": "Resource groups",
+        "note": "Organize resources."
+      },
+      {
+        "text": "Management groups for subscriptions",
+        "note": "Organize subscriptions."
+      },
+      {
+        "text": "Availability sets",
+        "note": "Fault domains."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ASGs simplify rules as VMs scale."
+  },
+  {
+    "id": 62,
+    "domain": "D3",
+    "scenario": "Which data does Microsoft Defender Threat Intelligence provide?",
+    "options": [
+      {
+        "text": "Information about attackers, infrastructure and indicators",
+        "note": ""
+      },
+      {
+        "text": "Employee performance and productivity reviews",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Billing forecasts for cloud subscriptions",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Backup schedules",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Threat intelligence helps analysts understand and attribute attacks."
+  },
+  {
+    "id": 63,
+    "domain": "D3",
+    "scenario": "What is the main difference between a SIEM and an EDR?",
+    "options": [
+      {
+        "text": "SIEM aggregates logs from many sources; EDR protects devices",
+        "note": ""
+      },
+      {
+        "text": "They are identical",
+        "note": "Different scope."
+      },
+      {
+        "text": "EDR only scans email attachments; SIEM only stores files",
+        "note": "Neither is true."
+      },
+      {
+        "text": "SIEM manages passwords; EDR manages user identities",
+        "note": "Neither is true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "XDR extends detection across endpoints, email, identity and cloud apps."
+  },
+  {
+    "id": 64,
+    "domain": "D3",
+    "scenario": "Which Defender for Cloud feature checks resources against standards like CIS or PCI DSS?",
+    "options": [
+      {
+        "text": "Regulatory compliance dashboard",
+        "note": ""
+      },
+      {
+        "text": "Attack simulation training",
+        "note": "Defender for Office 365."
+      },
+      {
+        "text": "Microsoft Entra access reviews",
+        "note": "Entra ID Governance."
+      },
+      {
+        "text": "Retention labels",
+        "note": "Purview."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The Microsoft cloud security benchmark is applied by default."
+  },
+  {
+    "id": 65,
+    "domain": "D3",
+    "scenario": "Which Microsoft 365 feature lets admins run simulated phishing campaigns to train users?",
+    "options": [
+      {
+        "text": "Attack simulation training",
+        "note": ""
+      },
+      {
+        "text": "Conditional Access",
+        "note": "Access policies."
+      },
+      {
+        "text": "Compliance Manager",
+        "note": "Compliance tracking."
+      },
+      {
+        "text": "Microsoft Entra ID Protection",
+        "note": "Detects risky sign-ins."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It's part of Microsoft Defender for Office 365 Plan 2."
+  },
+  {
+    "id": 66,
+    "domain": "D3",
+    "scenario": "In Azure, what's the main benefit of Azure Policy for security?",
+    "options": [
+      {
+        "text": "Enforcing rules like requiring encryption on resources",
+        "note": ""
+      },
+      {
+        "text": "Detecting phishing emails sent to users",
+        "note": "Defender for Office 365."
+      },
+      {
+        "text": "Resetting passwords",
+        "note": "SSPR."
+      },
+      {
+        "text": "Hunting for threats in security logs",
+        "note": "Sentinel."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Policies can audit, deny or remediate noncompliant resources."
+  },
+  {
+    "id": 67,
+    "domain": "D3",
+    "scenario": "Which Microsoft solution helps manage and secure devices, including compliance policies for Conditional Access?",
+    "options": [
+      {
+        "text": "Microsoft Intune",
+        "note": ""
+      },
+      {
+        "text": "Microsoft Sentinel",
+        "note": "SIEM."
+      },
+      {
+        "text": "Microsoft Purview",
+        "note": "Data compliance."
+      },
+      {
+        "text": "Azure Bastion",
+        "note": "VM access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Intune reports device compliance, which Conditional Access can require."
+  },
+  {
+    "id": 68,
+    "domain": "D3",
+    "scenario": "Which feature in Defender for Endpoint lists and prioritizes software weaknesses on devices?",
+    "options": [
+      {
+        "text": "Microsoft Defender Vulnerability Management",
+        "note": ""
+      },
+      {
+        "text": "Microsoft Purview Audit",
+        "note": "Logs."
+      },
+      {
+        "text": "Microsoft Entra access reviews",
+        "note": "Access."
+      },
+      {
+        "text": "Azure DDoS Protection",
+        "note": "DDoS."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It recommends security updates and configuration changes."
+  },
+  {
+    "id": 69,
+    "domain": "D3",
+    "scenario": "Which Microsoft security product helps protect generative AI apps from prompt injection?",
+    "options": [
+      {
+        "text": "Azure AI Content Safety Prompt Shields",
+        "note": ""
+      },
+      {
+        "text": "Azure Bastion",
+        "note": "VM access."
+      },
+      {
+        "text": "Azure Policy",
+        "note": "Governance."
+      },
+      {
+        "text": "Network security groups on the AI subnet",
+        "note": "Network filtering."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Defender for Cloud also offers threat protection for AI workloads."
+  },
+  {
+    "id": 70,
+    "domain": "D3",
+    "scenario": "Which Microsoft Sentinel feature provides interactive dashboards to visualize data?",
+    "options": [
+      {
+        "text": "Workbooks",
+        "note": ""
+      },
+      {
+        "text": "Playbooks",
+        "note": "Automate responses."
+      },
+      {
+        "text": "Watchlists",
+        "note": "Reference lists."
+      },
+      {
+        "text": "Notebooks",
+        "note": "Advanced analysis with Jupyter."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Workbooks are interactive dashboards built on Azure Monitor."
+  },
+  {
+    "id": 71,
+    "domain": "D3",
+    "scenario": "Which Defender for Cloud feature gives just-in-time access to VM management ports?",
+    "options": [
+      {
+        "text": "Just-in-time VM access",
+        "note": ""
+      },
+      {
+        "text": "Privileged Identity Management",
+        "note": "Entra admin roles."
+      },
+      {
+        "text": "Access reviews",
+        "note": "Periodic reviews."
+      },
+      {
+        "text": "Azure Policy",
+        "note": "Governance rules."
+      }
+    ],
+    "answer": 0,
+    "explanation": "JIT opens ports like RDP only when requested and for a limited time."
+  },
+  {
+    "id": 72,
+    "domain": "D3",
+    "scenario": "Which statement about Azure network security groups is true?",
+    "options": [
+      {
+        "text": "Rules are processed in priority order",
+        "note": ""
+      },
+      {
+        "text": "They inspect application payloads",
+        "note": "They don't."
+      },
+      {
+        "text": "They encrypt traffic",
+        "note": "They don't."
+      },
+      {
+        "text": "They can't deny traffic",
+        "note": "They can."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lower numbers have higher priority; processing stops at the first match."
+  },
+  {
+    "id": 73,
+    "domain": "D4",
+    "scenario": "Which portal publishes Microsoft's audit reports, compliance certifications and trust documents?",
+    "options": [
+      {
+        "text": "Service Trust Portal",
+        "note": ""
+      },
+      {
+        "text": "Microsoft Purview portal",
+        "note": "Manages your compliance."
+      },
+      {
+        "text": "Azure portal",
+        "note": "Manages resources."
+      },
+      {
+        "text": "Microsoft Entra admin center",
+        "note": "Identity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Microsoft's privacy principles and trust documents explain how it handles customer data."
+  },
+  {
+    "id": 74,
+    "domain": "D4",
+    "scenario": "Which Purview tool measures progress on compliance requirements with a score and improvement actions?",
+    "options": [
+      {
+        "text": "Compliance Manager",
+        "note": ""
+      },
+      {
+        "text": "Content explorer in Purview",
+        "note": "Shows labeled content."
+      },
+      {
+        "text": "eDiscovery",
+        "note": "Finds content for legal cases."
+      },
+      {
+        "text": "Audit",
+        "note": "Logs activities."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Compliance score reflects completed improvement actions, both Microsoft's and yours."
+  },
+  {
+    "id": 75,
+    "domain": "D4",
+    "scenario": "Which Purview feature identifies data like credit card numbers using patterns?",
+    "options": [
+      {
+        "text": "Sensitive information types",
+        "note": ""
+      },
+      {
+        "text": "Trainable classifiers",
+        "note": "Learn from examples."
+      },
+      {
+        "text": "Retention labels",
+        "note": "Keep or delete content."
+      },
+      {
+        "text": "Communication compliance policies",
+        "note": "Monitors messages."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sensitive info types use regex, keywords and checksums, with confidence levels."
+  },
+  {
+    "id": 76,
+    "domain": "D4",
+    "scenario": "Which Purview classification method uses machine learning to recognize content like contracts or résumés?",
+    "options": [
+      {
+        "text": "Trainable classifiers",
+        "note": ""
+      },
+      {
+        "text": "Sensitive information types",
+        "note": "Patterns like numbers."
+      },
+      {
+        "text": "Exact data match",
+        "note": "Matches specific values."
+      },
+      {
+        "text": "Retention policies",
+        "note": "Lifecycle."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Microsoft provides pretrained classifiers, and you can train custom ones."
+  },
+  {
+    "id": 77,
+    "domain": "D4",
+    "scenario": "Which Purview feature applies labels that can encrypt documents and add watermarks?",
+    "options": [
+      {
+        "text": "Sensitivity labels",
+        "note": ""
+      },
+      {
+        "text": "Retention labels",
+        "note": "Control how long content is kept."
+      },
+      {
+        "text": "Data lifecycle reports",
+        "note": "Reporting."
+      },
+      {
+        "text": "Audit logs",
+        "note": "Activity records."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Labels travel with the content, even outside the organization."
+  },
+  {
+    "id": 78,
+    "domain": "D4",
+    "scenario": "Which Purview feature prevents users from sharing sensitive data like credit card numbers by email?",
+    "options": [
+      {
+        "text": "Data loss prevention (DLP)",
+        "note": ""
+      },
+      {
+        "text": "Insider Risk Management",
+        "note": "Detects risky user behavior."
+      },
+      {
+        "text": "eDiscovery",
+        "note": "Legal search."
+      },
+      {
+        "text": "Compliance Manager",
+        "note": "Compliance tracking."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DLP policies can block, warn with policy tips, or audit."
+  },
+  {
+    "id": 79,
+    "domain": "D4",
+    "scenario": "Which Purview feature keeps documents for a required period and then deletes them?",
+    "options": [
+      {
+        "text": "Retention policies and labels",
+        "note": ""
+      },
+      {
+        "text": "Sensitivity labels",
+        "note": "Protect content."
+      },
+      {
+        "text": "Data loss prevention policies",
+        "note": "Prevents sharing."
+      },
+      {
+        "text": "Conditional Access",
+        "note": "Identity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Records management can declare items as records that can't be edited or deleted."
+  },
+  {
+    "id": 80,
+    "domain": "D4",
+    "scenario": "Which Purview solution helps detect risky activities, like an employee downloading lots of files before leaving?",
+    "options": [
+      {
+        "text": "Insider Risk Management",
+        "note": ""
+      },
+      {
+        "text": "Compliance Manager",
+        "note": "Tracks compliance."
+      },
+      {
+        "text": "Sensitivity labels",
+        "note": "Classification."
+      },
+      {
+        "text": "The Service Trust Portal",
+        "note": "Microsoft documents."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Policies use templates like data theft by departing users; privacy is protected with pseudonymization."
+  },
+  {
+    "id": 81,
+    "domain": "D4",
+    "scenario": "Which Purview solution helps legal teams find, hold and export content for a lawsuit?",
+    "options": [
+      {
+        "text": "eDiscovery",
+        "note": ""
+      },
+      {
+        "text": "Audit",
+        "note": "Activity logs."
+      },
+      {
+        "text": "DLP",
+        "note": "Prevents leaks."
+      },
+      {
+        "text": "Compliance Manager",
+        "note": "Assessments."
+      }
+    ],
+    "answer": 0,
+    "explanation": "eDiscovery (Premium) adds review sets, analytics and custodian management."
+  },
+  {
+    "id": 82,
+    "domain": "D4",
+    "scenario": "Which Purview solution records user and admin activities so you can investigate who did what?",
+    "options": [
+      {
+        "text": "Audit",
+        "note": ""
+      },
+      {
+        "text": "eDiscovery",
+        "note": "Content search for cases."
+      },
+      {
+        "text": "Retention",
+        "note": "Lifecycle."
+      },
+      {
+        "text": "Data Map",
+        "note": "Data inventory."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Audit (Premium) adds longer retention and more detailed events."
+  },
+  {
+    "id": 83,
+    "domain": "D4",
+    "scenario": "Which Purview tool shows where sensitive data is and how it's labeled across Microsoft 365?",
+    "options": [
+      {
+        "text": "Content explorer and activity explorer",
+        "note": ""
+      },
+      {
+        "text": "The Microsoft Service Trust Portal",
+        "note": "Microsoft's documents."
+      },
+      {
+        "text": "Compliance Manager improvement actions",
+        "note": "Tracks compliance tasks."
+      },
+      {
+        "text": "Microsoft Sentinel workbooks",
+        "note": "Security dashboards, not label views."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Content explorer shows items; activity explorer shows actions such as label changes."
+  },
+  {
+    "id": 84,
+    "domain": "D4",
+    "scenario": "Which Purview solution detects inappropriate or sensitive messages in Teams and email, like harassment?",
+    "options": [
+      {
+        "text": "Communication compliance",
+        "note": ""
+      },
+      {
+        "text": "Insider Risk Management",
+        "note": "Broader risky activity."
+      },
+      {
+        "text": "Records management with file plans",
+        "note": "Records."
+      },
+      {
+        "text": "Audit",
+        "note": "Logs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reviewers can investigate and remediate flagged messages."
+  },
+  {
+    "id": 85,
+    "domain": "D4",
+    "scenario": "What does Microsoft Purview Data Map and Unified Catalog help with?",
+    "options": [
+      {
+        "text": "Discovering and governing data across sources",
+        "note": ""
+      },
+      {
+        "text": "Blocking DDoS attacks against web apps",
+        "note": "Azure DDoS Protection."
+      },
+      {
+        "text": "Managing admin roles",
+        "note": "PIM."
+      },
+      {
+        "text": "Filtering web traffic for remote users",
+        "note": "Firewall."
+      }
+    ],
+    "answer": 0,
+    "explanation": "They scan data sources such as Azure, on-premises and other clouds to build a catalog."
+  },
+  {
+    "id": 86,
+    "domain": "D4",
+    "scenario": "Which Purview capability helps protect sensitive data used with AI apps like Copilot?",
+    "options": [
+      {
+        "text": "Data Security Posture Management for AI",
+        "note": ""
+      },
+      {
+        "text": "Azure Bastion",
+        "note": "VM access."
+      },
+      {
+        "text": "Network security groups",
+        "note": "Network."
+      },
+      {
+        "text": "Microsoft Entra Conditional Access",
+        "note": "Controls sign-in, not data in AI prompts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It shows AI usage and applies DLP and labels to AI interactions."
+  },
+  {
+    "id": 87,
+    "domain": "D4",
+    "scenario": "Which describes the difference between retention labels and retention policies?",
+    "options": [
+      {
+        "text": "Labels apply to items; policies apply to locations",
+        "note": ""
+      },
+      {
+        "text": "They're the same thing",
+        "note": "Different scope."
+      },
+      {
+        "text": "Policies encrypt content; labels only add headers",
+        "note": "They don't."
+      },
+      {
+        "text": "Labels block email; policies block file sharing",
+        "note": "That's DLP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Policies cover whole locations like mailboxes; labels can be applied per document or email."
+  },
+  {
+    "id": 88,
+    "domain": "D4",
+    "scenario": "Which Purview feature applies labels automatically to content that matches conditions?",
+    "options": [
+      {
+        "text": "Auto-labeling policies",
+        "note": ""
+      },
+      {
+        "text": "Default labels applied by users",
+        "note": "Not condition-based."
+      },
+      {
+        "text": "Conditional Access",
+        "note": "Identity."
+      },
+      {
+        "text": "PIM",
+        "note": "Admin roles."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Labels can also be recommended to users in apps."
+  },
+  {
+    "id": 89,
+    "domain": "D4",
+    "scenario": "Which Purview feature prevents admins and users from deleting content during an investigation?",
+    "options": [
+      {
+        "text": "A hold (eDiscovery or litigation hold)",
+        "note": ""
+      },
+      {
+        "text": "Sensitivity label",
+        "note": "Protects content."
+      },
+      {
+        "text": "An Entra access review",
+        "note": "Reviews access."
+      },
+      {
+        "text": "A sensitivity label with encryption",
+        "note": "Protects content but allows deletion."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Holds preserve content in place for legal cases."
+  },
+  {
+    "id": 90,
+    "domain": "D4",
+    "scenario": "Which privacy principle does Microsoft follow regarding customer data?",
+    "options": [
+      {
+        "text": "Customers control their data",
+        "note": ""
+      },
+      {
+        "text": "Microsoft sells customer data",
+        "note": "It doesn't."
+      },
+      {
+        "text": "Data is used for ads",
+        "note": "Not for business data."
+      },
+      {
+        "text": "Data is public by default",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Microsoft's principles include control, transparency, security, strong legal protections and no content-based targeting."
+  },
+  {
+    "id": 91,
+    "domain": "D4",
+    "scenario": "Which tool lets organizations assess compliance with regulations like GDPR using prebuilt templates?",
+    "options": [
+      {
+        "text": "Compliance Manager assessments",
+        "note": ""
+      },
+      {
+        "text": "Microsoft Defender for Endpoint",
+        "note": "Devices."
+      },
+      {
+        "text": "Microsoft Sentinel",
+        "note": "SIEM."
+      },
+      {
+        "text": "Azure Bastion",
+        "note": "VM access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Templates map controls to improvement actions."
+  },
+  {
+    "id": 92,
+    "domain": "D4",
+    "scenario": "A company must keep financial records for seven years so they can't be changed. Which feature fits?",
+    "options": [
+      {
+        "text": "Records management with record labels",
+        "note": ""
+      },
+      {
+        "text": "A data loss prevention policy",
+        "note": "Prevents leaks."
+      },
+      {
+        "text": "Sensitivity label",
+        "note": "Protects content."
+      },
+      {
+        "text": "Audit (Premium) logging",
+        "note": "Logs activities."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Regulatory records are the most restrictive and can't be unlabeled."
+  }
+]

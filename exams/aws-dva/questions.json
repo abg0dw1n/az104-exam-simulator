@@ -1,0 +1,2327 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "A Lambda function processes images and sometimes runs out of time after 3 seconds. What should the developer change first?",
+    "options": [
+      {
+        "text": "Increase the function's timeout setting",
+        "note": ""
+      },
+      {
+        "text": "Add more reserved concurrency to the function",
+        "note": "Controls parallel runs, not duration."
+      },
+      {
+        "text": "Move the image library into a Lambda layer",
+        "note": "Layers share code; they don't change limits."
+      },
+      {
+        "text": "Enable X-Ray active tracing",
+        "note": "Helps diagnose, not fix."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The default timeout is 3 seconds; the maximum is 15 minutes. More memory also adds CPU."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "A Lambda function's CPU-bound code is slow. Which setting most directly gives it more CPU?",
+    "options": [
+      {
+        "text": "Increase the memory allocation",
+        "note": ""
+      },
+      {
+        "text": "Increase the timeout",
+        "note": "Allows longer runs only."
+      },
+      {
+        "text": "Add an environment variable",
+        "note": "Configuration only."
+      },
+      {
+        "text": "Enable provisioned concurrency",
+        "note": "Reduces cold starts, not CPU."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lambda allocates CPU in proportion to memory (up to 10,240 MB)."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "Which DynamoDB operation retrieves items using the partition key efficiently?",
+    "options": [
+      {
+        "text": "Query",
+        "note": ""
+      },
+      {
+        "text": "Scan",
+        "note": "Reads the whole table."
+      },
+      {
+        "text": "BatchWriteItem",
+        "note": "Writes items."
+      },
+      {
+        "text": "UpdateTable",
+        "note": "Changes table settings."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Scans are expensive; design keys to support Query patterns."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "An app must query a DynamoDB table by an attribute that isn't the partition key, using a different partition key. What should be added?",
+    "options": [
+      {
+        "text": "A global secondary index (GSI)",
+        "note": ""
+      },
+      {
+        "text": "A local secondary index (LSI) on the attribute",
+        "note": "Same partition key; must be created with the table."
+      },
+      {
+        "text": "DynamoDB Streams with a Lambda filter",
+        "note": "Captures changes."
+      },
+      {
+        "text": "A TTL attribute",
+        "note": "Expires items."
+      }
+    ],
+    "answer": 0,
+    "explanation": "GSIs can be added any time and have their own throughput."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "How many read capacity units are needed for 10 strongly consistent reads per second of 4 KB items?",
+    "options": [
+      {
+        "text": "10",
+        "note": ""
+      },
+      {
+        "text": "5",
+        "note": "Eventually consistent reads cost half."
+      },
+      {
+        "text": "20",
+        "note": "Too many."
+      },
+      {
+        "text": "40",
+        "note": "Counts KB instead of 4 KB units."
+      }
+    ],
+    "answer": 0,
+    "explanation": "1 RCU = one strongly consistent read per second of up to 4 KB (or two eventually consistent reads)."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "How many write capacity units are needed for 5 writes per second of 3 KB items?",
+    "options": [
+      {
+        "text": "15",
+        "note": ""
+      },
+      {
+        "text": "5",
+        "note": "Each 1 KB needs one WCU."
+      },
+      {
+        "text": "3",
+        "note": "Ignores the write rate."
+      },
+      {
+        "text": "10",
+        "note": "Rounds 3 KB down to 2 KB."
+      }
+    ],
+    "answer": 0,
+    "explanation": "1 WCU = one write per second of up to 1 KB; 3 KB items need 3 WCUs each."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Two users may update the same DynamoDB item at once. How can the app prevent one overwriting the other?",
+    "options": [
+      {
+        "text": "Use conditional writes with a version attribute",
+        "note": ""
+      },
+      {
+        "text": "Run a Scan before every write to check for changes",
+        "note": "Expensive and racy."
+      },
+      {
+        "text": "Disable auto scaling on the table",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Use eventually consistent reads",
+        "note": "Makes conflicts more likely."
+      }
+    ],
+    "answer": 0,
+    "explanation": "This is optimistic locking; the DynamoDB Enhanced Client supports it."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "Which service adds a microsecond-latency in-memory cache specifically for DynamoDB?",
+    "options": [
+      {
+        "text": "DynamoDB Accelerator (DAX)",
+        "note": ""
+      },
+      {
+        "text": "Amazon ElastiCache for Memcached",
+        "note": "General cache; needs app logic."
+      },
+      {
+        "text": "Amazon CloudFront",
+        "note": "Caches HTTP content."
+      },
+      {
+        "text": "S3 Transfer Acceleration",
+        "note": "Speeds S3 uploads."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DAX is API-compatible with DynamoDB."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which caching strategy loads data into the cache only when there's a cache miss?",
+    "options": [
+      {
+        "text": "Lazy loading (cache-aside)",
+        "note": ""
+      },
+      {
+        "text": "Write-through",
+        "note": "Writes to cache on every update."
+      },
+      {
+        "text": "Read replicas behind the cache",
+        "note": "Database copies."
+      },
+      {
+        "text": "TTL-based eviction only",
+        "note": "Removes stale entries."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lazy loading can serve stale data; add a TTL to limit staleness."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "A web app must let users upload files directly to a private S3 bucket without AWS credentials. What should it use?",
+    "options": [
+      {
+        "text": "Presigned URLs generated by the backend",
+        "note": ""
+      },
+      {
+        "text": "A bucket policy allowing public PutObject",
+        "note": "Exposes the bucket."
+      },
+      {
+        "text": "The root user's access keys",
+        "note": "Never."
+      },
+      {
+        "text": "S3 static website hosting with an index page",
+        "note": "For serving content."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Presigned URLs expire and are limited to one object and method."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "When should multipart upload be used for S3?",
+    "options": [
+      {
+        "text": "For large objects; it's required above 5 GB",
+        "note": ""
+      },
+      {
+        "text": "Only for files under 5 MB",
+        "note": "Parts must be at least 5 MB, except the last."
+      },
+      {
+        "text": "Only for encrypted objects",
+        "note": "Not a requirement."
+      },
+      {
+        "text": "Only when uploading to S3 Glacier storage classes",
+        "note": "Works with all classes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AWS recommends multipart for objects over 100 MB."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "Which SQS setting reduces empty responses and cost when polling a queue?",
+    "options": [
+      {
+        "text": "Long polling (WaitTimeSeconds up to 20)",
+        "note": ""
+      },
+      {
+        "text": "A shorter visibility timeout",
+        "note": "Affects redelivery."
+      },
+      {
+        "text": "A dead-letter queue",
+        "note": "Captures failures."
+      },
+      {
+        "text": "Content-based message deduplication",
+        "note": "FIFO feature."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Long polling waits for messages instead of returning immediately."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "A consumer takes longer to process an SQS message than the visibility timeout. What happens?",
+    "options": [
+      {
+        "text": "The message becomes visible and may be processed twice",
+        "note": ""
+      },
+      {
+        "text": "The message is deleted automatically",
+        "note": "Not deleted."
+      },
+      {
+        "text": "The queue stops delivering messages",
+        "note": "Not true."
+      },
+      {
+        "text": "The message is moved straight to the dead-letter queue",
+        "note": "Only after maxReceiveCount."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Increase the timeout or call ChangeMessageVisibility; make consumers idempotent."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Orders must be processed exactly once and in the order sent. Which queue type fits?",
+    "options": [
+      {
+        "text": "SQS FIFO queue",
+        "note": ""
+      },
+      {
+        "text": "SQS standard queue",
+        "note": "At-least-once, best-effort ordering."
+      },
+      {
+        "text": "SNS standard topic",
+        "note": "Pub/sub, no ordering."
+      },
+      {
+        "text": "Kinesis Data Firehose",
+        "note": "Delivery stream."
+      }
+    ],
+    "answer": 0,
+    "explanation": "FIFO queues use message group IDs for ordering and deduplication IDs."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "One event must be delivered to several SQS queues for different services. What pattern fits?",
+    "options": [
+      {
+        "text": "SNS fan-out to subscribed SQS queues",
+        "note": ""
+      },
+      {
+        "text": "One queue polled by all services",
+        "note": "Each message is consumed once."
+      },
+      {
+        "text": "A single queue with message filtering",
+        "note": "Each message is still consumed once."
+      },
+      {
+        "text": "A DynamoDB stream per service",
+        "note": "Captures table changes, not events."
+      }
+    ],
+    "answer": 0,
+    "explanation": "EventBridge rules can also route one event to multiple targets."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "Which service coordinates multiple Lambda functions in a workflow with retries and branching?",
+    "options": [
+      {
+        "text": "AWS Step Functions",
+        "note": ""
+      },
+      {
+        "text": "Amazon SQS",
+        "note": "Queuing only."
+      },
+      {
+        "text": "AWS CloudFormation",
+        "note": "Provisioning."
+      },
+      {
+        "text": "Amazon Cognito",
+        "note": "User sign-in."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Express workflows suit high-volume, short-duration jobs."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "Which service routes events from AWS services and SaaS apps to targets using rules?",
+    "options": [
+      {
+        "text": "Amazon EventBridge",
+        "note": ""
+      },
+      {
+        "text": "Amazon SQS",
+        "note": "Queues messages."
+      },
+      {
+        "text": "Amazon Kinesis Data Streams",
+        "note": "Ingests streams; no rule-based routing."
+      },
+      {
+        "text": "Amazon MQ (managed RabbitMQ or ActiveMQ)",
+        "note": "Managed brokers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "EventBridge Scheduler can also invoke targets on a schedule."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "A Lambda function reading from an SQS queue should send failed messages aside after several tries. What should be configured?",
+    "options": [
+      {
+        "text": "A dead-letter queue with a redrive policy",
+        "note": ""
+      },
+      {
+        "text": "A longer function timeout",
+        "note": "Not a failure path."
+      },
+      {
+        "text": "Provisioned concurrency",
+        "note": "Cold starts."
+      },
+      {
+        "text": "A Lambda destination for on-success events",
+        "note": "Success path, not failures."
+      }
+    ],
+    "answer": 0,
+    "explanation": "For async invocations, Lambda destinations can also route failures."
+  },
+  {
+    "id": 19,
+    "domain": "D1",
+    "scenario": "Which API Gateway feature caches responses to reduce backend calls?",
+    "options": [
+      {
+        "text": "Stage-level API caching",
+        "note": ""
+      },
+      {
+        "text": "Usage plans",
+        "note": "Quotas and throttling."
+      },
+      {
+        "text": "Lambda authorizers",
+        "note": "Authorization."
+      },
+      {
+        "text": "Request mapping templates",
+        "note": "Transforms requests."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cache TTL can be tuned; clients may invalidate with Cache-Control if allowed."
+  },
+  {
+    "id": 20,
+    "domain": "D1",
+    "scenario": "Clients receive HTTP 429 errors from API Gateway. What does this mean?",
+    "options": [
+      {
+        "text": "Requests are being throttled",
+        "note": ""
+      },
+      {
+        "text": "The backend timed out",
+        "note": "Usually 504."
+      },
+      {
+        "text": "The API key in the header is malformed",
+        "note": "Usually 403."
+      },
+      {
+        "text": "The resource path doesn't exist on the API",
+        "note": "404."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use exponential backoff with jitter on retries."
+  },
+  {
+    "id": 21,
+    "domain": "D1",
+    "scenario": "Which Kinesis Data Streams component determines which shard a record goes to?",
+    "options": [
+      {
+        "text": "The partition key",
+        "note": ""
+      },
+      {
+        "text": "The sequence number",
+        "note": "Assigned after writing."
+      },
+      {
+        "text": "The retention period",
+        "note": "How long records are kept."
+      },
+      {
+        "text": "The consumer name",
+        "note": "Reads data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hot partition keys can overload a single shard."
+  },
+  {
+    "id": 22,
+    "domain": "D1",
+    "scenario": "A developer needs ordered processing of changes made to a DynamoDB table. What should they use?",
+    "options": [
+      {
+        "text": "DynamoDB Streams with a Lambda trigger",
+        "note": ""
+      },
+      {
+        "text": "DynamoDB TTL with expiry events",
+        "note": "Expires items."
+      },
+      {
+        "text": "A Scan every minute",
+        "note": "Inefficient."
+      },
+      {
+        "text": "A GSI on the updated attribute",
+        "note": "Indexing only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Streams keep changes for 24 hours in order per item."
+  },
+  {
+    "id": 23,
+    "domain": "D1",
+    "scenario": "Which Lambda feature shares common libraries across multiple functions?",
+    "options": [
+      {
+        "text": "Layers",
+        "note": ""
+      },
+      {
+        "text": "Aliases",
+        "note": "Point to versions."
+      },
+      {
+        "text": "Destinations",
+        "note": "Route results."
+      },
+      {
+        "text": "Reserved concurrency",
+        "note": "Caps concurrency."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A function can use up to five layers."
+  },
+  {
+    "id": 24,
+    "domain": "D1",
+    "scenario": "What's the best way to keep database connections efficient for many concurrent Lambda functions using RDS?",
+    "options": [
+      {
+        "text": "Use Amazon RDS Proxy",
+        "note": ""
+      },
+      {
+        "text": "Open a new connection per request",
+        "note": "Exhausts connections."
+      },
+      {
+        "text": "Increase the Lambda timeout",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Use a public subnet",
+        "note": "Insecure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RDS Proxy pools and shares connections."
+  },
+  {
+    "id": 25,
+    "domain": "D1",
+    "scenario": "Where should a Lambda function initialize SDK clients so they're reused across invocations?",
+    "options": [
+      {
+        "text": "Outside the handler function",
+        "note": ""
+      },
+      {
+        "text": "Inside the handler on every call",
+        "note": "Repeats work."
+      },
+      {
+        "text": "In an environment variable",
+        "note": "Can't store objects."
+      },
+      {
+        "text": "In the /tmp directory",
+        "note": "For files, not clients."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Execution environments are reused while warm."
+  },
+  {
+    "id": 26,
+    "domain": "D1",
+    "scenario": "Which DynamoDB API writes several items across tables as an all-or-nothing operation?",
+    "options": [
+      {
+        "text": "TransactWriteItems",
+        "note": ""
+      },
+      {
+        "text": "BatchWriteItem",
+        "note": "Not atomic."
+      },
+      {
+        "text": "PutItem",
+        "note": "Single item."
+      },
+      {
+        "text": "UpdateItem with a condition",
+        "note": "Single item."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Transactions cost twice the capacity of standard writes."
+  },
+  {
+    "id": 27,
+    "domain": "D1",
+    "scenario": "Which feature automatically deletes expired DynamoDB items at no write cost?",
+    "options": [
+      {
+        "text": "Time to Live (TTL)",
+        "note": ""
+      },
+      {
+        "text": "DynamoDB Streams",
+        "note": "Records changes."
+      },
+      {
+        "text": "Point-in-time recovery",
+        "note": "Backups."
+      },
+      {
+        "text": "On-demand capacity",
+        "note": "Pricing mode."
+      }
+    ],
+    "answer": 0,
+    "explanation": "TTL uses a timestamp attribute in epoch seconds."
+  },
+  {
+    "id": 28,
+    "domain": "D1",
+    "scenario": "Which Cognito component exchanges tokens for temporary AWS credentials to call S3 directly?",
+    "options": [
+      {
+        "text": "Identity pools",
+        "note": ""
+      },
+      {
+        "text": "User pools",
+        "note": "Sign-up and sign-in, issues JWTs."
+      },
+      {
+        "text": "Hosted UI (managed login)",
+        "note": "Login pages."
+      },
+      {
+        "text": "App client settings",
+        "note": "App configuration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "User pools authenticate; identity pools authorize access to AWS resources."
+  },
+  {
+    "id": 29,
+    "domain": "D1",
+    "scenario": "Which ElastiCache write strategy keeps the cache always up to date with the database?",
+    "options": [
+      {
+        "text": "Write-through",
+        "note": ""
+      },
+      {
+        "text": "Lazy loading",
+        "note": "Loads on misses only."
+      },
+      {
+        "text": "Read-through replicas",
+        "note": "Not an ElastiCache strategy."
+      },
+      {
+        "text": "TTL-only",
+        "note": "Expires data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Write-through can cache data that's never read."
+  },
+  {
+    "id": 30,
+    "domain": "D1",
+    "scenario": "A Lambda function's code must write large temporary files during processing. Where should it write them?",
+    "options": [
+      {
+        "text": "The /tmp directory, sized as needed up to 10 GB",
+        "note": ""
+      },
+      {
+        "text": "The function's deployment package",
+        "note": "Read-only."
+      },
+      {
+        "text": "Environment variables (4 KB total)",
+        "note": "Too small; not for files."
+      },
+      {
+        "text": "The Lambda layer directory",
+        "note": "Read-only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use EFS or S3 for data that must persist."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "An app on EC2 needs to call DynamoDB. What's the most secure way to provide credentials?",
+    "options": [
+      {
+        "text": "An IAM role attached through an instance profile",
+        "note": ""
+      },
+      {
+        "text": "Access keys in a config file",
+        "note": "Long-lived keys can leak."
+      },
+      {
+        "text": "Access keys in environment variables",
+        "note": "Still long-lived keys."
+      },
+      {
+        "text": "The root user's access keys",
+        "note": "Never."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Roles provide temporary credentials that rotate automatically."
+  },
+  {
+    "id": 32,
+    "domain": "D2",
+    "scenario": "Which API call lets an application get temporary credentials for another role?",
+    "options": [
+      {
+        "text": "sts:AssumeRole",
+        "note": ""
+      },
+      {
+        "text": "iam:CreateUser",
+        "note": "Creates long-term users."
+      },
+      {
+        "text": "kms:Decrypt",
+        "note": "Decrypts data."
+      },
+      {
+        "text": "s3:GetObject",
+        "note": "Reads objects."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cross-account access commonly uses AssumeRole."
+  },
+  {
+    "id": 33,
+    "domain": "D2",
+    "scenario": "A Lambda function must read from S3 and write to DynamoDB. Where are these permissions defined?",
+    "options": [
+      {
+        "text": "In the function's execution role",
+        "note": ""
+      },
+      {
+        "text": "In the function's resource-based policy",
+        "note": "Controls who can invoke it."
+      },
+      {
+        "text": "In environment variables",
+        "note": "Not permissions."
+      },
+      {
+        "text": "In the function's layer",
+        "note": "Code only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The resource-based policy allows services like API Gateway or S3 to invoke the function."
+  },
+  {
+    "id": 34,
+    "domain": "D2",
+    "scenario": "Which KMS approach encrypts large data locally using a data key protected by a KMS key?",
+    "options": [
+      {
+        "text": "Envelope encryption with GenerateDataKey",
+        "note": ""
+      },
+      {
+        "text": "Calling Encrypt on the entire file",
+        "note": "Limited to 4 KB."
+      },
+      {
+        "text": "Applying an S3 bucket policy with encryption conditions",
+        "note": "Access control, not encryption."
+      },
+      {
+        "text": "Storing a key in code",
+        "note": "Insecure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The encrypted data key is stored with the data."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "Which service stores database credentials and can rotate them automatically?",
+    "options": [
+      {
+        "text": "AWS Secrets Manager",
+        "note": ""
+      },
+      {
+        "text": "SSM Parameter Store standard parameters",
+        "note": "No built-in rotation."
+      },
+      {
+        "text": "Amazon S3",
+        "note": "Not designed for secrets."
+      },
+      {
+        "text": "Lambda environment variables",
+        "note": "No rotation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Parameter Store SecureString parameters are encrypted with KMS but don't rotate automatically."
+  },
+  {
+    "id": 36,
+    "domain": "D2",
+    "scenario": "Which API Gateway authorizer validates JWTs from a Cognito user pool without custom code?",
+    "options": [
+      {
+        "text": "Cognito user pool authorizer",
+        "note": ""
+      },
+      {
+        "text": "Lambda authorizer",
+        "note": "Custom code."
+      },
+      {
+        "text": "IAM authorization",
+        "note": "SigV4-signed requests."
+      },
+      {
+        "text": "API keys in a usage plan",
+        "note": "Identify callers; don't authenticate users."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HTTP APIs support JWT authorizers natively."
+  },
+  {
+    "id": 37,
+    "domain": "D2",
+    "scenario": "Which API Gateway option lets the developer run custom logic to authorize requests with a bearer token?",
+    "options": [
+      {
+        "text": "Lambda authorizer",
+        "note": ""
+      },
+      {
+        "text": "Usage plan",
+        "note": "Throttling and quotas."
+      },
+      {
+        "text": "Resource policy only",
+        "note": "Source restrictions."
+      },
+      {
+        "text": "Stage variables",
+        "note": "Configuration values."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lambda authorizers return an IAM policy and can cache results."
+  },
+  {
+    "id": 38,
+    "domain": "D2",
+    "scenario": "Which S3 encryption option gives an audit trail of key usage in CloudTrail?",
+    "options": [
+      {
+        "text": "SSE-KMS",
+        "note": ""
+      },
+      {
+        "text": "SSE-S3",
+        "note": "Keys managed by S3, no per-key audit."
+      },
+      {
+        "text": "No encryption",
+        "note": "No protection."
+      },
+      {
+        "text": "Client-side with a hardcoded key",
+        "note": "Insecure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SSE-KMS calls are logged; S3 Bucket Keys reduce KMS request costs."
+  },
+  {
+    "id": 39,
+    "domain": "D2",
+    "scenario": "A browser app on example.com gets errors calling an S3 bucket's objects with JavaScript. What should be configured?",
+    "options": [
+      {
+        "text": "A CORS configuration on the bucket",
+        "note": ""
+      },
+      {
+        "text": "A bucket lifecycle rule",
+        "note": "Moves or deletes objects."
+      },
+      {
+        "text": "S3 Object Lock in governance mode",
+        "note": "Prevents deletion."
+      },
+      {
+        "text": "S3 Transfer Acceleration endpoint",
+        "note": "Speeds uploads."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CORS allows cross-origin requests from specified domains."
+  },
+  {
+    "id": 40,
+    "domain": "D2",
+    "scenario": "How should a Lambda function store sensitive environment variables?",
+    "options": [
+      {
+        "text": "Encrypt them with a KMS key and decrypt at run time",
+        "note": ""
+      },
+      {
+        "text": "Store them in plain text in the code",
+        "note": "Insecure."
+      },
+      {
+        "text": "Put them in the function's description field",
+        "note": "Visible to anyone who can view the function."
+      },
+      {
+        "text": "Save them in a public S3 bucket",
+        "note": "Exposed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Better still, fetch secrets from Secrets Manager or Parameter Store."
+  },
+  {
+    "id": 41,
+    "domain": "D2",
+    "scenario": "Which policy type is attached to an S3 bucket to allow access from another account?",
+    "options": [
+      {
+        "text": "A bucket (resource-based) policy",
+        "note": ""
+      },
+      {
+        "text": "A service control policy",
+        "note": "Sets maximum permissions."
+      },
+      {
+        "text": "A permissions boundary",
+        "note": "Limits identity policies."
+      },
+      {
+        "text": "A session policy",
+        "note": "Limits assumed sessions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cross-account access needs both the bucket policy and the caller's IAM permissions."
+  },
+  {
+    "id": 42,
+    "domain": "D2",
+    "scenario": "In an IAM policy evaluation, what happens when one statement allows and another explicitly denies?",
+    "options": [
+      {
+        "text": "The explicit deny wins",
+        "note": ""
+      },
+      {
+        "text": "The allow wins",
+        "note": "Deny overrides."
+      },
+      {
+        "text": "The most recent statement wins",
+        "note": "Order is irrelevant."
+      },
+      {
+        "text": "Access is granted once",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Everything is implicitly denied unless explicitly allowed."
+  },
+  {
+    "id": 43,
+    "domain": "D2",
+    "scenario": "A mobile app needs users to sign up and sign in with social providers like Google. Which service fits?",
+    "options": [
+      {
+        "text": "Amazon Cognito user pools",
+        "note": ""
+      },
+      {
+        "text": "IAM users per customer",
+        "note": "Doesn't scale; not for app users."
+      },
+      {
+        "text": "AWS IAM Identity Center",
+        "note": "Workforce access."
+      },
+      {
+        "text": "AWS Directory Service for Microsoft AD",
+        "note": "Managed AD."
+      }
+    ],
+    "answer": 0,
+    "explanation": "User pools issue ID, access and refresh tokens."
+  },
+  {
+    "id": 44,
+    "domain": "D2",
+    "scenario": "Which token from a Cognito user pool should be sent to an API to access resources?",
+    "options": [
+      {
+        "text": "The access token",
+        "note": ""
+      },
+      {
+        "text": "The refresh token",
+        "note": "Gets new tokens."
+      },
+      {
+        "text": "An IAM access key",
+        "note": "Not from Cognito user pools."
+      },
+      {
+        "text": "The session cookie only",
+        "note": "Not a Cognito token type."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The ID token contains user identity claims."
+  },
+  {
+    "id": 45,
+    "domain": "D2",
+    "scenario": "Which service provides certificates for HTTPS on load balancers and CloudFront for free?",
+    "options": [
+      {
+        "text": "AWS Certificate Manager",
+        "note": ""
+      },
+      {
+        "text": "AWS KMS",
+        "note": "Keys."
+      },
+      {
+        "text": "AWS Secrets Manager",
+        "note": "Secrets."
+      },
+      {
+        "text": "IAM server certificates",
+        "note": "Legacy option."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ACM renews public certificates automatically."
+  },
+  {
+    "id": 46,
+    "domain": "D2",
+    "scenario": "What's the purpose of an IAM permissions boundary?",
+    "options": [
+      {
+        "text": "Set the maximum permissions an identity can have",
+        "note": ""
+      },
+      {
+        "text": "Grant permissions to all users",
+        "note": "Boundaries never grant."
+      },
+      {
+        "text": "Encrypt the identity's access keys",
+        "note": "Not a boundary."
+      },
+      {
+        "text": "Log all API calls made by the identity",
+        "note": "That's CloudTrail."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Boundaries let developers create roles safely within limits."
+  },
+  {
+    "id": 47,
+    "domain": "D2",
+    "scenario": "Which mechanism protects data in transit between a client and an API Gateway endpoint?",
+    "options": [
+      {
+        "text": "TLS (HTTPS)",
+        "note": ""
+      },
+      {
+        "text": "SSE-S3",
+        "note": "At rest."
+      },
+      {
+        "text": "KMS key rotation",
+        "note": "Key management."
+      },
+      {
+        "text": "IAM groups",
+        "note": "Identity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "API Gateway endpoints are HTTPS only."
+  },
+  {
+    "id": 48,
+    "domain": "D2",
+    "scenario": "A developer must sign API requests to an IAM-authorized API Gateway endpoint. Which signing process is used?",
+    "options": [
+      {
+        "text": "Signature Version 4 (SigV4)",
+        "note": ""
+      },
+      {
+        "text": "OAuth 1.0 signatures",
+        "note": "Not AWS."
+      },
+      {
+        "text": "Basic authentication",
+        "note": "Not AWS signing."
+      },
+      {
+        "text": "MD5 checksums",
+        "note": "Not signing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AWS SDKs and the CLI sign requests automatically."
+  },
+  {
+    "id": 49,
+    "domain": "D2",
+    "scenario": "Which KMS feature automatically creates new key material on a schedule for a customer managed key?",
+    "options": [
+      {
+        "text": "Automatic key rotation",
+        "note": ""
+      },
+      {
+        "text": "Key deletion schedule",
+        "note": "Deletes keys."
+      },
+      {
+        "text": "Key grants",
+        "note": "Delegate permissions."
+      },
+      {
+        "text": "Key aliases",
+        "note": "Friendly names."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The default period is one year and can be set from 90 to 2,560 days; old key material is kept so existing data can still be decrypted."
+  },
+  {
+    "id": 50,
+    "domain": "D2",
+    "scenario": "Which approach keeps API keys out of source code in a CI/CD pipeline?",
+    "options": [
+      {
+        "text": "Reference them from Secrets Manager or Parameter Store",
+        "note": ""
+      },
+      {
+        "text": "Commit them to a private repo",
+        "note": "Still exposed in history."
+      },
+      {
+        "text": "Hardcode them in buildspec.yml",
+        "note": "Visible."
+      },
+      {
+        "text": "Share them in the team's chat channel",
+        "note": "Insecure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CodeBuild can inject secrets as environment variables at build time."
+  },
+  {
+    "id": 51,
+    "domain": "D2",
+    "scenario": "Which IAM feature lets a container in ECS get its own permissions separate from the host?",
+    "options": [
+      {
+        "text": "ECS task role",
+        "note": ""
+      },
+      {
+        "text": "EC2 instance profile",
+        "note": "Host-level permissions."
+      },
+      {
+        "text": "Security group",
+        "note": "Network rules."
+      },
+      {
+        "text": "Service-linked role",
+        "note": "Used by AWS services themselves."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The task execution role is used by ECS to pull images and write logs."
+  },
+  {
+    "id": 52,
+    "domain": "D2",
+    "scenario": "Why use temporary credentials instead of long-term access keys?",
+    "options": [
+      {
+        "text": "They expire, limiting damage if leaked",
+        "note": ""
+      },
+      {
+        "text": "They never need IAM permissions",
+        "note": "Still governed by IAM."
+      },
+      {
+        "text": "They're shorter and easier to copy",
+        "note": "Not the reason."
+      },
+      {
+        "text": "They work without a network",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "STS issues temporary credentials for roles and federated users."
+  },
+  {
+    "id": 53,
+    "domain": "D2",
+    "scenario": "Which S3 feature can block all public access settings at the account or bucket level?",
+    "options": [
+      {
+        "text": "S3 Block Public Access",
+        "note": ""
+      },
+      {
+        "text": "S3 Versioning",
+        "note": "Keeps object versions."
+      },
+      {
+        "text": "S3 Inventory",
+        "note": "Lists objects."
+      },
+      {
+        "text": "S3 Object Ownership settings",
+        "note": "Controls ACL ownership."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Block Public Access is enabled by default on new buckets."
+  },
+  {
+    "id": 54,
+    "domain": "D2",
+    "scenario": "A developer must give a partner temporary download access to one S3 object. What's simplest?",
+    "options": [
+      {
+        "text": "Share a presigned URL with an expiration",
+        "note": ""
+      },
+      {
+        "text": "Make the bucket public",
+        "note": "Exposes everything."
+      },
+      {
+        "text": "Create an IAM user for the partner",
+        "note": "More overhead."
+      },
+      {
+        "text": "Disable default encryption on the object",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The URL inherits the permissions of the credentials that signed it."
+  },
+  {
+    "id": 55,
+    "domain": "D2",
+    "scenario": "Which KMS key type is fully managed by AWS for a service like S3, with no customer control of policies?",
+    "options": [
+      {
+        "text": "AWS managed key",
+        "note": ""
+      },
+      {
+        "text": "Customer managed key",
+        "note": "You control policies and rotation."
+      },
+      {
+        "text": "Imported key material",
+        "note": "Customer supplies the material."
+      },
+      {
+        "text": "CloudHSM key",
+        "note": "Dedicated hardware."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AWS managed keys have aliases like aws/s3."
+  },
+  {
+    "id": 56,
+    "domain": "D3",
+    "scenario": "Which file defines build commands for AWS CodeBuild?",
+    "options": [
+      {
+        "text": "buildspec.yml",
+        "note": ""
+      },
+      {
+        "text": "appspec.yml",
+        "note": "Used by CodeDeploy."
+      },
+      {
+        "text": "template.yaml",
+        "note": "SAM or CloudFormation."
+      },
+      {
+        "text": "Dockerfile only",
+        "note": "Builds images, not CodeBuild phases."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Phases include install, pre_build, build and post_build."
+  },
+  {
+    "id": 57,
+    "domain": "D3",
+    "scenario": "Which file tells AWS CodeDeploy how to deploy an application and run lifecycle hooks?",
+    "options": [
+      {
+        "text": "appspec.yml",
+        "note": ""
+      },
+      {
+        "text": "buildspec.yml",
+        "note": "CodeBuild."
+      },
+      {
+        "text": "package.json",
+        "note": "Node.js dependencies."
+      },
+      {
+        "text": "cdk.json",
+        "note": "CDK settings."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hooks include BeforeInstall, AfterInstall, ApplicationStart and ValidateService."
+  },
+  {
+    "id": 58,
+    "domain": "D3",
+    "scenario": "Which Lambda deployment preference shifts 10% of traffic first, then the rest after a set time?",
+    "options": [
+      {
+        "text": "Canary",
+        "note": ""
+      },
+      {
+        "text": "Linear",
+        "note": "Equal increments at intervals."
+      },
+      {
+        "text": "All-at-once",
+        "note": "Immediate full shift."
+      },
+      {
+        "text": "In-place",
+        "note": "Not a Lambda option."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Example: Canary10Percent5Minutes. CloudWatch alarms can trigger automatic rollback."
+  },
+  {
+    "id": 59,
+    "domain": "D3",
+    "scenario": "Which Elastic Beanstalk deployment policy launches a new set of instances and swaps them in only if healthy?",
+    "options": [
+      {
+        "text": "Immutable",
+        "note": ""
+      },
+      {
+        "text": "All at once",
+        "note": "Causes downtime."
+      },
+      {
+        "text": "Rolling",
+        "note": "Reduces capacity during updates."
+      },
+      {
+        "text": "Rolling with additional batch",
+        "note": "Keeps capacity, updates existing instances."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Immutable deployments roll back easily by terminating the new instances."
+  },
+  {
+    "id": 60,
+    "domain": "D3",
+    "scenario": "Which Elastic Beanstalk policy is fastest but causes downtime?",
+    "options": [
+      {
+        "text": "All at once",
+        "note": ""
+      },
+      {
+        "text": "Immutable",
+        "note": "No downtime."
+      },
+      {
+        "text": "Traffic splitting",
+        "note": "Canary-style."
+      },
+      {
+        "text": "Rolling with additional batch",
+        "note": "Maintains capacity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use it for dev or test environments."
+  },
+  {
+    "id": 61,
+    "domain": "D3",
+    "scenario": "Which transform line identifies a CloudFormation template as an AWS SAM template?",
+    "options": [
+      {
+        "text": "Transform: AWS::Serverless-2016-10-31",
+        "note": ""
+      },
+      {
+        "text": "AWSTemplateFormatVersion only",
+        "note": "Standard header."
+      },
+      {
+        "text": "Resources: AWS::Lambda::Function",
+        "note": "A resource type, not a transform."
+      },
+      {
+        "text": "Metadata: AWS::Serverless::Application",
+        "note": "Not a transform."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SAM simplifies functions, APIs and tables with resources like AWS::Serverless::Function."
+  },
+  {
+    "id": 62,
+    "domain": "D3",
+    "scenario": "Which SAM CLI command packages and deploys an application, prompting for settings the first time?",
+    "options": [
+      {
+        "text": "sam deploy --guided",
+        "note": ""
+      },
+      {
+        "text": "sam init",
+        "note": "Creates a project."
+      },
+      {
+        "text": "sam local invoke",
+        "note": "Runs locally."
+      },
+      {
+        "text": "sam sync --watch",
+        "note": "Syncs changes for development."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Run sam build first to prepare artifacts."
+  },
+  {
+    "id": 63,
+    "domain": "D3",
+    "scenario": "Which CloudFormation intrinsic function returns an attribute like a resource's ARN?",
+    "options": [
+      {
+        "text": "Fn::GetAtt",
+        "note": ""
+      },
+      {
+        "text": "Fn::Join",
+        "note": "Concatenates strings."
+      },
+      {
+        "text": "Fn::Select",
+        "note": "Picks from a list."
+      },
+      {
+        "text": "Fn::Base64",
+        "note": "Encodes strings."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Ref returns the default value, often the resource name or ID."
+  },
+  {
+    "id": 64,
+    "domain": "D3",
+    "scenario": "How can one CloudFormation stack use a value output by another stack?",
+    "options": [
+      {
+        "text": "Export the output and use Fn::ImportValue",
+        "note": ""
+      },
+      {
+        "text": "Copy the value manually each time",
+        "note": "Error-prone."
+      },
+      {
+        "text": "Use a Lambda layer to share the value",
+        "note": "Code sharing."
+      },
+      {
+        "text": "Use DependsOn across stacks",
+        "note": "Works within a stack only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Nested stacks are another way to reuse templates."
+  },
+  {
+    "id": 65,
+    "domain": "D3",
+    "scenario": "Which CloudFormation feature previews changes before updating a stack?",
+    "options": [
+      {
+        "text": "Change sets",
+        "note": ""
+      },
+      {
+        "text": "Stack policies",
+        "note": "Protect resources from updates."
+      },
+      {
+        "text": "Drift detection",
+        "note": "Finds manual changes."
+      },
+      {
+        "text": "StackSets",
+        "note": "Deploy across accounts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Review replacements carefully, as some updates recreate resources."
+  },
+  {
+    "id": 66,
+    "domain": "D3",
+    "scenario": "Which Lambda feature lets an API always call the 'prod' version while new code is tested?",
+    "options": [
+      {
+        "text": "An alias pointing to a published version",
+        "note": ""
+      },
+      {
+        "text": "The $LATEST version",
+        "note": "Changes with every update."
+      },
+      {
+        "text": "A layer with production settings",
+        "note": "Code sharing."
+      },
+      {
+        "text": "An environment variable named STAGE",
+        "note": "Configuration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Aliases can split traffic between two versions with weights."
+  },
+  {
+    "id": 67,
+    "domain": "D3",
+    "scenario": "A team wants to define infrastructure in TypeScript instead of YAML. Which tool fits?",
+    "options": [
+      {
+        "text": "AWS CDK",
+        "note": ""
+      },
+      {
+        "text": "AWS SAM templates only",
+        "note": "YAML/JSON."
+      },
+      {
+        "text": "AWS Config",
+        "note": "Compliance."
+      },
+      {
+        "text": "AWS CloudTrail",
+        "note": "Logging."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CDK synthesizes CloudFormation templates."
+  },
+  {
+    "id": 68,
+    "domain": "D3",
+    "scenario": "Which service automates the full release pipeline from source to build to deploy?",
+    "options": [
+      {
+        "text": "AWS CodePipeline",
+        "note": ""
+      },
+      {
+        "text": "AWS CodeArtifact",
+        "note": "Package repository."
+      },
+      {
+        "text": "Amazon ECR",
+        "note": "Image registry."
+      },
+      {
+        "text": "AWS X-Ray",
+        "note": "Tracing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pipelines can include manual approval actions."
+  },
+  {
+    "id": 69,
+    "domain": "D3",
+    "scenario": "Where should Docker images for an ECS service be stored?",
+    "options": [
+      {
+        "text": "Amazon ECR",
+        "note": ""
+      },
+      {
+        "text": "AWS CodeArtifact",
+        "note": "Language packages."
+      },
+      {
+        "text": "Amazon EFS",
+        "note": "File storage."
+      },
+      {
+        "text": "AWS Systems Manager",
+        "note": "Operations."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ECR supports image scanning and lifecycle policies."
+  },
+  {
+    "id": 70,
+    "domain": "D3",
+    "scenario": "Which API Gateway feature lets one API have dev, test and prod with different settings?",
+    "options": [
+      {
+        "text": "Stages with stage variables",
+        "note": ""
+      },
+      {
+        "text": "Usage plans",
+        "note": "Quotas."
+      },
+      {
+        "text": "Request validation models",
+        "note": "Request schemas."
+      },
+      {
+        "text": "Resource policies",
+        "note": "Access restrictions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Stage variables can point to different Lambda aliases."
+  },
+  {
+    "id": 71,
+    "domain": "D3",
+    "scenario": "Which CodeDeploy deployment type for EC2 replaces instances with new ones behind the load balancer?",
+    "options": [
+      {
+        "text": "Blue/green",
+        "note": ""
+      },
+      {
+        "text": "In-place",
+        "note": "Updates existing instances."
+      },
+      {
+        "text": "All-at-once in-place",
+        "note": "Updates existing instances."
+      },
+      {
+        "text": "Rolling in-place",
+        "note": "Updates existing instances."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Blue/green allows fast rollback by rerouting traffic."
+  },
+  {
+    "id": 72,
+    "domain": "D3",
+    "scenario": "How can a developer test a Lambda function locally before deploying?",
+    "options": [
+      {
+        "text": "sam local invoke with a sample event",
+        "note": ""
+      },
+      {
+        "text": "Deploy it to production first",
+        "note": "Risky."
+      },
+      {
+        "text": "Use CloudTrail event history",
+        "note": "Logs API calls."
+      },
+      {
+        "text": "Use AWS Config rule evaluations",
+        "note": "Compliance."
+      }
+    ],
+    "answer": 0,
+    "explanation": "sam local start-api emulates API Gateway locally."
+  },
+  {
+    "id": 73,
+    "domain": "D3",
+    "scenario": "Which service manages feature flags and configuration changes with validation and gradual rollout?",
+    "options": [
+      {
+        "text": "AWS AppConfig",
+        "note": ""
+      },
+      {
+        "text": "AWS CloudFormation",
+        "note": "Provisioning."
+      },
+      {
+        "text": "Amazon SQS",
+        "note": "Queues."
+      },
+      {
+        "text": "AWS Backup",
+        "note": "Backups."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AppConfig can roll back if a CloudWatch alarm fires."
+  },
+  {
+    "id": 74,
+    "domain": "D3",
+    "scenario": "Which Elastic Beanstalk file can customize the environment, such as installing packages?",
+    "options": [
+      {
+        "text": ".ebextensions config files",
+        "note": ""
+      },
+      {
+        "text": "buildspec.yml",
+        "note": "CodeBuild."
+      },
+      {
+        "text": "appspec.yml",
+        "note": "CodeDeploy."
+      },
+      {
+        "text": "Procfile",
+        "note": "Defines processes to run, not packages."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Platform hooks in .platform are used on Amazon Linux 2 and later."
+  },
+  {
+    "id": 75,
+    "domain": "D3",
+    "scenario": "Which CodeBuild feature speeds builds by keeping dependencies between runs?",
+    "options": [
+      {
+        "text": "Build caching (S3 or local)",
+        "note": ""
+      },
+      {
+        "text": "Manual approval actions",
+        "note": "Pipeline step."
+      },
+      {
+        "text": "Artifacts encryption",
+        "note": "Security."
+      },
+      {
+        "text": "VPC configuration",
+        "note": "Networking."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cache package manager directories like node_modules or .m2."
+  },
+  {
+    "id": 76,
+    "domain": "D3",
+    "scenario": "A Lambda deployment should automatically roll back if errors increase. What should be configured?",
+    "options": [
+      {
+        "text": "CodeDeploy with CloudWatch alarms",
+        "note": ""
+      },
+      {
+        "text": "A longer Lambda timeout",
+        "note": "Unrelated."
+      },
+      {
+        "text": "More reserved concurrency",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A bigger deployment package",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SAM's DeploymentPreference sets this up with a few lines."
+  },
+  {
+    "id": 77,
+    "domain": "D4",
+    "scenario": "Which service traces requests across microservices to find latency bottlenecks?",
+    "options": [
+      {
+        "text": "AWS X-Ray",
+        "note": ""
+      },
+      {
+        "text": "AWS CloudTrail",
+        "note": "Records API calls."
+      },
+      {
+        "text": "AWS Config",
+        "note": "Resource configuration."
+      },
+      {
+        "text": "Amazon Inspector",
+        "note": "Vulnerabilities."
+      }
+    ],
+    "answer": 0,
+    "explanation": "X-Ray builds a service map from trace segments."
+  },
+  {
+    "id": 78,
+    "domain": "D4",
+    "scenario": "In X-Ray, which data is indexed so it can be used to filter traces?",
+    "options": [
+      {
+        "text": "Annotations",
+        "note": ""
+      },
+      {
+        "text": "Metadata",
+        "note": "Not indexed."
+      },
+      {
+        "text": "Segments only",
+        "note": "Contain data, not filters."
+      },
+      {
+        "text": "Sampling rules",
+        "note": "Control what is recorded."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use annotations for values you want to search, like customer ID."
+  },
+  {
+    "id": 79,
+    "domain": "D4",
+    "scenario": "An app on EC2 must send X-Ray traces. What must run on the instance?",
+    "options": [
+      {
+        "text": "The X-Ray daemon or the CloudWatch agent/ADOT collector",
+        "note": ""
+      },
+      {
+        "text": "The SSM agent with Run Command",
+        "note": "Not for traces."
+      },
+      {
+        "text": "A NAT gateway",
+        "note": "Networking."
+      },
+      {
+        "text": "The CodeDeploy agent",
+        "note": "Deployments."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The instance role also needs permission to write traces."
+  },
+  {
+    "id": 80,
+    "domain": "D4",
+    "scenario": "Which feature publishes custom metrics from Lambda logs without extra API calls?",
+    "options": [
+      {
+        "text": "CloudWatch embedded metric format (EMF)",
+        "note": ""
+      },
+      {
+        "text": "PutMetricData in every invocation",
+        "note": "Adds API calls."
+      },
+      {
+        "text": "CloudTrail Insights events",
+        "note": "API anomalies."
+      },
+      {
+        "text": "AWS Config rules",
+        "note": "Compliance."
+      }
+    ],
+    "answer": 0,
+    "explanation": "EMF turns structured log lines into metrics."
+  },
+  {
+    "id": 81,
+    "domain": "D4",
+    "scenario": "Which CloudWatch feature queries log data with a purpose-built query language?",
+    "options": [
+      {
+        "text": "CloudWatch Logs Insights",
+        "note": ""
+      },
+      {
+        "text": "CloudWatch dashboards",
+        "note": "Visualize metrics."
+      },
+      {
+        "text": "CloudWatch alarms",
+        "note": "Notify on thresholds."
+      },
+      {
+        "text": "Metric math expressions",
+        "note": "Combines metrics."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Example: fields @timestamp, @message | filter @message like /ERROR/."
+  },
+  {
+    "id": 82,
+    "domain": "D4",
+    "scenario": "A DynamoDB table returns ProvisionedThroughputExceededException. What should the client do?",
+    "options": [
+      {
+        "text": "Retry with exponential backoff",
+        "note": ""
+      },
+      {
+        "text": "Retry immediately in a tight loop",
+        "note": "Makes throttling worse."
+      },
+      {
+        "text": "Switch to Scan operations",
+        "note": "Uses more capacity."
+      },
+      {
+        "text": "Ignore the error",
+        "note": "Loses data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Also consider on-demand capacity or better partition key design."
+  },
+  {
+    "id": 83,
+    "domain": "D4",
+    "scenario": "A DynamoDB table is throttled even with plenty of total capacity. What's the likely cause?",
+    "options": [
+      {
+        "text": "A hot partition key",
+        "note": ""
+      },
+      {
+        "text": "Too many GSIs",
+        "note": "Not the usual cause."
+      },
+      {
+        "text": "TTL is enabled",
+        "note": "No effect."
+      },
+      {
+        "text": "Streams are enabled",
+        "note": "No effect."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Choose high-cardinality partition keys to spread traffic."
+  },
+  {
+    "id": 84,
+    "domain": "D4",
+    "scenario": "Lambda functions start slowly after periods of no traffic. What reduces this?",
+    "options": [
+      {
+        "text": "Provisioned concurrency",
+        "note": ""
+      },
+      {
+        "text": "Reserved concurrency",
+        "note": "Caps concurrency."
+      },
+      {
+        "text": "A longer timeout",
+        "note": "Unrelated to start time."
+      },
+      {
+        "text": "A dead-letter queue for failed events",
+        "note": "Failure handling."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SnapStart can also reduce cold starts for supported runtimes."
+  },
+  {
+    "id": 85,
+    "domain": "D4",
+    "scenario": "Where can a developer see a Lambda function's print and log output?",
+    "options": [
+      {
+        "text": "Amazon CloudWatch Logs",
+        "note": ""
+      },
+      {
+        "text": "AWS CloudTrail",
+        "note": "API activity."
+      },
+      {
+        "text": "An Amazon S3 bucket created by default",
+        "note": "Not by default."
+      },
+      {
+        "text": "AWS Config",
+        "note": "Configuration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The execution role needs permission to write logs."
+  },
+  {
+    "id": 86,
+    "domain": "D4",
+    "scenario": "API Gateway returns HTTP 504 for a Lambda-backed endpoint. What's the likely cause?",
+    "options": [
+      {
+        "text": "The integration timed out",
+        "note": ""
+      },
+      {
+        "text": "The client was throttled",
+        "note": "Usually 429."
+      },
+      {
+        "text": "The user isn't authorized",
+        "note": "Usually 401 or 403."
+      },
+      {
+        "text": "The route doesn't exist",
+        "note": "Usually 404."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Optimize the function or use asynchronous patterns for long work."
+  },
+  {
+    "id": 87,
+    "domain": "D4",
+    "scenario": "Which Lambda setting prevents one function from using all concurrency in the account?",
+    "options": [
+      {
+        "text": "Reserved concurrency",
+        "note": ""
+      },
+      {
+        "text": "Provisioned concurrency",
+        "note": "Pre-warms environments."
+      },
+      {
+        "text": "Ephemeral storage",
+        "note": "Temp space."
+      },
+      {
+        "text": "Memory size",
+        "note": "Performance."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reserved concurrency also guarantees capacity for that function."
+  },
+  {
+    "id": 88,
+    "domain": "D4",
+    "scenario": "How can a developer reduce the cost of many small S3 GET requests for frequently read objects?",
+    "options": [
+      {
+        "text": "Cache them with CloudFront",
+        "note": ""
+      },
+      {
+        "text": "Use S3 Glacier",
+        "note": "Slow retrieval."
+      },
+      {
+        "text": "Enable versioning",
+        "note": "Adds storage."
+      },
+      {
+        "text": "Use multipart download only",
+        "note": "Not a caching solution."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Caching reduces latency and origin requests."
+  },
+  {
+    "id": 89,
+    "domain": "D4",
+    "scenario": "Which CloudWatch metric resolution allows data points every 1 second?",
+    "options": [
+      {
+        "text": "High-resolution custom metrics",
+        "note": ""
+      },
+      {
+        "text": "Standard resolution",
+        "note": "1-minute granularity."
+      },
+      {
+        "text": "Detailed monitoring for EC2",
+        "note": "1-minute metrics."
+      },
+      {
+        "text": "Basic monitoring (5-minute)",
+        "note": "5-minute metrics."
+      }
+    ],
+    "answer": 0,
+    "explanation": "High-resolution alarms can evaluate every 10 or 30 seconds."
+  },
+  {
+    "id": 90,
+    "domain": "D4",
+    "scenario": "An SQS consumer keeps failing on the same malformed message. How should this be handled?",
+    "options": [
+      {
+        "text": "Configure a DLQ with a maxReceiveCount",
+        "note": ""
+      },
+      {
+        "text": "Increase the queue's retention to 14 days",
+        "note": "Keeps the bad message longer."
+      },
+      {
+        "text": "Purge the queue regularly",
+        "note": "Deletes good messages."
+      },
+      {
+        "text": "Use short polling",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Inspect DLQ messages and redrive them after fixing the bug."
+  },
+  {
+    "id": 91,
+    "domain": "D4",
+    "scenario": "Which tool helps find which part of Lambda code is slow by recording subsegments?",
+    "options": [
+      {
+        "text": "X-Ray SDK subsegments",
+        "note": ""
+      },
+      {
+        "text": "CloudTrail data events",
+        "note": "API activity."
+      },
+      {
+        "text": "S3 access logs",
+        "note": "Bucket access."
+      },
+      {
+        "text": "VPC Flow Logs",
+        "note": "Network flows."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Wrap downstream calls to see their timing."
+  },
+  {
+    "id": 92,
+    "domain": "D4",
+    "scenario": "A Lambda function in a VPC can't reach the internet to call a third-party API. What's needed?",
+    "options": [
+      {
+        "text": "A NAT gateway route from its private subnets",
+        "note": ""
+      },
+      {
+        "text": "A public IP on the function",
+        "note": "Lambda ENIs don't get public IPs."
+      },
+      {
+        "text": "A larger memory size",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A VPC gateway endpoint for S3",
+        "note": "Only reaches S3."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use VPC endpoints for AWS services to avoid NAT costs."
+  },
+  {
+    "id": 93,
+    "domain": "D4",
+    "scenario": "How can a developer make an idempotent API so retries don't create duplicate orders?",
+    "options": [
+      {
+        "text": "Use an idempotency key and conditional writes",
+        "note": ""
+      },
+      {
+        "text": "Disable retries in all clients",
+        "note": "Reduces reliability."
+      },
+      {
+        "text": "Use eventually consistent reads",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Increase the API Gateway timeout",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Powertools for AWS Lambda includes an idempotency utility."
+  }
+]

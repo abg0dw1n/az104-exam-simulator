@@ -1,0 +1,2227 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "What is the correct order of the Google Cloud resource hierarchy from top to bottom?",
+    "options": [
+      {
+        "text": "Organization, folders, projects, resources",
+        "note": ""
+      },
+      {
+        "text": "Projects, folders, organization, resources",
+        "note": "Reversed."
+      },
+      {
+        "text": "Folders, organization, resources, projects",
+        "note": "Wrong order."
+      },
+      {
+        "text": "Resources, projects, organization, folders",
+        "note": "Wrong order."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IAM policies and organization policies inherit down the hierarchy."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "A new project needs to use the Compute Engine API. What must be done first?",
+    "options": [
+      {
+        "text": "Enable the API and link a billing account",
+        "note": ""
+      },
+      {
+        "text": "Create a VPC peering connection to the default network",
+        "note": "Not required."
+      },
+      {
+        "text": "Create a service account key",
+        "note": "Not required."
+      },
+      {
+        "text": "Request a quota increase for vCPUs in every region",
+        "note": "Not the first step."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Most paid APIs require an active billing account on the project."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "Which command sets the default project for the gcloud CLI?",
+    "options": [
+      {
+        "text": "gcloud config set project PROJECT_ID",
+        "note": ""
+      },
+      {
+        "text": "gcloud projects create PROJECT_ID",
+        "note": "Creates a project."
+      },
+      {
+        "text": "gcloud projects update --set-default PROJECT_ID",
+        "note": "Not a valid way to set the CLI default."
+      },
+      {
+        "text": "gcloud auth login PROJECT_ID",
+        "note": "Authenticates; no project argument."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Named configurations let you switch between projects and accounts."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "A team wants a spending alert when a project reaches 80% of $1,000 per month. What should be configured?",
+    "options": [
+      {
+        "text": "A Cloud Billing budget with threshold rules",
+        "note": ""
+      },
+      {
+        "text": "A quota limit on Compute Engine",
+        "note": "Limits resources, not spend alerts."
+      },
+      {
+        "text": "An uptime check on the billing console",
+        "note": "Monitors availability."
+      },
+      {
+        "text": "A log-based metric on billing log entries",
+        "note": "Counts log entries."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Budgets alert but don't stop spending unless you automate it with Pub/Sub."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "How can detailed billing data be analyzed with SQL?",
+    "options": [
+      {
+        "text": "Export Cloud Billing data to BigQuery",
+        "note": ""
+      },
+      {
+        "text": "Download the monthly PDF invoice and import it",
+        "note": "Summary only."
+      },
+      {
+        "text": "Query the Cloud Logging _Default bucket",
+        "note": "Not billing data."
+      },
+      {
+        "text": "Enable Data Access audit logs",
+        "note": "Not billing data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Standard and detailed usage cost exports are available."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "Which IAM role type should generally be avoided in production because it's very broad?",
+    "options": [
+      {
+        "text": "Basic roles like Owner, Editor and Viewer",
+        "note": ""
+      },
+      {
+        "text": "Predefined roles",
+        "note": "Recommended for most cases."
+      },
+      {
+        "text": "Custom roles with specific permissions",
+        "note": "Tailored permissions."
+      },
+      {
+        "text": "Service agent roles granted by Google services",
+        "note": "Used by Google services."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Predefined roles give fine-grained access to specific services."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "A user needs to manage only Compute Engine instances in one project. Which role is best?",
+    "options": [
+      {
+        "text": "roles/compute.instanceAdmin.v1 on the project",
+        "note": ""
+      },
+      {
+        "text": "roles/owner on the organization",
+        "note": "Far too broad."
+      },
+      {
+        "text": "roles/compute.admin on the organization",
+        "note": "Too broad a scope."
+      },
+      {
+        "text": "roles/viewer on the folder",
+        "note": "Can't manage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Grant at the lowest level that meets the need."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "Where should IAM roles be granted to give a group access to all projects in the Finance department?",
+    "options": [
+      {
+        "text": "On the Finance folder",
+        "note": ""
+      },
+      {
+        "text": "On each VM individually",
+        "note": "Hard to manage."
+      },
+      {
+        "text": "On the billing account",
+        "note": "Billing permissions only."
+      },
+      {
+        "text": "On a Cloud Storage bucket",
+        "note": "Bucket only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Roles granted on a folder are inherited by its projects."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "What's the recommended way to grant access to people?",
+    "options": [
+      {
+        "text": "Grant roles to Google groups, not individual users",
+        "note": ""
+      },
+      {
+        "text": "Share one admin account among staff",
+        "note": "No accountability."
+      },
+      {
+        "text": "Create service account keys for each person",
+        "note": "Keys are for workloads."
+      },
+      {
+        "text": "Grant Owner to everyone temporarily, then remove it later",
+        "note": "Too broad."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Groups simplify onboarding and offboarding."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "Which service manages user identities for a Google Cloud organization without Google Workspace?",
+    "options": [
+      {
+        "text": "Cloud Identity",
+        "note": ""
+      },
+      {
+        "text": "Cloud Storage",
+        "note": "Objects."
+      },
+      {
+        "text": "Cloud DNS",
+        "note": "Domains."
+      },
+      {
+        "text": "Firebase Hosting",
+        "note": "Web hosting."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud Identity can sync users from Active Directory with Google Cloud Directory Sync."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "A project hit a limit on the number of vCPUs in a region. What should the admin do?",
+    "options": [
+      {
+        "text": "Request a quota increase",
+        "note": ""
+      },
+      {
+        "text": "Create a new billing account",
+        "note": "Doesn't change quotas."
+      },
+      {
+        "text": "Disable the Compute Engine API",
+        "note": "Stops everything."
+      },
+      {
+        "text": "Delete the organization policy",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Quotas protect against unexpected usage and can be raised on request."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "Which tool lets admins restrict resource locations to EU regions across all projects?",
+    "options": [
+      {
+        "text": "An organization policy with the resource locations constraint",
+        "note": ""
+      },
+      {
+        "text": "An egress firewall rule blocking non-EU IP ranges",
+        "note": "Network traffic, not resource creation."
+      },
+      {
+        "text": "A VPC Service Controls perimeter only",
+        "note": "Data exfiltration, not location."
+      },
+      {
+        "text": "A Cloud Billing budget per region",
+        "note": "Spending alerts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Organization policies are inherited down the hierarchy."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "Which interface gives a browser-based shell with gcloud already installed?",
+    "options": [
+      {
+        "text": "Cloud Shell",
+        "note": ""
+      },
+      {
+        "text": "Cloud Run",
+        "note": "Runs containers."
+      },
+      {
+        "text": "Cloud Scheduler",
+        "note": "Cron jobs."
+      },
+      {
+        "text": "Cloud Tasks",
+        "note": "Task queues."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud Shell includes an editor and 5 GB of persistent home storage."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Which billing roles allow linking a project to a billing account?",
+    "options": [
+      {
+        "text": "Billing Account User on the account and Project Billing Manager on the project",
+        "note": ""
+      },
+      {
+        "text": "Viewer on the project and Billing Account Viewer on the account",
+        "note": "Read-only roles."
+      },
+      {
+        "text": "Billing Account Costs Manager on the account only",
+        "note": "Manages budgets, but cannot link projects alone."
+      },
+      {
+        "text": "Logging Admin on the project",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Billing Account Administrators can manage the billing account itself."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "Which command installs additional components like kubectl for the gcloud CLI?",
+    "options": [
+      {
+        "text": "gcloud components install kubectl",
+        "note": ""
+      },
+      {
+        "text": "gcloud kubectl enable",
+        "note": "Not a command."
+      },
+      {
+        "text": "gcloud container clusters install-kubectl",
+        "note": "Not a command."
+      },
+      {
+        "text": "gcloud container install",
+        "note": "Not a command."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Package-managed installations use the OS package manager instead."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "Which labels best help track costs by environment and team?",
+    "options": [
+      {
+        "text": "Key-value labels like env=prod and team=web on resources",
+        "note": ""
+      },
+      {
+        "text": "Long resource names that include the date and team",
+        "note": "Hard to report on."
+      },
+      {
+        "text": "Separate billing accounts per VM",
+        "note": "Overly complex."
+      },
+      {
+        "text": "Firewall rule priorities",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Labels appear in billing exports for filtering."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "Which Google Cloud AI assistant helps admins explore resources and troubleshoot from the console?",
+    "options": [
+      {
+        "text": "Gemini Cloud Assist",
+        "note": ""
+      },
+      {
+        "text": "Gemini in Gmail",
+        "note": "Email assistant."
+      },
+      {
+        "text": "Looker Q&A",
+        "note": "BI questions."
+      },
+      {
+        "text": "Gemini Code Assist in the IDE",
+        "note": "Helps write code, not explore projects."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Gemini Cloud Assist can also query Cloud Asset Inventory."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "Which IAM feature grants access only when conditions are met, such as until a certain date?",
+    "options": [
+      {
+        "text": "IAM Conditions",
+        "note": ""
+      },
+      {
+        "text": "Basic roles",
+        "note": "Broad, unconditional."
+      },
+      {
+        "text": "Service account keys",
+        "note": "Credentials."
+      },
+      {
+        "text": "Organization folders",
+        "note": "Hierarchy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Conditions use attributes like time and resource name."
+  },
+  {
+    "id": 19,
+    "domain": "D2",
+    "scenario": "Which command creates a Compute Engine VM?",
+    "options": [
+      {
+        "text": "gcloud compute instances create",
+        "note": ""
+      },
+      {
+        "text": "gcloud compute vms new",
+        "note": "Not a command."
+      },
+      {
+        "text": "gcloud run deploy",
+        "note": "Deploys to Cloud Run."
+      },
+      {
+        "text": "gcloud container clusters create",
+        "note": "Creates a GKE cluster."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Specify --zone, --machine-type and --image-family as needed."
+  },
+  {
+    "id": 20,
+    "domain": "D2",
+    "scenario": "A batch job can be interrupted and restarted. Which VM option is cheapest?",
+    "options": [
+      {
+        "text": "Spot VMs",
+        "note": ""
+      },
+      {
+        "text": "Standard on-demand VMs",
+        "note": "Full price."
+      },
+      {
+        "text": "Sole-tenant nodes",
+        "note": "Dedicated hardware, more expensive."
+      },
+      {
+        "text": "Committed use discounts for 3 years",
+        "note": "For steady use."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Spot VMs can be preempted at any time."
+  },
+  {
+    "id": 21,
+    "domain": "D2",
+    "scenario": "Which resource defines the machine type, image and settings for VMs in a managed instance group?",
+    "options": [
+      {
+        "text": "An instance template",
+        "note": ""
+      },
+      {
+        "text": "A snapshot schedule",
+        "note": "Disk backups."
+      },
+      {
+        "text": "A firewall policy",
+        "note": "Network rules."
+      },
+      {
+        "text": "A health check and backend service",
+        "note": "Health monitoring."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Instance templates are immutable; create a new one to change settings."
+  },
+  {
+    "id": 22,
+    "domain": "D2",
+    "scenario": "Which managed instance group feature recreates VMs that fail an application health check?",
+    "options": [
+      {
+        "text": "Autohealing",
+        "note": ""
+      },
+      {
+        "text": "Autoscaling",
+        "note": "Changes the number of VMs."
+      },
+      {
+        "text": "Live migration",
+        "note": "Moves VMs during host maintenance."
+      },
+      {
+        "text": "Rolling update",
+        "note": "Applies new templates."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Set an initial delay so VMs can boot before health checks count."
+  },
+  {
+    "id": 23,
+    "domain": "D2",
+    "scenario": "Which GKE mode manages nodes for you and bills per pod resource requests?",
+    "options": [
+      {
+        "text": "Autopilot",
+        "note": ""
+      },
+      {
+        "text": "Standard",
+        "note": "You manage node pools."
+      },
+      {
+        "text": "Bare metal",
+        "note": "Not a GKE mode."
+      },
+      {
+        "text": "Sole-tenant",
+        "note": "Not a GKE mode."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Autopilot applies Google's best-practice configuration."
+  },
+  {
+    "id": 24,
+    "domain": "D2",
+    "scenario": "Which command configures kubectl to access a GKE cluster?",
+    "options": [
+      {
+        "text": "gcloud container clusters get-credentials CLUSTER",
+        "note": ""
+      },
+      {
+        "text": "kubectl config set-cluster CLUSTER --gke",
+        "note": "Not the documented method; incomplete."
+      },
+      {
+        "text": "gcloud auth configure-docker",
+        "note": "For registries."
+      },
+      {
+        "text": "gcloud compute ssh CLUSTER",
+        "note": "SSH to a VM."
+      }
+    ],
+    "answer": 0,
+    "explanation": "This writes cluster credentials to your kubeconfig."
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "scenario": "Which command deploys a container image to Cloud Run?",
+    "options": [
+      {
+        "text": "gcloud run deploy SERVICE --image IMAGE",
+        "note": ""
+      },
+      {
+        "text": "gcloud app deploy --image-url IMAGE --platform=run",
+        "note": "App Engine command."
+      },
+      {
+        "text": "kubectl apply -f service.yaml only",
+        "note": "Kubernetes."
+      },
+      {
+        "text": "gcloud functions publish",
+        "note": "Not a command."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud Run can also build from source with --source."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "Which Cloud Storage class fits backups accessed about once a quarter?",
+    "options": [
+      {
+        "text": "Coldline",
+        "note": ""
+      },
+      {
+        "text": "Standard",
+        "note": "Frequent access."
+      },
+      {
+        "text": "Nearline",
+        "note": "About once a month."
+      },
+      {
+        "text": "Archive",
+        "note": "Less than once a year."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Minimum storage durations: Nearline 30 days, Coldline 90, Archive 365."
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "scenario": "Which command copies a local file to a Cloud Storage bucket?",
+    "options": [
+      {
+        "text": "gcloud storage cp file.txt gs://BUCKET/",
+        "note": ""
+      },
+      {
+        "text": "gcloud storage mb file.txt",
+        "note": "Makes a bucket."
+      },
+      {
+        "text": "bq load gs://BUCKET file.txt",
+        "note": "Loads into BigQuery."
+      },
+      {
+        "text": "gcloud compute scp file.txt gs://BUCKET",
+        "note": "Copies to VMs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "gsutil cp also works but gcloud storage is recommended."
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "scenario": "Which database fits a lift-and-shift of a MySQL app needing a managed regional database?",
+    "options": [
+      {
+        "text": "Cloud SQL for MySQL",
+        "note": ""
+      },
+      {
+        "text": "Spanner with the PostgreSQL interface",
+        "note": "Global scale, more change."
+      },
+      {
+        "text": "Bigtable with the HBase client",
+        "note": "NoSQL."
+      },
+      {
+        "text": "Firestore",
+        "note": "NoSQL."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud SQL supports MySQL, PostgreSQL and SQL Server."
+  },
+  {
+    "id": 29,
+    "domain": "D2",
+    "scenario": "Which storage option gives a VM a high-performance block disk that can be resized and snapshotted?",
+    "options": [
+      {
+        "text": "Persistent Disk or Hyperdisk",
+        "note": ""
+      },
+      {
+        "text": "Cloud Storage bucket",
+        "note": "Object storage."
+      },
+      {
+        "text": "Filestore Basic HDD share",
+        "note": "Network file share."
+      },
+      {
+        "text": "Local SSD attached to the VM",
+        "note": "Data doesn't persist on stop."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hyperdisk lets you tune IOPS and throughput separately."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "Which VPC mode lets you choose your own subnet ranges in each region?",
+    "options": [
+      {
+        "text": "Custom mode VPC",
+        "note": ""
+      },
+      {
+        "text": "Auto mode VPC",
+        "note": "Creates one subnet per region automatically."
+      },
+      {
+        "text": "Legacy network",
+        "note": "Deprecated, no subnets."
+      },
+      {
+        "text": "Default VPC only",
+        "note": "An auto mode network."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Subnets are regional; VPC networks are global."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "VMs without external IPs must reach the internet for updates. What should be configured?",
+    "options": [
+      {
+        "text": "Cloud NAT on a Cloud Router",
+        "note": ""
+      },
+      {
+        "text": "A VPC peering connection",
+        "note": "Connects VPCs only."
+      },
+      {
+        "text": "An ingress firewall rule allowing all",
+        "note": "Wrong direction."
+      },
+      {
+        "text": "Private Service Connect",
+        "note": "Private access to services."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud NAT provides outbound-only internet access."
+  },
+  {
+    "id": 32,
+    "domain": "D2",
+    "scenario": "VMs with only internal IPs need to reach Cloud Storage APIs. Which setting helps?",
+    "options": [
+      {
+        "text": "Private Google Access on the subnet",
+        "note": ""
+      },
+      {
+        "text": "An external Application Load Balancer",
+        "note": "Inbound traffic."
+      },
+      {
+        "text": "A public IP on each VM",
+        "note": "Defeats the goal."
+      },
+      {
+        "text": "Cloud CDN with signed URLs",
+        "note": "Caching."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Private Google Access is enabled per subnet."
+  },
+  {
+    "id": 33,
+    "domain": "D2",
+    "scenario": "Which load balancer distributes HTTPS traffic globally to backends in multiple regions?",
+    "options": [
+      {
+        "text": "Global external Application Load Balancer",
+        "note": ""
+      },
+      {
+        "text": "Regional internal passthrough Network Load Balancer",
+        "note": "Internal, Layer 4."
+      },
+      {
+        "text": "Cloud NAT",
+        "note": "Outbound NAT."
+      },
+      {
+        "text": "Internal Application Load Balancer",
+        "note": "Internal traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It uses a single anycast IP address."
+  },
+  {
+    "id": 34,
+    "domain": "D2",
+    "scenario": "Which load balancer handles internal TCP traffic between tiers in one region without proxying?",
+    "options": [
+      {
+        "text": "Internal passthrough Network Load Balancer",
+        "note": ""
+      },
+      {
+        "text": "Global external Application Load Balancer",
+        "note": "External HTTP(S)."
+      },
+      {
+        "text": "Regional internal proxy Network Load Balancer",
+        "note": "Proxies connections instead of passing them through."
+      },
+      {
+        "text": "External proxy Network Load Balancer",
+        "note": "External, proxied."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Passthrough load balancers preserve client IP addresses."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "Several projects must use subnets from one central network managed by a network team. What should be used?",
+    "options": [
+      {
+        "text": "Shared VPC",
+        "note": ""
+      },
+      {
+        "text": "VPC peering between every project",
+        "note": "Harder to manage centrally."
+      },
+      {
+        "text": "Cloud VPN between projects",
+        "note": "For external connectivity."
+      },
+      {
+        "text": "Separate auto mode VPCs",
+        "note": "Not centralized."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A host project shares subnets with service projects."
+  },
+  {
+    "id": 36,
+    "domain": "D2",
+    "scenario": "Which tool does Google recommend for infrastructure as code, now that Deployment Manager is retired?",
+    "options": [
+      {
+        "text": "Terraform (or Infrastructure Manager)",
+        "note": ""
+      },
+      {
+        "text": "Cloud Scheduler",
+        "note": "Cron jobs."
+      },
+      {
+        "text": "Cloud Shell Editor scripts",
+        "note": "An editor."
+      },
+      {
+        "text": "Cloud Build triggers alone",
+        "note": "Builds, not declarative infrastructure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Infrastructure Manager runs Terraform as a managed service."
+  },
+  {
+    "id": 37,
+    "domain": "D2",
+    "scenario": "Which BigQuery command loads a CSV file from Cloud Storage into a table?",
+    "options": [
+      {
+        "text": "bq load --source_format=CSV dataset.table gs://bucket/file.csv",
+        "note": ""
+      },
+      {
+        "text": "bq query --load --format=csv dataset.table gs://bucket/file.csv",
+        "note": "Not valid."
+      },
+      {
+        "text": "gcloud storage load --destination=dataset.table gs://bucket/file.csv",
+        "note": "Not a command."
+      },
+      {
+        "text": "bq mk --csv gs://bucket",
+        "note": "Creates resources, not loads."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Schema can be auto-detected with --autodetect."
+  },
+  {
+    "id": 38,
+    "domain": "D2",
+    "scenario": "Which messaging service decouples a web app from background workers?",
+    "options": [
+      {
+        "text": "Pub/Sub",
+        "note": ""
+      },
+      {
+        "text": "Cloud DNS",
+        "note": "Name resolution."
+      },
+      {
+        "text": "Cloud Armor",
+        "note": "Security."
+      },
+      {
+        "text": "Persistent Disk",
+        "note": "Storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Push and pull subscriptions are supported."
+  },
+  {
+    "id": 39,
+    "domain": "D2",
+    "scenario": "Which option deploys event-driven code that runs when a file lands in a bucket?",
+    "options": [
+      {
+        "text": "Cloud Run functions with a Cloud Storage trigger",
+        "note": ""
+      },
+      {
+        "text": "A GKE DaemonSet that polls the bucket",
+        "note": "Runs pods on every node."
+      },
+      {
+        "text": "A Compute Engine startup script",
+        "note": "Runs at boot."
+      },
+      {
+        "text": "A Cloud SQL trigger on an upload table",
+        "note": "Not supported for this."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Eventarc routes events to Cloud Run services and functions."
+  },
+  {
+    "id": 40,
+    "domain": "D2",
+    "scenario": "Which Cloud SQL feature provides automatic failover to another zone?",
+    "options": [
+      {
+        "text": "High availability (regional) configuration",
+        "note": ""
+      },
+      {
+        "text": "Read replicas",
+        "note": "Scale reads, no automatic failover."
+      },
+      {
+        "text": "Point-in-time recovery",
+        "note": "Restores data."
+      },
+      {
+        "text": "Query Insights recommendations",
+        "note": "Performance analysis."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HA uses a standby instance in a second zone."
+  },
+  {
+    "id": 41,
+    "domain": "D2",
+    "scenario": "Which connectivity option links on-premises networks to a VPC over the internet with encryption?",
+    "options": [
+      {
+        "text": "Cloud VPN (HA VPN)",
+        "note": ""
+      },
+      {
+        "text": "Dedicated Interconnect",
+        "note": "Private physical link."
+      },
+      {
+        "text": "Cloud CDN",
+        "note": "Caching."
+      },
+      {
+        "text": "Cloud NAT",
+        "note": "Outbound internet."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HA VPN offers a 99.99% SLA when configured with two tunnels."
+  },
+  {
+    "id": 42,
+    "domain": "D2",
+    "scenario": "Which GKE object exposes a set of pods at a stable internal IP address?",
+    "options": [
+      {
+        "text": "Service",
+        "note": ""
+      },
+      {
+        "text": "ConfigMap",
+        "note": "Configuration."
+      },
+      {
+        "text": "Secret",
+        "note": "Sensitive values."
+      },
+      {
+        "text": "PersistentVolumeClaim",
+        "note": "Storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Service types include ClusterIP, NodePort and LoadBalancer."
+  },
+  {
+    "id": 43,
+    "domain": "D2",
+    "scenario": "A data team needs managed Apache Airflow to schedule pipelines. Which service fits?",
+    "options": [
+      {
+        "text": "Managed Service for Apache Airflow (formerly Cloud Composer)",
+        "note": ""
+      },
+      {
+        "text": "Cloud Scheduler with HTTP targets",
+        "note": "Simple cron jobs."
+      },
+      {
+        "text": "Workflows with Pub/Sub triggers",
+        "note": "Orchestrates APIs, not Airflow DAGs."
+      },
+      {
+        "text": "Cloud Tasks",
+        "note": "Task queues."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Google renamed Cloud Composer in April 2026."
+  },
+  {
+    "id": 44,
+    "domain": "D2",
+    "scenario": "Which storage service provides managed NFS file shares for VMs and GKE?",
+    "options": [
+      {
+        "text": "Filestore",
+        "note": ""
+      },
+      {
+        "text": "Cloud Storage",
+        "note": "Objects."
+      },
+      {
+        "text": "Bigtable",
+        "note": "NoSQL."
+      },
+      {
+        "text": "Local SSD",
+        "note": "Ephemeral block storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Google Cloud NetApp Volumes is another managed file option."
+  },
+  {
+    "id": 45,
+    "domain": "D2",
+    "scenario": "Which command creates a GKE Autopilot cluster?",
+    "options": [
+      {
+        "text": "gcloud container clusters create-auto NAME --region REGION",
+        "note": ""
+      },
+      {
+        "text": "gcloud container clusters create NAME --autopilot-off",
+        "note": "Not valid."
+      },
+      {
+        "text": "kubectl create cluster NAME --mode=autopilot --region REGION",
+        "note": "Not a command."
+      },
+      {
+        "text": "gcloud run clusters create NAME",
+        "note": "Not a command."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Autopilot clusters are regional."
+  },
+  {
+    "id": 46,
+    "domain": "D3",
+    "scenario": "Which agent should be installed on Compute Engine VMs to collect memory metrics and application logs?",
+    "options": [
+      {
+        "text": "Ops Agent",
+        "note": ""
+      },
+      {
+        "text": "SSM Agent",
+        "note": "AWS."
+      },
+      {
+        "text": "Docker daemon",
+        "note": "Runs containers."
+      },
+      {
+        "text": "OS Login agent",
+        "note": "Manages SSH access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Ops Agent combines logging and monitoring collection."
+  },
+  {
+    "id": 47,
+    "domain": "D3",
+    "scenario": "Which feature alerts when a public website stops responding?",
+    "options": [
+      {
+        "text": "Uptime check with an alerting policy",
+        "note": ""
+      },
+      {
+        "text": "A log sink to Pub/Sub",
+        "note": "Routes logs."
+      },
+      {
+        "text": "A budget alert",
+        "note": "Costs."
+      },
+      {
+        "text": "An organization policy constraint",
+        "note": "Constraints."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Uptime checks run from multiple global locations."
+  },
+  {
+    "id": 48,
+    "domain": "D3",
+    "scenario": "Which Cloud Logging feature routes logs to BigQuery for long-term analysis?",
+    "options": [
+      {
+        "text": "A log sink",
+        "note": ""
+      },
+      {
+        "text": "A log-based metric",
+        "note": "Counts entries."
+      },
+      {
+        "text": "Log retention lock",
+        "note": "Prevents changes."
+      },
+      {
+        "text": "Logs Explorer saved query",
+        "note": "Search only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sinks can also route to Cloud Storage, Pub/Sub or other log buckets."
+  },
+  {
+    "id": 49,
+    "domain": "D3",
+    "scenario": "Which audit log type is always on and records administrative changes like creating a VM?",
+    "options": [
+      {
+        "text": "Admin Activity audit logs",
+        "note": ""
+      },
+      {
+        "text": "Data Access audit logs",
+        "note": "Off by default for most services."
+      },
+      {
+        "text": "VPC Flow Logs",
+        "note": "Network flows."
+      },
+      {
+        "text": "Firewall Rules Logging on all rules",
+        "note": "Firewall hits."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Admin Activity logs can't be disabled and are free."
+  },
+  {
+    "id": 50,
+    "domain": "D3",
+    "scenario": "Which audit log type must usually be enabled to see who read objects in Cloud Storage?",
+    "options": [
+      {
+        "text": "Data Access audit logs",
+        "note": ""
+      },
+      {
+        "text": "Admin Activity audit logs",
+        "note": "Configuration changes."
+      },
+      {
+        "text": "System Event audit logs",
+        "note": "Google system actions."
+      },
+      {
+        "text": "Policy Denied audit logs",
+        "note": "Policy violations."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BigQuery Data Access logs are enabled by default."
+  },
+  {
+    "id": 51,
+    "domain": "D3",
+    "scenario": "A VM needs a backup every night with 14 days of retention. What should be configured?",
+    "options": [
+      {
+        "text": "A snapshot schedule attached to the disk",
+        "note": ""
+      },
+      {
+        "text": "A machine image created by hand weekly",
+        "note": "Manual and less frequent."
+      },
+      {
+        "text": "An instance template with a disk image",
+        "note": "Defines new VMs."
+      },
+      {
+        "text": "Live migration",
+        "note": "Host maintenance."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Backup and DR Service offers centralized backup management too."
+  },
+  {
+    "id": 52,
+    "domain": "D3",
+    "scenario": "How can a managed instance group roll out a new instance template with no downtime?",
+    "options": [
+      {
+        "text": "Start a rolling update with maxUnavailable set to 0",
+        "note": ""
+      },
+      {
+        "text": "Delete the group and recreate it",
+        "note": "Causes downtime."
+      },
+      {
+        "text": "Stop all VMs first, then change the template",
+        "note": "Causes downtime."
+      },
+      {
+        "text": "Change the zone of the group",
+        "note": "Not an update method."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Canary updates can test a template on a subset of VMs."
+  },
+  {
+    "id": 53,
+    "domain": "D3",
+    "scenario": "Which command scales a GKE deployment to 5 replicas?",
+    "options": [
+      {
+        "text": "kubectl scale deployment web --replicas=5",
+        "note": ""
+      },
+      {
+        "text": "gcloud container clusters resize web --num-nodes=5",
+        "note": "Resizes nodes, not deployment replicas."
+      },
+      {
+        "text": "kubectl resize pods web 5",
+        "note": "Not a command."
+      },
+      {
+        "text": "gcloud run scale web 5",
+        "note": "Not a command."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A HorizontalPodAutoscaler adjusts replicas automatically."
+  },
+  {
+    "id": 54,
+    "domain": "D3",
+    "scenario": "A Cloud Run service must handle traffic spikes but cap costs. Which setting helps?",
+    "options": [
+      {
+        "text": "Set a maximum number of instances",
+        "note": ""
+      },
+      {
+        "text": "Set minimum instances to 100",
+        "note": "Increases cost."
+      },
+      {
+        "text": "Disable autoscaling for the service",
+        "note": "Not available."
+      },
+      {
+        "text": "Increase the request timeout to 60 minutes",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Minimum instances reduce cold starts but cost more."
+  },
+  {
+    "id": 55,
+    "domain": "D3",
+    "scenario": "How can traffic be split between two Cloud Run revisions to test a new version?",
+    "options": [
+      {
+        "text": "Assign traffic percentages to revisions",
+        "note": ""
+      },
+      {
+        "text": "Create a second project for the new version",
+        "note": "Not needed."
+      },
+      {
+        "text": "Change the container port on the new revision",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Delete the old revision first",
+        "note": "No gradual rollout."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tags give each revision a test URL."
+  },
+  {
+    "id": 56,
+    "domain": "D3",
+    "scenario": "Which tool searches and filters log entries in the console?",
+    "options": [
+      {
+        "text": "Logs Explorer",
+        "note": ""
+      },
+      {
+        "text": "Metrics Explorer",
+        "note": "Metrics."
+      },
+      {
+        "text": "Cloud Asset Inventory",
+        "note": "Resources."
+      },
+      {
+        "text": "Billing reports",
+        "note": "Costs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use the Logging query language to filter by resource and severity."
+  },
+  {
+    "id": 57,
+    "domain": "D3",
+    "scenario": "Which feature creates a metric from the count of matching log entries, like 'error' messages?",
+    "options": [
+      {
+        "text": "Log-based metrics",
+        "note": ""
+      },
+      {
+        "text": "Log sinks",
+        "note": "Route logs."
+      },
+      {
+        "text": "Uptime checks with log output",
+        "note": "Availability."
+      },
+      {
+        "text": "Error budgets in SLO monitoring",
+        "note": "SRE concept."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Alerting policies can use log-based metrics."
+  },
+  {
+    "id": 58,
+    "domain": "D3",
+    "scenario": "How long does Cloud Logging keep logs in the _Default bucket by default?",
+    "options": [
+      {
+        "text": "30 days",
+        "note": ""
+      },
+      {
+        "text": "7 days",
+        "note": "Too short."
+      },
+      {
+        "text": "400 days",
+        "note": "The _Required bucket retention."
+      },
+      {
+        "text": "Forever",
+        "note": "Not by default."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Retention can be configured on custom log buckets."
+  },
+  {
+    "id": 59,
+    "domain": "D3",
+    "scenario": "A Cloud SQL instance needs to recover data to 10 minutes before an accidental delete. What should be used?",
+    "options": [
+      {
+        "text": "Point-in-time recovery",
+        "note": ""
+      },
+      {
+        "text": "A read replica",
+        "note": "Replicates the delete too."
+      },
+      {
+        "text": "Query Insights history",
+        "note": "Performance analysis."
+      },
+      {
+        "text": "Maintenance window rollback",
+        "note": "Scheduling updates."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PITR requires automated backups and binary logging (MySQL) or WAL archiving (PostgreSQL)."
+  },
+  {
+    "id": 60,
+    "domain": "D3",
+    "scenario": "Which GKE feature upgrades nodes automatically with minimal disruption?",
+    "options": [
+      {
+        "text": "Node auto-upgrade with maintenance windows",
+        "note": ""
+      },
+      {
+        "text": "Manual SSH into each node",
+        "note": "Not scalable."
+      },
+      {
+        "text": "Recreating the cluster for each version",
+        "note": "Disruptive."
+      },
+      {
+        "text": "Disabling release channels",
+        "note": "Less automation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Release channels control how quickly new versions arrive."
+  },
+  {
+    "id": 61,
+    "domain": "D3",
+    "scenario": "Which command lists running VMs in the current project?",
+    "options": [
+      {
+        "text": "gcloud compute instances list",
+        "note": ""
+      },
+      {
+        "text": "gcloud compute instances describe --all",
+        "note": "Describe needs one instance name."
+      },
+      {
+        "text": "gcloud projects list",
+        "note": "Lists projects."
+      },
+      {
+        "text": "kubectl get vms",
+        "note": "Not a resource type."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Add --filter to narrow results, e.g. status=RUNNING."
+  },
+  {
+    "id": 62,
+    "domain": "D3",
+    "scenario": "Which tool shows a historical inventory of all resources and IAM policies across projects?",
+    "options": [
+      {
+        "text": "Cloud Asset Inventory",
+        "note": ""
+      },
+      {
+        "text": "Cloud Monitoring dashboards",
+        "note": "Metrics, not resources and policies."
+      },
+      {
+        "text": "Cloud Trace",
+        "note": "Latency tracing."
+      },
+      {
+        "text": "Cloud Billing reports",
+        "note": "Costs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Asset Inventory supports export to BigQuery."
+  },
+  {
+    "id": 63,
+    "domain": "D3",
+    "scenario": "Which service helps find latency bottlenecks across distributed requests?",
+    "options": [
+      {
+        "text": "Cloud Trace",
+        "note": ""
+      },
+      {
+        "text": "Cloud Logging only",
+        "note": "Logs, not traces."
+      },
+      {
+        "text": "Cloud Billing",
+        "note": "Costs."
+      },
+      {
+        "text": "Cloud Asset Inventory",
+        "note": "Resources."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Trace is part of Google Cloud Observability."
+  },
+  {
+    "id": 64,
+    "domain": "D3",
+    "scenario": "A disk is running out of space on a VM. What's the least disruptive fix?",
+    "options": [
+      {
+        "text": "Resize the persistent disk, then grow the file system",
+        "note": ""
+      },
+      {
+        "text": "Delete and recreate the VM",
+        "note": "Disruptive."
+      },
+      {
+        "text": "Move the VM to a new region",
+        "note": "Unnecessary."
+      },
+      {
+        "text": "Change the machine type",
+        "note": "Doesn't add disk space."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Persistent disks can be resized while attached."
+  },
+  {
+    "id": 65,
+    "domain": "D3",
+    "scenario": "Which feature in Cloud Monitoring groups alerts so the right team gets notified?",
+    "options": [
+      {
+        "text": "Notification channels on alerting policies",
+        "note": ""
+      },
+      {
+        "text": "Log sinks",
+        "note": "Route logs."
+      },
+      {
+        "text": "Billing budgets with Pub/Sub",
+        "note": "Costs."
+      },
+      {
+        "text": "Labels on firewall rules",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Channels include email, SMS, Slack, PagerDuty and Pub/Sub."
+  },
+  {
+    "id": 66,
+    "domain": "D3",
+    "scenario": "Which GKE feature adds nodes when pods can't be scheduled due to lack of resources?",
+    "options": [
+      {
+        "text": "Cluster autoscaler",
+        "note": ""
+      },
+      {
+        "text": "HorizontalPodAutoscaler",
+        "note": "Adds pods, not nodes."
+      },
+      {
+        "text": "VerticalPodAutoscaler",
+        "note": "Adjusts pod requests."
+      },
+      {
+        "text": "Node auto-repair",
+        "note": "Fixes unhealthy nodes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Autopilot handles node scaling automatically."
+  },
+  {
+    "id": 67,
+    "domain": "D3",
+    "scenario": "Which Cloud Storage feature deletes objects older than 365 days automatically?",
+    "options": [
+      {
+        "text": "Object Lifecycle Management rules",
+        "note": ""
+      },
+      {
+        "text": "Bucket Lock",
+        "note": "Prevents deletion."
+      },
+      {
+        "text": "Signed URLs with expiration",
+        "note": "Temporary access."
+      },
+      {
+        "text": "Soft delete policies",
+        "note": "Retain deleted objects; do not delete old ones."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lifecycle rules can also change storage classes."
+  },
+  {
+    "id": 68,
+    "domain": "D3",
+    "scenario": "A Cloud Run service returns errors after a new deployment. What's the fastest way to restore service?",
+    "options": [
+      {
+        "text": "Route 100% of traffic back to the previous revision",
+        "note": ""
+      },
+      {
+        "text": "Delete the service and redeploy from scratch",
+        "note": "Slower."
+      },
+      {
+        "text": "Increase the memory of the new revision",
+        "note": "May not fix it."
+      },
+      {
+        "text": "Disable logging on the new revision",
+        "note": "Hides problems."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Revisions are immutable, making rollbacks quick."
+  },
+  {
+    "id": 69,
+    "domain": "D3",
+    "scenario": "Which service manages database fleets and recommendations across Cloud SQL, AlloyDB and Spanner?",
+    "options": [
+      {
+        "text": "Database Center",
+        "note": ""
+      },
+      {
+        "text": "Cloud SQL Query Insights",
+        "note": "Per-instance query performance."
+      },
+      {
+        "text": "Cloud Asset Inventory",
+        "note": "Lists resources, no database recommendations."
+      },
+      {
+        "text": "Cloud CDN",
+        "note": "Caching."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Database Center surfaces health, security and performance issues."
+  },
+  {
+    "id": 70,
+    "domain": "D3",
+    "scenario": "Which dashboard shows Google Cloud incidents that affect your specific projects?",
+    "options": [
+      {
+        "text": "Personalized Service Health",
+        "note": ""
+      },
+      {
+        "text": "Cloud Status Dashboard",
+        "note": "Public status, not personalized."
+      },
+      {
+        "text": "Logs Explorer",
+        "note": "Your logs."
+      },
+      {
+        "text": "Cloud Monitoring uptime checks",
+        "note": "Your own endpoints only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Alerts can notify you of incidents affecting your resources."
+  },
+  {
+    "id": 71,
+    "domain": "D3",
+    "scenario": "How can an admin SSH into a Linux VM using their IAM identity rather than managing SSH keys?",
+    "options": [
+      {
+        "text": "Enable OS Login",
+        "note": ""
+      },
+      {
+        "text": "Use a shared root password",
+        "note": "Insecure."
+      },
+      {
+        "text": "Copy keys into metadata for each user manually",
+        "note": "Hard to manage."
+      },
+      {
+        "text": "Open port 3389",
+        "note": "RDP port."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OS Login ties SSH access to IAM roles and supports 2FA."
+  },
+  {
+    "id": 72,
+    "domain": "D4",
+    "scenario": "A VM needs to read from a Cloud Storage bucket. What's the recommended way to give it access?",
+    "options": [
+      {
+        "text": "Attach a service account with a storage role",
+        "note": ""
+      },
+      {
+        "text": "Copy a user's password to the VM",
+        "note": "Insecure."
+      },
+      {
+        "text": "Make the bucket public for the VM's IP range",
+        "note": "Exposes data."
+      },
+      {
+        "text": "Download a service account key to the VM",
+        "note": "Keys are a risk."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Attached service accounts get short-lived credentials from the metadata server."
+  },
+  {
+    "id": 73,
+    "domain": "D4",
+    "scenario": "Why should service account keys be avoided when possible?",
+    "options": [
+      {
+        "text": "They're long-lived credentials that can leak",
+        "note": ""
+      },
+      {
+        "text": "They expire automatically every hour",
+        "note": "They don't expire by default."
+      },
+      {
+        "text": "They can't be used outside Google Cloud",
+        "note": "They can."
+      },
+      {
+        "text": "They're required for all APIs",
+        "note": "Not required."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use attached service accounts, impersonation or Workload Identity Federation instead."
+  },
+  {
+    "id": 74,
+    "domain": "D4",
+    "scenario": "Workloads running on AWS need to call Google Cloud APIs without service account keys. What should be used?",
+    "options": [
+      {
+        "text": "Workload Identity Federation",
+        "note": ""
+      },
+      {
+        "text": "A shared user password",
+        "note": "Insecure."
+      },
+      {
+        "text": "A service account key stored in AWS Secrets Manager",
+        "note": "Still a long-lived key."
+      },
+      {
+        "text": "Cloud NAT with a static IP",
+        "note": "Networking."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Federation exchanges external tokens for short-lived Google credentials."
+  },
+  {
+    "id": 75,
+    "domain": "D4",
+    "scenario": "Which role lets a user act as a service account (impersonate it)?",
+    "options": [
+      {
+        "text": "Service Account Token Creator or Service Account User",
+        "note": ""
+      },
+      {
+        "text": "Storage Object Viewer",
+        "note": "Reads objects."
+      },
+      {
+        "text": "Compute Instance Admin",
+        "note": "Manages VMs."
+      },
+      {
+        "text": "Security Reviewer",
+        "note": "Views IAM policies."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Impersonation avoids distributing keys."
+  },
+  {
+    "id": 76,
+    "domain": "D4",
+    "scenario": "How do GKE workloads best access Google Cloud APIs securely?",
+    "options": [
+      {
+        "text": "Workload Identity Federation for GKE",
+        "note": ""
+      },
+      {
+        "text": "Node service account keys in each pod",
+        "note": "Insecure."
+      },
+      {
+        "text": "Hardcoded API keys in images",
+        "note": "Insecure."
+      },
+      {
+        "text": "Public buckets only",
+        "note": "Not secure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Kubernetes service accounts map to IAM principals."
+  },
+  {
+    "id": 77,
+    "domain": "D4",
+    "scenario": "Which firewall rule direction controls traffic entering VMs?",
+    "options": [
+      {
+        "text": "Ingress",
+        "note": ""
+      },
+      {
+        "text": "Egress",
+        "note": "Leaving VMs."
+      },
+      {
+        "text": "Lateral",
+        "note": "Not a direction."
+      },
+      {
+        "text": "Transit",
+        "note": "Not a direction."
+      }
+    ],
+    "answer": 0,
+    "explanation": "VPC networks have an implied deny ingress and allow egress rule."
+  },
+  {
+    "id": 78,
+    "domain": "D4",
+    "scenario": "How can firewall rules target only web server VMs?",
+    "options": [
+      {
+        "text": "Use network tags or service accounts as targets",
+        "note": ""
+      },
+      {
+        "text": "Apply them to the whole organization only",
+        "note": "Too broad."
+      },
+      {
+        "text": "Use billing labels on the VMs",
+        "note": "Not firewall targets."
+      },
+      {
+        "text": "Use the VM's disk name",
+        "note": "Not a target."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Secure tags with Cloud NGFW policies offer IAM-controlled targeting."
+  },
+  {
+    "id": 79,
+    "domain": "D4",
+    "scenario": "Which feature applies firewall rules across many projects from the organization level?",
+    "options": [
+      {
+        "text": "Hierarchical firewall policies",
+        "note": ""
+      },
+      {
+        "text": "VPC firewall rules per project",
+        "note": "Project scope."
+      },
+      {
+        "text": "Network tags",
+        "note": "Targets only."
+      },
+      {
+        "text": "Cloud NAT rules",
+        "note": "Outbound NAT."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Policies are evaluated before VPC firewall rules."
+  },
+  {
+    "id": 80,
+    "domain": "D4",
+    "scenario": "Which service protects internal web apps by checking user identity before allowing access?",
+    "options": [
+      {
+        "text": "Identity-Aware Proxy (IAP)",
+        "note": ""
+      },
+      {
+        "text": "Cloud Next Generation Firewall",
+        "note": "Network rules, not identity."
+      },
+      {
+        "text": "Cloud CDN",
+        "note": "Caching."
+      },
+      {
+        "text": "Cloud Armor security policies",
+        "note": "Filters traffic, not user identity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IAP TCP forwarding also secures SSH and RDP without public IPs."
+  },
+  {
+    "id": 81,
+    "domain": "D4",
+    "scenario": "Which service stores API keys and passwords for apps with versioning and IAM control?",
+    "options": [
+      {
+        "text": "Secret Manager",
+        "note": ""
+      },
+      {
+        "text": "Cloud Storage public bucket",
+        "note": "Exposed."
+      },
+      {
+        "text": "Instance metadata",
+        "note": "Not for secrets."
+      },
+      {
+        "text": "Cloud Logging",
+        "note": "Logs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Grant secretAccessor only to workloads that need each secret."
+  },
+  {
+    "id": 82,
+    "domain": "D4",
+    "scenario": "Which encryption option lets a company control its own keys for BigQuery and Cloud Storage?",
+    "options": [
+      {
+        "text": "Customer-managed encryption keys (CMEK) in Cloud KMS",
+        "note": ""
+      },
+      {
+        "text": "Google default encryption only",
+        "note": "Google-managed keys."
+      },
+      {
+        "text": "Disabling encryption at rest for the dataset",
+        "note": "Not possible."
+      },
+      {
+        "text": "Using HTTP instead of HTTPS",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Customer-supplied keys (CSEK) are another option for some services."
+  },
+  {
+    "id": 83,
+    "domain": "D4",
+    "scenario": "Which approach temporarily grants elevated access that expires automatically?",
+    "options": [
+      {
+        "text": "IAM Conditions with an expiry, or Privileged Access Manager",
+        "note": ""
+      },
+      {
+        "text": "Granting Owner permanently",
+        "note": "Too broad."
+      },
+      {
+        "text": "Sharing a service account key",
+        "note": "Insecure."
+      },
+      {
+        "text": "Disabling audit logs during the change",
+        "note": "Reduces visibility."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Privileged Access Manager supports just-in-time access requests."
+  },
+  {
+    "id": 84,
+    "domain": "D4",
+    "scenario": "Which service limits data exfiltration from BigQuery and Cloud Storage to unauthorized networks?",
+    "options": [
+      {
+        "text": "VPC Service Controls",
+        "note": ""
+      },
+      {
+        "text": "Cloud Armor",
+        "note": "Web traffic."
+      },
+      {
+        "text": "VPC firewall egress rules only",
+        "note": "Don't apply to Google APIs."
+      },
+      {
+        "text": "Cloud Armor edge policies",
+        "note": "Web traffic only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Perimeters restrict access to Google-managed services."
+  },
+  {
+    "id": 85,
+    "domain": "D4",
+    "scenario": "A contractor needs read-only access to one bucket for a week. What's the best approach?",
+    "options": [
+      {
+        "text": "Grant Storage Object Viewer on the bucket with an IAM condition",
+        "note": ""
+      },
+      {
+        "text": "Grant Viewer on the organization",
+        "note": "Too broad."
+      },
+      {
+        "text": "Share the bucket publicly",
+        "note": "Exposes data."
+      },
+      {
+        "text": "Give them a service account key that expires",
+        "note": "Keys don't expire by default."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Signed URLs are another option for individual objects."
+  },
+  {
+    "id": 86,
+    "domain": "D4",
+    "scenario": "Which command grants a role to a user on a project?",
+    "options": [
+      {
+        "text": "gcloud projects add-iam-policy-binding PROJECT --member=user:EMAIL --role=ROLE",
+        "note": ""
+      },
+      {
+        "text": "gcloud iam roles create ROLE --project PROJECT --member EMAIL",
+        "note": "Creates custom roles."
+      },
+      {
+        "text": "gcloud auth add-role EMAIL",
+        "note": "Not a command."
+      },
+      {
+        "text": "gcloud projects set-owner EMAIL",
+        "note": "Not a command."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use groups instead of individual users where possible."
+  },
+  {
+    "id": 87,
+    "domain": "D4",
+    "scenario": "Which tool recommends removing unused permissions from principals?",
+    "options": [
+      {
+        "text": "IAM Recommender (role recommendations)",
+        "note": ""
+      },
+      {
+        "text": "Cloud Billing budgets",
+        "note": "Costs."
+      },
+      {
+        "text": "Policy Troubleshooter",
+        "note": "Explains access, doesn't recommend removal."
+      },
+      {
+        "text": "Logs Explorer queries",
+        "note": "Log search."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Recommendations are based on 90 days of permission usage."
+  },
+  {
+    "id": 88,
+    "domain": "D4",
+    "scenario": "Which Cloud NGFW feature can block traffic to known malicious IP addresses?",
+    "options": [
+      {
+        "text": "Threat intelligence in firewall policy rules",
+        "note": ""
+      },
+      {
+        "text": "Cloud NAT logging and filtering",
+        "note": "Logs NAT."
+      },
+      {
+        "text": "Static routes to a null next hop",
+        "note": "Routing."
+      },
+      {
+        "text": "Private Google Access",
+        "note": "API access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud NGFW Enterprise adds intrusion prevention."
+  },
+  {
+    "id": 89,
+    "domain": "D4",
+    "scenario": "Which principle should guide role assignments for service accounts?",
+    "options": [
+      {
+        "text": "Least privilege",
+        "note": ""
+      },
+      {
+        "text": "Grant Editor to every service account",
+        "note": "Too broad."
+      },
+      {
+        "text": "Share one service account across all apps",
+        "note": "Hard to audit."
+      },
+      {
+        "text": "Create keys for every service account",
+        "note": "Increases risk."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use separate service accounts per workload."
+  }
+]

@@ -95,5 +95,109 @@
     "vendor": "CompTIA",
     "level": "beginner",
     "updated": "2026-10-28"
+  },
+  {
+    "slug": "sc-900",
+    "code": "SC-900",
+    "name": "Microsoft Security, Compliance, and Identity Fundamentals",
+    "vendor": "Microsoft",
+    "level": "beginner",
+    "updated": "2026-10-28"
+  },
+  {
+    "slug": "dp-900",
+    "code": "DP-900",
+    "name": "Microsoft Azure Data Fundamentals",
+    "vendor": "Microsoft",
+    "level": "beginner",
+    "updated": "2026-10-28"
+  },
+  {
+    "slug": "tech-plus",
+    "code": "FC0-U71",
+    "name": "CompTIA Tech+",
+    "vendor": "CompTIA",
+    "level": "beginner",
+    "updated": "2026-10-28"
+  },
+  {
+    "slug": "ccst-networking",
+    "code": "100-150",
+    "name": "Cisco CCST Networking",
+    "vendor": "Cisco",
+    "level": "beginner",
+    "updated": "2026-10-28"
+  },
+  {
+    "slug": "ccst-cybersecurity",
+    "code": "100-160",
+    "name": "Cisco CCST Cybersecurity",
+    "vendor": "Cisco",
+    "level": "beginner",
+    "updated": "2026-10-28"
+  },
+  {
+    "slug": "ccst-it-support",
+    "code": "100-140",
+    "name": "Cisco CCST IT Support",
+    "vendor": "Cisco",
+    "level": "beginner",
+    "updated": "2026-10-28"
+  },
+  {
+    "slug": "ccna-cyber",
+    "code": "200-201",
+    "name": "Cisco CCNA Cybersecurity",
+    "vendor": "Cisco",
+    "level": "advanced",
+    "updated": "2026-10-28"
+  },
+  {
+    "slug": "aws-dva",
+    "code": "DVA-C02",
+    "name": "AWS Certified Developer – Associate",
+    "vendor": "Amazon Web Services",
+    "level": "advanced",
+    "updated": "2026-10-28"
+  },
+  {
+    "slug": "aws-soa",
+    "code": "SOA-C03",
+    "name": "AWS Certified CloudOps Engineer – Associate",
+    "vendor": "Amazon Web Services",
+    "level": "advanced",
+    "updated": "2026-10-28"
+  },
+  {
+    "slug": "google-cdl",
+    "code": "CDL",
+    "name": "Google Cloud Digital Leader",
+    "vendor": "Google Cloud",
+    "level": "beginner",
+    "updated": "2026-10-28"
+  },
+  {
+    "slug": "google-ace",
+    "code": "ACE",
+    "name": "Google Associate Cloud Engineer",
+    "vendor": "Google Cloud",
+    "level": "advanced",
+    "updated": "2026-10-28"
+  },
+  {
+    "slug": "google-adp",
+    "code": "ADP",
+    "name": "Google Associate Data Practitioner",
+    "vendor": "Google Cloud",
+    "level": "advanced",
+    "updated": "2026-10-28"
+  },
+  {
+    "slug": "google-pca",
+    "code": "PCA",
+    "name": "Google Professional Cloud Architect",
+    "vendor": "Google Cloud",
+    "level": "advanced",
+    "updated": "2026-10-28"
   }
 ]

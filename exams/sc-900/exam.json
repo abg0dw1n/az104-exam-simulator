@@ -1,0 +1,42 @@
+{
+  "slug": "sc-900",
+  "code": "SC-900",
+  "name": "Microsoft Security, Compliance, and Identity Fundamentals",
+  "vendor": "Microsoft",
+  "domains": {
+    "D1": {
+      "name": "Concepts of security, compliance, and identity",
+      "weight": "10–15%",
+      "pct": 12
+    },
+    "D2": {
+      "name": "Capabilities of Microsoft Entra",
+      "weight": "25–30%",
+      "pct": 27
+    },
+    "D3": {
+      "name": "Capabilities of Microsoft security solutions",
+      "weight": "35–40%",
+      "pct": 38
+    },
+    "D4": {
+      "name": "Capabilities of Microsoft compliance solutions",
+      "weight": "20–25%",
+      "pct": 23
+    }
+  },
+  "scoring": {
+    "min": 0,
+    "max": 1000,
+    "pass": 700
+  },
+  "minutesPerQuestion": 1,
+  "defaultSize": 45,
+  "sizeOptions": [
+    15,
+    30,
+    45
+  ],
+  "realExamNote": "Based on the SC-900 skills measured as of October 21, 2026. The real exam is 45 minutes with roughly 40–60 questions, including some multiple-response and yes/no items.",
+  "scoreNote": "Microsoft uses scaled scoring, so treat 700+ as a readiness signal, not a guarantee."
+}

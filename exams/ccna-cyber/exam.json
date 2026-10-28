@@ -1,0 +1,47 @@
+{
+  "slug": "ccna-cyber",
+  "code": "200-201",
+  "name": "Cisco Certified Network Associate Cybersecurity",
+  "vendor": "Cisco",
+  "domains": {
+    "D1": {
+      "name": "Security concepts",
+      "weight": "20%",
+      "pct": 20
+    },
+    "D2": {
+      "name": "Security monitoring",
+      "weight": "25%",
+      "pct": 25
+    },
+    "D3": {
+      "name": "Host-based analysis",
+      "weight": "20%",
+      "pct": 20
+    },
+    "D4": {
+      "name": "Network intrusion analysis",
+      "weight": "20%",
+      "pct": 20
+    },
+    "D5": {
+      "name": "Security policies and procedures",
+      "weight": "15%",
+      "pct": 15
+    }
+  },
+  "scoring": {
+    "min": 0,
+    "max": 1000,
+    "pass": 825
+  },
+  "minutesPerQuestion": 1.2,
+  "defaultSize": 100,
+  "sizeOptions": [
+    25,
+    50,
+    100
+  ],
+  "realExamNote": "Based on the 200-201 CCNACBR v1.2 exam topics. The exam was formerly called CyberOps Associate (CBROPS); Cisco renamed the certification CCNA Cybersecurity in February 2026. The real exam is 120 minutes.",
+  "scoreNote": "Cisco doesn't publish an official passing score; 825 of 1000 is the commonly cited target."
+}

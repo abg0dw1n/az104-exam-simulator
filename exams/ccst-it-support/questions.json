@@ -1,0 +1,2252 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "What is an SLA in IT support?",
+    "options": [
+      {
+        "text": "An agreed target for response and resolution times",
+        "note": ""
+      },
+      {
+        "text": "A software license for the help desk tool",
+        "note": "Not an SLA."
+      },
+      {
+        "text": "A list of approved hardware vendors for the company",
+        "note": "Not an SLA."
+      },
+      {
+        "text": "A security log",
+        "note": "Not an SLA."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SLAs set expectations, such as responding to critical tickets within 15 minutes."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "Which ticket should be prioritized first?",
+    "options": [
+      {
+        "text": "Email is down for the whole company",
+        "note": ""
+      },
+      {
+        "text": "A user wants a second monitor",
+        "note": "Low impact."
+      },
+      {
+        "text": "A request to change a desktop wallpaper for the marketing team",
+        "note": "Low impact."
+      },
+      {
+        "text": "A printer toner order",
+        "note": "Low urgency."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Priority combines impact (how many affected) and urgency."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "What should a technician record in a ticket after each customer interaction?",
+    "options": [
+      {
+        "text": "What was done, the result and next steps",
+        "note": ""
+      },
+      {
+        "text": "Only the customer's name",
+        "note": "Not enough."
+      },
+      {
+        "text": "Personal opinions about the customer and their technical skill",
+        "note": "Unprofessional."
+      },
+      {
+        "text": "Nothing until it's closed",
+        "note": "Document as you go."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Good notes help the next technician and build the knowledge base."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "Which KPI measures how often issues are solved during the first contact?",
+    "options": [
+      {
+        "text": "First contact resolution rate",
+        "note": ""
+      },
+      {
+        "text": "Mean time between failures",
+        "note": "Hardware reliability."
+      },
+      {
+        "text": "Number of tickets opened by the help desk each month",
+        "note": "Volume, not resolution."
+      },
+      {
+        "text": "Network uptime",
+        "note": "Availability."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Other help desk KPIs include average handle time and customer satisfaction."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "What's the first step in a problem-solving process?",
+    "options": [
+      {
+        "text": "Identify the problem by gathering information",
+        "note": ""
+      },
+      {
+        "text": "Replace the hardware",
+        "note": "Too early."
+      },
+      {
+        "text": "Escalate the ticket to the network team immediately",
+        "note": "Not yet."
+      },
+      {
+        "text": "Close the ticket",
+        "note": "Too early."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Then establish a theory, test it, plan, implement, verify and document."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "A technician can't solve an issue within their authority. What should they do?",
+    "options": [
+      {
+        "text": "Escalate it following the process",
+        "note": ""
+      },
+      {
+        "text": "Close the ticket as unresolved",
+        "note": "Leaves the user stuck."
+      },
+      {
+        "text": "Ask the user to search online and fix it themselves",
+        "note": "Unprofessional."
+      },
+      {
+        "text": "Leave it untouched",
+        "note": "Breaks the SLA."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Include all notes so the next tier doesn't repeat work."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Which describes active listening with a customer?",
+    "options": [
+      {
+        "text": "Paraphrasing their issue to confirm understanding",
+        "note": ""
+      },
+      {
+        "text": "Interrupting to suggest fixes",
+        "note": "Not active listening."
+      },
+      {
+        "text": "Typing unrelated notes while they explain the problem",
+        "note": "Distracted."
+      },
+      {
+        "text": "Using technical jargon",
+        "note": "Confusing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Ask clarifying questions and avoid assumptions."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "How should a technician manage a queue of tickets with different priorities?",
+    "options": [
+      {
+        "text": "Work highest priority first, within SLAs",
+        "note": ""
+      },
+      {
+        "text": "Always work oldest first",
+        "note": "Ignores impact."
+      },
+      {
+        "text": "Pick the easiest tickets first to improve personal statistics",
+        "note": "Ignores priority."
+      },
+      {
+        "text": "Work them randomly",
+        "note": "Not managed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Communicate with users whose tickets are waiting."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Why is a knowledge base useful for a help desk?",
+    "options": [
+      {
+        "text": "It stores solutions to common problems",
+        "note": ""
+      },
+      {
+        "text": "It replaces the ticketing system",
+        "note": "They work together."
+      },
+      {
+        "text": "It stores user passwords for faster account recovery",
+        "note": "Never."
+      },
+      {
+        "text": "It blocks spam",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Writing articles from resolved tickets saves time later."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "Which statement is the most professional way to explain a delay to a user?",
+    "options": [
+      {
+        "text": "\"I've escalated this and will update you by 3 PM.\"",
+        "note": ""
+      },
+      {
+        "text": "\"It's not my problem.\"",
+        "note": "Unprofessional."
+      },
+      {
+        "text": "\"This kind of thing happens all the time, so just wait.\"",
+        "note": "Dismissive."
+      },
+      {
+        "text": "\"No idea when.\"",
+        "note": "Unhelpful."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Set clear expectations and follow through."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "What should a technician do before closing a ticket?",
+    "options": [
+      {
+        "text": "Confirm with the user that the issue is resolved",
+        "note": ""
+      },
+      {
+        "text": "Delete the ticket history",
+        "note": "Keep records."
+      },
+      {
+        "text": "Reset the user's password just in case something else breaks",
+        "note": "Unnecessary."
+      },
+      {
+        "text": "Reboot the server",
+        "note": "Unnecessary."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Verify functionality, then document the resolution."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "What does tier 1 support typically handle?",
+    "options": [
+      {
+        "text": "Common issues like password resets",
+        "note": ""
+      },
+      {
+        "text": "Designing the network",
+        "note": "Engineering."
+      },
+      {
+        "text": "Writing custom software for the company's internal systems",
+        "note": "Development."
+      },
+      {
+        "text": "Server hardware repair",
+        "note": "Higher tier."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Complex problems are escalated to tier 2 or 3."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "A user is upset that their laptop is slow. What should the technician do first?",
+    "options": [
+      {
+        "text": "Stay calm and acknowledge their frustration",
+        "note": ""
+      },
+      {
+        "text": "Tell them it's their fault",
+        "note": "Unprofessional."
+      },
+      {
+        "text": "Transfer them without explanation to another department",
+        "note": "Poor service."
+      },
+      {
+        "text": "End the call",
+        "note": "Unprofessional."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Empathy helps de-escalate and gather information."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Which information is most useful in a new ticket?",
+    "options": [
+      {
+        "text": "Who, what device, what happened and when",
+        "note": ""
+      },
+      {
+        "text": "The user's job title only",
+        "note": "Not enough to troubleshoot."
+      },
+      {
+        "text": "Only the word \"broken\" in the description field",
+        "note": "Not enough."
+      },
+      {
+        "text": "The weather that day",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Include error messages and any recent changes."
+  },
+  {
+    "id": 15,
+    "domain": "D2",
+    "scenario": "What should you do before opening a desktop computer case?",
+    "options": [
+      {
+        "text": "Power it off, unplug it and use an ESD strap",
+        "note": ""
+      },
+      {
+        "text": "Leave it running to watch the fans",
+        "note": "Unsafe."
+      },
+      {
+        "text": "Spray water inside to clean the dust out",
+        "note": "Damages components."
+      },
+      {
+        "text": "Remove the CPU first",
+        "note": "Not first."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ESD (electrostatic discharge) can damage components."
+  },
+  {
+    "id": 16,
+    "domain": "D2",
+    "scenario": "Which Windows tool quickly shows the computer's model, RAM and OS version?",
+    "options": [
+      {
+        "text": "System Information (msinfo32)",
+        "note": ""
+      },
+      {
+        "text": "Paint",
+        "note": "Image editor."
+      },
+      {
+        "text": "Notepad",
+        "note": "Text editor."
+      },
+      {
+        "text": "Disk Cleanup utility for temporary files",
+        "note": "Removes files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Settings > System > About also shows key details."
+  },
+  {
+    "id": 17,
+    "domain": "D2",
+    "scenario": "Which port type is reversible and can carry data, video and power?",
+    "options": [
+      {
+        "text": "USB-C",
+        "note": ""
+      },
+      {
+        "text": "VGA",
+        "note": "Analog video."
+      },
+      {
+        "text": "PS/2",
+        "note": "Old keyboard and mouse."
+      },
+      {
+        "text": "RJ-11 telephone jack on older modems",
+        "note": "Phone line."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Thunderbolt 3 and 4 also use the USB-C connector."
+  },
+  {
+    "id": 18,
+    "domain": "D2",
+    "scenario": "Which video port carries both digital video and audio and is common on TVs?",
+    "options": [
+      {
+        "text": "HDMI",
+        "note": ""
+      },
+      {
+        "text": "VGA",
+        "note": "Analog video only."
+      },
+      {
+        "text": "DVI-D single link",
+        "note": "Video only."
+      },
+      {
+        "text": "USB-A",
+        "note": "Data and power."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DisplayPort is common on PC monitors."
+  },
+  {
+    "id": 19,
+    "domain": "D2",
+    "scenario": "A user wants their PC to handle more browser tabs at once. Which upgrade helps most?",
+    "options": [
+      {
+        "text": "Add more RAM",
+        "note": ""
+      },
+      {
+        "text": "Install a bigger monitor",
+        "note": "Doesn't add memory."
+      },
+      {
+        "text": "Replace the keyboard with a mechanical one",
+        "note": "Input device."
+      },
+      {
+        "text": "Add a webcam",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check the motherboard's supported memory type and capacity."
+  },
+  {
+    "id": 20,
+    "domain": "D2",
+    "scenario": "Which storage upgrade most improves boot and app load times?",
+    "options": [
+      {
+        "text": "Replacing an HDD with an SSD",
+        "note": ""
+      },
+      {
+        "text": "Adding a second HDD",
+        "note": "Adds space, not speed."
+      },
+      {
+        "text": "Using a larger USB flash drive for apps",
+        "note": "Slower than internal SSD."
+      },
+      {
+        "text": "Adding a DVD drive",
+        "note": "Slow optical."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NVMe SSDs are faster than SATA SSDs."
+  },
+  {
+    "id": 21,
+    "domain": "D2",
+    "scenario": "A PC shuts down randomly and the case feels hot. What's the most likely cause?",
+    "options": [
+      {
+        "text": "Overheating from dust or a failed fan",
+        "note": ""
+      },
+      {
+        "text": "A failing network adapter",
+        "note": "Would cause network drops, not shutdowns."
+      },
+      {
+        "text": "An outdated web browser",
+        "note": "Would not shut down the PC."
+      },
+      {
+        "text": "A full Recycle Bin",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Clean dust with compressed air and check fans."
+  },
+  {
+    "id": 22,
+    "domain": "D2",
+    "scenario": "A computer beeps and shows nothing on screen at power-on. What is this usually?",
+    "options": [
+      {
+        "text": "A POST error, often memory or video",
+        "note": ""
+      },
+      {
+        "text": "A normal startup sound",
+        "note": "Not with no display."
+      },
+      {
+        "text": "A sign that Windows Update is installing",
+        "note": "Happens later."
+      },
+      {
+        "text": "A low printer ink alert",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Beep codes vary by firmware vendor."
+  },
+  {
+    "id": 23,
+    "domain": "D2",
+    "scenario": "Which component keeps the system clock running when the PC is unplugged?",
+    "options": [
+      {
+        "text": "CMOS battery",
+        "note": ""
+      },
+      {
+        "text": "Power supply",
+        "note": "Off when unplugged."
+      },
+      {
+        "text": "Graphics card memory module",
+        "note": "Volatile."
+      },
+      {
+        "text": "SSD",
+        "note": "Doesn't keep time."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A dead CMOS battery causes the clock to reset."
+  },
+  {
+    "id": 24,
+    "domain": "D2",
+    "scenario": "Which component must match the motherboard socket?",
+    "options": [
+      {
+        "text": "CPU",
+        "note": ""
+      },
+      {
+        "text": "Monitor",
+        "note": "External."
+      },
+      {
+        "text": "Keyboard connected through USB",
+        "note": "External."
+      },
+      {
+        "text": "Mouse",
+        "note": "External."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Examples include Intel LGA and AMD AM5 sockets."
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "scenario": "A laptop's battery drains fast and the case is bulging. What should be done?",
+    "options": [
+      {
+        "text": "Stop using it and replace the battery safely",
+        "note": ""
+      },
+      {
+        "text": "Keep charging it overnight",
+        "note": "Fire risk."
+      },
+      {
+        "text": "Press the case flat and continue using it",
+        "note": "Dangerous."
+      },
+      {
+        "text": "Update the display driver",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Swollen lithium-ion batteries are a fire hazard; recycle properly."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "Which tool safely cleans dust from inside a computer?",
+    "options": [
+      {
+        "text": "Compressed air",
+        "note": ""
+      },
+      {
+        "text": "A household vacuum",
+        "note": "Can create static."
+      },
+      {
+        "text": "A damp cloth with water on the motherboard",
+        "note": "Damages components."
+      },
+      {
+        "text": "A hair dryer",
+        "note": "Heat and static."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hold fans still while blowing air so they don't overspin."
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "scenario": "A monitor shows \"No signal.\" What should be checked first?",
+    "options": [
+      {
+        "text": "The video cable and selected input",
+        "note": ""
+      },
+      {
+        "text": "The graphics driver version",
+        "note": "Windows would still show something at boot."
+      },
+      {
+        "text": "The Windows display scaling setting",
+        "note": "Changes size, not signal."
+      },
+      {
+        "text": "The printer queue",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Make sure the cable is in the correct GPU port."
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "scenario": "Which describes the difference between an internal and external storage device?",
+    "options": [
+      {
+        "text": "Internal is inside the case; external connects by cable",
+        "note": ""
+      },
+      {
+        "text": "External is always faster",
+        "note": "Not always."
+      },
+      {
+        "text": "Internal drives can't store operating systems",
+        "note": "They usually do."
+      },
+      {
+        "text": "They use different file types",
+        "note": "Not the difference."
+      }
+    ],
+    "answer": 0,
+    "explanation": "External drives often use USB or Thunderbolt."
+  },
+  {
+    "id": 29,
+    "domain": "D2",
+    "scenario": "A printer prints faded pages. What's the most likely cause?",
+    "options": [
+      {
+        "text": "Low toner or ink",
+        "note": ""
+      },
+      {
+        "text": "A corrupt print driver",
+        "note": "Usually garbles output rather than fading it."
+      },
+      {
+        "text": "The wrong paper size setting",
+        "note": "Affects layout, not darkness."
+      },
+      {
+        "text": "Wrong time zone",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Replace consumables and run a cleaning or calibration cycle."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "What should a technician wear when handling components to prevent static damage?",
+    "options": [
+      {
+        "text": "An anti-static wrist strap",
+        "note": ""
+      },
+      {
+        "text": "Rubber gloves",
+        "note": "Don't ground you."
+      },
+      {
+        "text": "Wool clothing for warmth in the server room",
+        "note": "Builds static."
+      },
+      {
+        "text": "A hat",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Work on an ESD mat when possible."
+  },
+  {
+    "id": 31,
+    "domain": "D3",
+    "scenario": "A user can't access a shared drive after changing departments. What's the likely cause?",
+    "options": [
+      {
+        "text": "Their group memberships don't include the share",
+        "note": ""
+      },
+      {
+        "text": "Their DNS cache is out of date",
+        "note": "Would affect name lookup for all shares."
+      },
+      {
+        "text": "Their computer needs a new IP address",
+        "note": "They can still reach other resources."
+      },
+      {
+        "text": "Their battery is low",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Update group membership; permissions usually follow groups."
+  },
+  {
+    "id": 32,
+    "domain": "D3",
+    "scenario": "Which Windows command applies updated Group Policy settings immediately?",
+    "options": [
+      {
+        "text": "gpupdate /force",
+        "note": ""
+      },
+      {
+        "text": "ipconfig /renew",
+        "note": "Renews the IP lease."
+      },
+      {
+        "text": "ping -t to the domain controller",
+        "note": "Tests connectivity."
+      },
+      {
+        "text": "chkdsk",
+        "note": "Checks disks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Users may need to sign out and back in for some policies."
+  },
+  {
+    "id": 33,
+    "domain": "D3",
+    "scenario": "Which Windows command maps a network share to drive letter Z?",
+    "options": [
+      {
+        "text": "net use Z: \\\\server\\share",
+        "note": ""
+      },
+      {
+        "text": "ipconfig /all",
+        "note": "Shows IP info."
+      },
+      {
+        "text": "tracert server to show the path",
+        "note": "Traces routes."
+      },
+      {
+        "text": "netstat -an",
+        "note": "Shows connections."
+      }
+    ],
+    "answer": 0,
+    "explanation": "File Explorer's Map network drive does the same."
+  },
+  {
+    "id": 34,
+    "domain": "D3",
+    "scenario": "A user is locked out after too many wrong passwords. What should the help desk do?",
+    "options": [
+      {
+        "text": "Verify identity, then unlock or reset the account",
+        "note": ""
+      },
+      {
+        "text": "Read the password back to them",
+        "note": "Passwords aren't readable."
+      },
+      {
+        "text": "Create a brand-new account with a different username",
+        "note": "Unnecessary."
+      },
+      {
+        "text": "Disable MFA",
+        "note": "Reduces security."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Always verify identity before resetting credentials."
+  },
+  {
+    "id": 35,
+    "domain": "D3",
+    "scenario": "A wireless mouse stops working. What should be checked first?",
+    "options": [
+      {
+        "text": "Batteries and the USB receiver connection",
+        "note": ""
+      },
+      {
+        "text": "The mouse driver version",
+        "note": "Rarely the first thing to check."
+      },
+      {
+        "text": "The display resolution setting",
+        "note": "Unrelated to input."
+      },
+      {
+        "text": "The monitor's resolution",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "For Bluetooth devices, check pairing too."
+  },
+  {
+    "id": 36,
+    "domain": "D3",
+    "scenario": "A new USB printer isn't recognized. What should be done?",
+    "options": [
+      {
+        "text": "Try another port and install the driver",
+        "note": ""
+      },
+      {
+        "text": "Reinstall the OS",
+        "note": "Too drastic."
+      },
+      {
+        "text": "Replace the motherboard with a newer model",
+        "note": "Too drastic."
+      },
+      {
+        "text": "Change the wallpaper",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check Device Manager for unknown devices."
+  },
+  {
+    "id": 37,
+    "domain": "D3",
+    "scenario": "A laptop shows connected to Wi-Fi but has no internet. What should be checked first?",
+    "options": [
+      {
+        "text": "Its IP address and default gateway",
+        "note": ""
+      },
+      {
+        "text": "The laptop's Bluetooth settings",
+        "note": "Unrelated to Wi-Fi internet access."
+      },
+      {
+        "text": "The browser's saved passwords",
+        "note": "Unrelated to connectivity."
+      },
+      {
+        "text": "The screen brightness",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A 169.254.x.x address means DHCP failed."
+  },
+  {
+    "id": 38,
+    "domain": "D3",
+    "scenario": "Which command releases and renews a DHCP address on Windows?",
+    "options": [
+      {
+        "text": "ipconfig /release then ipconfig /renew",
+        "note": ""
+      },
+      {
+        "text": "ping 127.0.0.1",
+        "note": "Tests the local stack."
+      },
+      {
+        "text": "nslookup example.com to query DNS",
+        "note": "Queries DNS."
+      },
+      {
+        "text": "hostname",
+        "note": "Shows the PC name."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ipconfig /flushdns clears the DNS cache."
+  },
+  {
+    "id": 39,
+    "domain": "D3",
+    "scenario": "A user can reach websites by IP address but not by name. What's the problem?",
+    "options": [
+      {
+        "text": "DNS",
+        "note": ""
+      },
+      {
+        "text": "DHCP",
+        "note": "They have an IP."
+      },
+      {
+        "text": "The Ethernet cable connection to the switch",
+        "note": "Connectivity works."
+      },
+      {
+        "text": "The default gateway",
+        "note": "They can reach IP addresses, so routing works."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check the DNS server settings and try nslookup."
+  },
+  {
+    "id": 40,
+    "domain": "D3",
+    "scenario": "Which is the main difference between a LAN connection and a WLAN connection?",
+    "options": [
+      {
+        "text": "LAN uses cables; WLAN uses Wi-Fi",
+        "note": ""
+      },
+      {
+        "text": "LAN is always slower",
+        "note": "Usually faster."
+      },
+      {
+        "text": "WLAN doesn't use IP addresses at all",
+        "note": "It does."
+      },
+      {
+        "text": "They're identical",
+        "note": "Different media."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Wired connections are usually more reliable."
+  },
+  {
+    "id": 41,
+    "domain": "D3",
+    "scenario": "A user's laptop connects to the wrong Wi-Fi network automatically. What should be done?",
+    "options": [
+      {
+        "text": "Forget the unwanted network in Wi-Fi settings",
+        "note": ""
+      },
+      {
+        "text": "Disable the network adapter",
+        "note": "Stops all Wi-Fi."
+      },
+      {
+        "text": "Reset the laptop to factory settings",
+        "note": "Too drastic."
+      },
+      {
+        "text": "Replace the Wi-Fi card",
+        "note": "Too drastic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Set the preferred network to connect automatically."
+  },
+  {
+    "id": 42,
+    "domain": "D3",
+    "scenario": "Which MFA issue is common when a user gets a new phone?",
+    "options": [
+      {
+        "text": "Their authenticator app must be set up again",
+        "note": ""
+      },
+      {
+        "text": "Their account is deleted",
+        "note": "Accounts are not tied to the phone."
+      },
+      {
+        "text": "Their laptop's IP address changes to a new subnet",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Their printer stops working",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Help desks verify identity before resetting MFA methods."
+  },
+  {
+    "id": 43,
+    "domain": "D3",
+    "scenario": "A user can open a file but can't save changes to it on a share. What's likely?",
+    "options": [
+      {
+        "text": "They have read-only permissions",
+        "note": ""
+      },
+      {
+        "text": "The file is too large to open",
+        "note": "They can open it."
+      },
+      {
+        "text": "Their network cable is unplugged",
+        "note": "They can open the file over the network."
+      },
+      {
+        "text": "DNS is broken",
+        "note": "They can open it."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check NTFS and share permissions."
+  },
+  {
+    "id": 44,
+    "domain": "D3",
+    "scenario": "Which directory service do many organizations use to manage users and computers?",
+    "options": [
+      {
+        "text": "Active Directory or Microsoft Entra ID",
+        "note": ""
+      },
+      {
+        "text": "DHCP server",
+        "note": "Assigns IP addresses."
+      },
+      {
+        "text": "A local spreadsheet stored on the help desk PC",
+        "note": "Not a directory service."
+      },
+      {
+        "text": "Notepad",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Directory services centralize authentication and policy."
+  },
+  {
+    "id": 45,
+    "domain": "D3",
+    "scenario": "A Bluetooth headset won't connect to a laptop. What should be tried first?",
+    "options": [
+      {
+        "text": "Re-pair the device and check Bluetooth is on",
+        "note": ""
+      },
+      {
+        "text": "Reinstall Windows",
+        "note": "Too drastic."
+      },
+      {
+        "text": "Replace the laptop's display with a new panel",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Run a disk check",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Remove the device from Bluetooth settings, then pair again."
+  },
+  {
+    "id": 46,
+    "domain": "D3",
+    "scenario": "Which command tests whether a PC can reach its default gateway?",
+    "options": [
+      {
+        "text": "ping followed by the gateway's IP",
+        "note": ""
+      },
+      {
+        "text": "gpupdate /force",
+        "note": "Refreshes policy."
+      },
+      {
+        "text": "whoami to show the current user",
+        "note": "Shows user name."
+      },
+      {
+        "text": "chkdsk",
+        "note": "Disk check."
+      }
+    ],
+    "answer": 0,
+    "explanation": "If the gateway responds, test an internet address next."
+  },
+  {
+    "id": 47,
+    "domain": "D3",
+    "scenario": "A user's password reset worked, but their phone still prompts for the old password. What's needed?",
+    "options": [
+      {
+        "text": "Update the password on the phone's email account",
+        "note": ""
+      },
+      {
+        "text": "Replace the phone",
+        "note": "Unnecessary."
+      },
+      {
+        "text": "Disable the user's account until the phone stops",
+        "note": "Unnecessary."
+      },
+      {
+        "text": "Change the Wi-Fi channel",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Saved credentials on devices can also cause lockouts."
+  },
+  {
+    "id": 48,
+    "domain": "D4",
+    "scenario": "A Windows app is frozen. How can the user close it?",
+    "options": [
+      {
+        "text": "End the task in Task Manager",
+        "note": ""
+      },
+      {
+        "text": "Unplug the monitor",
+        "note": "Doesn't close apps."
+      },
+      {
+        "text": "Delete the app's shortcut from the desktop",
+        "note": "Doesn't close it."
+      },
+      {
+        "text": "Change the time zone",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Press Ctrl+Shift+Esc to open Task Manager."
+  },
+  {
+    "id": 49,
+    "domain": "D4",
+    "scenario": "A Windows update caused problems. Which feature can roll the system back without deleting files?",
+    "options": [
+      {
+        "text": "System Restore",
+        "note": ""
+      },
+      {
+        "text": "Format the drive",
+        "note": "Erases data."
+      },
+      {
+        "text": "Reset this PC with Remove everything",
+        "note": "Erases data."
+      },
+      {
+        "text": "Disk Cleanup",
+        "note": "Removes temp files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "You can also uninstall a specific update from Windows Update settings."
+  },
+  {
+    "id": 50,
+    "domain": "D4",
+    "scenario": "Which macOS app shows running processes and resource use?",
+    "options": [
+      {
+        "text": "Activity Monitor",
+        "note": ""
+      },
+      {
+        "text": "Finder",
+        "note": "File browser."
+      },
+      {
+        "text": "Time Machine backup preferences",
+        "note": "Backups."
+      },
+      {
+        "text": "Keychain Access",
+        "note": "Passwords."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Force Quit (Option+Command+Esc) closes frozen apps."
+  },
+  {
+    "id": 51,
+    "domain": "D4",
+    "scenario": "Which macOS feature backs up files automatically to an external drive?",
+    "options": [
+      {
+        "text": "Time Machine",
+        "note": ""
+      },
+      {
+        "text": "Spotlight",
+        "note": "Search."
+      },
+      {
+        "text": "FileVault disk encryption",
+        "note": "Encryption."
+      },
+      {
+        "text": "Mission Control",
+        "note": "Windows view."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Time Machine keeps hourly, daily and weekly backups."
+  },
+  {
+    "id": 52,
+    "domain": "D4",
+    "scenario": "A smartphone app keeps crashing. What should be tried first?",
+    "options": [
+      {
+        "text": "Force close and update the app",
+        "note": ""
+      },
+      {
+        "text": "Factory reset the phone",
+        "note": "Too drastic."
+      },
+      {
+        "text": "Replace the phone's battery and screen",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Remove the SIM card",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Then try clearing its cache or reinstalling."
+  },
+  {
+    "id": 53,
+    "domain": "D4",
+    "scenario": "A phone's storage is full and apps won't update. What helps?",
+    "options": [
+      {
+        "text": "Remove unused apps and offload photos",
+        "note": ""
+      },
+      {
+        "text": "Turn on airplane mode",
+        "note": "Doesn't free space."
+      },
+      {
+        "text": "Increase the screen brightness to maximum",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Change the ringtone",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud photo backup can free up space."
+  },
+  {
+    "id": 54,
+    "domain": "D4",
+    "scenario": "What is a virtual machine?",
+    "options": [
+      {
+        "text": "A software computer running on a physical host",
+        "note": ""
+      },
+      {
+        "text": "A computer with no operating system",
+        "note": "Not a VM."
+      },
+      {
+        "text": "A cloud-based printer that prints remotely",
+        "note": "Not a VM."
+      },
+      {
+        "text": "A laptop with a touchscreen",
+        "note": "Not a VM."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hypervisors like Hyper-V and VMware run VMs."
+  },
+  {
+    "id": 55,
+    "domain": "D4",
+    "scenario": "Which cloud model provides ready-to-use apps like webmail through a browser?",
+    "options": [
+      {
+        "text": "SaaS",
+        "note": ""
+      },
+      {
+        "text": "IaaS",
+        "note": "Virtual infrastructure."
+      },
+      {
+        "text": "PaaS for developers to deploy code",
+        "note": "Developer platform."
+      },
+      {
+        "text": "On-premises",
+        "note": "Local."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Microsoft 365 and Google Workspace are SaaS."
+  },
+  {
+    "id": 56,
+    "domain": "D4",
+    "scenario": "What does it mean if a file is stored \"in the cloud\"?",
+    "options": [
+      {
+        "text": "It's on a provider's servers accessed over the internet",
+        "note": ""
+      },
+      {
+        "text": "It's only on the local drive",
+        "note": "Not cloud."
+      },
+      {
+        "text": "It's on a USB drive plugged into the computer",
+        "note": "Not cloud."
+      },
+      {
+        "text": "It's deleted",
+        "note": "Not cloud."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sync clients keep local copies up to date."
+  },
+  {
+    "id": 57,
+    "domain": "D4",
+    "scenario": "A user's Microsoft Office app shows an activation error. What should be checked?",
+    "options": [
+      {
+        "text": "That they're signed in with a licensed account",
+        "note": ""
+      },
+      {
+        "text": "The network adapter driver",
+        "note": "Rarely causes activation errors."
+      },
+      {
+        "text": "The keyboard layout and region settings",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The Wi-Fi channel",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Licenses are often tied to the user's work account."
+  },
+  {
+    "id": 58,
+    "domain": "D4",
+    "scenario": "Windows shows a blue screen after a new driver was installed. What should be tried?",
+    "options": [
+      {
+        "text": "Boot into Safe Mode and roll back the driver",
+        "note": ""
+      },
+      {
+        "text": "Replace the motherboard",
+        "note": "Too drastic."
+      },
+      {
+        "text": "Buy a new monitor with a higher resolution",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Change the wallpaper",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Device Manager can roll back drivers."
+  },
+  {
+    "id": 59,
+    "domain": "D4",
+    "scenario": "Which Windows feature lists installed apps so they can be uninstalled?",
+    "options": [
+      {
+        "text": "Settings > Apps > Installed apps",
+        "note": ""
+      },
+      {
+        "text": "Recycle Bin",
+        "note": "Deleted files."
+      },
+      {
+        "text": "Display settings for screen resolution",
+        "note": "Screen options."
+      },
+      {
+        "text": "Task Scheduler",
+        "note": "Scheduled tasks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Uninstalling unused apps saves space and reduces risk."
+  },
+  {
+    "id": 60,
+    "domain": "D4",
+    "scenario": "A macOS app won't open and says it's from an unidentified developer. Which feature is blocking it?",
+    "options": [
+      {
+        "text": "Gatekeeper",
+        "note": ""
+      },
+      {
+        "text": "Time Machine",
+        "note": "Backups."
+      },
+      {
+        "text": "FileVault disk encryption",
+        "note": "Encryption."
+      },
+      {
+        "text": "Spotlight",
+        "note": "Search."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Only override if the app is trusted and approved."
+  },
+  {
+    "id": 61,
+    "domain": "D4",
+    "scenario": "An iPhone won't connect to company email after an iOS update. What should be tried first?",
+    "options": [
+      {
+        "text": "Remove and re-add the email account",
+        "note": ""
+      },
+      {
+        "text": "Replace the phone",
+        "note": "Too drastic."
+      },
+      {
+        "text": "Change the phone's wallpaper and theme",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Turn off Bluetooth",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check whether MFA or a password change is needed."
+  },
+  {
+    "id": 62,
+    "domain": "D4",
+    "scenario": "Which is a benefit of virtual desktop infrastructure (VDI)?",
+    "options": [
+      {
+        "text": "Users access a central desktop from any device",
+        "note": ""
+      },
+      {
+        "text": "No network connection is needed",
+        "note": "VDI needs network."
+      },
+      {
+        "text": "Each user needs a powerful local PC to run it",
+        "note": "Not required."
+      },
+      {
+        "text": "It removes the need for passwords",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Azure Virtual Desktop and Citrix are VDI examples."
+  },
+  {
+    "id": 63,
+    "domain": "D4",
+    "scenario": "A web app works in one browser but not another. What should be tried?",
+    "options": [
+      {
+        "text": "Clear the cache or update the failing browser",
+        "note": ""
+      },
+      {
+        "text": "Change the PC's DNS server",
+        "note": "Would affect both browsers."
+      },
+      {
+        "text": "Reinstall the operating system on the PC",
+        "note": "Too drastic."
+      },
+      {
+        "text": "Change the monitor",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Browser extensions can also break sites; test in private mode."
+  },
+  {
+    "id": 64,
+    "domain": "D4",
+    "scenario": "Which Windows feature lets an app run with older Windows behavior?",
+    "options": [
+      {
+        "text": "Compatibility mode",
+        "note": ""
+      },
+      {
+        "text": "Airplane mode",
+        "note": "Disables wireless."
+      },
+      {
+        "text": "Battery saver for longer laptop runtime",
+        "note": "Power."
+      },
+      {
+        "text": "Night light",
+        "note": "Display color."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Right-click the app > Properties > Compatibility."
+  },
+  {
+    "id": 65,
+    "domain": "D5",
+    "scenario": "A caller claims to be the CEO and urgently asks for a password reset without verification. What is this?",
+    "options": [
+      {
+        "text": "Social engineering",
+        "note": ""
+      },
+      {
+        "text": "A normal request",
+        "note": "Verification is required."
+      },
+      {
+        "text": "An urgent help desk escalation",
+        "note": "Urgency doesn't replace verification."
+      },
+      {
+        "text": "A DNS issue",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Always follow identity verification procedures, regardless of urgency or title."
+  },
+  {
+    "id": 66,
+    "domain": "D5",
+    "scenario": "A user receives an email with an unexpected invoice attachment from an unknown sender. What should they do?",
+    "options": [
+      {
+        "text": "Report it and don't open the attachment",
+        "note": ""
+      },
+      {
+        "text": "Open it to check",
+        "note": "Risky."
+      },
+      {
+        "text": "Forward it to the whole team to see if anyone knows it",
+        "note": "Spreads risk."
+      },
+      {
+        "text": "Reply asking who sent it",
+        "note": "Confirms the address."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Phishing often uses urgency and fake invoices."
+  },
+  {
+    "id": 67,
+    "domain": "D5",
+    "scenario": "A user reports pop-ups and their browser home page changed. What should the technician suspect?",
+    "options": [
+      {
+        "text": "Adware or a malicious extension",
+        "note": ""
+      },
+      {
+        "text": "A corrupt Windows profile",
+        "note": "Would cause wider problems, not ads."
+      },
+      {
+        "text": "An expired browser certificate",
+        "note": "Causes warnings, not pop-ups."
+      },
+      {
+        "text": "Low battery",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Remove suspicious extensions and run an anti-malware scan."
+  },
+  {
+    "id": 68,
+    "domain": "D5",
+    "scenario": "Which is personally identifiable information (PII)?",
+    "options": [
+      {
+        "text": "A customer's name with their date of birth",
+        "note": ""
+      },
+      {
+        "text": "A company's public website",
+        "note": "Public info."
+      },
+      {
+        "text": "A printer's model number and firmware version",
+        "note": "Not personal."
+      },
+      {
+        "text": "Office opening hours",
+        "note": "Public info."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Protect PII following company policy and privacy laws."
+  },
+  {
+    "id": 69,
+    "domain": "D5",
+    "scenario": "A technician sees confidential documents on a desk while fixing a PC. What should they do?",
+    "options": [
+      {
+        "text": "Ignore them and keep information private",
+        "note": ""
+      },
+      {
+        "text": "Read them for context",
+        "note": "Breaches confidentiality."
+      },
+      {
+        "text": "Take a photo to attach to the ticket for reference",
+        "note": "Inappropriate."
+      },
+      {
+        "text": "Tell coworkers",
+        "note": "Breaches confidentiality."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Respect privacy and confidentiality at all times."
+  },
+  {
+    "id": 70,
+    "domain": "D5",
+    "scenario": "Someone follows an employee through a badge-controlled door. What is this?",
+    "options": [
+      {
+        "text": "Tailgating",
+        "note": ""
+      },
+      {
+        "text": "Phishing",
+        "note": "Email."
+      },
+      {
+        "text": "Vishing using a spoofed phone number",
+        "note": "Phone calls."
+      },
+      {
+        "text": "Spam",
+        "note": "Unwanted email."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Politely ask unknown people to badge in themselves."
+  },
+  {
+    "id": 71,
+    "domain": "D5",
+    "scenario": "A user's files are suddenly encrypted with a ransom note. What should the technician do first?",
+    "options": [
+      {
+        "text": "Disconnect the device from the network",
+        "note": ""
+      },
+      {
+        "text": "Pay the ransom",
+        "note": "Not recommended."
+      },
+      {
+        "text": "Restart it repeatedly until the files open again",
+        "note": "Doesn't help."
+      },
+      {
+        "text": "Ignore it",
+        "note": "Spreads."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Escalate to the security team immediately."
+  },
+  {
+    "id": 72,
+    "domain": "D5",
+    "scenario": "Which practice best protects company laptops if they're stolen?",
+    "options": [
+      {
+        "text": "Full-disk encryption and a strong sign-in",
+        "note": ""
+      },
+      {
+        "text": "A bright laptop sticker",
+        "note": "Doesn't protect data."
+      },
+      {
+        "text": "A desktop shortcut to the password file",
+        "note": "Insecure."
+      },
+      {
+        "text": "A larger battery",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BitLocker (Windows) and FileVault (macOS) provide disk encryption."
+  },
+  {
+    "id": 73,
+    "domain": "D5",
+    "scenario": "What should a technician do if they suspect a security incident?",
+    "options": [
+      {
+        "text": "Follow the incident policy and escalate",
+        "note": ""
+      },
+      {
+        "text": "Investigate alone and tell no one",
+        "note": "Not the process."
+      },
+      {
+        "text": "Delete logs so the problem goes away and can't spread",
+        "note": "Destroys evidence."
+      },
+      {
+        "text": "Post about it online",
+        "note": "Inappropriate."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Security teams need early warning."
+  },
+  {
+    "id": 74,
+    "domain": "D5",
+    "scenario": "Which is the safest way to handle a USB drive found in the parking lot?",
+    "options": [
+      {
+        "text": "Give it to IT security without plugging it in",
+        "note": ""
+      },
+      {
+        "text": "Plug it in to find the owner",
+        "note": "Could contain malware."
+      },
+      {
+        "text": "Keep it for personal use at home",
+        "note": "Inappropriate."
+      },
+      {
+        "text": "Throw it in the trash",
+        "note": "May hide an attack."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Dropped USB drives are a known social engineering tactic."
+  },
+  {
+    "id": 75,
+    "domain": "D5",
+    "scenario": "What is shoulder surfing?",
+    "options": [
+      {
+        "text": "Watching someone enter a password or PIN",
+        "note": ""
+      },
+      {
+        "text": "Sending fake emails",
+        "note": "That's phishing."
+      },
+      {
+        "text": "Calling users while pretending to be IT support",
+        "note": "That's vishing."
+      },
+      {
+        "text": "Flooding a server",
+        "note": "That's DoS."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Privacy screens help prevent shoulder surfing."
+  },
+  {
+    "id": 76,
+    "domain": "D5",
+    "scenario": "A user wants to share a customer list with a personal email account to work from home. What should IT advise?",
+    "options": [
+      {
+        "text": "Don't; use approved company tools instead",
+        "note": ""
+      },
+      {
+        "text": "Go ahead; it's faster",
+        "note": "Violates policy."
+      },
+      {
+        "text": "Zip the file first and email it to yourself",
+        "note": "Still violates policy."
+      },
+      {
+        "text": "Print it at home",
+        "note": "Still violates policy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data handling policies protect confidential information."
+  },
+  {
+    "id": 77,
+    "domain": "D5",
+    "scenario": "Which sign suggests a phishing website?",
+    "options": [
+      {
+        "text": "A misspelled domain like micros0ft-login.com",
+        "note": ""
+      },
+      {
+        "text": "A padlock icon on a known domain",
+        "note": "Usually normal."
+      },
+      {
+        "text": "A familiar company logo on the official site",
+        "note": "Normal."
+      },
+      {
+        "text": "Fast page loading",
+        "note": "Not a sign."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Always check the domain name carefully."
+  },
+  {
+    "id": 78,
+    "domain": "D5",
+    "scenario": "Why shouldn't help desk staff ask users for their passwords?",
+    "options": [
+      {
+        "text": "Admins can reset passwords without knowing them",
+        "note": ""
+      },
+      {
+        "text": "Passwords are always too long",
+        "note": "Not the reason."
+      },
+      {
+        "text": "It takes too much time on the phone call",
+        "note": "Not the reason."
+      },
+      {
+        "text": "Passwords can't be typed",
+        "note": "Not the reason."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Training users that IT never asks for passwords helps stop scams."
+  },
+  {
+    "id": 79,
+    "domain": "D6",
+    "scenario": "Which built-in Windows tool lets a technician view and control a user's screen with their permission?",
+    "options": [
+      {
+        "text": "Quick Assist",
+        "note": ""
+      },
+      {
+        "text": "Task Scheduler",
+        "note": "Schedules tasks."
+      },
+      {
+        "text": "Windows Defender Firewall settings",
+        "note": "Filters traffic."
+      },
+      {
+        "text": "Paint",
+        "note": "Images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Remote Desktop is another option, usually within the company network or VPN."
+  },
+  {
+    "id": 80,
+    "domain": "D6",
+    "scenario": "Before starting a remote support session, what should a technician do?",
+    "options": [
+      {
+        "text": "Get the user's permission",
+        "note": ""
+      },
+      {
+        "text": "Install software without telling them",
+        "note": "Unprofessional."
+      },
+      {
+        "text": "Ask for their password to sign in as them",
+        "note": "Never."
+      },
+      {
+        "text": "Turn off their antivirus",
+        "note": "Unsafe."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Explain what you'll do and end the session when finished."
+  },
+  {
+    "id": 81,
+    "domain": "D6",
+    "scenario": "Which protocol is used for secure remote command-line access to servers?",
+    "options": [
+      {
+        "text": "SSH",
+        "note": ""
+      },
+      {
+        "text": "Telnet",
+        "note": "Unencrypted."
+      },
+      {
+        "text": "FTP",
+        "note": "File transfer."
+      },
+      {
+        "text": "HTTP without TLS encryption",
+        "note": "Unencrypted web."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SSH uses TCP port 22."
+  },
+  {
+    "id": 82,
+    "domain": "D6",
+    "scenario": "Which is a good source for troubleshooting a specific error code?",
+    "options": [
+      {
+        "text": "The vendor's knowledge base",
+        "note": ""
+      },
+      {
+        "text": "A random pop-up ad",
+        "note": "Untrusted."
+      },
+      {
+        "text": "An anonymous download site offering a fix tool",
+        "note": "Malware risk."
+      },
+      {
+        "text": "A social media meme",
+        "note": "Unreliable."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Search the exact error message and check official documentation first."
+  },
+  {
+    "id": 83,
+    "domain": "D6",
+    "scenario": "A technician uses an AI assistant to suggest a fix. What should they do before running suggested commands?",
+    "options": [
+      {
+        "text": "Verify the commands are correct and safe",
+        "note": ""
+      },
+      {
+        "text": "Run them immediately",
+        "note": "AI can be wrong."
+      },
+      {
+        "text": "Share the user's password with the AI for context",
+        "note": "Never."
+      },
+      {
+        "text": "Disable logging",
+        "note": "Unsafe."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AI tools can produce confident but wrong answers."
+  },
+  {
+    "id": 84,
+    "domain": "D6",
+    "scenario": "Which tool helps support many remote users' devices with monitoring and patching?",
+    "options": [
+      {
+        "text": "Remote monitoring and management (RMM)",
+        "note": ""
+      },
+      {
+        "text": "Microsoft Paint",
+        "note": "Image editing."
+      },
+      {
+        "text": "A local spreadsheet of device names",
+        "note": "Not management."
+      },
+      {
+        "text": "Notepad",
+        "note": "Text."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RMM tools are common in managed service providers."
+  },
+  {
+    "id": 85,
+    "domain": "D6",
+    "scenario": "Which is the most reliable information source when troubleshooting company systems?",
+    "options": [
+      {
+        "text": "Internal documentation and runbooks",
+        "note": ""
+      },
+      {
+        "text": "Guesses based on similar issues",
+        "note": "Unreliable."
+      },
+      {
+        "text": "A forum post from ten years ago about an older version",
+        "note": "May be outdated."
+      },
+      {
+        "text": "Personal opinions",
+        "note": "Unreliable."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Keep internal documentation current."
+  },
+  {
+    "id": 86,
+    "domain": "D6",
+    "scenario": "Why use a VPN for remote support of devices on a company network?",
+    "options": [
+      {
+        "text": "It encrypts access to internal resources",
+        "note": ""
+      },
+      {
+        "text": "It makes the internet faster",
+        "note": "Not its purpose."
+      },
+      {
+        "text": "It removes the need for any authentication",
+        "note": "Not true."
+      },
+      {
+        "text": "It fixes hardware",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "VPNs create secure tunnels over the internet."
+  },
+  {
+    "id": 87,
+    "domain": "D6",
+    "scenario": "Which tool records a user's issue with screenshots to share with support?",
+    "options": [
+      {
+        "text": "Snipping Tool",
+        "note": ""
+      },
+      {
+        "text": "Disk Defragmenter",
+        "note": "Optimizes HDDs."
+      },
+      {
+        "text": "Character Map for inserting symbols",
+        "note": "Special characters."
+      },
+      {
+        "text": "Calculator",
+        "note": "Math."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Windows key + Shift + S opens the snipping overlay."
+  },
+  {
+    "id": 88,
+    "domain": "D6",
+    "scenario": "What's the main risk of free remote-access tools suggested in unsolicited calls?",
+    "options": [
+      {
+        "text": "Scammers can take control of the computer",
+        "note": ""
+      },
+      {
+        "text": "They slow down the network",
+        "note": "Not the main risk."
+      },
+      {
+        "text": "They make the monitor display brighter",
+        "note": "Unrelated."
+      },
+      {
+        "text": "They delete the recycle bin",
+        "note": "Not the main risk."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tech support scams often ask users to install remote tools."
+  },
+  {
+    "id": 89,
+    "domain": "D6",
+    "scenario": "Which search strategy gives the best results for an error?",
+    "options": [
+      {
+        "text": "Search the exact error message in quotes",
+        "note": ""
+      },
+      {
+        "text": "Search only the word \"error\"",
+        "note": "Too vague."
+      },
+      {
+        "text": "Search the computer's color and model name",
+        "note": "Not useful."
+      },
+      {
+        "text": "Search random keywords",
+        "note": "Not useful."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Add the product name and version for better results."
+  },
+  {
+    "id": 90,
+    "domain": "D6",
+    "scenario": "Which Remote Desktop requirement should be checked when it fails to connect?",
+    "options": [
+      {
+        "text": "Remote Desktop is enabled and the port is allowed",
+        "note": ""
+      },
+      {
+        "text": "The user's screen resolution",
+        "note": "Doesn't block connections."
+      },
+      {
+        "text": "The user's printer settings",
+        "note": "Doesn't block connections."
+      },
+      {
+        "text": "The user's wallpaper",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RDP uses TCP port 3389; network-level authentication may also be required."
+  }
+]

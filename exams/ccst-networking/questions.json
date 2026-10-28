@@ -1,0 +1,2277 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "At which OSI layer do routers make forwarding decisions based on IP addresses?",
+    "options": [
+      {
+        "text": "Layer 3 (Network)",
+        "note": ""
+      },
+      {
+        "text": "Layer 2 (Data Link)",
+        "note": "MAC addresses and switches."
+      },
+      {
+        "text": "Layer 4 (Transport)",
+        "note": "TCP and UDP ports."
+      },
+      {
+        "text": "Layer 7 (Application)",
+        "note": "User-facing protocols."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OSI layers: Physical, Data Link, Network, Transport, Session, Presentation, Application."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "At which OSI layer do switches forward frames using MAC addresses?",
+    "options": [
+      {
+        "text": "Layer 2 (Data Link)",
+        "note": ""
+      },
+      {
+        "text": "Layer 1 (Physical)",
+        "note": "Bits on the wire."
+      },
+      {
+        "text": "Layer 3 (Network)",
+        "note": "IP routing."
+      },
+      {
+        "text": "Layer 5 (Session)",
+        "note": "Manages sessions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data at Layer 2 is called a frame; at Layer 3, a packet."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "What is the data unit called at the Transport layer when using TCP?",
+    "options": [
+      {
+        "text": "Segment",
+        "note": ""
+      },
+      {
+        "text": "Frame",
+        "note": "Layer 2."
+      },
+      {
+        "text": "Packet",
+        "note": "Layer 3."
+      },
+      {
+        "text": "Bit",
+        "note": "Layer 1."
+      }
+    ],
+    "answer": 0,
+    "explanation": "With UDP, the unit is often called a datagram."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "Which TCP/IP model layer maps to OSI layers 5, 6 and 7?",
+    "options": [
+      {
+        "text": "Application",
+        "note": ""
+      },
+      {
+        "text": "Transport",
+        "note": "Maps to OSI Layer 4."
+      },
+      {
+        "text": "Internet",
+        "note": "Maps to OSI Layer 3."
+      },
+      {
+        "text": "Network access",
+        "note": "Maps to OSI Layers 1–2."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The TCP/IP model has four layers: Network Access (Link), Internet, Transport, Application."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "What's the difference between bandwidth and throughput?",
+    "options": [
+      {
+        "text": "Bandwidth is capacity; throughput is actual data delivered",
+        "note": ""
+      },
+      {
+        "text": "They always have the same value on a healthy network",
+        "note": "Throughput is often lower."
+      },
+      {
+        "text": "Throughput is the maximum capacity of the link",
+        "note": "Reversed."
+      },
+      {
+        "text": "Bandwidth measures delay in milliseconds",
+        "note": "That's latency."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Latency, congestion and errors reduce throughput below bandwidth."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "Which tool measures throughput between two endpoints you control, rather than to an internet server?",
+    "options": [
+      {
+        "text": "iPerf",
+        "note": ""
+      },
+      {
+        "text": "A public speed test website",
+        "note": "Measures to an internet server."
+      },
+      {
+        "text": "nslookup",
+        "note": "Queries DNS."
+      },
+      {
+        "text": "ipconfig",
+        "note": "Shows IP settings."
+      }
+    ],
+    "answer": 0,
+    "explanation": "iPerf runs as a client and server to measure throughput across your own network."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Which network type covers a single building or office?",
+    "options": [
+      {
+        "text": "LAN",
+        "note": ""
+      },
+      {
+        "text": "WAN",
+        "note": "Spans large distances."
+      },
+      {
+        "text": "MAN",
+        "note": "Spans a city."
+      },
+      {
+        "text": "PAN",
+        "note": "Around one person."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A WLAN is a wireless LAN; a CAN covers a campus of buildings."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "Which network type connects Bluetooth earbuds and a phone around one person?",
+    "options": [
+      {
+        "text": "PAN",
+        "note": ""
+      },
+      {
+        "text": "LAN",
+        "note": "A building or office."
+      },
+      {
+        "text": "MAN",
+        "note": "A city."
+      },
+      {
+        "text": "WAN",
+        "note": "Wide geographic area."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Personal area networks have a range of a few meters."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which physical topology connects every device to a central switch?",
+    "options": [
+      {
+        "text": "Star",
+        "note": ""
+      },
+      {
+        "text": "Bus",
+        "note": "One shared cable."
+      },
+      {
+        "text": "Ring",
+        "note": "Devices in a loop."
+      },
+      {
+        "text": "Full mesh",
+        "note": "Every device linked to every other."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Star is the most common topology for Ethernet LANs."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "Which cloud service model gives you virtual machines and networks to manage yourself?",
+    "options": [
+      {
+        "text": "IaaS",
+        "note": ""
+      },
+      {
+        "text": "SaaS",
+        "note": "Ready-to-use software."
+      },
+      {
+        "text": "PaaS",
+        "note": "A platform for apps."
+      },
+      {
+        "text": "On-premises",
+        "note": "Your own data center."
+      }
+    ],
+    "answer": 0,
+    "explanation": "With IaaS, you manage the OS and apps; the provider manages hardware."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "Which protocol is connection-oriented and guarantees delivery with acknowledgments?",
+    "options": [
+      {
+        "text": "TCP",
+        "note": ""
+      },
+      {
+        "text": "UDP",
+        "note": "Connectionless and best-effort."
+      },
+      {
+        "text": "ICMP",
+        "note": "Error and diagnostic messages."
+      },
+      {
+        "text": "ARP",
+        "note": "Maps IP to MAC addresses."
+      }
+    ],
+    "answer": 0,
+    "explanation": "TCP uses a three-way handshake: SYN, SYN-ACK, ACK."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "Which transport protocol is best for live video calls where speed matters more than retransmission?",
+    "options": [
+      {
+        "text": "UDP",
+        "note": ""
+      },
+      {
+        "text": "TCP",
+        "note": "Retransmits lost data, adding delay."
+      },
+      {
+        "text": "FTP",
+        "note": "File transfer over TCP."
+      },
+      {
+        "text": "SMTP",
+        "note": "Email over TCP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DNS queries and VoIP also commonly use UDP."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "Which protocol and port does HTTPS use by default?",
+    "options": [
+      {
+        "text": "TCP 443",
+        "note": ""
+      },
+      {
+        "text": "TCP 80",
+        "note": "HTTP."
+      },
+      {
+        "text": "TCP 22",
+        "note": "SSH and SFTP."
+      },
+      {
+        "text": "UDP 53",
+        "note": "DNS."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HTTPS encrypts HTTP with TLS."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Which protocol securely transfers files over an SSH connection?",
+    "options": [
+      {
+        "text": "SFTP",
+        "note": ""
+      },
+      {
+        "text": "TFTP",
+        "note": "Simple, no authentication."
+      },
+      {
+        "text": "FTP",
+        "note": "Unencrypted."
+      },
+      {
+        "text": "HTTP",
+        "note": "Web traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SFTP uses TCP port 22."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "Which protocol is used by devices to sync their clocks?",
+    "options": [
+      {
+        "text": "NTP",
+        "note": ""
+      },
+      {
+        "text": "DNS",
+        "note": "Resolves names."
+      },
+      {
+        "text": "DHCP",
+        "note": "Assigns addresses."
+      },
+      {
+        "text": "SNMP",
+        "note": "Monitors devices."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Accurate time matters for logs and authentication."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "Which protocol does ping use to test reachability?",
+    "options": [
+      {
+        "text": "ICMP",
+        "note": ""
+      },
+      {
+        "text": "TCP",
+        "note": "Connection-oriented transport."
+      },
+      {
+        "text": "UDP",
+        "note": "Connectionless transport."
+      },
+      {
+        "text": "ARP",
+        "note": "Address resolution."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Ping sends ICMP echo requests and waits for echo replies."
+  },
+  {
+    "id": 17,
+    "domain": "D2",
+    "scenario": "Which IPv4 address is a private address?",
+    "options": [
+      {
+        "text": "172.16.5.10",
+        "note": ""
+      },
+      {
+        "text": "8.8.8.8",
+        "note": "Public (Google DNS)."
+      },
+      {
+        "text": "172.32.1.1",
+        "note": "Just outside the 172.16–31 range."
+      },
+      {
+        "text": "11.0.0.1",
+        "note": "Public."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Private ranges: 10.0.0.0/8, 172.16.0.0/12 and 192.168.0.0/16."
+  },
+  {
+    "id": 18,
+    "domain": "D2",
+    "scenario": "What does NAT do on a home router?",
+    "options": [
+      {
+        "text": "Translates private addresses to a public address",
+        "note": ""
+      },
+      {
+        "text": "Assigns DNS names to devices",
+        "note": "DNS does that."
+      },
+      {
+        "text": "Encrypts all Wi-Fi traffic between devices",
+        "note": "WPA does that."
+      },
+      {
+        "text": "Blocks every inbound port from the internet",
+        "note": "A firewall does that."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PAT (NAT overload) lets many devices share one public IP using different ports."
+  },
+  {
+    "id": 19,
+    "domain": "D2",
+    "scenario": "What is the subnet mask for a /24 network?",
+    "options": [
+      {
+        "text": "255.255.255.0",
+        "note": ""
+      },
+      {
+        "text": "255.255.0.0",
+        "note": "That's /16."
+      },
+      {
+        "text": "255.255.255.128",
+        "note": "That's /25."
+      },
+      {
+        "text": "255.0.0.0",
+        "note": "That's /8."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A /24 has 24 network bits and 8 host bits."
+  },
+  {
+    "id": 20,
+    "domain": "D2",
+    "scenario": "How many usable host addresses are in a /24 subnet?",
+    "options": [
+      {
+        "text": "254",
+        "note": ""
+      },
+      {
+        "text": "256",
+        "note": "Includes network and broadcast."
+      },
+      {
+        "text": "255",
+        "note": "Includes the broadcast."
+      },
+      {
+        "text": "128",
+        "note": "Half the subnet."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Usable hosts = 2^host bits − 2."
+  },
+  {
+    "id": 21,
+    "domain": "D2",
+    "scenario": "What is the broadcast address of 192.168.10.0/24?",
+    "options": [
+      {
+        "text": "192.168.10.255",
+        "note": ""
+      },
+      {
+        "text": "192.168.10.0",
+        "note": "That's the network address."
+      },
+      {
+        "text": "192.168.10.1",
+        "note": "Often the gateway."
+      },
+      {
+        "text": "192.168.255.255",
+        "note": "Wrong octet."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The broadcast address has all host bits set to 1."
+  },
+  {
+    "id": 22,
+    "domain": "D2",
+    "scenario": "How many usable hosts are in a /26 subnet?",
+    "options": [
+      {
+        "text": "62",
+        "note": ""
+      },
+      {
+        "text": "64",
+        "note": "Total, including network and broadcast."
+      },
+      {
+        "text": "30",
+        "note": "That's /27."
+      },
+      {
+        "text": "126",
+        "note": "That's /25."
+      }
+    ],
+    "answer": 0,
+    "explanation": "/26 leaves 6 host bits: 2^6 − 2 = 62."
+  },
+  {
+    "id": 23,
+    "domain": "D2",
+    "scenario": "Which subnet mask matches /27?",
+    "options": [
+      {
+        "text": "255.255.255.224",
+        "note": ""
+      },
+      {
+        "text": "255.255.255.240",
+        "note": "That's /28."
+      },
+      {
+        "text": "255.255.255.192",
+        "note": "That's /26."
+      },
+      {
+        "text": "255.255.255.248",
+        "note": "That's /29."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Mask values: 128, 192, 224, 240, 248, 252."
+  },
+  {
+    "id": 24,
+    "domain": "D2",
+    "scenario": "Which address class has a default mask of 255.255.0.0?",
+    "options": [
+      {
+        "text": "Class B",
+        "note": ""
+      },
+      {
+        "text": "Class A",
+        "note": "255.0.0.0."
+      },
+      {
+        "text": "Class C",
+        "note": "255.255.255.0."
+      },
+      {
+        "text": "Class D",
+        "note": "Multicast, no mask."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Class B first octets range from 128 to 191."
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "scenario": "A Windows PC has the address 169.254.20.15. What does this mean?",
+    "options": [
+      {
+        "text": "It couldn't reach a DHCP server",
+        "note": ""
+      },
+      {
+        "text": "It has a valid, routable public internet address",
+        "note": "APIPA is private and local."
+      },
+      {
+        "text": "It is a DNS server",
+        "note": "Unrelated."
+      },
+      {
+        "text": "It is using IPv6 only",
+        "note": "It is IPv4."
+      }
+    ],
+    "answer": 0,
+    "explanation": "169.254.0.0/16 is APIPA (link-local); check the cable and DHCP server."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "How long is an IPv6 address?",
+    "options": [
+      {
+        "text": "128 bits",
+        "note": ""
+      },
+      {
+        "text": "32 bits",
+        "note": "IPv4."
+      },
+      {
+        "text": "64 bits",
+        "note": "Only the interface ID."
+      },
+      {
+        "text": "48 bits",
+        "note": "A MAC address."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IPv6 addresses are written as eight groups of four hex digits."
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "scenario": "Which is the correct shortened form of 2001:0db8:0000:0000:0000:0000:0000:0001?",
+    "options": [
+      {
+        "text": "2001:db8::1",
+        "note": ""
+      },
+      {
+        "text": "2001:db8:1",
+        "note": "Missing the double colon."
+      },
+      {
+        "text": "2001::db8::1",
+        "note": ":: can appear only once."
+      },
+      {
+        "text": "21:db8::1",
+        "note": "Can't drop trailing zeros."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Drop leading zeros in each group; replace one run of zero groups with ::."
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "scenario": "Which IPv6 address type begins with fe80 and works only on the local link?",
+    "options": [
+      {
+        "text": "Link-local",
+        "note": ""
+      },
+      {
+        "text": "Global unicast",
+        "note": "Routable on the internet (2000::/3)."
+      },
+      {
+        "text": "Multicast",
+        "note": "Begins with ff."
+      },
+      {
+        "text": "Loopback",
+        "note": "Is ::1."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Every IPv6 interface automatically gets a link-local address."
+  },
+  {
+    "id": 29,
+    "domain": "D2",
+    "scenario": "What is the IPv6 loopback address?",
+    "options": [
+      {
+        "text": "::1",
+        "note": ""
+      },
+      {
+        "text": "127.0.0.1",
+        "note": "The IPv4 loopback."
+      },
+      {
+        "text": "fe80::1",
+        "note": "A link-local address."
+      },
+      {
+        "text": "ff02::1",
+        "note": "All-nodes multicast."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Ping ::1 to test the local IPv6 stack."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "What is the typical prefix length for an IPv6 subnet on a LAN?",
+    "options": [
+      {
+        "text": "/64",
+        "note": ""
+      },
+      {
+        "text": "/24",
+        "note": "A common IPv4 size."
+      },
+      {
+        "text": "/128",
+        "note": "A single address."
+      },
+      {
+        "text": "/16",
+        "note": "Far too large."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The first 64 bits identify the network; the last 64 bits identify the interface."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "Which device separates broadcast domains?",
+    "options": [
+      {
+        "text": "A router",
+        "note": ""
+      },
+      {
+        "text": "A switch with one VLAN",
+        "note": "Forwards broadcasts."
+      },
+      {
+        "text": "A hub",
+        "note": "Forwards everything."
+      },
+      {
+        "text": "A repeater",
+        "note": "Regenerates signals."
+      }
+    ],
+    "answer": 0,
+    "explanation": "VLANs also separate broadcast domains on a switch."
+  },
+  {
+    "id": 32,
+    "domain": "D3",
+    "scenario": "Which connector is used on standard twisted-pair Ethernet cables?",
+    "options": [
+      {
+        "text": "RJ-45",
+        "note": ""
+      },
+      {
+        "text": "RJ-11",
+        "note": "Telephone lines."
+      },
+      {
+        "text": "F-type",
+        "note": "Coax for cable TV."
+      },
+      {
+        "text": "LC",
+        "note": "Fiber."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cat 5e, Cat 6 and Cat 6a cables use RJ-45 connectors."
+  },
+  {
+    "id": 33,
+    "domain": "D3",
+    "scenario": "What is the maximum recommended length of a copper Ethernet cable run?",
+    "options": [
+      {
+        "text": "100 meters",
+        "note": ""
+      },
+      {
+        "text": "10 meters",
+        "note": "Far too short."
+      },
+      {
+        "text": "500 meters",
+        "note": "Old thick coax."
+      },
+      {
+        "text": "2 kilometers",
+        "note": "Fiber distances."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Longer runs need a switch or fiber."
+  },
+  {
+    "id": 34,
+    "domain": "D3",
+    "scenario": "Which cable type is immune to electromagnetic interference and supports long distances?",
+    "options": [
+      {
+        "text": "Fiber optic",
+        "note": ""
+      },
+      {
+        "text": "Unshielded twisted pair",
+        "note": "Susceptible to EMI."
+      },
+      {
+        "text": "Coaxial",
+        "note": "Some shielding, shorter range."
+      },
+      {
+        "text": "Telephone cable",
+        "note": "Low speed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Single-mode fiber reaches farther than multimode."
+  },
+  {
+    "id": 35,
+    "domain": "D3",
+    "scenario": "Which fiber type uses a narrow core and lasers for very long distances?",
+    "options": [
+      {
+        "text": "Single-mode",
+        "note": ""
+      },
+      {
+        "text": "Multimode",
+        "note": "Shorter distances, LEDs or VCSELs."
+      },
+      {
+        "text": "Plenum copper",
+        "note": "A copper cable rating."
+      },
+      {
+        "text": "Coaxial",
+        "note": "Copper."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Multimode is common inside buildings and data centers."
+  },
+  {
+    "id": 36,
+    "domain": "D3",
+    "scenario": "Which fiber connector is small, with a push-pull latch, and common on SFP modules?",
+    "options": [
+      {
+        "text": "LC",
+        "note": ""
+      },
+      {
+        "text": "ST",
+        "note": "Bayonet twist-lock."
+      },
+      {
+        "text": "RJ-45",
+        "note": "Copper."
+      },
+      {
+        "text": "BNC",
+        "note": "Coax."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SC is a larger square push-pull connector."
+  },
+  {
+    "id": 37,
+    "domain": "D3",
+    "scenario": "Which Wi-Fi band offers the longest range but more interference?",
+    "options": [
+      {
+        "text": "2.4 GHz",
+        "note": ""
+      },
+      {
+        "text": "5 GHz",
+        "note": "Faster, shorter range."
+      },
+      {
+        "text": "6 GHz",
+        "note": "Shortest range, least congested."
+      },
+      {
+        "text": "60 GHz",
+        "note": "Very short range."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Microwaves and Bluetooth also use 2.4 GHz."
+  },
+  {
+    "id": 38,
+    "domain": "D3",
+    "scenario": "Which Wi-Fi standard added support for the 6 GHz band?",
+    "options": [
+      {
+        "text": "Wi-Fi 6E (802.11ax)",
+        "note": ""
+      },
+      {
+        "text": "Wi-Fi 4 (802.11n)",
+        "note": "2.4 and 5 GHz."
+      },
+      {
+        "text": "Wi-Fi 5 (802.11ac)",
+        "note": "5 GHz only."
+      },
+      {
+        "text": "802.11g",
+        "note": "2.4 GHz only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Wi-Fi 7 (802.11be) also uses 6 GHz."
+  },
+  {
+    "id": 39,
+    "domain": "D3",
+    "scenario": "Which is a common source of interference for 2.4 GHz Wi-Fi?",
+    "options": [
+      {
+        "text": "A microwave oven",
+        "note": ""
+      },
+      {
+        "text": "A fiber cable",
+        "note": "Light-based, no RF."
+      },
+      {
+        "text": "A paper notebook",
+        "note": "No RF."
+      },
+      {
+        "text": "An LED desk lamp",
+        "note": "Usually minimal."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cordless phones, Bluetooth and thick walls also affect signal."
+  },
+  {
+    "id": 40,
+    "domain": "D3",
+    "scenario": "Which wireless setting is the network name users see when connecting?",
+    "options": [
+      {
+        "text": "SSID",
+        "note": ""
+      },
+      {
+        "text": "BSSID",
+        "note": "The access point's MAC address."
+      },
+      {
+        "text": "WPA3",
+        "note": "A security protocol."
+      },
+      {
+        "text": "Channel",
+        "note": "The frequency used."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hiding the SSID is not a real security control."
+  },
+  {
+    "id": 41,
+    "domain": "D3",
+    "scenario": "A laptop shows the Wi-Fi network but fails to connect with an authentication error. What should be checked first?",
+    "options": [
+      {
+        "text": "The Wi-Fi password and security type",
+        "note": ""
+      },
+      {
+        "text": "The laptop's screen brightness",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The laptop's printer driver",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The DNS server address in the IP settings",
+        "note": "Comes after connecting."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Mismatched WPA2/WPA3 settings can also prevent connection."
+  },
+  {
+    "id": 42,
+    "domain": "D3",
+    "scenario": "Which command shows IP settings on a Linux computer?",
+    "options": [
+      {
+        "text": "ip address",
+        "note": ""
+      },
+      {
+        "text": "ipconfig /all",
+        "note": "Windows."
+      },
+      {
+        "text": "netsh wlan show",
+        "note": "Windows Wi-Fi."
+      },
+      {
+        "text": "show ip route",
+        "note": "Cisco IOS."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ifconfig also works on many Linux and macOS systems."
+  },
+  {
+    "id": 43,
+    "domain": "D3",
+    "scenario": "Where do you check Wi-Fi and IP settings on an iPhone?",
+    "options": [
+      {
+        "text": "Settings > Wi-Fi > the network's info icon",
+        "note": ""
+      },
+      {
+        "text": "Control Panel > Network and Sharing Center",
+        "note": "Windows."
+      },
+      {
+        "text": "Terminal app with the ipconfig command",
+        "note": "Not available on iOS."
+      },
+      {
+        "text": "Device Manager",
+        "note": "Windows."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Android shows similar details under Network and internet."
+  },
+  {
+    "id": 44,
+    "domain": "D3",
+    "scenario": "Which endpoint is an IoT device?",
+    "options": [
+      {
+        "text": "A networked security camera",
+        "note": ""
+      },
+      {
+        "text": "A core router",
+        "note": "Infrastructure."
+      },
+      {
+        "text": "A distribution switch",
+        "note": "Infrastructure."
+      },
+      {
+        "text": "A next-generation firewall appliance",
+        "note": "Infrastructure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IoT devices are often on separate VLANs for security."
+  },
+  {
+    "id": 45,
+    "domain": "D3",
+    "scenario": "Which cellular technology provides the highest speeds and lowest latency today?",
+    "options": [
+      {
+        "text": "5G",
+        "note": ""
+      },
+      {
+        "text": "3G",
+        "note": "Older and slower."
+      },
+      {
+        "text": "4G LTE",
+        "note": "Slower than 5G."
+      },
+      {
+        "text": "2G",
+        "note": "Voice-era technology."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cellular is often used as a backup WAN link."
+  },
+  {
+    "id": 46,
+    "domain": "D3",
+    "scenario": "What does PoE allow a switch port to do?",
+    "options": [
+      {
+        "text": "Provide power over the Ethernet cable",
+        "note": ""
+      },
+      {
+        "text": "Encrypt all traffic leaving the port",
+        "note": "Not PoE."
+      },
+      {
+        "text": "Connect fiber cables without an SFP",
+        "note": "Needs a transceiver."
+      },
+      {
+        "text": "Double the port speed",
+        "note": "Not PoE."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PoE powers IP phones, cameras and access points."
+  },
+  {
+    "id": 47,
+    "domain": "D4",
+    "scenario": "A switch port's link light is off after a cable is connected. What does this usually mean?",
+    "options": [
+      {
+        "text": "No physical link is established",
+        "note": ""
+      },
+      {
+        "text": "The port is transmitting normally",
+        "note": "Usually green and blinking."
+      },
+      {
+        "text": "The switch is updating firmware",
+        "note": "Not this indicator."
+      },
+      {
+        "text": "The device has an IP conflict",
+        "note": "Lights don't show IP issues."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check the cable, the device's NIC and whether the port is shut down."
+  },
+  {
+    "id": 48,
+    "domain": "D4",
+    "scenario": "On many Cisco switches, what does a blinking green port LED indicate?",
+    "options": [
+      {
+        "text": "Traffic is passing on the link",
+        "note": ""
+      },
+      {
+        "text": "The port has failed",
+        "note": "Usually amber."
+      },
+      {
+        "text": "There's no cable connected",
+        "note": "Light would be off."
+      },
+      {
+        "text": "The port is in power-saving mode",
+        "note": "Not this indicator."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Solid green means link up with no activity; amber can mean blocked or faulty."
+  },
+  {
+    "id": 49,
+    "domain": "D4",
+    "scenario": "Which port is used to configure a new Cisco switch with no IP address yet?",
+    "options": [
+      {
+        "text": "Console port",
+        "note": ""
+      },
+      {
+        "text": "Ethernet access port",
+        "note": "Needs IP configured first."
+      },
+      {
+        "text": "SFP port",
+        "note": "For fiber or uplink modules."
+      },
+      {
+        "text": "Serial WAN port",
+        "note": "For WAN links."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use a console (rollover or USB) cable and a terminal emulator."
+  },
+  {
+    "id": 50,
+    "domain": "D4",
+    "scenario": "Which pluggable module lets a switch port use fiber or different speeds?",
+    "options": [
+      {
+        "text": "SFP transceiver",
+        "note": ""
+      },
+      {
+        "text": "PoE injector",
+        "note": "Adds power."
+      },
+      {
+        "text": "Console cable",
+        "note": "Management access."
+      },
+      {
+        "text": "Patch panel",
+        "note": "Cable termination."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SFP+ supports 10 Gbps; QSFP supports higher speeds."
+  },
+  {
+    "id": 51,
+    "domain": "D4",
+    "scenario": "What is the default gateway?",
+    "options": [
+      {
+        "text": "The router that sends traffic to other networks",
+        "note": ""
+      },
+      {
+        "text": "The switch that connects local PCs",
+        "note": "Local only."
+      },
+      {
+        "text": "The DNS server for name lookups",
+        "note": "Name resolution."
+      },
+      {
+        "text": "The DHCP server that hands out addresses",
+        "note": "Assigns addresses."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Devices send traffic for remote networks to their default gateway."
+  },
+  {
+    "id": 52,
+    "domain": "D4",
+    "scenario": "A PC can reach devices on its own subnet but not the internet. What's a likely cause?",
+    "options": [
+      {
+        "text": "Wrong or missing default gateway",
+        "note": ""
+      },
+      {
+        "text": "A bad local switch port",
+        "note": "Local traffic works."
+      },
+      {
+        "text": "The wrong MAC address on the PC",
+        "note": "Assigned to the NIC."
+      },
+      {
+        "text": "An expired DHCP lease on the switch",
+        "note": "Switches do not hold client leases."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Verify the gateway with ipconfig and ping it."
+  },
+  {
+    "id": 53,
+    "domain": "D4",
+    "scenario": "What's the main difference between a Layer 2 switch and a Layer 3 switch?",
+    "options": [
+      {
+        "text": "A Layer 3 switch can also route between VLANs",
+        "note": ""
+      },
+      {
+        "text": "A Layer 2 switch uses IP addresses",
+        "note": "Uses MAC addresses."
+      },
+      {
+        "text": "A Layer 3 switch can't use VLANs or trunks",
+        "note": "It can."
+      },
+      {
+        "text": "They're identical except for the number of ports",
+        "note": "Different capabilities."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Layer 3 switches use switched virtual interfaces (SVIs) to route."
+  },
+  {
+    "id": 54,
+    "domain": "D4",
+    "scenario": "How does a switch learn which device is connected to each port?",
+    "options": [
+      {
+        "text": "By recording source MAC addresses",
+        "note": ""
+      },
+      {
+        "text": "By reading destination IP addresses",
+        "note": "Layer 3."
+      },
+      {
+        "text": "By asking the DHCP server",
+        "note": "Not how switches learn."
+      },
+      {
+        "text": "By manual entry only",
+        "note": "Learning is automatic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Entries are stored in the MAC address table (CAM table)."
+  },
+  {
+    "id": 55,
+    "domain": "D4",
+    "scenario": "What does a switch do with a frame whose destination MAC isn't in its table?",
+    "options": [
+      {
+        "text": "Floods it out all ports except the one it came in on",
+        "note": ""
+      },
+      {
+        "text": "Drops it immediately to protect the network",
+        "note": "Unknown unicasts are flooded."
+      },
+      {
+        "text": "Sends it back to the sender",
+        "note": "That's not switching."
+      },
+      {
+        "text": "Sends it only to the default gateway port",
+        "note": "Switches flood unknown unicasts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "When the destination replies, the switch learns its port."
+  },
+  {
+    "id": 56,
+    "domain": "D4",
+    "scenario": "What does a VLAN do?",
+    "options": [
+      {
+        "text": "Divides one switch into separate broadcast domains",
+        "note": ""
+      },
+      {
+        "text": "Encrypts traffic between switches",
+        "note": "Not VLANs."
+      },
+      {
+        "text": "Increases the speed of each switch port",
+        "note": "Not VLANs."
+      },
+      {
+        "text": "Provides Wi-Fi access to guest devices",
+        "note": "Not VLANs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Trunks carry multiple VLANs between switches using 802.1Q tags."
+  },
+  {
+    "id": 57,
+    "domain": "D4",
+    "scenario": "Which switch port type carries traffic for multiple VLANs to another switch?",
+    "options": [
+      {
+        "text": "Trunk port",
+        "note": ""
+      },
+      {
+        "text": "Access port",
+        "note": "One VLAN."
+      },
+      {
+        "text": "Console port",
+        "note": "Management."
+      },
+      {
+        "text": "Shutdown port",
+        "note": "Disabled."
+      }
+    ],
+    "answer": 0,
+    "explanation": "802.1Q adds a VLAN tag to frames on trunks."
+  },
+  {
+    "id": 58,
+    "domain": "D4",
+    "scenario": "Which security feature limits which MAC addresses can use a switch port?",
+    "options": [
+      {
+        "text": "Port security (MAC filtering)",
+        "note": ""
+      },
+      {
+        "text": "Spanning Tree Protocol",
+        "note": "Prevents loops."
+      },
+      {
+        "text": "DHCP snooping",
+        "note": "Blocks rogue DHCP servers."
+      },
+      {
+        "text": "Dynamic ARP inspection",
+        "note": "Validates ARP packets."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Violations can shut down the port."
+  },
+  {
+    "id": 59,
+    "domain": "D4",
+    "scenario": "Following a network diagram, which device should a PC's patch cable connect to?",
+    "options": [
+      {
+        "text": "An access switch port",
+        "note": ""
+      },
+      {
+        "text": "The ISP modem directly",
+        "note": "Bypasses the LAN."
+      },
+      {
+        "text": "The router's console port",
+        "note": "Management only."
+      },
+      {
+        "text": "A fiber patch panel",
+        "note": "Copper PC cable."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Patch panels connect building cabling to switches in the rack."
+  },
+  {
+    "id": 60,
+    "domain": "D4",
+    "scenario": "Which device is usually at the edge of a small office network connecting it to the ISP?",
+    "options": [
+      {
+        "text": "A router or firewall",
+        "note": ""
+      },
+      {
+        "text": "An access point",
+        "note": "Wireless access."
+      },
+      {
+        "text": "A wireless LAN controller",
+        "note": "Manages access points."
+      },
+      {
+        "text": "A Layer 2 access switch",
+        "note": "Connects local devices."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Small business routers often include firewall and VPN features."
+  },
+  {
+    "id": 61,
+    "domain": "D4",
+    "scenario": "What does a Cisco router use to decide where to send a packet?",
+    "options": [
+      {
+        "text": "Its routing table",
+        "note": ""
+      },
+      {
+        "text": "Its MAC address table",
+        "note": "A switch's table."
+      },
+      {
+        "text": "Its ARP cache only",
+        "note": "Maps IP to MAC."
+      },
+      {
+        "text": "Its DHCP pool",
+        "note": "Address assignment."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Routes can be connected, static or learned by dynamic protocols like OSPF."
+  },
+  {
+    "id": 62,
+    "domain": "D5",
+    "scenario": "Which command shows the IP address, subnet mask and default gateway on Windows?",
+    "options": [
+      {
+        "text": "ipconfig",
+        "note": ""
+      },
+      {
+        "text": "tracert",
+        "note": "Shows the path."
+      },
+      {
+        "text": "nslookup",
+        "note": "Queries DNS."
+      },
+      {
+        "text": "netstat",
+        "note": "Shows connections."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use ipconfig /all for DNS servers and MAC addresses."
+  },
+  {
+    "id": 63,
+    "domain": "D5",
+    "scenario": "Which command shows each router hop to a destination on Windows?",
+    "options": [
+      {
+        "text": "tracert",
+        "note": ""
+      },
+      {
+        "text": "ping",
+        "note": "Tests reachability only."
+      },
+      {
+        "text": "ipconfig",
+        "note": "Local settings."
+      },
+      {
+        "text": "arp -a",
+        "note": "Shows the ARP cache."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Linux and macOS use traceroute."
+  },
+  {
+    "id": 64,
+    "domain": "D5",
+    "scenario": "A user can ping 8.8.8.8 but can't open websites by name. What's the most likely problem?",
+    "options": [
+      {
+        "text": "DNS resolution",
+        "note": ""
+      },
+      {
+        "text": "The default gateway",
+        "note": "Pinging the internet works."
+      },
+      {
+        "text": "The network cable",
+        "note": "Connectivity works."
+      },
+      {
+        "text": "The Wi-Fi password",
+        "note": "Already connected."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use nslookup to test DNS."
+  },
+  {
+    "id": 65,
+    "domain": "D5",
+    "scenario": "Why might ping fail to a server that's actually up and serving web pages?",
+    "options": [
+      {
+        "text": "A firewall is blocking ICMP",
+        "note": ""
+      },
+      {
+        "text": "The server has no MAC address",
+        "note": "All NICs have one."
+      },
+      {
+        "text": "Web servers can't reply to ping",
+        "note": "They can if allowed."
+      },
+      {
+        "text": "Ping only works on IPv6",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Many firewalls block ICMP echo requests by default."
+  },
+  {
+    "id": 66,
+    "domain": "D5",
+    "scenario": "Which tool captures packets so you can inspect the protocols on a network?",
+    "options": [
+      {
+        "text": "Wireshark",
+        "note": ""
+      },
+      {
+        "text": "Notepad",
+        "note": "Text editor."
+      },
+      {
+        "text": "Task Manager",
+        "note": "Processes."
+      },
+      {
+        "text": "Disk Management",
+        "note": "Partitions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Captures are saved as .pcap or .pcapng files."
+  },
+  {
+    "id": 67,
+    "domain": "D5",
+    "scenario": "Which Cisco command shows the full current configuration?",
+    "options": [
+      {
+        "text": "show running-config",
+        "note": ""
+      },
+      {
+        "text": "show ip route",
+        "note": "Routing table."
+      },
+      {
+        "text": "show version",
+        "note": "Hardware and software info."
+      },
+      {
+        "text": "show mac address-table",
+        "note": "Learned MAC addresses."
+      }
+    ],
+    "answer": 0,
+    "explanation": "show startup-config shows the saved configuration."
+  },
+  {
+    "id": 68,
+    "domain": "D5",
+    "scenario": "Which Cisco command lists directly connected Cisco devices?",
+    "options": [
+      {
+        "text": "show cdp neighbors",
+        "note": ""
+      },
+      {
+        "text": "show ip interface brief",
+        "note": "Interface status and IPs."
+      },
+      {
+        "text": "show vlan brief",
+        "note": "VLANs and ports."
+      },
+      {
+        "text": "show clock",
+        "note": "Device time."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CDP is Cisco Discovery Protocol; LLDP is the vendor-neutral equivalent."
+  },
+  {
+    "id": 69,
+    "domain": "D5",
+    "scenario": "Which Cisco command quickly shows interface IP addresses and up/down status?",
+    "options": [
+      {
+        "text": "show ip interface brief",
+        "note": ""
+      },
+      {
+        "text": "show running-config",
+        "note": "Full config, longer."
+      },
+      {
+        "text": "show cdp neighbors",
+        "note": "Neighbors."
+      },
+      {
+        "text": "show history",
+        "note": "Command history."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Status 'administratively down' means the interface was shut down."
+  },
+  {
+    "id": 70,
+    "domain": "D5",
+    "scenario": "In Cisco IOS, which prompt indicates privileged EXEC mode?",
+    "options": [
+      {
+        "text": "Switch#",
+        "note": ""
+      },
+      {
+        "text": "Switch>",
+        "note": "User EXEC mode."
+      },
+      {
+        "text": "Switch(config)#",
+        "note": "Global configuration mode."
+      },
+      {
+        "text": "Switch(config-if)#",
+        "note": "Interface configuration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Type enable to move from user EXEC to privileged EXEC."
+  },
+  {
+    "id": 71,
+    "domain": "D5",
+    "scenario": "What does typing ? at a Cisco IOS prompt do?",
+    "options": [
+      {
+        "text": "Lists available commands or options",
+        "note": ""
+      },
+      {
+        "text": "Saves the running configuration",
+        "note": "Use copy run start."
+      },
+      {
+        "text": "Reboots the device",
+        "note": "Use reload."
+      },
+      {
+        "text": "Exits to user EXEC mode",
+        "note": "Use disable."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Context-sensitive help works mid-command too."
+  },
+  {
+    "id": 72,
+    "domain": "D5",
+    "scenario": "Which protocol provides encrypted command-line access to a network device?",
+    "options": [
+      {
+        "text": "SSH",
+        "note": ""
+      },
+      {
+        "text": "Telnet",
+        "note": "Unencrypted."
+      },
+      {
+        "text": "HTTP",
+        "note": "Unencrypted web."
+      },
+      {
+        "text": "TFTP",
+        "note": "File transfer."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Disable Telnet and use SSH for remote management."
+  },
+  {
+    "id": 73,
+    "domain": "D5",
+    "scenario": "Which cloud-managed platform lets admins manage Cisco networks from a web dashboard?",
+    "options": [
+      {
+        "text": "Cisco Meraki",
+        "note": ""
+      },
+      {
+        "text": "Wireshark",
+        "note": "Packet analyzer."
+      },
+      {
+        "text": "PuTTY",
+        "note": "Terminal emulator."
+      },
+      {
+        "text": "iPerf",
+        "note": "Throughput testing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Meraki devices are configured and monitored from the cloud."
+  },
+  {
+    "id": 74,
+    "domain": "D5",
+    "scenario": "What's the first step in a structured troubleshooting process?",
+    "options": [
+      {
+        "text": "Gather information and identify the problem",
+        "note": ""
+      },
+      {
+        "text": "Replace the switch that's closest to the user",
+        "note": "Too early."
+      },
+      {
+        "text": "Close the ticket",
+        "note": "Too early."
+      },
+      {
+        "text": "Reboot every device in the network",
+        "note": "Not methodical."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Then establish a theory, test it, plan, implement, verify and document."
+  },
+  {
+    "id": 75,
+    "domain": "D5",
+    "scenario": "Which ticket should usually be handled first?",
+    "options": [
+      {
+        "text": "A whole office can't access the network",
+        "note": ""
+      },
+      {
+        "text": "One user wants a new mouse",
+        "note": "Low impact."
+      },
+      {
+        "text": "A request to rename a printer",
+        "note": "Low impact."
+      },
+      {
+        "text": "A question about a password policy",
+        "note": "Low impact."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Priority is based on impact and urgency."
+  },
+  {
+    "id": 76,
+    "domain": "D5",
+    "scenario": "Which tool is a terminal emulator used for console or SSH connections?",
+    "options": [
+      {
+        "text": "PuTTY",
+        "note": ""
+      },
+      {
+        "text": "Wireshark",
+        "note": "Captures packets."
+      },
+      {
+        "text": "iPerf",
+        "note": "Measures throughput."
+      },
+      {
+        "text": "Excel",
+        "note": "Spreadsheets."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tera Term and SecureCRT are other examples."
+  },
+  {
+    "id": 77,
+    "domain": "D6",
+    "scenario": "A firewall rule denies TCP port 3389 inbound. What service is blocked?",
+    "options": [
+      {
+        "text": "Remote Desktop (RDP)",
+        "note": ""
+      },
+      {
+        "text": "Secure Shell (SSH)",
+        "note": "Port 22."
+      },
+      {
+        "text": "Web browsing (HTTPS)",
+        "note": "Port 443."
+      },
+      {
+        "text": "Email sending (SMTP)",
+        "note": "Port 25."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Blocking unneeded ports reduces the attack surface."
+  },
+  {
+    "id": 78,
+    "domain": "D6",
+    "scenario": "How are firewall rules usually processed?",
+    "options": [
+      {
+        "text": "Top to bottom until the first match",
+        "note": ""
+      },
+      {
+        "text": "All rules are applied together at the same time",
+        "note": "First match wins."
+      },
+      {
+        "text": "Bottom to top, with the last match winning",
+        "note": "Usually top-down."
+      },
+      {
+        "text": "In random order",
+        "note": "Order matters."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Most firewalls end with an implicit deny-all rule."
+  },
+  {
+    "id": 79,
+    "domain": "D6",
+    "scenario": "Which AAA component records what a user did after logging in?",
+    "options": [
+      {
+        "text": "Accounting",
+        "note": ""
+      },
+      {
+        "text": "Authentication",
+        "note": "Verifies identity."
+      },
+      {
+        "text": "Authorization",
+        "note": "Grants permissions."
+      },
+      {
+        "text": "Availability",
+        "note": "Part of the CIA triad."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RADIUS and TACACS+ are common AAA protocols."
+  },
+  {
+    "id": 80,
+    "domain": "D6",
+    "scenario": "Which is an example of multifactor authentication?",
+    "options": [
+      {
+        "text": "A password plus a phone app code",
+        "note": ""
+      },
+      {
+        "text": "A password plus a PIN",
+        "note": "Both something you know."
+      },
+      {
+        "text": "Two security questions",
+        "note": "Same factor."
+      },
+      {
+        "text": "A long, complex password",
+        "note": "One factor."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Factors: something you know, have, or are."
+  },
+  {
+    "id": 81,
+    "domain": "D6",
+    "scenario": "What does a digital certificate prove on an HTTPS website?",
+    "options": [
+      {
+        "text": "The site's identity, signed by a trusted CA",
+        "note": ""
+      },
+      {
+        "text": "The site has been scanned and contains no malware",
+        "note": "Not guaranteed."
+      },
+      {
+        "text": "The site is fast",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The user's password meets the site's rules",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Browsers warn when certificates are expired or untrusted."
+  },
+  {
+    "id": 82,
+    "domain": "D6",
+    "scenario": "Which home router wireless security option should you choose for the best protection?",
+    "options": [
+      {
+        "text": "WPA3-Personal",
+        "note": ""
+      },
+      {
+        "text": "WEP",
+        "note": "Easily cracked."
+      },
+      {
+        "text": "WPA with TKIP",
+        "note": "Deprecated."
+      },
+      {
+        "text": "Open with MAC filtering",
+        "note": "No encryption."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use WPA2-AES if older devices don't support WPA3."
+  },
+  {
+    "id": 83,
+    "domain": "D6",
+    "scenario": "What's the difference between WPA2-Personal and WPA2-Enterprise?",
+    "options": [
+      {
+        "text": "Enterprise uses individual logins through a RADIUS server",
+        "note": ""
+      },
+      {
+        "text": "Personal uses stronger encryption than Enterprise",
+        "note": "Same encryption."
+      },
+      {
+        "text": "Enterprise has no password, only MAC filtering",
+        "note": "Uses credentials."
+      },
+      {
+        "text": "They're identical",
+        "note": "Different authentication."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Personal uses one pre-shared key for everyone."
+  },
+  {
+    "id": 84,
+    "domain": "D6",
+    "scenario": "Which directory service stores user accounts and groups in many Windows organizations?",
+    "options": [
+      {
+        "text": "Active Directory",
+        "note": ""
+      },
+      {
+        "text": "DNS cache",
+        "note": "Name resolution."
+      },
+      {
+        "text": "DHCP scope",
+        "note": "Address pool."
+      },
+      {
+        "text": "ARP table",
+        "note": "IP-to-MAC mapping."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Identity stores centralize authentication."
+  },
+  {
+    "id": 85,
+    "domain": "D6",
+    "scenario": "Which threat floods a server with traffic to make it unavailable?",
+    "options": [
+      {
+        "text": "Denial of service (DoS)",
+        "note": ""
+      },
+      {
+        "text": "Phishing",
+        "note": "Tricks users."
+      },
+      {
+        "text": "Spam",
+        "note": "Unwanted email."
+      },
+      {
+        "text": "Shoulder surfing",
+        "note": "Watching screens."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A DDoS uses many attacking systems at once."
+  },
+  {
+    "id": 86,
+    "domain": "D6",
+    "scenario": "Which threat tricks users into clicking a malicious link in an email?",
+    "options": [
+      {
+        "text": "Phishing",
+        "note": ""
+      },
+      {
+        "text": "DoS attack",
+        "note": "Overloads services."
+      },
+      {
+        "text": "Brute force",
+        "note": "Guesses passwords."
+      },
+      {
+        "text": "Cable tapping",
+        "note": "Physical interception."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Verify senders and hover over links before clicking."
+  },
+  {
+    "id": 87,
+    "domain": "D6",
+    "scenario": "Which part of the CIA triad does encryption mainly protect?",
+    "options": [
+      {
+        "text": "Confidentiality",
+        "note": ""
+      },
+      {
+        "text": "Availability",
+        "note": "Uptime and access."
+      },
+      {
+        "text": "Accounting",
+        "note": "Part of AAA."
+      },
+      {
+        "text": "Authorization",
+        "note": "Permissions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hashing supports integrity; redundancy supports availability."
+  },
+  {
+    "id": 88,
+    "domain": "D6",
+    "scenario": "Which password policy best improves security?",
+    "options": [
+      {
+        "text": "Require long passphrases and block common passwords",
+        "note": ""
+      },
+      {
+        "text": "Require users to change passwords every day",
+        "note": "Leads to weak patterns."
+      },
+      {
+        "text": "Allow short passwords with symbols",
+        "note": "Too short."
+      },
+      {
+        "text": "Share passwords within teams",
+        "note": "No accountability."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Length and uniqueness matter more than frequent changes."
+  },
+  {
+    "id": 89,
+    "domain": "D6",
+    "scenario": "Which change should you make first on a new home router?",
+    "options": [
+      {
+        "text": "Change the default admin password",
+        "note": ""
+      },
+      {
+        "text": "Turn on WEP for older devices",
+        "note": "Insecure."
+      },
+      {
+        "text": "Disable the firewall",
+        "note": "Reduces security."
+      },
+      {
+        "text": "Open all ports for gaming consoles",
+        "note": "Reduces security."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Also update the firmware and use WPA3 or WPA2."
+  },
+  {
+    "id": 90,
+    "domain": "D6",
+    "scenario": "Which firewall action silently discards traffic without notifying the sender?",
+    "options": [
+      {
+        "text": "Drop",
+        "note": ""
+      },
+      {
+        "text": "Reject",
+        "note": "Sends a response like ICMP unreachable."
+      },
+      {
+        "text": "Permit",
+        "note": "Allows traffic."
+      },
+      {
+        "text": "Log only",
+        "note": "Records traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Deny rules can be configured to drop or reject."
+  },
+  {
+    "id": 91,
+    "domain": "D6",
+    "scenario": "What is malware?",
+    "options": [
+      {
+        "text": "Software designed to harm or exploit systems",
+        "note": ""
+      },
+      {
+        "text": "A slow or unstable internet connection",
+        "note": "Not malware."
+      },
+      {
+        "text": "A broken network cable",
+        "note": "Not malware."
+      },
+      {
+        "text": "A firewall rule that blocks applications",
+        "note": "Not malware."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Types include viruses, worms, trojans, ransomware and spyware."
+  }
+]

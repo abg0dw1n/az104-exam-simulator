@@ -1,0 +1,2127 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "Which file format is columnar and best for efficient analytics loads into BigQuery?",
+    "options": [
+      {
+        "text": "Parquet",
+        "note": ""
+      },
+      {
+        "text": "CSV with a header row and quoted fields",
+        "note": "Row-based text; slower and less typed."
+      },
+      {
+        "text": "Plain text log lines",
+        "note": "Unstructured."
+      },
+      {
+        "text": "XML",
+        "note": "Verbose markup."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Avro and Parquet preserve schemas and types."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "A CSV file has dates in several formats. What should be done before analysis?",
+    "options": [
+      {
+        "text": "Standardize the dates during transformation",
+        "note": ""
+      },
+      {
+        "text": "Load it and ignore the inconsistency",
+        "note": "Causes wrong results."
+      },
+      {
+        "text": "Delete every row that has a date in it to be safe",
+        "note": "Loses data."
+      },
+      {
+        "text": "Convert it to an image",
+        "note": "Not useful."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data cleaning includes deduplication, type casting and handling nulls."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "Which describes ELT compared with ETL?",
+    "options": [
+      {
+        "text": "Data is loaded first, then transformed inside the warehouse",
+        "note": ""
+      },
+      {
+        "text": "Data is transformed before it's extracted from the source",
+        "note": "Not possible."
+      },
+      {
+        "text": "ELT never transforms data",
+        "note": "It does, after loading."
+      },
+      {
+        "text": "They're identical",
+        "note": "Order differs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BigQuery's scale makes ELT with SQL practical."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "Which service replicates changes from an operational MySQL database into BigQuery in near real time?",
+    "options": [
+      {
+        "text": "Datastream",
+        "note": ""
+      },
+      {
+        "text": "Storage Transfer Service for scheduled file copies",
+        "note": "Copies files, not change data."
+      },
+      {
+        "text": "Cloud Scheduler",
+        "note": "Runs jobs on schedules."
+      },
+      {
+        "text": "Cloud Armor",
+        "note": "Security."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Datastream uses change data capture (CDC)."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "Which service moves large amounts of data from another cloud's object storage into Cloud Storage on a schedule?",
+    "options": [
+      {
+        "text": "Storage Transfer Service",
+        "note": ""
+      },
+      {
+        "text": "Datastream",
+        "note": "Database CDC."
+      },
+      {
+        "text": "BigQuery ML",
+        "note": "Machine learning."
+      },
+      {
+        "text": "Pub/Sub Lite topics used for file streaming",
+        "note": "Messaging, not bulk transfer."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Transfer Appliance handles offline petabyte-scale transfers."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "Which service schedules recurring loads from SaaS apps like Google Ads into BigQuery?",
+    "options": [
+      {
+        "text": "BigQuery Data Transfer Service",
+        "note": ""
+      },
+      {
+        "text": "Cloud CDN",
+        "note": "Caching."
+      },
+      {
+        "text": "Datastream for MySQL change capture",
+        "note": "Database CDC, not SaaS."
+      },
+      {
+        "text": "Cloud NAT",
+        "note": "Networking."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It also supports Amazon S3 and Teradata migrations."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Which service runs Apache Beam pipelines for batch and streaming transformations?",
+    "options": [
+      {
+        "text": "Dataflow",
+        "note": ""
+      },
+      {
+        "text": "Dataform",
+        "note": "SQL workflows in BigQuery."
+      },
+      {
+        "text": "Cloud SQL",
+        "note": "Database."
+      },
+      {
+        "text": "Looker",
+        "note": "BI."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Dataflow templates help start common pipelines quickly."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "A team wants to manage SQL transformations in BigQuery with version control and dependencies. Which tool fits?",
+    "options": [
+      {
+        "text": "Dataform",
+        "note": ""
+      },
+      {
+        "text": "Dataflow with a custom Java pipeline",
+        "note": "Code-heavy for SQL transforms."
+      },
+      {
+        "text": "Cloud Run",
+        "note": "Containers."
+      },
+      {
+        "text": "Pub/Sub",
+        "note": "Messaging."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Dataform uses SQLX files and runs in BigQuery."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which tool provides a visual, low-code interface for building data integration pipelines?",
+    "options": [
+      {
+        "text": "Cloud Data Fusion",
+        "note": ""
+      },
+      {
+        "text": "bq command-line tool",
+        "note": "CLI."
+      },
+      {
+        "text": "Cloud Shell terminal with Python scripts",
+        "note": "Code-based."
+      },
+      {
+        "text": "Cloud Logging",
+        "note": "Logs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data Fusion is based on open-source CDAP."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "Which service ingests streaming events from apps for downstream processing?",
+    "options": [
+      {
+        "text": "Pub/Sub",
+        "note": ""
+      },
+      {
+        "text": "Cloud Storage Archive class buckets",
+        "note": "Long-term storage."
+      },
+      {
+        "text": "Data Studio",
+        "note": "Reporting."
+      },
+      {
+        "text": "Cloud SQL",
+        "note": "Database."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pub/Sub can deliver directly to BigQuery with a BigQuery subscription."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "Which BigQuery feature queries data in Cloud Storage without loading it?",
+    "options": [
+      {
+        "text": "External tables",
+        "note": ""
+      },
+      {
+        "text": "Materialized views over native tables only",
+        "note": "Native data."
+      },
+      {
+        "text": "Table snapshots",
+        "note": "Point-in-time copies."
+      },
+      {
+        "text": "Reservations",
+        "note": "Compute capacity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lakehouse (BigLake) tables add fine-grained security to external data."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "What's the best way to remove duplicate rows when loading data with SQL?",
+    "options": [
+      {
+        "text": "Use SELECT DISTINCT or QUALIFY ROW_NUMBER() = 1",
+        "note": ""
+      },
+      {
+        "text": "Use ORDER BY only",
+        "note": "Doesn't remove duplicates."
+      },
+      {
+        "text": "Add a LIMIT 1000 clause to the query",
+        "note": "Truncates data."
+      },
+      {
+        "text": "Use UNION ALL",
+        "note": "Keeps duplicates."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Choose a key that defines uniqueness."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "Which command loads a JSON file from Cloud Storage into BigQuery?",
+    "options": [
+      {
+        "text": "bq load --source_format=NEWLINE_DELIMITED_JSON",
+        "note": ""
+      },
+      {
+        "text": "gcloud storage cp --to-bigquery",
+        "note": "Not valid."
+      },
+      {
+        "text": "bq mk --json-load-file",
+        "note": "Not valid."
+      },
+      {
+        "text": "bq query --source=json",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BigQuery expects newline-delimited JSON."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Which data quality issue means a required field has no value?",
+    "options": [
+      {
+        "text": "Missing (null) values",
+        "note": ""
+      },
+      {
+        "text": "Duplicated records with matching keys",
+        "note": "Different issue."
+      },
+      {
+        "text": "Outliers",
+        "note": "Extreme values."
+      },
+      {
+        "text": "Inconsistent units",
+        "note": "Different issue."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Handle nulls by filtering, defaulting or imputing."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "Which BigQuery feature runs a SQL statement on a recurring schedule?",
+    "options": [
+      {
+        "text": "Scheduled queries",
+        "note": ""
+      },
+      {
+        "text": "Authorized views for sharing",
+        "note": "Access control."
+      },
+      {
+        "text": "Time travel",
+        "note": "Restores old data."
+      },
+      {
+        "text": "Slots",
+        "note": "Compute units."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Scheduled queries use the BigQuery Data Transfer Service."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "Which data type should store currency values to avoid rounding errors in BigQuery?",
+    "options": [
+      {
+        "text": "NUMERIC",
+        "note": ""
+      },
+      {
+        "text": "FLOAT64",
+        "note": "Binary floating point can round."
+      },
+      {
+        "text": "STRING with a currency symbol",
+        "note": "Not numeric."
+      },
+      {
+        "text": "BOOL",
+        "note": "True or false."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BIGNUMERIC supports even more precision."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "A pipeline must process sensor data with sub-minute latency. Which approach fits?",
+    "options": [
+      {
+        "text": "Streaming with Pub/Sub and Dataflow",
+        "note": ""
+      },
+      {
+        "text": "A nightly batch load",
+        "note": "Too slow."
+      },
+      {
+        "text": "Weekly CSV exports emailed to the analytics team",
+        "note": "Far too slow."
+      },
+      {
+        "text": "Manual uploads",
+        "note": "Too slow."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Windowing aggregates streaming data over time."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "What's a benefit of the Avro format for loading data?",
+    "options": [
+      {
+        "text": "It stores the schema with the data",
+        "note": ""
+      },
+      {
+        "text": "It's human-readable text",
+        "note": "It is binary."
+      },
+      {
+        "text": "It's always smaller than Parquet for analytics queries",
+        "note": "Not always."
+      },
+      {
+        "text": "It can't be compressed",
+        "note": "It can."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Self-describing schemas reduce load errors."
+  },
+  {
+    "id": 19,
+    "domain": "D1",
+    "scenario": "Which Spark service, formerly Dataproc, suits existing Spark jobs moving to Google Cloud?",
+    "options": [
+      {
+        "text": "Managed Service for Apache Spark",
+        "note": ""
+      },
+      {
+        "text": "Cloud Run functions",
+        "note": "Short event code."
+      },
+      {
+        "text": "Data Studio report scheduling",
+        "note": "Reporting."
+      },
+      {
+        "text": "Dataflow Flex Templates",
+        "note": "Beam pipelines, not Spark."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Serverless Spark avoids managing clusters."
+  },
+  {
+    "id": 20,
+    "domain": "D1",
+    "scenario": "Which transformation converts a column of comma-separated values into multiple rows in BigQuery?",
+    "options": [
+      {
+        "text": "UNNEST(SPLIT(column, ','))",
+        "note": ""
+      },
+      {
+        "text": "CONCAT(column, ',')",
+        "note": "Joins strings."
+      },
+      {
+        "text": "CAST(column AS INT64) with a comma separator",
+        "note": "Not valid."
+      },
+      {
+        "text": "LOWER(column)",
+        "note": "Changes case."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Arrays and UNNEST are common for nested data."
+  },
+  {
+    "id": 21,
+    "domain": "D1",
+    "scenario": "Where should raw, unprocessed files be landed before transformation in a lake?",
+    "options": [
+      {
+        "text": "A Cloud Storage bucket (raw zone)",
+        "note": ""
+      },
+      {
+        "text": "A Data Studio report",
+        "note": "Presentation."
+      },
+      {
+        "text": "A Memorystore cache instance in front of the app",
+        "note": "Temporary cache."
+      },
+      {
+        "text": "Cloud DNS",
+        "note": "Not storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Keep raw data to allow reprocessing."
+  },
+  {
+    "id": 22,
+    "domain": "D1",
+    "scenario": "Which BigQuery option speeds loading by letting it infer column types?",
+    "options": [
+      {
+        "text": "Schema auto-detection",
+        "note": ""
+      },
+      {
+        "text": "Requiring a manual JSON schema file for every table",
+        "note": "Slower setup."
+      },
+      {
+        "text": "Disabling partitioning",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Using STRING for every column",
+        "note": "Loses types."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Review auto-detected schemas for accuracy."
+  },
+  {
+    "id": 23,
+    "domain": "D1",
+    "scenario": "A source sends files with inconsistent column names. What's the best fix in the pipeline?",
+    "options": [
+      {
+        "text": "Map columns to a standard schema during transformation",
+        "note": ""
+      },
+      {
+        "text": "Load each file into a separate table forever",
+        "note": "Hard to analyze."
+      },
+      {
+        "text": "Ignore the extra columns",
+        "note": "Loses data."
+      },
+      {
+        "text": "Rename files",
+        "note": "Doesn't fix columns."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Schema mapping makes downstream queries consistent."
+  },
+  {
+    "id": 24,
+    "domain": "D1",
+    "scenario": "Which service catalogs data assets and tracks data quality, formerly called Dataplex?",
+    "options": [
+      {
+        "text": "Knowledge Catalog",
+        "note": ""
+      },
+      {
+        "text": "Artifact Registry",
+        "note": "Packages."
+      },
+      {
+        "text": "Cloud Monitoring dashboards for pipelines",
+        "note": "Metrics."
+      },
+      {
+        "text": "Cloud Build",
+        "note": "CI/CD."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It supports data profiling and quality scans."
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "scenario": "Which BigQuery table design reduces costs when queries filter by date?",
+    "options": [
+      {
+        "text": "Partition the table by a date column",
+        "note": ""
+      },
+      {
+        "text": "Store all data in one unpartitioned table",
+        "note": "Scans everything."
+      },
+      {
+        "text": "Use SELECT * in every query to keep it simple",
+        "note": "Scans more columns."
+      },
+      {
+        "text": "Store dates as strings",
+        "note": "Prevents partitioning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Partition pruning reduces bytes scanned."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "What does clustering a BigQuery table do?",
+    "options": [
+      {
+        "text": "Sorts data by chosen columns to reduce data scanned",
+        "note": ""
+      },
+      {
+        "text": "Copies the table to other regions automatically",
+        "note": "Not clustering."
+      },
+      {
+        "text": "Encrypts the table",
+        "note": "Not clustering."
+      },
+      {
+        "text": "Deletes old rows",
+        "note": "Not clustering."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cluster on columns often used in filters, like customer_id."
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "scenario": "Which habit most reduces BigQuery on-demand query costs?",
+    "options": [
+      {
+        "text": "Select only the columns you need",
+        "note": ""
+      },
+      {
+        "text": "Use SELECT * with LIMIT 10",
+        "note": "LIMIT doesn't reduce bytes scanned."
+      },
+      {
+        "text": "Run the same query many times",
+        "note": "Wastes money."
+      },
+      {
+        "text": "Avoid partition filters",
+        "note": "Scans more."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use the query validator to estimate bytes before running."
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "scenario": "Which SQL function computes a running total within groups?",
+    "options": [
+      {
+        "text": "SUM() OVER (PARTITION BY ... ORDER BY ...)",
+        "note": ""
+      },
+      {
+        "text": "GROUP BY with COUNT(*)",
+        "note": "Totals per group, not running."
+      },
+      {
+        "text": "RANK() OVER (ORDER BY ...)",
+        "note": "Ranks rows; doesn't sum."
+      },
+      {
+        "text": "SUM(...) with GROUP BY and HAVING",
+        "note": "Collapses rows into totals."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Window functions calculate across rows without collapsing them."
+  },
+  {
+    "id": 29,
+    "domain": "D2",
+    "scenario": "Which BigQuery statement trains a linear regression model with SQL?",
+    "options": [
+      {
+        "text": "CREATE MODEL ... OPTIONS(model_type='linear_reg')",
+        "note": ""
+      },
+      {
+        "text": "CREATE TABLE ... AS SELECT linear_regression(*)",
+        "note": "Not valid."
+      },
+      {
+        "text": "ML.PREDICT on a new table",
+        "note": "Uses a trained model."
+      },
+      {
+        "text": "ALTER MODEL ... TRAIN",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BigQuery ML supports regression, classification, clustering and forecasting."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "Which BigQuery ML function returns metrics like accuracy for a trained model?",
+    "options": [
+      {
+        "text": "ML.EVALUATE",
+        "note": ""
+      },
+      {
+        "text": "ML.PREDICT",
+        "note": "Makes predictions."
+      },
+      {
+        "text": "ML.TRAIN_NOW",
+        "note": "Not a function."
+      },
+      {
+        "text": "ML.EXPLAIN_SCHEMA for column descriptions",
+        "note": "Not a function."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ML.EXPLAIN_PREDICT shows feature attributions."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "A team needs to forecast daily sales from historical data in BigQuery. Which model type fits?",
+    "options": [
+      {
+        "text": "ARIMA_PLUS (time series)",
+        "note": ""
+      },
+      {
+        "text": "K-means clustering of all customer records",
+        "note": "Groups data."
+      },
+      {
+        "text": "Logistic regression",
+        "note": "Classification."
+      },
+      {
+        "text": "Matrix factorization",
+        "note": "Recommendations."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BigQuery also offers TimesFM-based forecasting with AI.FORECAST."
+  },
+  {
+    "id": 32,
+    "domain": "D2",
+    "scenario": "Which model type groups customers into segments without labels?",
+    "options": [
+      {
+        "text": "K-means clustering",
+        "note": ""
+      },
+      {
+        "text": "Linear regression on spend",
+        "note": "Predicts numbers."
+      },
+      {
+        "text": "Logistic regression with labeled churn data",
+        "note": "Needs labels."
+      },
+      {
+        "text": "ARIMA_PLUS",
+        "note": "Time series."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Clustering is unsupervised learning."
+  },
+  {
+    "id": 33,
+    "domain": "D2",
+    "scenario": "Which tool lets analysts explore BigQuery data in notebooks with Python?",
+    "options": [
+      {
+        "text": "BigQuery Studio notebooks (Colab Enterprise)",
+        "note": ""
+      },
+      {
+        "text": "Cloud Shell's text editor only",
+        "note": "Not notebooks."
+      },
+      {
+        "text": "Data Studio calculated fields",
+        "note": "Report formulas, not notebooks."
+      },
+      {
+        "text": "Dataform SQLX workflows",
+        "note": "SQL transformations."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BigQuery DataFrames runs pandas-like code in BigQuery."
+  },
+  {
+    "id": 34,
+    "domain": "D2",
+    "scenario": "Which tool provides governed, reusable business metrics defined in a semantic model for dashboards?",
+    "options": [
+      {
+        "text": "Looker (LookML)",
+        "note": ""
+      },
+      {
+        "text": "A shared spreadsheet of formulas",
+        "note": "Not governed."
+      },
+      {
+        "text": "Cloud Logging",
+        "note": "Logs."
+      },
+      {
+        "text": "Pub/Sub",
+        "note": "Messaging."
+      }
+    ],
+    "answer": 0,
+    "explanation": "LookML defines dimensions and measures once for consistent reporting."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "Which free tool lets users quickly build shareable reports from BigQuery, formerly called Looker Studio?",
+    "options": [
+      {
+        "text": "Data Studio",
+        "note": ""
+      },
+      {
+        "text": "Looker with LookML projects and Git integration",
+        "note": "Enterprise BI, not the free tool."
+      },
+      {
+        "text": "Dataform",
+        "note": "Transformations."
+      },
+      {
+        "text": "Dataflow",
+        "note": "Pipelines."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Google reverted the Looker Studio name to Data Studio in April 2026."
+  },
+  {
+    "id": 36,
+    "domain": "D2",
+    "scenario": "Which chart type is best for comparing sales across product categories?",
+    "options": [
+      {
+        "text": "Bar chart",
+        "note": ""
+      },
+      {
+        "text": "Line chart over time",
+        "note": "Trends."
+      },
+      {
+        "text": "Scatter plot",
+        "note": "Relationships."
+      },
+      {
+        "text": "Single scorecard",
+        "note": "One number."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Line charts suit time trends; scatter plots show correlation."
+  },
+  {
+    "id": 37,
+    "domain": "D2",
+    "scenario": "What does a high correlation between two variables mean?",
+    "options": [
+      {
+        "text": "They tend to move together, but one may not cause the other",
+        "note": ""
+      },
+      {
+        "text": "One definitely causes the other",
+        "note": "Correlation isn't causation."
+      },
+      {
+        "text": "They are unrelated",
+        "note": "The opposite."
+      },
+      {
+        "text": "The data is wrong",
+        "note": "Not implied."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Experiments are needed to show causation."
+  },
+  {
+    "id": 38,
+    "domain": "D2",
+    "scenario": "Which BigQuery feature lets analysts call Gemini models directly from SQL?",
+    "options": [
+      {
+        "text": "AI functions like AI.GENERATE",
+        "note": ""
+      },
+      {
+        "text": "Scheduled queries only",
+        "note": "Run SQL on schedules."
+      },
+      {
+        "text": "Authorized views",
+        "note": "Access control."
+      },
+      {
+        "text": "Row-level security policies on tables",
+        "note": "Access control."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BigQuery ML remote models connect to Gemini Enterprise Agent Platform models."
+  },
+  {
+    "id": 39,
+    "domain": "D2",
+    "scenario": "A model has high accuracy on training data but low accuracy on new data. What's this?",
+    "options": [
+      {
+        "text": "Overfitting",
+        "note": ""
+      },
+      {
+        "text": "Underfitting",
+        "note": "Poor on both."
+      },
+      {
+        "text": "Data leakage into the evaluation set",
+        "note": "Inflates evaluation."
+      },
+      {
+        "text": "Normalization",
+        "note": "A preprocessing step."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use more data, simpler models or regularization."
+  },
+  {
+    "id": 40,
+    "domain": "D2",
+    "scenario": "Which split helps measure how a model performs on unseen data?",
+    "options": [
+      {
+        "text": "Separate training and evaluation sets",
+        "note": ""
+      },
+      {
+        "text": "Evaluating on the training data only",
+        "note": "Overestimates accuracy."
+      },
+      {
+        "text": "Using one row for evaluation",
+        "note": "Not reliable."
+      },
+      {
+        "text": "No evaluation",
+        "note": "Unknown quality."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BigQuery ML can split data automatically."
+  },
+  {
+    "id": 41,
+    "domain": "D2",
+    "scenario": "Which SQL join keeps all rows from the left table even without matches?",
+    "options": [
+      {
+        "text": "LEFT JOIN",
+        "note": ""
+      },
+      {
+        "text": "INNER JOIN",
+        "note": "Only matches."
+      },
+      {
+        "text": "CROSS JOIN",
+        "note": "All combinations."
+      },
+      {
+        "text": "SELF JOIN on the same table",
+        "note": "Joins a table to itself."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Unmatched right-side columns return NULL."
+  },
+  {
+    "id": 42,
+    "domain": "D2",
+    "scenario": "Which dashboard practice helps decision makers most?",
+    "options": [
+      {
+        "text": "Highlight a few key metrics with clear labels",
+        "note": ""
+      },
+      {
+        "text": "Include every metric on one page",
+        "note": "Overwhelming."
+      },
+      {
+        "text": "Use many colors without meaning",
+        "note": "Confusing."
+      },
+      {
+        "text": "Hide the date range",
+        "note": "Misleading."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Add filters so users can explore details."
+  },
+  {
+    "id": 43,
+    "domain": "D2",
+    "scenario": "Which BigQuery feature speeds up repeated dashboard queries by precomputing results?",
+    "options": [
+      {
+        "text": "Materialized views",
+        "note": ""
+      },
+      {
+        "text": "External tables on Cloud Storage files",
+        "note": "Slower."
+      },
+      {
+        "text": "Table snapshots",
+        "note": "Point-in-time copies."
+      },
+      {
+        "text": "Time travel",
+        "note": "Historical data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BI Engine also accelerates dashboard queries in memory."
+  },
+  {
+    "id": 44,
+    "domain": "D2",
+    "scenario": "Which function finds the most recent record per customer in BigQuery?",
+    "options": [
+      {
+        "text": "ROW_NUMBER() OVER (PARTITION BY customer ORDER BY ts DESC) = 1",
+        "note": ""
+      },
+      {
+        "text": "MIN(ts) with no grouping",
+        "note": "Earliest overall."
+      },
+      {
+        "text": "COUNT(*)",
+        "note": "Counts rows."
+      },
+      {
+        "text": "LIMIT 1",
+        "note": "One row total."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use QUALIFY to filter on window function results."
+  },
+  {
+    "id": 45,
+    "domain": "D2",
+    "scenario": "Which Looker feature lets users ask questions about data in natural language?",
+    "options": [
+      {
+        "text": "Conversational Analytics (Gemini in Looker)",
+        "note": ""
+      },
+      {
+        "text": "LookML validator",
+        "note": "Checks model code."
+      },
+      {
+        "text": "Scheduled deliveries",
+        "note": "Sends reports."
+      },
+      {
+        "text": "Persistent derived tables only",
+        "note": "Caches queries."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Answers are grounded in the semantic model."
+  },
+  {
+    "id": 46,
+    "domain": "D2",
+    "scenario": "Which approach handles outliers that would distort an average?",
+    "options": [
+      {
+        "text": "Use the median or investigate and filter outliers",
+        "note": ""
+      },
+      {
+        "text": "Always delete the highest 50% of values",
+        "note": "Removes too much."
+      },
+      {
+        "text": "Average twice",
+        "note": "Not meaningful."
+      },
+      {
+        "text": "Ignore the issue",
+        "note": "Misleading results."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Understand why outliers exist before removing them."
+  },
+  {
+    "id": 47,
+    "domain": "D2",
+    "scenario": "Which BigQuery ML function generates predictions from a trained model?",
+    "options": [
+      {
+        "text": "ML.PREDICT",
+        "note": ""
+      },
+      {
+        "text": "ML.EVALUATE",
+        "note": "Metrics."
+      },
+      {
+        "text": "ML.TRAINING_INFO",
+        "note": "Training stats."
+      },
+      {
+        "text": "ML.FEATURE_INFO",
+        "note": "Feature statistics."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pass a table or query with the same feature columns."
+  },
+  {
+    "id": 48,
+    "domain": "D3",
+    "scenario": "Which managed service orchestrates complex data pipelines as Airflow DAGs, formerly Cloud Composer?",
+    "options": [
+      {
+        "text": "Managed Service for Apache Airflow",
+        "note": ""
+      },
+      {
+        "text": "Cloud Scheduler with a single HTTP target",
+        "note": "Simple cron jobs."
+      },
+      {
+        "text": "Pub/Sub",
+        "note": "Messaging."
+      },
+      {
+        "text": "Cloud CDN",
+        "note": "Caching."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Airflow handles dependencies, retries and backfills."
+  },
+  {
+    "id": 49,
+    "domain": "D3",
+    "scenario": "Which service is best for triggering a simple job once a day, like calling an HTTP endpoint?",
+    "options": [
+      {
+        "text": "Cloud Scheduler",
+        "note": ""
+      },
+      {
+        "text": "Managed Service for Apache Airflow with a full DAG",
+        "note": "Heavier than needed."
+      },
+      {
+        "text": "Dataflow",
+        "note": "Data processing."
+      },
+      {
+        "text": "Looker",
+        "note": "BI."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud Scheduler targets HTTP, Pub/Sub and App Engine."
+  },
+  {
+    "id": 50,
+    "domain": "D3",
+    "scenario": "Which service chains API calls and services into a serverless workflow with retries?",
+    "options": [
+      {
+        "text": "Workflows",
+        "note": ""
+      },
+      {
+        "text": "Cloud DNS",
+        "note": "Domains."
+      },
+      {
+        "text": "Bigtable for storing pipeline state",
+        "note": "Database."
+      },
+      {
+        "text": "Artifact Registry",
+        "note": "Packages."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Workflows is lighter-weight than Airflow for service orchestration."
+  },
+  {
+    "id": 51,
+    "domain": "D3",
+    "scenario": "In an Airflow DAG, what defines the order in which tasks run?",
+    "options": [
+      {
+        "text": "Task dependencies",
+        "note": ""
+      },
+      {
+        "text": "Task names in alphabetical order",
+        "note": "Not used."
+      },
+      {
+        "text": "The size of each task's output",
+        "note": "Not used."
+      },
+      {
+        "text": "Random selection",
+        "note": "Not used."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Example: extract >> transform >> load."
+  },
+  {
+    "id": 52,
+    "domain": "D3",
+    "scenario": "Which event-driven option starts processing when a new file arrives in Cloud Storage?",
+    "options": [
+      {
+        "text": "Eventarc trigger to Cloud Run or Cloud Run functions",
+        "note": ""
+      },
+      {
+        "text": "A daily scheduled query",
+        "note": "Time-based, not event-based."
+      },
+      {
+        "text": "Manual checks by an analyst each morning",
+        "note": "Not automated."
+      },
+      {
+        "text": "A Data Studio report",
+        "note": "Presentation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Event-driven pipelines reduce latency and idle cost."
+  },
+  {
+    "id": 53,
+    "domain": "D3",
+    "scenario": "A pipeline step failed overnight. Where should the team look first?",
+    "options": [
+      {
+        "text": "Pipeline logs in Cloud Logging and the orchestrator UI",
+        "note": ""
+      },
+      {
+        "text": "The billing invoice",
+        "note": "Costs only."
+      },
+      {
+        "text": "The Data Studio report that reads the output",
+        "note": "Shows symptoms, not causes."
+      },
+      {
+        "text": "Cloud Asset Inventory history",
+        "note": "Resource changes, not job errors."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Set alerts on failures so issues are noticed quickly."
+  },
+  {
+    "id": 54,
+    "domain": "D3",
+    "scenario": "Which feature makes a pipeline safe to rerun without creating duplicate data?",
+    "options": [
+      {
+        "text": "Idempotent writes, such as MERGE or overwrite by partition",
+        "note": ""
+      },
+      {
+        "text": "Appending all rows every run",
+        "note": "Creates duplicates."
+      },
+      {
+        "text": "Disabling logging",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Running it twice to be sure",
+        "note": "Duplicates."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Idempotency simplifies retries and backfills."
+  },
+  {
+    "id": 55,
+    "domain": "D3",
+    "scenario": "Which BigQuery statement updates existing rows and inserts new ones in one operation?",
+    "options": [
+      {
+        "text": "MERGE",
+        "note": ""
+      },
+      {
+        "text": "INSERT INTO only",
+        "note": "Inserts only."
+      },
+      {
+        "text": "TRUNCATE TABLE followed by a full reload of history",
+        "note": "Deletes all rows first."
+      },
+      {
+        "text": "CREATE VIEW",
+        "note": "Defines a view."
+      }
+    ],
+    "answer": 0,
+    "explanation": "MERGE is common for upserts in incremental loads."
+  },
+  {
+    "id": 56,
+    "domain": "D3",
+    "scenario": "Which Dataflow feature lets a team launch common pipelines without writing code?",
+    "options": [
+      {
+        "text": "Google-provided templates",
+        "note": ""
+      },
+      {
+        "text": "Custom Apache Beam code only",
+        "note": "Requires code."
+      },
+      {
+        "text": "Pub/Sub snapshots",
+        "note": "Messaging."
+      },
+      {
+        "text": "BigQuery reservations",
+        "note": "Capacity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Examples: Pub/Sub to BigQuery, Cloud Storage text to BigQuery."
+  },
+  {
+    "id": 57,
+    "domain": "D3",
+    "scenario": "How should a team be notified when a scheduled data pipeline fails?",
+    "options": [
+      {
+        "text": "Cloud Monitoring alerting on failure logs or metrics",
+        "note": ""
+      },
+      {
+        "text": "Check the dashboard once a month",
+        "note": "Too slow."
+      },
+      {
+        "text": "Wait for users to report wrong numbers",
+        "note": "Too late."
+      },
+      {
+        "text": "Disable failures",
+        "note": "Not possible."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Notification channels include email and chat tools."
+  },
+  {
+    "id": 58,
+    "domain": "D3",
+    "scenario": "Which design keeps a pipeline simple when only a few SQL steps run in BigQuery?",
+    "options": [
+      {
+        "text": "Dataform workflows or scheduled queries",
+        "note": ""
+      },
+      {
+        "text": "A large GKE cluster running Spark",
+        "note": "Overkill."
+      },
+      {
+        "text": "A custom VM with cron jobs",
+        "note": "More to maintain."
+      },
+      {
+        "text": "Manual daily copy-paste",
+        "note": "Error-prone."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use the simplest tool that meets requirements."
+  },
+  {
+    "id": 59,
+    "domain": "D3",
+    "scenario": "Which Pub/Sub feature delivers messages directly into a BigQuery table without code?",
+    "options": [
+      {
+        "text": "BigQuery subscriptions",
+        "note": ""
+      },
+      {
+        "text": "Pull subscriptions with a custom client",
+        "note": "Needs code."
+      },
+      {
+        "text": "Dead-letter topics",
+        "note": "Failed messages."
+      },
+      {
+        "text": "Message ordering keys",
+        "note": "Ordering."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A Cloud Storage subscription can write messages to files."
+  },
+  {
+    "id": 60,
+    "domain": "D3",
+    "scenario": "Which pipeline type processes data in fixed time windows from a stream?",
+    "options": [
+      {
+        "text": "Streaming with windowing",
+        "note": ""
+      },
+      {
+        "text": "Nightly batch loads of the previous day's files",
+        "note": "Not windowed streaming."
+      },
+      {
+        "text": "Manual imports",
+        "note": "Not automated."
+      },
+      {
+        "text": "Static reports",
+        "note": "Not processing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Window types include fixed, sliding and session windows."
+  },
+  {
+    "id": 61,
+    "domain": "D3",
+    "scenario": "Which practice helps backfill a pipeline for past dates?",
+    "options": [
+      {
+        "text": "Parameterize jobs by date and run them for historical ranges",
+        "note": ""
+      },
+      {
+        "text": "Hardcode today's date in every query",
+        "note": "Prevents backfills."
+      },
+      {
+        "text": "Delete old data",
+        "note": "Loses history."
+      },
+      {
+        "text": "Run once and hope",
+        "note": "Not reliable."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Airflow supports backfills for date-based DAGs."
+  },
+  {
+    "id": 62,
+    "domain": "D3",
+    "scenario": "Which service helps move data from Cloud SQL to BigQuery for analytics without copying it each time?",
+    "options": [
+      {
+        "text": "BigQuery federated queries (EXTERNAL_QUERY)",
+        "note": ""
+      },
+      {
+        "text": "Storage Transfer Service",
+        "note": "Copies files, not database tables."
+      },
+      {
+        "text": "Exporting to CSV and emailing the files",
+        "note": "Manual."
+      },
+      {
+        "text": "Pub/Sub BigQuery subscriptions",
+        "note": "Needs events published first."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Datastream is better for continuous replication at scale."
+  },
+  {
+    "id": 63,
+    "domain": "D3",
+    "scenario": "What's the purpose of a dead-letter topic in Pub/Sub?",
+    "options": [
+      {
+        "text": "Capture messages that repeatedly fail processing",
+        "note": ""
+      },
+      {
+        "text": "Delete all messages after one hour",
+        "note": "Not its purpose."
+      },
+      {
+        "text": "Speed up delivery to slow subscribers",
+        "note": "Not its purpose."
+      },
+      {
+        "text": "Encrypt messages with a separate key",
+        "note": "Not its purpose."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Investigate and replay messages from the dead-letter topic."
+  },
+  {
+    "id": 64,
+    "domain": "D4",
+    "scenario": "An analyst needs to run queries and read tables in one dataset only. Which roles fit?",
+    "options": [
+      {
+        "text": "BigQuery Data Viewer on the dataset and BigQuery Job User on the project",
+        "note": ""
+      },
+      {
+        "text": "BigQuery Admin on the organization",
+        "note": "Far too broad."
+      },
+      {
+        "text": "Owner on the project",
+        "note": "Too broad."
+      },
+      {
+        "text": "Storage Admin",
+        "note": "Wrong service."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Job User allows running query jobs; Data Viewer allows reading tables."
+  },
+  {
+    "id": 65,
+    "domain": "D4",
+    "scenario": "How can a team share query results from a private dataset without granting access to the underlying tables?",
+    "options": [
+      {
+        "text": "Authorized views",
+        "note": ""
+      },
+      {
+        "text": "Copy the whole dataset to a public project",
+        "note": "Exposes data."
+      },
+      {
+        "text": "Grant Data Owner to everyone",
+        "note": "Too broad."
+      },
+      {
+        "text": "Email CSV exports",
+        "note": "Uncontrolled."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Authorized datasets and routines work similarly."
+  },
+  {
+    "id": 66,
+    "domain": "D4",
+    "scenario": "Which BigQuery feature restricts access to sensitive columns like SSN using taxonomy tags?",
+    "options": [
+      {
+        "text": "Column-level security with policy tags",
+        "note": ""
+      },
+      {
+        "text": "Partitioning by date",
+        "note": "Performance."
+      },
+      {
+        "text": "Clustering on the sensitive column",
+        "note": "Performance."
+      },
+      {
+        "text": "Table snapshots",
+        "note": "Copies."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Dynamic data masking can show masked values instead of denying access."
+  },
+  {
+    "id": 67,
+    "domain": "D4",
+    "scenario": "Which BigQuery feature shows each sales rep only their own region's rows?",
+    "options": [
+      {
+        "text": "Row-level access policies",
+        "note": ""
+      },
+      {
+        "text": "Column-level security policy tags",
+        "note": "Columns, not rows."
+      },
+      {
+        "text": "Scheduled queries",
+        "note": "Automation."
+      },
+      {
+        "text": "Materialized views",
+        "note": "Performance."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Policies filter rows based on the querying user."
+  },
+  {
+    "id": 68,
+    "domain": "D4",
+    "scenario": "Which BigQuery feature can restore a table to how it looked 2 days ago?",
+    "options": [
+      {
+        "text": "Time travel",
+        "note": ""
+      },
+      {
+        "text": "Partition expiration",
+        "note": "Deletes partitions."
+      },
+      {
+        "text": "Fail-safe recovery requested through support",
+        "note": "Only after time travel expires."
+      },
+      {
+        "text": "Clustering",
+        "note": "Performance."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Time travel covers up to 7 days; fail-safe adds 7 more days for emergency recovery."
+  },
+  {
+    "id": 69,
+    "domain": "D4",
+    "scenario": "Which Cloud Storage feature automatically deletes log files older than 90 days?",
+    "options": [
+      {
+        "text": "Object Lifecycle Management",
+        "note": ""
+      },
+      {
+        "text": "Bucket Lock with a 10-year retention policy",
+        "note": "Prevents deletion."
+      },
+      {
+        "text": "Signed URLs",
+        "note": "Temporary access."
+      },
+      {
+        "text": "Uniform bucket-level access",
+        "note": "Access control."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lifecycle rules can also move objects to colder classes."
+  },
+  {
+    "id": 70,
+    "domain": "D4",
+    "scenario": "A regulation requires records to be kept 7 years without deletion. Which Cloud Storage feature helps?",
+    "options": [
+      {
+        "text": "A retention policy with Bucket Lock",
+        "note": ""
+      },
+      {
+        "text": "Object versioning only",
+        "note": "Old versions can still be deleted."
+      },
+      {
+        "text": "Autoclass",
+        "note": "Cost optimization."
+      },
+      {
+        "text": "Requester Pays",
+        "note": "Billing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Locked retention policies can't be shortened or removed."
+  },
+  {
+    "id": 71,
+    "domain": "D4",
+    "scenario": "Which BigQuery location choice provides higher availability across multiple regions?",
+    "options": [
+      {
+        "text": "A multi-region like US or EU",
+        "note": ""
+      },
+      {
+        "text": "A single zone",
+        "note": "Not a BigQuery option."
+      },
+      {
+        "text": "A user's laptop",
+        "note": "Not a location."
+      },
+      {
+        "text": "A Cloud Storage Nearline bucket",
+        "note": "Not a dataset location."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cross-region dataset replication adds disaster recovery options."
+  },
+  {
+    "id": 72,
+    "domain": "D4",
+    "scenario": "Which service discovers and masks sensitive data like credit card numbers in BigQuery?",
+    "options": [
+      {
+        "text": "Sensitive Data Protection",
+        "note": ""
+      },
+      {
+        "text": "Knowledge Catalog data profiling",
+        "note": "Profiles columns but does not de-identify."
+      },
+      {
+        "text": "Pub/Sub schema validation",
+        "note": "Messaging."
+      },
+      {
+        "text": "Cloud KMS",
+        "note": "Manages encryption keys."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It supports de-identification techniques like masking and tokenization."
+  },
+  {
+    "id": 73,
+    "domain": "D4",
+    "scenario": "Which encryption option gives a company control over the keys protecting BigQuery data?",
+    "options": [
+      {
+        "text": "Customer-managed encryption keys (CMEK)",
+        "note": ""
+      },
+      {
+        "text": "Disabling encryption at rest",
+        "note": "Not possible."
+      },
+      {
+        "text": "Using HTTP",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Google default keys only",
+        "note": "Google-managed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CMEK keys are stored in Cloud KMS."
+  },
+  {
+    "id": 74,
+    "domain": "D4",
+    "scenario": "Which BigQuery feature makes a point-in-time read-only copy of a table cheaply?",
+    "options": [
+      {
+        "text": "Table snapshots",
+        "note": ""
+      },
+      {
+        "text": "Full table export to CSV files in Cloud Storage",
+        "note": "Costlier and slower."
+      },
+      {
+        "text": "Materialized views",
+        "note": "Precomputed queries."
+      },
+      {
+        "text": "Row-level policies",
+        "note": "Access control."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Snapshots store only the differences from the base table."
+  },
+  {
+    "id": 75,
+    "domain": "D4",
+    "scenario": "Which principle should guide data access permissions?",
+    "options": [
+      {
+        "text": "Least privilege",
+        "note": ""
+      },
+      {
+        "text": "Everyone gets editor access so work isn't blocked",
+        "note": "Too broad."
+      },
+      {
+        "text": "Share service account keys",
+        "note": "Insecure."
+      },
+      {
+        "text": "Use basic roles everywhere",
+        "note": "Too broad."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Grant access at the dataset or table level when possible."
+  },
+  {
+    "id": 76,
+    "domain": "D4",
+    "scenario": "Which feature automatically deletes BigQuery table partitions older than a set age?",
+    "options": [
+      {
+        "text": "Partition expiration",
+        "note": ""
+      },
+      {
+        "text": "Time travel window",
+        "note": "Recovery."
+      },
+      {
+        "text": "Clustering",
+        "note": "Performance."
+      },
+      {
+        "text": "Authorized views",
+        "note": "Sharing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Table expiration deletes entire tables after a set time."
+  },
+  {
+    "id": 77,
+    "domain": "D4",
+    "scenario": "Which audit log shows who queried a BigQuery table?",
+    "options": [
+      {
+        "text": "Data Access audit logs (enabled by default for BigQuery)",
+        "note": ""
+      },
+      {
+        "text": "VPC Flow Logs",
+        "note": "Network flows."
+      },
+      {
+        "text": "Firewall logs",
+        "note": "Network rules."
+      },
+      {
+        "text": "Billing export only",
+        "note": "Costs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "INFORMATION_SCHEMA.JOBS views also show query history."
+  },
+  {
+    "id": 78,
+    "domain": "D4",
+    "scenario": "Which feature prevents data from being copied out of approved projects to unauthorized ones?",
+    "options": [
+      {
+        "text": "VPC Service Controls perimeter",
+        "note": ""
+      },
+      {
+        "text": "Row-level access policies",
+        "note": "Filter rows for users; don't block exfiltration."
+      },
+      {
+        "text": "Data Studio sharing settings",
+        "note": "Report sharing."
+      },
+      {
+        "text": "Organization policy for resource locations",
+        "note": "Controls where resources are created."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Perimeters reduce data exfiltration risks."
+  },
+  {
+    "id": 79,
+    "domain": "D4",
+    "scenario": "Which Cloud Storage access setting simplifies permissions by disabling object ACLs?",
+    "options": [
+      {
+        "text": "Uniform bucket-level access",
+        "note": ""
+      },
+      {
+        "text": "Fine-grained ACLs on every object",
+        "note": "More complex."
+      },
+      {
+        "text": "Public access prevention off",
+        "note": "Riskier."
+      },
+      {
+        "text": "Requester Pays",
+        "note": "Billing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use IAM for all access with uniform bucket-level access."
+  },
+  {
+    "id": 80,
+    "domain": "D4",
+    "scenario": "Which Knowledge Catalog capability shows where data came from and how it was transformed?",
+    "options": [
+      {
+        "text": "Data lineage",
+        "note": ""
+      },
+      {
+        "text": "Data masking",
+        "note": "Hides values."
+      },
+      {
+        "text": "Partitioning",
+        "note": "Performance."
+      },
+      {
+        "text": "Retention policy",
+        "note": "Keeps data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lineage helps with impact analysis and audits."
+  },
+  {
+    "id": 81,
+    "domain": "D4",
+    "scenario": "Which practice supports disaster recovery for critical BigQuery datasets?",
+    "options": [
+      {
+        "text": "Cross-region replication or scheduled copies to another region",
+        "note": ""
+      },
+      {
+        "text": "Keeping one copy in one region only",
+        "note": "No DR."
+      },
+      {
+        "text": "Deleting old snapshots immediately",
+        "note": "Reduces recovery options."
+      },
+      {
+        "text": "Turning off time travel",
+        "note": "Reduces recovery options."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Match DR design to RPO and RTO requirements."
+  },
+  {
+    "id": 82,
+    "domain": "D4",
+    "scenario": "A team must share a dataset with a partner organization in a governed way. Which feature fits?",
+    "options": [
+      {
+        "text": "BigQuery sharing (formerly Analytics Hub)",
+        "note": ""
+      },
+      {
+        "text": "Emailing exported CSV files",
+        "note": "Uncontrolled."
+      },
+      {
+        "text": "Making the dataset public",
+        "note": "Exposes data."
+      },
+      {
+        "text": "Sharing a service account key",
+        "note": "Insecure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data clean rooms allow privacy-safe collaboration."
+  },
+  {
+    "id": 83,
+    "domain": "D4",
+    "scenario": "Which classification approach tags data by sensitivity, like Public, Internal and Confidential?",
+    "options": [
+      {
+        "text": "Data classification policies applied in the catalog",
+        "note": ""
+      },
+      {
+        "text": "Random table names",
+        "note": "Not classification."
+      },
+      {
+        "text": "Larger partitions",
+        "note": "Unrelated."
+      },
+      {
+        "text": "More clustering columns",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Classification drives access controls and retention."
+  },
+  {
+    "id": 84,
+    "domain": "D4",
+    "scenario": "Which feature recovers a deleted BigQuery table within the time travel window?",
+    "options": [
+      {
+        "text": "Restore it with a FOR SYSTEM_TIME AS OF query or bq cp with a snapshot decorator",
+        "note": ""
+      },
+      {
+        "text": "It can never be recovered",
+        "note": "It can within the window."
+      },
+      {
+        "text": "Open a ticket to recreate from memory",
+        "note": "Not a method."
+      },
+      {
+        "text": "Re-run the schema only",
+        "note": "No data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Recovery depends on the dataset's time travel setting (2–7 days)."
+  },
+  {
+    "id": 85,
+    "domain": "D4",
+    "scenario": "Which tool profiles a table to find nulls, distinct counts and value ranges?",
+    "options": [
+      {
+        "text": "Data profiling scans in Knowledge Catalog",
+        "note": ""
+      },
+      {
+        "text": "Cloud Monitoring metrics for BigQuery",
+        "note": "Job metrics, not column profiles."
+      },
+      {
+        "text": "INFORMATION_SCHEMA.TABLES",
+        "note": "Table metadata only."
+      },
+      {
+        "text": "BigQuery table preview",
+        "note": "Shows sample rows only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data quality scans can enforce rules and alert on failures."
+  }
+]

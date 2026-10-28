@@ -1,0 +1,2077 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "Which term describes a weakness that an attacker could exploit?",
+    "options": [
+      {
+        "text": "Vulnerability",
+        "note": ""
+      },
+      {
+        "text": "Threat",
+        "note": "A potential cause of harm."
+      },
+      {
+        "text": "Risk",
+        "note": "Likelihood combined with impact."
+      },
+      {
+        "text": "Exploit",
+        "note": "The method used to take advantage of a weakness."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Risk = likelihood that a threat exploits a vulnerability × impact."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "Which describes risk in cybersecurity?",
+    "options": [
+      {
+        "text": "The likelihood and impact of a threat exploiting a weakness",
+        "note": ""
+      },
+      {
+        "text": "Any software bug or misconfiguration in an application",
+        "note": "That's a vulnerability."
+      },
+      {
+        "text": "A hacker who attacks networks",
+        "note": "That's a threat actor."
+      },
+      {
+        "text": "A tool or code that attackers use to break into systems",
+        "note": "That's an exploit."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Organizations accept, avoid, transfer or mitigate risk."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "Which type of threat actor is motivated by political or social causes?",
+    "options": [
+      {
+        "text": "Hacktivist",
+        "note": ""
+      },
+      {
+        "text": "Script kiddie",
+        "note": "Uses existing tools, little skill."
+      },
+      {
+        "text": "Nation-state",
+        "note": "Government-sponsored."
+      },
+      {
+        "text": "Organized crime",
+        "note": "Financially motivated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Insiders are current or former employees or contractors."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "Which threat actor is typically the most sophisticated and well funded?",
+    "options": [
+      {
+        "text": "Nation-state group",
+        "note": ""
+      },
+      {
+        "text": "Script kiddie",
+        "note": "Low skill."
+      },
+      {
+        "text": "Hacktivist",
+        "note": "Cause-driven, varies."
+      },
+      {
+        "text": "Curious student testing tools",
+        "note": "Low resources."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Advanced persistent threats (APTs) are often nation-state backed."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "Which describes ethical hacking?",
+    "options": [
+      {
+        "text": "Testing systems with permission to find weaknesses",
+        "note": ""
+      },
+      {
+        "text": "Breaking in to steal data for profit",
+        "note": "Criminal."
+      },
+      {
+        "text": "Spreading malware in the wild for research purposes",
+        "note": "Unauthorized."
+      },
+      {
+        "text": "Attacking a rival company quietly",
+        "note": "Criminal."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Penetration testers work under a signed scope and rules of engagement."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "Which malware spreads across networks by itself without user action?",
+    "options": [
+      {
+        "text": "Worm",
+        "note": ""
+      },
+      {
+        "text": "Trojan",
+        "note": "Needs the user to run it."
+      },
+      {
+        "text": "Virus",
+        "note": "Attaches to files and needs execution."
+      },
+      {
+        "text": "Adware",
+        "note": "Shows unwanted ads."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Patch systems quickly to stop worms that exploit vulnerabilities."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Which social engineering attack uses text messages?",
+    "options": [
+      {
+        "text": "Smishing",
+        "note": ""
+      },
+      {
+        "text": "Vishing",
+        "note": "Voice calls."
+      },
+      {
+        "text": "Whaling",
+        "note": "Targets executives."
+      },
+      {
+        "text": "Pharming",
+        "note": "Redirects to fake sites."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Never click links in unexpected texts."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "An employee copies customer data to a personal drive before quitting. What type of threat is this?",
+    "options": [
+      {
+        "text": "Insider threat",
+        "note": ""
+      },
+      {
+        "text": "External attacker",
+        "note": "From outside the company."
+      },
+      {
+        "text": "Denial of service",
+        "note": "Disrupts availability."
+      },
+      {
+        "text": "Brute-force attack",
+        "note": "Guesses passwords."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DLP tools and least privilege reduce insider risk."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which AAA component controls what a user can access after logging in?",
+    "options": [
+      {
+        "text": "Authorization",
+        "note": ""
+      },
+      {
+        "text": "Authentication",
+        "note": "Verifies who you are."
+      },
+      {
+        "text": "Accounting",
+        "note": "Records what you did."
+      },
+      {
+        "text": "Availability",
+        "note": "Part of the CIA triad."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AAA: authentication, authorization, accounting."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "Which protocol provides centralized AAA for network access, such as Wi-Fi and VPN logins?",
+    "options": [
+      {
+        "text": "RADIUS",
+        "note": ""
+      },
+      {
+        "text": "SNMP",
+        "note": "Device monitoring."
+      },
+      {
+        "text": "SMTP",
+        "note": "Sending email."
+      },
+      {
+        "text": "NTP",
+        "note": "Time synchronization."
+      }
+    ],
+    "answer": 0,
+    "explanation": "TACACS+ is a Cisco-developed AAA protocol often used for device administration."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "Which encryption type uses the same key to encrypt and decrypt?",
+    "options": [
+      {
+        "text": "Symmetric",
+        "note": ""
+      },
+      {
+        "text": "Asymmetric",
+        "note": "Uses a public and private key pair."
+      },
+      {
+        "text": "Hashing",
+        "note": "One-way, can't be decrypted."
+      },
+      {
+        "text": "Encoding",
+        "note": "Isn't encryption."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AES is symmetric; RSA and ECC are asymmetric."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "What is the purpose of hashing a file?",
+    "options": [
+      {
+        "text": "To verify it hasn't been changed",
+        "note": ""
+      },
+      {
+        "text": "To encrypt it for secrecy",
+        "note": "Hashing is one-way."
+      },
+      {
+        "text": "To compress it for storage",
+        "note": "Not hashing."
+      },
+      {
+        "text": "To hide it from antivirus scanners",
+        "note": "Not hashing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SHA-256 is a common hashing algorithm."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "In public key infrastructure (PKI), what issues and signs digital certificates?",
+    "options": [
+      {
+        "text": "A certificate authority (CA)",
+        "note": ""
+      },
+      {
+        "text": "A DNS server",
+        "note": "Resolves names."
+      },
+      {
+        "text": "A DHCP server",
+        "note": "Assigns addresses."
+      },
+      {
+        "text": "A web browser's trust store",
+        "note": "Stores trusted roots; doesn't issue certificates."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Browsers trust certificates chained to trusted root CAs."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Which data state applies to a file saved on a laptop's drive?",
+    "options": [
+      {
+        "text": "Data at rest",
+        "note": ""
+      },
+      {
+        "text": "Data in transit",
+        "note": "Moving across a network."
+      },
+      {
+        "text": "Data in use",
+        "note": "Being processed in memory."
+      },
+      {
+        "text": "Data in motion",
+        "note": "Another term for in transit."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Full-disk encryption protects data at rest."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "Which is the best password policy for users?",
+    "options": [
+      {
+        "text": "Long, unique passphrases with MFA",
+        "note": ""
+      },
+      {
+        "text": "Short complex passwords changed every week",
+        "note": "Short and burdensome."
+      },
+      {
+        "text": "One shared team password",
+        "note": "No accountability."
+      },
+      {
+        "text": "Passwords written on sticky notes at desks",
+        "note": "Easily exposed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Password managers help users keep unique passwords."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "Which describes the principle of defense in depth?",
+    "options": [
+      {
+        "text": "Using several layers of security controls",
+        "note": ""
+      },
+      {
+        "text": "Relying on one strong next-generation firewall",
+        "note": "Single point of failure."
+      },
+      {
+        "text": "Hiding the network's existence from attackers",
+        "note": "Security through obscurity."
+      },
+      {
+        "text": "Encrypting only the email server",
+        "note": "One control."
+      }
+    ],
+    "answer": 0,
+    "explanation": "If one layer fails, others still protect the system."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "What does a digital signature provide?",
+    "options": [
+      {
+        "text": "Integrity and proof of the sender",
+        "note": ""
+      },
+      {
+        "text": "Faster file transfers",
+        "note": "Not its purpose."
+      },
+      {
+        "text": "Compression of signed documents",
+        "note": "Not its purpose."
+      },
+      {
+        "text": "Anonymous communication between two parties",
+        "note": "The opposite."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Signatures support non-repudiation: the sender can't deny sending."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "Which type of attack tries every possible password combination?",
+    "options": [
+      {
+        "text": "Brute force",
+        "note": ""
+      },
+      {
+        "text": "Phishing",
+        "note": "Tricks users."
+      },
+      {
+        "text": "Tailgating",
+        "note": "Physical entry."
+      },
+      {
+        "text": "Man-in-the-middle",
+        "note": "Intercepts traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Account lockout and long passwords defend against it."
+  },
+  {
+    "id": 19,
+    "domain": "D2",
+    "scenario": "Which attack sends forged ARP replies so traffic flows through the attacker?",
+    "options": [
+      {
+        "text": "ARP spoofing (poisoning)",
+        "note": ""
+      },
+      {
+        "text": "DNS tunneling",
+        "note": "Hides data in DNS queries."
+      },
+      {
+        "text": "SYN flood",
+        "note": "Overloads TCP handshakes."
+      },
+      {
+        "text": "Smurf amplification attack",
+        "note": "Floods with ICMP broadcasts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ARP spoofing enables man-in-the-middle attacks on a LAN."
+  },
+  {
+    "id": 20,
+    "domain": "D2",
+    "scenario": "Which attack sends many TCP SYN packets without completing the handshake?",
+    "options": [
+      {
+        "text": "SYN flood",
+        "note": ""
+      },
+      {
+        "text": "ARP poisoning",
+        "note": "Fakes MAC mappings."
+      },
+      {
+        "text": "Phishing",
+        "note": "Social engineering."
+      },
+      {
+        "text": "Port mirroring",
+        "note": "A monitoring feature."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SYN floods exhaust connection tables to deny service."
+  },
+  {
+    "id": 21,
+    "domain": "D2",
+    "scenario": "Which attack corrupts DNS so users are sent to a fake website?",
+    "options": [
+      {
+        "text": "DNS poisoning",
+        "note": ""
+      },
+      {
+        "text": "SYN flood",
+        "note": "A DoS attack."
+      },
+      {
+        "text": "MAC flooding",
+        "note": "Overloads switch tables."
+      },
+      {
+        "text": "VLAN hopping",
+        "note": "Jumps between VLANs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DNSSEC helps validate DNS responses."
+  },
+  {
+    "id": 22,
+    "domain": "D2",
+    "scenario": "What is a DMZ in network design?",
+    "options": [
+      {
+        "text": "A network segment for public-facing servers",
+        "note": ""
+      },
+      {
+        "text": "A network with no firewall at all",
+        "note": "Not a DMZ."
+      },
+      {
+        "text": "A list of blocked websites on the proxy",
+        "note": "A filter list."
+      },
+      {
+        "text": "A shared password for the guest wireless network",
+        "note": "Not a DMZ."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A DMZ separates internet-facing servers from the internal network."
+  },
+  {
+    "id": 23,
+    "domain": "D2",
+    "scenario": "What is a honeypot?",
+    "options": [
+      {
+        "text": "A decoy system that attracts and studies attackers",
+        "note": ""
+      },
+      {
+        "text": "A firewall that blocks all traffic",
+        "note": "Not a honeypot."
+      },
+      {
+        "text": "A secure vault that stores admin passwords",
+        "note": "Not a honeypot."
+      },
+      {
+        "text": "A backup server used for database recovery",
+        "note": "Not a honeypot."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Honeypots can reveal attacker techniques."
+  },
+  {
+    "id": 24,
+    "domain": "D2",
+    "scenario": "Which device detects suspicious traffic and alerts, without blocking it?",
+    "options": [
+      {
+        "text": "Intrusion detection system (IDS)",
+        "note": ""
+      },
+      {
+        "text": "Intrusion prevention system (IPS)",
+        "note": "Can block inline."
+      },
+      {
+        "text": "Proxy server",
+        "note": "Forwards client requests."
+      },
+      {
+        "text": "Load balancer",
+        "note": "Distributes traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "An IPS sits inline and can drop malicious traffic."
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "scenario": "Which device makes web requests on behalf of users and can filter content?",
+    "options": [
+      {
+        "text": "Proxy server",
+        "note": ""
+      },
+      {
+        "text": "Network switch",
+        "note": "Forwards frames."
+      },
+      {
+        "text": "IDS sensor",
+        "note": "Detects and alerts."
+      },
+      {
+        "text": "DHCP server",
+        "note": "Assigns addresses."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Proxies can cache content and enforce acceptable use."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "Which technology checks a device's health before letting it join the network?",
+    "options": [
+      {
+        "text": "Network access control (NAC)",
+        "note": ""
+      },
+      {
+        "text": "Network address translation (NAT)",
+        "note": "Translates addresses."
+      },
+      {
+        "text": "Port address translation",
+        "note": "Shares one public IP."
+      },
+      {
+        "text": "Quality of service",
+        "note": "Prioritizes traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NAC can require updated antivirus or patches."
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "scenario": "Which technology creates an encrypted tunnel for remote workers over the internet?",
+    "options": [
+      {
+        "text": "VPN",
+        "note": ""
+      },
+      {
+        "text": "VLAN",
+        "note": "Segments a LAN."
+      },
+      {
+        "text": "NAT",
+        "note": "Translates addresses."
+      },
+      {
+        "text": "DHCP",
+        "note": "Assigns addresses."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IPsec and SSL/TLS VPNs are common types."
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "scenario": "Which is the best Wi-Fi security for a small office using a shared password?",
+    "options": [
+      {
+        "text": "WPA3-Personal",
+        "note": ""
+      },
+      {
+        "text": "WEP with a long key",
+        "note": "WEP is broken."
+      },
+      {
+        "text": "WPA with TKIP",
+        "note": "Deprecated."
+      },
+      {
+        "text": "Open with hidden SSID",
+        "note": "No encryption."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Also change default admin credentials and update firmware."
+  },
+  {
+    "id": 29,
+    "domain": "D2",
+    "scenario": "Which SOHO router setting should be disabled because it's often attacked?",
+    "options": [
+      {
+        "text": "WPS (Wi-Fi Protected Setup)",
+        "note": ""
+      },
+      {
+        "text": "WPA3 encryption",
+        "note": "Keep it on."
+      },
+      {
+        "text": "The router's firewall",
+        "note": "Keep it on."
+      },
+      {
+        "text": "Automatic firmware updates from the vendor",
+        "note": "Keep them on."
+      }
+    ],
+    "answer": 0,
+    "explanation": "WPS PINs can be brute-forced."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "Which access control list type filters traffic only by source IP address on Cisco devices?",
+    "options": [
+      {
+        "text": "Standard ACL",
+        "note": ""
+      },
+      {
+        "text": "Extended ACL",
+        "note": "Filters by source, destination, protocol and port."
+      },
+      {
+        "text": "Named VLAN ACL",
+        "note": "Not a basic ACL type."
+      },
+      {
+        "text": "Dynamic DNS ACL",
+        "note": "Not an ACL type."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Place standard ACLs close to the destination; extended ACLs close to the source."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "Why are many legacy protocols like Telnet and FTP considered insecure?",
+    "options": [
+      {
+        "text": "They send data, including passwords, in clear text",
+        "note": ""
+      },
+      {
+        "text": "They only work on IPv6 networks",
+        "note": "Not true."
+      },
+      {
+        "text": "They require special hardware and licenses",
+        "note": "Not true."
+      },
+      {
+        "text": "They always use UDP",
+        "note": "Both use TCP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use SSH and SFTP instead."
+  },
+  {
+    "id": 32,
+    "domain": "D2",
+    "scenario": "How can network segmentation improve security?",
+    "options": [
+      {
+        "text": "It limits how far an attacker can move",
+        "note": ""
+      },
+      {
+        "text": "It removes the need for firewalls",
+        "note": "Firewalls control traffic between segments."
+      },
+      {
+        "text": "It speeds up every internet connection",
+        "note": "Not its purpose."
+      },
+      {
+        "text": "It makes passwords unnecessary",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Separate guest, IoT and corporate devices into different VLANs or subnets."
+  },
+  {
+    "id": 33,
+    "domain": "D2",
+    "scenario": "Which type of IP address is not routable on the public internet?",
+    "options": [
+      {
+        "text": "Private (RFC 1918) address",
+        "note": ""
+      },
+      {
+        "text": "Public unicast address",
+        "note": "Routable."
+      },
+      {
+        "text": "Global IPv6 address",
+        "note": "Routable."
+      },
+      {
+        "text": "Anycast DNS resolver address",
+        "note": "Routable."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NAT translates private addresses to public ones."
+  },
+  {
+    "id": 34,
+    "domain": "D2",
+    "scenario": "Which firewall type tracks the state of connections and allows return traffic automatically?",
+    "options": [
+      {
+        "text": "Stateful firewall",
+        "note": ""
+      },
+      {
+        "text": "Stateless packet filter",
+        "note": "Checks each packet alone."
+      },
+      {
+        "text": "Basic hub",
+        "note": "Not a firewall."
+      },
+      {
+        "text": "Patch panel",
+        "note": "Not a firewall."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Next-generation firewalls add application awareness and IPS."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "Which port should usually be blocked from the internet to protect Windows file sharing?",
+    "options": [
+      {
+        "text": "TCP 445 (SMB)",
+        "note": ""
+      },
+      {
+        "text": "TCP 443 (HTTPS)",
+        "note": "Needed for websites."
+      },
+      {
+        "text": "UDP 53 (DNS)",
+        "note": "Needed for name lookups."
+      },
+      {
+        "text": "TCP 25 (SMTP) for mail servers",
+        "note": "Needed by mail servers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Exposed SMB has been used by worms like WannaCry."
+  },
+  {
+    "id": 36,
+    "domain": "D3",
+    "scenario": "Which Windows command shows active network connections and listening ports?",
+    "options": [
+      {
+        "text": "netstat -an",
+        "note": ""
+      },
+      {
+        "text": "nslookup",
+        "note": "Queries DNS."
+      },
+      {
+        "text": "ipconfig /flushdns",
+        "note": "Clears the DNS cache."
+      },
+      {
+        "text": "gpupdate",
+        "note": "Refreshes Group Policy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Add -b (as admin) to see which program owns each connection."
+  },
+  {
+    "id": 37,
+    "domain": "D3",
+    "scenario": "Which Linux tool captures packets from the command line?",
+    "options": [
+      {
+        "text": "tcpdump",
+        "note": ""
+      },
+      {
+        "text": "chmod",
+        "note": "Changes permissions."
+      },
+      {
+        "text": "netstat",
+        "note": "Shows connections, not packet contents."
+      },
+      {
+        "text": "top",
+        "note": "Shows processes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Wireshark provides a graphical view of captures."
+  },
+  {
+    "id": 38,
+    "domain": "D3",
+    "scenario": "Which Windows tool shows security logs such as failed logins?",
+    "options": [
+      {
+        "text": "Event Viewer",
+        "note": ""
+      },
+      {
+        "text": "Disk Management",
+        "note": "Partitions."
+      },
+      {
+        "text": "Device Manager",
+        "note": "Hardware drivers."
+      },
+      {
+        "text": "Paint",
+        "note": "Images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Event ID 4625 indicates a failed logon."
+  },
+  {
+    "id": 39,
+    "domain": "D3",
+    "scenario": "Which Linux file permission command gives the owner full rights and others read-only?",
+    "options": [
+      {
+        "text": "chmod 744",
+        "note": ""
+      },
+      {
+        "text": "chmod 777",
+        "note": "Everyone gets full rights."
+      },
+      {
+        "text": "chmod 000",
+        "note": "No one gets access."
+      },
+      {
+        "text": "chmod 111",
+        "note": "Execute only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Digits are owner, group and others; 4 = read, 2 = write, 1 = execute."
+  },
+  {
+    "id": 40,
+    "domain": "D3",
+    "scenario": "Which Windows feature encrypts the entire system drive?",
+    "options": [
+      {
+        "text": "BitLocker",
+        "note": ""
+      },
+      {
+        "text": "Windows Hello",
+        "note": "Sign-in method."
+      },
+      {
+        "text": "User Account Control",
+        "note": "Elevation prompts."
+      },
+      {
+        "text": "Windows Update",
+        "note": "Patching."
+      }
+    ],
+    "answer": 0,
+    "explanation": "macOS uses FileVault; Linux often uses LUKS."
+  },
+  {
+    "id": 41,
+    "domain": "D3",
+    "scenario": "Which macOS feature prevents untrusted apps from running unless approved?",
+    "options": [
+      {
+        "text": "Gatekeeper",
+        "note": ""
+      },
+      {
+        "text": "Time Machine",
+        "note": "Backups."
+      },
+      {
+        "text": "Spotlight",
+        "note": "Search."
+      },
+      {
+        "text": "Mission Control",
+        "note": "Window management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Gatekeeper checks that apps are signed and notarized."
+  },
+  {
+    "id": 42,
+    "domain": "D3",
+    "scenario": "Why is asset inventory important for endpoint security?",
+    "options": [
+      {
+        "text": "You can't protect devices you don't know exist",
+        "note": ""
+      },
+      {
+        "text": "It speeds up internet connections for users",
+        "note": "Not its purpose."
+      },
+      {
+        "text": "It replaces antivirus software",
+        "note": "Not true."
+      },
+      {
+        "text": "It automatically encrypts every device",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Inventories track hardware, software, owners and patch levels."
+  },
+  {
+    "id": 43,
+    "domain": "D3",
+    "scenario": "What is a common risk of a BYOD (bring your own device) policy?",
+    "options": [
+      {
+        "text": "Personal devices may lack security controls",
+        "note": ""
+      },
+      {
+        "text": "Employees can't access email",
+        "note": "Not a risk of BYOD."
+      },
+      {
+        "text": "Devices become company property after enrollment",
+        "note": "Not true."
+      },
+      {
+        "text": "Wi-Fi stops working for company laptops",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Mobile device management (MDM) can enforce policies on BYOD."
+  },
+  {
+    "id": 44,
+    "domain": "D3",
+    "scenario": "Why should operating systems and apps be patched quickly?",
+    "options": [
+      {
+        "text": "Patches fix vulnerabilities attackers exploit",
+        "note": ""
+      },
+      {
+        "text": "Patches always add new features",
+        "note": "Not their main purpose."
+      },
+      {
+        "text": "Patches remove the need for backups and antivirus",
+        "note": "Not true."
+      },
+      {
+        "text": "Patches make devices faster",
+        "note": "Not guaranteed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Test critical patches, then deploy quickly."
+  },
+  {
+    "id": 45,
+    "domain": "D3",
+    "scenario": "Which firmware-level setting helps prevent unauthorized bootloaders from running?",
+    "options": [
+      {
+        "text": "Secure Boot",
+        "note": ""
+      },
+      {
+        "text": "Fast Startup",
+        "note": "Speeds boot."
+      },
+      {
+        "text": "Hibernate",
+        "note": "Power saving."
+      },
+      {
+        "text": "Wake on LAN",
+        "note": "Remote power-on."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Secure Boot uses UEFI to check signatures."
+  },
+  {
+    "id": 46,
+    "domain": "D3",
+    "scenario": "A log shows hundreds of failed logins for one account in a few minutes. What's likely happening?",
+    "options": [
+      {
+        "text": "A brute-force or password-spraying attack",
+        "note": ""
+      },
+      {
+        "text": "A normal software update",
+        "note": "Not failed logins."
+      },
+      {
+        "text": "A backup job finishing",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A user who forgot to update a saved password on one device",
+        "note": "Would cause repeated failures, but not hundreds in minutes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lock the account, check the source IPs and enforce MFA."
+  },
+  {
+    "id": 47,
+    "domain": "D3",
+    "scenario": "Which Linux log location commonly stores authentication events on Debian-based systems?",
+    "options": [
+      {
+        "text": "/var/log/auth.log",
+        "note": ""
+      },
+      {
+        "text": "/etc/passwd",
+        "note": "User account list, not logs."
+      },
+      {
+        "text": "/home/user/Documents",
+        "note": "Personal files."
+      },
+      {
+        "text": "/tmp",
+        "note": "Temporary files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Red Hat-based systems use /var/log/secure."
+  },
+  {
+    "id": 48,
+    "domain": "D3",
+    "scenario": "What's the first thing to do when malware is detected on a laptop?",
+    "options": [
+      {
+        "text": "Isolate it from the network",
+        "note": ""
+      },
+      {
+        "text": "Email the file to coworkers",
+        "note": "Spreads malware."
+      },
+      {
+        "text": "Ignore it until next week",
+        "note": "Increases damage."
+      },
+      {
+        "text": "Reformat without investigating",
+        "note": "Loses evidence."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Then investigate, remove the malware, restore and report."
+  },
+  {
+    "id": 49,
+    "domain": "D3",
+    "scenario": "Which tool shows which programs run automatically at Windows startup, including hidden ones?",
+    "options": [
+      {
+        "text": "Sysinternals Autoruns",
+        "note": ""
+      },
+      {
+        "text": "Disk Cleanup",
+        "note": "Removes temporary files."
+      },
+      {
+        "text": "Resource Monitor",
+        "note": "Shows resource usage, not startup entries."
+      },
+      {
+        "text": "Device Manager",
+        "note": "Hardware drivers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Malware often adds itself to startup locations."
+  },
+  {
+    "id": 50,
+    "domain": "D3",
+    "scenario": "Which control stops users from installing unapproved software on company PCs?",
+    "options": [
+      {
+        "text": "Removing local admin rights",
+        "note": ""
+      },
+      {
+        "text": "Giving everyone admin rights",
+        "note": "Allows installs."
+      },
+      {
+        "text": "Turning off updates",
+        "note": "Increases risk."
+      },
+      {
+        "text": "Disabling the screen lock",
+        "note": "Increases risk."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Application allowlisting adds another layer."
+  },
+  {
+    "id": 51,
+    "domain": "D3",
+    "scenario": "Which Windows command can show detailed information about the current user's group memberships?",
+    "options": [
+      {
+        "text": "whoami /groups",
+        "note": ""
+      },
+      {
+        "text": "ping localhost",
+        "note": "Tests networking."
+      },
+      {
+        "text": "tracert",
+        "note": "Shows network hops."
+      },
+      {
+        "text": "chkdsk",
+        "note": "Checks disks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Helpful when checking if an account has unexpected privileges."
+  },
+  {
+    "id": 52,
+    "domain": "D4",
+    "scenario": "Which activity identifies and ranks weaknesses in systems without exploiting them?",
+    "options": [
+      {
+        "text": "Vulnerability scanning",
+        "note": ""
+      },
+      {
+        "text": "Penetration testing",
+        "note": "Actively exploits weaknesses."
+      },
+      {
+        "text": "Incident response",
+        "note": "Handles attacks."
+      },
+      {
+        "text": "Business impact analysis",
+        "note": "Assesses the effects of disruptions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Scanners compare systems against databases of known vulnerabilities."
+  },
+  {
+    "id": 53,
+    "domain": "D4",
+    "scenario": "Which system scores vulnerability severity from 0 to 10?",
+    "options": [
+      {
+        "text": "CVSS",
+        "note": ""
+      },
+      {
+        "text": "CVE",
+        "note": "Identifiers for vulnerabilities."
+      },
+      {
+        "text": "NIST CSF",
+        "note": "A security framework."
+      },
+      {
+        "text": "ISO 27001",
+        "note": "A management standard."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CVE gives each vulnerability a unique ID; CVSS rates its severity."
+  },
+  {
+    "id": 54,
+    "domain": "D4",
+    "scenario": "What is a CVE?",
+    "options": [
+      {
+        "text": "A public identifier for a known vulnerability",
+        "note": ""
+      },
+      {
+        "text": "A type of next-generation firewall",
+        "note": "Not CVE."
+      },
+      {
+        "text": "An encryption algorithm",
+        "note": "Not CVE."
+      },
+      {
+        "text": "A malware family tracked by antivirus vendors",
+        "note": "Not CVE."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Example format: CVE-2024-12345."
+  },
+  {
+    "id": 55,
+    "domain": "D4",
+    "scenario": "Which stage of an attack involves gathering information about a target?",
+    "options": [
+      {
+        "text": "Reconnaissance",
+        "note": ""
+      },
+      {
+        "text": "Exfiltration",
+        "note": "Stealing data out."
+      },
+      {
+        "text": "Persistence",
+        "note": "Keeping access."
+      },
+      {
+        "text": "Lateral movement",
+        "note": "Moving between systems."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Recon can be passive (public info) or active (scanning)."
+  },
+  {
+    "id": 56,
+    "domain": "D4",
+    "scenario": "What is threat intelligence?",
+    "options": [
+      {
+        "text": "Information about attackers and their methods",
+        "note": ""
+      },
+      {
+        "text": "A list of employee passwords",
+        "note": "Never."
+      },
+      {
+        "text": "A backup copy of the firewall rule set",
+        "note": "Configuration."
+      },
+      {
+        "text": "A license key for the antivirus product",
+        "note": "Not intelligence."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Indicators of compromise (IoCs) include malicious IPs, domains and file hashes."
+  },
+  {
+    "id": 57,
+    "domain": "D4",
+    "scenario": "Which risk response buys insurance to cover potential losses?",
+    "options": [
+      {
+        "text": "Transfer",
+        "note": ""
+      },
+      {
+        "text": "Avoid",
+        "note": "Stop the risky activity."
+      },
+      {
+        "text": "Accept",
+        "note": "Take the risk as is."
+      },
+      {
+        "text": "Mitigate",
+        "note": "Reduce likelihood or impact."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cyber insurance is a common way to transfer risk."
+  },
+  {
+    "id": 58,
+    "domain": "D4",
+    "scenario": "Which risk response adds controls like MFA to reduce the chance of an attack?",
+    "options": [
+      {
+        "text": "Mitigate",
+        "note": ""
+      },
+      {
+        "text": "Transfer",
+        "note": "Shifts the risk to others."
+      },
+      {
+        "text": "Avoid",
+        "note": "Stops the activity."
+      },
+      {
+        "text": "Accept",
+        "note": "Takes no action."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Most security controls are mitigation."
+  },
+  {
+    "id": 59,
+    "domain": "D4",
+    "scenario": "Which plan focuses on restoring IT systems after a disaster?",
+    "options": [
+      {
+        "text": "Disaster recovery plan",
+        "note": ""
+      },
+      {
+        "text": "Business impact analysis",
+        "note": "Identifies critical functions; it does not restore systems."
+      },
+      {
+        "text": "Acceptable use policy",
+        "note": "User rules."
+      },
+      {
+        "text": "Password policy",
+        "note": "Credential rules."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A business continuity plan keeps the whole business running."
+  },
+  {
+    "id": 60,
+    "domain": "D4",
+    "scenario": "What does RTO (recovery time objective) define?",
+    "options": [
+      {
+        "text": "The maximum acceptable downtime",
+        "note": ""
+      },
+      {
+        "text": "The maximum acceptable data loss",
+        "note": "That's RPO."
+      },
+      {
+        "text": "The time between backups",
+        "note": "Related to RPO."
+      },
+      {
+        "text": "The age of the hardware",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RPO is the maximum acceptable data loss, measured in time."
+  },
+  {
+    "id": 61,
+    "domain": "D4",
+    "scenario": "A company backs up every 4 hours. What is its maximum data loss (RPO) if a failure occurs?",
+    "options": [
+      {
+        "text": "About 4 hours of data",
+        "note": ""
+      },
+      {
+        "text": "No data at all, because backups are frequent",
+        "note": "Data since the last backup is lost."
+      },
+      {
+        "text": "One full day of data",
+        "note": "Backups are more frequent."
+      },
+      {
+        "text": "One week of data",
+        "note": "Backups are more frequent."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Shorter backup intervals reduce RPO."
+  },
+  {
+    "id": 62,
+    "domain": "D4",
+    "scenario": "Which assessment ranks risks by likelihood and impact?",
+    "options": [
+      {
+        "text": "Risk assessment with a risk matrix",
+        "note": ""
+      },
+      {
+        "text": "A port scan of all servers",
+        "note": "Finds open ports."
+      },
+      {
+        "text": "Password reset",
+        "note": "Account action."
+      },
+      {
+        "text": "A software inventory report",
+        "note": "Lists software."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Qualitative ratings use high, medium and low."
+  },
+  {
+    "id": 63,
+    "domain": "D4",
+    "scenario": "Which tool scans a network to find live hosts and open ports?",
+    "options": [
+      {
+        "text": "Nmap",
+        "note": ""
+      },
+      {
+        "text": "Microsoft Word",
+        "note": "Documents."
+      },
+      {
+        "text": "Notepad",
+        "note": "Text."
+      },
+      {
+        "text": "Excel",
+        "note": "Spreadsheets."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Only scan networks you're authorized to test."
+  },
+  {
+    "id": 64,
+    "domain": "D4",
+    "scenario": "What's the purpose of a penetration test?",
+    "options": [
+      {
+        "text": "Simulate a real attack to find exploitable weaknesses",
+        "note": ""
+      },
+      {
+        "text": "Install antivirus on all computers",
+        "note": "Not a pen test."
+      },
+      {
+        "text": "Back up the file server before an audit",
+        "note": "Not a pen test."
+      },
+      {
+        "text": "Train users to choose stronger passwords",
+        "note": "Awareness training."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pen tests need written authorization and a defined scope."
+  },
+  {
+    "id": 65,
+    "domain": "D4",
+    "scenario": "Which document lists an organization's risks, owners and planned responses?",
+    "options": [
+      {
+        "text": "Risk register",
+        "note": ""
+      },
+      {
+        "text": "Network diagram",
+        "note": "Shows topology."
+      },
+      {
+        "text": "Help desk ticket",
+        "note": "Single issue."
+      },
+      {
+        "text": "Change request",
+        "note": "Proposed change."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Risk registers are reviewed regularly."
+  },
+  {
+    "id": 66,
+    "domain": "D4",
+    "scenario": "Which risk response stops an activity entirely because it's too risky?",
+    "options": [
+      {
+        "text": "Avoid",
+        "note": ""
+      },
+      {
+        "text": "Accept",
+        "note": "Keeps the risk."
+      },
+      {
+        "text": "Transfer",
+        "note": "Shifts the risk."
+      },
+      {
+        "text": "Mitigate",
+        "note": "Reduces the risk."
+      }
+    ],
+    "answer": 0,
+    "explanation": "For example, not storing card numbers at all."
+  },
+  {
+    "id": 67,
+    "domain": "D4",
+    "scenario": "Which backup type needs the last full backup plus every incremental to restore?",
+    "options": [
+      {
+        "text": "Incremental",
+        "note": ""
+      },
+      {
+        "text": "Differential",
+        "note": "Needs full plus the latest differential."
+      },
+      {
+        "text": "Full",
+        "note": "Restores alone."
+      },
+      {
+        "text": "Snapshot only",
+        "note": "Point-in-time copy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Incremental backups are quickest to create but slowest to restore."
+  },
+  {
+    "id": 68,
+    "domain": "D5",
+    "scenario": "What is the first phase of the NIST incident response lifecycle?",
+    "options": [
+      {
+        "text": "Preparation",
+        "note": ""
+      },
+      {
+        "text": "Containment",
+        "note": "After detection."
+      },
+      {
+        "text": "Recovery",
+        "note": "Later."
+      },
+      {
+        "text": "Lessons learned",
+        "note": "The last step."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Phases: preparation; detection and analysis; containment, eradication and recovery; post-incident activity."
+  },
+  {
+    "id": 69,
+    "domain": "D5",
+    "scenario": "During an incident, which step removes the malware from affected systems?",
+    "options": [
+      {
+        "text": "Eradication",
+        "note": ""
+      },
+      {
+        "text": "Detection",
+        "note": "Finds the incident."
+      },
+      {
+        "text": "Preparation",
+        "note": "Before incidents."
+      },
+      {
+        "text": "Lessons learned",
+        "note": "After recovery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Containment limits spread; eradication removes the cause; recovery restores service."
+  },
+  {
+    "id": 70,
+    "domain": "D5",
+    "scenario": "What's the purpose of the lessons-learned meeting after an incident?",
+    "options": [
+      {
+        "text": "Improve processes to prevent future incidents",
+        "note": ""
+      },
+      {
+        "text": "Assign blame to individuals",
+        "note": "Not the goal."
+      },
+      {
+        "text": "Delete incident records to save space",
+        "note": "Keep records."
+      },
+      {
+        "text": "Restore backups for affected systems",
+        "note": "Part of recovery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Update playbooks, controls and training based on findings."
+  },
+  {
+    "id": 71,
+    "domain": "D5",
+    "scenario": "When should a SOC analyst escalate a security alert?",
+    "options": [
+      {
+        "text": "When it's confirmed or beyond their authority",
+        "note": ""
+      },
+      {
+        "text": "Never; analysts handle everything",
+        "note": "Escalation exists for a reason."
+      },
+      {
+        "text": "Only after a week of waiting",
+        "note": "Too slow."
+      },
+      {
+        "text": "Only if a customer complains about the issue",
+        "note": "Too late."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Follow the escalation procedures in the incident response plan."
+  },
+  {
+    "id": 72,
+    "domain": "D5",
+    "scenario": "What does chain of custody ensure for digital evidence?",
+    "options": [
+      {
+        "text": "A record of who handled evidence and when",
+        "note": ""
+      },
+      {
+        "text": "The evidence is encrypted",
+        "note": "Not the purpose."
+      },
+      {
+        "text": "The evidence is deleted after the review is complete",
+        "note": "Must be preserved."
+      },
+      {
+        "text": "The evidence is shared publicly",
+        "note": "Must be protected."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Breaks in custody can make evidence unusable in court."
+  },
+  {
+    "id": 73,
+    "domain": "D5",
+    "scenario": "Which evidence should be collected first because it's most volatile?",
+    "options": [
+      {
+        "text": "RAM contents",
+        "note": ""
+      },
+      {
+        "text": "Hard drive data",
+        "note": "Less volatile."
+      },
+      {
+        "text": "Backup tapes",
+        "note": "Least volatile."
+      },
+      {
+        "text": "Printed logs",
+        "note": "Not volatile."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Order of volatility: CPU cache and registers, RAM, network state, disk, backups."
+  },
+  {
+    "id": 74,
+    "domain": "D5",
+    "scenario": "Why do forensic investigators create a hash of a disk image?",
+    "options": [
+      {
+        "text": "To prove the copy wasn't altered",
+        "note": ""
+      },
+      {
+        "text": "To encrypt the evidence",
+        "note": "Hashing is one-way."
+      },
+      {
+        "text": "To compress the image for storage",
+        "note": "Not hashing."
+      },
+      {
+        "text": "To speed up analysis of large disks",
+        "note": "Not the purpose."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Matching hashes show the image is identical to the original."
+  },
+  {
+    "id": 75,
+    "domain": "D5",
+    "scenario": "Which regulation protects health information in the United States?",
+    "options": [
+      {
+        "text": "HIPAA",
+        "note": ""
+      },
+      {
+        "text": "PCI DSS",
+        "note": "Payment card data."
+      },
+      {
+        "text": "GDPR",
+        "note": "EU personal data."
+      },
+      {
+        "text": "SOX",
+        "note": "Financial reporting."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Compliance requirements affect how incidents are reported."
+  },
+  {
+    "id": 76,
+    "domain": "D5",
+    "scenario": "Which standard applies to organizations that process credit card payments?",
+    "options": [
+      {
+        "text": "PCI DSS",
+        "note": ""
+      },
+      {
+        "text": "HIPAA",
+        "note": "Health data."
+      },
+      {
+        "text": "FERPA",
+        "note": "Student records."
+      },
+      {
+        "text": "GDPR",
+        "note": "EU personal data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PCI DSS requires specific controls and incident handling."
+  },
+  {
+    "id": 77,
+    "domain": "D5",
+    "scenario": "Under GDPR, how quickly must a personal data breach usually be reported to authorities?",
+    "options": [
+      {
+        "text": "Within 72 hours of becoming aware",
+        "note": ""
+      },
+      {
+        "text": "Within 30 days of the investigation ending",
+        "note": "Too slow."
+      },
+      {
+        "text": "Within one year",
+        "note": "Far too slow."
+      },
+      {
+        "text": "It never needs reporting if data was encrypted",
+        "note": "Encryption can affect notification, but reporting is the default."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Notification is required unless the breach is unlikely to risk people's rights."
+  },
+  {
+    "id": 78,
+    "domain": "D5",
+    "scenario": "What is a SIEM used for?",
+    "options": [
+      {
+        "text": "Collecting and correlating security logs to detect threats",
+        "note": ""
+      },
+      {
+        "text": "Assigning IP addresses",
+        "note": "That's DHCP."
+      },
+      {
+        "text": "Blocking spam and phishing email only",
+        "note": "An email filter."
+      },
+      {
+        "text": "Backing up databases",
+        "note": "A backup tool."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Examples include Splunk, Microsoft Sentinel and Elastic."
+  },
+  {
+    "id": 79,
+    "domain": "D5",
+    "scenario": "What is a false positive in security monitoring?",
+    "options": [
+      {
+        "text": "An alert for activity that is actually harmless",
+        "note": ""
+      },
+      {
+        "text": "A real attack that was missed",
+        "note": "That's a false negative."
+      },
+      {
+        "text": "A confirmed attack that was detected",
+        "note": "That's a true positive."
+      },
+      {
+        "text": "A log entry that has no time stamp",
+        "note": "Not the meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tuning rules reduces false positives."
+  },
+  {
+    "id": 80,
+    "domain": "D5",
+    "scenario": "Which is a key element of an incident response plan?",
+    "options": [
+      {
+        "text": "Defined roles and contact lists",
+        "note": ""
+      },
+      {
+        "text": "A list of favorite websites",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Office seating charts for each team",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Marketing budgets for the next year",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Plans also include procedures, communication and reporting requirements."
+  },
+  {
+    "id": 81,
+    "domain": "D5",
+    "scenario": "During containment of a ransomware outbreak, what is usually done first?",
+    "options": [
+      {
+        "text": "Disconnect affected systems from the network",
+        "note": ""
+      },
+      {
+        "text": "Pay the ransom immediately",
+        "note": "Not recommended."
+      },
+      {
+        "text": "Delete all backups to stop reinfection",
+        "note": "Destroys recovery."
+      },
+      {
+        "text": "Post about it on social media",
+        "note": "Not appropriate."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Containment stops spread while preserving evidence."
+  },
+  {
+    "id": 82,
+    "domain": "D5",
+    "scenario": "What does attribution mean in an investigation?",
+    "options": [
+      {
+        "text": "Identifying who was responsible for an attack",
+        "note": ""
+      },
+      {
+        "text": "Assigning a ticket number",
+        "note": "Not attribution."
+      },
+      {
+        "text": "Granting permissions to the investigators",
+        "note": "Not attribution."
+      },
+      {
+        "text": "Labeling evidence files as confidential",
+        "note": "Not attribution."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Attribution is often difficult and uncertain."
+  },
+  {
+    "id": 83,
+    "domain": "D5",
+    "scenario": "Which source helps determine when suspicious activity started on a server?",
+    "options": [
+      {
+        "text": "Time-stamped system logs",
+        "note": ""
+      },
+      {
+        "text": "The server's paint color",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The rack's serial number",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The cable length",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Synchronized clocks (NTP) make log timelines accurate."
+  }
+]

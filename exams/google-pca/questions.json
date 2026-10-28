@@ -1,0 +1,2202 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "A retailer's web app has unpredictable traffic spikes and the team wants to avoid managing servers. Which compute option fits best?",
+    "options": [
+      {
+        "text": "Cloud Run with autoscaling",
+        "note": ""
+      },
+      {
+        "text": "A fixed fleet of large Compute Engine VMs sized for peak",
+        "note": "Wastes money off-peak."
+      },
+      {
+        "text": "Sole-tenant nodes",
+        "note": "Dedicated hardware, more management."
+      },
+      {
+        "text": "Bare Metal Solution",
+        "note": "Specialized workloads."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud Run scales to zero and handles bursts without capacity planning."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "A company must run a legacy app that needs a specific kernel module and full OS control. Which compute option fits?",
+    "options": [
+      {
+        "text": "Compute Engine VMs",
+        "note": ""
+      },
+      {
+        "text": "Cloud Run",
+        "note": "No kernel-level control."
+      },
+      {
+        "text": "Cloud Run functions",
+        "note": "Event-driven code only."
+      },
+      {
+        "text": "App Engine standard",
+        "note": "Sandboxed runtimes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IaaS provides the most control over the operating system."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "A global e-commerce platform needs a relational database with strong consistency across continents. What should be chosen?",
+    "options": [
+      {
+        "text": "Spanner (multi-region configuration)",
+        "note": ""
+      },
+      {
+        "text": "Cloud SQL with cross-region read replicas",
+        "note": "Writes go to one region; replicas lag."
+      },
+      {
+        "text": "Bigtable",
+        "note": "NoSQL, no SQL transactions across rows."
+      },
+      {
+        "text": "Firestore in Datastore mode",
+        "note": "NoSQL."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Spanner provides external consistency and up to 99.999% availability in multi-region setups."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "An IoT platform ingests millions of time-series writes per second and needs single-digit millisecond reads by key. Which database fits?",
+    "options": [
+      {
+        "text": "Bigtable",
+        "note": ""
+      },
+      {
+        "text": "Cloud SQL for PostgreSQL",
+        "note": "Write throughput limits."
+      },
+      {
+        "text": "BigQuery",
+        "note": "Analytics, not low-latency serving."
+      },
+      {
+        "text": "Memorystore alone",
+        "note": "In-memory cache without durable storage at this scale."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Design row keys to avoid hotspots, e.g., by not leading with timestamps."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "Which database best fits a PostgreSQL app needing high transactional performance plus fast analytical queries on the same data?",
+    "options": [
+      {
+        "text": "AlloyDB for PostgreSQL",
+        "note": ""
+      },
+      {
+        "text": "Firestore",
+        "note": "Document database."
+      },
+      {
+        "text": "Bigtable",
+        "note": "Wide-column NoSQL."
+      },
+      {
+        "text": "Cloud Storage with external tables",
+        "note": "Not transactional."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AlloyDB includes a columnar engine for analytics."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "A team wants a disaster recovery design with an RTO of minutes and RPO near zero for a Cloud SQL database. What's best?",
+    "options": [
+      {
+        "text": "Cloud SQL Enterprise Plus with cross-region replica and failover",
+        "note": ""
+      },
+      {
+        "text": "Nightly exports to Cloud Storage in the same region",
+        "note": "High RPO and same-region risk."
+      },
+      {
+        "text": "Weekly backups copied to a multi-region Cloud Storage bucket",
+        "note": "RPO of up to a week."
+      },
+      {
+        "text": "A single-zone instance",
+        "note": "No HA or DR."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Choose DR patterns based on RTO/RPO: backup/restore, pilot light, warm standby or multi-region active."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Which load balancer should front a global HTTPS application with backends in several regions?",
+    "options": [
+      {
+        "text": "Global external Application Load Balancer",
+        "note": ""
+      },
+      {
+        "text": "Regional internal Application Load Balancer",
+        "note": "Internal, regional."
+      },
+      {
+        "text": "Internal passthrough Network Load Balancer",
+        "note": "Internal Layer 4."
+      },
+      {
+        "text": "Regional external passthrough Network Load Balancer",
+        "note": "Regional Layer 4."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Add Cloud CDN and Cloud Armor to the same load balancer."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "A media company wants to cut egress costs and latency for static video segments worldwide. What should be added?",
+    "options": [
+      {
+        "text": "Cloud CDN (or Media CDN) in front of the origin",
+        "note": ""
+      },
+      {
+        "text": "More web server VMs in the origin region",
+        "note": "Doesn't reduce distance."
+      },
+      {
+        "text": "A multi-region Cloud Storage bucket without a CDN",
+        "note": "Still served from storage locations, not edge caches."
+      },
+      {
+        "text": "Cloud NAT",
+        "note": "Outbound internet for VMs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Media CDN is designed for large-scale streaming."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which storage option suits petabytes of rarely accessed archival data that must be kept for compliance?",
+    "options": [
+      {
+        "text": "Cloud Storage Archive class with a retention policy",
+        "note": ""
+      },
+      {
+        "text": "Persistent Disk snapshots stored in a multi-region location",
+        "note": "Not meant for archives."
+      },
+      {
+        "text": "Filestore Enterprise shares",
+        "note": "Costly file storage."
+      },
+      {
+        "text": "Memorystore",
+        "note": "Volatile memory."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Bucket Lock makes retention policies immutable."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "A company wants to migrate VMware VMs to Google Cloud quickly without refactoring. What fits?",
+    "options": [
+      {
+        "text": "Google Cloud VMware Engine",
+        "note": ""
+      },
+      {
+        "text": "Rewrite apps for Cloud Run",
+        "note": "Major refactor."
+      },
+      {
+        "text": "Convert all apps to Cloud Run functions",
+        "note": "Refactor."
+      },
+      {
+        "text": "Bigtable",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Migrate to Virtual Machines can also convert VMs to Compute Engine."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "Which tool helps discover on-premises assets, estimate TCO and plan migration waves?",
+    "options": [
+      {
+        "text": "Migration Center",
+        "note": ""
+      },
+      {
+        "text": "Cloud Asset Inventory",
+        "note": "Google Cloud resources only."
+      },
+      {
+        "text": "Security Command Center",
+        "note": "Security posture."
+      },
+      {
+        "text": "Cloud Billing reports",
+        "note": "Existing spend."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Migration Center provides rightsizing and cost estimates."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "A team wants to build an enterprise AI agent grounded in company documents with minimal custom code. What should they use?",
+    "options": [
+      {
+        "text": "Agent Studio and Agent Search on Gemini Enterprise Agent Platform",
+        "note": ""
+      },
+      {
+        "text": "A custom LLM trained from scratch on GKE",
+        "note": "Costly and slow."
+      },
+      {
+        "text": "Cloud SQL full-text search only",
+        "note": "Not an agent."
+      },
+      {
+        "text": "BigQuery full-text search with scheduled queries",
+        "note": "Search only; no agent or grounding."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Agent Search (formerly Vertex AI Search) provides retrieval for grounding."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "Which Google Cloud framework provides best practices across operational excellence, security, reliability, cost and performance?",
+    "options": [
+      {
+        "text": "Google Cloud Well-Architected Framework",
+        "note": ""
+      },
+      {
+        "text": "Cloud Adoption Framework only",
+        "note": "Adoption maturity."
+      },
+      {
+        "text": "Site Reliability Workbook alone",
+        "note": "SRE practices."
+      },
+      {
+        "text": "ITIL service management processes",
+        "note": "IT service management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It also includes sustainability and AI/ML perspectives."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Which architecture pattern decouples services so a slow consumer doesn't block producers?",
+    "options": [
+      {
+        "text": "Asynchronous messaging with Pub/Sub",
+        "note": ""
+      },
+      {
+        "text": "Synchronous chained REST calls",
+        "note": "Tight coupling."
+      },
+      {
+        "text": "Shared database writes between services",
+        "note": "Coupled."
+      },
+      {
+        "text": "A single monolithic VM",
+        "note": "Coupled."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Event-driven designs improve resilience and scalability."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "A workload needs GPUs for training large models with high-speed interconnects. Which offering helps?",
+    "options": [
+      {
+        "text": "AI Hypercomputer (GPU or TPU clusters)",
+        "note": ""
+      },
+      {
+        "text": "Cloud Run without GPUs",
+        "note": "Not suited."
+      },
+      {
+        "text": "Spot VMs with a single GPU each",
+        "note": "No high-speed interconnect for large training."
+      },
+      {
+        "text": "Cloud Run with GPUs for every training step",
+        "note": "Suited to inference, not large distributed training."
+      }
+    ],
+    "answer": 0,
+    "explanation": "TPUs are Google's custom AI accelerators."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "Which design improves availability for a regional application at the lowest complexity?",
+    "options": [
+      {
+        "text": "Spread instances across multiple zones with a regional MIG",
+        "note": ""
+      },
+      {
+        "text": "Use one very large VM",
+        "note": "Single point of failure."
+      },
+      {
+        "text": "Place all VMs in one zone",
+        "note": "Zone outage risk."
+      },
+      {
+        "text": "Use a zonal MIG with autoscaling",
+        "note": "Still exposed to a zone outage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Regional managed instance groups distribute VMs across zones."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "A company needs its data to stay in Germany. Which design choice is essential?",
+    "options": [
+      {
+        "text": "Deploy in a German region and enforce location with organization policy",
+        "note": ""
+      },
+      {
+        "text": "Use multi-region US buckets",
+        "note": "Data leaves Germany."
+      },
+      {
+        "text": "Rely on default global settings",
+        "note": "May store elsewhere."
+      },
+      {
+        "text": "Encrypt data with CMEK and store it in any region",
+        "note": "Encryption doesn't satisfy residency."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sovereign cloud offerings add further controls."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "Which API management platform helps expose backend services securely to partners with quotas and analytics?",
+    "options": [
+      {
+        "text": "Apigee",
+        "note": ""
+      },
+      {
+        "text": "Cloud NAT",
+        "note": "Networking."
+      },
+      {
+        "text": "Cloud DNS",
+        "note": "Name resolution."
+      },
+      {
+        "text": "Memorystore",
+        "note": "Caching."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Apigee also supports API monetization and developer portals."
+  },
+  {
+    "id": 19,
+    "domain": "D1",
+    "scenario": "Which choice reduces cost for a batch analytics workload that can tolerate interruptions?",
+    "options": [
+      {
+        "text": "Spot VMs with checkpointing",
+        "note": ""
+      },
+      {
+        "text": "Committed use discounts for 3 years",
+        "note": "For steady workloads."
+      },
+      {
+        "text": "Sole-tenant nodes",
+        "note": "More expensive."
+      },
+      {
+        "text": "Standard VMs with no autoscaling",
+        "note": "Full price."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Design jobs to restart from checkpoints after preemption."
+  },
+  {
+    "id": 20,
+    "domain": "D1",
+    "scenario": "A team needs a fully managed Kubernetes environment where Google manages nodes and security hardening. What fits?",
+    "options": [
+      {
+        "text": "GKE Autopilot",
+        "note": ""
+      },
+      {
+        "text": "Self-managed Kubernetes on Compute Engine",
+        "note": "You manage everything."
+      },
+      {
+        "text": "GKE Standard with manual node pools",
+        "note": "You manage nodes."
+      },
+      {
+        "text": "Cloud Run functions",
+        "note": "Not Kubernetes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Autopilot bills per pod resource requests."
+  },
+  {
+    "id": 21,
+    "domain": "D1",
+    "scenario": "Which storage service gives high-performance managed file shares for HPC workloads on Google Cloud?",
+    "options": [
+      {
+        "text": "Google Cloud Managed Lustre",
+        "note": ""
+      },
+      {
+        "text": "Cloud Storage Standard class",
+        "note": "Object storage."
+      },
+      {
+        "text": "Bigtable",
+        "note": "Database."
+      },
+      {
+        "text": "Firestore",
+        "note": "Database."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Filestore and NetApp Volumes serve general NFS/SMB workloads."
+  },
+  {
+    "id": 22,
+    "domain": "D1",
+    "scenario": "Which approach makes an architecture cost-efficient for variable demand?",
+    "options": [
+      {
+        "text": "Use autoscaling and pay-per-use managed services",
+        "note": ""
+      },
+      {
+        "text": "Provision for peak load all year",
+        "note": "Wastes money."
+      },
+      {
+        "text": "Use the largest machine types everywhere",
+        "note": "Overprovisioned."
+      },
+      {
+        "text": "Buy committed use discounts for peak capacity",
+        "note": "Commits to unused capacity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "FinOps practices align spending with business value."
+  },
+  {
+    "id": 23,
+    "domain": "D2",
+    "scenario": "Several teams need their own projects but a central network team must control subnets and firewall policy. What design fits?",
+    "options": [
+      {
+        "text": "Shared VPC with a host project and service projects",
+        "note": ""
+      },
+      {
+        "text": "A separate auto mode VPC per project",
+        "note": "Decentralized."
+      },
+      {
+        "text": "VPC peering between every project pair",
+        "note": "Hard to manage; not transitive."
+      },
+      {
+        "text": "Public IPs on all VMs",
+        "note": "Insecure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Network admins manage the host project; teams deploy in service projects."
+  },
+  {
+    "id": 24,
+    "domain": "D2",
+    "scenario": "A company needs a dedicated 10 Gbps private connection from its data center to Google Cloud. What should be used?",
+    "options": [
+      {
+        "text": "Dedicated Interconnect",
+        "note": ""
+      },
+      {
+        "text": "HA VPN only",
+        "note": "Over the internet, lower throughput per tunnel."
+      },
+      {
+        "text": "Partner Interconnect at 50 Mbps",
+        "note": "Too little bandwidth for this need."
+      },
+      {
+        "text": "Direct Peering with Google",
+        "note": "Reaches Google public services, not your VPC."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Partner Interconnect suits lower bandwidth or locations without colocation."
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "scenario": "Which option privately connects consumers to a managed service in another VPC without peering?",
+    "options": [
+      {
+        "text": "Private Service Connect",
+        "note": ""
+      },
+      {
+        "text": "Cloud NAT",
+        "note": "Outbound internet."
+      },
+      {
+        "text": "Public IPs with firewall rules",
+        "note": "Exposes the service."
+      },
+      {
+        "text": "Cloud DNS forwarding only",
+        "note": "Name resolution."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PSC uses endpoints with internal IP addresses."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "VMs without external IPs need to access Google APIs privately. What's the simplest setting?",
+    "options": [
+      {
+        "text": "Enable Private Google Access on the subnet",
+        "note": ""
+      },
+      {
+        "text": "Assign public IPs to every VM",
+        "note": "Defeats the goal."
+      },
+      {
+        "text": "Create a VPN to Google APIs",
+        "note": "Not needed."
+      },
+      {
+        "text": "Route API traffic through Cloud NAT",
+        "note": "Uses the internet path."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Private Service Connect endpoints are another option for Google APIs."
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "scenario": "Which tool should be used to provision infrastructure consistently across environments?",
+    "options": [
+      {
+        "text": "Terraform (directly or via Infrastructure Manager)",
+        "note": ""
+      },
+      {
+        "text": "Manual console clicks documented in a wiki",
+        "note": "Error-prone."
+      },
+      {
+        "text": "Cloud Shell history",
+        "note": "Not repeatable."
+      },
+      {
+        "text": "Spreadsheets",
+        "note": "Not provisioning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Store IaC in version control and deploy through CI/CD."
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "scenario": "Which approach lets developers quickly create standard, approved environments themselves?",
+    "options": [
+      {
+        "text": "Application Design Center templates or IaC modules",
+        "note": ""
+      },
+      {
+        "text": "Give everyone Owner on the organization",
+        "note": "Too broad."
+      },
+      {
+        "text": "Email requests to the network team for every change",
+        "note": "Slow."
+      },
+      {
+        "text": "Share one project for all teams",
+        "note": "Hard to govern."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Platform engineering provides golden paths for developers."
+  },
+  {
+    "id": 29,
+    "domain": "D2",
+    "scenario": "A GKE cluster must keep pods from reaching each other unless explicitly allowed. What should be configured?",
+    "options": [
+      {
+        "text": "Kubernetes network policies",
+        "note": ""
+      },
+      {
+        "text": "Separate node pools per app",
+        "note": "Doesn't block pod traffic."
+      },
+      {
+        "text": "Firewall rules on the node pool's VMs",
+        "note": "Coarse; doesn't control pod-to-pod traffic in the cluster."
+      },
+      {
+        "text": "Node auto-upgrade",
+        "note": "Upgrades."
+      }
+    ],
+    "answer": 0,
+    "explanation": "GKE Dataplane V2 enforces network policies with eBPF."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "Which storage choice suits a stateful GKE workload needing a regional, replicated block volume?",
+    "options": [
+      {
+        "text": "Regional Persistent Disk (or Hyperdisk Balanced HA)",
+        "note": ""
+      },
+      {
+        "text": "Local SSD with a StatefulSet",
+        "note": "Ephemeral, node-local."
+      },
+      {
+        "text": "emptyDir volume",
+        "note": "Deleted with the pod."
+      },
+      {
+        "text": "A Cloud Storage bucket as a block device",
+        "note": "Not block storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Regional disks replicate synchronously across two zones."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "Which Compute Engine feature reduces boot disk management for many VMs by using a common image?",
+    "options": [
+      {
+        "text": "Custom images in an image family",
+        "note": ""
+      },
+      {
+        "text": "Manually installing each VM",
+        "note": "Inconsistent."
+      },
+      {
+        "text": "Using community images from unknown publishers",
+        "note": "Untrusted."
+      },
+      {
+        "text": "Copying disks with dd per VM",
+        "note": "Manual."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Image families point to the latest image for consistent deployments."
+  },
+  {
+    "id": 32,
+    "domain": "D2",
+    "scenario": "Which DNS design allows on-premises systems to resolve names of private Google Cloud resources?",
+    "options": [
+      {
+        "text": "Cloud DNS inbound server policy (forwarding)",
+        "note": ""
+      },
+      {
+        "text": "Public Cloud DNS zones with private IPs",
+        "note": "Exposes internal names publicly."
+      },
+      {
+        "text": "Editing hosts files on every server",
+        "note": "Not scalable."
+      },
+      {
+        "text": "Cloud NAT",
+        "note": "Not DNS."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Outbound forwarding zones resolve on-premises names from Google Cloud."
+  },
+  {
+    "id": 33,
+    "domain": "D2",
+    "scenario": "Which configuration supports high availability for HA VPN to on-premises?",
+    "options": [
+      {
+        "text": "Two tunnels from an HA VPN gateway with Cloud Router and BGP",
+        "note": ""
+      },
+      {
+        "text": "One tunnel with static routes",
+        "note": "No HA SLA."
+      },
+      {
+        "text": "Classic VPN with two gateways and static routes",
+        "note": "Lower SLA; deprecated for new HA designs."
+      },
+      {
+        "text": "Cloud CDN",
+        "note": "Caching."
+      }
+    ],
+    "answer": 0,
+    "explanation": "This configuration supports a 99.99% SLA."
+  },
+  {
+    "id": 34,
+    "domain": "D2",
+    "scenario": "A team wants serverless containers to reach resources in a VPC. What should be configured?",
+    "options": [
+      {
+        "text": "Direct VPC egress (or a Serverless VPC Access connector)",
+        "note": ""
+      },
+      {
+        "text": "Public IPs on the database",
+        "note": "Exposes the database."
+      },
+      {
+        "text": "Private Google Access on the subnet",
+        "note": "For VMs reaching Google APIs."
+      },
+      {
+        "text": "Cloud NAT on the VPC",
+        "note": "Outbound internet for VMs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Direct VPC egress avoids managing connector instances."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "Which approach supports blue/green deployments for GKE workloads with minimal risk?",
+    "options": [
+      {
+        "text": "Deploy a new version alongside the old one and shift traffic via the load balancer or Gateway API",
+        "note": ""
+      },
+      {
+        "text": "Update all pods in place at once",
+        "note": "Risky."
+      },
+      {
+        "text": "Delete the cluster and recreate it",
+        "note": "Downtime."
+      },
+      {
+        "text": "Edit containers manually",
+        "note": "Error-prone."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud Deploy supports canary and blue/green strategies."
+  },
+  {
+    "id": 36,
+    "domain": "D2",
+    "scenario": "Which service centrally manages releases to GKE and Cloud Run with promotion between environments?",
+    "options": [
+      {
+        "text": "Cloud Deploy",
+        "note": ""
+      },
+      {
+        "text": "Cloud Scheduler",
+        "note": "Jobs."
+      },
+      {
+        "text": "Cloud Logging",
+        "note": "Logs."
+      },
+      {
+        "text": "Cloud DNS",
+        "note": "Domains."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Approvals can gate production promotion."
+  },
+  {
+    "id": 37,
+    "domain": "D2",
+    "scenario": "A company needs to connect many VPCs and on-premises sites with a hub-and-spoke model. What should be used?",
+    "options": [
+      {
+        "text": "Network Connectivity Center",
+        "note": ""
+      },
+      {
+        "text": "Full-mesh VPC peering",
+        "note": "Doesn't scale; not transitive."
+      },
+      {
+        "text": "Shared VPC across all projects",
+        "note": "One network, not hub-and-spoke between VPCs."
+      },
+      {
+        "text": "HA VPN tunnels between every pair of VPCs",
+        "note": "Mesh, hard to scale."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Network Connectivity Center also supports SD-WAN integrations."
+  },
+  {
+    "id": 38,
+    "domain": "D2",
+    "scenario": "Which machine family is best for memory-intensive databases like SAP HANA?",
+    "options": [
+      {
+        "text": "Memory-optimized (M-series)",
+        "note": ""
+      },
+      {
+        "text": "E2 shared-core",
+        "note": "Small general workloads."
+      },
+      {
+        "text": "Compute-optimized (C2) with small memory",
+        "note": "CPU-focused."
+      },
+      {
+        "text": "Accelerator-optimized (A3)",
+        "note": "GPUs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Choose machine families by workload profile."
+  },
+  {
+    "id": 39,
+    "domain": "D3",
+    "scenario": "A healthcare company must prevent patient data in BigQuery from being copied to projects outside its perimeter. What should it use?",
+    "options": [
+      {
+        "text": "VPC Service Controls",
+        "note": ""
+      },
+      {
+        "text": "Cloud Armor security policies",
+        "note": "Web traffic."
+      },
+      {
+        "text": "Firewall rules only",
+        "note": "Don't apply to Google APIs."
+      },
+      {
+        "text": "IAM deny policies on the dataset",
+        "note": "Blocks principals, not data copied by authorized users."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Combine with IAM and organization policies for defense in depth."
+  },
+  {
+    "id": 40,
+    "domain": "D3",
+    "scenario": "Applications on AWS must call Google Cloud APIs without long-lived keys. What should be designed?",
+    "options": [
+      {
+        "text": "Workload Identity Federation",
+        "note": ""
+      },
+      {
+        "text": "Service account keys stored in AWS",
+        "note": "Long-lived keys."
+      },
+      {
+        "text": "Shared user accounts",
+        "note": "Insecure."
+      },
+      {
+        "text": "Public APIs without auth",
+        "note": "Insecure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Federation exchanges external credentials for short-lived tokens."
+  },
+  {
+    "id": 41,
+    "domain": "D3",
+    "scenario": "Employees need secure access to internal web apps without a VPN. Which approach fits zero trust?",
+    "options": [
+      {
+        "text": "Identity-Aware Proxy with Chrome Enterprise Premium context-aware access",
+        "note": ""
+      },
+      {
+        "text": "Open the apps to the internet with passwords",
+        "note": "Insecure."
+      },
+      {
+        "text": "A flat network with no checks",
+        "note": "Not zero trust."
+      },
+      {
+        "text": "IP allowlists on the load balancer",
+        "note": "Network-based trust."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Access decisions use identity and device context."
+  },
+  {
+    "id": 42,
+    "domain": "D3",
+    "scenario": "A financial firm must hold encryption keys outside Google Cloud. What option fits?",
+    "options": [
+      {
+        "text": "Cloud External Key Manager (EKM)",
+        "note": ""
+      },
+      {
+        "text": "Google default encryption",
+        "note": "Google-managed keys."
+      },
+      {
+        "text": "Cloud KMS software keys only",
+        "note": "Keys inside Google."
+      },
+      {
+        "text": "Customer-supplied encryption keys for every service",
+        "note": "Limited service support, keys still provided to Google per request."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud HSM provides FIPS 140-2 Level 3 hardware keys inside Google Cloud."
+  },
+  {
+    "id": 43,
+    "domain": "D3",
+    "scenario": "Which service discovers and de-identifies sensitive data like national IDs across storage and BigQuery?",
+    "options": [
+      {
+        "text": "Sensitive Data Protection",
+        "note": ""
+      },
+      {
+        "text": "Cloud Trace",
+        "note": "Latency."
+      },
+      {
+        "text": "Knowledge Catalog data profiling",
+        "note": "Profiles data but doesn't de-identify."
+      },
+      {
+        "text": "Cloud KMS with CMEK",
+        "note": "Encrypts storage; data is still readable to users."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Techniques include masking, tokenization and format-preserving encryption."
+  },
+  {
+    "id": 44,
+    "domain": "D3",
+    "scenario": "Which control prevents anyone from creating service account keys across the organization?",
+    "options": [
+      {
+        "text": "Organization policy constraint iam.disableServiceAccountKeyCreation",
+        "note": ""
+      },
+      {
+        "text": "An IAM deny policy on each project",
+        "note": "Possible but harder to manage than one org constraint."
+      },
+      {
+        "text": "A Cloud Billing budget",
+        "note": "Costs."
+      },
+      {
+        "text": "A VPC peering connection",
+        "note": "Network."
+      }
+    ],
+    "answer": 0,
+    "explanation": "New organizations have this constraint enforced by default."
+  },
+  {
+    "id": 45,
+    "domain": "D3",
+    "scenario": "Which product protects generative AI apps from prompt injection and sensitive data leaks?",
+    "options": [
+      {
+        "text": "Model Armor",
+        "note": ""
+      },
+      {
+        "text": "Cloud NAT",
+        "note": "Networking."
+      },
+      {
+        "text": "Cloud Armor WAF rules",
+        "note": "Web attacks, not LLM prompts."
+      },
+      {
+        "text": "Sensitive Data Protection",
+        "note": "Finds sensitive data, but not prompt attacks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Model Armor screens prompts and responses."
+  },
+  {
+    "id": 46,
+    "domain": "D3",
+    "scenario": "Which service only allows signed, trusted container images to deploy to GKE or Cloud Run?",
+    "options": [
+      {
+        "text": "Binary Authorization",
+        "note": ""
+      },
+      {
+        "text": "Artifact Registry cleanup policies",
+        "note": "Storage management."
+      },
+      {
+        "text": "Cloud Build triggers",
+        "note": "Builds."
+      },
+      {
+        "text": "Cloud Deploy approvals",
+        "note": "Release approvals."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Attestations prove images passed required checks."
+  },
+  {
+    "id": 47,
+    "domain": "D3",
+    "scenario": "Which design gives administrators time-bound elevated access with approval?",
+    "options": [
+      {
+        "text": "Privileged Access Manager",
+        "note": ""
+      },
+      {
+        "text": "Permanent Owner role grants",
+        "note": "Excessive."
+      },
+      {
+        "text": "Shared admin accounts",
+        "note": "No accountability."
+      },
+      {
+        "text": "Disabled audit logs",
+        "note": "No visibility."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Just-in-time access reduces standing privileges."
+  },
+  {
+    "id": 48,
+    "domain": "D3",
+    "scenario": "Which service gives a central view of security posture, threats and vulnerabilities across the organization?",
+    "options": [
+      {
+        "text": "Security Command Center",
+        "note": ""
+      },
+      {
+        "text": "Cloud Monitoring",
+        "note": "Operations metrics."
+      },
+      {
+        "text": "Cloud Logging",
+        "note": "Logs."
+      },
+      {
+        "text": "Google Threat Intelligence",
+        "note": "Threat data, not your posture."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Premium and Enterprise tiers add threat detection and attack path simulation."
+  },
+  {
+    "id": 49,
+    "domain": "D3",
+    "scenario": "A company must prove regulatory compliance with controls for a specific region and framework. What helps?",
+    "options": [
+      {
+        "text": "Assured Workloads",
+        "note": ""
+      },
+      {
+        "text": "Organization Policy Service alone",
+        "note": "Constraints, but not full compliance packages."
+      },
+      {
+        "text": "Cloud Run",
+        "note": "Containers."
+      },
+      {
+        "text": "VPC Service Controls only",
+        "note": "Data perimeters, not compliance regimes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Assured Workloads enforces data residency and personnel access controls."
+  },
+  {
+    "id": 50,
+    "domain": "D3",
+    "scenario": "Which logs record Google personnel's access to customer content?",
+    "options": [
+      {
+        "text": "Access Transparency logs",
+        "note": ""
+      },
+      {
+        "text": "VPC Flow Logs",
+        "note": "Network flows."
+      },
+      {
+        "text": "Firewall Rules Logging",
+        "note": "Firewall hits."
+      },
+      {
+        "text": "Admin Activity audit logs",
+        "note": "Record your own admins' actions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Access Approval lets customers approve such access first."
+  },
+  {
+    "id": 51,
+    "domain": "D3",
+    "scenario": "Which principle should IAM design follow for workloads?",
+    "options": [
+      {
+        "text": "One service account per workload with least-privilege roles",
+        "note": ""
+      },
+      {
+        "text": "One shared service account with Editor for everything",
+        "note": "Too broad."
+      },
+      {
+        "text": "User accounts for workloads",
+        "note": "Not designed for automation."
+      },
+      {
+        "text": "Basic roles on the organization",
+        "note": "Too broad."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use IAM Recommender to remove unused permissions."
+  },
+  {
+    "id": 52,
+    "domain": "D3",
+    "scenario": "Which service protects public web apps against OWASP Top 10 attacks and DDoS at the edge?",
+    "options": [
+      {
+        "text": "Cloud Armor",
+        "note": ""
+      },
+      {
+        "text": "Cloud NAT",
+        "note": "Outbound internet."
+      },
+      {
+        "text": "Cloud Next Generation Firewall",
+        "note": "VPC traffic, not web exploits at the edge."
+      },
+      {
+        "text": "Identity-Aware Proxy",
+        "note": "Controls who can reach apps."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Adaptive Protection uses ML to detect Layer 7 attacks."
+  },
+  {
+    "id": 53,
+    "domain": "D3",
+    "scenario": "Which design stores database passwords and API keys securely for apps?",
+    "options": [
+      {
+        "text": "Secret Manager with IAM-controlled access",
+        "note": ""
+      },
+      {
+        "text": "Environment variables in source control",
+        "note": "Exposed."
+      },
+      {
+        "text": "Instance metadata",
+        "note": "Readable by many."
+      },
+      {
+        "text": "Cloud KMS keys used as passwords",
+        "note": "KMS manages encryption keys, not app secrets."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Rotate secrets and pin versions in apps."
+  },
+  {
+    "id": 54,
+    "domain": "D4",
+    "scenario": "Executives want to cut cloud costs without hurting performance. What's the best first step?",
+    "options": [
+      {
+        "text": "Review rightsizing and idle resource recommendations",
+        "note": ""
+      },
+      {
+        "text": "Shut down production at night",
+        "note": "Breaks the business."
+      },
+      {
+        "text": "Buy 3-year commitments for all resources",
+        "note": "Risky without analysis."
+      },
+      {
+        "text": "Delete monitoring to save logging costs",
+        "note": "Hides problems."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Active Assist recommenders identify idle VMs, disks and IPs."
+  },
+  {
+    "id": 55,
+    "domain": "D4",
+    "scenario": "A company's VM fleet runs at steady usage 24/7. Which pricing option reduces cost most predictably?",
+    "options": [
+      {
+        "text": "Committed use discounts",
+        "note": ""
+      },
+      {
+        "text": "Spot VMs for the whole fleet",
+        "note": "Can be preempted."
+      },
+      {
+        "text": "On-demand only",
+        "note": "No discount."
+      },
+      {
+        "text": "Free tier",
+        "note": "Too small."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Flexible (spend-based) commitments apply across machine families."
+  },
+  {
+    "id": 56,
+    "domain": "D4",
+    "scenario": "Which practice aligns cloud spend with business value through shared responsibility for costs?",
+    "options": [
+      {
+        "text": "FinOps",
+        "note": ""
+      },
+      {
+        "text": "Waterfall project management",
+        "note": "Unrelated."
+      },
+      {
+        "text": "ITIL incident management",
+        "note": "Operations."
+      },
+      {
+        "text": "Shadow IT",
+        "note": "Unmanaged spend."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use labels, budgets and billing exports to show teams their costs."
+  },
+  {
+    "id": 57,
+    "domain": "D4",
+    "scenario": "A business process requires a human to approve AI-generated insurance claim decisions. What design principle is this?",
+    "options": [
+      {
+        "text": "Human-in-the-loop review",
+        "note": ""
+      },
+      {
+        "text": "Full automation without review",
+        "note": "Riskier for high-stakes decisions."
+      },
+      {
+        "text": "Batch processing",
+        "note": "Timing, not oversight."
+      },
+      {
+        "text": "Data residency",
+        "note": "Location."
+      }
+    ],
+    "answer": 0,
+    "explanation": "High-impact AI decisions benefit from human oversight."
+  },
+  {
+    "id": 58,
+    "domain": "D4",
+    "scenario": "Which approach helps the team adopt cloud skills and change processes successfully?",
+    "options": [
+      {
+        "text": "Training, a cloud center of excellence and clear ownership",
+        "note": ""
+      },
+      {
+        "text": "Buy tools and skip training",
+        "note": "Slows adoption."
+      },
+      {
+        "text": "Keep all old processes unchanged",
+        "note": "Limits benefits."
+      },
+      {
+        "text": "Centralize every decision with one person to keep control",
+        "note": "Bottleneck."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Change management is as important as technology."
+  },
+  {
+    "id": 59,
+    "domain": "D4",
+    "scenario": "Which metric best measures whether a migration improved developer velocity?",
+    "options": [
+      {
+        "text": "Deployment frequency and lead time for changes (DORA)",
+        "note": ""
+      },
+      {
+        "text": "Number of VMs migrated per week",
+        "note": "Migration progress, not velocity."
+      },
+      {
+        "text": "Monthly invoice total",
+        "note": "Cost, not velocity."
+      },
+      {
+        "text": "Count of IAM roles",
+        "note": "Not velocity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DORA metrics also include change failure rate and time to restore."
+  },
+  {
+    "id": 60,
+    "domain": "D4",
+    "scenario": "A business needs to analyze customer behavior in near real time to personalize offers. Which architecture fits?",
+    "options": [
+      {
+        "text": "Pub/Sub to Dataflow to BigQuery with ML models",
+        "note": ""
+      },
+      {
+        "text": "Weekly CSV exports into spreadsheets",
+        "note": "Too slow."
+      },
+      {
+        "text": "Nightly batch loads with BigQuery ML",
+        "note": "Not near real time."
+      },
+      {
+        "text": "Manual reports",
+        "note": "Too slow."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BigQuery continuous queries can also process streams with SQL."
+  },
+  {
+    "id": 61,
+    "domain": "D4",
+    "scenario": "Which approach reduces risk when changing a critical business process to run on new cloud systems?",
+    "options": [
+      {
+        "text": "Pilot with a subset, measure, then roll out gradually",
+        "note": ""
+      },
+      {
+        "text": "Switch everything at once on a Friday",
+        "note": "High risk."
+      },
+      {
+        "text": "Skip testing to save time",
+        "note": "High risk."
+      },
+      {
+        "text": "Avoid informing stakeholders until it's done",
+        "note": "Poor change management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Define rollback plans and success criteria."
+  },
+  {
+    "id": 62,
+    "domain": "D4",
+    "scenario": "Which analysis helps decide whether to rehost, replatform or refactor each application?",
+    "options": [
+      {
+        "text": "Application portfolio assessment",
+        "note": ""
+      },
+      {
+        "text": "Choosing by alphabetical order",
+        "note": "Arbitrary."
+      },
+      {
+        "text": "Refactoring everything by default",
+        "note": "Costly."
+      },
+      {
+        "text": "Rehosting everything by default",
+        "note": "Misses benefits."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Consider business value, complexity, dependencies and licensing."
+  },
+  {
+    "id": 63,
+    "domain": "D4",
+    "scenario": "A company wants to estimate the costs of a new architecture before building it. What should be used?",
+    "options": [
+      {
+        "text": "Google Cloud Pricing Calculator",
+        "note": ""
+      },
+      {
+        "text": "Last month's invoice",
+        "note": "Existing costs only."
+      },
+      {
+        "text": "Active Assist recommendations",
+        "note": "Optimize existing resources."
+      },
+      {
+        "text": "Cloud Billing budgets",
+        "note": "Track spend after deployment."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Migration Center provides TCO estimates for migrations."
+  },
+  {
+    "id": 64,
+    "domain": "D4",
+    "scenario": "Which SRE concept balances release velocity with reliability using allowed unreliability?",
+    "options": [
+      {
+        "text": "Error budgets",
+        "note": ""
+      },
+      {
+        "text": "Change freezes forever",
+        "note": "Halts innovation."
+      },
+      {
+        "text": "Unlimited releases regardless of outages",
+        "note": "Ignores reliability."
+      },
+      {
+        "text": "Manual approvals for every commit",
+        "note": "Slows delivery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "When the error budget is spent, focus shifts to reliability work."
+  },
+  {
+    "id": 65,
+    "domain": "D4",
+    "scenario": "Which licensing consideration matters when migrating Windows Server and SQL Server workloads?",
+    "options": [
+      {
+        "text": "Bring-your-own-license rules or pay-as-you-go images",
+        "note": ""
+      },
+      {
+        "text": "Licenses never matter in the cloud",
+        "note": "They do."
+      },
+      {
+        "text": "All licenses transfer automatically",
+        "note": "Not true."
+      },
+      {
+        "text": "Licenses only matter for Linux distributions",
+        "note": "Reversed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sole-tenant nodes help with some BYOL requirements."
+  },
+  {
+    "id": 66,
+    "domain": "D4",
+    "scenario": "A team wants to quickly prototype gen AI features without managing models. What's the best starting point?",
+    "options": [
+      {
+        "text": "Use Gemini models through Gemini Enterprise Agent Platform APIs",
+        "note": ""
+      },
+      {
+        "text": "Build a GPU cluster and train a model from scratch",
+        "note": "Slow and costly."
+      },
+      {
+        "text": "Hire annotators to label data first",
+        "note": "Not needed for prototypes."
+      },
+      {
+        "text": "Fine-tune an open model on GKE first",
+        "note": "Slower; not needed to prototype."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Prototype quickly, then evaluate quality, cost and safety."
+  },
+  {
+    "id": 67,
+    "domain": "D5",
+    "scenario": "Developers want a consistent, Google-managed cloud development environment with access to private resources. What fits?",
+    "options": [
+      {
+        "text": "Cloud Workstations",
+        "note": ""
+      },
+      {
+        "text": "Personal laptops with shared keys",
+        "note": "Insecure and inconsistent."
+      },
+      {
+        "text": "Cloud Scheduler",
+        "note": "Jobs."
+      },
+      {
+        "text": "Cloud CDN",
+        "note": "Caching."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud Workstations runs IDEs in managed containers inside your VPC."
+  },
+  {
+    "id": 68,
+    "domain": "D5",
+    "scenario": "Which tool helps developers emulate Google Cloud services locally for testing, like Pub/Sub and Firestore?",
+    "options": [
+      {
+        "text": "Cloud SDK emulators",
+        "note": ""
+      },
+      {
+        "text": "Production databases",
+        "note": "Risky."
+      },
+      {
+        "text": "Cloud Billing reports",
+        "note": "Costs."
+      },
+      {
+        "text": "Cloud Armor",
+        "note": "Security."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Emulators speed up development without cloud costs."
+  },
+  {
+    "id": 69,
+    "domain": "D5",
+    "scenario": "Which CI service builds containers and runs tests on each commit?",
+    "options": [
+      {
+        "text": "Cloud Build",
+        "note": ""
+      },
+      {
+        "text": "Cloud Deploy",
+        "note": "Releases to targets."
+      },
+      {
+        "text": "Cloud Scheduler",
+        "note": "Cron jobs."
+      },
+      {
+        "text": "Cloud Logging",
+        "note": "Logs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud Build can push images to Artifact Registry."
+  },
+  {
+    "id": 70,
+    "domain": "D5",
+    "scenario": "Which API style should a team choose for high-performance service-to-service communication with strict contracts?",
+    "options": [
+      {
+        "text": "gRPC",
+        "note": ""
+      },
+      {
+        "text": "FTP",
+        "note": "File transfer."
+      },
+      {
+        "text": "SMTP",
+        "note": "Email."
+      },
+      {
+        "text": "Telnet",
+        "note": "Insecure terminal."
+      }
+    ],
+    "answer": 0,
+    "explanation": "REST remains common for public APIs."
+  },
+  {
+    "id": 71,
+    "domain": "D5",
+    "scenario": "Which approach safely tests a new version with a small percentage of real users?",
+    "options": [
+      {
+        "text": "Canary deployment",
+        "note": ""
+      },
+      {
+        "text": "Big-bang release to all users",
+        "note": "High risk."
+      },
+      {
+        "text": "Deploying only on Fridays",
+        "note": "Not a strategy."
+      },
+      {
+        "text": "Testing only in production manually",
+        "note": "Risky."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Monitor error rates before increasing traffic."
+  },
+  {
+    "id": 72,
+    "domain": "D5",
+    "scenario": "Which tool helps developers write and understand code with AI assistance in their IDE?",
+    "options": [
+      {
+        "text": "Gemini Code Assist",
+        "note": ""
+      },
+      {
+        "text": "Gemini Cloud Assist",
+        "note": "Helps with cloud operations, not IDE coding."
+      },
+      {
+        "text": "Cloud DNS",
+        "note": "Domains."
+      },
+      {
+        "text": "Agent Studio",
+        "note": "Builds agents, not IDE assistance."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Gemini CLI provides AI assistance in the terminal."
+  },
+  {
+    "id": 73,
+    "domain": "D5",
+    "scenario": "A migration must move 500 TB from on premises with limited bandwidth. What's best?",
+    "options": [
+      {
+        "text": "Transfer Appliance",
+        "note": ""
+      },
+      {
+        "text": "Uploading over a small VPN",
+        "note": "Too slow."
+      },
+      {
+        "text": "Emailing files",
+        "note": "Impossible."
+      },
+      {
+        "text": "Manual USB drives per file",
+        "note": "Impractical."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Storage Transfer Service suits online transfers when bandwidth allows."
+  },
+  {
+    "id": 74,
+    "domain": "D5",
+    "scenario": "Which technique keeps APIs backward compatible when releasing changes?",
+    "options": [
+      {
+        "text": "Versioning APIs and avoiding breaking changes",
+        "note": ""
+      },
+      {
+        "text": "Renaming fields to match new conventions",
+        "note": "Breaks clients."
+      },
+      {
+        "text": "Removing endpoints without notice",
+        "note": "Breaks clients."
+      },
+      {
+        "text": "Changing response formats silently",
+        "note": "Breaks clients."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Apigee and API Gateway help manage versions."
+  },
+  {
+    "id": 75,
+    "domain": "D5",
+    "scenario": "Which practice makes infrastructure changes reviewable and auditable?",
+    "options": [
+      {
+        "text": "Pull requests for IaC with automated plan checks",
+        "note": ""
+      },
+      {
+        "text": "Console changes without records",
+        "note": "Not auditable."
+      },
+      {
+        "text": "Shared admin passwords stored in a vault",
+        "note": "Not auditable."
+      },
+      {
+        "text": "Disabling audit logs",
+        "note": "Not auditable."
+      }
+    ],
+    "answer": 0,
+    "explanation": "GitOps applies the same principle to Kubernetes."
+  },
+  {
+    "id": 76,
+    "domain": "D5",
+    "scenario": "Which service manages database schema and data migrations from Oracle to PostgreSQL-compatible databases?",
+    "options": [
+      {
+        "text": "Database Migration Service",
+        "note": ""
+      },
+      {
+        "text": "Datastream",
+        "note": "Replicates changes; doesn't convert schemas."
+      },
+      {
+        "text": "Cloud Scheduler",
+        "note": "Jobs."
+      },
+      {
+        "text": "Storage Transfer Service",
+        "note": "Copies files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Gemini can help convert code during heterogeneous migrations."
+  },
+  {
+    "id": 77,
+    "domain": "D5",
+    "scenario": "Which testing type verifies the system handles expected peak traffic before launch?",
+    "options": [
+      {
+        "text": "Load testing",
+        "note": ""
+      },
+      {
+        "text": "Unit testing only",
+        "note": "Tests small pieces."
+      },
+      {
+        "text": "Spell checking",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Code formatting",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Chaos testing checks resilience to failures."
+  },
+  {
+    "id": 78,
+    "domain": "D6",
+    "scenario": "Which metrics define user-facing reliability targets for a service?",
+    "options": [
+      {
+        "text": "SLIs measured against SLOs",
+        "note": ""
+      },
+      {
+        "text": "CPU usage of every VM",
+        "note": "Infrastructure metric."
+      },
+      {
+        "text": "Number of commits per day",
+        "note": "Velocity."
+      },
+      {
+        "text": "Error counts in application logs",
+        "note": "Raw signals, not targets."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Alert on SLO burn rate rather than every metric."
+  },
+  {
+    "id": 79,
+    "domain": "D6",
+    "scenario": "Which alerting approach reduces noise while catching real user impact?",
+    "options": [
+      {
+        "text": "Alert on SLO burn rate",
+        "note": ""
+      },
+      {
+        "text": "Alert on every warning log",
+        "note": "Too noisy."
+      },
+      {
+        "text": "Alert only monthly",
+        "note": "Too slow."
+      },
+      {
+        "text": "No alerting",
+        "note": "Misses outages."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Multi-window burn rate alerts balance speed and precision."
+  },
+  {
+    "id": 80,
+    "domain": "D6",
+    "scenario": "Which tool helps find which functions use the most CPU in production code?",
+    "options": [
+      {
+        "text": "Cloud Profiler",
+        "note": ""
+      },
+      {
+        "text": "Cloud Trace",
+        "note": "Request latency."
+      },
+      {
+        "text": "Cloud Logging",
+        "note": "Logs."
+      },
+      {
+        "text": "Cloud Asset Inventory",
+        "note": "Resources."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Profiler runs continuously with low overhead."
+  },
+  {
+    "id": 81,
+    "domain": "D6",
+    "scenario": "Which practice improves learning after incidents?",
+    "options": [
+      {
+        "text": "Blameless postmortems with action items",
+        "note": ""
+      },
+      {
+        "text": "Blaming the on-call engineer",
+        "note": "Discourages reporting."
+      },
+      {
+        "text": "Ignoring minor incidents",
+        "note": "Misses patterns."
+      },
+      {
+        "text": "Deleting incident records after resolution",
+        "note": "Loses learning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Track action items to completion."
+  },
+  {
+    "id": 82,
+    "domain": "D6",
+    "scenario": "Which tool provides a single place to manage alerts, dashboards and uptime checks?",
+    "options": [
+      {
+        "text": "Cloud Monitoring",
+        "note": ""
+      },
+      {
+        "text": "Cloud Build",
+        "note": "CI."
+      },
+      {
+        "text": "Artifact Registry",
+        "note": "Packages."
+      },
+      {
+        "text": "Cloud Scheduler",
+        "note": "Jobs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Google Cloud Observability includes Monitoring, Logging, Trace and Profiler."
+  },
+  {
+    "id": 83,
+    "domain": "D6",
+    "scenario": "Which design helps GKE workloads survive a zone outage?",
+    "options": [
+      {
+        "text": "Regional clusters with pods spread across zones",
+        "note": ""
+      },
+      {
+        "text": "Zonal clusters with one node",
+        "note": "Single point of failure."
+      },
+      {
+        "text": "Disabling health checks",
+        "note": "Hides failures."
+      },
+      {
+        "text": "Using emptyDir volumes for state",
+        "note": "Lost on restart."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pod disruption budgets protect availability during maintenance."
+  },
+  {
+    "id": 84,
+    "domain": "D6",
+    "scenario": "Which practice validates disaster recovery plans actually work?",
+    "options": [
+      {
+        "text": "Regular DR drills and restore tests",
+        "note": ""
+      },
+      {
+        "text": "Writing a plan once and never testing it",
+        "note": "Untested."
+      },
+      {
+        "text": "Assuming backups work",
+        "note": "Risky."
+      },
+      {
+        "text": "Testing only in production during peak",
+        "note": "Risky."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Measure actual RTO and RPO during drills."
+  },
+  {
+    "id": 85,
+    "domain": "D6",
+    "scenario": "Which service provides personalized notifications about Google Cloud incidents affecting your projects?",
+    "options": [
+      {
+        "text": "Personalized Service Health",
+        "note": ""
+      },
+      {
+        "text": "Cloud Status page only",
+        "note": "Public, not personalized."
+      },
+      {
+        "text": "Cloud Logging",
+        "note": "Your logs."
+      },
+      {
+        "text": "Cloud Monitoring uptime checks",
+        "note": "Check your endpoints, not Google incidents."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Integrate alerts with your incident management tools."
+  },
+  {
+    "id": 86,
+    "domain": "D6",
+    "scenario": "Which approach automates responses to common operational issues?",
+    "options": [
+      {
+        "text": "Runbooks automated with Cloud Run functions or Workflows",
+        "note": ""
+      },
+      {
+        "text": "Manual fixes every time",
+        "note": "Slow."
+      },
+      {
+        "text": "Ignoring alerts",
+        "note": "Risky."
+      },
+      {
+        "text": "Disabling noisy alerts entirely",
+        "note": "Risky."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Automation reduces toil, a key SRE goal."
+  },
+  {
+    "id": 87,
+    "domain": "D6",
+    "scenario": "Which AI assistant helps operators investigate issues and summarize logs in the Google Cloud console?",
+    "options": [
+      {
+        "text": "Gemini Cloud Assist",
+        "note": ""
+      },
+      {
+        "text": "Data Studio",
+        "note": "Reporting."
+      },
+      {
+        "text": "Error Reporting",
+        "note": "Groups errors but doesn't investigate with AI."
+      },
+      {
+        "text": "Gemini Code Assist",
+        "note": "Coding assistant in IDEs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It can help with troubleshooting and optimization recommendations."
+  },
+  {
+    "id": 88,
+    "domain": "D6",
+    "scenario": "Which technique ensures a service degrades gracefully under overload?",
+    "options": [
+      {
+        "text": "Load shedding and rate limiting",
+        "note": ""
+      },
+      {
+        "text": "Accepting every request until crash",
+        "note": "Causes outages."
+      },
+      {
+        "text": "Disabling autoscaling",
+        "note": "Reduces capacity."
+      },
+      {
+        "text": "Removing timeouts",
+        "note": "Causes resource exhaustion."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Circuit breakers and retries with backoff also help."
+  }
+]

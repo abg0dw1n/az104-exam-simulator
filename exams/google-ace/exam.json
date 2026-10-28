@@ -1,0 +1,42 @@
+{
+  "slug": "google-ace",
+  "code": "ACE",
+  "name": "Google Associate Cloud Engineer",
+  "vendor": "Google Cloud",
+  "domains": {
+    "D1": {
+      "name": "Setting up a cloud solution environment",
+      "weight": "~20%",
+      "pct": 20
+    },
+    "D2": {
+      "name": "Planning and implementing a cloud solution",
+      "weight": "~30%",
+      "pct": 30
+    },
+    "D3": {
+      "name": "Ensuring successful operation",
+      "weight": "~30%",
+      "pct": 30
+    },
+    "D4": {
+      "name": "Configuring access and security",
+      "weight": "~20%",
+      "pct": 20
+    }
+  },
+  "scoring": {
+    "min": 0,
+    "max": 100,
+    "pass": 70
+  },
+  "minutesPerQuestion": 2,
+  "defaultSize": 50,
+  "sizeOptions": [
+    20,
+    35,
+    50
+  ],
+  "realExamNote": "Based on the exam guide in effect from June 30, 2026. The real exam has 50–60 questions in 2 hours.",
+  "scoreNote": "Google doesn't publish a passing score, so 70% is used here as a readiness target."
+}
