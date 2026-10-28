@@ -92,7 +92,7 @@ code {
 .brand > div { display: grid; gap: 3px; }
 .brand h1 { font-size: 17px; font-weight: 650; letter-spacing: -.015em; white-space: nowrap; }
 .brand p { color: color-mix(in srgb, var(--muted) 88%, white 12%); font-size: 12px; }
-.brand-mark { width: 36px; height: 36px; flex: none; filter: drop-shadow(0 4px 10px rgba(0, 120, 212, .28)); }
+.brand-mark { width: 36px; height: 36px; flex: none; filter: drop-shadow(0 4px 12px rgba(47, 155, 255, .35)); }
 .topbar-actions { display: flex; align-items: center; gap: 8px; }
 .topbar .account-link { border-color: color-mix(in srgb, var(--azure) 24%, var(--border)); background: color-mix(in srgb, var(--panel-2) 78%, transparent); transition: background .15s, border-color .15s, color .15s; }
 .topbar .account-link:hover { border-color: transparent; background: var(--azure-soft); color: var(--azure-text); }
@@ -364,7 +364,6 @@ body.home .exams-link { display: none; }
   [data-vendor="google-cloud"]        { --v-soft: rgba(52,168,83,.12); --v-text: #1e7b3a; }
   [data-vendor="salesforce"]          { --v-soft: rgba(124,108,240,.12); --v-text: #4f3fc4; }
 }
-body[data-vendor] .brand-mark rect { fill: var(--v); }
 @media (max-width: 600px) { .exams-link { padding: 7px 10px; } }
 
 /* ── Sign-in & invites ──────────────────────────────── */
