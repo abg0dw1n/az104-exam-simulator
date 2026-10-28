@@ -929,7 +929,7 @@ async function renderHome() {
     <a class="panel learning-path-card" href="/${e.slug}?mode=learn" data-vendor="${vendorKey(e.vendor)}">
       <span class="learning-path-eyebrow">LEARNING PATH · ${escapeHtml(e.code)}</span>
       <h3>${escapeHtml(e.name)}</h3>
-      <p>Build understanding with a structured study guide, visual slides, and narrated video lessons.</p>
+      <p>${escapeHtml(e.learningDescription || `Structured study materials for ${e.name}, organized by exam domain.`)}</p>
       <span class="learning-path-meta"><span>One module per exam domain</span><span>Guides · slides · video</span></span>
       <span class="learning-path-action">Start learning ${icon('right', 'icon')}</span>
     </a>`).join('') : `
