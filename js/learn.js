@@ -25,6 +25,8 @@ export async function loadLearn(slug) {
 const view = () => (ctx.state.learn ||= { progress: {}, view: { module: null, tab: 'guide', slide: 0 } });
 const progressOf = (id) => (view().progress[id] ||= {});
 const moduleById = (id) => data.modules.find((m) => m.id === id);
+// Guests can open the first module only.
+const isLocked = (m) => !!ctx.guest && data.modules.indexOf(m) > 0;
 const words = (t) => t.split(/\s+/).filter(Boolean).length;
 const scriptOf = (slide) => slide.script || [];
 const minutesOf = (m) => Math.max(1, Math.round(m.slides.reduce((n, s) => n + words(scriptOf(s).join(' ')), 0) / 150));
@@ -45,12 +47,13 @@ export function renderLearn(main, context) {
   ctx = context;
   stopLearn();
   const v = view().view;
-  if (v.module && !moduleById(v.module)) v.module = null;
+  if (v.module && (!moduleById(v.module) || isLocked(moduleById(v.module)))) v.module = null;
   if (!v.module) return renderIndex(main);
   return renderModule(main, moduleById(v.module));
 }
 
 function open(moduleId, tab = 'guide') {
+  if (isLocked(moduleById(moduleId))) return;
   const v = view().view;
   v.module = moduleId; v.tab = tab; v.slide = 0;
   ctx.save();
@@ -86,6 +89,15 @@ function renderIndex(main) {
   const cards = data.modules.map((m, i) => {
     const p = progressOf(m.id); const n = done(p);
     const dom = ctx.exam.domains?.[m.id];
+    if (isLocked(m)) {
+      return `<article class="panel learn-card locked">
+      <div class="learn-card-head"><span class="learn-num">${i + 1}</span>
+        <div><h3>${esc(m.title)}</h3>${dom ? `<span class="muted small">${esc(dom.weight)} of the exam</span>` : ''}</div></div>
+      <p class="muted">${esc(m.summary)}</p>
+      <div class="learn-locked">${icon('lock')}<span>Study guide, ${m.slides.length} slides and a ~${minutesOf(m)} min video lesson. Sign in to unlock.</span></div>
+      <button class="btn btn-ghost btn-sm" data-guest-exit="signin">${icon('lock')}Sign in to unlock</button>
+    </article>`;
+    }
     return `<article class="panel learn-card">
       <div class="learn-card-head"><span class="learn-num">${i + 1}</span>
         <div><h3>${esc(m.title)}</h3>${dom ? `<span class="muted small">${esc(dom.weight)} of the exam</span>` : ''}</div></div>
@@ -101,7 +113,7 @@ function renderIndex(main) {
   main.innerHTML = `<section class="stack learn">
       <div class="stack" style="gap:6px"><h2 class="home-title">Learn ${esc(ctx.exam.code)}</h2>
       <p class="muted">${esc(data.intro || 'Work through each domain: read the study guide, flip through the slides, then watch the video lesson.')}</p></div>
-      ${studySupport()}
+      ${ctx.guest && data.modules.length > 1 ? ctx.guestCta(`Guest preview: module 1 of ${data.modules.length}.`) : studySupport()}
       <div class="learn-grid">${cards}${learningResources()}</div>
     </section>`;
   main.querySelectorAll('[data-open]').forEach((b) => b.addEventListener('click', () => open(b.dataset.open, b.dataset.tab)));
@@ -127,7 +139,9 @@ function renderModule(main, m) {
       <div id="learn-body"></div>
       <div class="learn-next">
         ${idx > 0 ? `<button class="btn btn-ghost" data-goto="${data.modules[idx - 1].id}">${icon('left')}${esc(data.modules[idx - 1].short || 'Previous module')}</button>` : '<span></span>'}
-        ${idx < data.modules.length - 1 ? `<button class="btn btn-ghost" data-goto="${data.modules[idx + 1].id}">${esc(data.modules[idx + 1].short || 'Next module')}${icon('right')}</button>` : ''}
+        ${idx < data.modules.length - 1 ? (isLocked(data.modules[idx + 1])
+          ? `<button class="btn btn-ghost" data-guest-exit="signin">${icon('lock')}Sign in for the next module</button>`
+          : `<button class="btn btn-ghost" data-goto="${data.modules[idx + 1].id}">${esc(data.modules[idx + 1].short || 'Next module')}${icon('right')}</button>`) : ''}
       </div>
     </section>`;
   main.querySelector('[data-back]').addEventListener('click', () => { stopLearn(); v.module = null; ctx.save(); renderLearn(main, ctx); });

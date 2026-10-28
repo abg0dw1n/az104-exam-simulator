@@ -165,7 +165,7 @@ Signed-in users can suggest site features from the home page ("Have an idea for 
 
 ## Guest mode
 
-The sign-in screen has **Continue as guest**. Guests can use everything except question reports, but nothing is saved to an account: progress is kept in `sessionStorage` for that tab only and is cleared when the tab closes. A banner reminds guests of this, with a link to sign in (which discards the guest progress). Guests can read the Most popular ranking but don't add views.
+The sign-in screen has **Continue as guest**. Guests get a preview: a fixed sample of 20 practice questions per exam (spread across domains by weight, `GUEST_QUESTIONS` in `js/app.js`), the first module of each learning path, and no timed exams, question reports or feature requests. Locked content shows a sign-in prompt. This is a client-side limit (the question files themselves are public). Nothing is saved to an account: progress is kept in `sessionStorage` for that tab only and is cleared when the tab closes. A banner reminds guests of this, with a link to sign in (which discards the guest progress). Guests can read the Most popular ranking but don't add views.
 
 ## Home page: Recents and Most popular
 

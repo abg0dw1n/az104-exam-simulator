@@ -244,7 +244,7 @@ function render() {
   const main = $('main');
   if (state.mode === 'learn') {
     $('navigator').hidden = true;
-    return Learn.renderLearn(main, { exam: EXAM, state, save, practiceDomain });
+    return Learn.renderLearn(main, { exam: EXAM, state, save, practiceDomain, guest: Auth.isGuest(), guestCta });
   }
   Learn.stopLearn();
   $('practice-filters').hidden = state.mode !== 'practice';
@@ -271,6 +271,9 @@ function render() {
   holder.index = Math.min(Math.max(holder.index || 0, 0), s.ids.length - 1);
   renderGrid(s);
   renderQuestion(main, s, holder.index);
+  if (Auth.isGuest() && FULL_COUNT > QUESTIONS.length) {
+    main.insertAdjacentHTML('afterbegin', guestCta(`Guest preview: ${QUESTIONS.length} of ${FULL_COUNT} questions.`));
+  }
 }
 
 function renderModeTabs() {
@@ -433,6 +436,16 @@ function renderQuestion(main, s, index) {
 
 function renderExamIntro(main) {
   renderGridEmpty();
+  if (Auth.isGuest()) {
+    main.innerHTML = `<section class="panel card-pad stack intro">
+        <div class="stack" style="gap:8px"><h2>${icon('lock')} Timed exams need an account · ${EXAM.code}</h2>
+        <p class="muted">Timed exams draw from all ${FULL_COUNT} questions, with a scaled score, domain breakdown and exam history. They're available once you sign in. Accounts are free.</p></div>
+        ${guestCta('Guests can preview practice questions and the first learning module.')}
+        <div><button class="btn btn-ghost" data-mode-go="practice">${icon('book')}Back to the practice preview</button></div>
+      </section>`;
+    main.querySelector('[data-mode-go]').addEventListener('click', () => setMode('practice'));
+    return;
+  }
   const last = state.history[0];
   main.innerHTML = `
     <section class="panel card-pad stack intro">
@@ -641,6 +654,7 @@ function pickQuestions(count) {
 }
 
 function startExam() {
+  if (Auth.isGuest()) return render();
   const count = examSize();
   const order = pickQuestions(count);
   for (const id of order) state.seen[id] = (state.seen[id] || 0) + 1;
@@ -868,9 +882,38 @@ const fetchIndex = () => (indexRequest ||= fetchJson('/exams/index.json').catch(
 const fetchBank = (slug) => Promise.all([fetchJson(`/exams/${slug}/exam.json`), fetchJson(`/exams/${slug}/questions.json`)]);
 
 // `files` is an in-flight fetchBank() started early in init(), so downloads overlap sign-in.
+// ── Guest preview limits ─────────────────────────────────────────────────────
+// Guests get a fixed sample of each bank (spread across domains by exam weight),
+// the first learning module, and no timed exams. Signing in (free) unlocks everything.
+const GUEST_QUESTIONS = 20;
+let FULL_COUNT = 0; // size of the full bank, for "20 of 198" messaging
+
+function guestSample(questions) {
+  const byDomain = {};
+  for (const q of [...questions].sort((a, b) => a.id - b.id)) (byDomain[q.domain] ||= []).push(q);
+  const keys = Object.keys(byDomain);
+  const weight = (k) => DOMAINS[k]?.pct || 1;
+  const total = keys.reduce((n, k) => n + weight(k), 0);
+  const take = Object.fromEntries(keys.map((k) => [k, Math.min(byDomain[k].length, Math.max(1, Math.floor((GUEST_QUESTIONS * weight(k)) / total)))]));
+  let left = GUEST_QUESTIONS - Object.values(take).reduce((a, b) => a + b, 0);
+  for (const k of [...keys].sort((a, b) => weight(b) - weight(a))) {
+    if (left <= 0) break;
+    if (take[k] < byDomain[k].length) { take[k]++; left--; }
+  }
+  const keep = new Set(keys.flatMap((k) => byDomain[k].slice(0, take[k]).map((q) => q.id)));
+  return questions.filter((q) => keep.has(q.id)); // same set every visit, original order
+}
+
+const guestCta = (what) => `<div class="guest-limit" role="note">
+    ${icon('lock')}<span><b>${what}</b> Sign in to unlock every question, all learning modules and timed exams, and to save your progress. Accounts are free.</span>
+    <button class="btn btn-primary btn-sm" data-guest-exit="signin">Sign in for full access</button>
+  </div>`;
+
 async function loadBank(slug, files = fetchBank(slug)) {
   [EXAM, QUESTIONS] = await files;
   DOMAINS = EXAM.domains;
+  FULL_COUNT = QUESTIONS.length;
+  if (Auth.isGuest()) QUESTIONS = guestSample(QUESTIONS);
   state = load();
   BY_ID = new Map(QUESTIONS.map((q) => [q.id, q]));
   // Drop saved references to questions that no longer exist in the bank.
@@ -1179,7 +1222,7 @@ function renderSignIn(error) {
       <div class="or"><span>or</span></div>
       <div class="guest-option">
         <button id="btn-guest" class="btn btn-ghost full" type="button">${icon('user')}Continue as guest</button>
-        <p class="small muted">${icon('alert')}<span><b>Guest progress isn't saved.</b> Answers, exam scores and learning progress are cleared when you close this tab, and can't be moved to an account later.</span></p>
+        <p class="small muted">${icon('alert')}<span><b>Guests get a preview and progress isn't saved.</b> Try ${GUEST_QUESTIONS} practice questions per exam and the first module of each learning path. Timed exams need an account. Progress is cleared when you close this tab.</span></p>
       </div>
       <p class="signin-foot"><a href="/privacy">Privacy policy</a></p>
     </section>`;
