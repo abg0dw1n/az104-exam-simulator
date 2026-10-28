@@ -382,7 +382,7 @@ body.signed-out .exams-link { display: none; }
 .or::before, .or::after { content: ""; flex: 1; height: 1px; background: var(--border); }
 .account-link { display: inline-flex; align-items: center; gap: 6px; }
 .account-link.active { background: var(--azure-soft); border-color: transparent; color: var(--azure-text); }
-body.account-page .exams-link { display: inline-flex; }
+body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; }
 .account-card { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
 .account-avatar { width: 48px; height: 48px; flex: none; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 20px; background: var(--azure-soft); color: var(--azure-text); }
 .account-who { display: grid; gap: 2px; min-width: 0; flex: 1 1 220px; overflow-wrap: anywhere; }
@@ -721,3 +721,7 @@ body.account-page .exams-link { display: inline-flex; }
 .recent-bar i { display: block; height: 100%; background: var(--v, var(--azure)); border-radius: inherit; }
 .popular-folder { --v: var(--azure); border-left-color: var(--azure); background: linear-gradient(135deg, var(--azure-soft), transparent 55%), var(--panel-2); }
 .popular-folder .folder-icon { color: var(--azure-text); }
+
+.learning-path-card .recent-rows { margin-top: 2px; }
+.learning-path-card, .learning-coming-card { display: flex; flex-direction: column; }
+.learning-path-card .learning-path-action { margin-top: auto; }

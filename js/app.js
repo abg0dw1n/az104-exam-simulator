@@ -916,6 +916,39 @@ const levelMeter = (l) => {
     <span class="sr-only">Difficulty: </span>${label}</span>`;
 };
 
+function learningPathCard(e) {
+  const a = recentActivity(e, readSaved(e.slug, e.legacyStorageKey));
+  const total = (e.learningModules || 0) * 3;
+  const started = a && (a.parts || a.openedModule);
+  return `<a class="panel learning-path-card" href="/${e.slug}?mode=learn" data-vendor="${vendorKey(e.vendor)}">
+      <span class="learning-path-eyebrow">LEARNING PATH · ${escapeHtml(e.code)}</span>
+      <h3>${escapeHtml(e.name)}</h3>
+      <p>${escapeHtml(e.learningDescription || `Structured study materials for ${e.name}, organized by exam domain.`)}</p>
+      <span class="learning-path-meta"><span>${e.learningModules ? `${e.learningModules} modules` : 'One module per domain'}</span><span>Guides · slides · video</span></span>
+      ${started && total ? `<span class="recent-rows"><span class="recent-row"><span>Your progress</span><b>${a.parts} / ${total} parts</b></span>
+        <span class="recent-bar"><i style="width:${Math.round((a.parts / total) * 100)}%"></i></span></span>` : ''}
+      <span class="learning-path-action">${started ? 'Continue learning' : 'Start learning'} ${icon('right', 'icon')}</span>
+    </a>`;
+}
+
+// /learning-paths: every course with Learn content.
+async function renderLearningPathsPage() {
+  document.body.classList.add('home', 'subpage');
+  document.title = 'Learning paths · IT Learn & Practice';
+  $('navigator').hidden = true;
+  let exams = [];
+  try { exams = await fetchIndex(); } catch { /* offline */ }
+  const paths = exams.filter((e) => e.learning)
+    .sort((a, b) => levelRank(a.level) - levelRank(b.level) || a.vendor.localeCompare(b.vendor));
+  $('main').innerHTML = `<section class="stack">
+      <div class="stack" style="gap:6px"><span class="eyebrow">LEARN</span><h2 class="home-title">Learning paths</h2>
+      <p class="muted">Structured study for each exam: a study guide, slides and a narrated video lesson for every exam domain. Easiest first.</p></div>
+      ${paths.length ? `<div class="learning-path-grid">${paths.map(learningPathCard).join('')}</div>`
+        : '<p class="panel empty">Learning paths are on the way. In the meantime, try the practice exams.</p>'}
+      <p class="muted small">Don't see your exam? <a href="https://github.com/abg0dw1n/az104-exam-simulator/issues/new?template=course-exam-request.yml" target="_blank" rel="noopener noreferrer">Request a learning path</a>.</p>
+    </section>`;
+}
+
 // What this person has done in an exam, or null if they haven't started it.
 function recentActivity(e, saved) {
   if (!saved) return null;
@@ -932,11 +965,11 @@ function recentActivity(e, saved) {
 function recentCard({ e, activity: a }) {
   const pct = (n, total) => (total ? Math.min(100, Math.round((n / total) * 100)) : 0);
   const rows = [];
-  if (e.learning && (a.parts || a.openedModule)) {
+  if (e.learning && (a.parts || a.openedModule || a.mode === 'learn')) {
     rows.push(`<span class="recent-row"><span>Learning</span><b>${a.totalParts ? `${a.parts} / ${a.totalParts} parts` : `${a.parts} parts`}</b></span>
       <span class="recent-bar"><i style="width:${pct(a.parts, a.totalParts)}%"></i></span>`);
   }
-  if (a.answered || !rows.length) {
+  if (a.answered || (!rows.length && !a.last && !a.examRunning)) {
     rows.push(`<span class="recent-row"><span>Practice</span><b>${a.answered}${e.questions ? ` / ${e.questions}` : ''} answered</b></span>
       <span class="recent-bar"><i style="width:${pct(a.answered, e.questions)}%"></i></span>`);
   }
@@ -983,15 +1016,7 @@ async function renderHome() {
     .filter((r) => r.activity)
     .sort((a, b) => (b.saved.updatedAt || 0) - (a.saved.updatedAt || 0))
     .slice(0, 6);
-  const learningExams = exams.filter((e) => e.learning);
-  const learningCards = learningExams.map((e) => `
-    <a class="panel learning-path-card" href="/${e.slug}?mode=learn" data-vendor="${vendorKey(e.vendor)}">
-      <span class="learning-path-eyebrow">LEARNING PATH · ${escapeHtml(e.code)}</span>
-      <h3>${escapeHtml(e.name)}</h3>
-      <p>${escapeHtml(e.learningDescription || `Structured study materials for ${e.name}, organized by exam domain.`)}</p>
-      <span class="learning-path-meta"><span>One module per exam domain</span><span>Guides · slides · video</span></span>
-      <span class="learning-path-action">Start learning ${icon('right', 'icon')}</span>
-    </a>`).join('');
+  const learningCards = exams.filter((e) => e.learning).map(learningPathCard).join('');
   const recentsBody = recents.length
     ? `<div class="learning-path-grid">${recents.map(recentCard).join('')}</div>`
     : learningCards
@@ -1041,7 +1066,7 @@ async function renderHome() {
         <h2>Learn the concepts.<br><span>Practice with confidence.</span></h2>
         <p>Start with a guided learning path, sharpen your skills with practice questions, and see how ready you are for exam day.</p>
         <div class="home-hero-actions">
-          <a class="btn btn-primary" href="#recents">${icon('learn')}${recents.length ? 'Continue where you left off' : 'Explore learning'}</a>
+          <a class="btn btn-primary" href="/learning-paths">${icon('learn')}Browse learning paths</a>
           <a class="btn btn-ghost" href="#practice">Browse practice exams</a>
         </div>
       </div>
@@ -1269,14 +1294,16 @@ async function syncFromCloud() {
 async function init() {
   const initialSlug = currentSlug();
   const initialMode = new URLSearchParams(location.search).get('mode');
+  const PAGES = ['account', 'learning-paths'];
   const loadingMessage = initialSlug === 'account'
     ? 'Loading your account…'
+    : initialSlug === 'learning-paths' ? 'Loading learning paths…'
     : initialSlug
       ? initialMode === 'learn' ? 'Loading learning materials…' : 'Loading exam…'
       : 'Loading the learning and practice library…';
   $('main').innerHTML = `<div class="panel empty" role="status"><p>${loadingMessage}</p></div>`;
   // Exam content is public, so start downloading it now instead of after sign-in and sync.
-  const examPage = initialSlug && initialSlug !== 'account';
+  const examPage = initialSlug && !PAGES.includes(initialSlug);
   const bankFiles = examPage ? fetchBank(initialSlug) : null;
   bankFiles?.catch(() => { /* reported by loadBank below */ });
   const learnFiles = examPage ? Learn.loadLearn(initialSlug) : null;
@@ -1291,6 +1318,7 @@ async function init() {
   const slug = currentSlug();
   if (!slug) return renderHome();
   if (slug === 'account') return renderAccountPage();
+  if (slug === 'learning-paths') return renderLearningPathsPage();
   try {
     await loadBank(slug, slug === initialSlug ? bankFiles : undefined);
   } catch (err) {
