@@ -1,0 +1,985 @@
+{
+  "intro": "Five modules follow the five A+ Core 1 domains. Each module includes a practical study guide, exam tips, key terms, a visual slideshow, and a narrated lesson. The narrated lessons use your browser's built-in speech voice; the simulator's questions are multiple choice, so also practice hands-on tasks for performance-based questions.",
+  "updated": "2026-10-28",
+  "sources": [
+    {
+      "title": "CompTIA A+ Core 1 (220-1201) exam objectives",
+      "url": "https://assets.ctfassets.net/82ripq7fjls2/1oSdlyujpaX3GrM0rir6Ge/91afb2be72785281e8fb4c0d9a70c6f4/CompTIA-A-220-1201-Exam-Objectives-3.0.pdf"
+    },
+    {
+      "title": "CompTIA A+ certification",
+      "url": "https://www.comptia.org/certifications/a"
+    }
+  ],
+  "modules": [
+    {
+      "id": "D1",
+      "short": "Mobile devices",
+      "title": "Configure and support mobile devices",
+      "summary": "Replace common mobile components safely, choose the right accessories, and configure connectivity, applications, synchronization, and organization policies.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p><b>Mobile Devices</b> accounts for <b>13%</b> of Core 1. Expect practical scenarios about replacing laptop components, connecting accessories, configuring wireless or cellular service, and helping a user synchronize work data.</p><p class=\"note\">Separate the task into three questions: <b>what component or accessory is involved, how should it connect, and what policy or service controls the device?</b></p>"
+        },
+        {
+          "h": "Safe component replacement",
+          "html": "<p>Before opening a mobile device, shut it down, disconnect external power, and follow the manufacturer's service procedure. Use electrostatic-discharge precautions for exposed components. Batteries require special care: a swollen or punctured lithium-ion cell is a safety hazard. Do not press, bend, or continue charging it.</p><p>Common replaceable parts include batteries, keyboards, memory, storage, wireless cards, cameras, microphones, and display assemblies. Confirm form factor, connector, firmware support, and serviceability before choosing a replacement. Some laptops solder components that cannot be replaced as a field unit.</p>"
+        },
+        {
+          "h": "Displays, cameras, and privacy",
+          "html": "<p>A touch display has a <b>digitizer</b> that senses touch separately from the panel that produces the image. A privacy shutter or physical camera switch can make a working webcam appear unavailable. Check the hardware switch, function key, operating-system privacy permission, and application selection before replacing the camera.</p><p>For wireless cards and antennas, match the card interface and supported bands. Antenna leads should be routed and attached to the correct connectors; a loose lead can cause weak reception even when the card is detected.</p>"
+        },
+        {
+          "h": "Ports and accessories",
+          "html": "<p><b>USB-C</b> describes a connector shape; supported data rate, charging, and display capabilities depend on the device and port. Older devices may use Micro-USB, Mini-USB, or Lightning. Verify what the port supports rather than assuming every cable carries video or fast data.</p><p>Docking stations can add power, displays, wired networking, and peripherals through one connection. A port replicator provides a simpler set of ports. Styluses, headsets, speakers, webcams, trackpads, and drawing pads should be selected for compatibility with the operating system and connection method.</p>"
+        },
+        {
+          "h": "Wireless and cellular connectivity",
+          "html": "<p>Wi-Fi connects a device to a wireless LAN. Bluetooth pairs nearby accessories. NFC works at very short range for use cases such as contactless pairing or payment. Cellular data uses a SIM or eSIM and a carrier plan; 4G and 5G are mobile network generations.</p><p>For Bluetooth, enable the radio, put the accessory into pairing mode, select the right device, enter a PIN if requested, and test the connection. For Wi-Fi, verify the correct SSID and authentication. A hotspot shares the phone's cellular connection and can consume the user's data allowance quickly.</p>"
+        },
+        {
+          "h": "Mobile management and synchronization",
+          "html": "<p><b>Mobile device management (MDM)</b> applies organization settings and policy to enrolled devices. A corporate-owned device can receive a more managed configuration; a bring-your-own-device (BYOD) policy must account for personal use and company data separation. An enrollment failure may be a policy or account issue rather than a hardware fault.</p><p>Synchronization can include mail, contacts, calendars, business applications, and cloud storage. Check the account, network, sync schedule, permissions, available storage, and data-cap policy. Verify which copy is authoritative before deleting or resynchronizing user data.</p>"
+        },
+        {
+          "h": "Troubleshooting approach",
+          "html": "<p>Start with the symptom and scope: one accessory, one application, one network, or the whole device? Check power, physical condition, settings, permissions, and recent changes before replacing parts. For charging problems, inspect the adapter, cable, port, and supported charging method. For weak wireless, check antenna connections, interference, and signal before replacing the radio.</p><p>Work safely with damaged devices. If a battery is swollen, the display is cracked with exposed parts, or liquid has entered the device, stop ordinary troubleshooting and follow the service and safety procedure.</p>"
+        }
+      ],
+      "tips": [
+        "Do not treat USB-C as a guarantee of video output, a particular speed, or charging wattage.",
+        "Pairing needs discovery mode on the accessory as well as Bluetooth enabled on the phone.",
+        "For a sync issue, check account, connectivity, policy, and data limits before reinstalling an app.",
+        "A swollen battery is a safety issue; stop charging and follow the approved replacement and disposal procedure."
+      ],
+      "terms": [
+        [
+          "Digitizer",
+          "The touch-sensing layer that detects finger or stylus input."
+        ],
+        [
+          "eSIM",
+          "A programmable SIM profile embedded in a device rather than a removable card."
+        ],
+        [
+          "Tethering",
+          "Sharing one device's internet connection with another device."
+        ],
+        [
+          "MDM",
+          "A service that enrolls devices and applies organization configuration and policy."
+        ],
+        [
+          "BYOD",
+          "Bring your own device: a policy for personal devices used for work."
+        ]
+      ],
+      "slides": [
+        {
+          "layout": "title",
+          "kicker": "Module 1 · 13% of the exam",
+          "title": "Configure and support mobile devices",
+          "bullets": [
+            "Replace components safely",
+            "Connect the right accessories",
+            "Set up mobile networks, apps, and sync"
+          ],
+          "script": [
+            "Welcome to the Mobile Devices module. We will move from safe hardware service to everyday connectivity and support. The exam is scenario based, so pay attention to the symptom and the user's environment."
+          ]
+        },
+        {
+          "title": "Start with safety and scope",
+          "bullets": [
+            "Power down and disconnect external power",
+            "Check physical damage before testing",
+            "Separate a device fault from an app or policy issue"
+          ],
+          "script": [
+            "Before any repair, make the device safe. Shut it down, unplug it, and inspect it. Then ask whether the issue affects one function or the whole device."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Inspect",
+                "d": "Damage and power"
+              },
+              {
+                "t": "Isolate",
+                "d": "Hardware, app, or policy"
+              },
+              {
+                "t": "Act",
+                "d": "Test or service"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Know the replaceable parts",
+          "bullets": [
+            "Battery, keyboard, RAM, and storage",
+            "Wireless card, camera, microphone",
+            "Check compatibility and serviceability"
+          ],
+          "script": [
+            "Mobile devices have compact parts, but not every part is field replaceable. Verify the service guide, connector, form factor, and support before ordering a component."
+          ]
+        },
+        {
+          "title": "Treat batteries carefully",
+          "bullets": [
+            "Never flatten or puncture a swollen cell",
+            "Stop charging a damaged battery",
+            "Use approved handling and disposal steps"
+          ],
+          "script": [
+            "A swollen lithium-ion battery can ignite. Do not press the case flat or keep charging it. Stop using the device and follow the service and disposal procedure."
+          ]
+        },
+        {
+          "title": "Display and privacy checks",
+          "bullets": [
+            "The digitizer senses touch",
+            "A shutter or privacy key can disable a camera",
+            "Check permissions before replacing hardware"
+          ],
+          "script": [
+            "A blank camera preview does not prove the camera is broken. Check the physical shutter, keyboard switch, operating-system privacy setting, and selected camera in the application."
+          ]
+        },
+        {
+          "title": "Choose the connection",
+          "bullets": [
+            "USB-C capabilities vary by device",
+            "Bluetooth connects nearby accessories",
+            "NFC is very short range"
+          ],
+          "script": [
+            "Look beyond the connector shape. USB-C may support different combinations of data, charging, and video. Bluetooth is for nearby devices, while NFC is designed for very short-range interactions."
+          ]
+        },
+        {
+          "title": "Pair a Bluetooth accessory",
+          "bullets": [
+            "Enable Bluetooth",
+            "Put the accessory in pairing mode",
+            "Select it, enter a PIN if needed, then test"
+          ],
+          "script": [
+            "Pairing is a short workflow. Make the accessory discoverable, select the right name on the phone, enter a PIN when requested, and verify audio or input works."
+          ]
+        },
+        {
+          "title": "Configure mobile connectivity",
+          "bullets": [
+            "Wi-Fi uses an SSID and security settings",
+            "Cellular data needs coverage and a SIM or eSIM",
+            "Hotspots can consume a data plan"
+          ],
+          "script": [
+            "For a network problem, confirm the radio is enabled and the device is joining the intended service. Check cellular coverage, SIM status, and data limits before resetting everything."
+          ]
+        },
+        {
+          "title": "Support managed devices",
+          "bullets": [
+            "MDM applies organization settings",
+            "BYOD separates work data from personal use",
+            "Policy can block apps or configuration"
+          ],
+          "script": [
+            "In a workplace, an MDM policy may control apps, passwords, and access. If enrollment or a business app fails, verify the account and policy as well as the device itself."
+          ]
+        },
+        {
+          "title": "Sync data deliberately",
+          "bullets": [
+            "Check account, network, and sync status",
+            "Review permissions and available storage",
+            "Protect the authoritative copy"
+          ],
+          "script": [
+            "When mail or files stop syncing, check the account, connection, permissions, and storage. Before removing an account or deleting data, identify which copy is authoritative."
+          ]
+        },
+        {
+          "title": "A mobile troubleshooting checklist",
+          "bullets": [
+            "Reproduce one symptom",
+            "Check power, settings, permission, and policy",
+            "Replace a part only with supporting evidence"
+          ],
+          "script": [
+            "Keep your troubleshooting focused. Reproduce the symptom, make one change at a time, and test the result. That avoids replacing a good part when the cause is a setting or policy."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "short": "Networking",
+      "title": "Connect and configure small networks",
+      "summary": "Understand common ports, wireless standards, network services, addressing, hardware, media types, and the tools used to diagnose basic connectivity.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p><b>Networking</b> is <b>23%</b> of Core 1 and spans eight objectives: protocols and ports, wireless, network services, configuration concepts, network devices, SOHO setup, internet/network types, and tools.</p><p class=\"note\">On configuration questions, trace the path: <b>client address → subnet → gateway → DNS → destination</b>.</p>"
+        },
+        {
+          "h": "Ports and protocols",
+          "html": "<p>Know the common service-to-port associations and what the service does. Examples include HTTP 80 and HTTPS 443 for web traffic, DNS 53 for name resolution, DHCP 67/68 for address assignment, SSH 22 for secure remote administration, RDP 3389 for remote desktop, and SMTP 25 for mail transfer. FTP uses 20/21; SFTP uses SSH, typically port 22.</p><p>TCP establishes a connection and provides ordered delivery; UDP has lower overhead and does not establish the same connection state. A port identifies an application service at a host. Do not confuse the port number with the host's IP address.</p>"
+        },
+        {
+          "h": "Wireless choices and security",
+          "html": "<p>Wi-Fi generations use the IEEE 802.11 family. Newer generations generally improve throughput, efficiency, or operation in crowded environments, but the client, access point, channel, and band must be compatible. The 2.4 GHz band travels farther and penetrates obstacles better but has fewer non-overlapping channels and more interference; 5 GHz offers more capacity with less range; 6 GHz requires compatible Wi-Fi 6E/7 equipment and has shorter range.</p><p>Use current security such as WPA2 or WPA3 as supported. A guest SSID can separate visitors from internal devices. Bluetooth is a personal-area connection, not a substitute for a LAN access point.</p>"
+        },
+        {
+          "h": "Network services and records",
+          "html": "<p><b>DNS</b> resolves names to records such as A/AAAA addresses, CNAME aliases, MX mail destinations, and TXT policy or verification data. <b>DHCP</b> leases IP configuration to clients from a scope, respecting exclusions and reservations. A reservation gives a known device a predictable address while retaining centralized DHCP management.</p><p>DHCP commonly provides an address, subnet mask, default gateway, and DNS servers. A client that self-assigns an IPv4 APIPA address usually failed to reach a DHCP server.</p>"
+        },
+        {
+          "h": "VLANs, VPNs, and network devices",
+          "html": "<p>A <b>VLAN</b> logically separates Layer 2 broadcast domains on switching infrastructure. A <b>VPN</b> creates an encrypted tunnel across an untrusted network. A switch forwards frames within a LAN; a router forwards packets between IP networks; an access point bridges wireless clients to the LAN; a firewall enforces traffic rules.</p><p>PoE can carry power and data on Ethernet cabling to compatible devices. A PoE switch provides power on enabled ports; an injector adds power to a particular connection. Patch panels organize fixed cable runs but do not switch traffic.</p>"
+        },
+        {
+          "h": "SOHO addressing and connectivity",
+          "html": "<p>IPv4 uses a 32-bit address and subnet mask. Private ranges are for internal networks; a public address is routable on the internet. IPv6 uses 128-bit addresses. A static address is manually configured, while a dynamic address is assigned automatically. APIPA's 169.254.0.0/16 range is a clue that automatic IPv4 configuration did not complete.</p><p>For basic connectivity, make sure the client has a valid address, matching subnet, reachable gateway, and working DNS. Cable/fiber/DSL/cellular/satellite/WISP services differ in last-mile technology, performance, and availability.</p>"
+        },
+        {
+          "h": "Network tools",
+          "html": "<p>A cable tester checks wire mapping and continuity; a toner probe helps trace a cable; a punchdown tool seats conductors into a block; a crimper attaches a modular plug. A Wi-Fi analyzer inspects signal and channel conditions. A loopback plug tests a port by returning transmitted signals; a network tap provides access to traffic for observation.</p><p>Choose a tool based on the layer of the problem. A Wi-Fi analyzer will not test a copper cable, and a cable tester will not reveal a bad DNS record.</p>"
+        }
+      ],
+      "tips": [
+        "DNS and DHCP solve different problems: names versus client network configuration.",
+        "169.254.x.x on an IPv4 client often points to a DHCP reachability failure.",
+        "A router joins networks; a switch connects devices within a LAN; an access point supplies Wi-Fi.",
+        "Use the correct tool for the symptom: tester for cabling, analyzer for wireless, toner for tracing."
+      ],
+      "terms": [
+        [
+          "APIPA",
+          "Automatic IPv4 addressing in 169.254.0.0/16 when a DHCP lease is unavailable."
+        ],
+        [
+          "Default gateway",
+          "The router address a host uses to reach destinations outside its local subnet."
+        ],
+        [
+          "DHCP reservation",
+          "A stable address assignment associated with a device, managed through DHCP."
+        ],
+        [
+          "VLAN",
+          "A logical Layer 2 network segment."
+        ],
+        [
+          "PoE",
+          "Power over Ethernet; carries electrical power and data over compatible Ethernet links."
+        ]
+      ],
+      "slides": [
+        {
+          "layout": "title",
+          "kicker": "Module 2 · 23% of the exam",
+          "title": "Connect and configure small networks",
+          "bullets": [
+            "Ports and protocols",
+            "Wireless and network services",
+            "Devices, IP settings, and tools"
+          ],
+          "script": [
+            "Networking is the second largest Core 1 domain. We'll connect common services to their purpose, then work through the settings and hardware that make a small network function."
+          ]
+        },
+        {
+          "title": "A service uses a port",
+          "bullets": [
+            "DNS 53 · HTTPS 443 · SSH 22",
+            "DHCP 67/68 · RDP 3389",
+            "Port identifies a service, IP identifies a host"
+          ],
+          "script": [
+            "Think of an IP address as the host and a port as the service on that host. Memorize common pairs by what they do, not as a disconnected number list."
+          ]
+        },
+        {
+          "title": "TCP and UDP",
+          "bullets": [
+            "TCP: connection-oriented and ordered",
+            "UDP: lower overhead, no session setup",
+            "The application determines which is appropriate"
+          ],
+          "script": [
+            "TCP manages a connection and retransmits missing data. UDP sends datagrams without the same connection setup. Real applications choose based on their needs."
+          ]
+        },
+        {
+          "title": "Wi-Fi bands",
+          "bullets": [
+            "2.4 GHz: range, but more interference",
+            "5 GHz: more capacity, less range",
+            "6 GHz: compatible newer equipment"
+          ],
+          "script": [
+            "Band choice is a coverage and capacity tradeoff. Walls and interference matter, and every client and access point must support the band in use."
+          ]
+        },
+        {
+          "title": "Wireless security",
+          "bullets": [
+            "Use supported WPA2 or WPA3",
+            "Keep guests separate from internal devices",
+            "Check SSID, credentials, and signal"
+          ],
+          "script": [
+            "When wireless access fails, verify the SSID and credentials first. Then check security compatibility, signal, interference, and whether the device has been placed on a guest network."
+          ]
+        },
+        {
+          "title": "DNS versus DHCP",
+          "bullets": [
+            "DNS resolves names to records",
+            "DHCP leases network settings",
+            "A reservation keeps a client predictable"
+          ],
+          "script": [
+            "DNS answers questions like which address belongs to a host name. DHCP provides the client's network configuration. One can work while the other fails."
+          ]
+        },
+        {
+          "title": "Read the client configuration",
+          "bullets": [
+            "Address and subnet mask",
+            "Default gateway",
+            "DNS server"
+          ],
+          "script": [
+            "A client needs a valid address and mask to understand its local network. The gateway reaches other networks, and DNS resolves names. Check each field when isolating a failure."
+          ]
+        },
+        {
+          "title": "APIPA as a clue",
+          "bullets": [
+            "169.254.x.x is self-assigned IPv4",
+            "Often means no DHCP response",
+            "Check link, VLAN, scope, and DHCP reachability"
+          ],
+          "script": [
+            "An APIPA address is not usually the intended corporate configuration. Check the physical or wireless link, the VLAN, DHCP scope availability, and relay path."
+          ]
+        },
+        {
+          "title": "Pick the right network device",
+          "bullets": [
+            "Switch connects LAN devices",
+            "Router moves traffic between IP networks",
+            "Access point bridges wireless clients"
+          ],
+          "script": [
+            "These devices have different roles. A switch connects devices on a LAN, a router joins IP networks, and an access point provides wireless access to the network."
+          ]
+        },
+        {
+          "title": "SOHO services and media",
+          "bullets": [
+            "Fiber, cable, DSL, cellular, satellite, WISP",
+            "LAN, WAN, PAN, WLAN, SAN",
+            "Choose based on location and service need"
+          ],
+          "script": [
+            "A connection type describes how a site reaches a provider or another network. A network type describes its scope or purpose. Read the question for which distinction it asks."
+          ]
+        },
+        {
+          "title": "Use the right network tool",
+          "bullets": [
+            "Cable tester: continuity and mapping",
+            "Toner: locate a run",
+            "Wi-Fi analyzer: signal and channel"
+          ],
+          "script": [
+            "Don't test blindly. Match the tool to the symptom: cable tester for a wire, toner to trace a run, analyzer to inspect wireless conditions."
+          ]
+        },
+        {
+          "title": "Trace a connectivity fault",
+          "bullets": [
+            "Check local link and IP settings",
+            "Test gateway reachability",
+            "Then investigate DNS and remote service"
+          ],
+          "script": [
+            "Work from the local connection outward. Validate the client settings and gateway before blaming a website or an upstream service."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "short": "Hardware",
+      "title": "Select, install, and maintain hardware",
+      "summary": "Compare displays, cables, memory, storage, boards, processors, and power supplies, then configure and maintain common printer types.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p><b>Hardware</b> is <b>25%</b> of Core 1. It covers display technologies, cables and connectors, memory, storage, motherboards and CPUs, power supplies, and printer deployment and maintenance.</p>"
+        },
+        {
+          "h": "Displays and cables",
+          "html": "<p>Display properties include resolution, pixel density, refresh rate, and color gamut. IPS panels emphasize viewing angles and color consistency; TN panels prioritize response time and cost; VA panels offer strong contrast. OLED pixels emit their own light; Mini-LED uses dense backlighting zones. A digitizer senses touch.</p><p>Identify cables by connector and purpose. HDMI and DisplayPort carry digital video and audio; VGA is analog; DVI variants differ. USB standards vary by speed and capability. Twisted-pair Ethernet comes in categories; T568A and T568B define wire order. Fiber can be single-mode or multimode, with connector types such as SC, ST, and LC.</p>"
+        },
+        {
+          "h": "Memory and storage",
+          "html": "<p>DIMMs are common in desktops; SODIMMs are compact modules for laptops. DDR generations are not generally interchangeable because of electrical and physical differences. ECC memory can detect and correct certain memory errors; confirm motherboard and CPU support. Dual-channel operation requires compatible modules in the proper slots.</p><p>HDDs use spinning platters; SSDs use flash. SATA SSDs and NVMe SSDs differ in interface and performance. M.2 describes a form factor, not automatically a protocol: M.2 devices can use SATA or PCIe/NVMe. RAID combines drives for performance, availability, or both, but RAID is not a substitute for backup.</p>"
+        },
+        {
+          "h": "Motherboards, CPUs, and power",
+          "html": "<p>A motherboard must match the CPU socket and chipset. Expansion slots such as PCIe host graphics, networking, and other cards. CPU compatibility includes socket, chipset, firmware, cooling, and power requirements. Thermal compound and correctly mounted cooling help transfer heat.</p><p>Choose a power supply with adequate wattage and compatible connectors. Common outputs include 3.3 V, 5 V, and 12 V. The 20+4-pin connector powers the motherboard; CPU power and PCIe power connectors have separate roles. Modular supplies let unused cables be removed. Verify input voltage selection where present and use proper electrical safety.</p>"
+        },
+        {
+          "h": "Printer technologies",
+          "html": "<p>Laser printers use toner, a photosensitive drum, transfer, and a fuser. Inkjet printers spray liquid ink. Thermal printers use heat-sensitive media; impact printers strike an inked ribbon. A multifunction device may print, scan, copy, and fax.</p><p>For deployment, unpack carefully, connect power and network, load media, install a driver or use supported discovery, set defaults, and print a test page. Network printers may use wired Ethernet or Wi-Fi. Shared queues are managed through a print server or operating-system sharing.</p>"
+        },
+        {
+          "h": "Printer maintenance and supplies",
+          "html": "<p>Use the symptom to choose a maintenance task. Faded laser output can point to low toner; repeated marks may indicate a drum issue; ghosting can point to the imaging or fuser process. Inkjet streaks often need printhead cleaning or alignment. Jams may come from worn rollers, incorrect media, or a bad paper path. Thermal devices need the correct media and orientation.</p><p>Follow the manufacturer's service and safety guidance. Fusers become hot; do not reach into a powered printer. Use the correct consumable and avoid touching sensitive drum surfaces.</p>"
+        },
+        {
+          "h": "Plan a safe hardware change",
+          "html": "<p>Before installing parts, confirm the customer requirement, compatibility, backup needs, and downtime. Use ESD precautions and the correct tools. Keep screws and cables organized. After the change, verify that firmware and the operating system recognize the component and that the original issue is resolved.</p>"
+        }
+      ],
+      "tips": [
+        "M.2 is a form factor; confirm whether the device supports SATA, PCIe/NVMe, or both.",
+        "RAID can improve availability or performance, but does not protect against every data-loss event; keep backups.",
+        "A printer question often maps symptom to consumable, path, driver, connectivity, or finishing setting.",
+        "A power connector that physically fits is not automatically the correct connector for the component."
+      ],
+      "terms": [
+        [
+          "ECC",
+          "Error-correcting code memory that detects and corrects certain memory errors."
+        ],
+        [
+          "NVMe",
+          "A storage protocol for SSDs using PCI Express."
+        ],
+        [
+          "M.2",
+          "A compact card form factor that can support different interfaces."
+        ],
+        [
+          "Fuser",
+          "The heated laser-printer assembly that bonds toner to paper."
+        ],
+        [
+          "Print server",
+          "A service that manages shared printer queues and client access."
+        ]
+      ],
+      "slides": [
+        {
+          "layout": "title",
+          "kicker": "Module 3 · 25% of the exam",
+          "title": "Select, install, and maintain hardware",
+          "bullets": [
+            "Displays and cabling",
+            "Memory, storage, boards, and power",
+            "Printers from setup through repair"
+          ],
+          "script": [
+            "Hardware spans a wide range of components. The key exam skill is matching a requirement or symptom to the right part, connector, setting, or maintenance action."
+          ]
+        },
+        {
+          "title": "Read display requirements",
+          "bullets": [
+            "Resolution and pixel density",
+            "Refresh rate and color gamut",
+            "Panel type affects viewing and motion"
+          ],
+          "script": [
+            "Resolution describes the pixel grid, while pixel density depends on screen size. Refresh rate affects motion smoothness. Panel technology changes contrast, viewing angles, and response characteristics."
+          ]
+        },
+        {
+          "title": "Match the cable to the job",
+          "bullets": [
+            "HDMI and DisplayPort: digital display",
+            "VGA: analog video",
+            "Fiber and copper network media have different uses"
+          ],
+          "script": [
+            "Identify what the connection needs to carry and which connectors the endpoints provide. A digital display output cannot be assumed from an analog cable without the right conversion."
+          ]
+        },
+        {
+          "title": "Check memory compatibility",
+          "bullets": [
+            "DIMM versus SODIMM",
+            "DDR generation and motherboard support",
+            "ECC needs platform support"
+          ],
+          "script": [
+            "Memory must match the platform. Desktops commonly use DIMMs; laptops often use SODIMMs. DDR generation and ECC support must match the board and processor."
+          ]
+        },
+        {
+          "title": "Understand storage interfaces",
+          "bullets": [
+            "HDD: rotating media",
+            "SATA SSD versus PCIe/NVMe SSD",
+            "M.2 is a form factor, not a protocol"
+          ],
+          "script": [
+            "An M.2 slot's shape alone does not tell you every supported drive type. Check whether the slot supports SATA, PCIe, or both, and whether the system firmware supports the drive."
+          ]
+        },
+        {
+          "title": "RAID is not backup",
+          "bullets": [
+            "RAID 0 stripes for performance",
+            "RAID 1 mirrors for redundancy",
+            "Keep independent backups"
+          ],
+          "script": [
+            "RAID levels trade capacity, performance, and fault tolerance. A mirror may keep service available after a drive fails, but deletion, malware, or site damage can affect the array and its data."
+          ]
+        },
+        {
+          "title": "Build around the platform",
+          "bullets": [
+            "CPU socket and chipset",
+            "PCIe expansion and cooling",
+            "Firmware support matters"
+          ],
+          "script": [
+            "CPU fit is more than the socket. Confirm chipset and firmware support, cooling, memory compatibility, and the system's power budget before installation."
+          ]
+        },
+        {
+          "title": "Choose a safe power supply",
+          "bullets": [
+            "Adequate wattage and efficiency",
+            "Correct motherboard, CPU, and GPU connectors",
+            "Check input voltage and electrical safety"
+          ],
+          "script": [
+            "Match the power supply to the system load and the right connectors. Never force a connector or open the power supply itself; it contains hazardous components."
+          ]
+        },
+        {
+          "title": "Know printer mechanisms",
+          "bullets": [
+            "Laser: toner, drum, transfer, fuser",
+            "Inkjet: liquid ink and printhead",
+            "Thermal and impact printers use different media"
+          ],
+          "script": [
+            "Printer technology predicts its consumables and failure modes. Learn the sequence of the imaging process so symptoms make sense."
+          ]
+        },
+        {
+          "title": "Deploy a printer",
+          "bullets": [
+            "Connect and configure the device",
+            "Install or discover the driver",
+            "Set defaults and print a test page"
+          ],
+          "script": [
+            "A printer is not ready just because it powers on. Confirm connectivity, driver, paper, defaults, and a successful test page from the intended client."
+          ]
+        },
+        {
+          "title": "Map symptoms to maintenance",
+          "bullets": [
+            "Faded, streaked, ghosted, or jammed output",
+            "Inspect supplies and paper path",
+            "Use the correct cleaning or replacement step"
+          ],
+          "script": [
+            "The symptom narrows the cause. Check toner or ink, drum or printhead, rollers, media, and settings, then test the result. Follow the device's safety procedure around hot parts."
+          ]
+        },
+        {
+          "title": "Verify the hardware change",
+          "bullets": [
+            "Check detection and status",
+            "Confirm performance and stability",
+            "Document part and outcome"
+          ],
+          "script": [
+            "After service, verify that the operating system and firmware see the new part. Test the user's actual need, then record what changed and the outcome."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "short": "Virtualization & cloud",
+      "title": "Understand virtualization and cloud services",
+      "summary": "Compare hypervisors, containers, desktop virtualization, and cloud service models, then reason about shared resources, elasticity, availability, and data movement.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p><b>Virtualization and Cloud Computing</b> accounts for <b>11%</b> of Core 1. The domain has two objectives: explain virtualization concepts and summarize cloud concepts.</p>"
+        },
+        {
+          "h": "Virtual machines and hypervisors",
+          "html": "<p>A virtual machine (VM) presents virtual CPU, memory, storage, and networking to a guest operating system. A <b>Type 1 hypervisor</b> runs directly on hardware; a <b>Type 2 hypervisor</b> runs as an application on a host operating system. VMs are useful for test environments, sandboxes, legacy software, and running different operating systems.</p><p>Virtualization requirements include sufficient compute, storage, network capacity, and security controls. Resource contention can make a VM slow even when its guest configuration looks healthy.</p>"
+        },
+        {
+          "h": "Containers and virtual desktops",
+          "html": "<p>Containers package an application and its dependencies while sharing the host operating-system kernel, so they are lighter than separate full guest operating systems. Compatibility depends on the host kernel and container platform.</p><p>Virtual desktop infrastructure (VDI) hosts desktop sessions centrally and streams the user experience to endpoints. This can centralize control, but depends on server capacity, network quality, and identity access.</p>"
+        },
+        {
+          "h": "Cloud service and deployment models",
+          "html": "<p>In <b>IaaS</b>, the provider supplies infrastructure and the customer manages much of the operating system and workload. <b>PaaS</b> supplies a managed application platform. <b>SaaS</b> provides a ready-to-use application. Public, private, hybrid, and community describe deployment models and access boundaries; do not confuse them with service models.</p>"
+        },
+        {
+          "h": "Cloud characteristics",
+          "html": "<p>Cloud services commonly use shared resources, metered utilization, and multitenancy. <b>Elasticity</b> adjusts capacity with demand. <b>Availability</b> is about service accessibility. Ingress is data entering a cloud service; egress is data leaving it and may have different costs or constraints.</p><p>File synchronization keeps copies aligned across devices or services; it is not automatically a backup. Check retention, versioning, and recovery needs separately.</p>"
+        },
+        {
+          "h": "Choose a deployment deliberately",
+          "html": "<p>Match the model to control, maintenance, access, and cost requirements. A VM is a better fit when a full operating-system boundary or a legacy OS is needed. A container is efficient for a compatible application deployment. SaaS is appropriate when the user needs an application without managing the underlying platform.</p>"
+        }
+      ],
+      "tips": [
+        "Type 1 runs on hardware; Type 2 runs over a host OS.",
+        "Containers share the host kernel; a VM runs a guest operating system.",
+        "IaaS, PaaS, and SaaS describe service responsibility; public/private/hybrid/community describe deployment.",
+        "Synchronization is not the same as backup; verify retention and recovery separately."
+      ],
+      "terms": [
+        [
+          "Hypervisor",
+          "Software that creates and runs virtual machines."
+        ],
+        [
+          "Container",
+          "An isolated application environment that shares the host operating-system kernel."
+        ],
+        [
+          "VDI",
+          "Centrally hosted virtual desktops delivered to user endpoints."
+        ],
+        [
+          "Elasticity",
+          "The ability to increase or reduce resources as demand changes."
+        ],
+        [
+          "Egress",
+          "Data transferred out of a cloud service or environment."
+        ]
+      ],
+      "slides": [
+        {
+          "layout": "title",
+          "kicker": "Module 4 · 11% of the exam",
+          "title": "Understand virtualization and cloud services",
+          "bullets": [
+            "VMs, hypervisors, containers, and VDI",
+            "IaaS, PaaS, and SaaS",
+            "Shared resources, elasticity, and data movement"
+          ],
+          "script": [
+            "This domain is smaller, but its ideas are easy to distinguish once you know what layer is being managed. We will compare virtualization technologies and then map cloud models to responsibility."
+          ]
+        },
+        {
+          "title": "Why use virtualization?",
+          "bullets": [
+            "Sandbox and test environments",
+            "Legacy or cross-platform applications",
+            "Isolated workloads on shared hardware"
+          ],
+          "script": [
+            "Virtualization helps run isolated environments without dedicating a physical computer to every task. It is useful for testing, compatibility, and controlled workloads."
+          ]
+        },
+        {
+          "title": "Type 1 and Type 2 hypervisors",
+          "bullets": [
+            "Type 1 runs directly on hardware",
+            "Type 2 runs on a host OS",
+            "Both allocate virtual resources to guests"
+          ],
+          "script": [
+            "The key distinction is where the hypervisor sits. A Type 1 runs directly on the hardware, while a Type 2 runs as software on a host operating system."
+          ]
+        },
+        {
+          "title": "VMs and containers",
+          "bullets": [
+            "VM has a guest operating system",
+            "Container shares the host kernel",
+            "Choose based on isolation and compatibility"
+          ],
+          "script": [
+            "A VM includes a full guest operating system. A container packages an application but shares the host kernel, which makes it lighter when the application is compatible."
+          ]
+        },
+        {
+          "title": "Virtual desktop infrastructure",
+          "bullets": [
+            "Desktops run centrally",
+            "Users connect over the network",
+            "Capacity and latency matter"
+          ],
+          "script": [
+            "With VDI, the desktop session is hosted in a data center or cloud. Network quality and central compute capacity affect the user's experience."
+          ]
+        },
+        {
+          "title": "Cloud service models",
+          "bullets": [
+            "IaaS: manage OS and workload",
+            "PaaS: managed runtime/platform",
+            "SaaS: ready-to-use application"
+          ],
+          "script": [
+            "Think about what the customer still manages. IaaS gives the most infrastructure control, PaaS removes platform maintenance, and SaaS supplies the application itself."
+          ]
+        },
+        {
+          "title": "Cloud deployment models",
+          "bullets": [
+            "Public, private, hybrid, community",
+            "Describe access and ownership boundaries",
+            "Separate these from IaaS/PaaS/SaaS"
+          ],
+          "script": [
+            "Deployment models answer where and for whom the environment is operated. Service models answer how much of the stack the provider manages."
+          ]
+        },
+        {
+          "title": "Metering, elasticity, and traffic",
+          "bullets": [
+            "Metered use tracks consumption",
+            "Elasticity follows changing demand",
+            "Ingress enters; egress leaves"
+          ],
+          "script": [
+            "Cloud costs and capacity follow use. Elasticity lets resources respond to demand. Know the direction of ingress and egress when reasoning about data movement."
+          ]
+        },
+        {
+          "title": "Availability and synchronization",
+          "bullets": [
+            "Availability means service can be reached",
+            "Sync aligns copies across devices",
+            "Backup and recovery need separate planning"
+          ],
+          "script": [
+            "A synchronized file can replicate an unwanted change. Availability and synchronization help users work, but they do not replace retention and backup planning."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "short": "Troubleshooting",
+      "title": "Diagnose hardware and network symptoms",
+      "summary": "Use symptoms to narrow faults in power, memory, storage, displays, mobile devices, networks, and printers—then choose the safest next action.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p><b>Hardware and Network Troubleshooting</b> is the largest domain at <b>28%</b>. It focuses on six scenario objectives: compute and power, drives and RAID, displays, mobile devices, networks, and printers.</p><p class=\"note\">CompTIA's published objectives emphasize these troubleshooting scenarios. The formal troubleshooting methodology itself is useful practice, but is not a separate 220-1201 exam objective.</p>"
+        },
+        {
+          "h": "Motherboards, RAM, CPU, and power",
+          "html": "<p>No power suggests checking the outlet, power cable, PSU switch, front-panel connections, and power supply before replacing the board. A burning smell or visible damage calls for immediate shutdown and safe isolation. Overheating can result from blocked airflow, failed fans, poor heatsink contact, or excessive load.</p><p>POST beeps, blank screens, instability, application crashes, and inaccurate time can point to different hardware causes. Beep meanings vary by firmware; consult the system's documentation. Reseat compatible RAM only after safe power-off and ESD precautions.</p>"
+        },
+        {
+          "h": "Drives and RAID",
+          "html": "<p>Clicking or grinding sounds, S.M.A.R.T. alerts, long access times, missing drives, or a boot device error can indicate a drive or connection fault. Back up important data before invasive repair. Check power and data cables, firmware detection, OS visibility, and array status.</p><p>A RAID member failure may leave the array degraded; follow the array's documented recovery process and confirm backups before replacing or rebuilding. Rebuilds put load on remaining disks and do not guarantee recovery from a second failure.</p>"
+        },
+        {
+          "h": "Displays and mobile devices",
+          "html": "<p>For no image, verify power, brightness, input source, cable, adapter, and display selection. A fuzzy or distorted image may involve resolution, refresh rate, cable quality, or a display fault. Projector issues can include a lamp or light source, focus, keystone, source, or thermal shutdown.</p><p>For mobile faults, distinguish damaged battery, port, screen, digitizer, wireless settings, application permissions, and liquid damage. A swollen battery or liquid ingress changes the safety response; do not continue normal testing.</p>"
+        },
+        {
+          "h": "Network symptoms",
+          "html": "<p>Slow speed, high latency, jitter, poor VoIP, intermittent wireless, port flapping, and limited connectivity suggest different paths to test. Confirm whether one host, one SSID, one VLAN, or all clients are affected. Check signal and interference for wireless; link state and cable for wired; address, gateway, and DNS for IP configuration.</p><p>A valid IP with an unreachable gateway points closer to the local link or subnet. If the gateway works but names fail, investigate DNS. If a wired port flaps, inspect cable, connector, switch port, speed/duplex negotiation, and power stability.</p>"
+        },
+        {
+          "h": "Printer symptoms",
+          "html": "<p>Faded output, lines, speckles, ghosting, jams, misfeeds, frozen queues, and connectivity failures map to consumables, imaging components, paper path, drivers, spooler, or network. Check the printer's own status and test page to distinguish device-side faults from client or queue issues.</p><p>Use manufacturer procedures for cleaning and replacement. Fusers can be hot; avoid touching sensitive drum surfaces. Clear jams in the direction recommended by the device and check for small scraps that can trigger repeat jams.</p>"
+        },
+        {
+          "h": "Verify the fix",
+          "html": "<p>Change one likely cause at a time, then repeat the original test. Confirm full functionality, check for related symptoms, and document the failure, action, and result. For hardware incidents, preserve data and safety before optimizing for speed.</p>"
+        }
+      ],
+      "tips": [
+        "A blank screen can be the monitor input, cable, brightness, GPU, or system; isolate before replacing parts.",
+        "Back up data and assess risk when a drive reports S.M.A.R.T. failure or makes abnormal sounds.",
+        "If a gateway responds but hostnames fail, check DNS rather than changing Wi-Fi hardware.",
+        "A printer test page helps separate printer-side issues from the client, queue, or application."
+      ],
+      "terms": [
+        [
+          "POST",
+          "Power-on self-test performed during system startup."
+        ],
+        [
+          "S.M.A.R.T.",
+          "Drive monitoring and reporting used to signal possible storage failure."
+        ],
+        [
+          "Jitter",
+          "Variation in packet delay that can harm real-time audio/video."
+        ],
+        [
+          "Port flapping",
+          "A network link repeatedly transitions up and down."
+        ],
+        [
+          "Spooler",
+          "The service or component that queues print jobs for a printer."
+        ]
+      ],
+      "slides": [
+        {
+          "layout": "title",
+          "kicker": "Module 5 · 28% of the exam",
+          "title": "Diagnose hardware and network symptoms",
+          "bullets": [
+            "Power, memory, storage, and displays",
+            "Mobile and network faults",
+            "Printer output, queues, and connectivity"
+          ],
+          "script": [
+            "Troubleshooting is the largest Core 1 domain. You'll be given symptoms and need to choose a sensible next step. Let's organize those symptoms by system and work from evidence."
+          ]
+        },
+        {
+          "title": "Make the system safe first",
+          "bullets": [
+            "Burning smell or damaged battery: stop",
+            "Power down before opening hardware",
+            "Protect data before drive repair"
+          ],
+          "script": [
+            "Safety comes before diagnosis. Stop using damaged power equipment or a swollen battery, and protect data before performing a risky storage repair."
+          ]
+        },
+        {
+          "title": "Power and compute symptoms",
+          "bullets": [
+            "No power: verify source, cable, and connections",
+            "Overheating: airflow, fan, heatsink",
+            "Crashes: RAM, CPU, board, or software"
+          ],
+          "script": [
+            "The symptom narrows the search but does not prove one part failed. Check the simple power path first, then inspect heat, memory seating, and platform evidence."
+          ]
+        },
+        {
+          "title": "POST and memory clues",
+          "bullets": [
+            "Beep codes vary by firmware",
+            "Blank screen has multiple causes",
+            "Reseat only with safe power-off and ESD care"
+          ],
+          "script": [
+            "Use the system documentation for beep codes. A blank display can also be a cable or input issue. Reseat parts only after power is off and static precautions are in place."
+          ]
+        },
+        {
+          "title": "Recognize drive warnings",
+          "bullets": [
+            "Clicking, grinding, or S.M.A.R.T. alerts",
+            "Long reads or missing drives",
+            "Back up before invasive action"
+          ],
+          "script": [
+            "Abnormal drive sounds or health warnings are a reason to protect data quickly. Verify cables and detection, then follow the approved replacement and recovery process."
+          ]
+        },
+        {
+          "title": "Handle a degraded RAID array",
+          "bullets": [
+            "Identify the failed member and array state",
+            "Confirm backups and supported replacement",
+            "Monitor rebuild and validate data"
+          ],
+          "script": [
+            "A degraded array may still serve data, but recovery has risk. Confirm the array layout, replace the correct drive, and watch the rebuild rather than assuming the problem is solved."
+          ]
+        },
+        {
+          "title": "Trace a display issue",
+          "bullets": [
+            "Check power, input, brightness, and cable",
+            "Confirm resolution and refresh rate",
+            "For projectors, check source, focus, and heat"
+          ],
+          "script": [
+            "Work from the display toward the computer. The wrong input or a loose adapter is much more common than a failed GPU, so isolate those first."
+          ]
+        },
+        {
+          "title": "Mobile safety and faults",
+          "bullets": [
+            "Battery, port, digitizer, and wireless symptoms",
+            "Check settings and permissions",
+            "Stop on swelling or liquid damage"
+          ],
+          "script": [
+            "Mobile issues can be hardware or configuration. A damaged battery or liquid intrusion changes the risk, so don't keep charging or testing the device normally."
+          ]
+        },
+        {
+          "title": "Interpret network symptoms",
+          "bullets": [
+            "One client or the whole segment?",
+            "Check link, address, gateway, then DNS",
+            "Wireless: signal and interference"
+          ],
+          "script": [
+            "First identify scope. Then test the local link and addressing. If the gateway is reachable but names fail, investigate DNS; if wireless fluctuates, inspect signal and interference."
+          ]
+        },
+        {
+          "title": "High latency and unstable links",
+          "bullets": [
+            "Latency and jitter affect real-time traffic",
+            "Port flapping suggests link instability",
+            "Inspect cable, port, and negotiation"
+          ],
+          "script": [
+            "High latency and jitter can make voice calls choppy. A port that repeatedly goes up and down suggests a physical or negotiation issue to isolate."
+          ]
+        },
+        {
+          "title": "Map printer symptoms",
+          "bullets": [
+            "Faded or marked pages: supplies and imaging",
+            "Jams: media, rollers, and path",
+            "Queue stuck: client, spooler, or connectivity"
+          ],
+          "script": [
+            "Use the printer's own status and test page. That helps separate a mechanical issue from a driver, client, spooler, or network problem."
+          ]
+        },
+        {
+          "title": "Test and document the repair",
+          "bullets": [
+            "Repeat the original failure test",
+            "Check for related symptoms",
+            "Record action and outcome"
+          ],
+          "script": [
+            "A fix is not complete until the original symptom is gone and related functions work. Record what you found and what changed so the next technician has a clear history."
+          ]
+        }
+      ]
+    }
+  ]
+}
