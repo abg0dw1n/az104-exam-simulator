@@ -58,6 +58,21 @@ function open(moduleId, tab = 'guide') {
   window.scrollTo({ top: 0 });
 }
 
+function studySupport() {
+  const resources = [...(data.resources || []), ...(data.sources || [])];
+  const unique = [...new Map(resources.filter((r) => r?.url && r?.title).map((r) => [r.url, r])).values()];
+  return `<aside class="learn-study-support" aria-label="Study scope and free supplemental resources">
+    <div class="learn-study-disclaimer">
+      <span class="learn-support-label">Study scope</span>
+      <p>These materials provide a basic introduction across every published exam domain, but they are not exhaustive and do not guarantee exam readiness. Use the current official objectives, the free resources below, and hands-on practice where applicable.</p>
+    </div>
+    ${unique.length ? `<div class="learn-support-resources">
+      <h3>Free supplemental resources</h3>
+      <ul>${unique.map((r) => `<li><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title)}</a><span>${esc(r.note || 'Free')}</span></li>`).join('')}</ul>
+    </div>` : ''}
+  </aside>`;
+}
+
 // ── Module list ──────────────────────────────────────────────────────────────
 function renderIndex(main) {
   const done = (p) => ['guide', 'slides', 'video'].filter((k) => p[k]).length;
@@ -79,8 +94,8 @@ function renderIndex(main) {
   main.innerHTML = `<section class="stack learn">
       <div class="stack" style="gap:6px"><h2 class="home-title">Learn ${esc(ctx.exam.code)}</h2>
       <p class="muted">${esc(data.intro || 'Work through each domain: read the study guide, flip through the slides, then watch the video lesson.')}</p></div>
+      ${studySupport()}
       <div class="learn-grid">${cards}</div>
-      ${data.sources?.length ? `<p class="muted small">Based on ${data.sources.map((s) => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>`).join(', ')}.</p>` : ''}
     </section>`;
   main.querySelectorAll('[data-open]').forEach((b) => b.addEventListener('click', () => open(b.dataset.open, b.dataset.tab)));
 }
@@ -99,6 +114,7 @@ function renderModule(main, m) {
       <div class="learn-crumbs"><button class="btn btn-ghost btn-sm" data-back>${icon('left')}All modules</button>
         <span class="muted small">Module ${idx + 1} of ${data.modules.length}</span></div>
       <div class="stack" style="gap:6px"><h2 class="home-title">${esc(m.title)}</h2><p class="muted">${esc(m.summary)}</p></div>
+      ${studySupport()}
       <div class="learn-tabs" role="tablist">${tabs.map(([k, label, ic]) =>
         `<button role="tab" aria-selected="${v.tab === k}" data-tab="${k}">${icon(p[k] ? 'check' : ic)}<span>${label}</span></button>`).join('')}</div>
       <div id="learn-body"></div>
