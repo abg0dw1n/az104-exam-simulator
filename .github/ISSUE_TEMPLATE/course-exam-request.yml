@@ -1,0 +1,50 @@
+name: Course or exam request
+description: Suggest a certification exam or learning path for IT Learn & Practice.
+title: "[Request] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping shape the study library. Requests are public. Please do not include personal or sensitive information.
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: What would you like us to add?
+      options:
+        - A new practice exam
+        - A learning path for an existing exam
+        - Both a practice exam and learning path
+        - An update or correction to existing material
+    validations:
+      required: true
+  - type: input
+    id: certification
+    attributes:
+      label: Certification and exam name
+      description: Include the exam code if you know it.
+      placeholder: CompTIA Network+ (N10-009)
+    validations:
+      required: true
+  - type: input
+    id: objectives
+    attributes:
+      label: Official exam objectives
+      description: Optional link to the exam provider’s objectives or outline.
+      placeholder: https://
+    validations:
+      required: false
+  - type: textarea
+    id: reason
+    attributes:
+      label: What would be most helpful?
+      description: For example, requested topics, study guide, slides, or video lessons.
+      placeholder: Share what you are preparing for and what content would help.
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Optional. Do not include personal information.
+    validations:
+      required: false
