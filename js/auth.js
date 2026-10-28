@@ -89,7 +89,7 @@ async function ensureFresh() {
 }
 
 function friendlyError(msg = '') {
-  if (/not been invited|not invited/i.test(msg)) return "That email hasn't been invited yet. Ask the site owner for an invite.";
+  if (/not been invited|not invited/i.test(msg)) return "That email isn't on the invite list yet, so we've sent an access request to the site owner. You'll get a sign-in link by email once it's approved.";
   if (/signups not allowed|sign ?ups? .*disabled/i.test(msg)) return "That account hasn't been invited yet.";
   if (/rate limit|too many/i.test(msg)) return 'Too many sign-in emails were requested. Please wait a few minutes and try again.';
   if (/expired|invalid/i.test(msg)) return 'That sign-in link has expired or was already used. Request a new one.';
@@ -234,5 +234,24 @@ export async function updateFeatureRequest(id, { status, admin_note }) {
   return api(`/rest/v1/feature_requests?id=eq.${Number(id)}`, {
     method: 'PATCH', headers: { Prefer: 'return=minimal' },
     body: { status, admin_note: (admin_note || '').trim().slice(0, 500) || null, updated_at: new Date().toISOString() },
+  });
+}
+
+// ── Access requests (sign-in attempts from emails that aren't invited; admins only) ──
+export async function listAccessRequests() {
+  await ensureFresh();
+  return api('/rest/v1/access_requests?select=id,email,status,attempts,requested_at,decided_at&order=requested_at.desc&limit=100');
+}
+export async function decideAccessRequest(id, status) {
+  await ensureFresh();
+  return api(`/rest/v1/access_requests?id=eq.${Number(id)}`, {
+    method: 'PATCH', headers: { Prefer: 'return=minimal' },
+    body: { status, decided_at: new Date().toISOString() },
+  });
+}
+// Emails someone a sign-in link to the home page (used after approving their request).
+export async function sendSignInLink(email) {
+  await api(`/auth/v1/otp?redirect_to=${encodeURIComponent(location.origin + '/')}`, {
+    method: 'POST', auth: false, body: { email: email.trim().toLowerCase(), create_user: true },
   });
 }

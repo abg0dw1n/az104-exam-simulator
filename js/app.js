@@ -1210,7 +1210,7 @@ function renderSignIn(error) {
     `<button class="btn btn-ghost full" data-provider="${p.id}">${p.label}</button>`).join('');
   $('main').innerHTML = `<section class="panel card-pad signin">
       <h2>Sign in</h2>
-      <p class="muted">This exam simulator is invite-only. Sign in to practice and keep your progress in sync across devices.</p>
+      <p class="muted">This site is invite-only. Sign in to practice and keep your progress in sync across devices. Not invited yet? Request a sign-in link anyway and the site owner will be asked to approve you.</p>
       ${error ? `<p class="signin-msg bad-msg" role="alert">${escapeHtml(error)}</p>` : ''}
       ${providers ? `<div class="stack" style="gap:10px">${providers}</div><div class="or"><span>or</span></div>` : ''}
       <form id="magic-form" class="stack" style="gap:10px">
@@ -1297,6 +1297,7 @@ async function renderAccountPage() {
         <div class="account-actions"><a class="btn btn-ghost btn-sm" href="/privacy">Privacy policy</a>
           ${user ? '<button id="btn-signout" class="btn btn-ghost btn-sm">Sign out</button>' : ''}</div>
       </div>
+      <div id="requests" class="stack"></div>
       <div id="features" class="stack"></div>
       <div id="invites" class="stack"></div>
     </section>`;
@@ -1307,7 +1308,65 @@ async function renderAccountPage() {
     location.assign('/');
   });
   renderInvites();
+  renderAccessRequests();
   renderFeatureRequests();
+}
+
+// ── Access requests (admins): uninvited sign-in attempts awaiting approval ───
+async function renderAccessRequests() {
+  const box = $('requests');
+  if (!box || !Auth.currentUser()) return;
+  let rows = [];
+  try {
+    const isAdmin = await Auth.listInvites().then((r) => !!r?.length).catch(() => false);
+    if (!isAdmin) return;
+    rows = await Auth.listAccessRequests();
+  } catch { return; }
+  const fmt = (d) => new Date(d).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' });
+  const pending = rows.filter((r) => r.status === 'pending');
+  const decided = rows.filter((r) => r.status !== 'pending').slice(0, 10);
+  const item = (r) => `<li class="report-item">
+      <span class="feature-body"><b>${escapeHtml(r.email)}</b>
+        <span class="muted small">Requested ${fmt(r.requested_at)}${r.attempts > 1 ? ` · tried ${r.attempts} times` : ''}${r.decided_at ? ` · ${r.status} ${fmt(r.decided_at)}` : ''}</span></span>
+      <span class="report-actions">
+        ${r.status === 'pending' ? `<button class="btn btn-primary btn-sm" data-req-approve="${r.id}">Approve</button>
+          <button class="btn btn-ghost btn-sm" data-req-deny="${r.id}">Deny</button>`
+          : `<span class="chip feature-status" data-status="${r.status === 'approved' ? 'done' : 'declined'}">${r.status === 'approved' ? 'Approved' : 'Denied'}</span>
+             ${r.status === 'denied' ? `<button class="btn btn-ghost btn-sm" data-req-approve="${r.id}">Approve</button>` : ''}`}
+      </span></li>`;
+  box.innerHTML = `<div class="panel card-pad stack" style="gap:14px">
+      <div><h2 class="section-title">Access requests ${pending.length ? `<span class="chip chip-review">${pending.length} waiting</span>` : ''}</h2>
+        <p class="muted small" style="margin-top:6px">People who tried to sign in with an email that isn't invited. Approving adds them to your invite list and emails them a sign-in link.</p></div>
+      ${pending.length ? `<ul class="invite-list">${pending.map(item).join('')}</ul>` : '<p class="muted small">No requests waiting.</p>'}
+      ${decided.length ? `<details class="req-history"><summary class="small muted">Recent decisions (${decided.length})</summary>
+        <ul class="invite-list">${decided.map(item).join('')}</ul></details>` : ''}
+    </div>`;
+  const find = (id) => rows.find((r) => String(r.id) === id);
+  box.querySelectorAll('[data-req-approve]').forEach((b) => b.addEventListener('click', async () => {
+    const r = find(b.dataset.reqApprove);
+    if (!(await confirmModal('Approve access?', `<b>${escapeHtml(r.email)}</b> will be added to your invite list and emailed a sign-in link.`, 'Approve'))) return;
+    b.disabled = true;
+    try {
+      try { await Auth.addInvite(r.email, 'Approved access request'); }
+      catch (err) { if (!/duplicate|already/i.test(err.message)) throw err; }
+      await Auth.decideAccessRequest(r.id, 'approved');
+      try {
+        await Auth.sendSignInLink(r.email);
+        toast(`Approved. A sign-in link was emailed to ${r.email}.`);
+      } catch (err) {
+        toast(`Approved and invited, but the sign-in email couldn't be sent (${err.message}). Let them know they can sign in now.`);
+      }
+    } catch (err) { toast(`Couldn't approve: ${err.message}`); }
+    renderAccessRequests(); renderInvites();
+  }));
+  box.querySelectorAll('[data-req-deny]').forEach((b) => b.addEventListener('click', async () => {
+    const r = find(b.dataset.reqDeny);
+    if (!(await confirmModal('Deny access?', `<b>${escapeHtml(r.email)}</b> won't be able to sign in. They aren't notified. If they try again, the request reopens.`, 'Deny'))) return;
+    b.disabled = true;
+    try { await Auth.decideAccessRequest(r.id, 'denied'); toast('Request denied.'); } catch (err) { toast(`Couldn't deny: ${err.message}`); }
+    renderAccessRequests();
+  }));
+  if (location.hash === '#requests') box.scrollIntoView({ block: 'start' });
 }
 
 // ── Feature requests ─────────────────────────────────────────────────────────

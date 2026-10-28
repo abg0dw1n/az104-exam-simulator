@@ -159,6 +159,16 @@ Hosted on Vercel; every push to `main` deploys automatically. No build settings 
 `updated` in `exams/index.json` records when each exam's files last changed.
 After committing question changes, run `node scripts/stamp-updated.mjs` and commit `exams/index.json`. It also records each bank's question count (`"questions"`), which the home page shows without downloading every bank; `validate-questions.mjs` fails if a count is out of date.
 
+## Access requests
+
+When someone who isn't invited tries to sign in (email link, Google or Microsoft), the invite-only hook still refuses them but records an access request in `access_requests` and tells them it was sent to the site owner. Admins approve or deny requests on the Account page (`/account#requests`); approving adds the email to `invited_emails` and emails them a sign-in link.
+
+Admins are also emailed about each new request through [Resend](https://resend.com) once a key is stored in Supabase Vault (capped at 20 emails a day; without a key, requests only appear on the Account page). To turn it on, create a free Resend account with the admin email address, create an API key, and run this once in the Supabase SQL editor:
+
+```sql
+select vault.create_secret('re_your_key_here', 'resend_api_key');
+```
+
 ## Feature requests
 
 Signed-in users can suggest site features from the home page ("Have an idea for the site?") or the Account page. Requests go to the `feature_requests` table: people see only their own, with its status (Submitted, Planned, In progress, Done, Not planned) and any note from the site owner; admins see everyone's on the Account page and update status/notes there. Limited to 10 requests per person per day.

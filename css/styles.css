@@ -767,3 +767,7 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 .learn-locked { display: flex; gap: 8px; align-items: flex-start; margin-top: auto; padding: 10px 12px; border-radius: 10px; background: var(--panel-2); border: 1px dashed var(--border-strong); color: var(--muted); font-size: 12.5px; }
 .learn-locked .icon { flex: none; margin-top: 2px; }
 .learn-card.locked .btn { align-self: flex-start; }
+
+/* Access requests */
+#requests { scroll-margin-top: 90px; }
+.req-history summary { cursor: pointer; margin-bottom: 8px; }
