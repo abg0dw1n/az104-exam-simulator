@@ -981,5 +981,17 @@
         }
       ]
     }
+  ],
+  "resources": [
+    {
+      "title": "Professor Messer free A+ Core 1 V15 video course (220-1201)",
+      "url": "https://www.professormesser.com/free-a-plus-training/220-1201/220-1201-video/220-1201-training-course/",
+      "note": "Free 220-1201 video lessons"
+    },
+    {
+      "title": "CompTIA A+ Core 1 exam objectives",
+      "url": "https://assets.ctfassets.net/82ripq7fjls2/1oSdlyujpaX3GrM0rir6Ge/91afb2be72785281e8fb4c0d9a70c6f4/CompTIA-A-220-1201-Exam-Objectives-3.0.pdf",
+      "note": "Free official objectives PDF"
+    }
   ]
 }
