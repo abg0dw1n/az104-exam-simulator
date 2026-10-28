@@ -59,7 +59,7 @@ It is a static site with no build step and no dependencies.
    - `scoring` – `min`, `max`, `pass` (e.g. 100 / 900 / 720 for CompTIA, 0 / 1000 / 700 for Microsoft)
    - `minutesPerQuestion`, `defaultSize`, `sizeOptions`, and optional `realExamNote` / `scoreNote`
 2. Create `exams/<folder>/questions.json` containing `[]`.
-3. Add the exam to `exams/index.json`. Add `"level": "beginner"` to list it under "New to IT? Start here".
+3. Add the exam to `exams/index.json`. The home page groups exams into a folder per `vendor`; add `"level": "beginner"` to show a Beginner tag and list it first in its folder.
 4. Import questions (below), run `node scripts/validate-questions.mjs`, commit and push.
 
 ## Add questions in bulk (spreadsheet)

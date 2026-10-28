@@ -898,18 +898,32 @@ async function renderHome() {
       ${e.updated ? `<p class="exam-updated">Updated ${fmtDate(e.updated)}</p>` : ''}
     </a>`;
   }));
-  const beginner = cards.filter((_, i) => exams[i].level === 'beginner');
-  const other = cards.filter((_, i) => exams[i].level !== 'beginner');
-  const grid = (list) => `<div class="exam-grid">${list.join('')}</div>`;
-  const groups = beginner.length && other.length
-    ? `<h3 class="exam-group">New to IT? Start here</h3>${grid(beginner)}<h3 class="exam-group">More exams</h3>${grid(other)}`
-    : (cards.length ? grid(cards) : '<p class="muted">No exams found.</p>');
+  // Group exams into one folder per vendor (order of first appearance); beginner exams first.
+  const folders = new Map();
+  exams.forEach((e, i) => {
+    if (!folders.has(e.vendor)) folders.set(e.vendor, []);
+    folders.get(e.vendor).push({ e, html: cards[i] });
+  });
+  let closed = [];
+  try { closed = JSON.parse(localStorage.getItem('examsim:closed-folders') || '[]'); } catch { /* ignore */ }
+  const groups = folders.size ? [...folders].map(([vendor, list]) => {
+    list.sort((a, b) => (b.e.level === 'beginner') - (a.e.level === 'beginner'));
+    return `<details class="vendor-folder" data-vendor="${vendorKey(vendor)}" data-name="${vendor}" ${closed.includes(vendor) ? '' : 'open'}>
+      <summary>${icon('right', 'icon folder-chevron')}${icon('folder', 'icon folder-icon')}<span class="folder-name">${vendor}</span>
+        <span class="folder-count">${list.length} exam${list.length === 1 ? '' : 's'}</span></summary>
+      <div class="exam-grid">${list.map((x) => x.html).join('')}</div>
+    </details>`;
+  }).join('') : '<p class="muted">No exams found.</p>';
   $('main').innerHTML = `<section class="stack">
       <div class="stack" style="gap:6px"><h2 class="home-title">Choose an exam</h2>
       <p class="muted">Each exam keeps its own practice progress and history${Auth.currentUser() ? ', synced to your account' : ''}.</p></div>
       ${groups}
       <div id="invites"></div>
     </section>`;
+  document.querySelectorAll('.vendor-folder').forEach((d) => d.addEventListener('toggle', () => {
+    const shut = [...document.querySelectorAll('.vendor-folder:not([open])')].map((x) => x.dataset.name);
+    try { localStorage.setItem('examsim:closed-folders', JSON.stringify(shut)); } catch { /* ignore */ }
+  }));
   renderInvites();
 }
 
