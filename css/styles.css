@@ -712,3 +712,43 @@ body.account-page .exams-link { display: inline-flex; }
 .learn-resources-card li { display: grid; gap: 3px; padding-top: 8px; border-top: 1px solid var(--border); font-size: 12px; }
 .learn-resources-card a { color: var(--azure-text); font-weight: 600; line-height: 1.45; }
 .learn-resources-card li span { color: var(--muted); font-size: 11px; }
+
+
+/* Refined brand header */
+.topbar {
+  position: sticky;
+  isolation: isolate;
+  background:
+    radial-gradient(38rem 9rem at 18% 0%, rgba(0, 120, 212, .16), transparent 74%),
+    linear-gradient(180deg, color-mix(in srgb, var(--panel) 94%, #0c3153 6%), var(--panel));
+  border-bottom-color: color-mix(in srgb, var(--azure) 24%, var(--border));
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+}
+.topbar::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset-inline: 0;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 4%, rgba(0, 120, 212, .42) 20%, var(--azure) 50%, rgba(0, 120, 212, .42) 80%, transparent 96%);
+  opacity: .72;
+  pointer-events: none;
+}
+.topbar-inner { min-height: 76px; padding: 12px 18px; }
+.brand { gap: 14px; }
+.brand-mark { width: 36px; height: 36px; filter: drop-shadow(0 4px 10px rgba(0, 120, 212, .28)); }
+.brand > div { display: grid; gap: 3px; }
+.brand h1 { font-size: 17px; letter-spacing: -.015em; }
+.brand p { color: color-mix(in srgb, var(--muted) 88%, white 12%); font-size: 12px; }
+.brand-link:hover { color: var(--azure-text); text-decoration: none; }
+.topbar-actions { gap: 8px; }
+.topbar .account-link { border-color: color-mix(in srgb, var(--azure) 24%, var(--border)); background: color-mix(in srgb, var(--panel-2) 78%, transparent); transition: background .15s, border-color .15s, color .15s; }
+.topbar .account-link:hover { border-color: transparent; background: var(--azure-soft); color: var(--azure-text); }
+.brand-link:focus-visible, .topbar-actions a:focus-visible, .topbar-actions button:focus-visible { outline: 2px solid var(--azure); outline-offset: 3px; }
+@media (max-width: 600px) {
+  .topbar-inner { min-height: 64px; padding: 9px 14px; }
+  .brand { gap: 10px; }
+  .brand-mark { width: 32px; height: 32px; }
+  .brand h1 { font-size: 14.5px; }
+}
