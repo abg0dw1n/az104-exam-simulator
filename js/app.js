@@ -1024,7 +1024,7 @@ async function renderHome() {
         ${icon('folder', 'icon folder-icon')}
         <span class="folder-name">${escapeHtml(provider)}</span>
         <span class="folder-preview">${preview}</span>
-        <span class="folder-count">${entries.length} exams</span>
+        <span class="folder-count">${entries.length} exam${entries.length === 1 ? '' : 's'}</span>
       </summary>
       <div class="exam-grid">${entries.map(({ card }) => card).join('')}</div>
     </details>`;
@@ -1059,17 +1059,6 @@ async function renderHome() {
       </div>
       ${recentsBody}
     </section>
-    <section class="request-section" aria-labelledby="request-title">
-      <div class="request-copy">
-        <span class="eyebrow">HELP SHAPE WHAT COMES NEXT</span>
-        <h2 id="request-title">Request a course or exam</h2>
-        <p>Tell us which certification you’re studying for and what learning materials would help. Requests help us prioritize future additions.</p>
-      </div>
-      <div class="request-action">
-        <a class="btn btn-primary" href="https://github.com/abg0dw1n/az104-exam-simulator/issues/new?template=course-exam-request.yml" target="_blank" rel="noopener noreferrer">Submit a request ${icon("right","icon")}</a>
-        <p>Requests are public on GitHub. A GitHub account is required. Please don’t include personal or sensitive information.</p>
-      </div>
-    </section>
     <section class="practice-section" id="practice" aria-labelledby="practice-title">
     <div class="catalog-heading">
       <div class="stack" style="gap:6px"><span class="eyebrow">CERTIFICATION LIBRARY</span><h2 class="home-title" id="practice-title">Choose a certification to practice</h2>
@@ -1083,6 +1072,17 @@ async function renderHome() {
     <div class="catalog-results-head"><div><h3>All practice exams</h3><p class="muted small">Search by certification or filter by provider to find your next practice session.</p></div><span id="exam-result-count" class="muted small">${exams.length} exams</span></div>
     <div id="exam-grid" class="folder-list">${examGroups}</div>
     <p id="exam-empty" class="panel catalog-empty" hidden>No certifications match your search. Try a different term or provider.</p>
+    </section>
+    <section class="request-section" aria-labelledby="request-title">
+      <div class="request-copy">
+        <span class="eyebrow">HELP SHAPE WHAT COMES NEXT</span>
+        <h2 id="request-title">Request a course or exam</h2>
+        <p>Tell us which certification you’re studying for and what learning materials would help. Requests help us prioritize future additions.</p>
+      </div>
+      <div class="request-action">
+        <a class="btn btn-primary" href="https://github.com/abg0dw1n/az104-exam-simulator/issues/new?template=course-exam-request.yml" target="_blank" rel="noopener noreferrer">Submit a request ${icon("right","icon")}</a>
+        <p>Requests are public on GitHub. A GitHub account is required. Please don’t include personal or sensitive information.</p>
+      </div>
     </section>
   </section>`;
   const grid = $('exam-grid');
