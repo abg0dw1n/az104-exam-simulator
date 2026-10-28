@@ -681,7 +681,7 @@ body.account-page .exams-link { display: inline-flex; }
 
 
 /* Learning scope and free exam-specific resources */
-.learn-study-support { display: grid; grid-template-columns: minmax(0, .95fr) minmax(320px, 1.05fr); gap: 18px; padding: 16px 18px; border: 1px solid var(--border); border-left: 4px solid var(--warn); border-radius: 12px; background: var(--warn-soft); }
+.learn-study-support { display: grid; grid-template-columns: 1fr; gap: 18px; padding: 16px 18px; border: 1px solid var(--border); border-left: 4px solid var(--warn); border-radius: 12px; background: var(--warn-soft); }
 .learn-study-disclaimer { display: grid; align-content: start; gap: 7px; }
 .learn-support-label { color: var(--warn-text); font-size: 11px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
 .learn-study-disclaimer p { color: var(--text-2); font-size: 13px; line-height: 1.55; }
@@ -691,8 +691,8 @@ body.account-page .exams-link { display: inline-flex; }
 .learn-support-resources li { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-top: 5px; border-top: 1px solid color-mix(in srgb, var(--border) 80%, transparent); font-size: 12px; }
 .learn-support-resources a { color: var(--azure-text); font-weight: 600; }
 .learn-support-resources li span { flex: none; color: var(--muted); font-size: 11px; text-align: right; }
-@media (max-width: 760px) { .learn-study-support { grid-template-columns: 1fr; gap: 14px; } }
-@media (max-width: 520px) { .learn-study-support { padding: 14px; } .learn-support-resources li { align-items: flex-start; flex-direction: column; gap: 3px; } .learn-support-resources li span { text-align: left; } }
+@media (max-width: 760px) { .learn-study-support { gap: 14px; } }
+@media (max-width: 520px) { .learn-study-support { padding: 14px; } }
 
 
 /* Course and exam request section */
@@ -703,3 +703,12 @@ body.account-page .exams-link { display: inline-flex; }
 .request-action { display: grid; justify-items: start; gap: 8px; max-width: 310px; }
 .request-action p { color: var(--muted); font-size: 11.5px; line-height: 1.5; }
 @media (max-width: 650px) { .request-section { grid-template-columns: 1fr; gap: 15px; padding: 18px; } .request-action { max-width: none; } }
+
+
+/* Supplemental resources sit alongside the final learning modules */
+.learn-resources-card { display: grid; align-content: start; gap: 12px; padding: 20px; border-top: 4px solid var(--azure); }
+.learn-resources-card h3 { margin-top: 4px; font-size: 17px; }
+.learn-resources-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.learn-resources-card li { display: grid; gap: 3px; padding-top: 8px; border-top: 1px solid var(--border); font-size: 12px; }
+.learn-resources-card a { color: var(--azure-text); font-weight: 600; line-height: 1.45; }
+.learn-resources-card li span { color: var(--muted); font-size: 11px; }
