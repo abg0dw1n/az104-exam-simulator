@@ -693,3 +693,13 @@ body.account-page .exams-link { display: inline-flex; }
 .learn-support-resources li span { flex: none; color: var(--muted); font-size: 11px; text-align: right; }
 @media (max-width: 760px) { .learn-study-support { grid-template-columns: 1fr; gap: 14px; } }
 @media (max-width: 520px) { .learn-study-support { padding: 14px; } .learn-support-resources li { align-items: flex-start; flex-direction: column; gap: 3px; } .learn-support-resources li span { text-align: left; } }
+
+
+/* Course and exam request section */
+.request-section { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; padding: 22px 24px; border: 1px solid var(--border); border-radius: 16px; background: linear-gradient(115deg, var(--panel), var(--panel-2)); }
+.request-copy { max-width: 66ch; }
+.request-copy h2 { margin-top: 5px; font-size: clamp(20px, 2.5vw, 26px); letter-spacing: -.025em; }
+.request-copy p { margin-top: 7px; color: var(--text-2); font-size: 13px; line-height: 1.55; }
+.request-action { display: grid; justify-items: start; gap: 8px; max-width: 310px; }
+.request-action p { color: var(--muted); font-size: 11.5px; line-height: 1.5; }
+@media (max-width: 650px) { .request-section { grid-template-columns: 1fr; gap: 15px; padding: 18px; } .request-action { max-width: none; } }
