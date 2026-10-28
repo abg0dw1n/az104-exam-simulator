@@ -879,6 +879,17 @@ const fmtDate = (iso) => {
 
 const vendorKey = (v = '') => v.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
+const LEVELS = ['beginner', 'intermediate', 'advanced'];
+const levelRank = (l) => (LEVELS.includes(l) ? LEVELS.indexOf(l) : LEVELS.length);
+const levelMeter = (l) => {
+  if (!LEVELS.includes(l)) return '';
+  const n = LEVELS.indexOf(l) + 1;
+  const label = l[0].toUpperCase() + l.slice(1);
+  return `<span class="level-meter" data-level="${l}" title="Difficulty: ${label} (${n} of 3)">
+    <span class="level-bars" aria-hidden="true">${[1, 2, 3].map((i) => `<i class="${i <= n ? 'on' : ''}"></i>`).join('')}</span>
+    <span class="sr-only">Difficulty: </span>${label}</span>`;
+};
+
 async function renderHome() {
   document.body.classList.add('home');
   $('navigator').hidden = true;
@@ -893,7 +904,7 @@ async function renderHome() {
     return `<a class="panel exam-card" href="/${e.slug}" data-vendor="${vendorKey(e.vendor)}">
       <span class="exam-vendor">${e.vendor}</span>
       <h2>${e.name}</h2>
-      <span class="exam-chips"><span class="chip chip-vendor">${e.code}</span>${e.level === 'beginner' ? '<span class="chip chip-level">Beginner</span>' : ''}</span>
+      <span class="exam-chips"><span class="chip chip-vendor">${e.code}</span>${levelMeter(e.level)}</span>
       <p class="muted small">${count ? `${count} questions` : ''}${answered ? ` · ${answered} practiced` : ''}${last ? ` · last exam <b class="${last.passed ? 'good' : 'weak'}">${last.score}</b>` : ''}</p>
       ${e.updated ? `<p class="exam-updated">Updated ${fmtDate(e.updated)}</p>` : ''}
     </a>`;
@@ -907,7 +918,7 @@ async function renderHome() {
   let closed = [];
   try { closed = JSON.parse(localStorage.getItem('examsim:closed-folders') || '[]'); } catch { /* ignore */ }
   const groups = folders.size ? [...folders].map(([vendor, list]) => {
-    list.sort((a, b) => (b.e.level === 'beginner') - (a.e.level === 'beginner'));
+    list.sort((a, b) => levelRank(a.e.level) - levelRank(b.e.level));
     return `<details class="vendor-folder" data-vendor="${vendorKey(vendor)}" data-name="${vendor}" ${closed.includes(vendor) ? '' : 'open'}>
       <summary>${icon('right', 'icon folder-chevron')}${icon('folder', 'icon folder-icon')}<span class="folder-name">${vendor}</span>
         <span class="folder-count">${list.length} exam${list.length === 1 ? '' : 's'}</span></summary>
