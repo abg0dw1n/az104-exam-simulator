@@ -924,6 +924,20 @@ async function renderHome() {
       <span class="exam-card-action">Open exam ${icon('right', 'icon')}</span>
     </a>`;
   }));
+  const learningExams = exams.filter((e) => e.learning);
+  const learningCards = learningExams.length ? learningExams.map((e) => `
+    <a class="panel learning-path-card" href="/${e.slug}?mode=learn" data-vendor="${vendorKey(e.vendor)}">
+      <span class="learning-path-eyebrow">LEARNING PATH · ${escapeHtml(e.code)}</span>
+      <h3>${escapeHtml(e.name)}</h3>
+      <p>Build understanding with a structured study guide, visual slides, and narrated video lessons.</p>
+      <span class="learning-path-meta"><span>One module per exam domain</span><span>Guides · slides · video</span></span>
+      <span class="learning-path-action">Start learning ${icon('right', 'icon')}</span>
+    </a>`).join('') : `
+    <div class="panel learning-coming-card">
+      <span class="learning-path-eyebrow">LEARNING PATHS</span>
+      <h3>Study materials are on the way</h3>
+      <p>Structured guides, slides, and lessons will be added alongside the practice exams.</p>
+    </div>`;
   const providers = [...new Set(exams.map((e) => e.vendor))];
   const providerControls = ['All providers', ...providers].map((provider, index) => {
     const key = index === 0 ? 'all' : vendorKey(provider);
@@ -931,18 +945,44 @@ async function renderHome() {
     return `<button type="button" class="provider-filter${index === 0 ? ' active' : ''}" data-provider-filter="${key}" aria-pressed="${index === 0}">${escapeHtml(provider)} <span>${count}</span></button>`;
   }).join('');
   $('main').innerHTML = `<section class="catalog stack">
+    <section class="home-hero">
+      <div class="home-hero-copy">
+        <span class="eyebrow">YOUR CERTIFICATION STUDY SPACE</span>
+        <h2>Learn the concepts.<br><span>Practice with confidence.</span></h2>
+        <p>Start with a guided learning path, sharpen your skills with practice questions, and see how ready you are for exam day.</p>
+        <div class="home-hero-actions">
+          <a class="btn btn-primary" href="#learning">${icon('learn')}Explore learning</a>
+          <a class="btn btn-ghost" href="#practice">Browse practice exams</a>
+        </div>
+      </div>
+      <div class="home-hero-steps" aria-label="A flexible path to exam readiness">
+        <div><span class="hero-step-icon">01</span><span><b>Learn</b><small>Guides, slides, and lessons</small></span></div>
+        <div><span class="hero-step-icon">02</span><span><b>Practice</b><small>Questions with explanations</small></span></div>
+        <div><span class="hero-step-icon">03</span><span><b>Get exam-ready</b><small>Timed tests and progress</small></span></div>
+      </div>
+    </section>
+    <section class="learning-section" id="learning" aria-labelledby="learning-title">
+      <div class="section-heading">
+        <div><span class="eyebrow">LEARN</span><h2 id="learning-title">Build your knowledge first</h2>
+          <p class="muted">Follow a structured path with focused study material for each exam domain.</p></div>
+        <span class="learning-count">${learningExams.length} learning path${learningExams.length === 1 ? '' : 's'} available</span>
+      </div>
+      <div class="learning-path-grid">${learningCards}</div>
+    </section>
+    <section class="practice-section" id="practice" aria-labelledby="practice-title">
     <div class="catalog-heading">
-      <div class="stack" style="gap:6px"><span class="eyebrow">CERTIFICATION LIBRARY</span><h2 class="home-title">Find your next certification</h2>
-        <p class="muted">Browse exams, filter by provider, and open practice or learning resources.</p></div>
+      <div class="stack" style="gap:6px"><span class="eyebrow">CERTIFICATION LIBRARY</span><h2 class="home-title" id="practice-title">Choose a certification to practice</h2>
+        <p class="muted">Work through question banks at your pace or take a timed exam.</p></div>
       <div class="catalog-summary"><strong>${exams.length}</strong> exams <span>·</span> <strong>${providers.length}</strong> providers</div>
     </div>
     <div class="catalog-tools">
       <label class="catalog-search"><span class="sr-only">Search certifications</span><input id="exam-search" type="search" placeholder="Search exams or codes" autocomplete="off"></label>
       <div class="provider-filters" role="group" aria-label="Filter exams by provider">${providerControls}</div>
     </div>
-    <div class="catalog-results-head"><div><h3>All certification exams</h3><p class="muted small">Choose any exam to practice. Study materials appear when an exam includes them.</p></div><span id="exam-result-count" class="muted small">${exams.length} exams</span></div>
+    <div class="catalog-results-head"><div><h3>All practice exams</h3><p class="muted small">Search by certification or filter by provider to find your next practice session.</p></div><span id="exam-result-count" class="muted small">${exams.length} exams</span></div>
     <div id="exam-grid" class="exam-grid">${cards.join('')}</div>
     <p id="exam-empty" class="panel catalog-empty" hidden>No certifications match your search. Try a different term or provider.</p>
+    </section>
   </section>`;
   const grid = $('exam-grid');
   const search = $('exam-search');
@@ -1015,7 +1055,7 @@ function renderAccount() {
 // ── Account page (/account): profile, sign out, and admin tools ──────────────
 async function renderAccountPage() {
   document.body.classList.add('home', 'account-page');
-  document.title = 'Account · Exam Simulator';
+  document.title = 'Account · IT Learn & Practice';
   $('navigator').hidden = true;
   $('account').classList.add('active');
   const user = Auth.currentUser();
@@ -1133,11 +1173,12 @@ async function init() {
     $('navigator').hidden = true;
     return;
   }
-  document.title = `${EXAM.code} Exam Simulator`;
+  document.title = `${EXAM.code} · IT Learn & Practice`;
   document.body.dataset.vendor = vendorKey(EXAM.vendor);
-  $('brand-title').textContent = `${EXAM.code} Exam Simulator`;
-  $('brand-sub').textContent = `${EXAM.name} · ${QUESTIONS.length} questions`;
+  $('brand-title').textContent = 'IT Learn & Practice';
+  $('brand-sub').textContent = `${EXAM.code} · ${EXAM.name}`;
   LEARN = await Learn.loadLearn(slug);
+  if (new URLSearchParams(location.search).get('mode') === 'learn' && LEARN) state.mode = 'learn';
   $('btn-mode-learn').hidden = !LEARN;
   $('mode-tabs').hidden = false;
   $('btn-drawer').hidden = false;
