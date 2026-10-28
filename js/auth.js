@@ -124,6 +124,16 @@ export async function signOut() {
 
 export const currentUser = () => session?.user || null;
 
+// ── Guest mode ───────────────────────────────────────────────────────────────
+// Guests skip sign-in. Nothing is synced, and progress lives in sessionStorage,
+// so it disappears when the tab closes and never mixes with an account's data.
+const GUEST_KEY = 'examsim:guest';
+export const isGuest = () => { try { return !session && sessionStorage.getItem(GUEST_KEY) === '1'; } catch { return false; } };
+export function startGuest() { try { sessionStorage.setItem(GUEST_KEY, '1'); } catch { /* ignore */ } }
+export function endGuest() {
+  try { Object.keys(sessionStorage).filter((k) => k.startsWith(DATA_PREFIX)).forEach((k) => sessionStorage.removeItem(k)); } catch { /* ignore */ }
+}
+
 // ── Progress sync ────────────────────────────────────────────────────────────
 // Each exam's state is one JSON document with an updatedAt timestamp; the newer copy wins.
 export async function pullAll(readLocal, writeLocal, slugs) {
@@ -202,7 +212,6 @@ export async function recordView(exam) {
   return api('/rest/v1/exam_views', { method: 'POST', headers: { Prefer: 'return=minimal' }, body: { exam } });
 }
 export async function popularExams(days = 30, limit = 6) {
-  if (!session) return [];
-  await ensureFresh();
+  await ensureFresh(); // guests call it with the public key only
   return api('/rest/v1/rpc/popular_exams', { method: 'POST', body: { days, max_rows: limit } });
 }

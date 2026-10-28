@@ -20,7 +20,8 @@ const KEYS_LETTER = 'abcdef';
 const KEYS_NUMBER = '123456';
 
 // ─────────────────────────────────────────────────────────────────────────────
-// State (persisted to localStorage so a refresh never loses progress)
+// State (persisted to localStorage so a refresh never loses progress; guests use
+// sessionStorage, which is cleared when the tab closes)
 // ─────────────────────────────────────────────────────────────────────────────
 const defaultState = () => ({
   mode: 'practice',          // 'practice' | 'exam' | 'review' | 'learn'
@@ -43,10 +44,13 @@ let state = null;
 let timerHandle = null;
 let LEARN = null;           // learn.json for this exam, if it has training content
 
+const progressStore = () => (Auth.isGuest() ? sessionStorage : localStorage);
+
 // Reads an exam's saved progress; legacyKey covers data saved before multi-exam support.
 function readSaved(slug, legacyKey) {
   try {
-    const raw = localStorage.getItem(storageKey(slug)) ?? (legacyKey ? localStorage.getItem(legacyKey) : null);
+    const store = progressStore();
+    const raw = store.getItem(storageKey(slug)) ?? (legacyKey ? store.getItem(legacyKey) : null);
     return raw ? JSON.parse(raw) : null;
   } catch { return null; }
 }
@@ -64,7 +68,7 @@ function load() {
 }
 
 const writeSaved = (slug, data) => {
-  try { localStorage.setItem(storageKey(slug), JSON.stringify(data)); } catch { /* ignore quota/private mode */ }
+  try { progressStore().setItem(storageKey(slug), JSON.stringify(data)); } catch { /* ignore quota/private mode */ }
 };
 
 let saveQueued = false;
@@ -989,7 +993,7 @@ async function renderHome() {
   document.body.classList.add('home');
   $('navigator').hidden = true;
   let exams = [];
-  const popularRequest = Auth.currentUser() ? Auth.popularExams(30, 6).catch(() => []) : Promise.resolve([]);
+  const popularRequest = Auth.currentUser() || Auth.isGuest() ? Auth.popularExams(30, 6).catch(() => []) : Promise.resolve([]);
   try { exams = await fetchIndex(); } catch { /* offline with nothing cached */ }
   const cards = await Promise.all(exams.map(async (e) => {
     // Counts are kept in index.json by scripts/stamp-updated.mjs; fall back to the bank if missing.
@@ -1166,9 +1170,15 @@ function renderSignIn(error) {
         <button class="btn btn-primary full" type="submit">Email me a sign-in link</button>
       </form>
       <p id="magic-status" class="signin-msg" role="status" hidden></p>
+      <div class="or"><span>or</span></div>
+      <div class="guest-option">
+        <button id="btn-guest" class="btn btn-ghost full" type="button">${icon('user')}Continue as guest</button>
+        <p class="small muted">${icon('alert')}<span><b>Guest progress isn't saved.</b> Answers, exam scores and learning progress are cleared when you close this tab, and can't be moved to an account later.</span></p>
+      </div>
       <p class="signin-foot"><a href="/privacy">Privacy policy</a></p>
     </section>`;
   $('main').querySelectorAll('[data-provider]').forEach((b) => b.addEventListener('click', () => Auth.signInWith(b.dataset.provider)));
+  $('btn-guest').addEventListener('click', () => { Auth.startGuest(); location.reload(); });
   $('magic-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = e.target.querySelector('button'); const status = $('magic-status');
@@ -1185,9 +1195,18 @@ function renderSignIn(error) {
 
 function renderAccount() {
   const user = Auth.currentUser();
+  const guest = Auth.isGuest();
   const link = $('account');
-  link.hidden = !user;
+  link.hidden = !user && !guest;
   if (user) link.title = `Signed in as ${user.email || 'you'}`;
+  if (guest) { link.title = 'Guest: progress is not saved'; link.querySelector('span').textContent = 'Guest'; }
+}
+
+// Leave guest mode: discard this tab's guest progress and show the sign-in screen.
+function leaveGuest() {
+  Auth.endGuest();
+  try { sessionStorage.removeItem('examsim:guest'); } catch { /* ignore */ }
+  location.assign('/');
 }
 
 // ── Account page (/account): profile, sign out, and admin tools ──────────────
@@ -1197,6 +1216,24 @@ async function renderAccountPage() {
   $('navigator').hidden = true;
   $('account').classList.add('active');
   const user = Auth.currentUser();
+  if (Auth.isGuest()) {
+    $('main').innerHTML = `<section class="stack">
+      <div class="stack" style="gap:6px"><h2 class="home-title">Account</h2>
+      <p class="muted">You're using the site as a guest.</p></div>
+      <div class="panel card-pad account-card">
+        <div class="account-avatar" aria-hidden="true">${icon('user')}</div>
+        <div class="account-who"><span class="muted small">Signed in as</span><b>Guest</b>
+          <span class="muted small">Progress isn't saved. It's cleared when you close this tab and can't be moved to an account.</span></div>
+        <div class="account-actions"><a class="btn btn-ghost btn-sm" href="/privacy">Privacy policy</a>
+          <button id="btn-guest-signin" class="btn btn-primary btn-sm">Sign in to save progress</button></div>
+      </div>
+    </section>`;
+    $('btn-guest-signin').addEventListener('click', async () => {
+      if (!(await confirmModal('Leave guest mode?', 'Your guest progress in this tab will be discarded, and you can sign in with an invited email.', 'Continue to sign in'))) return;
+      leaveGuest();
+    });
+    return;
+  }
   $('main').innerHTML = `<section class="stack">
       <div class="stack" style="gap:6px"><h2 class="home-title">Account</h2>
       <p class="muted">Your sign-in details and account settings.</p></div>
@@ -1310,10 +1347,15 @@ async function init() {
   if (!examPage) fetchIndex().catch(() => {});
   if (Auth.AUTH_ENABLED) {
     const auth = await Auth.initAuth();
+    if (auth.signedIn && sessionStorage.getItem('examsim:guest')) {
+      // Signed in from a guest tab: drop the guest data so it never reaches the account.
+      Auth.endGuest(); sessionStorage.removeItem('examsim:guest');
+    }
     renderAccount();
-    if (!auth.signedIn) return renderSignIn(auth.error);
+    if (!auth.signedIn && !Auth.isGuest()) return renderSignIn(auth.error);
     if (auth.error) toast(auth.error);
-    await syncFromCloud();
+    if (Auth.isGuest()) $('guest-banner').hidden = false;
+    else await syncFromCloud();
   }
   const slug = currentSlug();
   if (!slug) return renderHome();
@@ -1439,6 +1481,12 @@ async function init() {
   render();
   save(); // persist anything created on first render (e.g. a new practice round)
 }
+
+$('guest-signin').addEventListener('click', async (e) => {
+  e.preventDefault();
+  if (!(await confirmModal('Leave guest mode?', 'Your guest progress in this tab will be discarded, and you can sign in with an invited email.', 'Continue to sign in'))) return;
+  leaveGuest();
+});
 
 init();
 

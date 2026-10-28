@@ -159,6 +159,10 @@ Hosted on Vercel; every push to `main` deploys automatically. No build settings 
 `updated` in `exams/index.json` records when each exam's files last changed.
 After committing question changes, run `node scripts/stamp-updated.mjs` and commit `exams/index.json`. It also records each bank's question count (`"questions"`), which the home page shows without downloading every bank; `validate-questions.mjs` fails if a count is out of date.
 
+## Guest mode
+
+The sign-in screen has **Continue as guest**. Guests can use everything except question reports, but nothing is saved to an account: progress is kept in `sessionStorage` for that tab only and is cleared when the tab closes. A banner reminds guests of this, with a link to sign in (which discards the guest progress). Guests can read the Most popular ranking but don't add views.
+
 ## Home page: Recents and Most popular
 
 - **Recents** lists the exams a signed-in person has started (learning parts completed, practice questions answered, timed exams), most recently opened first. New users see the learning paths instead.
