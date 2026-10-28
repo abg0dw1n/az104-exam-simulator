@@ -609,8 +609,8 @@ body.account-page .exams-link { display: inline-flex; }
 .catalog-results-head h3 { font-size: 18px; font-weight: 650; }
 .catalog-results-head p { margin-top: 3px; }
 .catalog-results-head > span { flex: none; }
-.exam-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 14px; }
-.exam-card[data-vendor] { min-height: 212px; grid-template-rows: auto auto auto auto 1fr auto; gap: 7px; padding: 17px 18px 14px; border: 1px solid var(--border); border-left: 4px solid var(--v); border-top: 1px solid var(--border); }
+.exam-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 236px), 1fr)); gap: 12px; }
+.exam-card[data-vendor] { min-height: 184px; grid-template-rows: auto auto auto auto 1fr auto; gap: 6px; padding: 14px 15px 12px; border: 1px solid var(--border); border-left: 4px solid var(--v); border-top: 1px solid var(--border); }
 .exam-card[data-vendor]:hover { border-color: var(--v); border-left-color: var(--v); }
 .exam-card-code { color: var(--v-text); font-size: 13px; font-weight: 700; }
 .exam-card h2 { font-size: 17px; line-height: 1.35; }
@@ -633,7 +633,7 @@ body.account-page .exams-link { display: inline-flex; }
   .catalog-results-head { align-items: flex-start; }
   .catalog-results-head p { max-width: 42ch; }
   .exam-grid { grid-template-columns: 1fr; }
-  .exam-card[data-vendor] { min-height: 198px; }
+  .exam-card[data-vendor] { min-height: 176px; }
 }
 
 
@@ -657,7 +657,7 @@ body.account-page .exams-link { display: inline-flex; }
 .section-heading h2 { margin-top: 4px; font-size: clamp(21px, 2.6vw, 27px); letter-spacing: -.025em; }
 .section-heading p { margin-top: 5px; }
 .learning-count { flex: none; color: var(--azure-text); font-size: 12px; font-weight: 650; }
-.learning-path-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 12px; }
+.learning-path-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 252px), 1fr)); gap: 12px; }
 .learning-path-card, .learning-coming-card { display: grid; gap: 10px; padding: 19px; text-decoration: none; color: inherit; border-left: 4px solid var(--v, var(--azure)); transition: transform .15s, border-color .15s; }
 .learning-path-card:hover { border-color: var(--v, var(--azure)); transform: translateY(-2px); }
 .learning-path-eyebrow { color: var(--v-text, var(--azure-text)); font-size: 10.5px; font-weight: 750; letter-spacing: .08em; }
