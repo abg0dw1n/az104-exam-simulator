@@ -915,12 +915,14 @@ async function renderHome() {
     if (!folders.has(e.vendor)) folders.set(e.vendor, []);
     folders.get(e.vendor).push({ e, html: cards[i] });
   });
-  let closed = [];
-  try { closed = JSON.parse(localStorage.getItem('examsim:closed-folders') || '[]'); } catch { /* ignore */ }
+  // Folders always start collapsed; the summary previews each exam code with its difficulty dot.
   const groups = folders.size ? [...folders].map(([vendor, list]) => {
     list.sort((a, b) => levelRank(a.e.level) - levelRank(b.e.level));
-    return `<details class="vendor-folder" data-vendor="${vendorKey(vendor)}" data-name="${vendor}" ${closed.includes(vendor) ? '' : 'open'}>
+    const preview = list.map(({ e }) =>
+      `<span class="folder-code" data-level="${e.level || ''}" title="${e.name}">${e.code}</span>`).join('');
+    return `<details class="vendor-folder" data-vendor="${vendorKey(vendor)}" data-name="${vendor}">
       <summary>${icon('right', 'icon folder-chevron')}${icon('folder', 'icon folder-icon')}<span class="folder-name">${vendor}</span>
+        <span class="folder-preview">${preview}</span>
         <span class="folder-count">${list.length} exam${list.length === 1 ? '' : 's'}</span></summary>
       <div class="exam-grid">${list.map((x) => x.html).join('')}</div>
     </details>`;
@@ -928,13 +930,9 @@ async function renderHome() {
   $('main').innerHTML = `<section class="stack">
       <div class="stack" style="gap:6px"><h2 class="home-title">Choose an exam</h2>
       <p class="muted">Each exam keeps its own practice progress and history${Auth.currentUser() ? ', synced to your account' : ''}.</p></div>
-      ${groups}
+      <div class="folder-list">${groups}</div>
       <div id="invites"></div>
     </section>`;
-  document.querySelectorAll('.vendor-folder').forEach((d) => d.addEventListener('toggle', () => {
-    const shut = [...document.querySelectorAll('.vendor-folder:not([open])')].map((x) => x.dataset.name);
-    try { localStorage.setItem('examsim:closed-folders', JSON.stringify(shut)); } catch { /* ignore */ }
-  }));
   renderInvites();
 }
 

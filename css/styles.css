@@ -405,6 +405,7 @@ body.signed-out .exams-link { display: none; }
 .level-meter[data-level="intermediate"] { --lvl: #d4920f; }
 .level-meter[data-level="advanced"] { --lvl: #d64545; }
 .level-bars i.on { background: var(--lvl); }
+.folder-list { display: grid; gap: 12px; }
 .vendor-folder { border: 1px solid var(--border); border-left: 4px solid var(--v, var(--border-strong)); border-radius: 12px; background: var(--panel-2); }
 .vendor-folder > summary { display: flex; align-items: center; gap: 10px; padding: 12px 16px; cursor: pointer; list-style: none; user-select: none; font-weight: 650; }
 .vendor-folder > summary::-webkit-details-marker { display: none; }
@@ -412,7 +413,21 @@ body.signed-out .exams-link { display: none; }
 .folder-chevron { width: 16px; height: 16px; transition: transform .15s; color: var(--muted); }
 .vendor-folder[open] .folder-chevron { transform: rotate(90deg); }
 .folder-icon { color: var(--v-text, var(--v)); }
-.folder-count { margin-left: auto; font-size: 12.5px; font-weight: 500; color: var(--muted); }
+.folder-count { margin-left: auto; font-size: 12.5px; font-weight: 500; color: var(--muted); white-space: nowrap; }
+.vendor-folder > summary { min-height: 56px; }
+.folder-name { white-space: nowrap; }
+.folder-preview { display: flex; flex-wrap: wrap; gap: 6px; margin-left: 6px; min-width: 0; }
+.vendor-folder[open] .folder-preview { display: none; }
+.folder-code { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 600; color: var(--v-text, var(--muted)); background: var(--v-soft, transparent); padding: 3px 8px; border-radius: 999px; }
+.folder-code::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--border-strong); }
+.folder-code[data-level="beginner"]::before { background: #2e9e5b; }
+.folder-code[data-level="intermediate"]::before { background: #d4920f; }
+.folder-code[data-level="advanced"]::before { background: #d64545; }
+.vendor-folder:not([open]) > summary:hover { background: var(--v-soft, var(--panel)); border-radius: 0 10px 10px 0; }
+@media (max-width: 640px) {
+  .vendor-folder > summary { flex-wrap: wrap; row-gap: 8px; }
+  .folder-preview { order: 3; flex-basis: 100%; margin-left: 50px; }
+}
 .vendor-folder > .exam-grid { padding: 0 16px 16px; }
 @media (prefers-reduced-motion: reduce) { .folder-chevron { transition: none; } }
 .exam-updated { font-size: 11.5px; color: var(--muted); opacity: .75; margin-top: -2px; }
