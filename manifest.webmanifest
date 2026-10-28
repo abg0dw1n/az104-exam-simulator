@@ -1,7 +1,7 @@
 {
-  "name": "Exam Simulator",
-  "short_name": "Exams",
-  "description": "Practice questions and timed exams for IT certifications.",
+  "name": "IT Learn & Practice",
+  "short_name": "IT Learn",
+  "description": "Learn IT certifications and practice with confidence.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
