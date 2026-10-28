@@ -1,0 +1,1074 @@
+{
+  "intro": "Four modules follow the NHA CBCS test plan's domains and weights. Each combines a study guide, exam tips, key terms, visual slides, and a narrated lesson. Use them alongside the official test plan and current code books. CPT is a registered trademark of the American Medical Association.",
+  "updated": "2026-10-28",
+  "sources": [
+    {
+      "title": "NHA: Certified Billing and Coding Specialist (CBCS) test plan (PDF)",
+      "url": "https://www.nhanow.com/docs/default-source/test-plans/2021-nha-certified-billing-and-coding-specialist-(cbcs)-test-plan-10-08.pdf"
+    },
+    {
+      "title": "NHA: Candidate handbook (PDF)",
+      "url": "https://www.nhanow.com/docs/default-source/test-plans/candidate_handbook.pdf"
+    },
+    {
+      "title": "NUCC: 1500 Claim Form Reference Instruction Manual",
+      "url": "https://www.nucc.org/index.php/1500-claim-form-mainmenu-35/1500-instructions-mainmenu-42"
+    },
+    {
+      "title": "CMS: Original Medicare (fee-for-service) appeals",
+      "url": "https://www.cms.gov/medicare/appeals-grievances/fee-for-service"
+    },
+    {
+      "title": "HHS: Summary of the HIPAA Privacy Rule",
+      "url": "https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html"
+    },
+    {
+      "title": "HHS-OIG: General Compliance Program Guidance",
+      "url": "https://oig.hhs.gov/compliance/general-compliance-program-guidance/"
+    },
+    {
+      "title": "NHA CBCS Exam Study Guide (2026): 8-week plan (Open Exam Prep, YouTube)",
+      "url": "https://www.youtube.com/watch?v=FgrQHWn0a-s",
+      "note": "Free · NHA CBCS, 2026 · short study plan covering the four domains · checked October 2026"
+    }
+  ],
+  "modules": [
+    {
+      "id": "D1",
+      "short": "Revenue cycle & compliance",
+      "title": "The revenue cycle and regulatory compliance",
+      "summary": "Follow the revenue cycle from registration to collections, protect PHI under HIPAA and HITECH, and recognize fraud, abuse, audits, and compliance program elements.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>15 of the CBCS exam's 100 scored items cover the revenue cycle and compliance: how each phase affects the others, HIPAA and HITECH, the False Claims Act, Stark, the OIG, compliance plans, audits, and types of consent.</p>"
+        },
+        {
+          "h": "The revenue cycle",
+          "html": "<p>The cycle starts before the visit, with scheduling, preregistration, and eligibility and authorization checks. It continues through the encounter, charge capture, coding, claim scrubbing and submission, adjudication, payment posting, denial management and appeals, patient statements, and collections. Errors early in the cycle, such as a wrong subscriber ID or a missing authorization, become denials later. That's why front-end accuracy matters so much.</p>"
+        },
+        {
+          "h": "HIPAA and HITECH",
+          "html": "<p>The Privacy Rule allows uses and disclosures for treatment, payment, and health care operations without authorization, limited to the minimum necessary (except for treatment). Most other disclosures need written authorization. Patients can access their records within 30 days. PHI includes 18 identifiers, such as names, dates, MRNs, and account and plan numbers. HITECH increased penalties, extended rules to business associates, and created breach notification. Breaches affecting 500 or more people also require notice to HHS and the media.</p>"
+        },
+        {
+          "h": "Fraud, abuse, and compliance",
+          "html": "<p>Fraud is intentional; abuse causes improper payment without proven intent. The <b>False Claims Act</b> imposes treble damages for knowingly false claims. The <b>Anti-Kickback Statute</b> prohibits paying for referrals. <b>Stark</b> prohibits certain self-referrals regardless of intent. The <b>OIG</b> investigates, keeps the exclusion list, and publishes compliance guidance. The core elements of a compliance program are policies, a compliance officer, training, communication, auditing, discipline, and corrective action. Providers can use the Self-Disclosure Protocol. Audits come from RACs, UPICs, and payers.</p>"
+        }
+      ],
+      "tips": [
+        "Know which revenue cycle step causes which kind of denial.",
+        "TPO disclosures don't need authorization; marketing and employers do.",
+        "Fraud requires intent; Stark doesn't.",
+        "Code only what's documented, and query the provider when it's unclear.",
+        "Know HIPAA's breach notice thresholds and 60-day limit."
+      ],
+      "terms": [
+        [
+          "Revenue cycle",
+          "All functions from scheduling to final payment and collection of a patient account."
+        ],
+        [
+          "PHI",
+          "Individually identifiable health information held by a covered entity or business associate."
+        ],
+        [
+          "Minimum necessary",
+          "Limit PHI to what's needed for the purpose (excluding treatment)."
+        ],
+        [
+          "False Claims Act",
+          "Federal law penalizing knowingly false claims, with treble damages."
+        ],
+        [
+          "Stark Law",
+          "Self-referral prohibition for designated health services."
+        ],
+        [
+          "OIG",
+          "HHS Office of Inspector General: fraud oversight and compliance guidance."
+        ],
+        [
+          "RAC",
+          "Recovery Audit Contractor that identifies improper Medicare payments."
+        ],
+        [
+          "Implied consent",
+          "Consent inferred from a patient's actions."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Revenue cycle and compliance",
+          "bullets": [
+            "15% of the CBCS",
+            "Every phase affects the next",
+            "Protect PHI; bill honestly"
+          ],
+          "script": [
+            "Welcome to the revenue cycle and compliance module. It covers how money flows through a practice and the rules that keep billing honest and patient information private.",
+            "Errors made at the front desk often surface as denials weeks later, so think about the whole cycle."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Register",
+                "d": "Eligibility · auth"
+              },
+              {
+                "t": "Encounter",
+                "d": "Charge capture"
+              },
+              {
+                "t": "Code & bill",
+                "d": "Scrub · submit"
+              },
+              {
+                "t": "Post",
+                "d": "ERA · EOB"
+              },
+              {
+                "t": "Follow up",
+                "d": "Denials · collections"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "HIPAA basics",
+          "bullets": [
+            "TPO without authorization",
+            "Minimum necessary",
+            "Access within 30 days"
+          ],
+          "script": [
+            "HIPAA allows disclosures for treatment, payment, and health care operations without authorization. Payment and operations disclosures are limited to the minimum necessary.",
+            "Most other disclosures need written authorization. Patients have a right to their records, usually within thirty days."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Disclosure",
+              "Authorization?"
+            ],
+            "rows": [
+              [
+                "Claim to insurer",
+                "No"
+              ],
+              [
+                "Records to specialist",
+                "No"
+              ],
+              [
+                "Records to employer",
+                "Yes"
+              ],
+              [
+                "Public health report",
+                "No"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Breaches and HITECH",
+          "bullets": [
+            "HITECH raised penalties",
+            "500+ affected: HHS and media",
+            "Notify within 60 days"
+          ],
+          "script": [
+            "The HITECH Act strengthened HIPAA enforcement, extended rules to business associates, and created breach notification.",
+            "Affected individuals must be told without unreasonable delay, within sixty days. Breaches of five hundred or more people in a state also require notice to HHS and the media."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "< 500",
+                "d": "Individuals + annual HHS log"
+              },
+              {
+                "t": "500+",
+                "d": "Individuals + HHS + media"
+              },
+              {
+                "t": "Deadline",
+                "d": "60 days"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Fraud and abuse laws",
+          "bullets": [
+            "False Claims Act: treble damages",
+            "Anti-Kickback: paying for referrals",
+            "Stark: self-referral"
+          ],
+          "script": [
+            "Fraud is intentional deception; abuse causes improper payment without proof of intent. Upcoding and unbundling are classic examples.",
+            "The False Claims Act, the Anti-Kickback Statute, and the Stark Law are the main federal laws. The OIG enforces them and publishes compliance guidance."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "FCA",
+                "d": "Knowingly false claims"
+              },
+              {
+                "t": "AKS",
+                "d": "Kickbacks"
+              },
+              {
+                "t": "Stark",
+                "d": "Self-referral, strict"
+              },
+              {
+                "t": "OIG",
+                "d": "Oversight · exclusions"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Compliance programs and audits",
+          "bullets": [
+            "Seven core elements",
+            "Self-Disclosure Protocol",
+            "RAC · UPIC · payer audits"
+          ],
+          "script": [
+            "An effective compliance program has written policies, a compliance officer, training, open communication, auditing and monitoring, consistent discipline, and corrective action.",
+            "Practices that find problems can self-disclose to the OIG. External audits come from recovery audit contractors, program integrity contractors, and commercial payers."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Policies",
+                "d": ""
+              },
+              {
+                "t": "Training",
+                "d": ""
+              },
+              {
+                "t": "Audit",
+                "d": ""
+              },
+              {
+                "t": "Correct",
+                "d": ""
+              },
+              {
+                "t": "Report",
+                "d": "If needed"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: revenue cycle and compliance",
+          "bullets": [
+            "Trace denials to their cause",
+            "Know HIPAA disclosure rules",
+            "Distinguish fraud laws"
+          ],
+          "script": [
+            "You've finished the revenue cycle and compliance overview. Practice tracing a denial back to the step that caused it, and deciding whether a disclosure needs authorization.",
+            "Then try the revenue cycle and compliance question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "short": "Eligibility & payers",
+      "title": "Insurance eligibility and payer requirements",
+      "summary": "Verify coverage and benefits, decide the primary payer, understand commercial and government plans, handle referrals and authorizations, and calculate patient responsibility.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>20 scored items cover insurance verification: required documents, eligibility and benefits, out-of-network rules, filing order, plan types, government programs, other third-party payers, authorizations, patient cost sharing, self-pay, and the ABN.</p>"
+        },
+        {
+          "h": "Verify before the visit",
+          "html": "<p>Collect photo ID, both sides of the insurance card, demographics, assignment of benefits, and release forms. Check eligibility for each date of service (often with a 270/271 transaction or a payer portal) and confirm the copay, deductible, coinsurance, and any referral or authorization requirement. <b>Prior authorization</b> is required approval. <b>Predetermination</b> is an optional estimate. <b>Referrals</b> come from the PCP in managed care.</p>"
+        },
+        {
+          "h": "Which plan pays first",
+          "html": "<p>For children of married parents, use the <b>birthday rule</b>: the parent whose month and day comes first is primary. For divorced parents, the order is usually custodial parent, custodial parent's spouse, then non-custodial parent, unless a court order says otherwise. Medicare is secondary to an employer group plan for working people 65 and older at employers with 20 or more employees. Workers' compensation and auto coverage pay first for their injuries. Medicaid is always the payer of last resort.</p>"
+        },
+        {
+          "h": "Plans and patient responsibility",
+          "html": "<p>Commercial plans include HMO (PCP and referrals, in-network only), PPO (out-of-network at higher cost), EPO, POS, and indemnity plans. Government programs: Medicare Parts A–D, Medicaid, Medigap (supplements Original Medicare), TRICARE, and CHAMPVA. Patients pay the deductible first, then coinsurance (a percentage) or copays (fixed amounts), up to the out-of-pocket maximum. Give a Medicare patient an ABN before a service that may be denied as not medically necessary. Give uninsured patients a good faith estimate.</p>"
+        }
+      ],
+      "tips": [
+        "Verify eligibility at every visit, not just the first.",
+        "Birthday rule: month and day only, never the year.",
+        "Medicaid always pays last.",
+        "Deductible first, then coinsurance on the remainder.",
+        "Get the ABN signed before the service."
+      ],
+      "terms": [
+        [
+          "Eligibility verification",
+          "Confirming active coverage and benefits for a date of service."
+        ],
+        [
+          "Birthday rule",
+          "The parent with the earlier birthday (month and day) has the primary plan."
+        ],
+        [
+          "Coordination of benefits",
+          "Rules that decide payment order when there's more than one plan."
+        ],
+        [
+          "Prior authorization",
+          "Payer approval required before certain services."
+        ],
+        [
+          "Deductible",
+          "Amount the patient pays each year before the plan shares costs."
+        ],
+        [
+          "Coinsurance",
+          "Patient's percentage of the allowed amount."
+        ],
+        [
+          "Medigap",
+          "Private supplement to Original Medicare."
+        ],
+        [
+          "ABN",
+          "Medicare notice that a service may not be covered, signed before the service."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Know the coverage first",
+          "bullets": [
+            "20% of the CBCS",
+            "Verify, authorize, explain",
+            "Pick the right primary payer"
+          ],
+          "script": [
+            "This module covers what happens before a claim is ever built: verifying insurance, determining benefits, and deciding which plan pays first.",
+            "Most denials for eligibility and authorization can be prevented at registration."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Collect",
+                "d": "ID · card · forms"
+              },
+              {
+                "t": "Verify",
+                "d": "270 / 271"
+              },
+              {
+                "t": "Authorize",
+                "d": "If required"
+              },
+              {
+                "t": "Explain",
+                "d": "Patient share"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Authorization, referral, predetermination",
+          "bullets": [
+            "Prior auth is required approval",
+            "Referral comes from the PCP",
+            "Predetermination is an estimate"
+          ],
+          "script": [
+            "Prior authorization is the payer's required approval before a service. Missing it often leads to a denial.",
+            "A referral comes from the primary care provider in managed care plans. A predetermination is an optional estimate of what the plan will pay."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Term",
+              "Who / what"
+            ],
+            "rows": [
+              [
+                "Prior authorization",
+                "Payer approval, required"
+              ],
+              [
+                "Referral",
+                "PCP to specialist"
+              ],
+              [
+                "Predetermination",
+                "Optional estimate"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Which plan pays first",
+          "bullets": [
+            "Birthday rule for children",
+            "Custodial parent if divorced",
+            "Medicaid is last"
+          ],
+          "script": [
+            "For a child covered by both parents, the parent whose birthday falls earlier in the year is primary. With divorced parents, the custodial parent's plan usually goes first.",
+            "Medicare is secondary to large employer plans for people still working. Work injuries go to workers' compensation, and Medicaid always pays last."
+          ],
+          "visual": {
+            "type": "layers",
+            "items": [
+              {
+                "t": "Workers' comp / auto",
+                "d": "For those injuries"
+              },
+              {
+                "t": "Employer group plan",
+                "d": "If working, 20+ employees"
+              },
+              {
+                "t": "Medicare",
+                "d": "Then Medigap"
+              },
+              {
+                "t": "Medicaid",
+                "d": "Last resort"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Plan types",
+          "bullets": [
+            "HMO · PPO · EPO · POS",
+            "Medicare Parts A–D",
+            "TRICARE · CHAMPVA"
+          ],
+          "script": [
+            "HMOs require a primary care provider and referrals and cover in-network care. PPOs allow out-of-network care at a higher cost.",
+            "Medicare Part A covers hospital care, Part B covers physician services, Part C is Medicare Advantage, and Part D covers drugs. TRICARE covers military families."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "HMO",
+                "d": "PCP · referrals"
+              },
+              {
+                "t": "PPO",
+                "d": "OON at higher cost"
+              },
+              {
+                "t": "Medicare",
+                "d": "A · B · C · D"
+              },
+              {
+                "t": "Medicaid",
+                "d": "Income-based"
+              },
+              {
+                "t": "TRICARE",
+                "d": "Military"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Patient responsibility",
+          "bullets": [
+            "Deductible, then coinsurance",
+            "Copay is a fixed amount",
+            "Out-of-pocket maximum caps it"
+          ],
+          "script": [
+            "The patient pays the deductible first, then coinsurance as a percentage of the allowed amount. A copay is a fixed amount per visit.",
+            "Example: with a two-hundred-dollar allowed amount, a fifty-dollar deductible, and twenty percent coinsurance, the patient owes eighty dollars and the plan pays one hundred twenty."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Step",
+              "Amount"
+            ],
+            "rows": [
+              [
+                "Allowed",
+                "$200"
+              ],
+              [
+                "Deductible",
+                "$50"
+              ],
+              [
+                "20% of $150",
+                "$30"
+              ],
+              [
+                "Patient total",
+                "$80"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Review: eligibility and payers",
+          "bullets": [
+            "Verify every visit",
+            "Sequence the payers",
+            "Calculate and explain the patient's share"
+          ],
+          "script": [
+            "You've finished the eligibility overview. Practice deciding the primary payer and calculating patient responsibility from short scenarios.",
+            "Then try the eligibility question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "short": "Coding",
+      "title": "Coding and coding guidelines",
+      "summary": "Abstract information from documentation and assign ICD-10-CM, CPT, and HCPCS codes with modifiers, E/M levels, and medical necessity, querying providers when documentation is unclear.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>32 scored items cover coding: terminology, anatomy, abbreviations, where information lives in the record, which organizations maintain which code sets, conventions for ICD-10-CM, CPT, and HCPCS, modifiers, sequencing, E/M levels, place of service, specialty coding, Medicare requirements, medical necessity, and telehealth.</p>"
+        },
+        {
+          "h": "Code sets and who maintains them",
+          "html": "<p><b>ICD-10-CM</b> (diagnoses, all settings) is maintained by NCHS with CMS, based on WHO's ICD-10. <b>ICD-10-PCS</b> (inpatient hospital procedures) is maintained by CMS. <b>CPT</b> (HCPCS Level I) belongs to the AMA. <b>HCPCS Level II</b> (supplies, drugs, DME, and some services) is maintained by CMS. CPT has Category I (main codes), Category II (performance, ending in F), and Category III (emerging technology, ending in T).</p>"
+        },
+        {
+          "h": "Diagnosis coding essentials",
+          "html": "<p>Find the term in the Index, then verify in the Tabular. Code to the highest specificity, including laterality and 7th characters. Follow Excludes1/Excludes2, code first, and use additional code notes, and use combination codes when they exist. In outpatient settings, code symptoms instead of uncertain diagnoses. When a condition is both acute and chronic with separate codes, code both, acute first. Diabetes and CKD are presumed linked (E11.22 plus an N18 stage code).</p>"
+        },
+        {
+          "h": "Procedures, E/M, and modifiers",
+          "html": "<p>Office E/M levels come from MDM or total time on the date (established: 10, 20, 30, or 40 minutes). Common modifiers: 25 (separate E/M), 59/X{EPSU} (distinct service), 50 (bilateral), 51 (multiple), 26/TC, 95 (synchronous telemedicine), and GA/GZ (ABN). HCPCS drug units equal the dose divided by the descriptor amount. Many payers want the NDC with drug codes. Link every procedure to a diagnosis that supports its medical necessity, and query the provider when the documentation is unclear.</p>"
+        }
+      ],
+      "tips": [
+        "The assessment and plan hold the diagnoses; procedure notes hold the services.",
+        "Outpatient: no probable or rule-out diagnoses.",
+        "Use modifier 25 only when the E/M is significant and separately identifiable.",
+        "Never code from the index alone.",
+        "Query the provider instead of guessing."
+      ],
+      "terms": [
+        [
+          "ICD-10-CM",
+          "Diagnosis code set for all US health care settings."
+        ],
+        [
+          "ICD-10-PCS",
+          "Seven-character inpatient hospital procedure code set."
+        ],
+        [
+          "CPT",
+          "AMA's procedure and service code set (HCPCS Level I)."
+        ],
+        [
+          "NEC / NOS",
+          "Not elsewhere classifiable / not otherwise specified."
+        ],
+        [
+          "Combination code",
+          "A single code covering multiple conditions or a complication."
+        ],
+        [
+          "Medical necessity",
+          "Services reasonable and necessary for the documented condition."
+        ],
+        [
+          "Provider query",
+          "A non-leading request asking the provider to clarify documentation."
+        ],
+        [
+          "Modifier 95",
+          "Synchronous telemedicine service."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Coding for billers",
+          "bullets": [
+            "32% of the CBCS",
+            "Three code sets, one claim",
+            "Documentation drives codes"
+          ],
+          "script": [
+            "This module covers the coding knowledge a billing and coding specialist needs: the code sets, their conventions, E/M leveling, modifiers, and medical necessity.",
+            "Every code must be supported by documentation in the medical record."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "ICD-10-CM",
+                "d": "Why: diagnoses"
+              },
+              {
+                "t": "CPT",
+                "d": "What: services"
+              },
+              {
+                "t": "HCPCS II",
+                "d": "Supplies · drugs"
+              },
+              {
+                "t": "Modifiers",
+                "d": "Circumstances"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Who maintains what",
+          "bullets": [
+            "AMA: CPT",
+            "CMS: HCPCS II · ICD-10-PCS",
+            "NCHS: ICD-10-CM"
+          ],
+          "script": [
+            "The AMA maintains CPT. CMS maintains HCPCS Level Two and ICD-10-PCS. The National Center for Health Statistics maintains ICD-10-CM, which is based on the World Health Organization's ICD-10.",
+            "ICD-10-PCS is used only for inpatient hospital procedures. Physicians always report their own services with CPT."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Code set",
+              "Owner",
+              "Use"
+            ],
+            "rows": [
+              [
+                "ICD-10-CM",
+                "NCHS/CMS",
+                "Diagnoses"
+              ],
+              [
+                "ICD-10-PCS",
+                "CMS",
+                "Inpatient procedures"
+              ],
+              [
+                "CPT",
+                "AMA",
+                "Services"
+              ],
+              [
+                "HCPCS II",
+                "CMS",
+                "Supplies · drugs"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Diagnosis rules",
+          "bullets": [
+            "Index → Tabular",
+            "Highest specificity",
+            "Outpatient: symptoms, not rule-outs"
+          ],
+          "script": [
+            "Look up the term in the Index, then verify it in the Tabular List and follow its notes. Code to the highest specificity documented, including laterality and seventh characters.",
+            "In outpatient settings, code signs and symptoms rather than possible or rule-out diagnoses. Use combination codes when one code describes the whole condition."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Index",
+                "d": ""
+              },
+              {
+                "t": "Tabular",
+                "d": "Notes"
+              },
+              {
+                "t": "Specificity",
+                "d": "Laterality · 7th"
+              },
+              {
+                "t": "Sequence",
+                "d": "Guidelines"
+              }
+            ]
+          }
+        },
+        {
+          "title": "E/M and modifiers",
+          "bullets": [
+            "MDM or time",
+            "25 · 59 · 50 · 95",
+            "ABN modifiers GA / GZ"
+          ],
+          "script": [
+            "Office E/M levels are based on medical decision making or the physician's total time on the date of service. For established patients, the time thresholds are ten, twenty, thirty, and forty minutes.",
+            "Modifier twenty-five marks a separate E/M, fifty-nine a distinct procedure, fifty a bilateral procedure, and ninety-five a synchronous telemedicine visit."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "25",
+                "d": "Separate E/M"
+              },
+              {
+                "t": "59 / X",
+                "d": "Distinct"
+              },
+              {
+                "t": "50",
+                "d": "Bilateral"
+              },
+              {
+                "t": "95",
+                "d": "Telemedicine"
+              },
+              {
+                "t": "GA",
+                "d": "ABN on file"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Medical necessity and queries",
+          "bullets": [
+            "Link each service to a diagnosis",
+            "LCDs and NCDs",
+            "Ask; don't assume"
+          ],
+          "script": [
+            "Every service on a claim points to a diagnosis that supports it. Medicare's national and local coverage determinations list the conditions that support necessity for many services.",
+            "When documentation is unclear or incomplete, send a non-leading query to the provider instead of guessing or adding diagnoses."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Service",
+                "d": "CPT/HCPCS"
+              },
+              {
+                "t": "Pointer",
+                "d": "24E"
+              },
+              {
+                "t": "Diagnosis",
+                "d": "ICD-10-CM"
+              },
+              {
+                "t": "Policy",
+                "d": "LCD / NCD"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: coding",
+          "bullets": [
+            "Know the code sets",
+            "Follow conventions",
+            "Support every line"
+          ],
+          "script": [
+            "You've finished the coding overview. Practice assigning diagnosis codes from short notes and choosing the right modifiers.",
+            "Then try the coding question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "short": "Billing & reimbursement",
+      "title": "Billing and reimbursement",
+      "summary": "Capture charges, complete the CMS-1500 and 837P, send claims, post payments from ERAs, work rejections and denials, appeal, and manage A/R and collections within the law.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>The largest domain, 33 scored items: charge capture, CMS-1500/837P fields, transmission, patient and payer responsibility, payment posting, adjustments, denials and CARCs, reconsiderations and appeals, resubmission, aging, payer edits, and collections.</p>"
+        },
+        {
+          "h": "Claims and key CMS-1500 fields",
+          "html": "<p>Professional claims use the CMS-1500 or the electronic 837P. Institutional claims use the UB-04 or 837I. Key items: 1a insured ID, 2 patient name, 11 group number, 17 referring provider, <b>21</b> diagnoses A–L, <b>22</b> resubmission code (7 replace, 8 void), <b>23</b> prior authorization, 24A dates, <b>24B</b> place of service, <b>24D</b> CPT/HCPCS and modifiers, <b>24E</b> diagnosis pointer, 24F charges, 24G units, <b>24J</b> rendering NPI, 25 tax ID, 32 service facility, <b>33</b> billing provider and NPI. A clearinghouse scrubs claims before they reach the payer.</p>"
+        },
+        {
+          "h": "Payments, adjustments, and denials",
+          "html": "<p>The 835 ERA (and paper EOB) reports payment with group codes: <b>CO</b> (contractual obligation, written off), <b>PR</b> (patient responsibility), <b>OA</b> (other), and <b>PI</b> (payer-initiated reduction). CARCs give the reason, such as 1 deductible, 2 coinsurance, 3 copay, 16 missing information, 18 duplicate, 29 timely filing, 50 not medically necessary, and 97 bundled. RARCs add detail. A <b>rejection</b> never entered processing and is corrected and resubmitted. A <b>denial</b> was adjudicated and is corrected, reconsidered, or appealed. Post contractual adjustments, write-offs, take-backs, and refunds accurately.</p>"
+        },
+        {
+          "h": "Timely filing, appeals, A/R, and collections",
+          "html": "<p>Medicare's timely filing limit is 12 months from the date of service. Medicare appeals have five levels: redetermination by the MAC (within 120 days), QIC reconsideration, ALJ hearing, Medicare Appeals Council, and federal district court. Non-participating providers who don't accept assignment are limited to 115% of the non-par fee schedule. Work A/R from aging reports by deadline and dollar value. Days in A/R = total A/R ÷ average daily charges. Collections must follow the FDCPA, TILA (more than four installments), the FACT Act, ECOA, bankruptcy stays, and estate procedures.</p>"
+        }
+      ],
+      "tips": [
+        "Item 21 holds the diagnoses; 24E points to them.",
+        "CO is written off; PR is billed to the patient.",
+        "Fix rejections fast; appeal denials with documentation.",
+        "Medicare: 12-month filing, 120 days for redetermination.",
+        "Stop collection activity when you're notified of bankruptcy."
+      ],
+      "terms": [
+        [
+          "CMS-1500 / 837P",
+          "Professional claim, on paper or electronic."
+        ],
+        [
+          "Clearinghouse",
+          "Intermediary that scrubs and forwards claims."
+        ],
+        [
+          "835 / ERA",
+          "Electronic remittance advice."
+        ],
+        [
+          "CARC",
+          "Claim Adjustment Reason Code explaining an adjustment."
+        ],
+        [
+          "Group code CO",
+          "Contractual obligation: provider write-off."
+        ],
+        [
+          "Timely filing",
+          "Payer deadline for submitting a claim."
+        ],
+        [
+          "Redetermination",
+          "First level of a Medicare appeal, handled by the MAC."
+        ],
+        [
+          "Days in A/R",
+          "Total A/R divided by average daily charges."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Getting paid",
+          "bullets": [
+            "33% of the CBCS: largest domain",
+            "Claims · posting · denials · A/R",
+            "Clean claims first time"
+          ],
+          "script": [
+            "This module covers billing and reimbursement, the largest domain on the CBCS exam. It follows a claim from charge capture through payment, denial, appeal, and collection.",
+            "The goal is a clean claim the first time, followed by accurate posting and fast follow-up."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Capture",
+                "d": "Charges"
+              },
+              {
+                "t": "Claim",
+                "d": "CMS-1500 / 837P"
+              },
+              {
+                "t": "Scrub",
+                "d": "Clearinghouse"
+              },
+              {
+                "t": "Adjudicate",
+                "d": "Payer"
+              },
+              {
+                "t": "Post",
+                "d": "835 ERA"
+              },
+              {
+                "t": "Follow up",
+                "d": "Denials · A/R"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "CMS-1500 essentials",
+          "bullets": [
+            "21: diagnoses · 24E: pointer",
+            "22: resubmission · 23: prior auth",
+            "24J: rendering NPI · 33: billing"
+          ],
+          "script": [
+            "The CMS-1500 and its electronic version, the 837P, carry professional claims. Item twenty-one lists up to twelve diagnoses, and item twenty-four E points each service line to them.",
+            "Item twenty-two holds resubmission codes: seven to replace a claim and eight to void it. Item twenty-three holds the prior authorization number, and item thirty-three identifies the billing provider."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Item",
+              "Content"
+            ],
+            "rows": [
+              [
+                "21",
+                "Diagnoses A–L"
+              ],
+              [
+                "22",
+                "7 replace · 8 void"
+              ],
+              [
+                "23",
+                "Prior authorization"
+              ],
+              [
+                "24E",
+                "Diagnosis pointer"
+              ],
+              [
+                "33",
+                "Billing provider + NPI"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Reading the remittance",
+          "bullets": [
+            "CO · PR · OA · PI",
+            "CARC = reason · RARC = detail",
+            "Post every adjustment"
+          ],
+          "script": [
+            "The electronic remittance advice uses group codes. CO is a contractual write-off, PR is patient responsibility, OA is other, and PI is a payer-initiated reduction.",
+            "Claim adjustment reason codes explain why. For example, one is deductible, sixteen is missing information, twenty-nine is timely filing, and ninety-seven is bundled."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "CARC",
+              "Meaning"
+            ],
+            "rows": [
+              [
+                "1 / 2 / 3",
+                "Deductible · coinsurance · copay"
+              ],
+              [
+                "16",
+                "Missing information"
+              ],
+              [
+                "18",
+                "Duplicate"
+              ],
+              [
+                "29",
+                "Timely filing"
+              ],
+              [
+                "50",
+                "Not medically necessary"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Rejections, denials, and appeals",
+          "bullets": [
+            "Rejection: fix and resubmit",
+            "Denial: correct or appeal",
+            "Medicare: five appeal levels"
+          ],
+          "script": [
+            "A rejection never entered the payer's processing system, so correct it and resubmit. A denial was processed and needs a corrected claim, a reconsideration, or an appeal.",
+            "Medicare has five appeal levels, starting with a redetermination by the Medicare administrative contractor within one hundred twenty days."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Redetermination",
+                "d": "MAC · 120 days"
+              },
+              {
+                "t": "Reconsideration",
+                "d": "QIC · 180 days"
+              },
+              {
+                "t": "ALJ",
+                "d": "Hearing"
+              },
+              {
+                "t": "Council",
+                "d": "Review"
+              },
+              {
+                "t": "Federal court",
+                "d": ""
+              }
+            ]
+          }
+        },
+        {
+          "title": "A/R and collections",
+          "bullets": [
+            "Work aging by risk and value",
+            "Days in A/R",
+            "FDCPA · TILA · bankruptcy"
+          ],
+          "script": [
+            "Aging reports group balances by thirty-day buckets. Work the highest-dollar and closest-to-deadline accounts first. Days in A/R equals total A/R divided by average daily charges.",
+            "Collections must follow the law. Calls between eight in the morning and nine at night, Truth in Lending disclosures for payment plans with more than four installments, and an immediate stop when a patient files for bankruptcy."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "0–30",
+                "d": "Current"
+              },
+              {
+                "t": "31–60",
+                "d": "Follow up"
+              },
+              {
+                "t": "61–90",
+                "d": "Escalate"
+              },
+              {
+                "t": "90+",
+                "d": "Collections per policy"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: billing and reimbursement",
+          "bullets": [
+            "Build clean claims",
+            "Post and interpret ERAs",
+            "Appeal and collect lawfully"
+          ],
+          "script": [
+            "You've finished the billing and reimbursement overview. Practice reading remittances, calculating write-offs, and choosing the right next step for a denial.",
+            "Then try the billing and reimbursement question set."
+          ]
+        }
+      ]
+    }
+  ]
+}

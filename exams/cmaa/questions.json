@@ -1,0 +1,2727 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "Which abbreviation is on The Joint Commission's \"Do Not Use\" list?",
+    "options": [
+      {
+        "text": "QD (for daily)",
+        "note": ""
+      },
+      {
+        "text": "BID",
+        "note": "BID (twice a day) isn't on the official list."
+      },
+      {
+        "text": "PRN",
+        "note": "PRN (as needed) isn't on the list."
+      },
+      {
+        "text": "NPO",
+        "note": "NPO isn't on the list."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The official Do Not Use list: U, IU, Q.D./QD, Q.O.D./QOD, trailing zero (X.0 mg), missing leading zero (.X mg), MS, MSO4, and MgSO4. Write \"daily,\" \"every other day,\" \"unit,\" and so on."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "Why should \"5.0 mg\" be written as \"5 mg\"?",
+    "options": [
+      {
+        "text": "A trailing zero can be misread, making the dose ten times too large (50 mg)",
+        "note": ""
+      },
+      {
+        "text": "It saves space on the form",
+        "note": "The reason is patient safety."
+      },
+      {
+        "text": "Decimals aren't allowed in medicine",
+        "note": "Leading zeros like 0.5 mg are required."
+      },
+      {
+        "text": "Insurance requires whole numbers",
+        "note": "Not the reason."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The Joint Commission prohibits trailing zeros and requires a leading zero before a decimal (0.5 mg, not .5 mg)."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "What is the main difference between an EMR and an EHR?",
+    "options": [
+      {
+        "text": "An EMR is a digital chart used within one practice; an EHR is designed to share information across providers and organizations",
+        "note": ""
+      },
+      {
+        "text": "They are identical",
+        "note": "The terms are often used loosely, but EHRs are interoperable."
+      },
+      {
+        "text": "An EHR is paper-based",
+        "note": "Both are electronic."
+      },
+      {
+        "text": "An EMR is maintained by the patient",
+        "note": "That's a personal health record (PHR)."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A PHR is maintained by the patient. EHRs support sharing data across care settings."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "Which medical term means inflammation of the stomach?",
+    "options": [
+      {
+        "text": "Gastritis",
+        "note": ""
+      },
+      {
+        "text": "Gastrectomy",
+        "note": "-ectomy means removal."
+      },
+      {
+        "text": "Gastralgia",
+        "note": "-algia means pain."
+      },
+      {
+        "text": "Gastroscopy",
+        "note": "-scopy means visual examination."
+      }
+    ],
+    "answer": 0,
+    "explanation": "gastr/o = stomach, -itis = inflammation."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "What does the prefix \"hyper-\" mean?",
+    "options": [
+      {
+        "text": "Above or excessive",
+        "note": ""
+      },
+      {
+        "text": "Below or deficient",
+        "note": "That's hypo-."
+      },
+      {
+        "text": "Around",
+        "note": "That's peri-."
+      },
+      {
+        "text": "Within",
+        "note": "That's endo- or intra-."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hypertension = high blood pressure. Hypotension = low blood pressure."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "A provider's note uses \"SOB.\" In a clinical context, what does it mean?",
+    "options": [
+      {
+        "text": "Shortness of breath",
+        "note": ""
+      },
+      {
+        "text": "Side of bed",
+        "note": "Not the clinical meaning."
+      },
+      {
+        "text": "Start of billing",
+        "note": "Not a clinical abbreviation."
+      },
+      {
+        "text": "Symptoms of bronchitis",
+        "note": "Not the abbreviation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use organization-approved abbreviation lists. When unsure, clarify rather than guess."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Which body system includes the kidneys, ureters, bladder, and urethra?",
+    "options": [
+      {
+        "text": "Urinary system",
+        "note": ""
+      },
+      {
+        "text": "Digestive system",
+        "note": "That's the GI tract and accessory organs."
+      },
+      {
+        "text": "Endocrine system",
+        "note": "That's hormone-producing glands."
+      },
+      {
+        "text": "Integumentary system",
+        "note": "That's skin, hair, and nails."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The urinary system filters blood and removes waste as urine."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "In anatomical position, what does \"anterior\" mean?",
+    "options": [
+      {
+        "text": "Toward the front of the body",
+        "note": ""
+      },
+      {
+        "text": "Toward the back",
+        "note": "That's posterior (dorsal)."
+      },
+      {
+        "text": "Toward the head",
+        "note": "That's superior (cranial)."
+      },
+      {
+        "text": "Away from the midline",
+        "note": "That's lateral."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Directional terms describe locations relative to the standard anatomical position."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which health care setting provides comfort-focused care for patients with a terminal illness who are no longer seeking curative treatment?",
+    "options": [
+      {
+        "text": "Hospice",
+        "note": ""
+      },
+      {
+        "text": "Urgent care",
+        "note": "Urgent care treats non-emergency acute issues."
+      },
+      {
+        "text": "Ambulatory surgery center",
+        "note": "ASCs perform same-day surgeries."
+      },
+      {
+        "text": "Rehabilitation hospital",
+        "note": "Rehab focuses on restoring function."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Palliative care can be provided alongside curative treatment. Hospice is for patients with a limited life expectancy who choose comfort care."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "In a patient-centered medical home (PCMH), what's the role of the primary care practice?",
+    "options": [
+      {
+        "text": "It coordinates the patient's care across specialists, hospitals, and community services",
+        "note": ""
+      },
+      {
+        "text": "It only handles emergencies",
+        "note": "Emergencies go to the ED."
+      },
+      {
+        "text": "It only bills insurance",
+        "note": "It's a care model."
+      },
+      {
+        "text": "It replaces all specialists",
+        "note": "It coordinates with specialists."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The PCMH emphasizes team-based, coordinated, accessible primary care. Front-office staff support access, scheduling, and communication."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "What does \"-ectomy\" mean?",
+    "options": [
+      {
+        "text": "Surgical removal",
+        "note": ""
+      },
+      {
+        "text": "Incision",
+        "note": "That's -otomy."
+      },
+      {
+        "text": "Visual examination",
+        "note": "That's -scopy."
+      },
+      {
+        "text": "Repair",
+        "note": "That's -plasty."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Appendectomy = removal of the appendix. Tonsillectomy = removal of the tonsils."
+  },
+  {
+    "id": 12,
+    "domain": "D2",
+    "scenario": "An upset patient approaches the front desk loudly complaining about a long wait. What should the assistant do first?",
+    "options": [
+      {
+        "text": "Stay calm, listen, acknowledge the frustration, and offer to discuss it privately",
+        "note": ""
+      },
+      {
+        "text": "Tell the patient to sit down and wait",
+        "note": "This can escalate the situation."
+      },
+      {
+        "text": "Argue that the wait was normal",
+        "note": "Defensiveness escalates."
+      },
+      {
+        "text": "Ignore the patient until they calm down",
+        "note": "Ignoring increases frustration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "De-escalation: calm tone, active listening, empathy, privacy, an honest update on wait times, and escalation to a supervisor when needed."
+  },
+  {
+    "id": 13,
+    "domain": "D2",
+    "scenario": "Which question is open-ended?",
+    "options": [
+      {
+        "text": "\"What concerns would you like the doctor to address today?\"",
+        "note": ""
+      },
+      {
+        "text": "\"Are you here for your follow-up?\"",
+        "note": "Yes/no questions are closed-ended."
+      },
+      {
+        "text": "\"Is your address the same?\"",
+        "note": "Closed-ended."
+      },
+      {
+        "text": "\"Do you have insurance?\"",
+        "note": "Closed-ended."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Open-ended questions invite detail. Closed-ended questions confirm specific facts and are useful for verification."
+  },
+  {
+    "id": 14,
+    "domain": "D2",
+    "scenario": "A patient with limited English proficiency arrives with their 12-year-old child to interpret. What's best practice?",
+    "options": [
+      {
+        "text": "Provide a qualified medical interpreter (in person, phone, or video)",
+        "note": ""
+      },
+      {
+        "text": "Let the child interpret",
+        "note": "Minors shouldn't interpret except in emergencies."
+      },
+      {
+        "text": "Speak louder and more slowly in English",
+        "note": "That doesn't ensure understanding."
+      },
+      {
+        "text": "Reschedule until the patient learns English",
+        "note": "Language assistance must be provided."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Federal rules (Title VI and Section 1557) require meaningful language access. Qualified interpreters protect accuracy and privacy."
+  },
+  {
+    "id": 15,
+    "domain": "D2",
+    "scenario": "What is active listening?",
+    "options": [
+      {
+        "text": "Giving full attention, then reflecting or paraphrasing to confirm understanding",
+        "note": ""
+      },
+      {
+        "text": "Planning your response while the patient talks",
+        "note": "That isn't listening."
+      },
+      {
+        "text": "Taking notes without eye contact",
+        "note": "Nonverbal attention matters."
+      },
+      {
+        "text": "Interrupting to speed things up",
+        "note": "Interrupting blocks communication."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Active listening uses attention, nonverbal cues, clarifying questions, and summarizing."
+  },
+  {
+    "id": 16,
+    "domain": "D2",
+    "scenario": "When explaining a test preparation to a patient, which approach best supports health literacy?",
+    "options": [
+      {
+        "text": "Use plain language, give written instructions, and ask the patient to explain the steps back (teach-back)",
+        "note": ""
+      },
+      {
+        "text": "Use medical terminology so it's precise",
+        "note": "Plain language is better for patients."
+      },
+      {
+        "text": "Explain quickly so the patient doesn't forget",
+        "note": "Speed reduces understanding."
+      },
+      {
+        "text": "Assume understanding if the patient nods",
+        "note": "Nodding isn't confirmation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Teach-back confirms understanding. Written instructions help patients follow steps such as fasting."
+  },
+  {
+    "id": 17,
+    "domain": "D2",
+    "scenario": "A caller asks for the receptionist's advice about which medication to take for a headache. What should the assistant do?",
+    "options": [
+      {
+        "text": "Explain that they can't give medical advice and route the call to the provider or nurse per protocol",
+        "note": ""
+      },
+      {
+        "text": "Recommend an over-the-counter pain reliever",
+        "note": "That's outside the administrative scope."
+      },
+      {
+        "text": "Tell the caller to look it up online",
+        "note": "Not appropriate."
+      },
+      {
+        "text": "Hang up",
+        "note": "Unprofessional."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Administrative assistants don't give medical advice. Follow telephone protocols for routing clinical questions."
+  },
+  {
+    "id": 18,
+    "domain": "D2",
+    "scenario": "A caller reports chest pain and difficulty breathing. What should the assistant do?",
+    "options": [
+      {
+        "text": "Tell the caller to hang up and call 911 (or follow the emergency protocol), then notify the provider",
+        "note": ""
+      },
+      {
+        "text": "Schedule the next available appointment",
+        "note": "This may be an emergency."
+      },
+      {
+        "text": "Take a message for the doctor",
+        "note": "Delays could be dangerous."
+      },
+      {
+        "text": "Suggest they rest and call back",
+        "note": "Not safe."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Telephone triage protocols treat chest pain, difficulty breathing, severe bleeding, and signs of stroke as emergencies."
+  },
+  {
+    "id": 19,
+    "domain": "D2",
+    "scenario": "What's the correct way to leave a voicemail for a patient about an appointment, considering HIPAA?",
+    "options": [
+      {
+        "text": "Leave minimal information: your name, the practice, and a call-back number",
+        "note": ""
+      },
+      {
+        "text": "State the test results",
+        "note": "Avoid detailed PHI on voicemail."
+      },
+      {
+        "text": "Describe the diagnosis",
+        "note": "Too much PHI."
+      },
+      {
+        "text": "Ask a family member to relay results",
+        "note": "Unless authorized, don't disclose."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Limit messages to what's necessary and follow the patient's stated communication preferences."
+  },
+  {
+    "id": 20,
+    "domain": "D2",
+    "scenario": "Which is an example of a communication barrier?",
+    "options": [
+      {
+        "text": "Background noise in a busy waiting room",
+        "note": ""
+      },
+      {
+        "text": "Using the patient's preferred name",
+        "note": "That supports communication."
+      },
+      {
+        "text": "Eye contact at the patient's level",
+        "note": "That supports communication."
+      },
+      {
+        "text": "Asking clarifying questions",
+        "note": "That supports communication."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Barriers include noise, language differences, hearing or vision impairment, stress, jargon, and cultural differences."
+  },
+  {
+    "id": 21,
+    "domain": "D2",
+    "scenario": "A patient tells the assistant their pronouns are they/them. What should the assistant do?",
+    "options": [
+      {
+        "text": "Use the stated pronouns and record them in the designated EHR field per policy",
+        "note": ""
+      },
+      {
+        "text": "Use pronouns based on the patient's appearance",
+        "note": "Use what the patient states."
+      },
+      {
+        "text": "Ask the provider to decide",
+        "note": "The patient decides."
+      },
+      {
+        "text": "Avoid speaking to the patient",
+        "note": "Unprofessional."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Respectful communication uses the patient's name and pronouns, which supports trust and accurate records."
+  },
+  {
+    "id": 22,
+    "domain": "D2",
+    "scenario": "In the communication cycle, what confirms that the message was received as intended?",
+    "options": [
+      {
+        "text": "Feedback from the receiver",
+        "note": ""
+      },
+      {
+        "text": "The channel",
+        "note": "The channel carries the message."
+      },
+      {
+        "text": "Encoding",
+        "note": "The sender encodes."
+      },
+      {
+        "text": "Noise",
+        "note": "Noise interferes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sender, message, channel, receiver, and feedback. Feedback closes the loop."
+  },
+  {
+    "id": 23,
+    "domain": "D2",
+    "scenario": "A coworker repeatedly gives patients inaccurate wait times, causing complaints. What's the best professional response?",
+    "options": [
+      {
+        "text": "Address it respectfully with the coworker, and escalate to the supervisor if it continues",
+        "note": ""
+      },
+      {
+        "text": "Complain about the coworker to patients",
+        "note": "Unprofessional."
+      },
+      {
+        "text": "Ignore it",
+        "note": "It affects patients."
+      },
+      {
+        "text": "Post about it on social media",
+        "note": "Unprofessional and a possible privacy risk."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Professionalism includes teamwork, direct respectful communication, and following the chain of command."
+  },
+  {
+    "id": 24,
+    "domain": "D2",
+    "scenario": "Which telephone etiquette practice is appropriate?",
+    "options": [
+      {
+        "text": "Answer promptly, identify the practice and yourself, and ask permission before placing a caller on hold",
+        "note": ""
+      },
+      {
+        "text": "Put callers on hold immediately without asking",
+        "note": "Ask first unless it's an emergency."
+      },
+      {
+        "text": "Eat or chew gum while on the phone",
+        "note": "Unprofessional."
+      },
+      {
+        "text": "Transfer calls without telling the caller",
+        "note": "Explain the transfer."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A warm, clear greeting and consistent procedures improve patient satisfaction and accuracy."
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "scenario": "A hard-of-hearing patient is checking in. What accommodation helps most?",
+    "options": [
+      {
+        "text": "Face the patient, speak clearly at a normal pace, reduce background noise, and offer written materials or an interpreter if needed",
+        "note": ""
+      },
+      {
+        "text": "Shout",
+        "note": "Shouting distorts speech."
+      },
+      {
+        "text": "Talk to the companion instead",
+        "note": "Address the patient."
+      },
+      {
+        "text": "Cover your mouth to keep it private",
+        "note": "The patient may lip-read."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The ADA requires effective communication, which may include sign language interpreters or other auxiliary aids."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "What's the best way to explain an unfamiliar term like \"hypertension\" to a patient?",
+    "options": [
+      {
+        "text": "Use lay terms, such as \"high blood pressure\"",
+        "note": ""
+      },
+      {
+        "text": "Repeat the medical term louder",
+        "note": "Volume doesn't help."
+      },
+      {
+        "text": "Give the Latin root",
+        "note": "Not helpful for most patients."
+      },
+      {
+        "text": "Skip the explanation",
+        "note": "Patients deserve understanding."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Translate medical terminology into everyday language while staying accurate."
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "scenario": "Which nonverbal behavior conveys attentiveness?",
+    "options": [
+      {
+        "text": "An open posture and appropriate eye contact",
+        "note": ""
+      },
+      {
+        "text": "Crossed arms and looking at the screen",
+        "note": "Signals disinterest."
+      },
+      {
+        "text": "Sighing during the conversation",
+        "note": "Signals impatience."
+      },
+      {
+        "text": "Tapping a pen",
+        "note": "Distracting."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Nonverbal cues often carry more weight than words. Be aware of cultural differences in eye contact and personal space."
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "scenario": "A patient asks for information about local support groups for caregivers. What can the assistant do?",
+    "options": [
+      {
+        "text": "Provide the practice's approved list of community resources",
+        "note": ""
+      },
+      {
+        "text": "Say it isn't their job",
+        "note": "Providing resource information is within scope."
+      },
+      {
+        "text": "Recommend a treatment plan",
+        "note": "That's clinical."
+      },
+      {
+        "text": "Share another patient's experience",
+        "note": "That violates privacy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Connecting patients with community resources is a CMAA task. Use vetted resource lists."
+  },
+  {
+    "id": 29,
+    "domain": "D2",
+    "scenario": "When sending an email to a coworker that contains PHI, what should the assistant do?",
+    "options": [
+      {
+        "text": "Use the organization's secure, encrypted messaging system and include only the minimum necessary information",
+        "note": ""
+      },
+      {
+        "text": "Use a personal email account for speed",
+        "note": "Not secure."
+      },
+      {
+        "text": "Put the diagnosis in the subject line",
+        "note": "Avoid PHI in subject lines."
+      },
+      {
+        "text": "Copy the whole office",
+        "note": "Only those who need it."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Follow policies for secure internal messaging and the minimum necessary standard."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "When should an issue be escalated to a supervisor?",
+    "options": [
+      {
+        "text": "When it exceeds your authority or scope, or policy requires escalation (e.g., a complaint that can't be resolved, a safety concern)",
+        "note": ""
+      },
+      {
+        "text": "Never; handle everything yourself",
+        "note": "Escalation is part of professional practice."
+      },
+      {
+        "text": "Only after the patient leaves",
+        "note": "Timely escalation matters."
+      },
+      {
+        "text": "Whenever a patient asks a question",
+        "note": "Answer routine questions directly."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Know the chain of command and document escalations as required."
+  },
+  {
+    "id": 31,
+    "domain": "D3",
+    "scenario": "A patient's neighbor calls asking whether the patient was seen today. What should the assistant do?",
+    "options": [
+      {
+        "text": "Not confirm or deny, because the patient hasn't authorized disclosure",
+        "note": ""
+      },
+      {
+        "text": "Confirm the visit only",
+        "note": "Even confirming a visit is PHI."
+      },
+      {
+        "text": "Share the information if the neighbor sounds concerned",
+        "note": "Concern doesn't permit disclosure."
+      },
+      {
+        "text": "Give the appointment time",
+        "note": "PHI."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Disclose PHI only as permitted by HIPAA and the patient's authorizations or documented preferences."
+  },
+  {
+    "id": 32,
+    "domain": "D3",
+    "scenario": "Which disclosure is permitted without the patient's authorization?",
+    "options": [
+      {
+        "text": "Reporting a reportable communicable disease to the public health department",
+        "note": ""
+      },
+      {
+        "text": "Giving records to the patient's employer",
+        "note": "Requires authorization."
+      },
+      {
+        "text": "Sending appointment details to a marketing company",
+        "note": "Requires authorization."
+      },
+      {
+        "text": "Sharing results with the patient's friend",
+        "note": "Requires the patient's agreement."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HIPAA permits disclosures required by law and for public health activities, such as reporting diseases and suspected abuse."
+  },
+  {
+    "id": 33,
+    "domain": "D3",
+    "scenario": "What does the Patient's Bill of Rights generally include?",
+    "options": [
+      {
+        "text": "The right to respectful care, privacy, information about one's care, and participation in decisions",
+        "note": ""
+      },
+      {
+        "text": "The right to free care",
+        "note": "Not a general right."
+      },
+      {
+        "text": "The right to choose any staff member's schedule",
+        "note": "Not a right."
+      },
+      {
+        "text": "The right to see other patients' records",
+        "note": "Privacy protects other patients."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Patients' rights also include informed consent, refusing treatment, accessing records, and filing complaints."
+  },
+  {
+    "id": 34,
+    "domain": "D3",
+    "scenario": "Who is responsible for explaining a procedure's risks, benefits, and alternatives for informed consent?",
+    "options": [
+      {
+        "text": "The provider performing the procedure",
+        "note": ""
+      },
+      {
+        "text": "The medical administrative assistant",
+        "note": "Assistants may witness a signature but don't obtain informed consent."
+      },
+      {
+        "text": "The patient's insurer",
+        "note": "Not their role."
+      },
+      {
+        "text": "The billing department",
+        "note": "Not their role."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The provider gives the explanation; the patient's signature documents it. Administrative staff can provide forms and witness signatures per policy."
+  },
+  {
+    "id": 35,
+    "domain": "D3",
+    "scenario": "Which type of consent is shown when a patient holds out an arm for a blood pressure check?",
+    "options": [
+      {
+        "text": "Implied consent",
+        "note": ""
+      },
+      {
+        "text": "Expressed written consent",
+        "note": "Nothing was signed."
+      },
+      {
+        "text": "Informed consent",
+        "note": "No risks or benefits were discussed."
+      },
+      {
+        "text": "Authorization",
+        "note": "Authorization relates to disclosing PHI."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Implied consent is inferred from conduct and is suitable for routine, low-risk care."
+  },
+  {
+    "id": 36,
+    "domain": "D3",
+    "scenario": "A medical administrative assistant suspects a child shows signs of abuse. What must happen?",
+    "options": [
+      {
+        "text": "Report it according to state mandatory reporting laws and practice policy",
+        "note": ""
+      },
+      {
+        "text": "Confront the parent",
+        "note": "Not safe or appropriate."
+      },
+      {
+        "text": "Wait for proof",
+        "note": "Reporting requires reasonable suspicion, not proof."
+      },
+      {
+        "text": "Ignore it unless the child says something",
+        "note": "Suspicion is enough to report."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Health care workers are often mandated reporters. Follow the practice's procedure, which usually involves the provider and child protective services."
+  },
+  {
+    "id": 37,
+    "domain": "D3",
+    "scenario": "Which OSHA requirement ensures employees know about chemical hazards in the workplace?",
+    "options": [
+      {
+        "text": "Safety data sheets (SDS) and hazard communication training",
+        "note": ""
+      },
+      {
+        "text": "The ABN",
+        "note": "The ABN is a Medicare form."
+      },
+      {
+        "text": "The Notice of Privacy Practices",
+        "note": "That's HIPAA."
+      },
+      {
+        "text": "The Patient's Bill of Rights",
+        "note": "That's patient rights."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OSHA's Hazard Communication Standard requires SDS access, labeling, and training. The Bloodborne Pathogens Standard covers exposure to blood and body fluids."
+  },
+  {
+    "id": 38,
+    "domain": "D3",
+    "scenario": "During a fire, which acronym describes the response steps?",
+    "options": [
+      {
+        "text": "RACE: Rescue, Alarm, Contain, Extinguish or Evacuate",
+        "note": ""
+      },
+      {
+        "text": "PASS",
+        "note": "PASS is for using an extinguisher."
+      },
+      {
+        "text": "SOAP",
+        "note": "SOAP is a note format."
+      },
+      {
+        "text": "HIPAA",
+        "note": "Not an emergency procedure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PASS (Pull, Aim, Squeeze, Sweep) describes how to use a fire extinguisher."
+  },
+  {
+    "id": 39,
+    "domain": "D3",
+    "scenario": "What is the medical administrative assistant's scope of practice?",
+    "options": [
+      {
+        "text": "Administrative and front-office tasks, such as scheduling, registration, records, and billing support, not clinical decisions or advice",
+        "note": ""
+      },
+      {
+        "text": "Interpreting lab results for patients",
+        "note": "Clinical, outside scope."
+      },
+      {
+        "text": "Prescribing refills",
+        "note": "Only licensed providers prescribe."
+      },
+      {
+        "text": "Diagnosing minor illnesses",
+        "note": "Clinical, outside scope."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Working within scope protects patients and the practice from liability."
+  },
+  {
+    "id": 40,
+    "domain": "D3",
+    "scenario": "A staff member looks up a celebrity patient's record out of curiosity. What is this?",
+    "options": [
+      {
+        "text": "A HIPAA violation, because the access isn't needed for the employee's job",
+        "note": ""
+      },
+      {
+        "text": "Acceptable if nothing is shared",
+        "note": "Unauthorized access is itself a violation."
+      },
+      {
+        "text": "Acceptable for employees",
+        "note": "Access must be job-related."
+      },
+      {
+        "text": "Only an issue for clinical staff",
+        "note": "It applies to everyone."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Access must follow role-based need. Audit logs track access, and violations can lead to discipline and penalties."
+  },
+  {
+    "id": 41,
+    "domain": "D3",
+    "scenario": "Which statement about HIPAA civil penalties is correct?",
+    "options": [
+      {
+        "text": "Penalties are tiered by level of culpability, from lack of knowledge to willful neglect",
+        "note": ""
+      },
+      {
+        "text": "There are no penalties for accidental violations",
+        "note": "Lower tiers still carry penalties."
+      },
+      {
+        "text": "Only physicians can be penalized",
+        "note": "Covered entities and business associates can be."
+      },
+      {
+        "text": "Penalties are a flat $100",
+        "note": "Tiers have ranges and annual caps."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HHS OCR enforces HIPAA with tiered civil penalties. Knowingly obtaining or disclosing PHI improperly can bring criminal penalties."
+  },
+  {
+    "id": 42,
+    "domain": "D3",
+    "scenario": "What is the Notice of Privacy Practices (NPP)?",
+    "options": [
+      {
+        "text": "A document that explains how the practice uses and discloses PHI and the patient's privacy rights",
+        "note": ""
+      },
+      {
+        "text": "A consent to treat",
+        "note": "Separate document."
+      },
+      {
+        "text": "An authorization to release records",
+        "note": "Authorizations are specific requests."
+      },
+      {
+        "text": "A billing statement",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Providers give the NPP at the first service and make a good-faith effort to get written acknowledgment of receipt."
+  },
+  {
+    "id": 43,
+    "domain": "D3",
+    "scenario": "How long should medical records be retained?",
+    "options": [
+      {
+        "text": "According to state law, payer requirements, and organizational policy (often longer for minors)",
+        "note": ""
+      },
+      {
+        "text": "1 year after the last visit",
+        "note": "Usually much longer."
+      },
+      {
+        "text": "Until the patient moves",
+        "note": "Not a retention standard."
+      },
+      {
+        "text": "They can be destroyed anytime",
+        "note": "Retention rules apply."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Retention periods vary by state and type. Destruction must be secure (shredding, purging) and documented."
+  },
+  {
+    "id": 44,
+    "domain": "D3",
+    "scenario": "Which situation describes fraud?",
+    "options": [
+      {
+        "text": "Knowingly billing for a service that wasn't provided",
+        "note": ""
+      },
+      {
+        "text": "Accidentally entering the wrong date and correcting it",
+        "note": "An honest, corrected error isn't fraud."
+      },
+      {
+        "text": "Billing a covered service correctly",
+        "note": "Proper billing."
+      },
+      {
+        "text": "Collecting a copay",
+        "note": "Proper."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Report suspected fraud through the compliance program. OIG and CMS provide hotlines for reporting Medicare fraud."
+  },
+  {
+    "id": 45,
+    "domain": "D3",
+    "scenario": "A patient falls in the waiting room. What should the assistant do after making sure the patient gets care?",
+    "options": [
+      {
+        "text": "Complete an incident report per policy, with objective facts",
+        "note": ""
+      },
+      {
+        "text": "Write the incident in the patient's chart as blame",
+        "note": "Incident reports are separate and objective."
+      },
+      {
+        "text": "Don't document it",
+        "note": "Documentation is required."
+      },
+      {
+        "text": "Ask the patient to sign a waiver",
+        "note": "Not appropriate."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Incident reports support safety improvement and risk management. They're usually kept separate from the medical record."
+  },
+  {
+    "id": 46,
+    "domain": "D3",
+    "scenario": "What is one of The Joint Commission's National Patient Safety Goals relevant to front office staff?",
+    "options": [
+      {
+        "text": "Use at least two patient identifiers",
+        "note": ""
+      },
+      {
+        "text": "Use only the room number to identify patients",
+        "note": "Room numbers aren't acceptable identifiers."
+      },
+      {
+        "text": "Ask patients to wear name tags",
+        "note": "Not the goal."
+      },
+      {
+        "text": "Confirm identity only for new patients",
+        "note": "Every encounter."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Two identifiers, such as full name and date of birth, prevent mix-ups in records, scheduling, and specimens."
+  },
+  {
+    "id": 47,
+    "domain": "D3",
+    "scenario": "A patient asks for a copy of their records. What should the practice do?",
+    "options": [
+      {
+        "text": "Verify identity, have the request processed per policy, and provide the copy within HIPAA timeframes",
+        "note": ""
+      },
+      {
+        "text": "Refuse because the records belong to the doctor",
+        "note": "Patients have a right of access."
+      },
+      {
+        "text": "Hand over the original chart",
+        "note": "Provide copies; keep originals."
+      },
+      {
+        "text": "Require a reason for the request",
+        "note": "Patients don't need to justify access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The practice owns the physical record; the patient has the right to access information in it."
+  },
+  {
+    "id": 48,
+    "domain": "D3",
+    "scenario": "What does the ADA require of a medical office?",
+    "options": [
+      {
+        "text": "Reasonable accommodations and accessible facilities and communication for people with disabilities",
+        "note": ""
+      },
+      {
+        "text": "Only wheelchair ramps",
+        "note": "It covers much more."
+      },
+      {
+        "text": "Nothing if the office is small",
+        "note": "Public accommodations are covered."
+      },
+      {
+        "text": "Charging extra for accommodations",
+        "note": "Can't charge for required accommodations."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Examples include accessible entrances, interpreters, and allowing service animals."
+  },
+  {
+    "id": 49,
+    "domain": "D4",
+    "scenario": "Which scheduling method books several patients at the start of each hour and sees them in order of arrival?",
+    "options": [
+      {
+        "text": "Wave scheduling",
+        "note": ""
+      },
+      {
+        "text": "Stream (time-specified) scheduling",
+        "note": "Stream books one patient per time slot."
+      },
+      {
+        "text": "Double booking",
+        "note": "Two patients in one slot."
+      },
+      {
+        "text": "Open hours",
+        "note": "Walk-ins without appointments."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Wave scheduling helps absorb late arrivals and no-shows. Modified wave spreads patients within the hour (for example, two at :00 and one at :30)."
+  },
+  {
+    "id": 50,
+    "domain": "D4",
+    "scenario": "Which method groups similar appointment types together, such as all physicals on Tuesday mornings?",
+    "options": [
+      {
+        "text": "Cluster (categorization) scheduling",
+        "note": ""
+      },
+      {
+        "text": "Wave scheduling",
+        "note": "Wave focuses on hourly groups."
+      },
+      {
+        "text": "Open hours",
+        "note": "No appointments."
+      },
+      {
+        "text": "Double booking",
+        "note": "Two patients at once."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Clustering uses staff, rooms, and equipment efficiently for similar services."
+  },
+  {
+    "id": 51,
+    "domain": "D4",
+    "scenario": "When is double booking appropriate?",
+    "options": [
+      {
+        "text": "When two short or compatible appointments can be handled together, or to fit in an urgent patient, according to provider preference",
+        "note": ""
+      },
+      {
+        "text": "For every appointment to increase volume",
+        "note": "It causes long waits."
+      },
+      {
+        "text": "Never",
+        "note": "It's sometimes used intentionally."
+      },
+      {
+        "text": "Only for new patients",
+        "note": "New patients usually need more time."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Overuse of double booking leads to delays and dissatisfaction, so use it strategically."
+  },
+  {
+    "id": 52,
+    "domain": "D4",
+    "scenario": "What should be considered when scheduling an appointment?",
+    "options": [
+      {
+        "text": "The provider's availability and preferences, visit type and length, room and equipment needs, and the patient's urgency",
+        "note": ""
+      },
+      {
+        "text": "Only the patient's preferred time",
+        "note": "Practice resources matter too."
+      },
+      {
+        "text": "Only the provider's lunch break",
+        "note": "Many factors."
+      },
+      {
+        "text": "The patient's insurance premium",
+        "note": "Not a scheduling factor."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Matrixing blocks unavailable times (meetings, procedures) so only usable slots are offered."
+  },
+  {
+    "id": 53,
+    "domain": "D4",
+    "scenario": "Before creating a new patient record in the scheduling system, what should the assistant do?",
+    "options": [
+      {
+        "text": "Search by name, date of birth, and other identifiers to avoid creating a duplicate",
+        "note": ""
+      },
+      {
+        "text": "Create a new record every visit",
+        "note": "That creates duplicates."
+      },
+      {
+        "text": "Search by first name only",
+        "note": "Not enough to rule out a duplicate."
+      },
+      {
+        "text": "Ask the provider to create it",
+        "note": "Front office registers patients."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Duplicate records split a patient's history and can cause safety and billing errors."
+  },
+  {
+    "id": 54,
+    "domain": "D4",
+    "scenario": "Which visit is generally appropriate for telehealth?",
+    "options": [
+      {
+        "text": "A follow-up to review a stable chronic condition and adjust medication",
+        "note": ""
+      },
+      {
+        "text": "Chest pain that began an hour ago",
+        "note": "That's an emergency."
+      },
+      {
+        "text": "A visit requiring a pelvic exam",
+        "note": "Hands-on exams need in-person visits."
+      },
+      {
+        "text": "Wound suture removal",
+        "note": "Requires in-person care."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Telehealth suits counseling, follow-ups, medication management, and many behavioral health visits. Follow provider and payer criteria."
+  },
+  {
+    "id": 55,
+    "domain": "D4",
+    "scenario": "What should patients receive before a telehealth visit?",
+    "options": [
+      {
+        "text": "Instructions on how to connect, technology requirements, and what to do if the connection fails",
+        "note": ""
+      },
+      {
+        "text": "Nothing; they'll figure it out",
+        "note": "Instructions reduce failures."
+      },
+      {
+        "text": "Their test results",
+        "note": "Results go through proper channels."
+      },
+      {
+        "text": "A paper claim form",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pre-visit tech checks and a backup plan (such as phone) prevent missed visits."
+  },
+  {
+    "id": 56,
+    "domain": "D4",
+    "scenario": "A patient misses an appointment without calling. What should the assistant do?",
+    "options": [
+      {
+        "text": "Document the no-show in the record, follow the no-show policy, and contact the patient to reschedule",
+        "note": ""
+      },
+      {
+        "text": "Delete the appointment without notes",
+        "note": "No-shows must be documented."
+      },
+      {
+        "text": "Discharge the patient immediately",
+        "note": "Follow policy; dismissal requires a formal process."
+      },
+      {
+        "text": "Bill the insurance for the missed visit",
+        "note": "Insurers don't pay for missed visits."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Documenting no-shows supports patient safety and legal protection, and helps track patterns."
+  },
+  {
+    "id": 57,
+    "domain": "D4",
+    "scenario": "A provider orders an MRI that requires prior authorization. What's the assistant's role?",
+    "options": [
+      {
+        "text": "Obtain the authorization from the payer before scheduling, and document the authorization number",
+        "note": ""
+      },
+      {
+        "text": "Schedule it and hope it's approved",
+        "note": "May cause denial."
+      },
+      {
+        "text": "Ask the patient to get approval",
+        "note": "The practice usually handles it."
+      },
+      {
+        "text": "Skip authorization if the provider is busy",
+        "note": "Required anyway."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Also give the patient preparation instructions and the location."
+  },
+  {
+    "id": 58,
+    "domain": "D4",
+    "scenario": "What's the purpose of appointment reminders?",
+    "options": [
+      {
+        "text": "To reduce no-shows and give preparation instructions",
+        "note": ""
+      },
+      {
+        "text": "To collect co-pays",
+        "note": "Not the purpose."
+      },
+      {
+        "text": "To share test results",
+        "note": "Not by reminder."
+      },
+      {
+        "text": "To market other services",
+        "note": "Not the purpose."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reminders by call, text, or portal follow the patient's communication preferences and HIPAA."
+  },
+  {
+    "id": 59,
+    "domain": "D4",
+    "scenario": "When scheduling a new patient, why is a longer appointment slot usually needed?",
+    "options": [
+      {
+        "text": "New patients need more time for history, forms, and establishing care",
+        "note": ""
+      },
+      {
+        "text": "They pay more",
+        "note": "Payment isn't the reason."
+      },
+      {
+        "text": "They arrive late",
+        "note": "Not the reason."
+      },
+      {
+        "text": "They require more staff",
+        "note": "Time is the main factor."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Visit types have standard lengths set by the practice."
+  },
+  {
+    "id": 60,
+    "domain": "D4",
+    "scenario": "What is a patient portal?",
+    "options": [
+      {
+        "text": "A secure website or app where patients can view records, message the practice, and manage appointments",
+        "note": ""
+      },
+      {
+        "text": "A paper form",
+        "note": "It's electronic."
+      },
+      {
+        "text": "The front-desk window",
+        "note": "It's online."
+      },
+      {
+        "text": "A billing clearinghouse",
+        "note": "Different function."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Portals support engagement and access to information. Assist patients with enrollment and resetting access securely."
+  },
+  {
+    "id": 61,
+    "domain": "D4",
+    "scenario": "Which pre-appointment screening task is appropriate for a CMAA?",
+    "options": [
+      {
+        "text": "Asking scripted screening questions (e.g., symptoms of a contagious illness) and routing positives per protocol",
+        "note": ""
+      },
+      {
+        "text": "Diagnosing the patient",
+        "note": "Outside scope."
+      },
+      {
+        "text": "Prescribing a test",
+        "note": "Outside scope."
+      },
+      {
+        "text": "Interpreting symptoms",
+        "note": "Outside scope."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Screening scripts protect patients and staff and help schedule the appropriate setting."
+  },
+  {
+    "id": 62,
+    "domain": "D4",
+    "scenario": "A patient needs to see a specialist outside the practice. What does the assistant arrange?",
+    "options": [
+      {
+        "text": "The referral, including the payer-required referral or authorization, and sending relevant records",
+        "note": ""
+      },
+      {
+        "text": "Nothing; the patient handles it",
+        "note": "Coordination is part of the role."
+      },
+      {
+        "text": "A prescription",
+        "note": "Not a referral."
+      },
+      {
+        "text": "A new insurance plan",
+        "note": "Not relevant."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Track referrals to make sure the appointment happens and the results come back."
+  },
+  {
+    "id": 63,
+    "domain": "D4",
+    "scenario": "A provider must leave early for an emergency. What should the assistant do with the remaining appointments?",
+    "options": [
+      {
+        "text": "Contact affected patients promptly, explain, and offer to reschedule or see another provider",
+        "note": ""
+      },
+      {
+        "text": "Let patients wait without telling them",
+        "note": "Unprofessional."
+      },
+      {
+        "text": "Cancel without notice",
+        "note": "Patients should be informed."
+      },
+      {
+        "text": "Ask another patient to take their slot",
+        "note": "Not relevant."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Document the changes and prioritize urgent patients for alternate scheduling."
+  },
+  {
+    "id": 64,
+    "domain": "D4",
+    "scenario": "Which scheduling method sees patients without appointments during set hours?",
+    "options": [
+      {
+        "text": "Open hours (open booking)",
+        "note": ""
+      },
+      {
+        "text": "Wave scheduling",
+        "note": "Appointment-based."
+      },
+      {
+        "text": "Clustering",
+        "note": "Appointment-based."
+      },
+      {
+        "text": "Stream scheduling",
+        "note": "Appointment-based."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Open hours suit walk-in clinics but can create unpredictable waits."
+  },
+  {
+    "id": 65,
+    "domain": "D5",
+    "scenario": "During check-in, which two identifiers are commonly used to confirm the patient?",
+    "options": [
+      {
+        "text": "Full name and date of birth",
+        "note": ""
+      },
+      {
+        "text": "Name and room number",
+        "note": "Room numbers aren't identifiers."
+      },
+      {
+        "text": "Insurance company and city",
+        "note": "Not unique."
+      },
+      {
+        "text": "Provider's name and appointment time",
+        "note": "Not patient identifiers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Ask the patient to state their name and date of birth rather than reading them aloud for a yes/no answer."
+  },
+  {
+    "id": 66,
+    "domain": "D5",
+    "scenario": "What should be copied or scanned at check-in?",
+    "options": [
+      {
+        "text": "The front and back of the insurance card and a photo ID",
+        "note": ""
+      },
+      {
+        "text": "Only the front of the card",
+        "note": "The back has claim and phone details."
+      },
+      {
+        "text": "The patient's credit report",
+        "note": "Not needed."
+      },
+      {
+        "text": "Nothing if the patient is established",
+        "note": "Verify at every visit."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Updated cards and ID prevent claim errors and help prevent medical identity theft."
+  },
+  {
+    "id": 67,
+    "domain": "D5",
+    "scenario": "When should copays generally be collected?",
+    "options": [
+      {
+        "text": "At the time of service (usually check-in)",
+        "note": ""
+      },
+      {
+        "text": "After the claim is paid",
+        "note": "Copays are known up front."
+      },
+      {
+        "text": "At the end of the year",
+        "note": "Too late."
+      },
+      {
+        "text": "Only if the patient asks",
+        "note": "Collect per policy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Collecting at the time of service improves cash flow and reduces billing costs."
+  },
+  {
+    "id": 68,
+    "domain": "D5",
+    "scenario": "A patient says the insurance covers 80% of the bill. How should the assistant explain coinsurance?",
+    "options": [
+      {
+        "text": "The patient pays a percentage (here 20%) of the allowed amount after the deductible is met",
+        "note": ""
+      },
+      {
+        "text": "The patient pays a fixed $20 every visit",
+        "note": "That's a copay."
+      },
+      {
+        "text": "The patient pays nothing",
+        "note": "Coinsurance is patient responsibility."
+      },
+      {
+        "text": "The insurer pays 80% of the provider's full charge",
+        "note": "It's based on the allowed amount."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Clear explanations of copays, deductibles, and coinsurance reduce surprises and complaints."
+  },
+  {
+    "id": 69,
+    "domain": "D5",
+    "scenario": "Which plan rule determines which parent's plan is primary for a child?",
+    "options": [
+      {
+        "text": "The birthday rule",
+        "note": ""
+      },
+      {
+        "text": "The oldest-parent rule",
+        "note": "Not a standard rule."
+      },
+      {
+        "text": "The alphabetical rule",
+        "note": "Not a rule."
+      },
+      {
+        "text": "The higher-income rule",
+        "note": "Not a rule."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The parent whose birthday (month and day) is earlier in the year has the primary plan, unless a court order or custody rule applies."
+  },
+  {
+    "id": 70,
+    "domain": "D5",
+    "scenario": "When is an ABN presented to a Medicare patient at check-in?",
+    "options": [
+      {
+        "text": "Before a service the practice believes Medicare may not cover as medically necessary",
+        "note": ""
+      },
+      {
+        "text": "At every Medicare visit",
+        "note": "Only when noncoverage is expected."
+      },
+      {
+        "text": "After the visit",
+        "note": "It must be before the service."
+      },
+      {
+        "text": "Only for commercial insurance",
+        "note": "ABNs are Medicare forms."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The patient chooses whether to receive the service and accepts financial responsibility if Medicare denies."
+  },
+  {
+    "id": 71,
+    "domain": "D5",
+    "scenario": "Which form documents the services and diagnoses from a visit to support charge entry?",
+    "options": [
+      {
+        "text": "The encounter form (superbill) or electronic charge capture",
+        "note": ""
+      },
+      {
+        "text": "The ABN",
+        "note": "That's a Medicare notice."
+      },
+      {
+        "text": "The NPP",
+        "note": "That's privacy notice."
+      },
+      {
+        "text": "An incident report",
+        "note": "That's for safety events."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Verify the encounter form is complete and matches documentation before charges are submitted."
+  },
+  {
+    "id": 72,
+    "domain": "D5",
+    "scenario": "During registration, the assistant finds two records for the same patient. What should happen?",
+    "options": [
+      {
+        "text": "Flag the duplicate per policy so authorized staff can review and merge the records",
+        "note": ""
+      },
+      {
+        "text": "Delete the older record",
+        "note": "Never delete clinical records yourself."
+      },
+      {
+        "text": "Use whichever record you prefer",
+        "note": "Leads to split information."
+      },
+      {
+        "text": "Ignore it",
+        "note": "Duplicates create safety risks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Health information management usually merges records after verification."
+  },
+  {
+    "id": 73,
+    "domain": "D5",
+    "scenario": "What's the difference between Medicare and Medicaid?",
+    "options": [
+      {
+        "text": "Medicare is federal coverage mainly for people 65 and older or with certain disabilities; Medicaid is a federal-state program based mainly on income",
+        "note": ""
+      },
+      {
+        "text": "They are the same program",
+        "note": "They're different programs."
+      },
+      {
+        "text": "Medicaid covers only people over 65",
+        "note": "Eligibility is mainly income-based."
+      },
+      {
+        "text": "Medicare is run by each state",
+        "note": "Medicare is federal."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Patients with both are \"dual eligible.\" Medicare pays first and Medicaid pays last."
+  },
+  {
+    "id": 74,
+    "domain": "D5",
+    "scenario": "What is a referral in a managed care plan?",
+    "options": [
+      {
+        "text": "Authorization from the primary care provider for the patient to see a specialist",
+        "note": ""
+      },
+      {
+        "text": "A bill sent to collections",
+        "note": "Not a referral."
+      },
+      {
+        "text": "A patient's review of the practice",
+        "note": "Not a referral."
+      },
+      {
+        "text": "A prescription refill",
+        "note": "Not a referral."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Many HMOs require referrals. Missing referrals can lead to denials and patient responsibility."
+  },
+  {
+    "id": 75,
+    "domain": "D5",
+    "scenario": "Which code set describes the diagnoses on a physician's office claim?",
+    "options": [
+      {
+        "text": "ICD-10-CM",
+        "note": ""
+      },
+      {
+        "text": "ICD-10-PCS",
+        "note": "PCS is for inpatient procedures."
+      },
+      {
+        "text": "CPT",
+        "note": "CPT describes procedures and services."
+      },
+      {
+        "text": "HCPCS Level II",
+        "note": "HCPCS describes supplies, drugs, and other services."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Front-office staff don't code, but understanding code sets helps with charge capture and patient questions."
+  },
+  {
+    "id": 76,
+    "domain": "D5",
+    "scenario": "During check-out, what should the assistant typically do?",
+    "options": [
+      {
+        "text": "Schedule follow-up appointments, give instructions or referrals, and collect any balances due",
+        "note": ""
+      },
+      {
+        "text": "Interpret the provider's diagnosis for the patient",
+        "note": "Clinical, outside scope."
+      },
+      {
+        "text": "Ask the patient to code their visit",
+        "note": "Not appropriate."
+      },
+      {
+        "text": "Nothing; the visit is over",
+        "note": "Check-out tasks matter."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check-out completes the encounter and starts the billing process."
+  },
+  {
+    "id": 77,
+    "domain": "D5",
+    "scenario": "A patient presents an insurance card that is different from the one on file. What should the assistant do?",
+    "options": [
+      {
+        "text": "Update the record with the new card and verify eligibility before the visit",
+        "note": ""
+      },
+      {
+        "text": "Use the old card on file",
+        "note": "It may be inactive."
+      },
+      {
+        "text": "Bill both plans",
+        "note": "Determine primary first."
+      },
+      {
+        "text": "Ask the patient to pay in full regardless",
+        "note": "Verify coverage first."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Verify eligibility and benefits at every visit, because coverage changes are common."
+  },
+  {
+    "id": 78,
+    "domain": "D5",
+    "scenario": "What does an Explanation of Benefits (EOB) show the patient?",
+    "options": [
+      {
+        "text": "How the claim was processed: charges, allowed amount, what the plan paid, and the patient's responsibility",
+        "note": ""
+      },
+      {
+        "text": "The provider's diagnosis notes",
+        "note": "Not on the EOB."
+      },
+      {
+        "text": "A bill from the insurer",
+        "note": "An EOB isn't a bill."
+      },
+      {
+        "text": "The appointment schedule",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Patients sometimes mistake EOBs for bills. Explain the difference."
+  },
+  {
+    "id": 79,
+    "domain": "D5",
+    "scenario": "Which intake form gives the practice permission to bill the insurer and receive payment directly?",
+    "options": [
+      {
+        "text": "Assignment of benefits",
+        "note": ""
+      },
+      {
+        "text": "Notice of privacy practices",
+        "note": "That explains privacy rights."
+      },
+      {
+        "text": "Advance directive",
+        "note": "That states care wishes."
+      },
+      {
+        "text": "Incident report",
+        "note": "That's for safety events."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Also collect a release of information for billing and a financial policy acknowledgment per practice policy."
+  },
+  {
+    "id": 80,
+    "domain": "D5",
+    "scenario": "A patient arriving for their first visit uses a wheelchair and needs help completing forms. What should the assistant do?",
+    "options": [
+      {
+        "text": "Offer assistance or an accessible way to complete the forms and ensure privacy",
+        "note": ""
+      },
+      {
+        "text": "Ask a stranger in the waiting room to help",
+        "note": "Privacy concern."
+      },
+      {
+        "text": "Skip the forms",
+        "note": "Information is still needed."
+      },
+      {
+        "text": "Ask the patient to come back with someone",
+        "note": "Accommodate now."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Accommodations in the intake process include accessible forms, help completing them, and accessible check-in counters."
+  },
+  {
+    "id": 81,
+    "domain": "D5",
+    "scenario": "What is a secondary health record?",
+    "options": [
+      {
+        "text": "A record derived from the primary record, such as data used for billing, research, registries, or quality reporting",
+        "note": ""
+      },
+      {
+        "text": "A copy of the patient's insurance card",
+        "note": "That's a document, not a secondary record."
+      },
+      {
+        "text": "A duplicate patient record",
+        "note": "Duplicates are errors."
+      },
+      {
+        "text": "A paper backup chart",
+        "note": "That's a primary record format."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Primary records document direct care. Secondary records are compiled for other purposes."
+  },
+  {
+    "id": 82,
+    "domain": "D5",
+    "scenario": "When verifying insurance eligibility, what should the assistant confirm?",
+    "options": [
+      {
+        "text": "Active coverage, benefits for the service, copays/deductibles, and any referral or authorization requirements",
+        "note": ""
+      },
+      {
+        "text": "Only the patient's name",
+        "note": "Need benefits details."
+      },
+      {
+        "text": "The insurer's stock price",
+        "note": "Irrelevant."
+      },
+      {
+        "text": "The patient's employment history",
+        "note": "Not needed for most visits."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Eligibility checks happen before or at check-in, using payer portals or electronic 270/271 transactions."
+  },
+  {
+    "id": 83,
+    "domain": "D6",
+    "scenario": "Which statement describes fee-for-service payment?",
+    "options": [
+      {
+        "text": "The provider is paid for each service performed",
+        "note": ""
+      },
+      {
+        "text": "A fixed monthly payment per patient",
+        "note": "That's capitation."
+      },
+      {
+        "text": "Payment based only on quality scores",
+        "note": "That's value-based."
+      },
+      {
+        "text": "No payment until year-end",
+        "note": "Not fee-for-service."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Payment models include fee-for-service, capitation, bundled payments, and value-based arrangements."
+  },
+  {
+    "id": 84,
+    "domain": "D6",
+    "scenario": "What is capitation?",
+    "options": [
+      {
+        "text": "A fixed amount per member per month paid to a provider regardless of services used",
+        "note": ""
+      },
+      {
+        "text": "A copay",
+        "note": "A copay is patient cost sharing."
+      },
+      {
+        "text": "A sliding fee",
+        "note": "Sliding fees are for income-based discounts."
+      },
+      {
+        "text": "A late fee",
+        "note": "Not capitation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Capitation is common in HMOs and shifts financial risk to providers."
+  },
+  {
+    "id": 85,
+    "domain": "D6",
+    "scenario": "A low-income uninsured patient may qualify for discounted fees based on household income. What is this called?",
+    "options": [
+      {
+        "text": "A sliding fee scale",
+        "note": ""
+      },
+      {
+        "text": "Capitation",
+        "note": "Not related to income."
+      },
+      {
+        "text": "Coinsurance",
+        "note": "That's insurance cost sharing."
+      },
+      {
+        "text": "A contractual adjustment",
+        "note": "That's a payer contract write-off."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Federally qualified health centers and many practices use sliding fee scales and financial assistance programs."
+  },
+  {
+    "id": 86,
+    "domain": "D6",
+    "scenario": "What does an aging report help the billing office do?",
+    "options": [
+      {
+        "text": "Prioritize follow-up on unpaid accounts by how long they've been outstanding",
+        "note": ""
+      },
+      {
+        "text": "Schedule older patients first",
+        "note": "It's about account age."
+      },
+      {
+        "text": "Track supply expiration dates",
+        "note": "That's inventory."
+      },
+      {
+        "text": "Assign codes",
+        "note": "Not coding."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Balances are grouped as 0–30, 31–60, 61–90, and 90+ days."
+  },
+  {
+    "id": 87,
+    "domain": "D6",
+    "scenario": "What is charge reconciliation?",
+    "options": [
+      {
+        "text": "Comparing services provided (encounters) with charges entered to make sure nothing is missing or duplicated",
+        "note": ""
+      },
+      {
+        "text": "Matching patients to appointments",
+        "note": "That's scheduling."
+      },
+      {
+        "text": "Calculating payroll",
+        "note": "Not billing."
+      },
+      {
+        "text": "Sending claims to collections",
+        "note": "Not reconciliation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Daily reconciliation catches errors before claims are submitted."
+  },
+  {
+    "id": 88,
+    "domain": "D6",
+    "scenario": "What does a clearinghouse do with claims?",
+    "options": [
+      {
+        "text": "Checks them for errors (scrubbing) and forwards them to payers in the correct format",
+        "note": ""
+      },
+      {
+        "text": "Pays the claims",
+        "note": "Payers pay."
+      },
+      {
+        "text": "Collects copays",
+        "note": "Front office does."
+      },
+      {
+        "text": "Writes coding guidelines",
+        "note": "Not their role."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Rejected claims return from the clearinghouse for correction before reaching the payer."
+  },
+  {
+    "id": 89,
+    "domain": "D6",
+    "scenario": "A claim is denied for missing prior authorization. Which action supports the appeal?",
+    "options": [
+      {
+        "text": "Gather documentation (including any authorization obtained) and submit a reconsideration or appeal per the payer's process",
+        "note": ""
+      },
+      {
+        "text": "Bill the patient immediately",
+        "note": "Pursue the payer first if authorization was obtained."
+      },
+      {
+        "text": "Resubmit the same claim unchanged",
+        "note": "It will deny again."
+      },
+      {
+        "text": "Write off without review",
+        "note": "Review first."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Track denial reasons to prevent repeats, such as authorization checks at scheduling."
+  },
+  {
+    "id": 90,
+    "domain": "D6",
+    "scenario": "Which statement about write-offs is correct?",
+    "options": [
+      {
+        "text": "Contractual write-offs reflect agreed payer rates; bad-debt write-offs are for balances deemed uncollectible per policy",
+        "note": ""
+      },
+      {
+        "text": "All unpaid balances are written off after 30 days",
+        "note": "Follow collection policy."
+      },
+      {
+        "text": "Write-offs are never allowed",
+        "note": "They're normal accounting."
+      },
+      {
+        "text": "Write-offs are billed to the patient",
+        "note": "Contractual write-offs aren't billed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Write-offs and adjustments require proper authorization and documentation."
+  },
+  {
+    "id": 91,
+    "domain": "D6",
+    "scenario": "What is the revenue cycle?",
+    "options": [
+      {
+        "text": "All administrative and clinical functions from scheduling and registration through claims, payment, and collection",
+        "note": ""
+      },
+      {
+        "text": "Only the claim submission step",
+        "note": "It's the full process."
+      },
+      {
+        "text": "The practice's annual budget",
+        "note": "Not the revenue cycle."
+      },
+      {
+        "text": "The patient's treatment plan",
+        "note": "Clinical, not revenue."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Front-office accuracy affects every later phase of the revenue cycle."
+  },
+  {
+    "id": 92,
+    "domain": "D6",
+    "scenario": "When preparing patient statements, what should be included?",
+    "options": [
+      {
+        "text": "Dates of service, services, charges, payments and adjustments, balance due, and how to pay or ask questions",
+        "note": ""
+      },
+      {
+        "text": "The patient's full diagnosis history",
+        "note": "Not necessary."
+      },
+      {
+        "text": "Other family members' balances",
+        "note": "Privacy issue."
+      },
+      {
+        "text": "Insurance company passwords",
+        "note": "Never."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Clear statements improve collections and reduce calls."
+  },
+  {
+    "id": 93,
+    "domain": "D6",
+    "scenario": "Which program helps patients who can't afford care and don't qualify for insurance?",
+    "options": [
+      {
+        "text": "Charity care or indigent care programs",
+        "note": ""
+      },
+      {
+        "text": "Medicare Advantage",
+        "note": "That's for Medicare-eligible people."
+      },
+      {
+        "text": "Workers' compensation",
+        "note": "Only for work injuries."
+      },
+      {
+        "text": "Capitation",
+        "note": "A payment model."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Screen for eligibility for Medicaid, marketplace plans, and charity care before setting up self-pay."
+  },
+  {
+    "id": 94,
+    "domain": "D6",
+    "scenario": "Which payer requirement often causes denials if missed at the front desk?",
+    "options": [
+      {
+        "text": "Referral or prior authorization requirements",
+        "note": ""
+      },
+      {
+        "text": "The patient's favorite pharmacy",
+        "note": "Not a claims requirement."
+      },
+      {
+        "text": "The provider's credentials",
+        "note": "Credentialing is separate."
+      },
+      {
+        "text": "The time of the appointment",
+        "note": "Not a payer requirement."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Verify requirements during scheduling and registration."
+  },
+  {
+    "id": 95,
+    "domain": "D7",
+    "scenario": "In terminal-digit filing, how are records arranged?",
+    "options": [
+      {
+        "text": "By the last digits of the record number first",
+        "note": ""
+      },
+      {
+        "text": "By patient last name",
+        "note": "That's alphabetic filing."
+      },
+      {
+        "text": "By date of birth",
+        "note": "Not terminal digit."
+      },
+      {
+        "text": "By the first digits",
+        "note": "That's straight numeric."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Terminal-digit filing spreads records evenly across sections and is common in large paper filing systems."
+  },
+  {
+    "id": 96,
+    "domain": "D7",
+    "scenario": "In alphabetic filing, how is \"Maria Lopez-Garcia\" generally filed?",
+    "options": [
+      {
+        "text": "Under the full hyphenated last name, Lopez-Garcia, treated as one unit",
+        "note": ""
+      },
+      {
+        "text": "Under Maria",
+        "note": "File by last name."
+      },
+      {
+        "text": "Under Garcia only",
+        "note": "The hyphenated name is one unit."
+      },
+      {
+        "text": "Under the first letter of the street address",
+        "note": "Not filing practice."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Consistent filing rules (last name, first name, middle initial) prevent misfiles."
+  },
+  {
+    "id": 97,
+    "domain": "D7",
+    "scenario": "What is the purpose of a petty cash fund?",
+    "options": [
+      {
+        "text": "To pay small, incidental office expenses, with receipts or vouchers for every disbursement",
+        "note": ""
+      },
+      {
+        "text": "To pay staff salaries",
+        "note": "Payroll is separate."
+      },
+      {
+        "text": "To store patient copays",
+        "note": "Copays go in the cash drawer and deposits."
+      },
+      {
+        "text": "To pay large vendor invoices",
+        "note": "Use checks or electronic payments."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cash on hand plus receipts should always equal the fund amount, and the fund is replenished to that amount."
+  },
+  {
+    "id": 98,
+    "domain": "D7",
+    "scenario": "During end-of-day reconciliation, the cash drawer is $10 short. What should the assistant do?",
+    "options": [
+      {
+        "text": "Recount and compare against receipts and payment entries, then report the discrepancy per policy",
+        "note": ""
+      },
+      {
+        "text": "Add $10 from personal funds",
+        "note": "That hides the error."
+      },
+      {
+        "text": "Ignore it",
+        "note": "Discrepancies must be reported."
+      },
+      {
+        "text": "Change the payment entries to match",
+        "note": "Never alter records."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reconciliation compares payments posted, receipts, and the deposit, with documentation and supervisor review."
+  },
+  {
+    "id": 99,
+    "domain": "D7",
+    "scenario": "A supply delivery arrives. What should the assistant do?",
+    "options": [
+      {
+        "text": "Compare the packing slip with the purchase order and the items received before signing and stocking",
+        "note": ""
+      },
+      {
+        "text": "Sign without checking",
+        "note": "May accept incorrect orders."
+      },
+      {
+        "text": "Refuse every delivery",
+        "note": "Not appropriate."
+      },
+      {
+        "text": "Throw away the packing slip",
+        "note": "Keep it for reconciliation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Report discrepancies and damaged items promptly to the vendor."
+  },
+  {
+    "id": 100,
+    "domain": "D7",
+    "scenario": "What is the purpose of a par level in inventory?",
+    "options": [
+      {
+        "text": "The minimum quantity kept on hand that triggers reordering",
+        "note": ""
+      },
+      {
+        "text": "The maximum price to pay",
+        "note": "Not par."
+      },
+      {
+        "text": "The number of suppliers",
+        "note": "Not par."
+      },
+      {
+        "text": "A storage location code",
+        "note": "Not par."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Rotate stock (first in, first out) and check expiration dates."
+  },
+  {
+    "id": 101,
+    "domain": "D7",
+    "scenario": "Which letter format starts every line at the left margin?",
+    "options": [
+      {
+        "text": "Full block",
+        "note": ""
+      },
+      {
+        "text": "Modified block",
+        "note": "Modified block puts the date and closing to the right of center."
+      },
+      {
+        "text": "Semi-block",
+        "note": "Semi-block indents paragraphs."
+      },
+      {
+        "text": "Memo",
+        "note": "A different document type."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Full block is common in business correspondence because it's simple to format."
+  },
+  {
+    "id": 102,
+    "domain": "D7",
+    "scenario": "What's an appropriate opening procedure for a medical office?",
+    "options": [
+      {
+        "text": "Disarm the alarm, check messages and the answering service, review the day's schedule, and prepare the front desk",
+        "note": ""
+      },
+      {
+        "text": "Back up and shut down the computers",
+        "note": "That's a closing task."
+      },
+      {
+        "text": "Lock all doors for the day",
+        "note": "That's closing."
+      },
+      {
+        "text": "Shred all documents",
+        "note": "Not an opening routine."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Closing includes securing records, reconciling, backing up data, and setting the alarm."
+  },
+  {
+    "id": 103,
+    "domain": "D7",
+    "scenario": "The EHR system goes down during clinic hours. What should staff do?",
+    "options": [
+      {
+        "text": "Follow downtime procedures, such as paper forms, and enter the data into the EHR when it's restored",
+        "note": ""
+      },
+      {
+        "text": "Send all patients home",
+        "note": "Downtime plans allow continued care."
+      },
+      {
+        "text": "Store information on personal devices",
+        "note": "Not secure."
+      },
+      {
+        "text": "Stop documenting",
+        "note": "Documentation must continue."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Downtime plans protect continuity of care and data integrity."
+  },
+  {
+    "id": 104,
+    "domain": "D7",
+    "scenario": "Which practice protects electronic data from loss?",
+    "options": [
+      {
+        "text": "Regular backups stored securely, with periodic tests of restoring them",
+        "note": ""
+      },
+      {
+        "text": "Saving files on the desktop only",
+        "note": "No protection."
+      },
+      {
+        "text": "Sharing passwords",
+        "note": "A security risk."
+      },
+      {
+        "text": "Deleting old files randomly",
+        "note": "Not a backup strategy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The HIPAA Security Rule requires a contingency plan, including data backup and disaster recovery."
+  },
+  {
+    "id": 105,
+    "domain": "D7",
+    "scenario": "What is a good password practice for EHR access?",
+    "options": [
+      {
+        "text": "Use a unique, strong password, don't share it, and lock the screen when stepping away",
+        "note": ""
+      },
+      {
+        "text": "Write the password on a sticky note",
+        "note": "Not secure."
+      },
+      {
+        "text": "Share one login for the front desk",
+        "note": "Each user needs their own credentials for audit trails."
+      },
+      {
+        "text": "Use the same password everywhere",
+        "note": "Increases risk."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Unique logins make audit trails meaningful, and automatic logoff protects unattended screens."
+  },
+  {
+    "id": 106,
+    "domain": "D7",
+    "scenario": "When faxing PHI to another provider's office, what should be done?",
+    "options": [
+      {
+        "text": "Verify the fax number, use a cover sheet with a confidentiality notice, and send only the minimum necessary",
+        "note": ""
+      },
+      {
+        "text": "Fax without a cover sheet",
+        "note": "A confidentiality notice is standard."
+      },
+      {
+        "text": "Fax all records just in case",
+        "note": "Minimum necessary applies, though treatment disclosures can be broader as needed."
+      },
+      {
+        "text": "Use a public fax at a store",
+        "note": "Not secure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Confirm receipt for sensitive transmissions and follow policy for misdirected faxes."
+  },
+  {
+    "id": 107,
+    "domain": "D7",
+    "scenario": "Which telephone procedure keeps the practice organized?",
+    "options": [
+      {
+        "text": "Record messages with caller name, date and time, call-back number, reason, and urgency, then route them per protocol",
+        "note": ""
+      },
+      {
+        "text": "Remember messages without writing them down",
+        "note": "Leads to errors."
+      },
+      {
+        "text": "Take only the caller's first name",
+        "note": "Not enough."
+      },
+      {
+        "text": "Route every call to the provider",
+        "note": "Route per protocol."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Complete messages ensure timely, accurate responses and documentation."
+  },
+  {
+    "id": 108,
+    "domain": "D7",
+    "scenario": "Which basic computer skill is most important for a CMAA?",
+    "options": [
+      {
+        "text": "Navigating the EHR and practice management system accurately, including data entry and searches",
+        "note": ""
+      },
+      {
+        "text": "Writing software code",
+        "note": "Not required."
+      },
+      {
+        "text": "Repairing hardware",
+        "note": "IT handles it."
+      },
+      {
+        "text": "Building networks",
+        "note": "Not required."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Accurate data entry and use of word processing, email, and spreadsheets are core skills."
+  },
+  {
+    "id": 109,
+    "domain": "D7",
+    "scenario": "The practice receives a subpoena for a patient's records. What should the assistant do?",
+    "options": [
+      {
+        "text": "Forward it to the designated person (such as the privacy officer or HIM) to process per policy and law",
+        "note": ""
+      },
+      {
+        "text": "Mail the records immediately",
+        "note": "Requires review."
+      },
+      {
+        "text": "Throw it away",
+        "note": "Legal documents must be handled."
+      },
+      {
+        "text": "Call the patient's family",
+        "note": "Not appropriate."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Legal requests are reviewed to make sure disclosures meet HIPAA and state law."
+  }
+]

@@ -1,0 +1,3802 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "A 1.2 cm benign lesion of the back is excised with a 0.2 cm margin on each side. Which excised diameter determines the excision code?",
+    "options": [
+      {
+        "text": "1.6 cm",
+        "note": ""
+      },
+      {
+        "text": "1.2 cm",
+        "note": "That is the lesion alone; margins are added."
+      },
+      {
+        "text": "1.4 cm",
+        "note": "Margins on both sides are added, not one."
+      },
+      {
+        "text": "The length of the final closure",
+        "note": "Closure length is used for repair codes, not excision size."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Excision size is the lesion's greatest clinical diameter plus the narrowest margin required on each side: 1.2 + 0.2 + 0.2 = 1.6 cm. Measure before excision."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "A surgeon excises a benign lesion and closes the defect with a simple (single-layer) closure. How is the closure reported?",
+    "options": [
+      {
+        "text": "It is included in the excision code",
+        "note": ""
+      },
+      {
+        "text": "Report a simple repair code in addition",
+        "note": "Simple closure is part of lesion excision."
+      },
+      {
+        "text": "Report an intermediate repair code",
+        "note": "Single-layer closure is a simple repair."
+      },
+      {
+        "text": "Report an adjacent tissue transfer code",
+        "note": "No tissue rearrangement was performed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lesion excision codes include simple closure. Intermediate or complex closure of an excision site is reported separately."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "Simple repairs are performed on a 2.0 cm laceration of the forearm and a 1.5 cm laceration of the hand. How should the repairs be reported?",
+    "options": [
+      {
+        "text": "Add the lengths (3.5 cm) and report one simple-repair code for that anatomic group",
+        "note": ""
+      },
+      {
+        "text": "Report two separate simple-repair codes",
+        "note": "Repairs of the same classification and anatomic group are summed."
+      },
+      {
+        "text": "Report only the longer laceration",
+        "note": "Both repairs are reportable; their lengths are combined."
+      },
+      {
+        "text": "Report an intermediate repair because there are two wounds",
+        "note": "The number of wounds doesn't change the repair classification."
+      }
+    ],
+    "answer": 0,
+    "explanation": "When repairs share the same classification (simple, intermediate, complex) and the same anatomic grouping, add the lengths together and report one code."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "Simple repairs are performed on a 2 cm forehead laceration and a 3 cm arm laceration. How are they reported?",
+    "options": [
+      {
+        "text": "Separately, because the face and the extremities are in different anatomic groupings",
+        "note": ""
+      },
+      {
+        "text": "Summed as 5 cm under one code",
+        "note": "Lengths are summed only within the same anatomic grouping."
+      },
+      {
+        "text": "Only the arm repair, since it is longer",
+        "note": "Both are reportable."
+      },
+      {
+        "text": "As one complex repair",
+        "note": "Classification depends on the work, not the number of sites."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Repair codes group anatomic sites (for example scalp/neck/trunk/extremities versus face/ears/eyelids/nose/lips). Sum lengths only within a grouping."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "Which repair is classified as intermediate rather than simple?",
+    "options": [
+      {
+        "text": "Layered closure of the subcutaneous tissue and superficial fascia in addition to the skin",
+        "note": ""
+      },
+      {
+        "text": "Single-layer skin closure of a clean laceration",
+        "note": "That is a simple repair."
+      },
+      {
+        "text": "Closure with tissue adhesive only",
+        "note": "Adhesive-only closure of a superficial wound is simple (or an E/M for Medicare in some cases)."
+      },
+      {
+        "text": "Repair needing scar revision and extensive undermining",
+        "note": "That points to complex repair."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Intermediate repair includes layered closure of deeper layers, or single-layer closure of a heavily contaminated wound that needs extensive cleaning or removal of particulate matter."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "Two wounds are debrided to the subcutaneous tissue: one is 10 sq cm and the other is 15 sq cm. How is the debridement reported?",
+    "options": [
+      {
+        "text": "Add the areas (25 sq cm): report the first-20-sq-cm code plus one unit of its add-on code",
+        "note": ""
+      },
+      {
+        "text": "Report the first-20-sq-cm code twice",
+        "note": "Wounds at the same depth are summed, not coded per wound."
+      },
+      {
+        "text": "Report only the larger wound",
+        "note": "Both wounds count toward the total area."
+      },
+      {
+        "text": "Code by the deepest wound and ignore the other",
+        "note": "Both wounds are the same depth here."
+      }
+    ],
+    "answer": 0,
+    "explanation": "For debridement, sum the surface area of wounds debrided to the same depth. Wounds at different depths are reported separately, each by its depth."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "What determines the debridement code family (for example, subcutaneous tissue vs. muscle vs. bone)?",
+    "options": [
+      {
+        "text": "The deepest level of tissue removed",
+        "note": ""
+      },
+      {
+        "text": "The size of the wound before treatment",
+        "note": "Size selects the unit count, not the code family."
+      },
+      {
+        "text": "The instrument used",
+        "note": "Depth, not the instrument, selects the family."
+      },
+      {
+        "text": "The patient's diagnosis",
+        "note": "Diagnosis supports necessity, not the code family."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Debridement codes are selected by the depth of tissue removed, then by the surface area debrided."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "Cryotherapy destroys 16 premalignant lesions (actinic keratoses) in one session. How should this be reported?",
+    "options": [
+      {
+        "text": "Report the code for 15 or more lesions once, by itself",
+        "note": ""
+      },
+      {
+        "text": "Report the first-lesion code plus 15 units of the add-on",
+        "note": "Once there are 15 or more lesions, a single code covers them all."
+      },
+      {
+        "text": "Report the first-lesion code plus the 15-or-more code",
+        "note": "The 15-or-more code is reported alone."
+      },
+      {
+        "text": "Report a unit for each lesion with modifier 59",
+        "note": "This is not how the destruction family works."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Destruction of premalignant lesions has a first-lesion code (17000), an add-on for lesions 2–14 (17003), and a single code for 15 or more (17004), which is reported alone."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "For skin graft and skin substitute codes, how is the recipient area measured for an adult?",
+    "options": [
+      {
+        "text": "Per 100 sq cm (with percentage of body surface area used for infants and children under 10)",
+        "note": ""
+      },
+      {
+        "text": "Per centimeter of wound length",
+        "note": "Length is used for laceration repair."
+      },
+      {
+        "text": "Per graft harvested, regardless of size",
+        "note": "Grafts are coded by recipient-site area."
+      },
+      {
+        "text": "By the donor-site area",
+        "note": "The recipient site determines the area."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Graft codes are based on the recipient-site area: square centimeters for adults and children 10 and older, and percentage of body area for infants and children younger than 10."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "During Mohs micrographic surgery, the same physician removes the tissue and examines the frozen sections. How is the pathology examination reported?",
+    "options": [
+      {
+        "text": "It is included in the Mohs codes",
+        "note": ""
+      },
+      {
+        "text": "Report surgical pathology for each stage",
+        "note": "Mohs codes include the pathology work by the same physician."
+      },
+      {
+        "text": "Report a frozen-section code for each block",
+        "note": "Already included when the Mohs surgeon reads them."
+      },
+      {
+        "text": "Report it with modifier 26",
+        "note": "There's no separate professional component to add."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Mohs codes require one physician to act as both surgeon and pathologist, so the histopathology is part of the Mohs codes."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "A displaced fracture is reduced without opening the fracture site, and a cast is applied. How is the cast application reported?",
+    "options": [
+      {
+        "text": "It is included in the fracture-treatment code",
+        "note": ""
+      },
+      {
+        "text": "Report a casting code in addition",
+        "note": "Initial cast application is part of fracture care."
+      },
+      {
+        "text": "Report the casting code with modifier 59",
+        "note": "Bypassing the bundle isn't appropriate here."
+      },
+      {
+        "text": "Report only the casting code",
+        "note": "The fracture treatment is the main service."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fracture and dislocation treatment includes the first cast or strapping. A cast replaced later during follow-up can be reported separately."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "In CPT fracture treatment, what does \"open treatment\" mean?",
+    "options": [
+      {
+        "text": "The fracture site is surgically opened (or exposed) to treat it",
+        "note": ""
+      },
+      {
+        "text": "The patient has an open (compound) fracture",
+        "note": "The fracture type doesn't determine whether the treatment is open."
+      },
+      {
+        "text": "Any fracture treated with pins",
+        "note": "Percutaneous pinning is a separate category."
+      },
+      {
+        "text": "The fracture was manipulated",
+        "note": "Manipulation can be part of closed treatment."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Open treatment means the site is surgically opened, or a remote opening is made to place an intramedullary nail. An open (compound) fracture can still receive closed treatment."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "How is percutaneous skeletal fixation classified in CPT fracture care?",
+    "options": [
+      {
+        "text": "Neither open nor closed: the fracture isn't exposed, and fixation is placed across it under imaging",
+        "note": ""
+      },
+      {
+        "text": "As open treatment",
+        "note": "The fracture site isn't opened."
+      },
+      {
+        "text": "As closed treatment without manipulation",
+        "note": "It is its own category."
+      },
+      {
+        "text": "As an unlisted procedure",
+        "note": "Specific percutaneous fixation codes exist."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CPT treats percutaneous skeletal fixation as a separate type of fracture treatment, distinct from open and closed treatment."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "An arthrocentesis (aspiration) of the knee is performed without imaging guidance. What joint category applies?",
+    "options": [
+      {
+        "text": "Major joint",
+        "note": ""
+      },
+      {
+        "text": "Intermediate joint",
+        "note": "Intermediate joints include the wrist, elbow, and ankle."
+      },
+      {
+        "text": "Small joint",
+        "note": "Small joints include fingers and toes."
+      },
+      {
+        "text": "Bursa only",
+        "note": "The knee is a major joint."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Arthrocentesis codes are grouped by joint size. Major joints include the shoulder, hip, and knee (20610 without ultrasound guidance, 20611 with it)."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "Knee arthroscopy with meniscectomy is performed on both the medial and lateral menisci of the same knee. How is it reported?",
+    "options": [
+      {
+        "text": "One code describing medial AND lateral meniscectomy",
+        "note": ""
+      },
+      {
+        "text": "The medial-or-lateral code twice",
+        "note": "A specific code covers both menisci."
+      },
+      {
+        "text": "The medial-or-lateral code with modifier 50",
+        "note": "Modifier 50 means both knees, not both menisci."
+      },
+      {
+        "text": "A diagnostic arthroscopy plus a meniscectomy",
+        "note": "Surgical arthroscopy includes diagnostic arthroscopy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Arthroscopic meniscectomy has one code for the medial or lateral meniscus (29881) and one for both (29880)."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "A surgical arthroscopy is performed after the surgeon first inspects the joint. How is the diagnostic portion reported?",
+    "options": [
+      {
+        "text": "It is not reported separately",
+        "note": ""
+      },
+      {
+        "text": "Report it with modifier 51",
+        "note": "Diagnostic endoscopy is always included in surgical endoscopy."
+      },
+      {
+        "text": "Report it with modifier 59",
+        "note": "There is no distinct service to report."
+      },
+      {
+        "text": "Report it only if photos are taken",
+        "note": "Photos don't change the rule."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A surgical endoscopy or arthroscopy always includes the diagnostic endoscopy or arthroscopy of the same area."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "Endoscopic carpal tunnel release is coded from which part of CPT?",
+    "options": [
+      {
+        "text": "Musculoskeletal: arthroscopy codes (the 29000 series)",
+        "note": ""
+      },
+      {
+        "text": "Nervous system: neuroplasty codes",
+        "note": "Open carpal tunnel release is coded there."
+      },
+      {
+        "text": "Integumentary system",
+        "note": "This is not a skin procedure."
+      },
+      {
+        "text": "Unlisted nervous system procedure",
+        "note": "A specific code exists."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Endoscopic carpal tunnel release is 29848 (arthroscopy section). Open release of the median nerve at the carpal tunnel is 64721 (nervous system)."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "How are nasal sinus endoscopy codes reported when the procedure is done on both sides?",
+    "options": [
+      {
+        "text": "With modifier 50, because the sinus endoscopy codes are unilateral unless stated otherwise",
+        "note": ""
+      },
+      {
+        "text": "Once, because they include both sides",
+        "note": "The codes are unilateral."
+      },
+      {
+        "text": "With modifier 51 only",
+        "note": "Bilateral work uses modifier 50."
+      },
+      {
+        "text": "With modifier 22",
+        "note": "Bilateral work isn't 'increased services' by itself."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CPT notes that sinus endoscopy codes are unilateral unless otherwise specified, so bilateral procedures use modifier 50 (or RT/LT per payer)."
+  },
+  {
+    "id": 19,
+    "domain": "D1",
+    "scenario": "A thoracentesis with a catheter is performed using ultrasound guidance. How is the imaging guidance reported?",
+    "options": [
+      {
+        "text": "It's included in the thoracentesis code that specifies imaging guidance",
+        "note": ""
+      },
+      {
+        "text": "Report a separate ultrasound guidance code",
+        "note": "The with-imaging code includes the guidance."
+      },
+      {
+        "text": "Report a chest x-ray code",
+        "note": "No separate imaging is described."
+      },
+      {
+        "text": "Report it with modifier 26",
+        "note": "The guidance is already bundled."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Thoracentesis has codes without imaging (32554) and with imaging guidance (32555). Don't report the guidance separately."
+  },
+  {
+    "id": 20,
+    "domain": "D1",
+    "scenario": "From one arterial puncture, catheters are placed in several branches of the same vascular family. What is the general reporting rule?",
+    "options": [
+      {
+        "text": "Report the most selective (highest-order) catheter placement in that vascular family",
+        "note": ""
+      },
+      {
+        "text": "Report each vessel the catheter passes through",
+        "note": "Lower-order placements on the way are included."
+      },
+      {
+        "text": "Report only the non-selective aortic catheterization",
+        "note": "Selective placement is reported when performed."
+      },
+      {
+        "text": "Report one unit per puncture site",
+        "note": "Coding is by vessel order, not punctures."
+      }
+    ],
+    "answer": 0,
+    "explanation": "In each vascular family, code the highest-order selective catheterization. Lower-order placements along the same path are included."
+  },
+  {
+    "id": 21,
+    "domain": "D1",
+    "scenario": "Coronary artery bypass uses one arterial graft and two venous grafts. Which coding approach is correct?",
+    "options": [
+      {
+        "text": "Report the arterial graft code plus the combined arterial-venous add-on code for two venous grafts",
+        "note": ""
+      },
+      {
+        "text": "Report the venous-only bypass code for two grafts plus the arterial code",
+        "note": "Venous-only codes are used when no arterial graft is present."
+      },
+      {
+        "text": "Report three units of the arterial graft code",
+        "note": "Venous grafts are coded differently."
+      },
+      {
+        "text": "Report one code for three coronary grafts of any type",
+        "note": "Graft type matters."
+      }
+    ],
+    "answer": 0,
+    "explanation": "When arterial and venous grafts are combined, report the arterial codes (33533–33536) plus a combined arterial-venous add-on (33517–33523). The venous-only codes (33510–33516) are for procedures with no arterial graft."
+  },
+  {
+    "id": 22,
+    "domain": "D1",
+    "scenario": "Central venous access device insertion codes are selected using which factors?",
+    "options": [
+      {
+        "text": "Whether it is central or peripherally inserted, tunneled or not, with port or pump, and the patient's age (under 5 or 5 and older)",
+        "note": ""
+      },
+      {
+        "text": "Only the catheter brand",
+        "note": "Brand isn't a coding factor."
+      },
+      {
+        "text": "Only the vein used",
+        "note": "Several factors determine the code."
+      },
+      {
+        "text": "The length of the catheter in centimeters",
+        "note": "Length doesn't select the code."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CVAD codes depend on insertion site (central or peripheral), tunneling, whether a port or pump is attached, and patient age."
+  },
+  {
+    "id": 23,
+    "domain": "D1",
+    "scenario": "A routine blood draw by venipuncture is performed in the office. Which code range describes it?",
+    "options": [
+      {
+        "text": "36415 (collection of venous blood by venipuncture)",
+        "note": ""
+      },
+      {
+        "text": "A laboratory panel code",
+        "note": "Panels describe the testing, not the collection."
+      },
+      {
+        "text": "An E/M code",
+        "note": "Specimen collection has its own code."
+      },
+      {
+        "text": "A HCPCS J code",
+        "note": "J codes are for drugs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Routine venipuncture is 36415, a cardiovascular-section code commonly reported with lab services. It's reported once per encounter."
+  },
+  {
+    "id": 24,
+    "domain": "D1",
+    "scenario": "During a colonoscopy, a polyp is biopsied with cold forceps and then the same polyp is removed by snare. How is this reported?",
+    "options": [
+      {
+        "text": "Report only the snare removal for that polyp",
+        "note": ""
+      },
+      {
+        "text": "Report both biopsy and snare removal",
+        "note": "A biopsy of a lesion that is then removed isn't separately reported."
+      },
+      {
+        "text": "Report only the biopsy",
+        "note": "The more extensive removal is reported."
+      },
+      {
+        "text": "Report a diagnostic colonoscopy plus snare",
+        "note": "Surgical endoscopy includes the diagnostic procedure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "When a lesion is biopsied and then removed during the same session, report only the removal. A biopsy of a different lesion may be reported separately."
+  },
+  {
+    "id": 25,
+    "domain": "D1",
+    "scenario": "A patient prepared for a total colonoscopy has a colonoscopy that can't be advanced to the cecum because of an unforeseen obstruction. How does CPT say to report it?",
+    "options": [
+      {
+        "text": "Report the colonoscopy code with modifier 53, with documentation",
+        "note": ""
+      },
+      {
+        "text": "Report a flexible sigmoidoscopy",
+        "note": "CPT directs colonoscopy with 53 when total colonoscopy was planned."
+      },
+      {
+        "text": "Report the colonoscopy with modifier 22",
+        "note": "Modifier 22 is for increased work, not incomplete procedures."
+      },
+      {
+        "text": "Don't report the procedure",
+        "note": "The partial procedure is reportable."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CPT guidance: for a patient scheduled and prepared for a total colonoscopy who can't be scoped to the cecum because of unforeseen circumstances, report the colonoscopy with modifier 53. Payer rules may vary."
+  },
+  {
+    "id": 26,
+    "domain": "D1",
+    "scenario": "A Medicare patient at average risk has a screening colonoscopy and a polyp is removed by snare. How is it reported?",
+    "options": [
+      {
+        "text": "The therapeutic colonoscopy code with modifier PT",
+        "note": ""
+      },
+      {
+        "text": "G0121 only",
+        "note": "Once a polyp is removed, the therapeutic code is reported."
+      },
+      {
+        "text": "G0105 with modifier 33",
+        "note": "G0105 is for high-risk screening; 33 is for commercial payers."
+      },
+      {
+        "text": "The diagnostic colonoscopy code with modifier 25",
+        "note": "Modifier 25 applies to E/M services."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Medicare screening colonoscopy is G0121 (average risk) or G0105 (high risk). If it becomes therapeutic, report the CPT procedure with modifier PT so the cost-sharing waiver can apply."
+  },
+  {
+    "id": 27,
+    "domain": "D1",
+    "scenario": "During an EGD, the physician takes biopsies from three different areas of the stomach. How many biopsy units are reported?",
+    "options": [
+      {
+        "text": "One: the EGD biopsy code covers single or multiple biopsies",
+        "note": ""
+      },
+      {
+        "text": "Three, one per site",
+        "note": "The code says single or multiple."
+      },
+      {
+        "text": "Two, with modifier 59 on the second",
+        "note": "There's nothing distinct to report."
+      },
+      {
+        "text": "One per specimen container",
+        "note": "Containers matter for pathology coding, not the EGD code."
+      }
+    ],
+    "answer": 0,
+    "explanation": "EGD with biopsy (43239) is reported once regardless of how many biopsies were taken. The pathologist may report a unit per separately submitted specimen."
+  },
+  {
+    "id": 28,
+    "domain": "D1",
+    "scenario": "Which factors select an open inguinal hernia repair code?",
+    "options": [
+      {
+        "text": "Patient age, initial or recurrent, and reducible or incarcerated/strangulated",
+        "note": ""
+      },
+      {
+        "text": "Hernia defect size in square centimeters",
+        "note": "Total defect size is used for anterior abdominal hernia codes."
+      },
+      {
+        "text": "Whether mesh was used",
+        "note": "Mesh isn't reported separately for inguinal repairs."
+      },
+      {
+        "text": "The surgeon's specialty",
+        "note": "Specialty doesn't affect the code."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Open inguinal hernia repair codes depend on age, initial versus recurrent, and clinical presentation. Since 2023, anterior abdominal (ventral, incisional, umbilical) hernia repairs are coded by total defect size and include mesh."
+  },
+  {
+    "id": 29,
+    "domain": "D1",
+    "scenario": "During a medically necessary hysterectomy, the surgeon also removes a normal appendix with no indication. How is the appendectomy reported?",
+    "options": [
+      {
+        "text": "It isn't reported separately (incidental appendectomy)",
+        "note": ""
+      },
+      {
+        "text": "Report it with modifier 51",
+        "note": "An incidental appendectomy isn't separately reportable."
+      },
+      {
+        "text": "Report it with modifier 59",
+        "note": "There's no medical necessity to support it."
+      },
+      {
+        "text": "Report an unlisted digestive procedure",
+        "note": "It isn't reported at all."
+      }
+    ],
+    "answer": 0,
+    "explanation": "An appendectomy done incidentally during another major abdominal procedure isn't reported. If removal is medically indicated, the appropriate code may be reported."
+  },
+  {
+    "id": 30,
+    "domain": "D1",
+    "scenario": "Under CPT, what three components make up renal (kidney) transplantation?",
+    "options": [
+      {
+        "text": "Donor nephrectomy, backbench preparation of the graft, and recipient transplantation",
+        "note": ""
+      },
+      {
+        "text": "Dialysis, transplantation, and immunosuppression",
+        "note": "Dialysis and drug therapy aren't components of the surgical codes."
+      },
+      {
+        "text": "Biopsy, nephrectomy, and stent placement",
+        "note": "These aren't the CPT components."
+      },
+      {
+        "text": "Pre-op visit, surgery, and post-op visit",
+        "note": "Those describe a global package, not transplant components."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CPT describes renal transplantation in three parts: cadaver or living donor nephrectomy, backbench work to prepare the graft, and recipient renal allotransplantation."
+  },
+  {
+    "id": 31,
+    "domain": "D1",
+    "scenario": "What does the vasectomy code include?",
+    "options": [
+      {
+        "text": "Postoperative semen examination(s)",
+        "note": ""
+      },
+      {
+        "text": "Anesthesia by an anesthesiologist",
+        "note": "Anesthesia by another provider is separately reported."
+      },
+      {
+        "text": "Pathology of the vas segments",
+        "note": "The pathologist reports their own service."
+      },
+      {
+        "text": "Unrelated E/M visits in the global period",
+        "note": "Those are reported with modifier 24."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The vasectomy code (55250) includes the postoperative semen examination(s)."
+  },
+  {
+    "id": 32,
+    "domain": "D1",
+    "scenario": "Which factors select a laparoscopic total hysterectomy code?",
+    "options": [
+      {
+        "text": "Uterus weight (250 g or less vs. more) and whether the tubes and/or ovaries are removed",
+        "note": ""
+      },
+      {
+        "text": "Number of trocars placed",
+        "note": "Port count isn't a coding factor."
+      },
+      {
+        "text": "Whether a robot was used",
+        "note": "Robotic assistance doesn't change the code."
+      },
+      {
+        "text": "The patient's age",
+        "note": "Age isn't a factor for these codes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Laparoscopic hysterectomy codes depend on uterine weight and removal of tubes/ovaries."
+  },
+  {
+    "id": 33,
+    "domain": "D1",
+    "scenario": "Which service is included in the global obstetric package for a routine vaginal delivery?",
+    "options": [
+      {
+        "text": "Routine antepartum visits, including weight, blood pressure, fetal heart tones, and routine chemical urinalysis",
+        "note": ""
+      },
+      {
+        "text": "Obstetric ultrasounds",
+        "note": "Ultrasounds are reported separately."
+      },
+      {
+        "text": "Treatment of an unrelated illness",
+        "note": "Unrelated problems are reported separately."
+      },
+      {
+        "text": "Laboratory tests other than routine urinalysis",
+        "note": "Other labs are reported separately."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The global OB package includes routine antepartum care, the delivery, and routine postpartum care. Labs (other than routine dipstick urinalysis), ultrasounds, and treatment of complications or unrelated conditions are reported separately."
+  },
+  {
+    "id": 34,
+    "domain": "D1",
+    "scenario": "A patient has five antepartum visits with one practice and then transfers before delivery. How are the visits reported?",
+    "options": [
+      {
+        "text": "One code for 4–6 antepartum visits",
+        "note": ""
+      },
+      {
+        "text": "Five office E/M codes",
+        "note": "E/M codes are used for 1–3 visits."
+      },
+      {
+        "text": "The global OB code with modifier 52",
+        "note": "The global package isn't used when care is split."
+      },
+      {
+        "text": "The 7-or-more antepartum visits code",
+        "note": "That code requires seven or more visits."
+      }
+    ],
+    "answer": 0,
+    "explanation": "When the global package isn't completed, antepartum care is reported as: 1–3 visits with E/M codes, 4–6 visits with 59425, and 7 or more with 59426."
+  },
+  {
+    "id": 35,
+    "domain": "D1",
+    "scenario": "A patient with a previous cesarean attempts a vaginal birth (TOLAC) but delivers by cesarean. Which code family applies when the same practice provides all the care?",
+    "options": [
+      {
+        "text": "Cesarean delivery following attempted vaginal delivery after previous cesarean (59618–59622)",
+        "note": ""
+      },
+      {
+        "text": "Routine global cesarean delivery (59510)",
+        "note": "That family doesn't reflect the attempted VBAC."
+      },
+      {
+        "text": "Successful VBAC codes (59610–59614)",
+        "note": "Delivery was by cesarean."
+      },
+      {
+        "text": "Vaginal delivery codes (59400) with modifier 22",
+        "note": "Delivery was by cesarean."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CPT has separate families for successful VBAC (59610–59614) and for cesarean after an attempted VBAC (59618–59622)."
+  },
+  {
+    "id": 36,
+    "domain": "D1",
+    "scenario": "A lumbar interlaminar epidural steroid injection is performed under fluoroscopic guidance. How is the fluoroscopy reported?",
+    "options": [
+      {
+        "text": "It's included in the epidural code that specifies imaging guidance",
+        "note": ""
+      },
+      {
+        "text": "Report a separate fluoroscopic guidance code",
+        "note": "The with-imaging epidural code includes guidance."
+      },
+      {
+        "text": "Report it with modifier TC",
+        "note": "Not separately reported."
+      },
+      {
+        "text": "Report a radiology S&I code",
+        "note": "No separate S&I code applies."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Interlaminar epidural codes 62320–62327 have versions with and without imaging guidance. The guidance is included and isn't reported separately."
+  },
+  {
+    "id": 37,
+    "domain": "D1",
+    "scenario": "Transforaminal epidural injections are performed on the right and left at one lumbar level with fluoroscopy. How are they reported?",
+    "options": [
+      {
+        "text": "The single-level transforaminal code with modifier 50",
+        "note": ""
+      },
+      {
+        "text": "The code twice without modifiers",
+        "note": "Bilateral is reported with modifier 50 (or per payer)."
+      },
+      {
+        "text": "The code plus a fluoroscopy code",
+        "note": "Imaging guidance is included."
+      },
+      {
+        "text": "An interlaminar code",
+        "note": "The approach was transforaminal."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Transforaminal epidural codes (64479–64484) are unilateral and per level, and they include imaging guidance. Report bilateral injections with modifier 50."
+  },
+  {
+    "id": 38,
+    "domain": "D1",
+    "scenario": "Tympanostomy (tube insertion) is performed under general anesthesia in both ears. How is it reported?",
+    "options": [
+      {
+        "text": "The tympanostomy code for general anesthesia with modifier 50",
+        "note": ""
+      },
+      {
+        "text": "The local-anesthesia tympanostomy code twice",
+        "note": "The anesthesia type selects the code; bilateral uses 50."
+      },
+      {
+        "text": "A myringotomy code with modifier 51",
+        "note": "Tube insertion has its own codes."
+      },
+      {
+        "text": "Once, because the codes are bilateral",
+        "note": "The tympanostomy codes are unilateral."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tympanostomy codes differ by anesthesia (69433 local or topical, 69436 general) and are unilateral, so bilateral procedures use modifier 50."
+  },
+  {
+    "id": 39,
+    "domain": "D1",
+    "scenario": "Impacted cerumen is removed with instruments from both ears. How is it reported?",
+    "options": [
+      {
+        "text": "The instrumentation cerumen-removal code with modifier 50",
+        "note": ""
+      },
+      {
+        "text": "The irrigation code",
+        "note": "Irrigation (lavage) has a separate code."
+      },
+      {
+        "text": "The code once with no modifier",
+        "note": "Since 2021 the code is unilateral."
+      },
+      {
+        "text": "A level 2 office E/M only",
+        "note": "Instrument removal of impacted cerumen is a procedure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Removal of impacted cerumen with instrumentation (69210) is unilateral, so use modifier 50 for both ears. Removal by lavage is 69209."
+  },
+  {
+    "id": 40,
+    "domain": "D1",
+    "scenario": "Which of these is included in the CPT surgical package?",
+    "options": [
+      {
+        "text": "Local infiltration, metacarpal/digital block, or topical anesthesia",
+        "note": ""
+      },
+      {
+        "text": "General anesthesia given by an anesthesiologist",
+        "note": "Another provider's anesthesia is separately reported."
+      },
+      {
+        "text": "Treatment of complications that require a return to the OR",
+        "note": "Those are reported (modifier 78)."
+      },
+      {
+        "text": "An E/M visit at which the decision for surgery was made",
+        "note": "That visit may be reported (modifier 57 for major surgery)."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The surgical package includes local or topical anesthesia, one related E/M after the decision for surgery, immediate postoperative care, writing orders, evaluating the patient in recovery, and typical follow-up care."
+  },
+  {
+    "id": 41,
+    "domain": "D1",
+    "scenario": "Under Medicare, what is the global period for a major surgery?",
+    "options": [
+      {
+        "text": "90 days after surgery plus the day before and the day of surgery",
+        "note": ""
+      },
+      {
+        "text": "10 days after surgery",
+        "note": "That's typical of minor procedures."
+      },
+      {
+        "text": "0 days",
+        "note": "Endoscopies and some minor procedures have 0-day globals."
+      },
+      {
+        "text": "30 days",
+        "note": "Medicare doesn't use a 30-day global."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Medicare major procedures have a 90-day global period that includes the day before and day of surgery. Minor procedures have 0 or 10 days."
+  },
+  {
+    "id": 42,
+    "domain": "D1",
+    "scenario": "A CPT code is labeled \"separate procedure.\" When may it be reported?",
+    "options": [
+      {
+        "text": "When performed alone, or with another procedure that is unrelated or distinct (with an appropriate modifier)",
+        "note": ""
+      },
+      {
+        "text": "Whenever it is performed",
+        "note": "It's bundled when done as part of a related procedure."
+      },
+      {
+        "text": "Only with modifier 22",
+        "note": "Modifier 22 isn't the rule."
+      },
+      {
+        "text": "Never; it is informational only",
+        "note": "It's reportable in the right circumstances."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A \"separate procedure\" is usually part of a larger procedure. Report it when it is done alone or is distinct from the other services (modifier 59 or an X modifier)."
+  },
+  {
+    "id": 43,
+    "domain": "D1",
+    "scenario": "What does a plus sign (+) before a CPT code indicate?",
+    "options": [
+      {
+        "text": "An add-on code reported with a primary procedure and exempt from modifier 51",
+        "note": ""
+      },
+      {
+        "text": "A new code this year",
+        "note": "New codes are marked with a bullet."
+      },
+      {
+        "text": "A revised code",
+        "note": "Revised codes are marked with a triangle."
+      },
+      {
+        "text": "A code that may be reported alone",
+        "note": "Add-on codes are never reported alone."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Add-on codes describe additional work and are always reported with a primary code. Don't append modifier 51 to them."
+  },
+  {
+    "id": 44,
+    "domain": "D1",
+    "scenario": "A patient has a 3 cm simple laceration repair of the scalp. Which simple repair code range describes 2.6–7.5 cm of the scalp, neck, axillae, trunk, or extremities?",
+    "options": [
+      {
+        "text": "12002",
+        "note": ""
+      },
+      {
+        "text": "12001",
+        "note": "12001 is 2.5 cm or less."
+      },
+      {
+        "text": "12011",
+        "note": "12011 is for the face, ears, eyelids, nose, lips, and mucous membranes."
+      },
+      {
+        "text": "12032",
+        "note": "12032 is an intermediate repair code."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Simple repair of the scalp, neck, axillae, external genitalia, trunk, or extremities: 12001 for 2.5 cm or less, 12002 for 2.6–7.5 cm."
+  },
+  {
+    "id": 45,
+    "domain": "D1",
+    "scenario": "A shave removal of a skin lesion is performed. Which statement is correct?",
+    "options": [
+      {
+        "text": "Shave removal doesn't require suture closure, and its codes are selected by site and lesion diameter",
+        "note": ""
+      },
+      {
+        "text": "Shave removal is coded as excision with margins",
+        "note": "Shaving is a different technique and code family."
+      },
+      {
+        "text": "Shave removal always includes layered closure",
+        "note": "It typically needs no suturing."
+      },
+      {
+        "text": "Shave removal is coded by depth only",
+        "note": "Site and diameter select the code."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Shave removal is the horizontal slicing of an epidermal or dermal lesion without a full-thickness excision. It's coded by anatomic site and lesion diameter."
+  },
+  {
+    "id": 46,
+    "domain": "D1",
+    "scenario": "A physician drains a simple skin abscess in the office. Which section of CPT contains incision and drainage of skin abscesses?",
+    "options": [
+      {
+        "text": "Integumentary system",
+        "note": ""
+      },
+      {
+        "text": "Musculoskeletal system",
+        "note": "Deep abscesses of muscle or bone may be coded there; simple skin abscesses aren't."
+      },
+      {
+        "text": "Medicine section",
+        "note": "Procedures on skin are in Surgery."
+      },
+      {
+        "text": "Digestive system",
+        "note": "Only for digestive sites."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Incision and drainage of cutaneous or subcutaneous abscesses is in the integumentary subsection (10060 single/simple, 10061 complicated/multiple)."
+  },
+  {
+    "id": 47,
+    "domain": "D1",
+    "scenario": "During a cystourethroscopy, the urologist inserts a ureteral stent. How is the diagnostic cystourethroscopy reported?",
+    "options": [
+      {
+        "text": "Not separately: it's included in the surgical cystourethroscopy",
+        "note": ""
+      },
+      {
+        "text": "With modifier 51",
+        "note": "Diagnostic endoscopy is included."
+      },
+      {
+        "text": "With modifier 59",
+        "note": "Not a distinct service."
+      },
+      {
+        "text": "Only if a different physician performs it",
+        "note": "The rule applies to the same session."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Surgical endoscopy includes diagnostic endoscopy. The cystourethroscopy with stent insertion is reported alone."
+  },
+  {
+    "id": 48,
+    "domain": "D1",
+    "scenario": "Cataract extraction with intraocular lens insertion: which statement about the eye/ocular adnexa subsection is correct?",
+    "options": [
+      {
+        "text": "Codes distinguish routine extraction from complex extraction requiring devices or techniques not generally used in routine surgery",
+        "note": ""
+      },
+      {
+        "text": "All cataract surgeries use one code",
+        "note": "Complex and routine codes differ."
+      },
+      {
+        "text": "The lens implant is always coded separately",
+        "note": "IOL insertion is included in the extraction-with-IOL codes."
+      },
+      {
+        "text": "Cataract codes are in the Medicine section",
+        "note": "They are in the Surgery section (60000 series)."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cataract extraction with IOL insertion has a routine code and a complex code. Complexity depends on the techniques or devices required, such as iris expansion."
+  },
+  {
+    "id": 49,
+    "domain": "D1",
+    "scenario": "Which structures make up the nervous system subsection codes 61000–64999?",
+    "options": [
+      {
+        "text": "Skull, meninges, brain, spine and spinal cord, and peripheral/autonomic nerves",
+        "note": ""
+      },
+      {
+        "text": "Eye and ear only",
+        "note": "Those are 65000–69999."
+      },
+      {
+        "text": "Endocrine glands",
+        "note": "Endocrine is 60000–60699."
+      },
+      {
+        "text": "Muscles and tendons",
+        "note": "Those are musculoskeletal."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The 60000 series in the AAPC exam includes endocrine, nervous system, eye, and auditory codes. Nervous system codes cover the skull, brain, spine, and nerves."
+  },
+  {
+    "id": 50,
+    "domain": "D1",
+    "scenario": "Facet joint injection codes for the lumbar spine are reported how?",
+    "options": [
+      {
+        "text": "By spinal level, with imaging guidance included and bilateral procedures reported with modifier 50",
+        "note": ""
+      },
+      {
+        "text": "Once per session regardless of levels",
+        "note": "Additional levels are reported with add-on codes."
+      },
+      {
+        "text": "With a separate fluoroscopy code",
+        "note": "Imaging guidance is required and included."
+      },
+      {
+        "text": "Using unlisted codes",
+        "note": "Specific codes exist (64490–64495)."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Facet joint injection codes are per level (first level plus add-ons), require imaging guidance that is included, and are unilateral, so bilateral uses modifier 50."
+  },
+  {
+    "id": 51,
+    "domain": "D1",
+    "scenario": "An open treatment of a distal radius fracture with internal fixation is performed. Which statement is correct?",
+    "options": [
+      {
+        "text": "Internal fixation is included in the open treatment code when the code describes it",
+        "note": ""
+      },
+      {
+        "text": "Internal fixation is always coded separately",
+        "note": "Most ORIF codes include fixation."
+      },
+      {
+        "text": "The hardware is coded with a J code",
+        "note": "Implants aren't coded with J codes."
+      },
+      {
+        "text": "ORIF is coded as closed treatment with manipulation",
+        "note": "The fracture site was opened."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ORIF (open reduction internal fixation) codes include the fixation. Read the code descriptor for what's included, such as the number of fragments."
+  },
+  {
+    "id": 52,
+    "domain": "D1",
+    "scenario": "What is the main difference between a biopsy and an excision of a skin lesion?",
+    "options": [
+      {
+        "text": "A biopsy samples tissue for diagnosis; an excision removes the full lesion",
+        "note": ""
+      },
+      {
+        "text": "Biopsies always require sutures",
+        "note": "Closure doesn't define a biopsy."
+      },
+      {
+        "text": "Excisions are only done for malignant lesions",
+        "note": "Benign lesions are excised too."
+      },
+      {
+        "text": "They are coded the same way",
+        "note": "Separate code families exist."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Skin biopsy codes (11102–11107) are selected by technique (tangential, punch, incisional). Excision codes are selected by benign/malignant status, site, and excised diameter."
+  },
+  {
+    "id": 53,
+    "domain": "D2",
+    "scenario": "Under the current office/outpatient E/M guidelines, a level of service is selected based on what?",
+    "options": [
+      {
+        "text": "Medical decision making (MDM) or total time on the date of the encounter",
+        "note": ""
+      },
+      {
+        "text": "History, exam, and MDM, all three required",
+        "note": "History and exam no longer select the level."
+      },
+      {
+        "text": "Face-to-face time only",
+        "note": "Total time includes non-face-to-face work on that date."
+      },
+      {
+        "text": "The number of diagnoses listed",
+        "note": "Problems are only one MDM element."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Since 2021, office/outpatient E/M levels (99202–99215) are based on MDM or total practitioner time on the date of service. History and exam must be medically appropriate."
+  },
+  {
+    "id": 54,
+    "domain": "D2",
+    "scenario": "How many of the three MDM elements must be met or exceeded to select an MDM level?",
+    "options": [
+      {
+        "text": "Two of three",
+        "note": ""
+      },
+      {
+        "text": "All three",
+        "note": "Two of the three are required."
+      },
+      {
+        "text": "Only one",
+        "note": "One element isn't enough."
+      },
+      {
+        "text": "Only risk",
+        "note": "Risk is one of the three."
+      }
+    ],
+    "answer": 0,
+    "explanation": "MDM includes the number/complexity of problems, the amount/complexity of data reviewed, and the risk of patient management. Two of three must be met or exceeded."
+  },
+  {
+    "id": 55,
+    "domain": "D2",
+    "scenario": "An established patient's office visit has 42 minutes of total physician time on the date of service. Which level is supported by time?",
+    "options": [
+      {
+        "text": "99215",
+        "note": ""
+      },
+      {
+        "text": "99214",
+        "note": "99214 requires 30 minutes; 42 meets the 40-minute threshold for 99215."
+      },
+      {
+        "text": "99213",
+        "note": "99213 requires 20 minutes."
+      },
+      {
+        "text": "99215 plus prolonged services",
+        "note": "Prolonged services start well beyond 40 minutes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Established office visit time thresholds: 99212 10 min, 99213 20, 99214 30, 99215 40 (time must be met or exceeded)."
+  },
+  {
+    "id": 56,
+    "domain": "D2",
+    "scenario": "A new patient's office visit has 35 minutes of total physician time. Which level does time support?",
+    "options": [
+      {
+        "text": "99203",
+        "note": ""
+      },
+      {
+        "text": "99204",
+        "note": "99204 requires 45 minutes."
+      },
+      {
+        "text": "99202",
+        "note": "99202 requires 15 minutes; 35 supports a higher level."
+      },
+      {
+        "text": "99213",
+        "note": "99213 is for established patients."
+      }
+    ],
+    "answer": 0,
+    "explanation": "New patient time thresholds: 99202 15 min, 99203 30, 99204 45, 99205 60."
+  },
+  {
+    "id": 57,
+    "domain": "D2",
+    "scenario": "When counting total time for an office E/M, which activity counts?",
+    "options": [
+      {
+        "text": "Reviewing test results and documenting in the record on the date of the visit",
+        "note": ""
+      },
+      {
+        "text": "Travel time to the office",
+        "note": "Travel doesn't count."
+      },
+      {
+        "text": "Time spent performing a separately reported procedure",
+        "note": "Separately reported services are excluded."
+      },
+      {
+        "text": "Clinical staff time",
+        "note": "Only physician/QHP time counts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Total time includes face-to-face and non-face-to-face physician/QHP work on the date of the encounter, such as preparing, reviewing tests, counseling, ordering, and documenting."
+  },
+  {
+    "id": 58,
+    "domain": "D2",
+    "scenario": "When is a patient considered \"new\" for E/M purposes?",
+    "options": [
+      {
+        "text": "When the patient hasn't received professional services from the physician, or another of the same specialty and subspecialty in the same group, in the past 3 years",
+        "note": ""
+      },
+      {
+        "text": "When the patient has a new problem",
+        "note": "A new problem doesn't make the patient new."
+      },
+      {
+        "text": "When it has been more than 1 year since the last visit",
+        "note": "The rule is three years."
+      },
+      {
+        "text": "When the patient has new insurance",
+        "note": "Insurance doesn't affect new/established status."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CPT's three-year rule applies to face-to-face professional services from the same physician or same-specialty colleagues in the same group practice."
+  },
+  {
+    "id": 59,
+    "domain": "D2",
+    "scenario": "Which statement describes 99211?",
+    "options": [
+      {
+        "text": "An established patient visit that may not require a physician or other QHP to be present, such as a nurse blood-pressure check",
+        "note": ""
+      },
+      {
+        "text": "A new patient visit with minimal MDM",
+        "note": "There is no new patient 99201 code anymore."
+      },
+      {
+        "text": "A visit billed by time of 10 minutes",
+        "note": "99211 has no time threshold."
+      },
+      {
+        "text": "A preventive visit",
+        "note": "Preventive services use their own codes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "99211 is for established patients when the presence of a physician or QHP may not be required, typically for clinical staff services under supervision."
+  },
+  {
+    "id": 60,
+    "domain": "D2",
+    "scenario": "An established patient comes for a scheduled preventive exam (age 45), and the physician also addresses worsening hypertension with a medication change. How is it reported?",
+    "options": [
+      {
+        "text": "The preventive medicine code plus a problem-oriented E/M with modifier 25",
+        "note": ""
+      },
+      {
+        "text": "Only the preventive code",
+        "note": "A significant, separately identifiable problem may also be reported."
+      },
+      {
+        "text": "Only a problem-oriented E/M",
+        "note": "The preventive service was also performed."
+      },
+      {
+        "text": "The preventive code with modifier 22",
+        "note": "Modifier 22 doesn't apply."
+      }
+    ],
+    "answer": 0,
+    "explanation": "When a significant problem requires additional work at a preventive visit, report the appropriate office E/M with modifier 25 in addition to the preventive code (99396 for ages 40–64 established)."
+  },
+  {
+    "id": 61,
+    "domain": "D2",
+    "scenario": "In MDM, which example represents moderate risk of patient management?",
+    "options": [
+      {
+        "text": "Prescription drug management",
+        "note": ""
+      },
+      {
+        "text": "Over-the-counter drug recommendation",
+        "note": "That is low risk."
+      },
+      {
+        "text": "Decision regarding hospitalization",
+        "note": "That is an example of high risk."
+      },
+      {
+        "text": "Rest and gargles",
+        "note": "That is minimal risk."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CPT gives prescription drug management as an example of moderate risk. Decisions about hospitalization or drug therapy requiring intensive toxicity monitoring are high-risk examples."
+  },
+  {
+    "id": 62,
+    "domain": "D2",
+    "scenario": "How does Medicare handle CPT consultation codes (99242–99255)?",
+    "options": [
+      {
+        "text": "Medicare doesn't pay them; bill the appropriate office or hospital E/M code instead",
+        "note": ""
+      },
+      {
+        "text": "Medicare pays them with modifier 25",
+        "note": "Medicare stopped recognizing consult codes in 2010."
+      },
+      {
+        "text": "Medicare requires them for all specialist visits",
+        "note": "The opposite is true."
+      },
+      {
+        "text": "Medicare pays them only for new patients",
+        "note": "Medicare doesn't pay them at all."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Medicare doesn't recognize consultation codes. Report office/outpatient or hospital E/M codes. Many commercial payers still accept consults."
+  },
+  {
+    "id": 63,
+    "domain": "D2",
+    "scenario": "A physician provides 25 minutes of critical care to an unstable patient. How is the service reported?",
+    "options": [
+      {
+        "text": "With an appropriate E/M code, because critical care requires at least 30 minutes",
+        "note": ""
+      },
+      {
+        "text": "99291",
+        "note": "99291 is for the first 30–74 minutes."
+      },
+      {
+        "text": "99291 and 99292",
+        "note": "Not enough time for either."
+      },
+      {
+        "text": "99292 alone",
+        "note": "99292 is an add-on for additional time."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Critical care under 30 minutes is reported with another appropriate E/M code. 99291 covers the first 30–74 minutes and 99292 each additional 30 minutes."
+  },
+  {
+    "id": 64,
+    "domain": "D2",
+    "scenario": "Which statement about emergency department E/M codes (99281–99285) is correct?",
+    "options": [
+      {
+        "text": "They don't distinguish new from established patients and have no time thresholds",
+        "note": ""
+      },
+      {
+        "text": "They are selected by total time only",
+        "note": "ED codes aren't selected by time."
+      },
+      {
+        "text": "They are only for physicians employed by the hospital",
+        "note": "Employment isn't a factor."
+      },
+      {
+        "text": "They require a new patient",
+        "note": "ED codes apply to both new and established patients."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ED visit levels are selected by MDM. There's no new/established distinction and no time-based selection."
+  },
+  {
+    "id": 65,
+    "domain": "D2",
+    "scenario": "A hospital discharge-day management service takes 40 minutes. Which code applies?",
+    "options": [
+      {
+        "text": "99239 (more than 30 minutes)",
+        "note": ""
+      },
+      {
+        "text": "99238",
+        "note": "99238 is 30 minutes or less."
+      },
+      {
+        "text": "99223",
+        "note": "That's an initial hospital care code."
+      },
+      {
+        "text": "99233",
+        "note": "That's a subsequent hospital care code."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hospital discharge-day management is time-based: 99238 for 30 minutes or less and 99239 for more than 30 minutes."
+  },
+  {
+    "id": 66,
+    "domain": "D2",
+    "scenario": "Anesthesia professional services are typically paid using which formula?",
+    "options": [
+      {
+        "text": "(Base units + time units + modifying units) × conversion factor",
+        "note": ""
+      },
+      {
+        "text": "RVUs for the surgical code × 2",
+        "note": "Anesthesia has its own base units."
+      },
+      {
+        "text": "Minutes × a flat fee",
+        "note": "Base units and conversion factors apply."
+      },
+      {
+        "text": "Base units only",
+        "note": "Time is a major component."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Anesthesia payment combines the procedure's base units, time units (often 15 minutes each), and any modifying units, multiplied by the conversion factor."
+  },
+  {
+    "id": 67,
+    "domain": "D2",
+    "scenario": "When does anesthesia time begin?",
+    "options": [
+      {
+        "text": "When the anesthesia provider begins preparing the patient for anesthesia in the OR or equivalent area",
+        "note": ""
+      },
+      {
+        "text": "When the surgeon makes the incision",
+        "note": "Anesthesia time starts earlier."
+      },
+      {
+        "text": "When the patient arrives at the hospital",
+        "note": "Pre-arrival time isn't counted."
+      },
+      {
+        "text": "At the pre-anesthesia interview the day before",
+        "note": "That's part of the base units."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Anesthesia time starts when the provider begins preparing the patient and ends when the patient may be placed safely under postanesthesia supervision."
+  },
+  {
+    "id": 68,
+    "domain": "D2",
+    "scenario": "Which physical status modifier describes a patient with severe systemic disease?",
+    "options": [
+      {
+        "text": "P3",
+        "note": ""
+      },
+      {
+        "text": "P2",
+        "note": "P2 is mild systemic disease."
+      },
+      {
+        "text": "P4",
+        "note": "P4 is severe systemic disease that is a constant threat to life."
+      },
+      {
+        "text": "P6",
+        "note": "P6 is a declared brain-dead patient whose organs are being removed for donation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Physical status modifiers: P1 normal healthy, P2 mild systemic disease, P3 severe systemic disease, P4 constant threat to life, P5 moribund, P6 brain-dead organ donor."
+  },
+  {
+    "id": 69,
+    "domain": "D2",
+    "scenario": "Anesthesia is given to an 82-year-old patient. Which code describes the qualifying circumstance of extreme age?",
+    "options": [
+      {
+        "text": "99100",
+        "note": ""
+      },
+      {
+        "text": "99116",
+        "note": "99116 is total body hypothermia."
+      },
+      {
+        "text": "99140",
+        "note": "99140 is an emergency condition."
+      },
+      {
+        "text": "Modifier P5",
+        "note": "P5 describes a moribund patient, not age."
+      }
+    ],
+    "answer": 0,
+    "explanation": "99100 is an add-on for anesthesia for a patient of extreme age (younger than 1 year or older than 70). Report it in addition to the anesthesia code."
+  },
+  {
+    "id": 70,
+    "domain": "D2",
+    "scenario": "An anesthesiologist medically directs CRNAs in three concurrent cases. Which modifier does the anesthesiologist append?",
+    "options": [
+      {
+        "text": "QK",
+        "note": ""
+      },
+      {
+        "text": "AA",
+        "note": "AA is for anesthesia personally performed by the anesthesiologist."
+      },
+      {
+        "text": "QX",
+        "note": "QX is used by the CRNA under medical direction."
+      },
+      {
+        "text": "QZ",
+        "note": "QZ is CRNA service without medical direction."
+      }
+    ],
+    "answer": 0,
+    "explanation": "QK: medical direction of two, three, or four concurrent anesthesia procedures. The CRNA reports QX."
+  },
+  {
+    "id": 71,
+    "domain": "D2",
+    "scenario": "Two procedures are performed during one anesthesia session. How is the anesthesia service reported?",
+    "options": [
+      {
+        "text": "Report the anesthesia code with the highest base units and the total anesthesia time",
+        "note": ""
+      },
+      {
+        "text": "Report two anesthesia codes with modifier 51",
+        "note": "Only one anesthesia code is reported."
+      },
+      {
+        "text": "Report the code for the first procedure only",
+        "note": "Use the highest base unit value."
+      },
+      {
+        "text": "Report both and split the time",
+        "note": "One code with total time."
+      }
+    ],
+    "answer": 0,
+    "explanation": "For multiple procedures in one session, report the anesthesia code with the highest base unit value and the total time."
+  },
+  {
+    "id": 72,
+    "domain": "D2",
+    "scenario": "Which modifier indicates monitored anesthesia care (MAC) for Medicare?",
+    "options": [
+      {
+        "text": "QS",
+        "note": ""
+      },
+      {
+        "text": "QK",
+        "note": "QK is medical direction."
+      },
+      {
+        "text": "AA",
+        "note": "AA is personally performed by an anesthesiologist."
+      },
+      {
+        "text": "TC",
+        "note": "TC is a technical component."
+      }
+    ],
+    "answer": 0,
+    "explanation": "QS indicates monitored anesthesia care. G8 and G9 identify MAC for deep, complex procedures or for patients with a history of severe cardiopulmonary conditions."
+  },
+  {
+    "id": 73,
+    "domain": "D2",
+    "scenario": "A radiologist interprets a CT scan performed on hospital equipment. Which modifier does the radiologist append?",
+    "options": [
+      {
+        "text": "26 (professional component)",
+        "note": ""
+      },
+      {
+        "text": "TC",
+        "note": "TC is the technical component billed by the equipment owner."
+      },
+      {
+        "text": "59",
+        "note": "Not a distinct procedural service issue."
+      },
+      {
+        "text": "GC",
+        "note": "GC indicates a teaching physician with a resident."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Modifier 26 reports the physician's interpretation. The facility reports the technical component (or bills under its own system)."
+  },
+  {
+    "id": 74,
+    "domain": "D2",
+    "scenario": "A CT of the abdomen is performed after the patient drinks oral contrast only. How is it coded?",
+    "options": [
+      {
+        "text": "Without contrast, because oral (and rectal) contrast alone doesn't qualify as \"with contrast\"",
+        "note": ""
+      },
+      {
+        "text": "With contrast",
+        "note": "CPT's \"with contrast\" means intravascular, intra-articular, or intrathecal."
+      },
+      {
+        "text": "Without, then with contrast",
+        "note": "No IV contrast was given."
+      },
+      {
+        "text": "Unlisted CT",
+        "note": "A specific code exists."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CPT: \"with contrast\" means contrast given intravascularly, intra-articularly, or intrathecally. Oral and rectal contrast alone don't change a study to \"with contrast.\""
+  },
+  {
+    "id": 75,
+    "domain": "D2",
+    "scenario": "An abdominal ultrasound documents only the liver and gallbladder. How is it coded?",
+    "options": [
+      {
+        "text": "As a limited study, because a complete study requires all the elements listed for that region",
+        "note": ""
+      },
+      {
+        "text": "As a complete study",
+        "note": "All required elements must be documented for complete."
+      },
+      {
+        "text": "As two separate limited studies",
+        "note": "One limited study."
+      },
+      {
+        "text": "Not reportable",
+        "note": "A limited study is reportable."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A complete abdominal ultrasound requires real-time scans of the liver, gallbladder, common bile duct, pancreas, spleen, kidneys, upper abdominal aorta, and IVC. Anything less is limited."
+  },
+  {
+    "id": 76,
+    "domain": "D2",
+    "scenario": "Which requirement applies to reporting an ultrasound code?",
+    "options": [
+      {
+        "text": "Permanently recorded images and a final written report",
+        "note": ""
+      },
+      {
+        "text": "A second radiologist's review",
+        "note": "Not required."
+      },
+      {
+        "text": "Use of contrast",
+        "note": "Ultrasound doesn't require contrast."
+      },
+      {
+        "text": "A patient signature",
+        "note": "Not a coding requirement."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CPT requires permanently recorded images, a thorough evaluation of the organs or region, and a final written report for an ultrasound to be reported."
+  },
+  {
+    "id": 77,
+    "domain": "D2",
+    "scenario": "A chest x-ray with PA and lateral views is performed. Which code applies?",
+    "options": [
+      {
+        "text": "71046 (2 views)",
+        "note": ""
+      },
+      {
+        "text": "71045",
+        "note": "71045 is a single view."
+      },
+      {
+        "text": "71047",
+        "note": "71047 is 3 views."
+      },
+      {
+        "text": "71250",
+        "note": "71250 is CT of the thorax."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Chest radiography is coded by number of views: 71045 one view, 71046 two views, 71047 three views, 71048 four or more."
+  },
+  {
+    "id": 78,
+    "domain": "D2",
+    "scenario": "A bilateral screening mammogram is performed with computer-aided detection (CAD). How is the CAD reported?",
+    "options": [
+      {
+        "text": "It's included in the mammography code",
+        "note": ""
+      },
+      {
+        "text": "Report a separate CAD add-on code",
+        "note": "CAD is now included in the mammography codes."
+      },
+      {
+        "text": "Report it with modifier TC",
+        "note": "No separate CAD code."
+      },
+      {
+        "text": "Report it as a diagnostic mammogram",
+        "note": "The service was screening."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Mammography codes include CAD when performed: 77065 diagnostic unilateral, 77066 diagnostic bilateral, 77067 screening bilateral."
+  },
+  {
+    "id": 79,
+    "domain": "D2",
+    "scenario": "A lab performs all tests in a basic metabolic panel plus a separate magnesium test. How is it reported?",
+    "options": [
+      {
+        "text": "The panel code plus a code for magnesium",
+        "note": ""
+      },
+      {
+        "text": "Each test individually",
+        "note": "Use the panel when all its tests are performed."
+      },
+      {
+        "text": "Only the panel code",
+        "note": "Magnesium isn't part of the panel."
+      },
+      {
+        "text": "A comprehensive metabolic panel",
+        "note": "The CMP's tests weren't all performed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Report a panel only when all its component tests are performed. Tests outside the panel are reported separately."
+  },
+  {
+    "id": 80,
+    "domain": "D2",
+    "scenario": "Which test is part of a comprehensive metabolic panel (80053) but not a basic metabolic panel (80048)?",
+    "options": [
+      {
+        "text": "ALT",
+        "note": ""
+      },
+      {
+        "text": "Sodium",
+        "note": "Sodium is in both."
+      },
+      {
+        "text": "Glucose",
+        "note": "Glucose is in both."
+      },
+      {
+        "text": "Creatinine",
+        "note": "Creatinine is in both."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The CMP adds albumin, total bilirubin, alkaline phosphatase, total protein, ALT, and AST to the BMP tests (calcium, CO2, chloride, creatinine, glucose, potassium, sodium, BUN)."
+  },
+  {
+    "id": 81,
+    "domain": "D2",
+    "scenario": "What makes up a lipid panel (80061)?",
+    "options": [
+      {
+        "text": "Total cholesterol, HDL cholesterol, and triglycerides",
+        "note": ""
+      },
+      {
+        "text": "LDL and HDL only",
+        "note": "The panel requires total cholesterol, HDL, and triglycerides."
+      },
+      {
+        "text": "Glucose and A1c",
+        "note": "Those are glucose tests."
+      },
+      {
+        "text": "ALT and AST",
+        "note": "Those are liver enzymes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The lipid panel requires total serum cholesterol, HDL cholesterol, and triglycerides. Directly measured LDL is reported separately if performed."
+  },
+  {
+    "id": 82,
+    "domain": "D2",
+    "scenario": "Three separately identified skin biopsies are examined by a pathologist. How many surgical pathology units are reported?",
+    "options": [
+      {
+        "text": "Three, one per separately submitted specimen",
+        "note": ""
+      },
+      {
+        "text": "One per patient",
+        "note": "The unit is the specimen."
+      },
+      {
+        "text": "One per container regardless of labeling",
+        "note": "Specimens must be separately identified."
+      },
+      {
+        "text": "One per slide",
+        "note": "The unit isn't the slide."
+      }
+    ],
+    "answer": 0,
+    "explanation": "In surgical pathology (88300–88309), the unit of service is the specimen: tissue submitted for individual and separate attention."
+  },
+  {
+    "id": 83,
+    "domain": "D2",
+    "scenario": "Which modifier indicates a CLIA-waived test for Medicare?",
+    "options": [
+      {
+        "text": "QW",
+        "note": ""
+      },
+      {
+        "text": "QK",
+        "note": "QK is anesthesia medical direction."
+      },
+      {
+        "text": "91",
+        "note": "91 is a repeat clinical diagnostic lab test."
+      },
+      {
+        "text": "90",
+        "note": "90 is a reference (outside) laboratory."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Medicare requires modifier QW on certain CLIA-waived tests performed in settings with a certificate of waiver."
+  },
+  {
+    "id": 84,
+    "domain": "D2",
+    "scenario": "A 12-year-old receives two vaccines, and the physician counsels the parent about each. How is the administration reported?",
+    "options": [
+      {
+        "text": "90460 for each vaccine's first component (plus 90461 for additional components), along with the vaccine product codes",
+        "note": ""
+      },
+      {
+        "text": "90471 and 90472",
+        "note": "Use 90460/90461 when the age and counseling criteria are met."
+      },
+      {
+        "text": "Only the vaccine product codes",
+        "note": "Administration is reported separately."
+      },
+      {
+        "text": "A preventive E/M code only",
+        "note": "Vaccines and administration are separately reported."
+      }
+    ],
+    "answer": 0,
+    "explanation": "90460/+90461 apply to patients through age 18 when a physician or QHP counsels the patient or family. Otherwise use 90471/+90472. Always report the vaccine product too."
+  },
+  {
+    "id": 85,
+    "domain": "D2",
+    "scenario": "Which HCPCS code reports administration of an influenza vaccine to a Medicare patient?",
+    "options": [
+      {
+        "text": "G0008",
+        "note": ""
+      },
+      {
+        "text": "90471",
+        "note": "Medicare uses G0008 for flu vaccine administration."
+      },
+      {
+        "text": "G0009",
+        "note": "G0009 is pneumococcal vaccine administration."
+      },
+      {
+        "text": "G0010",
+        "note": "G0010 is hepatitis B vaccine administration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Medicare uses G0008 (influenza), G0009 (pneumococcal), and G0010 (hepatitis B) for vaccine administration."
+  },
+  {
+    "id": 86,
+    "domain": "D2",
+    "scenario": "An IV infusion of a therapeutic drug runs for 1 hour and 45 minutes. How is it reported by the physician office?",
+    "options": [
+      {
+        "text": "96365 (initial hour) plus 96366 (each additional hour) once",
+        "note": ""
+      },
+      {
+        "text": "96365 twice",
+        "note": "Additional time uses the add-on code."
+      },
+      {
+        "text": "96365 plus 96366 twice",
+        "note": "45 minutes is one additional unit (more than 30 minutes beyond the first hour)."
+      },
+      {
+        "text": "96374",
+        "note": "That's an IV push."
+      }
+    ],
+    "answer": 0,
+    "explanation": "96365 covers up to 1 hour. 96366 is reported for each additional hour, and an additional unit requires more than 30 minutes beyond the previous hour."
+  },
+  {
+    "id": 87,
+    "domain": "D2",
+    "scenario": "An IV medication is infused over 12 minutes. How is it reported?",
+    "options": [
+      {
+        "text": "As an IV push",
+        "note": ""
+      },
+      {
+        "text": "As an initial infusion (96365)",
+        "note": "Infusions of 15 minutes or less are reported as a push."
+      },
+      {
+        "text": "As hydration",
+        "note": "It's a drug, not hydration fluid."
+      },
+      {
+        "text": "It's not reportable",
+        "note": "It's reportable as a push."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CPT: an infusion of 15 minutes or less is reported as an IV push (96374, or +96375 for each additional sequential push)."
+  },
+  {
+    "id": 88,
+    "domain": "D2",
+    "scenario": "IV hydration runs for 25 minutes. How is it reported?",
+    "options": [
+      {
+        "text": "It isn't reported, because hydration of 30 minutes or less isn't separately reportable",
+        "note": ""
+      },
+      {
+        "text": "96360",
+        "note": "96360 requires more than 30 minutes (31 minutes to 1 hour)."
+      },
+      {
+        "text": "96374 as a push",
+        "note": "Hydration isn't reported as a push."
+      },
+      {
+        "text": "96365",
+        "note": "That's a therapeutic infusion."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hydration (96360) requires more than 30 minutes. Shorter hydration isn't separately reported."
+  },
+  {
+    "id": 89,
+    "domain": "D2",
+    "scenario": "A therapeutic intramuscular injection of a drug is given in the office. Which pair of codes is typical?",
+    "options": [
+      {
+        "text": "96372 for administration plus the HCPCS J code for the drug",
+        "note": ""
+      },
+      {
+        "text": "Only the J code",
+        "note": "Administration is separately reportable."
+      },
+      {
+        "text": "Only 96372",
+        "note": "The drug supplied by the office is also reported."
+      },
+      {
+        "text": "90471 plus the J code",
+        "note": "90471 is for vaccine administration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Report the injection (96372, therapeutic SC or IM) and the drug supply with the J code, in units matching the dosage given."
+  },
+  {
+    "id": 90,
+    "domain": "D2",
+    "scenario": "A psychotherapy session with the patient lasts 50 minutes. Which code applies?",
+    "options": [
+      {
+        "text": "90834 (45 minutes; 38–52 minutes)",
+        "note": ""
+      },
+      {
+        "text": "90837",
+        "note": "90837 requires 53 minutes or more."
+      },
+      {
+        "text": "90832",
+        "note": "90832 is 16–37 minutes."
+      },
+      {
+        "text": "90791",
+        "note": "90791 is a diagnostic evaluation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Psychotherapy time codes: 90832 (16–37 min), 90834 (38–52 min), 90837 (53 min or more)."
+  },
+  {
+    "id": 91,
+    "domain": "D2",
+    "scenario": "The office performs an ECG and the physician interprets it. Which code applies?",
+    "options": [
+      {
+        "text": "93000 (complete: tracing with interpretation and report)",
+        "note": ""
+      },
+      {
+        "text": "93005",
+        "note": "93005 is the tracing only."
+      },
+      {
+        "text": "93010",
+        "note": "93010 is interpretation and report only."
+      },
+      {
+        "text": "93000 and 93010",
+        "note": "93000 already includes interpretation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Routine ECG: 93000 complete, 93005 tracing only, 93010 interpretation and report only."
+  },
+  {
+    "id": 92,
+    "domain": "D2",
+    "scenario": "Under Medicare's \"8-minute rule\" for timed therapy codes, what's the minimum time to bill one unit?",
+    "options": [
+      {
+        "text": "8 minutes",
+        "note": ""
+      },
+      {
+        "text": "15 minutes",
+        "note": "A full 15 minutes isn't required."
+      },
+      {
+        "text": "1 minute",
+        "note": "At least 8 minutes is needed."
+      },
+      {
+        "text": "23 minutes",
+        "note": "23 minutes or more supports two units."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Medicare counts total timed minutes. 8–22 minutes supports 1 unit, 23–37 minutes 2 units, and so on."
+  },
+  {
+    "id": 93,
+    "domain": "D2",
+    "scenario": "Allergy percutaneous (scratch/prick) tests are reported how?",
+    "options": [
+      {
+        "text": "By the number of tests performed",
+        "note": ""
+      },
+      {
+        "text": "Once per session",
+        "note": "Units equal the number of tests."
+      },
+      {
+        "text": "By the number of allergens the patient reacts to",
+        "note": "Count tests performed, not positives."
+      },
+      {
+        "text": "As an E/M service only",
+        "note": "Testing has its own codes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Allergy test codes such as 95004 specify the number of tests, so report units equal to the tests performed."
+  },
+  {
+    "id": 94,
+    "domain": "D2",
+    "scenario": "Ophthalmology general services codes 92002–92014 are divided by what?",
+    "options": [
+      {
+        "text": "New or established patient, and intermediate or comprehensive service",
+        "note": ""
+      },
+      {
+        "text": "Time spent",
+        "note": "They aren't time-based."
+      },
+      {
+        "text": "Eye: right or left",
+        "note": "They aren't unilateral."
+      },
+      {
+        "text": "Whether glasses are prescribed",
+        "note": "Refraction is separate."
+      }
+    ],
+    "answer": 0,
+    "explanation": "92002/92004 are new patient (intermediate/comprehensive) and 92012/92014 are established patient services."
+  },
+  {
+    "id": 95,
+    "domain": "D3",
+    "scenario": "An ICD-10-CM code needs a 7th character, but the code has only five characters. What do you do?",
+    "options": [
+      {
+        "text": "Use the placeholder X to fill the empty position(s) before the 7th character",
+        "note": ""
+      },
+      {
+        "text": "Add a zero in the empty position",
+        "note": "The placeholder is X."
+      },
+      {
+        "text": "Drop the 7th character",
+        "note": "The 7th character is required."
+      },
+      {
+        "text": "Choose a different, shorter code",
+        "note": "Use the placeholder."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ICD-10-CM uses X as a placeholder so the 7th character stays in the 7th position (for example T39.1X1A)."
+  },
+  {
+    "id": 96,
+    "domain": "D3",
+    "scenario": "A patient returns for routine follow-up and cast removal after a fracture that was treated last month. Which 7th character applies?",
+    "options": [
+      {
+        "text": "D: subsequent encounter",
+        "note": ""
+      },
+      {
+        "text": "A: initial encounter",
+        "note": "A is for active treatment."
+      },
+      {
+        "text": "S: sequela",
+        "note": "S is for a late effect after the injury has healed."
+      },
+      {
+        "text": "G: delayed healing",
+        "note": "Nothing indicates delayed healing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "For injuries, A is active treatment, D is the healing or recovery phase (such as cast change or removal and follow-up), and S is sequela."
+  },
+  {
+    "id": 97,
+    "domain": "D3",
+    "scenario": "What does an Excludes1 note mean?",
+    "options": [
+      {
+        "text": "The two conditions can't be reported together (except when they are unrelated)",
+        "note": ""
+      },
+      {
+        "text": "The condition isn't part of the code, but both may be reported",
+        "note": "That describes Excludes2."
+      },
+      {
+        "text": "Code also the other condition",
+        "note": "That's a 'code also' note."
+      },
+      {
+        "text": "The code includes the condition",
+        "note": "That's an inclusion term."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Excludes1 means \"not coded here\": the conditions are mutually exclusive. Excludes2 means \"not included here\": the patient may have both, and both can be coded."
+  },
+  {
+    "id": 98,
+    "domain": "D3",
+    "scenario": "In the outpatient setting, the physician documents \"chest pain, rule out myocardial infarction.\" What is coded?",
+    "options": [
+      {
+        "text": "The chest pain",
+        "note": ""
+      },
+      {
+        "text": "Myocardial infarction",
+        "note": "Don't code rule-out diagnoses in the outpatient setting."
+      },
+      {
+        "text": "Both chest pain and MI",
+        "note": "The MI is unconfirmed."
+      },
+      {
+        "text": "A history of MI",
+        "note": "There is no history documented."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Outpatient guidelines: don't code diagnoses documented as probable, suspected, questionable, or rule out. Code the signs, symptoms, or abnormal findings to the highest certainty."
+  },
+  {
+    "id": 99,
+    "domain": "D3",
+    "scenario": "A patient has hypertension and heart failure; the provider doesn't state that they're unrelated. How does ICD-10-CM treat this?",
+    "options": [
+      {
+        "text": "Presume a causal relationship and code hypertensive heart disease with heart failure, plus the heart failure type",
+        "note": ""
+      },
+      {
+        "text": "Code essential hypertension and heart failure separately",
+        "note": "The relationship is presumed."
+      },
+      {
+        "text": "Code only the heart failure",
+        "note": "The hypertension is coded."
+      },
+      {
+        "text": "Query the provider before coding anything",
+        "note": "The classification presumes the link."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ICD-10-CM presumes a causal relationship between hypertension and heart involvement and between hypertension and CKD: I11.- for heart, I12.- for CKD, I13.- for both."
+  },
+  {
+    "id": 100,
+    "domain": "D3",
+    "scenario": "The documentation says \"diabetes mellitus\" without specifying the type. Which category is assigned?",
+    "options": [
+      {
+        "text": "E11 (type 2 diabetes)",
+        "note": ""
+      },
+      {
+        "text": "E10 (type 1)",
+        "note": "The default is type 2."
+      },
+      {
+        "text": "E13 (other specified)",
+        "note": "Used when another type is documented."
+      },
+      {
+        "text": "R73.9 (hyperglycemia)",
+        "note": "Diabetes was documented."
+      }
+    ],
+    "answer": 0,
+    "explanation": "When the type of diabetes isn't documented, the default is E11, type 2 diabetes mellitus."
+  },
+  {
+    "id": 101,
+    "domain": "D3",
+    "scenario": "A type 2 diabetic uses insulin daily for long-term control. Which additional code is reported?",
+    "options": [
+      {
+        "text": "Z79.4 (long-term current use of insulin)",
+        "note": ""
+      },
+      {
+        "text": "E10.9",
+        "note": "Insulin use doesn't make the patient type 1."
+      },
+      {
+        "text": "Z79.899",
+        "note": "A specific insulin code exists."
+      },
+      {
+        "text": "No additional code",
+        "note": "Long-term insulin use is coded for type 2."
+      }
+    ],
+    "answer": 0,
+    "explanation": "For type 2 diabetes treated with insulin, add Z79.4. Don't assign it when insulin is given only temporarily to bring blood sugar under control during an encounter."
+  },
+  {
+    "id": 102,
+    "domain": "D3",
+    "scenario": "A patient has sepsis due to a urinary tract infection, with severe sepsis and no septic shock. What is the correct sequence?",
+    "options": [
+      {
+        "text": "Systemic infection code (e.g., A41.9), then the UTI, then R65.20",
+        "note": ""
+      },
+      {
+        "text": "R65.20, then A41.9, then the UTI",
+        "note": "R65.2- codes can't be sequenced first."
+      },
+      {
+        "text": "The UTI first, then sepsis",
+        "note": "The systemic infection is sequenced first."
+      },
+      {
+        "text": "A41.9 only",
+        "note": "The localized infection and severe sepsis are also coded."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Code the underlying systemic infection first, then the localized infection, then R65.20 for severe sepsis without shock (R65.21 with septic shock)."
+  },
+  {
+    "id": 103,
+    "domain": "D3",
+    "scenario": "A patient is HIV positive with no symptoms or HIV-related conditions documented. Which code applies?",
+    "options": [
+      {
+        "text": "Z21 (asymptomatic HIV infection status)",
+        "note": ""
+      },
+      {
+        "text": "B20",
+        "note": "B20 is for HIV disease with related conditions or history of them."
+      },
+      {
+        "text": "R75",
+        "note": "R75 is an inconclusive HIV test."
+      },
+      {
+        "text": "Z20.6",
+        "note": "That's contact with or exposure to HIV."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Z21 is for asymptomatic HIV-positive status. Once a patient has had an HIV-related condition, B20 applies on that and all later encounters."
+  },
+  {
+    "id": 104,
+    "domain": "D3",
+    "scenario": "The pathology report says \"adenocarcinoma of the colon.\" Where should the coder look first?",
+    "options": [
+      {
+        "text": "The Alphabetic Index under the morphology term (adenocarcinoma), which directs to the Neoplasm Table",
+        "note": ""
+      },
+      {
+        "text": "The Neoplasm Table under 'colon' directly",
+        "note": "The histology determines the column; check the Index first."
+      },
+      {
+        "text": "The Tabular List under C18 without checking the Index",
+        "note": "Always start with the Index."
+      },
+      {
+        "text": "The HCPCS index",
+        "note": "This is ICD-10-CM."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Look up the histological term in the Index first for instructions (it may lead to a specific code or a Neoplasm Table column), then verify in the Tabular List."
+  },
+  {
+    "id": 105,
+    "domain": "D3",
+    "scenario": "A patient is seen only to receive chemotherapy for breast cancer. What is sequenced first?",
+    "options": [
+      {
+        "text": "Z51.11 (encounter for antineoplastic chemotherapy)",
+        "note": ""
+      },
+      {
+        "text": "The breast cancer code",
+        "note": "For a chemo-only encounter, Z51.11 is first."
+      },
+      {
+        "text": "Z85.3 (history of breast cancer)",
+        "note": "The cancer is still being treated."
+      },
+      {
+        "text": "Z92.21 (history of chemotherapy)",
+        "note": "This is a current treatment encounter."
+      }
+    ],
+    "answer": 0,
+    "explanation": "When the encounter is solely for chemotherapy, immunotherapy, or radiation, sequence the Z51.- code first, followed by the neoplasm."
+  },
+  {
+    "id": 106,
+    "domain": "D3",
+    "scenario": "A patient has nausea from a correctly prescribed and correctly taken medication. How is it coded?",
+    "options": [
+      {
+        "text": "Code the nausea first, then the T code for adverse effect of that drug",
+        "note": ""
+      },
+      {
+        "text": "Code the poisoning T code first",
+        "note": "Poisoning involves incorrect use."
+      },
+      {
+        "text": "Code only the drug T code",
+        "note": "Code the manifestation too."
+      },
+      {
+        "text": "Code an underdosing T code",
+        "note": "The drug was taken as prescribed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Adverse effect: code the nature of the effect, followed by the T36–T50 code with a 5th or 6th character of 5. Poisoning (wrong drug or dose, overdose) sequences the T code first."
+  },
+  {
+    "id": 107,
+    "domain": "D3",
+    "scenario": "Which statement about external cause codes (V00–Y99) is correct?",
+    "options": [
+      {
+        "text": "They are never the first-listed diagnosis, and the place-of-occurrence code is used only once, at the initial encounter",
+        "note": ""
+      },
+      {
+        "text": "They are required for every injury by national rule",
+        "note": "Reporting is voluntary unless mandated."
+      },
+      {
+        "text": "They replace the injury code",
+        "note": "They supplement it."
+      },
+      {
+        "text": "They are reported only for sequela",
+        "note": "They can be reported for each encounter while treated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "External cause codes provide context (cause, intent, place, activity, status). They are never principal, and Y92 (place) is reported only at the initial encounter."
+  },
+  {
+    "id": 108,
+    "domain": "D3",
+    "scenario": "A pregnant patient is seen for an unrelated fractured wrist, and the provider documents that the pregnancy is incidental. What is coded?",
+    "options": [
+      {
+        "text": "The fracture code, plus Z33.1 (pregnant state, incidental)",
+        "note": ""
+      },
+      {
+        "text": "An O code first, then the fracture",
+        "note": "The provider documented that the pregnancy is incidental."
+      },
+      {
+        "text": "Only the fracture",
+        "note": "Z33.1 documents the pregnancy."
+      },
+      {
+        "text": "Z34.90 (normal pregnancy)",
+        "note": "That is for routine prenatal care."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Normally, chapter 15 (O) codes take priority. If the provider documents that the pregnancy is incidental to the visit, code the condition and add Z33.1."
+  },
+  {
+    "id": 109,
+    "domain": "D3",
+    "scenario": "Which code reports confirmed COVID-19?",
+    "options": [
+      {
+        "text": "U07.1",
+        "note": ""
+      },
+      {
+        "text": "B97.29",
+        "note": "That's other coronavirus as the cause of disease elsewhere; not for COVID-19."
+      },
+      {
+        "text": "Z20.822",
+        "note": "That's contact with or suspected exposure to COVID-19."
+      },
+      {
+        "text": "J12.82",
+        "note": "That's pneumonia due to COVID-19, coded in addition to U07.1."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Confirmed COVID-19 is coded U07.1. Code the manifestation as well (for example J12.82 for COVID-19 pneumonia)."
+  },
+  {
+    "id": 110,
+    "domain": "D3",
+    "scenario": "How is a HCPCS Level II code structured?",
+    "options": [
+      {
+        "text": "One letter followed by four numbers",
+        "note": ""
+      },
+      {
+        "text": "Five numbers",
+        "note": "That's CPT Category I."
+      },
+      {
+        "text": "Four numbers and the letter F",
+        "note": "That's CPT Category II."
+      },
+      {
+        "text": "Three to seven alphanumeric characters",
+        "note": "That's ICD-10-CM."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HCPCS Level II codes are alphanumeric (e.g., J1885), maintained by CMS, and cover drugs, supplies, DME, and services not in CPT."
+  },
+  {
+    "id": 111,
+    "domain": "D3",
+    "scenario": "A physician gives 60 mg of ketorolac IM. The HCPCS code descriptor is \"ketorolac tromethamine, per 15 mg.\" How many units are billed?",
+    "options": [
+      {
+        "text": "4",
+        "note": ""
+      },
+      {
+        "text": "1",
+        "note": "Units are dosage divided by the descriptor amount."
+      },
+      {
+        "text": "60",
+        "note": "That's the milligrams, not units."
+      },
+      {
+        "text": "2",
+        "note": "60 ÷ 15 = 4."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Divide the dose given by the amount in the HCPCS descriptor: 60 mg ÷ 15 mg = 4 units (J1885 × 4)."
+  },
+  {
+    "id": 112,
+    "domain": "D3",
+    "scenario": "Which HCPCS Level II section contains durable medical equipment such as wheelchairs and walkers?",
+    "options": [
+      {
+        "text": "E codes",
+        "note": ""
+      },
+      {
+        "text": "L codes",
+        "note": "L codes are orthotics and prosthetics."
+      },
+      {
+        "text": "J codes",
+        "note": "J codes are drugs."
+      },
+      {
+        "text": "A codes",
+        "note": "A codes include transport and medical/surgical supplies."
+      }
+    ],
+    "answer": 0,
+    "explanation": "E codes are durable medical equipment. L codes are orthotic and prosthetic procedures and devices; A codes cover ambulance and supplies."
+  },
+  {
+    "id": 113,
+    "domain": "D3",
+    "scenario": "A provider expects Medicare to deny a service as not medically necessary, and the patient signed a valid ABN. Which modifier applies?",
+    "options": [
+      {
+        "text": "GA",
+        "note": ""
+      },
+      {
+        "text": "GZ",
+        "note": "GZ is when no ABN is on file."
+      },
+      {
+        "text": "GY",
+        "note": "GY is for statutorily excluded services."
+      },
+      {
+        "text": "GX",
+        "note": "GX is a voluntary ABN for excluded services."
+      }
+    ],
+    "answer": 0,
+    "explanation": "GA: a waiver of liability statement (ABN) issued as required. GZ: expected denial with no ABN. GY: item or service statutorily excluded."
+  },
+  {
+    "id": 114,
+    "domain": "D3",
+    "scenario": "Which HCPCS code reports Medicare's initial annual wellness visit?",
+    "options": [
+      {
+        "text": "G0438",
+        "note": ""
+      },
+      {
+        "text": "G0439",
+        "note": "G0439 is a subsequent AWV."
+      },
+      {
+        "text": "G0402",
+        "note": "G0402 is the Welcome to Medicare (IPPE) visit."
+      },
+      {
+        "text": "99397",
+        "note": "Medicare doesn't cover routine physicals under preventive CPT codes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "G0438 is the first annual wellness visit, G0439 is subsequent AWVs, and G0402 is the initial preventive physical exam (IPPE)."
+  },
+  {
+    "id": 115,
+    "domain": "D3",
+    "scenario": "A procedure is performed on the left index finger. Which HCPCS anatomic modifier applies?",
+    "options": [
+      {
+        "text": "F1",
+        "note": ""
+      },
+      {
+        "text": "FA",
+        "note": "FA is the left thumb."
+      },
+      {
+        "text": "F6",
+        "note": "F6 is the right index finger."
+      },
+      {
+        "text": "T1",
+        "note": "T codes are toes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Finger modifiers: FA left thumb, F1–F4 left second through fifth digits, F5 right thumb, F6–F9 right second through fifth digits."
+  },
+  {
+    "id": 116,
+    "domain": "D3",
+    "scenario": "An ambulance transports a patient from home to a hospital. Which origin/destination modifier applies?",
+    "options": [
+      {
+        "text": "RH",
+        "note": ""
+      },
+      {
+        "text": "HR",
+        "note": "The first letter is the origin."
+      },
+      {
+        "text": "RR",
+        "note": "Residence to residence."
+      },
+      {
+        "text": "HH",
+        "note": "Hospital to hospital."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Ambulance modifiers are two letters: origin first, destination second. R = residence, H = hospital."
+  },
+  {
+    "id": 117,
+    "domain": "D4",
+    "scenario": "When is modifier 59 (or an X{EPSU} modifier) appropriate?",
+    "options": [
+      {
+        "text": "When two procedures that are normally bundled are distinct, such as a different site, session, or lesion",
+        "note": ""
+      },
+      {
+        "text": "Whenever an NCCI edit causes a denial",
+        "note": "The documentation must support a distinct service."
+      },
+      {
+        "text": "For an E/M on the same day as a procedure",
+        "note": "E/M services use modifier 25."
+      },
+      {
+        "text": "For bilateral procedures",
+        "note": "Bilateral procedures use modifier 50."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Modifier 59 indicates a distinct procedural service. XE (separate encounter), XS (separate structure), XP (separate practitioner), and XU (unusual non-overlapping service) are more specific."
+  },
+  {
+    "id": 118,
+    "domain": "D4",
+    "scenario": "A patient in a 90-day global period after knee surgery is seen for an unrelated sinus infection. Which modifier is appended to the E/M?",
+    "options": [
+      {
+        "text": "24",
+        "note": ""
+      },
+      {
+        "text": "25",
+        "note": "25 is a same-day significant E/M with a procedure."
+      },
+      {
+        "text": "79",
+        "note": "79 is for unrelated procedures, not E/M."
+      },
+      {
+        "text": "57",
+        "note": "57 is the decision for surgery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Modifier 24 identifies an unrelated E/M service by the same physician during a postoperative period."
+  },
+  {
+    "id": 119,
+    "domain": "D4",
+    "scenario": "The day before a major surgery, the surgeon sees the patient and decides to operate. Which modifier goes on the E/M?",
+    "options": [
+      {
+        "text": "57",
+        "note": ""
+      },
+      {
+        "text": "25",
+        "note": "25 applies to minor procedures (0- or 10-day globals) on the same day."
+      },
+      {
+        "text": "24",
+        "note": "24 is for postoperative unrelated E/M."
+      },
+      {
+        "text": "58",
+        "note": "58 is a staged procedure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Modifier 57 marks the E/M at which the decision for major surgery (90-day global) was made, on the day before or day of surgery."
+  },
+  {
+    "id": 120,
+    "domain": "D4",
+    "scenario": "During the global period, a patient returns to the OR for an unplanned procedure to control post-op bleeding. Which modifier applies?",
+    "options": [
+      {
+        "text": "78",
+        "note": ""
+      },
+      {
+        "text": "58",
+        "note": "58 is planned or staged, or more extensive."
+      },
+      {
+        "text": "79",
+        "note": "79 is unrelated to the original surgery."
+      },
+      {
+        "text": "76",
+        "note": "76 is a repeat procedure by the same physician."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Modifier 78: unplanned return to the OR or procedure room by the same physician for a related procedure during the postoperative period."
+  },
+  {
+    "id": 121,
+    "domain": "D4",
+    "scenario": "During the global period of a skin graft, a planned second stage of the graft is performed. Which modifier applies?",
+    "options": [
+      {
+        "text": "58",
+        "note": ""
+      },
+      {
+        "text": "78",
+        "note": "78 is for unplanned related complications."
+      },
+      {
+        "text": "79",
+        "note": "79 is for unrelated procedures."
+      },
+      {
+        "text": "76",
+        "note": "76 is for repeat procedures."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Modifier 58 is for staged or related procedures planned at the time of the original surgery, more extensive than the original, or therapy following a diagnostic surgical procedure."
+  },
+  {
+    "id": 122,
+    "domain": "D4",
+    "scenario": "Which statement about modifier 51 is correct?",
+    "options": [
+      {
+        "text": "It identifies multiple procedures in one session and isn't used on add-on or 51-exempt codes",
+        "note": ""
+      },
+      {
+        "text": "It is used on add-on codes",
+        "note": "Add-on codes are exempt."
+      },
+      {
+        "text": "It increases payment for the second procedure",
+        "note": "Payers usually reduce payment for secondary procedures."
+      },
+      {
+        "text": "It is used for bilateral procedures",
+        "note": "Bilateral procedures use modifier 50."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Modifier 51 flags additional procedures in the same session. Payers apply multiple procedure reductions. Many payers apply it themselves."
+  },
+  {
+    "id": 123,
+    "domain": "D4",
+    "scenario": "A procedure is started but discontinued because the patient's blood pressure drops dangerously. Which modifier applies?",
+    "options": [
+      {
+        "text": "53",
+        "note": ""
+      },
+      {
+        "text": "52",
+        "note": "52 is reduced services at the physician's discretion."
+      },
+      {
+        "text": "22",
+        "note": "22 is increased procedural services."
+      },
+      {
+        "text": "73",
+        "note": "73 is a facility modifier for discontinued procedures before anesthesia."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Modifier 53 is for a procedure discontinued after it began because of extenuating circumstances or a threat to the patient's well-being."
+  },
+  {
+    "id": 124,
+    "domain": "D4",
+    "scenario": "When is modifier 22 appropriate?",
+    "options": [
+      {
+        "text": "When the work is substantially greater than typical, and the documentation shows why (e.g., extra time, morbid obesity, extensive adhesions)",
+        "note": ""
+      },
+      {
+        "text": "When the surgeon spends any extra time",
+        "note": "The work must be substantially greater and documented."
+      },
+      {
+        "text": "When the procedure is bilateral",
+        "note": "That's modifier 50."
+      },
+      {
+        "text": "When two surgeons operate",
+        "note": "That's modifier 62."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Modifier 22 requests additional payment for substantially increased work. Documentation must support the reason and the amount."
+  },
+  {
+    "id": 125,
+    "domain": "D4",
+    "scenario": "Two surgeons of different specialties each perform distinct parts of one procedure. Which modifier do they append?",
+    "options": [
+      {
+        "text": "62 (two surgeons)",
+        "note": ""
+      },
+      {
+        "text": "80",
+        "note": "80 is an assistant surgeon."
+      },
+      {
+        "text": "66",
+        "note": "66 is a surgical team."
+      },
+      {
+        "text": "AS",
+        "note": "AS is a nonphysician assistant at surgery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Modifier 62 is used by each co-surgeon reporting the same code when each performs a distinct part of the procedure."
+  },
+  {
+    "id": 126,
+    "domain": "D4",
+    "scenario": "A physician assistant serves as the assistant at surgery for a Medicare patient. Which modifier is appended?",
+    "options": [
+      {
+        "text": "AS",
+        "note": ""
+      },
+      {
+        "text": "80",
+        "note": "80 is a physician assistant surgeon."
+      },
+      {
+        "text": "82",
+        "note": "82 is used when a qualified resident isn't available."
+      },
+      {
+        "text": "62",
+        "note": "62 is co-surgeons."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AS identifies a PA, NP, or clinical nurse specialist acting as assistant at surgery."
+  },
+  {
+    "id": 127,
+    "domain": "D4",
+    "scenario": "The same physician repeats an ECG later the same day because the patient's condition changed. Which modifier applies?",
+    "options": [
+      {
+        "text": "76",
+        "note": ""
+      },
+      {
+        "text": "77",
+        "note": "77 is a repeat procedure by a different physician."
+      },
+      {
+        "text": "91",
+        "note": "91 is for repeat lab tests."
+      },
+      {
+        "text": "59",
+        "note": "76 specifically describes a repeat by the same physician."
+      }
+    ],
+    "answer": 0,
+    "explanation": "76: repeat procedure or service by the same physician or QHP. 77: repeat by another physician or QHP. 91: repeat clinical diagnostic lab test."
+  },
+  {
+    "id": 128,
+    "domain": "D4",
+    "scenario": "What does an NCCI procedure-to-procedure (PTP) edit with a modifier indicator of 0 mean?",
+    "options": [
+      {
+        "text": "The codes can never be reported together, even with a modifier",
+        "note": ""
+      },
+      {
+        "text": "A modifier such as 59 can bypass the edit",
+        "note": "That's indicator 1."
+      },
+      {
+        "text": "The edit is no longer active",
+        "note": "Not what 0 means."
+      },
+      {
+        "text": "The column 2 code is paid first",
+        "note": "The column 1 code is the payable one."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NCCI modifier indicators: 0 = no modifier allowed; 1 = an appropriate modifier may bypass the edit when documentation supports it; 9 = not applicable."
+  },
+  {
+    "id": 129,
+    "domain": "D4",
+    "scenario": "What is a medically unlikely edit (MUE)?",
+    "options": [
+      {
+        "text": "The maximum units of service a provider would report for one patient on one date of service",
+        "note": ""
+      },
+      {
+        "text": "A list of codes Medicare never pays",
+        "note": "Not what an MUE is."
+      },
+      {
+        "text": "A pair of codes that can't be billed together",
+        "note": "That's a PTP edit."
+      },
+      {
+        "text": "A local coverage determination",
+        "note": "LCDs are coverage policies."
+      }
+    ],
+    "answer": 0,
+    "explanation": "MUEs limit the units of service per HCPCS/CPT code for one beneficiary on one date by the same provider."
+  },
+  {
+    "id": 130,
+    "domain": "D4",
+    "scenario": "Which place-of-service code applies to a telehealth service when the patient is at home?",
+    "options": [
+      {
+        "text": "10",
+        "note": ""
+      },
+      {
+        "text": "02",
+        "note": "02 is telehealth when the patient isn't at home."
+      },
+      {
+        "text": "11",
+        "note": "11 is office."
+      },
+      {
+        "text": "12",
+        "note": "12 is home, for in-person home services."
+      }
+    ],
+    "answer": 0,
+    "explanation": "POS 10 is telehealth provided in the patient's home. POS 02 is telehealth provided somewhere other than the patient's home."
+  },
+  {
+    "id": 131,
+    "domain": "D4",
+    "scenario": "Which place-of-service code is used for an on-campus outpatient hospital department?",
+    "options": [
+      {
+        "text": "22",
+        "note": ""
+      },
+      {
+        "text": "19",
+        "note": "19 is off-campus outpatient hospital."
+      },
+      {
+        "text": "21",
+        "note": "21 is inpatient hospital."
+      },
+      {
+        "text": "23",
+        "note": "23 is the emergency room in a hospital."
+      }
+    ],
+    "answer": 0,
+    "explanation": "POS 22 on-campus outpatient hospital; 19 off-campus outpatient hospital; 21 inpatient; 23 ER; 24 ambulatory surgical center; 11 office."
+  },
+  {
+    "id": 132,
+    "domain": "D4",
+    "scenario": "Which Medicare part covers outpatient physician services?",
+    "options": [
+      {
+        "text": "Part B",
+        "note": ""
+      },
+      {
+        "text": "Part A",
+        "note": "Part A is hospital insurance (inpatient, SNF, hospice, some home health)."
+      },
+      {
+        "text": "Part C",
+        "note": "Part C is Medicare Advantage (private plans)."
+      },
+      {
+        "text": "Part D",
+        "note": "Part D is prescription drug coverage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Medicare Part A covers inpatient hospital care, Part B covers physician and outpatient services, Part C is Medicare Advantage, and Part D covers prescription drugs."
+  },
+  {
+    "id": 133,
+    "domain": "D4",
+    "scenario": "A practice repeatedly bills a higher E/M level than its documentation supports. What is this called?",
+    "options": [
+      {
+        "text": "Upcoding",
+        "note": ""
+      },
+      {
+        "text": "Unbundling",
+        "note": "Unbundling is billing components separately instead of a comprehensive code."
+      },
+      {
+        "text": "Downcoding",
+        "note": "Downcoding is billing a lower level."
+      },
+      {
+        "text": "Balance billing",
+        "note": "That relates to billing patients for amounts above the allowed amount."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Upcoding is reporting a higher-level service than performed or documented. It can be fraud (if intentional) or abuse, and can create False Claims Act liability."
+  },
+  {
+    "id": 134,
+    "domain": "D4",
+    "scenario": "When no CPT Category I code describes a procedure, but a Category III code does, what should the coder report?",
+    "options": [
+      {
+        "text": "The Category III code",
+        "note": ""
+      },
+      {
+        "text": "An unlisted Category I code",
+        "note": "Category III takes precedence over unlisted codes."
+      },
+      {
+        "text": "The closest Category I code",
+        "note": "Never pick a 'close enough' code."
+      },
+      {
+        "text": "A Category II code",
+        "note": "Category II is performance measurement."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Category III codes (four digits plus T) are for emerging technology and are used instead of unlisted codes. Category II codes (ending in F) are for tracking performance measures."
+  },
+  {
+    "id": 135,
+    "domain": "D4",
+    "scenario": "What does the star symbol (★) next to a CPT code indicate?",
+    "options": [
+      {
+        "text": "The code may be reported for synchronous telemedicine when appended with modifier 95",
+        "note": ""
+      },
+      {
+        "text": "A new code this year",
+        "note": "New codes use a bullet (●)."
+      },
+      {
+        "text": "A code exempt from modifier 51",
+        "note": "That's the ⊘ symbol."
+      },
+      {
+        "text": "A vaccine pending FDA approval",
+        "note": "That's the lightning bolt."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CPT marks codes that may be used for synchronous real-time telemedicine with ★. Appendix P lists them."
+  },
+  {
+    "id": 136,
+    "domain": "D4",
+    "scenario": "Which law prohibits a physician from referring Medicare patients for designated health services to an entity the physician has a financial relationship with, unless an exception applies?",
+    "options": [
+      {
+        "text": "The Stark Law (physician self-referral law)",
+        "note": ""
+      },
+      {
+        "text": "The Anti-Kickback Statute",
+        "note": "AKS prohibits paying for or receiving payment for referrals."
+      },
+      {
+        "text": "HIPAA",
+        "note": "HIPAA covers privacy, security, and transactions."
+      },
+      {
+        "text": "The False Claims Act",
+        "note": "FCA covers knowingly submitting false claims."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Stark is a strict-liability law about self-referral for designated health services. The Anti-Kickback Statute requires intent and covers remuneration for referrals."
+  },
+  {
+    "id": 137,
+    "domain": "D4",
+    "scenario": "Which code sets are HIPAA standard code sets for physician claims?",
+    "options": [
+      {
+        "text": "ICD-10-CM for diagnoses and CPT/HCPCS for procedures and services",
+        "note": ""
+      },
+      {
+        "text": "ICD-10-PCS for physician procedures",
+        "note": "ICD-10-PCS is for inpatient hospital procedures."
+      },
+      {
+        "text": "SNOMED CT for claims",
+        "note": "SNOMED is clinical terminology, not a claims code set."
+      },
+      {
+        "text": "ICD-9-CM",
+        "note": "ICD-9 was replaced in 2015."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HIPAA designates ICD-10-CM (diagnoses), CPT and HCPCS (professional procedures), ICD-10-PCS (inpatient procedures), CDT (dental), and NDC (drugs) as standard code sets."
+  },
+  {
+    "id": 138,
+    "domain": "D4",
+    "scenario": "Billing a comprehensive service's components separately to increase payment is called what?",
+    "options": [
+      {
+        "text": "Unbundling",
+        "note": ""
+      },
+      {
+        "text": "Upcoding",
+        "note": "Upcoding is billing a higher level."
+      },
+      {
+        "text": "Coordination of benefits",
+        "note": "COB determines which payer pays first."
+      },
+      {
+        "text": "Bundling",
+        "note": "Bundling is the correct practice of reporting the comprehensive code."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Unbundling reports the parts of a procedure separately when one comprehensive code applies. NCCI edits are designed to catch it."
+  },
+  {
+    "id": 139,
+    "domain": "D5",
+    "scenario": "What does the suffix \"-ostomy\" mean?",
+    "options": [
+      {
+        "text": "Surgical creation of an opening",
+        "note": ""
+      },
+      {
+        "text": "Surgical removal",
+        "note": "That's -ectomy."
+      },
+      {
+        "text": "Incision into",
+        "note": "That's -otomy."
+      },
+      {
+        "text": "Surgical repair",
+        "note": "That's -plasty."
+      }
+    ],
+    "answer": 0,
+    "explanation": "-ostomy creates an opening (colostomy). -otomy cuts into (tracheotomy). -ectomy removes (appendectomy)."
+  },
+  {
+    "id": 140,
+    "domain": "D5",
+    "scenario": "What does \"-rrhaphy\" mean in a procedure name such as herniorrhaphy?",
+    "options": [
+      {
+        "text": "Suture or surgical repair",
+        "note": ""
+      },
+      {
+        "text": "Fixation",
+        "note": "That's -pexy."
+      },
+      {
+        "text": "Puncture to aspirate",
+        "note": "That's -centesis."
+      },
+      {
+        "text": "Crushing",
+        "note": "That's -tripsy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "-rrhaphy means suturing. -pexy fixes in place (orchiopexy). -centesis punctures to remove fluid. -tripsy crushes (lithotripsy)."
+  },
+  {
+    "id": 141,
+    "domain": "D5",
+    "scenario": "Arthrodesis describes what procedure?",
+    "options": [
+      {
+        "text": "Surgical fusion (stiffening) of a joint",
+        "note": ""
+      },
+      {
+        "text": "Repair of a joint",
+        "note": "That's arthroplasty."
+      },
+      {
+        "text": "Puncture of a joint",
+        "note": "That's arthrocentesis."
+      },
+      {
+        "text": "Viewing inside a joint",
+        "note": "That's arthroscopy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "-desis means binding or fusion. Arthrodesis fuses a joint, as in spinal fusion."
+  },
+  {
+    "id": 142,
+    "domain": "D5",
+    "scenario": "What does a bilateral salpingo-oophorectomy remove?",
+    "options": [
+      {
+        "text": "Both fallopian tubes and both ovaries",
+        "note": ""
+      },
+      {
+        "text": "Both ovaries only",
+        "note": "That would be oophorectomy only."
+      },
+      {
+        "text": "The uterus and cervix",
+        "note": "That's hysterectomy."
+      },
+      {
+        "text": "Both fallopian tubes only",
+        "note": "That would be salpingectomy only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "salping/o = fallopian tube; oophor/o = ovary; -ectomy = removal."
+  },
+  {
+    "id": 143,
+    "domain": "D5",
+    "scenario": "Which term describes a slow heart rate?",
+    "options": [
+      {
+        "text": "Bradycardia",
+        "note": ""
+      },
+      {
+        "text": "Tachycardia",
+        "note": "Tachy- means fast."
+      },
+      {
+        "text": "Arrhythmia",
+        "note": "That's an irregular rhythm."
+      },
+      {
+        "text": "Cardiomegaly",
+        "note": "That's an enlarged heart."
+      }
+    ],
+    "answer": 0,
+    "explanation": "brady- = slow, tachy- = fast, -megaly = enlargement."
+  },
+  {
+    "id": 144,
+    "domain": "D5",
+    "scenario": "Which is the correct order of the large intestine, from the small intestine outward?",
+    "options": [
+      {
+        "text": "Cecum, ascending, transverse, descending, sigmoid colon, rectum",
+        "note": ""
+      },
+      {
+        "text": "Rectum, sigmoid, descending, transverse, ascending, cecum",
+        "note": "That's the reverse order."
+      },
+      {
+        "text": "Duodenum, jejunum, ileum, cecum, rectum",
+        "note": "Duodenum, jejunum, and ileum are the small intestine."
+      },
+      {
+        "text": "Ascending, cecum, transverse, sigmoid, descending, rectum",
+        "note": "Cecum comes first and sigmoid comes after descending."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The ileum joins the cecum. The colon then runs ascending, transverse (hepatic and splenic flexures at each end), descending, and sigmoid to the rectum. The splenic flexure matters for colonoscopy and sigmoidoscopy definitions."
+  },
+  {
+    "id": 145,
+    "domain": "D5",
+    "scenario": "Which valve lies between the right atrium and right ventricle?",
+    "options": [
+      {
+        "text": "Tricuspid valve",
+        "note": ""
+      },
+      {
+        "text": "Mitral (bicuspid) valve",
+        "note": "The mitral valve is on the left side."
+      },
+      {
+        "text": "Pulmonary valve",
+        "note": "That's between the right ventricle and pulmonary artery."
+      },
+      {
+        "text": "Aortic valve",
+        "note": "That's between the left ventricle and aorta."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Right side: tricuspid then pulmonary valve. Left side: mitral then aortic valve."
+  },
+  {
+    "id": 146,
+    "domain": "D5",
+    "scenario": "List the meninges from outermost to innermost.",
+    "options": [
+      {
+        "text": "Dura mater, arachnoid mater, pia mater",
+        "note": ""
+      },
+      {
+        "text": "Pia, arachnoid, dura",
+        "note": "That's innermost to outermost."
+      },
+      {
+        "text": "Arachnoid, dura, pia",
+        "note": "Dura is outermost."
+      },
+      {
+        "text": "Epidermis, dermis, hypodermis",
+        "note": "Those are skin layers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The epidural space lies outside the dura. The subarachnoid space (containing CSF) lies between the arachnoid and pia."
+  },
+  {
+    "id": 147,
+    "domain": "D5",
+    "scenario": "What are the layers of the skin, from the surface down?",
+    "options": [
+      {
+        "text": "Epidermis, dermis, subcutaneous tissue (hypodermis)",
+        "note": ""
+      },
+      {
+        "text": "Dermis, epidermis, fascia",
+        "note": "The epidermis is outermost."
+      },
+      {
+        "text": "Epidermis, fascia, dermis",
+        "note": "The dermis lies beneath the epidermis."
+      },
+      {
+        "text": "Subcutaneous, dermis, epidermis",
+        "note": "That's the reverse."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Depth matters for coding debridement, repairs, and lesion removal."
+  },
+  {
+    "id": 148,
+    "domain": "D5",
+    "scenario": "Where does filtration of blood begin in the kidney?",
+    "options": [
+      {
+        "text": "The glomerulus of the nephron",
+        "note": ""
+      },
+      {
+        "text": "The ureter",
+        "note": "The ureter carries urine to the bladder."
+      },
+      {
+        "text": "The renal pelvis",
+        "note": "It collects urine."
+      },
+      {
+        "text": "The urethra",
+        "note": "It carries urine out of the body."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The nephron is the functional unit of the kidney. Filtration occurs in the glomerulus."
+  },
+  {
+    "id": 149,
+    "domain": "D5",
+    "scenario": "In anatomic terms, what does \"distal\" mean?",
+    "options": [
+      {
+        "text": "Farther from the point of attachment or the trunk",
+        "note": ""
+      },
+      {
+        "text": "Closer to the trunk",
+        "note": "That's proximal."
+      },
+      {
+        "text": "Toward the front",
+        "note": "That's anterior (ventral)."
+      },
+      {
+        "text": "Toward the midline",
+        "note": "That's medial."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Distal radius fractures are near the wrist, far from the elbow attachment."
+  },
+  {
+    "id": 150,
+    "domain": "D5",
+    "scenario": "Which bone is on the thumb side of the forearm?",
+    "options": [
+      {
+        "text": "Radius",
+        "note": ""
+      },
+      {
+        "text": "Ulna",
+        "note": "The ulna is on the little-finger side."
+      },
+      {
+        "text": "Humerus",
+        "note": "The humerus is the upper arm."
+      },
+      {
+        "text": "Scaphoid",
+        "note": "The scaphoid is a carpal (wrist) bone."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The forearm has the radius (lateral/thumb side) and ulna (medial)."
+  },
+  {
+    "id": 151,
+    "domain": "D5",
+    "scenario": "What is cholelithiasis?",
+    "options": [
+      {
+        "text": "Gallstones",
+        "note": ""
+      },
+      {
+        "text": "Kidney stones",
+        "note": "That's nephrolithiasis."
+      },
+      {
+        "text": "Inflammation of the gallbladder",
+        "note": "That's cholecystitis."
+      },
+      {
+        "text": "Removal of the gallbladder",
+        "note": "That's cholecystectomy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "chole = bile/gall, lith = stone, -iasis = condition."
+  },
+  {
+    "id": 152,
+    "domain": "D5",
+    "scenario": "Which gland produces insulin?",
+    "options": [
+      {
+        "text": "The pancreas (islets of Langerhans)",
+        "note": ""
+      },
+      {
+        "text": "The thyroid",
+        "note": "The thyroid produces thyroid hormones."
+      },
+      {
+        "text": "The adrenal glands",
+        "note": "They produce cortisol and adrenaline."
+      },
+      {
+        "text": "The pituitary",
+        "note": "The pituitary produces hormones like growth hormone and TSH."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Beta cells in the pancreatic islets produce insulin."
+  }
+]

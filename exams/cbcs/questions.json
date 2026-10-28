@@ -1,0 +1,2652 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "Which step comes first in the revenue cycle?",
+    "options": [
+      {
+        "text": "Patient registration and insurance verification before the visit",
+        "note": ""
+      },
+      {
+        "text": "Payment posting",
+        "note": "Posting happens after the payer responds."
+      },
+      {
+        "text": "Claim submission",
+        "note": "Claims are built after the encounter is coded."
+      },
+      {
+        "text": "Collections follow-up",
+        "note": "Collections come near the end."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A typical revenue cycle: scheduling and preregistration, eligibility and authorization, the encounter, charge capture, coding, claim submission, payment posting, denial management and appeals, then patient billing and collections. Errors made at the front end flow into denials later."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "A front-desk error enters the wrong subscriber ID. Where in the revenue cycle will the problem most likely appear?",
+    "options": [
+      {
+        "text": "As a claim rejection or denial after submission",
+        "note": ""
+      },
+      {
+        "text": "During coding",
+        "note": "Coders work from clinical documentation."
+      },
+      {
+        "text": "During the clinical visit",
+        "note": "The care isn't affected."
+      },
+      {
+        "text": "It won't cause any problem",
+        "note": "Payers match the subscriber ID to eligibility."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Front-end data errors (demographics, subscriber ID, wrong payer) are a leading cause of rejections and denials, so verifying at registration protects the whole cycle."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "Which HIPAA principle limits PHI disclosed for payment purposes to only what's needed?",
+    "options": [
+      {
+        "text": "The minimum necessary standard",
+        "note": ""
+      },
+      {
+        "text": "The right of access",
+        "note": "That's the patient's right to their records."
+      },
+      {
+        "text": "The breach notification rule",
+        "note": "That covers unsecured PHI breaches."
+      },
+      {
+        "text": "Implied consent",
+        "note": "That's a consent concept, not HIPAA's limit on disclosure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Covered entities must make reasonable efforts to limit PHI to the minimum necessary for payment and operations. It doesn't apply to disclosures to the patient or for treatment."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "Under HIPAA, which disclosure requires the patient's written authorization?",
+    "options": [
+      {
+        "text": "Sending records to the patient's employer for a job application",
+        "note": ""
+      },
+      {
+        "text": "Sending a claim to the patient's insurer",
+        "note": "Payment is permitted without authorization."
+      },
+      {
+        "text": "Sharing records with a specialist treating the patient",
+        "note": "Treatment is permitted."
+      },
+      {
+        "text": "Using data for internal quality review",
+        "note": "Health care operations are permitted."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Treatment, payment, and health care operations (TPO) don't require authorization. Most other uses, such as employer, marketing, or most psychotherapy notes, require a valid written authorization."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "Which item is NOT one of HIPAA's PHI identifiers when tied to health information?",
+    "options": [
+      {
+        "text": "The patient's diagnosis alone with all identifiers removed",
+        "note": ""
+      },
+      {
+        "text": "Medical record number",
+        "note": "MRNs are identifiers."
+      },
+      {
+        "text": "Email address",
+        "note": "Email is an identifier."
+      },
+      {
+        "text": "Full-face photograph",
+        "note": "Photos are identifiers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HIPAA lists 18 identifiers (names, geographic subdivisions smaller than a state, dates except year, phone, email, SSN, MRN, health plan number, account numbers, photos, and more). Health data with all of them removed is de-identified."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "A breach of unsecured PHI affects 700 residents of one state. What must the covered entity do?",
+    "options": [
+      {
+        "text": "Notify affected individuals, HHS, and prominent media outlets without unreasonable delay (no later than 60 days)",
+        "note": ""
+      },
+      {
+        "text": "Notify only the affected individuals within a year",
+        "note": "Large breaches require HHS and media notice too."
+      },
+      {
+        "text": "Notify HHS only in the annual log",
+        "note": "The annual log is for breaches under 500 people."
+      },
+      {
+        "text": "No notice is needed if the data was paper",
+        "note": "The rule covers paper and electronic PHI."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Breaches of 500 or more residents of a state or jurisdiction require notice to individuals, the media, and HHS within 60 days of discovery. Smaller breaches go to HHS annually."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "What did the HITECH Act (2009) do?",
+    "options": [
+      {
+        "text": "Strengthened HIPAA enforcement and penalties and created breach notification requirements",
+        "note": ""
+      },
+      {
+        "text": "Created Medicare Part D",
+        "note": "Part D came from the 2003 Medicare Modernization Act."
+      },
+      {
+        "text": "Required ICD-10-CM adoption",
+        "note": "That came through HHS rulemaking under HIPAA."
+      },
+      {
+        "text": "Regulated debt collectors",
+        "note": "That's the FDCPA."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HITECH promoted EHR adoption, extended HIPAA rules to business associates, raised penalties, and added breach notification."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "A practice knowingly bills Medicare for services that weren't performed. Which law imposes civil penalties of up to three times the government's damages?",
+    "options": [
+      {
+        "text": "The False Claims Act",
+        "note": ""
+      },
+      {
+        "text": "The Stark Law",
+        "note": "Stark covers self-referrals."
+      },
+      {
+        "text": "The FACT Act",
+        "note": "FACT covers identity theft and credit information."
+      },
+      {
+        "text": "The ADA",
+        "note": "The ADA covers disability rights."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The FCA penalizes knowingly submitting false claims, with treble damages plus per-claim penalties. Whistleblowers can file qui tam suits."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "What is the difference between fraud and abuse?",
+    "options": [
+      {
+        "text": "Fraud is intentional deception for gain; abuse is improper billing without proof of intent",
+        "note": ""
+      },
+      {
+        "text": "Fraud only applies to patients; abuse only to providers",
+        "note": "Both can involve anyone."
+      },
+      {
+        "text": "They mean the same thing",
+        "note": "Intent is the difference."
+      },
+      {
+        "text": "Abuse is criminal, fraud is civil",
+        "note": "Fraud can be criminal; abuse is usually civil or administrative."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fraud requires intent, such as billing services never rendered. Abuse includes practices that cause unnecessary costs, such as repeated billing errors or excessive services."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "What is the role of the Office of Inspector General (OIG) in medical billing?",
+    "options": [
+      {
+        "text": "It investigates fraud and abuse in HHS programs and publishes compliance guidance and the exclusion list",
+        "note": ""
+      },
+      {
+        "text": "It sets CPT codes",
+        "note": "The AMA maintains CPT."
+      },
+      {
+        "text": "It pays Medicare claims",
+        "note": "MACs process claims."
+      },
+      {
+        "text": "It writes ICD-10-CM",
+        "note": "NCHS and CMS maintain ICD-10-CM."
+      }
+    ],
+    "answer": 0,
+    "explanation": "OIG audits and investigates, issues compliance program guidance and the annual work plan, and maintains the LEIE (List of Excluded Individuals/Entities)."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "Which is one of the OIG's core elements of an effective compliance program?",
+    "options": [
+      {
+        "text": "Conducting internal monitoring and auditing",
+        "note": ""
+      },
+      {
+        "text": "Guaranteeing zero billing errors",
+        "note": "No program can guarantee that."
+      },
+      {
+        "text": "Hiring an outside coder for every claim",
+        "note": "Not a required element."
+      },
+      {
+        "text": "Avoiding all written policies",
+        "note": "Written policies are an element."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Core elements: written policies, a compliance officer and committee, training, open lines of communication, auditing and monitoring, consistent discipline, and prompt response with corrective action."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "A practice finds that it was overpaid by Medicare because of a billing error involving potential fraud. Which program allows it to disclose this to the OIG?",
+    "options": [
+      {
+        "text": "The Provider Self-Disclosure Protocol",
+        "note": ""
+      },
+      {
+        "text": "The RAC program",
+        "note": "RACs are contractors that audit providers."
+      },
+      {
+        "text": "The ABN process",
+        "note": "ABNs are for patient notice of possible noncoverage."
+      },
+      {
+        "text": "Coordination of benefits",
+        "note": "COB determines payer order."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The OIG's Self-Disclosure Protocol lets providers report potential fraud and resolve liability, usually with lower penalties than if the government finds it first."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "Which contractor identifies and corrects improper Medicare payments, often through post-payment audits?",
+    "options": [
+      {
+        "text": "Recovery Audit Contractor (RAC)",
+        "note": ""
+      },
+      {
+        "text": "Clearinghouse",
+        "note": "Clearinghouses process and edit claims."
+      },
+      {
+        "text": "Quality Improvement Organization",
+        "note": "QIOs focus on quality of care and some appeals."
+      },
+      {
+        "text": "Medigap insurer",
+        "note": "Medigap is supplemental insurance."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RACs review claims to find overpayments and underpayments. UPICs (formerly ZPICs) investigate potential fraud."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "A patient rolls up a sleeve when the medical assistant says it's time for a flu shot. What type of consent is this?",
+    "options": [
+      {
+        "text": "Implied consent",
+        "note": ""
+      },
+      {
+        "text": "Informed written consent",
+        "note": "No document was signed."
+      },
+      {
+        "text": "Expressed verbal consent",
+        "note": "The patient didn't say yes."
+      },
+      {
+        "text": "Authorization",
+        "note": "Authorization relates to PHI disclosure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Implied consent is inferred from actions. Informed consent involves explaining risks, benefits, and alternatives and is often written for procedures."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "Why must a coder query the provider rather than add a diagnosis that isn't documented?",
+    "options": [
+      {
+        "text": "Codes must be supported by the medical record, and adding undocumented diagnoses can be fraudulent",
+        "note": ""
+      },
+      {
+        "text": "Queries increase payment",
+        "note": "The purpose is accuracy, not payment."
+      },
+      {
+        "text": "Only physicians may use the encoder",
+        "note": "Not the reason."
+      },
+      {
+        "text": "Coders can't read clinical notes",
+        "note": "They can; they can't add to them."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Code only what is documented. When documentation is unclear, incomplete, or conflicting, send a non-leading query to the provider."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "What does the Stark Law prohibit?",
+    "options": [
+      {
+        "text": "Physician referrals of Medicare/Medicaid patients for designated health services to entities they have a financial relationship with, unless an exception applies",
+        "note": ""
+      },
+      {
+        "text": "Kickbacks in exchange for any referral",
+        "note": "That's the Anti-Kickback Statute."
+      },
+      {
+        "text": "Collecting copays",
+        "note": "Copays are allowed."
+      },
+      {
+        "text": "Billing by nonphysician practitioners",
+        "note": "NPPs can bill under their own NPI."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Stark (the physician self-referral law) is strict liability, so intent doesn't matter. The Anti-Kickback Statute requires knowing and willful conduct."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "A patient asks for a copy of their medical records. Under HIPAA, how quickly must the practice generally respond?",
+    "options": [
+      {
+        "text": "Within 30 days (one 30-day extension is allowed with notice)",
+        "note": ""
+      },
+      {
+        "text": "Within 24 hours",
+        "note": "HIPAA doesn't require that."
+      },
+      {
+        "text": "Within 1 year",
+        "note": "Too long."
+      },
+      {
+        "text": "Only if the physician agrees",
+        "note": "Patients have a right of access with limited exceptions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HIPAA's right of access requires action within 30 days. A reasonable, cost-based fee may be charged for copies."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "What is the purpose of the HIPAA electronic transaction standards?",
+    "options": [
+      {
+        "text": "To standardize formats such as the 837 claim and 835 remittance across payers",
+        "note": ""
+      },
+      {
+        "text": "To set Medicare fee schedules",
+        "note": "Fee schedules are set by CMS rules."
+      },
+      {
+        "text": "To define CPT codes",
+        "note": "The AMA defines CPT."
+      },
+      {
+        "text": "To regulate prescription drug prices",
+        "note": "Not part of HIPAA."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HIPAA Administrative Simplification adopted standard electronic transactions and code sets so payers and providers exchange data consistently."
+  },
+  {
+    "id": 19,
+    "domain": "D2",
+    "scenario": "A child is covered by both parents' employer plans. The mother's birthday is March 10 and the father's is July 2. Which plan is primary under the birthday rule?",
+    "options": [
+      {
+        "text": "The mother's plan",
+        "note": ""
+      },
+      {
+        "text": "The father's plan",
+        "note": "The parent whose birthday comes earlier in the year is primary."
+      },
+      {
+        "text": "Whichever parent is older",
+        "note": "Birth year doesn't matter."
+      },
+      {
+        "text": "The plan with the lower deductible",
+        "note": "Plan features don't decide."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The birthday rule uses month and day only. If both parents share a birthday, the plan in effect longer is primary."
+  },
+  {
+    "id": 20,
+    "domain": "D2",
+    "scenario": "Divorced parents both carry coverage for their child, and there's no court order about insurance. Which plan is usually primary?",
+    "options": [
+      {
+        "text": "The custodial parent's plan",
+        "note": ""
+      },
+      {
+        "text": "The non-custodial parent's plan",
+        "note": "It's usually third, after the custodial parent's spouse's plan."
+      },
+      {
+        "text": "Whichever parent's birthday is earlier",
+        "note": "The birthday rule applies to parents who aren't separated."
+      },
+      {
+        "text": "Medicaid",
+        "note": "Medicaid is the payer of last resort."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Typical order: custodial parent, custodial parent's spouse, non-custodial parent, non-custodial parent's spouse, unless a court decree assigns responsibility."
+  },
+  {
+    "id": 21,
+    "domain": "D2",
+    "scenario": "A 67-year-old patient still works full time for a company with 50 employees and is covered by its group plan and by Medicare. Which is primary?",
+    "options": [
+      {
+        "text": "The employer group health plan",
+        "note": ""
+      },
+      {
+        "text": "Medicare",
+        "note": "Medicare is secondary to group plans of employers with 20 or more employees for the working aged."
+      },
+      {
+        "text": "Whichever was effective first",
+        "note": "Employer size and employment status decide."
+      },
+      {
+        "text": "They split the claim equally",
+        "note": "There is a primary and a secondary."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Medicare Secondary Payer rules: for people 65 and older with coverage through current employment at an employer with 20 or more employees, the group plan pays first."
+  },
+  {
+    "id": 22,
+    "domain": "D2",
+    "scenario": "Which payer is generally the payer of last resort?",
+    "options": [
+      {
+        "text": "Medicaid",
+        "note": ""
+      },
+      {
+        "text": "Medicare",
+        "note": "Medicare pays before Medicaid for dual-eligible patients."
+      },
+      {
+        "text": "Workers' compensation",
+        "note": "WC is primary for work injuries."
+      },
+      {
+        "text": "A commercial employer plan",
+        "note": "Commercial plans pay before Medicaid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Medicaid pays after all other coverage, including Medicare and commercial plans."
+  },
+  {
+    "id": 23,
+    "domain": "D2",
+    "scenario": "Which plan type usually requires a primary care physician and referrals, and covers only in-network care except emergencies?",
+    "options": [
+      {
+        "text": "HMO",
+        "note": ""
+      },
+      {
+        "text": "PPO",
+        "note": "PPOs cover out-of-network care at a higher cost and usually don't require referrals."
+      },
+      {
+        "text": "Indemnity plan",
+        "note": "Indemnity plans allow any provider."
+      },
+      {
+        "text": "Medigap",
+        "note": "Medigap supplements Original Medicare."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HMOs manage care through a PCP gatekeeper and a network. EPOs also limit coverage to the network but may not require referrals."
+  },
+  {
+    "id": 24,
+    "domain": "D2",
+    "scenario": "Which part of Medicare is a private plan alternative to Original Medicare, often including drug coverage?",
+    "options": [
+      {
+        "text": "Part C (Medicare Advantage)",
+        "note": ""
+      },
+      {
+        "text": "Part A",
+        "note": "Part A is hospital insurance."
+      },
+      {
+        "text": "Part B",
+        "note": "Part B is medical insurance."
+      },
+      {
+        "text": "Medigap",
+        "note": "Medigap is supplemental coverage for Original Medicare."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Medicare Advantage plans are approved by Medicare and run by private insurers. Bill the MA plan, not Original Medicare, for an enrolled patient."
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "scenario": "What does a Medigap (Medicare supplement) policy do?",
+    "options": [
+      {
+        "text": "Helps pay costs Original Medicare doesn't, such as deductibles and coinsurance",
+        "note": ""
+      },
+      {
+        "text": "Replaces Medicare Part B",
+        "note": "It supplements Original Medicare."
+      },
+      {
+        "text": "Covers only prescription drugs",
+        "note": "That's Part D."
+      },
+      {
+        "text": "Is the primary payer for people over 65",
+        "note": "Medicare pays first."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Medigap is secondary to Original Medicare. It can't be used with Medicare Advantage."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "Which government program covers active-duty service members' families and military retirees?",
+    "options": [
+      {
+        "text": "TRICARE",
+        "note": ""
+      },
+      {
+        "text": "CHAMPVA",
+        "note": "CHAMPVA covers certain dependents and survivors of disabled veterans."
+      },
+      {
+        "text": "Medicaid",
+        "note": "Medicaid is income-based."
+      },
+      {
+        "text": "Medicare",
+        "note": "Medicare is age- or disability-based."
+      }
+    ],
+    "answer": 0,
+    "explanation": "TRICARE is the Department of Defense health program. CHAMPVA is administered by the VA for eligible families of veterans."
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "scenario": "A patient is injured on the job. Which payer should be billed for the treatment?",
+    "options": [
+      {
+        "text": "The employer's workers' compensation carrier",
+        "note": ""
+      },
+      {
+        "text": "The patient's commercial health plan",
+        "note": "WC is primary for work injuries."
+      },
+      {
+        "text": "Medicare",
+        "note": "Medicare doesn't pay for work injuries covered by WC."
+      },
+      {
+        "text": "The patient directly",
+        "note": "Patients usually aren't billed for approved WC care."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Get the WC claim number, the employer, the date of injury, and the adjuster's information. Health plans typically deny work-related injuries."
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "scenario": "A patient is injured in a car accident. What should registration ask about?",
+    "options": [
+      {
+        "text": "Auto insurance (such as personal injury protection) and liability information",
+        "note": ""
+      },
+      {
+        "text": "Only the patient's health plan",
+        "note": "Auto coverage may be primary."
+      },
+      {
+        "text": "The patient's employer only",
+        "note": "Not relevant unless work-related."
+      },
+      {
+        "text": "Nothing; car accidents are self-pay",
+        "note": "Third-party coverage may apply."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Auto medical or PIP coverage and third-party liability may pay before the health plan. Document the accident details for coordination of benefits."
+  },
+  {
+    "id": 29,
+    "domain": "D2",
+    "scenario": "What does an eligibility and benefits check (e.g., a 270/271 transaction) confirm?",
+    "options": [
+      {
+        "text": "Active coverage on the date of service and benefit details such as copay, deductible, and coinsurance",
+        "note": ""
+      },
+      {
+        "text": "That the claim was paid",
+        "note": "That's claim status (276/277) or the remittance (835)."
+      },
+      {
+        "text": "The CPT code to use",
+        "note": "Coding comes from documentation."
+      },
+      {
+        "text": "The patient's diagnosis",
+        "note": "Eligibility doesn't confirm diagnoses."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Verify eligibility before every visit. Coverage, plan, and benefits can change, and errors cause denials and patient dissatisfaction."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "What is the difference between preauthorization and predetermination?",
+    "options": [
+      {
+        "text": "Preauthorization is the payer's required approval before a service; predetermination is an optional estimate of what the plan will pay",
+        "note": ""
+      },
+      {
+        "text": "They are the same",
+        "note": "They serve different purposes."
+      },
+      {
+        "text": "Predetermination guarantees payment",
+        "note": "Neither strictly guarantees payment."
+      },
+      {
+        "text": "Preauthorization is only for Medicare",
+        "note": "Many payers require it."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Missing a required prior authorization often leads to denial (e.g., CARC 197). A predetermination helps estimate coverage, often for costly elective care."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "An HMO member wants to see a dermatologist. What does the plan typically require first?",
+    "options": [
+      {
+        "text": "A referral from the primary care physician",
+        "note": ""
+      },
+      {
+        "text": "A predetermination of benefits",
+        "note": "Not usually required for office visits."
+      },
+      {
+        "text": "An ABN",
+        "note": "ABNs are for Medicare patients."
+      },
+      {
+        "text": "Proof of income",
+        "note": "Not relevant."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HMOs typically require PCP referrals for specialists. Record the referral number on the claim when the payer requires it."
+  },
+  {
+    "id": 32,
+    "domain": "D2",
+    "scenario": "A patient's allowed amount is $200. The patient has met $0 of a $50 deductible and has 20% coinsurance. How much does the patient owe?",
+    "options": [
+      {
+        "text": "$80",
+        "note": ""
+      },
+      {
+        "text": "$50",
+        "note": "That's only the deductible."
+      },
+      {
+        "text": "$40",
+        "note": "Coinsurance applies after the deductible."
+      },
+      {
+        "text": "$90",
+        "note": "Check the math: $50 + 20% × $150."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The patient pays the $50 deductible, then 20% of the remaining $150 ($30). That's $80 total; the plan pays $120."
+  },
+  {
+    "id": 33,
+    "domain": "D2",
+    "scenario": "What is the difference between a copayment and coinsurance?",
+    "options": [
+      {
+        "text": "A copayment is a fixed dollar amount; coinsurance is a percentage of the allowed amount",
+        "note": ""
+      },
+      {
+        "text": "They are the same",
+        "note": "They're calculated differently."
+      },
+      {
+        "text": "Copayment applies only to Medicare",
+        "note": "Many plans use copays."
+      },
+      {
+        "text": "Coinsurance is paid before the visit only",
+        "note": "It's usually billed after adjudication."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Copays (e.g., $25 per visit) are usually collected at check-in. Coinsurance (e.g., 20%) depends on the allowed amount and is usually billed after the payer responds."
+  },
+  {
+    "id": 34,
+    "domain": "D2",
+    "scenario": "What is the out-of-pocket maximum?",
+    "options": [
+      {
+        "text": "The most a patient pays for covered services in a plan year, after which the plan pays 100% of covered services",
+        "note": ""
+      },
+      {
+        "text": "The deductible amount",
+        "note": "The deductible is only part of it."
+      },
+      {
+        "text": "The premium total",
+        "note": "Premiums don't count toward the OOP maximum."
+      },
+      {
+        "text": "The maximum the provider can charge",
+        "note": "It's a patient limit."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Deductibles, copays, and coinsurance for covered in-network services count toward the out-of-pocket maximum."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "When must an Advance Beneficiary Notice of Noncoverage (ABN) be given?",
+    "options": [
+      {
+        "text": "Before a service that Original Medicare may not cover as reasonable and necessary, so the patient can choose whether to receive it",
+        "note": ""
+      },
+      {
+        "text": "After Medicare denies the claim",
+        "note": "It must be given before the service."
+      },
+      {
+        "text": "For every Medicare visit",
+        "note": "It's only for expected noncoverage."
+      },
+      {
+        "text": "Only for services Medicare never covers by law",
+        "note": "ABNs are mainly for medical-necessity denials."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A valid ABN (CMS-R-131) names the item or service, the reason for the expected denial, and an estimated cost. The patient chooses an option and signs before the service."
+  },
+  {
+    "id": 36,
+    "domain": "D2",
+    "scenario": "An uninsured patient schedules a nonemergency service. Under the No Surprises Act, what must the provider give?",
+    "options": [
+      {
+        "text": "A good faith estimate of expected charges",
+        "note": ""
+      },
+      {
+        "text": "An ABN",
+        "note": "ABNs are for Medicare beneficiaries."
+      },
+      {
+        "text": "A predetermination",
+        "note": "There's no payer to ask."
+      },
+      {
+        "text": "Nothing until the service is done",
+        "note": "The estimate is required in advance."
+      }
+    ],
+    "answer": 0,
+    "explanation": "For uninsured or self-pay patients, providers must give a good faith estimate. Self-pay patients may also qualify for discounts or financial assistance programs."
+  },
+  {
+    "id": 37,
+    "domain": "D2",
+    "scenario": "What should registration collect to support accurate claims?",
+    "options": [
+      {
+        "text": "Photo ID, both sides of the insurance card, demographics, and signed assignment of benefits and release forms",
+        "note": ""
+      },
+      {
+        "text": "Only the patient's name",
+        "note": "That's not enough to bill."
+      },
+      {
+        "text": "The patient's diagnosis from the patient",
+        "note": "Diagnoses come from the provider."
+      },
+      {
+        "text": "The employer's tax ID",
+        "note": "Not needed for most claims."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Complete, verified registration data prevents rejections and supports coordination of benefits and identity verification."
+  },
+  {
+    "id": 38,
+    "domain": "D2",
+    "scenario": "Which Medicare part covers inpatient hospital stays?",
+    "options": [
+      {
+        "text": "Part A",
+        "note": ""
+      },
+      {
+        "text": "Part B",
+        "note": "Part B covers physician and outpatient services."
+      },
+      {
+        "text": "Part D",
+        "note": "Part D covers prescription drugs."
+      },
+      {
+        "text": "Part C",
+        "note": "Part C is Medicare Advantage, which includes Part A benefits through a private plan."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Part A covers inpatient hospital care, skilled nursing facility care (after a qualifying stay), hospice, and some home health."
+  },
+  {
+    "id": 39,
+    "domain": "D2",
+    "scenario": "A patient sees an out-of-network provider under a PPO. What usually happens?",
+    "options": [
+      {
+        "text": "The plan pays less, and the patient may owe more, including any balance above the allowed amount where permitted",
+        "note": ""
+      },
+      {
+        "text": "The claim is always denied",
+        "note": "PPOs cover out-of-network care."
+      },
+      {
+        "text": "The plan pays the full charge",
+        "note": "Out-of-network benefits are lower."
+      },
+      {
+        "text": "The patient owes nothing",
+        "note": "Cost sharing is usually higher."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PPOs cover out-of-network care at lower benefit levels. Balance billing is limited in certain cases (such as emergency care) by the No Surprises Act."
+  },
+  {
+    "id": 40,
+    "domain": "D3",
+    "scenario": "Which organization maintains CPT?",
+    "options": [
+      {
+        "text": "The American Medical Association (AMA)",
+        "note": ""
+      },
+      {
+        "text": "CMS",
+        "note": "CMS maintains HCPCS Level II and ICD-10-PCS."
+      },
+      {
+        "text": "NCHS",
+        "note": "NCHS maintains ICD-10-CM."
+      },
+      {
+        "text": "WHO",
+        "note": "WHO publishes the base ICD-10 classification."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CPT (HCPCS Level I) is copyrighted by the AMA and updated annually."
+  },
+  {
+    "id": 41,
+    "domain": "D3",
+    "scenario": "Which code set is used to report inpatient hospital procedures?",
+    "options": [
+      {
+        "text": "ICD-10-PCS",
+        "note": ""
+      },
+      {
+        "text": "CPT",
+        "note": "CPT is used for professional and outpatient services."
+      },
+      {
+        "text": "HCPCS Level II",
+        "note": "HCPCS covers supplies, drugs, DME, and some services."
+      },
+      {
+        "text": "ICD-10-CM",
+        "note": "ICD-10-CM is for diagnoses."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ICD-10-PCS uses 7-character alphanumeric codes for hospital inpatient procedures. Physicians report their professional services with CPT."
+  },
+  {
+    "id": 42,
+    "domain": "D3",
+    "scenario": "What does the abbreviation NEC mean in ICD-10-CM?",
+    "options": [
+      {
+        "text": "Not elsewhere classifiable: the documentation is specific, but no specific code exists",
+        "note": ""
+      },
+      {
+        "text": "Not enough clinical information",
+        "note": "That's closer to NOS."
+      },
+      {
+        "text": "New encounter code",
+        "note": "Not an ICD-10-CM term."
+      },
+      {
+        "text": "Noncovered encounter",
+        "note": "Not an ICD-10-CM term."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NEC means a more specific condition was documented, but the classification lacks a code for it. NOS (not otherwise specified) means the documentation is unspecified."
+  },
+  {
+    "id": 43,
+    "domain": "D3",
+    "scenario": "In ICD-10-CM, what does a \"code first\" note at a manifestation code tell you?",
+    "options": [
+      {
+        "text": "Sequence the underlying condition first, then the manifestation",
+        "note": ""
+      },
+      {
+        "text": "Report the manifestation alone",
+        "note": "Manifestation codes can't be first-listed."
+      },
+      {
+        "text": "Never report both",
+        "note": "Both are reported."
+      },
+      {
+        "text": "Report the manifestation first",
+        "note": "It goes second."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Etiology/manifestation convention: the underlying condition is sequenced first. Manifestation codes often have \"in diseases classified elsewhere\" in the title."
+  },
+  {
+    "id": 44,
+    "domain": "D3",
+    "scenario": "A provider documents \"right knee pain.\" Why should the coder look for a laterality-specific code?",
+    "options": [
+      {
+        "text": "ICD-10-CM codes require the highest specificity documented, including laterality when it's available",
+        "note": ""
+      },
+      {
+        "text": "Laterality affects only CPT",
+        "note": "ICD-10-CM includes laterality too."
+      },
+      {
+        "text": "Payers ignore laterality",
+        "note": "Unspecified codes may be denied when specificity is documented."
+      },
+      {
+        "text": "It's optional style",
+        "note": "Specificity is a coding rule."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Code to the highest specificity supported by the documentation, including laterality (right, left, bilateral), episode of care, and severity."
+  },
+  {
+    "id": 45,
+    "domain": "D3",
+    "scenario": "Which CPT modifier is appended to an E/M service provided on the same day as a minor procedure, when the E/M is significant and separately identifiable?",
+    "options": [
+      {
+        "text": "25",
+        "note": ""
+      },
+      {
+        "text": "59",
+        "note": "59 is used for procedures."
+      },
+      {
+        "text": "57",
+        "note": "57 is the decision for major surgery."
+      },
+      {
+        "text": "24",
+        "note": "24 is an unrelated E/M in the postoperative period."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Modifier 25 requires documentation of E/M work beyond the usual pre- and post-procedure work of the minor procedure."
+  },
+  {
+    "id": 46,
+    "domain": "D3",
+    "scenario": "A bilateral procedure is performed that the code describes as unilateral. Which modifier is generally used?",
+    "options": [
+      {
+        "text": "50",
+        "note": ""
+      },
+      {
+        "text": "51",
+        "note": "51 is for multiple procedures."
+      },
+      {
+        "text": "RT",
+        "note": "RT alone indicates the right side only."
+      },
+      {
+        "text": "22",
+        "note": "22 is for increased procedural services."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Modifier 50 identifies bilateral procedures. Some payers prefer RT and LT on separate lines, so follow payer policy."
+  },
+  {
+    "id": 47,
+    "domain": "D3",
+    "scenario": "Office E/M levels (99202–99215) are selected using what?",
+    "options": [
+      {
+        "text": "Medical decision making or total time on the date of the encounter",
+        "note": ""
+      },
+      {
+        "text": "The number of body systems examined",
+        "note": "Exam no longer selects the level."
+      },
+      {
+        "text": "The patient's age",
+        "note": "Age isn't a factor."
+      },
+      {
+        "text": "The charge amount",
+        "note": "Charges don't select codes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Since 2021, office visit levels are based on MDM or total physician/QHP time on that date."
+  },
+  {
+    "id": 48,
+    "domain": "D3",
+    "scenario": "A patient's visit includes 25 minutes of total physician time on the date of service (established patient). Which level is supported by time?",
+    "options": [
+      {
+        "text": "99213",
+        "note": ""
+      },
+      {
+        "text": "99214",
+        "note": "99214 requires 30 minutes."
+      },
+      {
+        "text": "99212",
+        "note": "99212 requires 10 minutes, and 25 supports a higher level."
+      },
+      {
+        "text": "99203",
+        "note": "99203 is for new patients."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Established patient time thresholds: 99212 10 min, 99213 20, 99214 30, 99215 40."
+  },
+  {
+    "id": 49,
+    "domain": "D3",
+    "scenario": "What is medical necessity in billing?",
+    "options": [
+      {
+        "text": "Services must be reasonable and necessary to diagnose or treat the patient's condition, as shown by the linked diagnosis",
+        "note": ""
+      },
+      {
+        "text": "Any service the patient requests",
+        "note": "Requests alone don't establish necessity."
+      },
+      {
+        "text": "Services performed by a physician",
+        "note": "Who performs it doesn't establish necessity."
+      },
+      {
+        "text": "Services with a high charge",
+        "note": "Price is irrelevant."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Each procedure on a claim is linked (with a diagnosis pointer) to a diagnosis that supports it. LCDs and NCDs define coverage criteria for Medicare."
+  },
+  {
+    "id": 50,
+    "domain": "D3",
+    "scenario": "Which HCPCS Level II code category is used for drugs administered other than by oral method?",
+    "options": [
+      {
+        "text": "J codes",
+        "note": ""
+      },
+      {
+        "text": "E codes",
+        "note": "E codes are durable medical equipment."
+      },
+      {
+        "text": "G codes",
+        "note": "G codes are temporary procedures/professional services."
+      },
+      {
+        "text": "V codes",
+        "note": "V codes are vision and hearing services."
+      }
+    ],
+    "answer": 0,
+    "explanation": "J codes report injectable and certain other drugs. Bill units according to the dose in the code descriptor."
+  },
+  {
+    "id": 51,
+    "domain": "D3",
+    "scenario": "A provider gives a 1 g injection of a drug whose HCPCS descriptor is \"per 250 mg.\" How many units are billed?",
+    "options": [
+      {
+        "text": "4",
+        "note": ""
+      },
+      {
+        "text": "1",
+        "note": "Divide the dose by the descriptor amount."
+      },
+      {
+        "text": "250",
+        "note": "That's the descriptor amount."
+      },
+      {
+        "text": "1000",
+        "note": "That's the dose in mg."
+      }
+    ],
+    "answer": 0,
+    "explanation": "1 g = 1000 mg; 1000 ÷ 250 = 4 units."
+  },
+  {
+    "id": 52,
+    "domain": "D3",
+    "scenario": "Which modifier indicates a service provided via synchronous (real-time audio-video) telemedicine?",
+    "options": [
+      {
+        "text": "95",
+        "note": ""
+      },
+      {
+        "text": "25",
+        "note": "25 is a separately identifiable E/M."
+      },
+      {
+        "text": "GT",
+        "note": "GT is an older interactive telecommunication modifier."
+      },
+      {
+        "text": "26",
+        "note": "26 is the professional component."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Modifier 95 is a CPT modifier for synchronous telemedicine with eligible codes. Telehealth also uses POS 02 or 10, according to payer rules."
+  },
+  {
+    "id": 53,
+    "domain": "D3",
+    "scenario": "What should a coder do when a physician's note says \"possible pneumonia\" for an outpatient visit with cough and fever?",
+    "options": [
+      {
+        "text": "Code the cough and fever",
+        "note": ""
+      },
+      {
+        "text": "Code pneumonia",
+        "note": "Uncertain diagnoses aren't coded as confirmed in outpatient settings."
+      },
+      {
+        "text": "Code pneumonia and cough",
+        "note": "The pneumonia is unconfirmed."
+      },
+      {
+        "text": "Don't code any diagnosis",
+        "note": "The symptoms are coded."
+      }
+    ],
+    "answer": 0,
+    "explanation": "For outpatient services, don't code \"possible\" or \"probable\" conditions. Code the documented signs and symptoms."
+  },
+  {
+    "id": 54,
+    "domain": "D3",
+    "scenario": "Which place-of-service code is used for services in a physician's office?",
+    "options": [
+      {
+        "text": "11",
+        "note": ""
+      },
+      {
+        "text": "21",
+        "note": "21 is inpatient hospital."
+      },
+      {
+        "text": "22",
+        "note": "22 is on-campus outpatient hospital."
+      },
+      {
+        "text": "12",
+        "note": "12 is home."
+      }
+    ],
+    "answer": 0,
+    "explanation": "POS codes identify where services were provided and affect payment, such as facility versus non-facility rates."
+  },
+  {
+    "id": 55,
+    "domain": "D3",
+    "scenario": "In CPT, what does an add-on code (+) require?",
+    "options": [
+      {
+        "text": "It must be reported with its primary procedure code",
+        "note": ""
+      },
+      {
+        "text": "It must be reported alone",
+        "note": "Add-on codes are never reported alone."
+      },
+      {
+        "text": "It requires modifier 51",
+        "note": "Add-ons are exempt from 51."
+      },
+      {
+        "text": "It's only for Medicare",
+        "note": "Add-on codes are CPT conventions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Add-on codes describe extra work (additional levels, lesions, or time) performed with a primary procedure."
+  },
+  {
+    "id": 56,
+    "domain": "D3",
+    "scenario": "A coder sees \"use additional code\" at a diagnosis. What does it mean?",
+    "options": [
+      {
+        "text": "Report a second code to give a more complete picture, as directed",
+        "note": ""
+      },
+      {
+        "text": "Don't report the condition",
+        "note": "It means add, not omit."
+      },
+      {
+        "text": "Replace the code",
+        "note": "It's in addition."
+      },
+      {
+        "text": "Report only on inpatient claims",
+        "note": "It applies to all settings."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Instructional notes like \"use additional code\" and \"code also\" are mandatory sequencing guidance in ICD-10-CM."
+  },
+  {
+    "id": 57,
+    "domain": "D3",
+    "scenario": "What is the purpose of the CPT index?",
+    "options": [
+      {
+        "text": "To find candidate codes, which must then be verified in the main section",
+        "note": ""
+      },
+      {
+        "text": "To assign the final code without verification",
+        "note": "Never code from the index alone."
+      },
+      {
+        "text": "To list fees",
+        "note": "CPT doesn't include fees."
+      },
+      {
+        "text": "To define diagnoses",
+        "note": "That's ICD-10-CM."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Look up the procedure, anatomic site, condition, or eponym in the index, then verify the code and its guidelines and parenthetical notes in the main text."
+  },
+  {
+    "id": 58,
+    "domain": "D3",
+    "scenario": "During coding, a procedure note mentions a service but the encounter form doesn't list it. What should the coder do?",
+    "options": [
+      {
+        "text": "Follow up with the provider to confirm and capture the documented service correctly",
+        "note": ""
+      },
+      {
+        "text": "Ignore the note and code only the form",
+        "note": "Documentation supports the codes; missed charges lose revenue."
+      },
+      {
+        "text": "Bill it without checking",
+        "note": "Verify first."
+      },
+      {
+        "text": "Delete the note",
+        "note": "Never alter documentation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Charge capture compares documentation against the charges entered. Discrepancies are resolved with the provider."
+  },
+  {
+    "id": 59,
+    "domain": "D3",
+    "scenario": "In ICD-10-CM, what does the 7th character \"A\" mean for an injury code?",
+    "options": [
+      {
+        "text": "Initial encounter, during active treatment",
+        "note": ""
+      },
+      {
+        "text": "Subsequent encounter",
+        "note": "That's D."
+      },
+      {
+        "text": "Sequela",
+        "note": "That's S."
+      },
+      {
+        "text": "Anatomic site A",
+        "note": "Characters don't work that way."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A = active treatment, D = routine healing or recovery phase, S = sequela (a late effect)."
+  },
+  {
+    "id": 60,
+    "domain": "D3",
+    "scenario": "What are CPT Category II codes used for?",
+    "options": [
+      {
+        "text": "Supplemental tracking of performance measures (they're optional and end in F)",
+        "note": ""
+      },
+      {
+        "text": "Emerging technology",
+        "note": "That's Category III (ending in T)."
+      },
+      {
+        "text": "Main procedure billing",
+        "note": "That's Category I."
+      },
+      {
+        "text": "Supplies and DME",
+        "note": "That's HCPCS Level II."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Category II codes support quality reporting, and many have no payment attached."
+  },
+  {
+    "id": 61,
+    "domain": "D3",
+    "scenario": "What does medical terminology \"-itis\" indicate?",
+    "options": [
+      {
+        "text": "Inflammation",
+        "note": ""
+      },
+      {
+        "text": "Removal",
+        "note": "That's -ectomy."
+      },
+      {
+        "text": "Disease of",
+        "note": "That's -pathy."
+      },
+      {
+        "text": "Pain",
+        "note": "That's -algia."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Arthritis is joint inflammation, gastritis is stomach inflammation, and dermatitis is skin inflammation."
+  },
+  {
+    "id": 62,
+    "domain": "D3",
+    "scenario": "What does the abbreviation \"NPO\" mean?",
+    "options": [
+      {
+        "text": "Nothing by mouth",
+        "note": ""
+      },
+      {
+        "text": "No prior orders",
+        "note": "Not this abbreviation."
+      },
+      {
+        "text": "New patient office visit",
+        "note": "Not this abbreviation."
+      },
+      {
+        "text": "Normal physical observation",
+        "note": "Not this abbreviation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NPO (nil per os) means nothing by mouth, commonly before procedures."
+  },
+  {
+    "id": 63,
+    "domain": "D3",
+    "scenario": "Which documentation section usually contains the provider's diagnoses and treatment plan in a SOAP note?",
+    "options": [
+      {
+        "text": "Assessment and plan",
+        "note": ""
+      },
+      {
+        "text": "Subjective",
+        "note": "Subjective is the patient's reported symptoms and history."
+      },
+      {
+        "text": "Objective",
+        "note": "Objective is exam findings and test results."
+      },
+      {
+        "text": "Chief complaint",
+        "note": "That's the reason for the visit."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SOAP: Subjective, Objective, Assessment, Plan. Coders look to the assessment for diagnoses and to the plan and procedure notes for services."
+  },
+  {
+    "id": 64,
+    "domain": "D3",
+    "scenario": "Which code is used for a Medicare patient's subsequent annual wellness visit?",
+    "options": [
+      {
+        "text": "G0439",
+        "note": ""
+      },
+      {
+        "text": "G0438",
+        "note": "G0438 is the initial AWV."
+      },
+      {
+        "text": "G0402",
+        "note": "G0402 is the IPPE (Welcome to Medicare visit)."
+      },
+      {
+        "text": "99397",
+        "note": "Routine physical codes aren't covered by Medicare."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Medicare covers the IPPE once within 12 months of Part B enrollment, then annual wellness visits (G0438 first, G0439 after)."
+  },
+  {
+    "id": 65,
+    "domain": "D3",
+    "scenario": "Which statement about the 2023+ hospital inpatient and observation E/M codes is correct?",
+    "options": [
+      {
+        "text": "Initial and subsequent hospital or observation care codes are selected by MDM or total time",
+        "note": ""
+      },
+      {
+        "text": "They use history, exam, and MDM",
+        "note": "History and exam no longer select the level."
+      },
+      {
+        "text": "Observation has separate codes from inpatient",
+        "note": "They were merged in 2023."
+      },
+      {
+        "text": "They're time-only",
+        "note": "MDM or time may be used."
+      }
+    ],
+    "answer": 0,
+    "explanation": "In 2023, CPT merged observation and inpatient codes (99221–99223, 99231–99233, 99238–99239) and applied MDM-or-time selection, like the office codes."
+  },
+  {
+    "id": 66,
+    "domain": "D3",
+    "scenario": "A patient with type 2 diabetes has diabetic chronic kidney disease, stage 3a. How is it coded?",
+    "options": [
+      {
+        "text": "E11.22 for diabetes with diabetic CKD, plus a code from N18 for the stage",
+        "note": ""
+      },
+      {
+        "text": "E11.9 and N18.31",
+        "note": "E11.9 is diabetes without complications."
+      },
+      {
+        "text": "N18.31 only",
+        "note": "The diabetic cause is coded."
+      },
+      {
+        "text": "E11.22 only",
+        "note": "Use an additional code for the CKD stage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ICD-10-CM presumes a link between diabetes and CKD (the \"with\" convention). E11.22 has a use-additional-code note for the CKD stage (N18.31 for stage 3a)."
+  },
+  {
+    "id": 67,
+    "domain": "D3",
+    "scenario": "A coder needs to code a condition with both an acute and a chronic form documented, and separate codes exist. How are they sequenced?",
+    "options": [
+      {
+        "text": "Code both, with the acute (subacute) code first",
+        "note": ""
+      },
+      {
+        "text": "Code only the chronic",
+        "note": "Both are coded."
+      },
+      {
+        "text": "Code only the acute",
+        "note": "Both are coded."
+      },
+      {
+        "text": "Code the chronic first",
+        "note": "The acute is sequenced first."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ICD-10-CM guideline: when the same condition is described as both acute and chronic and separate codes exist, code both, acute first, unless a combination code exists."
+  },
+  {
+    "id": 68,
+    "domain": "D3",
+    "scenario": "What is a combination code in ICD-10-CM?",
+    "options": [
+      {
+        "text": "A single code that classifies two diagnoses, or a diagnosis with a complication or manifestation",
+        "note": ""
+      },
+      {
+        "text": "Any two codes billed together",
+        "note": "A combination code is one code."
+      },
+      {
+        "text": "A code with a modifier",
+        "note": "ICD-10-CM doesn't use modifiers."
+      },
+      {
+        "text": "A CPT and ICD pair",
+        "note": "That's linkage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use a combination code when it fully describes the conditions. Don't add separate codes for elements it already includes."
+  },
+  {
+    "id": 69,
+    "domain": "D3",
+    "scenario": "Which code set describes the National Drug Code (NDC) on a claim?",
+    "options": [
+      {
+        "text": "An 11-digit code identifying the drug, labeler, and package, required by many payers with J codes",
+        "note": ""
+      },
+      {
+        "text": "A CPT Category III code",
+        "note": "NDCs aren't CPT."
+      },
+      {
+        "text": "A revenue code",
+        "note": "Revenue codes are used on the UB-04."
+      },
+      {
+        "text": "A place-of-service code",
+        "note": "POS describes where care happened."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Many payers, including Medicaid, require the NDC and quantity with drug HCPCS codes so they can identify the exact product."
+  },
+  {
+    "id": 70,
+    "domain": "D4",
+    "scenario": "Which claim form is used for professional (physician) services on paper?",
+    "options": [
+      {
+        "text": "CMS-1500",
+        "note": ""
+      },
+      {
+        "text": "UB-04 (CMS-1450)",
+        "note": "The UB-04 is for institutional claims."
+      },
+      {
+        "text": "CMS-R-131",
+        "note": "That's the ABN form."
+      },
+      {
+        "text": "ADA dental form",
+        "note": "That's for dental claims."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The 837P is the electronic equivalent of the CMS-1500. The 837I is the electronic equivalent of the UB-04."
+  },
+  {
+    "id": 71,
+    "domain": "D4",
+    "scenario": "On the CMS-1500, where are ICD-10-CM diagnosis codes entered?",
+    "options": [
+      {
+        "text": "Item 21 (up to 12 codes, A–L)",
+        "note": ""
+      },
+      {
+        "text": "Item 24D",
+        "note": "24D is for procedure codes and modifiers."
+      },
+      {
+        "text": "Item 24E",
+        "note": "24E is the diagnosis pointer."
+      },
+      {
+        "text": "Item 17",
+        "note": "Item 17 is the referring provider."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Item 21 holds diagnoses A–L with the ICD indicator. Item 24E points each service line to the relevant diagnosis letters."
+  },
+  {
+    "id": 72,
+    "domain": "D4",
+    "scenario": "On the CMS-1500, which item links a service line to its supporting diagnosis?",
+    "options": [
+      {
+        "text": "Item 24E (diagnosis pointer)",
+        "note": ""
+      },
+      {
+        "text": "Item 24B",
+        "note": "24B is place of service."
+      },
+      {
+        "text": "Item 24J",
+        "note": "24J is the rendering provider's NPI."
+      },
+      {
+        "text": "Item 23",
+        "note": "Item 23 is the prior authorization number."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Enter the letter(s) from Item 21, primary first, to show medical necessity for each line."
+  },
+  {
+    "id": 73,
+    "domain": "D4",
+    "scenario": "Which CMS-1500 item holds the billing provider's name, address, and NPI?",
+    "options": [
+      {
+        "text": "Item 33",
+        "note": ""
+      },
+      {
+        "text": "Item 32",
+        "note": "Item 32 is the service facility location."
+      },
+      {
+        "text": "Item 25",
+        "note": "Item 25 is the federal tax ID."
+      },
+      {
+        "text": "Item 31",
+        "note": "Item 31 is the physician's signature."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Item 33 is the billing provider. Item 33a is the billing NPI. Item 24J is the rendering provider NPI."
+  },
+  {
+    "id": 74,
+    "domain": "D4",
+    "scenario": "A corrected version of a paid claim is sent on a CMS-1500. What goes in Item 22?",
+    "options": [
+      {
+        "text": "Resubmission code 7 (replacement) and the original claim reference number",
+        "note": ""
+      },
+      {
+        "text": "Code 8 and the original claim number",
+        "note": "Code 8 voids or cancels a prior claim."
+      },
+      {
+        "text": "The prior authorization number",
+        "note": "That goes in Item 23."
+      },
+      {
+        "text": "Nothing; send it as a new claim",
+        "note": "Resubmitting as new may cause a duplicate denial."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use frequency code 7 to replace a prior claim and 8 to void it, with the payer's original claim number."
+  },
+  {
+    "id": 75,
+    "domain": "D4",
+    "scenario": "Where is a prior authorization number entered on the CMS-1500?",
+    "options": [
+      {
+        "text": "Item 23",
+        "note": ""
+      },
+      {
+        "text": "Item 19",
+        "note": "Item 19 is additional claim information."
+      },
+      {
+        "text": "Item 11",
+        "note": "Item 11 is the insured's policy group."
+      },
+      {
+        "text": "Item 1a",
+        "note": "Item 1a is the insured's ID number."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Missing or wrong authorization numbers commonly cause denials."
+  },
+  {
+    "id": 76,
+    "domain": "D4",
+    "scenario": "Which HIPAA transaction is the electronic remittance advice?",
+    "options": [
+      {
+        "text": "835",
+        "note": ""
+      },
+      {
+        "text": "837",
+        "note": "837 is the claim."
+      },
+      {
+        "text": "270/271",
+        "note": "270/271 is eligibility inquiry and response."
+      },
+      {
+        "text": "276/277",
+        "note": "276/277 is claim status inquiry and response."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The 835 (ERA) explains payments, adjustments, and denials with CARC and RARC codes, and supports automatic posting."
+  },
+  {
+    "id": 77,
+    "domain": "D4",
+    "scenario": "What does a clearinghouse do?",
+    "options": [
+      {
+        "text": "Edits (scrubs) claims for errors, converts them to the payer's required format, and forwards them",
+        "note": ""
+      },
+      {
+        "text": "Pays claims on behalf of payers",
+        "note": "Clearinghouses don't pay claims."
+      },
+      {
+        "text": "Sets payer fee schedules",
+        "note": "Payers set fees."
+      },
+      {
+        "text": "Codes the services",
+        "note": "Coders assign codes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Scrubbing catches missing data and edit failures before the payer sees the claim, which raises the clean-claim rate."
+  },
+  {
+    "id": 78,
+    "domain": "D4",
+    "scenario": "What is the difference between a rejected claim and a denied claim?",
+    "options": [
+      {
+        "text": "A rejected claim wasn't accepted into processing (usually a data error) and can be corrected and resubmitted; a denied claim was processed and found unpayable",
+        "note": ""
+      },
+      {
+        "text": "They are the same",
+        "note": "They're handled differently."
+      },
+      {
+        "text": "A rejection must be appealed",
+        "note": "Rejections are corrected and resubmitted."
+      },
+      {
+        "text": "A denial always means the patient owes the balance",
+        "note": "Denials may be appealed or corrected."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fix rejections quickly to stay within timely filing. Work denials by cause: correct and resubmit, or reconsider and appeal."
+  },
+  {
+    "id": 79,
+    "domain": "D4",
+    "scenario": "An ERA shows CARC 16 with group code CO. What does this usually mean?",
+    "options": [
+      {
+        "text": "The claim or service lacks information or has billing errors needed for adjudication",
+        "note": ""
+      },
+      {
+        "text": "The patient's deductible applied",
+        "note": "That's CARC 1 (PR)."
+      },
+      {
+        "text": "The service isn't medically necessary",
+        "note": "That's often CARC 50."
+      },
+      {
+        "text": "The claim is a duplicate",
+        "note": "That's CARC 18."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CARC 16 is usually paired with RARCs (remark codes) that specify the missing or invalid data. Correct and resubmit."
+  },
+  {
+    "id": 80,
+    "domain": "D4",
+    "scenario": "Which CARC indicates the timely filing limit has expired?",
+    "options": [
+      {
+        "text": "29",
+        "note": ""
+      },
+      {
+        "text": "18",
+        "note": "18 is a duplicate claim."
+      },
+      {
+        "text": "97",
+        "note": "97 is bundled into another service."
+      },
+      {
+        "text": "45",
+        "note": "45 means the charge exceeds the fee schedule or allowed amount."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Timely filing denials (CARC 29) generally can't be billed to the patient unless the payer contract allows it. Prevention is key."
+  },
+  {
+    "id": 81,
+    "domain": "D4",
+    "scenario": "On an ERA, what does group code PR mean?",
+    "options": [
+      {
+        "text": "Patient responsibility, such as deductible, coinsurance, or copay",
+        "note": ""
+      },
+      {
+        "text": "Payer reduction that can't be billed to the patient",
+        "note": "That's PI."
+      },
+      {
+        "text": "Contractual obligation that the provider writes off",
+        "note": "That's CO."
+      },
+      {
+        "text": "Other adjustment",
+        "note": "That's OA."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Group codes: CO contractual obligation (write off), PR patient responsibility (bill patient), OA other adjustment, PI payer-initiated reduction."
+  },
+  {
+    "id": 82,
+    "domain": "D4",
+    "scenario": "A participating provider charges $150. The payer's allowed amount is $100, paid at 80% after the deductible is met. What is written off?",
+    "options": [
+      {
+        "text": "$50",
+        "note": ""
+      },
+      {
+        "text": "$20",
+        "note": "$20 is the patient's coinsurance."
+      },
+      {
+        "text": "$70",
+        "note": "Only the difference between charge and allowed is written off."
+      },
+      {
+        "text": "$0",
+        "note": "Participating providers accept the allowed amount."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Write off charge minus allowed ($50). The plan pays $80 and the patient owes $20 coinsurance."
+  },
+  {
+    "id": 83,
+    "domain": "D4",
+    "scenario": "What is Medicare's general timely filing limit for claims?",
+    "options": [
+      {
+        "text": "12 months (one calendar year) from the date of service",
+        "note": ""
+      },
+      {
+        "text": "90 days",
+        "note": "Many commercial plans are shorter, but Medicare allows 12 months."
+      },
+      {
+        "text": "6 months",
+        "note": "Not Medicare's rule."
+      },
+      {
+        "text": "2 years",
+        "note": "Too long."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Medicare claims must be filed within one calendar year after the date of service. Commercial and Medicaid limits vary by contract and state."
+  },
+  {
+    "id": 84,
+    "domain": "D4",
+    "scenario": "What is the first level of a Medicare Part B appeal?",
+    "options": [
+      {
+        "text": "Redetermination by the Medicare Administrative Contractor, within 120 days of receiving the initial determination",
+        "note": ""
+      },
+      {
+        "text": "Administrative Law Judge hearing",
+        "note": "That's level 3."
+      },
+      {
+        "text": "Reconsideration by a Qualified Independent Contractor",
+        "note": "That's level 2."
+      },
+      {
+        "text": "Federal district court",
+        "note": "That's level 5."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Medicare appeal levels: 1 redetermination (MAC), 2 reconsideration (QIC), 3 ALJ hearing, 4 Medicare Appeals Council, 5 federal district court."
+  },
+  {
+    "id": 85,
+    "domain": "D4",
+    "scenario": "A non-participating provider doesn't accept assignment for a Medicare patient. What is the most the provider may charge?",
+    "options": [
+      {
+        "text": "The limiting charge: 115% of the non-participating fee schedule amount",
+        "note": ""
+      },
+      {
+        "text": "Any amount the provider sets",
+        "note": "Medicare limits the charge."
+      },
+      {
+        "text": "100% of the participating fee schedule",
+        "note": "Non-par providers can charge up to the limiting charge."
+      },
+      {
+        "text": "95% of the participating fee",
+        "note": "That's the non-par fee schedule amount, not the limit."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Non-par fee schedule = 95% of the par amount. The limiting charge = 115% of that, about 109.25% of the par amount."
+  },
+  {
+    "id": 86,
+    "domain": "D4",
+    "scenario": "What does an aging report show?",
+    "options": [
+      {
+        "text": "Outstanding balances grouped by how long they've been unpaid (e.g., 0–30, 31–60, 61–90, 90+ days)",
+        "note": ""
+      },
+      {
+        "text": "Patients' ages",
+        "note": "It's about account age."
+      },
+      {
+        "text": "Charges by CPT code",
+        "note": "That's a charge report."
+      },
+      {
+        "text": "Daily deposits",
+        "note": "That's a deposit report."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Work the oldest and highest-dollar accounts first, especially those nearing timely filing or appeal deadlines."
+  },
+  {
+    "id": 87,
+    "domain": "D4",
+    "scenario": "How is \"days in accounts receivable\" calculated?",
+    "options": [
+      {
+        "text": "Total A/R divided by average daily charges",
+        "note": ""
+      },
+      {
+        "text": "Total charges divided by visits",
+        "note": "That's average charge per visit."
+      },
+      {
+        "text": "Payments divided by charges",
+        "note": "That's a collection ratio."
+      },
+      {
+        "text": "Denials divided by claims",
+        "note": "That's a denial rate."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lower days in A/R means faster payment. Average daily charges = charges for a period ÷ days in the period."
+  },
+  {
+    "id": 88,
+    "domain": "D4",
+    "scenario": "Which law limits third-party debt collectors from calling consumers before 8 a.m. or after 9 p.m.?",
+    "options": [
+      {
+        "text": "Fair Debt Collection Practices Act (FDCPA)",
+        "note": ""
+      },
+      {
+        "text": "Truth in Lending Act",
+        "note": "TILA covers credit cost disclosure."
+      },
+      {
+        "text": "Equal Credit Opportunity Act",
+        "note": "ECOA prohibits credit discrimination."
+      },
+      {
+        "text": "HIPAA",
+        "note": "HIPAA is privacy and transactions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The FDCPA governs third-party collectors. Practices commonly follow similar standards for their own collections."
+  },
+  {
+    "id": 89,
+    "domain": "D4",
+    "scenario": "A practice sets up a payment plan with a patient that has more than four installments. Which law may require written disclosure of terms?",
+    "options": [
+      {
+        "text": "Truth in Lending Act (Regulation Z)",
+        "note": ""
+      },
+      {
+        "text": "FDCPA",
+        "note": "FDCPA covers collection conduct."
+      },
+      {
+        "text": "FACT Act",
+        "note": "FACT covers identity theft and credit reports."
+      },
+      {
+        "text": "Stark Law",
+        "note": "Stark covers self-referral."
+      }
+    ],
+    "answer": 0,
+    "explanation": "TILA requires disclosure of finance charges and terms for credit agreements with more than four installments or finance charges."
+  },
+  {
+    "id": 90,
+    "domain": "D4",
+    "scenario": "A patient files for bankruptcy and the practice is notified. What should the billing office do?",
+    "options": [
+      {
+        "text": "Stop collection activity and file a claim with the bankruptcy court as directed",
+        "note": ""
+      },
+      {
+        "text": "Increase collection calls",
+        "note": "The automatic stay prohibits collection."
+      },
+      {
+        "text": "Send the account to a collection agency",
+        "note": "That violates the stay."
+      },
+      {
+        "text": "Write off all future services",
+        "note": "Future services are a separate matter."
+      }
+    ],
+    "answer": 0,
+    "explanation": "After notice of bankruptcy, collection efforts stop and the practice follows the court process."
+  },
+  {
+    "id": 91,
+    "domain": "D4",
+    "scenario": "A patient has died with an outstanding balance. How is it usually pursued?",
+    "options": [
+      {
+        "text": "By filing a claim against the estate with the executor or administrator",
+        "note": ""
+      },
+      {
+        "text": "By billing the patient's adult children personally",
+        "note": "Relatives aren't generally liable unless they guaranteed the debt."
+      },
+      {
+        "text": "By sending it to credit reporting immediately",
+        "note": "Follow estate procedures."
+      },
+      {
+        "text": "By writing it off automatically",
+        "note": "Estates can pay valid claims."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Estate claims follow state probate deadlines. Send statements to the estate, not to family members personally."
+  },
+  {
+    "id": 92,
+    "domain": "D4",
+    "scenario": "What does payment posting involve?",
+    "options": [
+      {
+        "text": "Applying payments and adjustments from the ERA/EOB to each service line and identifying patient balances or denials",
+        "note": ""
+      },
+      {
+        "text": "Assigning CPT codes",
+        "note": "That's coding."
+      },
+      {
+        "text": "Verifying eligibility",
+        "note": "That's front-end work."
+      },
+      {
+        "text": "Scheduling appointments",
+        "note": "That's front office."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Accurate posting separates contractual write-offs, patient responsibility, and denials that need follow-up, and shows underpayments."
+  },
+  {
+    "id": 93,
+    "domain": "D4",
+    "scenario": "A payer pays $60 for a service whose contracted allowed amount is $90 with no patient responsibility. What should billing do?",
+    "options": [
+      {
+        "text": "Identify the underpayment and request reprocessing or appeal with the contract terms",
+        "note": ""
+      },
+      {
+        "text": "Write off the $30 as contractual",
+        "note": "The contract supports $90."
+      },
+      {
+        "text": "Bill the patient $30",
+        "note": "The patient isn't responsible."
+      },
+      {
+        "text": "Ignore it",
+        "note": "Underpayments lose revenue."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Compare payments to fee schedules or contracts during posting. Underpayments can be corrected through payer reprocessing or reconsideration."
+  },
+  {
+    "id": 94,
+    "domain": "D4",
+    "scenario": "What is a contractual adjustment?",
+    "options": [
+      {
+        "text": "The difference between the provider's charge and the allowed amount that a participating provider agreed to accept",
+        "note": ""
+      },
+      {
+        "text": "A discount given to self-pay patients",
+        "note": "That's a courtesy or self-pay discount."
+      },
+      {
+        "text": "A bad-debt write-off",
+        "note": "That's for uncollectible balances."
+      },
+      {
+        "text": "A refund to the patient",
+        "note": "Refunds are for overpayments."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Contractual adjustments are required by the payer contract and aren't billed to the patient."
+  },
+  {
+    "id": 95,
+    "domain": "D4",
+    "scenario": "What is a take-back (recoupment)?",
+    "options": [
+      {
+        "text": "A payer recovering a previous overpayment, often by reducing future payments",
+        "note": ""
+      },
+      {
+        "text": "A patient refund request",
+        "note": "Recoupments are payer actions."
+      },
+      {
+        "text": "A rejected claim",
+        "note": "Recoupment involves paid claims."
+      },
+      {
+        "text": "A coding edit",
+        "note": "It's a financial adjustment."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Post recoupments against the original claim so account balances stay accurate. Appeal them if they're incorrect."
+  },
+  {
+    "id": 96,
+    "domain": "D4",
+    "scenario": "Which coding edit system identifies code pairs that shouldn't be reported together for the same patient on the same date?",
+    "options": [
+      {
+        "text": "NCCI procedure-to-procedure edits",
+        "note": ""
+      },
+      {
+        "text": "MUEs",
+        "note": "MUEs limit units per code."
+      },
+      {
+        "text": "LCDs",
+        "note": "LCDs define local coverage criteria."
+      },
+      {
+        "text": "CARCs",
+        "note": "CARCs explain adjustments."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NCCI PTP edits prevent unbundling. Some pairs allow a modifier (59, XE/XS/XP/XU) when documentation supports a distinct service."
+  },
+  {
+    "id": 97,
+    "domain": "D4",
+    "scenario": "What is a local coverage determination (LCD)?",
+    "options": [
+      {
+        "text": "A Medicare contractor's policy on when a service is reasonable and necessary in its jurisdiction",
+        "note": ""
+      },
+      {
+        "text": "A national Medicare coverage policy",
+        "note": "That's an NCD."
+      },
+      {
+        "text": "A commercial payer contract",
+        "note": "LCDs are Medicare policies."
+      },
+      {
+        "text": "A CPT guideline",
+        "note": "LCDs are coverage, not coding, rules."
+      }
+    ],
+    "answer": 0,
+    "explanation": "LCDs list covered indications, often with ICD-10-CM codes that support necessity. NCDs apply nationwide."
+  },
+  {
+    "id": 98,
+    "domain": "D4",
+    "scenario": "A claim is denied as not medically necessary, but documentation shows the patient met the coverage criteria. What's the best next step?",
+    "options": [
+      {
+        "text": "Submit a reconsideration or appeal with supporting documentation",
+        "note": ""
+      },
+      {
+        "text": "Bill the patient",
+        "note": "First pursue payment the payer owes."
+      },
+      {
+        "text": "Change the diagnosis code to one that pays",
+        "note": "Codes must match documentation."
+      },
+      {
+        "text": "Write it off immediately",
+        "note": "A supported appeal may recover payment."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Appeals should include the medical record, coverage policy references, and a clear explanation within the payer's deadline."
+  },
+  {
+    "id": 99,
+    "domain": "D4",
+    "scenario": "Which claim form and electronic transaction does a hospital use for an inpatient stay?",
+    "options": [
+      {
+        "text": "UB-04 (CMS-1450) / 837I",
+        "note": ""
+      },
+      {
+        "text": "CMS-1500 / 837P",
+        "note": "These are for professional services."
+      },
+      {
+        "text": "CMS-R-131",
+        "note": "That's the ABN."
+      },
+      {
+        "text": "835",
+        "note": "835 is a remittance."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Institutional claims use revenue codes, type of bill, and ICD-10-PCS for inpatient procedures."
+  },
+  {
+    "id": 100,
+    "domain": "D4",
+    "scenario": "What is a \"clean claim\"?",
+    "options": [
+      {
+        "text": "A claim with no errors or missing information that can be processed without additional development",
+        "note": ""
+      },
+      {
+        "text": "A claim paid at 100% of charges",
+        "note": "Payment level doesn't define it."
+      },
+      {
+        "text": "A claim with no diagnosis codes",
+        "note": "Diagnoses are required."
+      },
+      {
+        "text": "A claim sent on paper",
+        "note": "The format doesn't define it."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Clean-claim rates measure front-end accuracy. Prompt-pay laws often require payers to pay clean claims within set timeframes."
+  },
+  {
+    "id": 101,
+    "domain": "D4",
+    "scenario": "Which accounts should be prioritized first in denial and A/R follow-up?",
+    "options": [
+      {
+        "text": "High-dollar claims and those closest to timely filing or appeal deadlines",
+        "note": ""
+      },
+      {
+        "text": "Only the newest claims",
+        "note": "Older claims risk expiring."
+      },
+      {
+        "text": "Accounts in alphabetical order",
+        "note": "Prioritize by value and deadlines."
+      },
+      {
+        "text": "Only claims under $10",
+        "note": "Low-dollar claims matter, but not first."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Prioritize by deadline risk and dollar value, and track denial trends to fix root causes."
+  },
+  {
+    "id": 102,
+    "domain": "D4",
+    "scenario": "What should be compared during end-of-day charge reconciliation?",
+    "options": [
+      {
+        "text": "Encounters scheduled and seen against charges entered",
+        "note": ""
+      },
+      {
+        "text": "Patient birthdays against insurance cards",
+        "note": "That's registration."
+      },
+      {
+        "text": "Payer fee schedules against CPT",
+        "note": "That's contract review."
+      },
+      {
+        "text": "Copays against deductibles",
+        "note": "Not reconciliation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Charge reconciliation catches missed or duplicate charges before claims go out."
+  },
+  {
+    "id": 103,
+    "domain": "D4",
+    "scenario": "A secondary insurance claim is being sent. What must usually accompany it?",
+    "options": [
+      {
+        "text": "The primary payer's remittance or EOB showing what was paid and adjusted",
+        "note": ""
+      },
+      {
+        "text": "A new ABN",
+        "note": "Not required for secondary claims."
+      },
+      {
+        "text": "A referral form",
+        "note": "Not usually."
+      },
+      {
+        "text": "Nothing",
+        "note": "The secondary payer needs the primary payer's adjudication."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Coordination of benefits requires the primary's payment details. Electronic secondary claims include the COB data from the 835."
+  },
+  {
+    "id": 104,
+    "domain": "D4",
+    "scenario": "What does a payer's remittance remark code (RARC) do?",
+    "options": [
+      {
+        "text": "Gives additional explanation for an adjustment described by a CARC",
+        "note": ""
+      },
+      {
+        "text": "Replaces the CPT code",
+        "note": "RARCs are informational codes."
+      },
+      {
+        "text": "Sets the patient's copay",
+        "note": "The plan design sets copays."
+      },
+      {
+        "text": "Authorizes a service",
+        "note": "Authorizations are separate."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CARCs say why an amount was adjusted; RARCs (such as N- and M- codes) add detail, such as what information is missing."
+  },
+  {
+    "id": 105,
+    "domain": "D4",
+    "scenario": "What is capitation?",
+    "options": [
+      {
+        "text": "A fixed payment per member per month to a provider, regardless of how many services are used",
+        "note": ""
+      },
+      {
+        "text": "Payment for each service performed",
+        "note": "That's fee-for-service."
+      },
+      {
+        "text": "A patient's coinsurance",
+        "note": "Not capitation."
+      },
+      {
+        "text": "A bundled payment for one episode",
+        "note": "That's an episode-based or bundled payment."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Capitation shifts financial risk to providers and is common in HMOs. Value-based models tie payment to quality and cost outcomes."
+  },
+  {
+    "id": 106,
+    "domain": "D4",
+    "scenario": "A patient overpaid their balance by $25. What should billing do?",
+    "options": [
+      {
+        "text": "Issue a refund (or apply it per policy with the patient's agreement) in a timely manner",
+        "note": ""
+      },
+      {
+        "text": "Keep it as a credit indefinitely",
+        "note": "Credit balances must be resolved."
+      },
+      {
+        "text": "Send it to the insurer",
+        "note": "It's the patient's money."
+      },
+      {
+        "text": "Write it off as income",
+        "note": "It must be refunded."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Credit balances must be researched and refunded promptly. State unclaimed property laws may also apply."
+  }
+]

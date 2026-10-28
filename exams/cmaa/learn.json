@@ -1,0 +1,1509 @@
+{
+  "intro": "Seven modules follow the NHA CMAA test plan's domains and weights. Each combines a study guide, exam tips, key terms, visual slides, and a narrated lesson. Use them alongside the official test plan and your training program's materials.",
+  "updated": "2026-10-28",
+  "sources": [
+    {
+      "title": "NHA: Certified Medical Administrative Assistant (CMAA) test plan (PDF)",
+      "url": "https://www.nhanow.com/docs/default-source/test-plans/nha_cmaa_test_plan_2021.pdf"
+    },
+    {
+      "title": "NHA: Candidate handbook (PDF)",
+      "url": "https://www.nhanow.com/docs/default-source/test-plans/candidate_handbook.pdf"
+    },
+    {
+      "title": "The Joint Commission: Do Not Use list of abbreviations",
+      "url": "https://www.jointcommission.org/en-us/knowledge-library/support-center/standards-interpretation/do-not-use-list-of-abbreviations"
+    },
+    {
+      "title": "HHS: Summary of the HIPAA Privacy Rule",
+      "url": "https://www.hhs.gov/hipaa/for-professionals/privacy/laws-regulations/index.html"
+    },
+    {
+      "title": "HHS: Individuals' right to access their health information",
+      "url": "https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/access/index.html"
+    }
+  ],
+  "modules": [
+    {
+      "id": "D1",
+      "short": "Foundations",
+      "title": "Foundational knowledge",
+      "summary": "Understand health care settings and delivery models, how the front office connects to clinical work, types of health records, medical terminology, approved abbreviations, and basic anatomy.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>10 of the CMAA exam's 110 scored items cover foundations: types of health care organizations and delivery models, front office and clinical workflows, health records (EMR, EHR, PHR), medical terminology, abbreviations including The Joint Commission's Do Not Use list, common conditions, anatomy, and body systems.</p>"
+        },
+        {
+          "h": "Settings and records",
+          "html": "<p>Know the settings: physician practices, urgent care, emergency departments, hospitals, ambulatory surgery centers, long-term care, home health, hospice (comfort care for terminal illness), and patient-centered medical homes that coordinate care. An <b>EMR</b> is one practice's digital chart. An <b>EHR</b> is built to share across providers. A <b>PHR</b> is maintained by the patient. Front-office accuracy (identity, insurance, and scheduling) directly supports clinical safety and billing.</p>"
+        },
+        {
+          "h": "Terminology and safe abbreviations",
+          "html": "<p>Break terms into prefix, root, and suffix: gastr/itis (stomach inflammation), hyper-/hypo- (above/below), -ectomy (removal), -otomy (incision). Use only approved abbreviations. The Joint Commission's <b>Do Not Use</b> list bans U, IU, Q.D., Q.O.D., trailing zeros (5.0 mg), missing leading zeros (.5 mg), MS, MSO4, and MgSO4.</p>"
+        },
+        {
+          "h": "Body systems",
+          "html": "<p>Know the major systems and their organs: cardiovascular, respiratory, digestive, urinary (kidneys, ureters, bladder, urethra), nervous, musculoskeletal, integumentary, endocrine, reproductive, and lymphatic/immune. Know directional terms such as anterior/posterior, superior/inferior, and proximal/distal.</p>"
+        }
+      ],
+      "tips": [
+        "Write \"daily\" and \"unit\"; never QD or U.",
+        "Always use a leading zero (0.5 mg), never a trailing zero (5 mg, not 5.0).",
+        "EHR = shared; EMR = one practice; PHR = patient-managed.",
+        "Use lay terms when speaking with patients."
+      ],
+      "terms": [
+        [
+          "EHR",
+          "Electronic health record designed to share information across providers."
+        ],
+        [
+          "EMR",
+          "Electronic medical record used within one practice."
+        ],
+        [
+          "PHR",
+          "Personal health record managed by the patient."
+        ],
+        [
+          "Do Not Use list",
+          "The Joint Commission's list of prohibited abbreviations."
+        ],
+        [
+          "Hospice",
+          "Comfort-focused care for terminally ill patients."
+        ],
+        [
+          "PCMH",
+          "Patient-centered medical home: coordinated primary care."
+        ],
+        [
+          "-itis",
+          "Inflammation."
+        ],
+        [
+          "Anterior",
+          "Toward the front of the body."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Foundations of the front office",
+          "bullets": [
+            "9% of the CMAA",
+            "Settings, records, and terms",
+            "Safety starts with accuracy"
+          ],
+          "script": [
+            "Welcome to the foundational knowledge module. It covers where health care happens, how records work, and the language of medicine.",
+            "These basics support every other front-office task, from scheduling to billing."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Settings",
+                "d": "Practice · urgent care · hospice"
+              },
+              {
+                "t": "Records",
+                "d": "EMR · EHR · PHR"
+              },
+              {
+                "t": "Terms",
+                "d": "Prefix · root · suffix"
+              },
+              {
+                "t": "Anatomy",
+                "d": "Body systems"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Health care settings",
+          "bullets": [
+            "Primary and specialty care",
+            "Urgent vs. emergency care",
+            "Hospice and palliative care"
+          ],
+          "script": [
+            "Primary care practices manage ongoing health. Urgent care treats non-emergency problems, and emergency departments handle life-threatening conditions. Hospice provides comfort care for patients with a terminal illness.",
+            "A patient-centered medical home coordinates care across specialists, hospitals, and community services."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Setting",
+              "Focus"
+            ],
+            "rows": [
+              [
+                "Primary care",
+                "Ongoing care"
+              ],
+              [
+                "Urgent care",
+                "Same-day, non-emergency"
+              ],
+              [
+                "ED",
+                "Emergencies"
+              ],
+              [
+                "Hospice",
+                "Comfort, end of life"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Records and abbreviations",
+          "bullets": [
+            "EMR · EHR · PHR",
+            "Approved abbreviations only",
+            "Do Not Use list"
+          ],
+          "script": [
+            "An EMR is a single practice's digital chart. An EHR is designed to share information across organizations, and a PHR is maintained by the patient.",
+            "Use only approved abbreviations. Never use U, IU, QD, or QOD, never use trailing zeros, and always use a leading zero before a decimal."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Don't write",
+              "Write instead"
+            ],
+            "rows": [
+              [
+                "U / IU",
+                "unit / international unit"
+              ],
+              [
+                "QD / QOD",
+                "daily / every other day"
+              ],
+              [
+                "5.0 mg",
+                "5 mg"
+              ],
+              [
+                ".5 mg",
+                "0.5 mg"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Word parts and body systems",
+          "bullets": [
+            "Prefix + root + suffix",
+            "Major body systems",
+            "Directional terms"
+          ],
+          "script": [
+            "Break medical words into parts. Gastritis is stomach inflammation, and hypertension is high blood pressure.",
+            "Know the organs in each body system and basic directional terms such as anterior, posterior, proximal, and distal."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "hyper-",
+                "d": "Prefix: above"
+              },
+              {
+                "t": "tens",
+                "d": "Root: pressure"
+              },
+              {
+                "t": "-ion",
+                "d": "Suffix: condition"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: foundational knowledge",
+          "bullets": [
+            "Revisit the key ideas",
+            "Practice with scenarios",
+            "Try the question set"
+          ],
+          "script": [
+            "You've finished the foundational knowledge overview. Go back over the key terms and the situations where the front office has to decide what to do next.",
+            "Then try the foundational knowledge question set and read each explanation."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "short": "Communication",
+      "title": "Communication and professionalism",
+      "summary": "Communicate clearly and respectfully with patients, families, providers, and payers, handle difficult situations, adapt for special needs and health literacy, and stay within professional boundaries.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>21 scored items cover communication: styles, nonverbal cues, interviewing, difficult situations, barriers, pronouns and gender identity, plain language, scope of permitted questions, active listening, empathy, the communication cycle, professional presence, escalation, de-escalation, phone and email etiquette, internal messaging, documentation, and community resources.</p>"
+        },
+        {
+          "h": "Core skills",
+          "html": "<p>Use <b>active listening</b>: full attention, open posture, and reflecting back what you heard. Use open-ended questions to gather detail and closed-ended questions to confirm facts. The communication cycle is sender, message, channel, receiver, and feedback. Feedback confirms understanding. Translate jargon into lay terms and confirm understanding with <b>teach-back</b>.</p>"
+        },
+        {
+          "h": "Special considerations",
+          "html": "<p>For limited English proficiency, use a qualified medical interpreter, not family members or children. For hearing loss, face the patient, speak clearly, and offer written materials. Adapt for children, older adults, disabilities, and low health literacy. Use the patient's stated name and pronouns.</p>"
+        },
+        {
+          "h": "Difficult situations and boundaries",
+          "html": "<p>With an upset patient, stay calm, listen, acknowledge feelings, move to a private area, and offer solutions or escalate through the chain of command. Never give medical advice. Route clinical questions per protocol. Emergencies such as chest pain, trouble breathing, or stroke symptoms mean calling 911 or following the emergency protocol. Leave minimal PHI in voicemails, use secure messaging, and document communications as required.</p>"
+        }
+      ],
+      "tips": [
+        "Listen first, then respond.",
+        "Use interpreters, not family members.",
+        "Confirm understanding with teach-back.",
+        "Never give medical advice; route clinical calls.",
+        "Escalate through the chain of command."
+      ],
+      "terms": [
+        [
+          "Active listening",
+          "Attending fully and reflecting back to confirm understanding."
+        ],
+        [
+          "Open-ended question",
+          "A question that invites a detailed answer."
+        ],
+        [
+          "Teach-back",
+          "Asking the patient to explain instructions in their own words."
+        ],
+        [
+          "Communication cycle",
+          "Sender, message, channel, receiver, feedback."
+        ],
+        [
+          "De-escalation",
+          "Techniques to calm a tense interaction."
+        ],
+        [
+          "Chain of command",
+          "The order of authority used to escalate issues."
+        ],
+        [
+          "Health literacy",
+          "Ability to understand and use health information."
+        ],
+        [
+          "Qualified interpreter",
+          "Trained interpreter who conveys medical information accurately."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Communication is the job",
+          "bullets": [
+            "19% of the CMAA",
+            "Patients, providers, payers",
+            "Clear, kind, and accurate"
+          ],
+          "script": [
+            "This module covers communication and professionalism, one of the two largest domains on the CMAA exam.",
+            "Administrative assistants talk with patients, families, providers, and payers all day, and every conversation shapes trust and accuracy."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Sender",
+                "d": ""
+              },
+              {
+                "t": "Message",
+                "d": ""
+              },
+              {
+                "t": "Channel",
+                "d": ""
+              },
+              {
+                "t": "Receiver",
+                "d": ""
+              },
+              {
+                "t": "Feedback",
+                "d": "Confirms"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Listening and questions",
+          "bullets": [
+            "Active listening",
+            "Open vs. closed questions",
+            "Teach-back"
+          ],
+          "script": [
+            "Active listening means full attention, open posture, and paraphrasing to confirm understanding. Open-ended questions gather detail, and closed-ended questions confirm facts.",
+            "After giving instructions, ask the patient to explain them back in their own words."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Open",
+                "d": "\"What brings you in?\""
+              },
+              {
+                "t": "Closed",
+                "d": "\"Is this your address?\""
+              },
+              {
+                "t": "Teach-back",
+                "d": "\"Tell me how you'll prepare.\""
+              }
+            ]
+          }
+        },
+        {
+          "title": "Adapting your communication",
+          "bullets": [
+            "Qualified interpreters",
+            "Hearing and vision needs",
+            "Plain language"
+          ],
+          "script": [
+            "For patients with limited English, use a qualified medical interpreter, never a child or family member except in an emergency. For hearing loss, face the patient and reduce background noise.",
+            "Use plain language and the patient's stated name and pronouns."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Situation",
+              "Approach"
+            ],
+            "rows": [
+              [
+                "Limited English",
+                "Qualified interpreter"
+              ],
+              [
+                "Hard of hearing",
+                "Face patient · written aids"
+              ],
+              [
+                "Low literacy",
+                "Plain words · teach-back"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Difficult situations",
+          "bullets": [
+            "Stay calm and acknowledge",
+            "Move to a private area",
+            "Escalate when needed"
+          ],
+          "script": [
+            "When a patient is upset, stay calm, listen without interrupting, and acknowledge their frustration. Move the conversation somewhere private and offer what you can.",
+            "If the issue is beyond your authority, escalate through the chain of command. For medical emergencies on the phone, follow the emergency protocol and direct the caller to 911."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Listen",
+                "d": ""
+              },
+              {
+                "t": "Acknowledge",
+                "d": ""
+              },
+              {
+                "t": "Solve",
+                "d": "Within scope"
+              },
+              {
+                "t": "Escalate",
+                "d": "If needed"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: communication and professionalism",
+          "bullets": [
+            "Revisit the key ideas",
+            "Practice with scenarios",
+            "Try the question set"
+          ],
+          "script": [
+            "You've finished the communication and professionalism overview. Go back over the key terms and the situations where the front office has to decide what to do next.",
+            "Then try the communication and professionalism question set and read each explanation."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "short": "Law & ethics",
+      "title": "Medical law, ethics, and compliance",
+      "summary": "Protect PHI under HIPAA, honor patients' rights and consent, follow OSHA and safety rules, meet mandatory and incident reporting duties, and work within scope and professional ethics.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>17 scored items cover law and compliance: HIPAA, PHI and permitted disclosures, safeguards, record retention, consent, OSHA, Joint Commission safety goals, mandatory reporting, incident reports, emergency procedures, fraud and abuse, ethics, and scope of practice.</p>"
+        },
+        {
+          "h": "HIPAA in the front office",
+          "html": "<p>Disclose PHI only for treatment, payment, and operations, as required by law (public health, abuse reporting, court orders), or with authorization. Don't confirm a patient's visit to callers who aren't authorized. Give the Notice of Privacy Practices at the first visit. Fulfill access requests within HIPAA's timeframe. Access records only as your job requires. Violations carry tiered civil penalties and, in some cases, criminal penalties.</p>"
+        },
+        {
+          "h": "Consent and patients' rights",
+          "html": "<p><b>Implied</b> consent comes from actions. <b>Informed</b> consent is explained by the provider (risks, benefits, alternatives) and documented. Staff may witness a signature. The Patient's Bill of Rights includes respectful care, privacy, information, participation in decisions, refusing treatment, and complaints. Use two patient identifiers, a Joint Commission National Patient Safety Goal.</p>"
+        },
+        {
+          "h": "Safety, reporting, and ethics",
+          "html": "<p>OSHA requires hazard communication (SDS and labels) and bloodborne pathogen protections. For fires, use RACE (Rescue, Alarm, Contain, Extinguish/Evacuate) and PASS for extinguishers. Mandatory reporting covers suspected child or elder abuse and certain diseases, per state law. Complete objective incident reports for events such as falls. The CMAA scope is administrative, so no diagnosing, advising, or prescribing. Report suspected fraud through the compliance program.</p>"
+        }
+      ],
+      "tips": [
+        "Never confirm a patient's visit to an unauthorized caller.",
+        "The provider explains informed consent; staff may witness the signature.",
+        "Suspicion is enough to report abuse; proof isn't required.",
+        "RACE for fire response, PASS for extinguishers.",
+        "Stay within the administrative scope of practice."
+      ],
+      "terms": [
+        [
+          "Notice of Privacy Practices",
+          "Explains how PHI is used and the patient's privacy rights."
+        ],
+        [
+          "Authorization",
+          "Patient's written permission for a specific disclosure of PHI."
+        ],
+        [
+          "Informed consent",
+          "Agreement after the provider explains risks, benefits, and alternatives."
+        ],
+        [
+          "Mandated reporter",
+          "Person legally required to report suspected abuse."
+        ],
+        [
+          "SDS",
+          "Safety data sheet describing chemical hazards."
+        ],
+        [
+          "Incident report",
+          "Objective record of an unexpected event, kept separate from the chart."
+        ],
+        [
+          "Scope of practice",
+          "The duties a role is trained and permitted to perform."
+        ],
+        [
+          "RACE",
+          "Rescue, Alarm, Contain, Extinguish/Evacuate."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Law, ethics, and safety",
+          "bullets": [
+            "15% of the CMAA",
+            "Privacy, consent, safety",
+            "Stay within scope"
+          ],
+          "script": [
+            "This module covers the laws and ethics that guide the front office, including HIPAA privacy, consent, patients' rights, workplace safety, and reporting duties.",
+            "These rules protect patients, staff, and the practice."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "HIPAA",
+                "d": "Privacy · access"
+              },
+              {
+                "t": "Consent",
+                "d": "Implied · informed"
+              },
+              {
+                "t": "OSHA",
+                "d": "SDS · bloodborne"
+              },
+              {
+                "t": "Reporting",
+                "d": "Abuse · incidents"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "HIPAA at the front desk",
+          "bullets": [
+            "Disclose only as permitted",
+            "Don't confirm visits to strangers",
+            "Access only what your job needs"
+          ],
+          "script": [
+            "Share PHI only for treatment, payment, operations, as required by law, or with the patient's authorization. A caller asking whether a neighbor was seen gets no confirmation.",
+            "Look only at records you need for your job. Curiosity access is a violation even if nothing is shared."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Request",
+              "OK without authorization?"
+            ],
+            "rows": [
+              [
+                "Insurer, for payment",
+                "Yes"
+              ],
+              [
+                "Public health report",
+                "Yes"
+              ],
+              [
+                "Neighbor's question",
+                "No"
+              ],
+              [
+                "Employer",
+                "No"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Consent and rights",
+          "bullets": [
+            "Implied vs. informed",
+            "Provider explains; staff may witness",
+            "Two patient identifiers"
+          ],
+          "script": [
+            "Implied consent is shown by actions, like holding out an arm. Informed consent requires the provider to explain risks, benefits, and alternatives.",
+            "Patients have rights to respectful care, privacy, information, and refusing treatment. Always use two identifiers, such as name and date of birth."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Implied",
+                "d": "Actions"
+              },
+              {
+                "t": "Informed",
+                "d": "Provider explains"
+              },
+              {
+                "t": "Rights",
+                "d": "Privacy · refusal"
+              },
+              {
+                "t": "ID",
+                "d": "Name + DOB"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Safety and reporting",
+          "bullets": [
+            "OSHA hazard communication",
+            "RACE and PASS",
+            "Mandatory and incident reporting"
+          ],
+          "script": [
+            "OSHA requires safety data sheets, labels, and training for chemical hazards, plus bloodborne pathogen protections. For fire, remember RACE: rescue, alarm, contain, extinguish or evacuate.",
+            "Report suspected abuse as state law requires; suspicion is enough. Document incidents like falls objectively on an incident report."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Rescue",
+                "d": ""
+              },
+              {
+                "t": "Alarm",
+                "d": ""
+              },
+              {
+                "t": "Contain",
+                "d": ""
+              },
+              {
+                "t": "Extinguish",
+                "d": "or evacuate"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: law, ethics, and compliance",
+          "bullets": [
+            "Revisit the key ideas",
+            "Practice with scenarios",
+            "Try the question set"
+          ],
+          "script": [
+            "You've finished the law, ethics, and compliance overview. Go back over the key terms and the situations where the front office has to decide what to do next.",
+            "Then try the law, ethics, and compliance question set and read each explanation."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "short": "Scheduling",
+      "title": "Scheduling",
+      "summary": "Choose scheduling methods, build schedules around providers and resources, decide when telehealth fits, register and screen patients, confirm appointments, manage no-shows, and arrange tests, referrals, and authorizations.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>16 scored items cover scheduling: EHR and manual scheduling, scheduling types, provider preferences, telehealth, patient portals, avoiding duplicate records, insurance verification, pre-appointment instructions, no-show policies, network status, and pre-appointment screening.</p>"
+        },
+        {
+          "h": "Scheduling methods",
+          "html": "<p><b>Stream</b> (time-specified): one patient per slot. <b>Wave</b>: several patients at the top of the hour, seen in order of arrival. <b>Modified wave</b>: patients spread within the hour. <b>Double booking</b>: two patients in one slot, used strategically. <b>Cluster</b> (categorization): similar visits grouped together. <b>Open hours</b>: walk-ins. Block the template (matrix) for meetings, procedures, and provider preferences, and give new patients longer slots.</p>"
+        },
+        {
+          "h": "Telehealth and portals",
+          "html": "<p>Telehealth fits follow-ups, medication management, counseling, and many behavioral health visits. It doesn't fit emergencies or visits that need hands-on exams or procedures. Send connection instructions and a backup plan. Patient portals let patients view records, message the practice, and request appointments.</p>"
+        },
+        {
+          "h": "Before and after the appointment",
+          "html": "<p>Search for an existing record by name, date of birth, and other identifiers before creating a new one. Verify insurance and network status, get referrals and authorizations for tests and specialists, and send preparation instructions and reminders. Document no-shows and cancellations, follow the practice's policy, and reach out to reschedule. Use scripted screening questions and route positive answers per protocol.</p>"
+        }
+      ],
+      "tips": [
+        "Search before creating a record, to avoid duplicates.",
+        "Wave = group at the top of the hour; stream = one per slot.",
+        "Telehealth isn't for emergencies or hands-on exams.",
+        "Always document no-shows.",
+        "Get authorization before scheduling tests that require it."
+      ],
+      "terms": [
+        [
+          "Stream scheduling",
+          "One patient per time slot."
+        ],
+        [
+          "Wave scheduling",
+          "Several patients booked at the start of each hour."
+        ],
+        [
+          "Modified wave",
+          "Patients staggered within the hour."
+        ],
+        [
+          "Cluster scheduling",
+          "Grouping similar appointment types."
+        ],
+        [
+          "Double booking",
+          "Two patients in the same slot."
+        ],
+        [
+          "Matrix",
+          "Blocking unavailable times in the schedule template."
+        ],
+        [
+          "Patient portal",
+          "Secure online access for patients."
+        ],
+        [
+          "No-show",
+          "Missed appointment without notice."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Building the day",
+          "bullets": [
+            "15% of the CMAA",
+            "Methods, telehealth, follow-through",
+            "A good schedule prevents problems"
+          ],
+          "script": [
+            "This module covers scheduling: picking a scheduling method, building the template, deciding when telehealth fits, and handling the tasks before and after each appointment.",
+            "A well-built schedule reduces wait times, no-shows, and denials."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Register",
+                "d": "No duplicates"
+              },
+              {
+                "t": "Verify",
+                "d": "Insurance · auth"
+              },
+              {
+                "t": "Book",
+                "d": "Right slot"
+              },
+              {
+                "t": "Remind",
+                "d": "Instructions"
+              },
+              {
+                "t": "Follow up",
+                "d": "No-shows"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Scheduling methods",
+          "bullets": [
+            "Stream · wave · modified wave",
+            "Double booking · clustering",
+            "Open hours"
+          ],
+          "script": [
+            "Stream scheduling books one patient per slot. Wave scheduling books several at the top of the hour, and modified wave staggers them within the hour.",
+            "Double booking puts two patients in one slot. Clustering groups similar visits, and open hours accept walk-ins."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Method",
+              "How it works"
+            ],
+            "rows": [
+              [
+                "Stream",
+                "One per slot"
+              ],
+              [
+                "Wave",
+                "Group at :00"
+              ],
+              [
+                "Modified wave",
+                "Staggered in hour"
+              ],
+              [
+                "Cluster",
+                "Similar visits grouped"
+              ],
+              [
+                "Open hours",
+                "Walk-ins"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Telehealth and portals",
+          "bullets": [
+            "Good fits: follow-ups, med checks",
+            "Not for emergencies or exams",
+            "Send instructions and a backup plan"
+          ],
+          "script": [
+            "Telehealth works well for follow-ups, medication management, and counseling. It isn't appropriate for emergencies or visits that need a hands-on exam.",
+            "Send connection instructions ahead of time, with a phone backup. Patient portals let patients message the practice and manage appointments."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Fits",
+                "d": "Follow-up · counseling"
+              },
+              {
+                "t": "Doesn't fit",
+                "d": "Emergencies · procedures"
+              },
+              {
+                "t": "Prep",
+                "d": "Link · tech check"
+              },
+              {
+                "t": "Backup",
+                "d": "Phone"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Before and after the visit",
+          "bullets": [
+            "Avoid duplicate records",
+            "Referrals and authorizations",
+            "Reminders and no-show policy"
+          ],
+          "script": [
+            "Before booking, search for the patient by name and date of birth to avoid duplicates. Verify insurance and get any referral or authorization the service needs.",
+            "Send reminders and prep instructions. If a patient doesn't show, document it, follow policy, and reach out to reschedule."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Search",
+                "d": "Name + DOB"
+              },
+              {
+                "t": "Authorize",
+                "d": "If required"
+              },
+              {
+                "t": "Remind",
+                "d": "Call · text · portal"
+              },
+              {
+                "t": "Document",
+                "d": "No-shows"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: scheduling",
+          "bullets": [
+            "Revisit the key ideas",
+            "Practice with scenarios",
+            "Try the question set"
+          ],
+          "script": [
+            "You've finished the scheduling overview. Go back over the key terms and the situations where the front office has to decide what to do next.",
+            "Then try the scheduling question set and read each explanation."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "short": "Patient encounter",
+      "title": "Patient encounter",
+      "summary": "Check patients in, verify identity and insurance, explain financial responsibility, collect intake forms, manage the record and duplicates, understand code sets and medical necessity, and check patients out.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>21 scored items cover the encounter: new and established patient registration, intake forms and accommodations, ID and insurance verification, referrals and authorizations, code sets, medical necessity, duplicate records, plan types and payer rules, copays and coinsurance, ABN, EOB, ERA, and telehealth troubleshooting.</p>"
+        },
+        {
+          "h": "Check-in",
+          "html": "<p>Confirm identity with two identifiers (name and date of birth, stated by the patient). Scan photo ID and both sides of the insurance card. Update demographics. Verify eligibility, benefits, and referral or authorization needs. Get signed forms: assignment of benefits, release of information, HIPAA acknowledgment, and financial policy. Collect copays at the time of service. Give an ABN when Medicare may not cover a service.</p>"
+        },
+        {
+          "h": "Insurance concepts for patients",
+          "html": "<p>A <b>copay</b> is a fixed amount. <b>Coinsurance</b> is a percentage of the allowed amount after the deductible. The <b>birthday rule</b> decides the primary plan for children. Medicare is federal coverage mainly for people 65+ or with disabilities. Medicaid is federal-state coverage based mainly on income and always pays last. An <b>EOB</b> explains how a claim was processed; it isn't a bill. An ERA is the electronic version sent to the practice.</p>"
+        },
+        {
+          "h": "Records and check-out",
+          "html": "<p>Enter information accurately and flag possible duplicate records for authorized review; never delete them. Primary records document care. Secondary records (billing, registries, quality) are derived from them. Know that ICD-10-CM codes diagnoses and CPT/HCPCS code services, and that services must be medically necessary. At check-out, schedule follow-ups, give instructions and referrals, and collect balances.</p>"
+        }
+      ],
+      "tips": [
+        "Have the patient state their name and date of birth.",
+        "Scan both sides of the insurance card at each visit.",
+        "An EOB isn't a bill; explain the difference.",
+        "Flag duplicate records; don't delete them.",
+        "Collect copays at check-in."
+      ],
+      "terms": [
+        [
+          "Assignment of benefits",
+          "Patient's permission for the insurer to pay the provider directly."
+        ],
+        [
+          "Copay",
+          "Fixed amount the patient pays per visit."
+        ],
+        [
+          "Coinsurance",
+          "Patient's percentage share of the allowed amount."
+        ],
+        [
+          "EOB",
+          "Explanation of benefits describing claim processing."
+        ],
+        [
+          "ERA",
+          "Electronic remittance advice sent to the provider."
+        ],
+        [
+          "Duplicate record",
+          "A second record for the same patient, which must be merged."
+        ],
+        [
+          "Medical necessity",
+          "Services reasonable and needed for the documented condition."
+        ],
+        [
+          "Encounter form",
+          "Superbill listing services and diagnoses for charge entry."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "The patient encounter",
+          "bullets": [
+            "19% of the CMAA",
+            "Check-in to check-out",
+            "Accuracy protects care and payment"
+          ],
+          "script": [
+            "This module covers the patient's visit from the administrative side, from check-in and insurance verification to check-out.",
+            "Accurate identity and insurance data protect patient safety and prevent claim problems."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Identify",
+                "d": "Name + DOB"
+              },
+              {
+                "t": "Verify",
+                "d": "ID · insurance"
+              },
+              {
+                "t": "Forms",
+                "d": "Consent · AOB"
+              },
+              {
+                "t": "Collect",
+                "d": "Copay"
+              },
+              {
+                "t": "Check out",
+                "d": "Follow-up"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Check-in essentials",
+          "bullets": [
+            "Two identifiers",
+            "ID and both sides of the card",
+            "Eligibility and authorizations"
+          ],
+          "script": [
+            "Ask the patient to state their full name and date of birth. Scan a photo ID and both sides of the insurance card, and update demographics.",
+            "Verify eligibility and benefits, confirm any referral or authorization, and collect the copay."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Identity",
+                "d": "Name + DOB"
+              },
+              {
+                "t": "Insurance",
+                "d": "Front + back"
+              },
+              {
+                "t": "Forms",
+                "d": "AOB · HIPAA · financial"
+              },
+              {
+                "t": "Payment",
+                "d": "Copay now"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Explaining insurance",
+          "bullets": [
+            "Copay vs. coinsurance",
+            "Medicare vs. Medicaid",
+            "EOB is not a bill"
+          ],
+          "script": [
+            "A copay is a fixed amount per visit. Coinsurance is a percentage of the allowed amount, after the deductible.",
+            "Medicare is federal and mainly for people sixty-five or older, or with certain disabilities. Medicaid is a federal-state program based mainly on income, and it pays last. An explanation of benefits shows how a claim was processed, but it is not a bill."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Term",
+              "Meaning"
+            ],
+            "rows": [
+              [
+                "Copay",
+                "Fixed $ per visit"
+              ],
+              [
+                "Coinsurance",
+                "% after deductible"
+              ],
+              [
+                "Medicare",
+                "65+ or disability"
+              ],
+              [
+                "Medicaid",
+                "Income-based, pays last"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Records and check-out",
+          "bullets": [
+            "Flag duplicates; don't delete",
+            "Primary vs. secondary records",
+            "Schedule follow-up and collect"
+          ],
+          "script": [
+            "If you find two records for one patient, flag them per policy so authorized staff can merge them. Never delete records yourself.",
+            "At check-out, schedule follow-up visits, give the patient instructions or referrals, and collect any balance due."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Find duplicate",
+                "d": ""
+              },
+              {
+                "t": "Flag",
+                "d": "Per policy"
+              },
+              {
+                "t": "HIM reviews",
+                "d": ""
+              },
+              {
+                "t": "Merge",
+                "d": ""
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: patient encounter",
+          "bullets": [
+            "Revisit the key ideas",
+            "Practice with scenarios",
+            "Try the question set"
+          ],
+          "script": [
+            "You've finished the patient encounter overview. Go back over the key terms and the situations where the front office has to decide what to do next.",
+            "Then try the patient encounter question set and read each explanation."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D6",
+      "short": "Billing",
+      "title": "Billing and revenue cycle",
+      "summary": "Prepare documentation for billing, reconcile charges, bill patients and payers, collect payments, and support denials and appeals, using payment models, aging reports, and payer requirements.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>11 scored items cover billing: revenue cycle phases, payment models, financial eligibility and sliding scales, Medicare versus Medicaid, CMS requirements, aging, collections, adjustments and write-offs, third-party requirements, referrals and authorizations, and clearinghouses.</p>"
+        },
+        {
+          "h": "Revenue cycle and payment models",
+          "html": "<p>The revenue cycle runs from scheduling and registration through charge capture, coding, claims, payment posting, denial follow-up, and patient collections. Payment models: <b>fee-for-service</b> (paid per service), <b>capitation</b> (fixed per member per month), bundled payments, and value-based arrangements that reward quality and cost outcomes.</p>"
+        },
+        {
+          "h": "Daily billing tasks",
+          "html": "<p>Reconcile charges daily by comparing encounters seen with charges entered. Claims go through a clearinghouse that scrubs errors before the payer. Use aging reports (0–30, 31–60, 61–90, 90+ days) to prioritize follow-up. Contractual write-offs reflect payer contracts; bad-debt write-offs follow policy. Statements should be clear about dates, services, payments, and balance. Screen uninsured patients for sliding fee scales, charity care, and public programs.</p>"
+        }
+      ],
+      "tips": [
+        "Reconcile charges every day.",
+        "Capitation = fixed per member per month.",
+        "Prioritize old and high-dollar balances.",
+        "Missing authorizations cause preventable denials."
+      ],
+      "terms": [
+        [
+          "Fee-for-service",
+          "Payment for each service performed."
+        ],
+        [
+          "Capitation",
+          "Fixed per-member payment regardless of services."
+        ],
+        [
+          "Sliding fee scale",
+          "Discounts based on household income."
+        ],
+        [
+          "Aging report",
+          "Unpaid balances grouped by age."
+        ],
+        [
+          "Charge reconciliation",
+          "Matching encounters to charges entered."
+        ],
+        [
+          "Clearinghouse",
+          "Scrubs and forwards claims."
+        ],
+        [
+          "Write-off",
+          "Removing a balance as contractual or uncollectible."
+        ],
+        [
+          "Revenue cycle",
+          "The financial process from scheduling to payment."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Billing and the revenue cycle",
+          "bullets": [
+            "10% of the CMAA",
+            "From charge to payment",
+            "Front-office accuracy pays off"
+          ],
+          "script": [
+            "This module covers the billing tasks a medical administrative assistant supports, from charge reconciliation to patient statements.",
+            "Accuracy at registration and check-out keeps the revenue cycle moving."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Register",
+                "d": ""
+              },
+              {
+                "t": "Capture",
+                "d": "Charges"
+              },
+              {
+                "t": "Claim",
+                "d": "Clearinghouse"
+              },
+              {
+                "t": "Post",
+                "d": "Payments"
+              },
+              {
+                "t": "Follow up",
+                "d": "Aging"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Payment models",
+          "bullets": [
+            "Fee-for-service",
+            "Capitation",
+            "Value-based"
+          ],
+          "script": [
+            "Fee-for-service pays for each service. Capitation pays a fixed amount per member per month, no matter how many services are used.",
+            "Value-based models tie payment to quality and cost outcomes. Bundled payments cover an episode of care."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Fee-for-service",
+                "d": "Per service"
+              },
+              {
+                "t": "Capitation",
+                "d": "Per member per month"
+              },
+              {
+                "t": "Bundled",
+                "d": "Per episode"
+              },
+              {
+                "t": "Value-based",
+                "d": "Quality + cost"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Daily billing tasks",
+          "bullets": [
+            "Charge reconciliation",
+            "Clearinghouse scrubbing",
+            "Aging and follow-up"
+          ],
+          "script": [
+            "Each day, compare the encounters seen with the charges entered to catch anything missing or duplicated. Claims pass through a clearinghouse that catches errors before the payer sees them.",
+            "Aging reports group unpaid balances by age. Work the oldest and largest first, and screen uninsured patients for sliding fee scales and assistance programs."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Bucket",
+              "Action"
+            ],
+            "rows": [
+              [
+                "0–30",
+                "Monitor"
+              ],
+              [
+                "31–60",
+                "Follow up"
+              ],
+              [
+                "61–90",
+                "Escalate"
+              ],
+              [
+                "90+",
+                "Collections per policy"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Review: billing and revenue cycle",
+          "bullets": [
+            "Revisit the key ideas",
+            "Practice with scenarios",
+            "Try the question set"
+          ],
+          "script": [
+            "You've finished the billing and revenue cycle overview. Go back over the key terms and the situations where the front office has to decide what to do next.",
+            "Then try the billing and revenue cycle question set and read each explanation."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D7",
+      "short": "Office procedures",
+      "title": "Medical practice administrative procedures and logistics",
+      "summary": "Manage medical records and filing, handle petty cash and end-of-day reconciliation, open and close the office, receive deliveries and manage inventory, follow telephone and correspondence standards, and protect data.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>14 scored items cover office operations: policies and procedures, filing systems, petty cash and reconciliation, opening and closing, phone procedures, letters, computer skills, ADA compliance, inventory, data backup, and downtime procedures.</p>"
+        },
+        {
+          "h": "Records, filing, and correspondence",
+          "html": "<p>Filing systems: <b>alphabetic</b> (last name, first name, middle initial), <b>numeric</b>, and <b>terminal-digit</b> (by the last digits first, which spreads records evenly). Retain records according to state law and policy, and destroy them securely. Forward legal requests such as subpoenas to the designated person. Letter styles: <b>full block</b> (everything at the left margin), <b>modified block</b> (date and closing to the right of center), and <b>semi-block</b> (indented paragraphs).</p>"
+        },
+        {
+          "h": "Money, supplies, and the building",
+          "html": "<p>Petty cash is a fixed fund for small expenses. Cash on hand plus receipts must equal the fund. End-of-day reconciliation matches payments posted, receipts, and the deposit, and any discrepancy is reported, never covered up. Check deliveries against the packing slip and purchase order. Keep supplies at par levels and rotate stock first in, first out. Opening tasks: alarm, messages, schedule review. Closing tasks: secure records, reconcile, back up, lock up.</p>"
+        },
+        {
+          "h": "Technology and continuity",
+          "html": "<p>Use unique logins, strong passwords, and screen locks. Back up data regularly and test restores (part of the HIPAA Security Rule's contingency planning). During EHR downtime, use paper downtime forms and enter the data once the system is restored. When faxing PHI, verify the number and use a confidentiality cover sheet.</p>"
+        }
+      ],
+      "tips": [
+        "Terminal-digit filing reads the last digits first.",
+        "Cash + receipts = petty cash fund.",
+        "Report drawer discrepancies; never cover them.",
+        "Check packing slips against the purchase order.",
+        "Downtime: paper forms now, EHR entry later."
+      ],
+      "terms": [
+        [
+          "Terminal-digit filing",
+          "Filing by the last digits of the record number first."
+        ],
+        [
+          "Petty cash",
+          "Small fixed fund for incidental expenses."
+        ],
+        [
+          "End-of-day reconciliation",
+          "Matching payments, receipts, and deposits."
+        ],
+        [
+          "Par level",
+          "Minimum stock that triggers reordering."
+        ],
+        [
+          "Packing slip",
+          "List of items shipped, checked against the order."
+        ],
+        [
+          "Full block letter",
+          "All lines start at the left margin."
+        ],
+        [
+          "Downtime procedure",
+          "Plan for working when systems are unavailable."
+        ],
+        [
+          "Data backup",
+          "Copies of data kept securely to restore after loss."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Running the office",
+          "bullets": [
+            "13% of the CMAA",
+            "Records, money, supplies, systems",
+            "Consistency keeps things safe"
+          ],
+          "script": [
+            "This module covers the logistics of a medical office: records and filing, cash handling, supplies, correspondence, and technology.",
+            "Consistent procedures protect patient information and the practice's finances."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Records",
+                "d": "Filing · retention"
+              },
+              {
+                "t": "Money",
+                "d": "Petty cash · reconciliation"
+              },
+              {
+                "t": "Supplies",
+                "d": "Par · FIFO"
+              },
+              {
+                "t": "Systems",
+                "d": "Backup · downtime"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Filing and letters",
+          "bullets": [
+            "Alphabetic · numeric · terminal digit",
+            "Retention per state law",
+            "Full block · modified block"
+          ],
+          "script": [
+            "Alphabetic filing goes by last name, then first name. Terminal-digit filing reads the last digits of the record number first, which spreads files evenly.",
+            "In a full block letter, every line starts at the left margin. In modified block, the date and closing start right of center."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "System",
+              "Order"
+            ],
+            "rows": [
+              [
+                "Alphabetic",
+                "Last, first, middle"
+              ],
+              [
+                "Numeric",
+                "Straight number"
+              ],
+              [
+                "Terminal digit",
+                "Last digits first"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Cash and reconciliation",
+          "bullets": [
+            "Petty cash: cash + receipts = fund",
+            "End-of-day: posted = receipts = deposit",
+            "Report discrepancies"
+          ],
+          "script": [
+            "Petty cash covers small expenses. At any time, the cash on hand plus receipts must equal the fund amount.",
+            "At the end of the day, payments posted, receipts, and the deposit must match. If the drawer is short, recount and report it per policy. Never cover a shortage."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Count",
+                "d": "Cash + checks"
+              },
+              {
+                "t": "Compare",
+                "d": "Posted payments"
+              },
+              {
+                "t": "Match",
+                "d": "Deposit slip"
+              },
+              {
+                "t": "Report",
+                "d": "Discrepancies"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Supplies and systems",
+          "bullets": [
+            "Check deliveries against orders",
+            "Par levels and FIFO",
+            "Backups and downtime"
+          ],
+          "script": [
+            "Check every delivery against the packing slip and purchase order. Keep supplies at par levels and rotate stock first in, first out.",
+            "Back up data regularly and test restores. If the EHR goes down, use downtime forms and enter the information when it's back."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Deliveries",
+                "d": "Slip vs. PO"
+              },
+              {
+                "t": "Inventory",
+                "d": "Par · FIFO"
+              },
+              {
+                "t": "Backups",
+                "d": "Regular · tested"
+              },
+              {
+                "t": "Downtime",
+                "d": "Paper → EHR"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: office procedures and logistics",
+          "bullets": [
+            "Revisit the key ideas",
+            "Practice with scenarios",
+            "Try the question set"
+          ],
+          "script": [
+            "You've finished the office procedures and logistics overview. Go back over the key terms and the situations where the front office has to decide what to do next.",
+            "Then try the office procedures and logistics question set and read each explanation."
+          ]
+        }
+      ]
+    }
+  ]
+}

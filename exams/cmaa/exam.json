@@ -1,0 +1,57 @@
+{
+  "slug": "cmaa",
+  "code": "CMAA",
+  "name": "NHA Certified Medical Administrative Assistant",
+  "vendor": "NHA",
+  "domains": {
+    "D1": {
+      "name": "Foundational knowledge",
+      "weight": "9%",
+      "pct": 9
+    },
+    "D2": {
+      "name": "Communication and professionalism",
+      "weight": "19%",
+      "pct": 19
+    },
+    "D3": {
+      "name": "Medical law, ethics, and compliance",
+      "weight": "15%",
+      "pct": 15
+    },
+    "D4": {
+      "name": "Scheduling",
+      "weight": "15%",
+      "pct": 15
+    },
+    "D5": {
+      "name": "Patient encounter",
+      "weight": "19%",
+      "pct": 19
+    },
+    "D6": {
+      "name": "Billing and revenue cycle",
+      "weight": "10%",
+      "pct": 10
+    },
+    "D7": {
+      "name": "Medical practice administrative procedures and logistics",
+      "weight": "13%",
+      "pct": 13
+    }
+  },
+  "scoring": {
+    "min": 200,
+    "max": 500,
+    "pass": 390
+  },
+  "minutesPerQuestion": 1,
+  "defaultSize": 100,
+  "sizeOptions": [
+    25,
+    50,
+    100
+  ],
+  "realExamNote": "The real CMAA exam has 110 scored and 25 unscored pretest questions (about 2 hours 15 minutes).",
+  "scoreNote": "NHA uses a scaled score from 200 to 500 with 390 to pass; this simulator maps percent correct onto that scale, so treat 390+ as a readiness signal, not a guarantee."
+}

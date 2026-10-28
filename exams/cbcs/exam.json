@@ -1,0 +1,42 @@
+{
+  "slug": "cbcs",
+  "code": "CBCS",
+  "name": "NHA Certified Billing and Coding Specialist",
+  "vendor": "NHA",
+  "domains": {
+    "D1": {
+      "name": "The revenue cycle and regulatory compliance",
+      "weight": "15%",
+      "pct": 15
+    },
+    "D2": {
+      "name": "Insurance eligibility and other payer requirements",
+      "weight": "20%",
+      "pct": 20
+    },
+    "D3": {
+      "name": "Coding and coding guidelines",
+      "weight": "32%",
+      "pct": 32
+    },
+    "D4": {
+      "name": "Billing and reimbursement",
+      "weight": "33%",
+      "pct": 33
+    }
+  },
+  "scoring": {
+    "min": 200,
+    "max": 500,
+    "pass": 390
+  },
+  "minutesPerQuestion": 1.44,
+  "defaultSize": 100,
+  "sizeOptions": [
+    25,
+    50,
+    100
+  ],
+  "realExamNote": "The real CBCS exam has 100 scored and 25 unscored pretest questions in 3 hours. CPT is a registered trademark of the American Medical Association.",
+  "scoreNote": "NHA uses a scaled score from 200 to 500 with 390 to pass; this simulator maps percent correct onto that scale, so treat 390+ as a readiness signal, not a guarantee."
+}

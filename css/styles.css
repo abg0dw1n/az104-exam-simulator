@@ -379,12 +379,16 @@ body.home .exams-link { display: none; }
 [data-vendor="amazon-web-services"] { --v: #ff9900; --v-soft: rgba(255,153,0,.15);  --v-text: #ffb547; }
 [data-vendor="google-cloud"]        { --v: #34a853; --v-soft: rgba(52,168,83,.16);  --v-text: #5fd17f; }
 [data-vendor="salesforce"]          { --v: #7c6cf0; --v-soft: rgba(124,108,240,.16); --v-text: #a99ff7; }
+[data-vendor="aapc"]                { --v: #d9489b; --v-soft: rgba(217,72,155,.15); --v-text: #f07fbf; }
+[data-vendor="nha"]                 { --v: #3aa0a0; --v-soft: rgba(58,160,160,.15); --v-text: #6fd0cc; }
 [data-theme="light"] [data-vendor="microsoft"]           { --v-soft: rgba(0,120,212,.10); --v-text: #005ba1; }
 [data-theme="light"] [data-vendor="comptia"]             { --v-soft: rgba(224,53,63,.10); --v-text: #b4212a; }
 [data-theme="light"] [data-vendor="cisco"]               { --v-soft: rgba(0,165,168,.12); --v-text: #00787a; }
 [data-theme="light"] [data-vendor="amazon-web-services"] { --v-soft: rgba(255,153,0,.14); --v-text: #a35c00; }
 [data-theme="light"] [data-vendor="google-cloud"]        { --v-soft: rgba(52,168,83,.12); --v-text: #1e7b3a; }
 [data-theme="light"] [data-vendor="salesforce"]          { --v-soft: rgba(124,108,240,.12); --v-text: #4f3fc4; }
+[data-theme="light"] [data-vendor="aapc"]                { --v-soft: rgba(217,72,155,.11); --v-text: #a82a72; }
+[data-theme="light"] [data-vendor="nha"]                 { --v-soft: rgba(58,160,160,.12); --v-text: #1f6f6f; }
 @media (max-width: 600px) { .exams-link { padding: 7px 10px; } }
 
 /* ── Sign-in & invites ──────────────────────────────── */

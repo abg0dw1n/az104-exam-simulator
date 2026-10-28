@@ -1,6 +1,6 @@
 # The IT Study Hall
 
-Learning paths, practice questions and timed exams for IT certifications, live at **The IT Study Hall**, https://it-study-hall.vercel.app
+Learning paths, practice questions and timed exams for IT and healthcare administration certifications, live at **The IT Study Hall**, https://it-study-hall.vercel.app
 (the older it-learn-and-practice, it-exam-simulator and az104-exam-simulator-drab `.vercel.app` addresses forward there; see `redirects` in `vercel.json`). Currently includes:
 
 | Exam | Folder | Questions | Scoring |
@@ -32,8 +32,11 @@ Learning paths, practice questions and timed exams for IT certifications, live a
 | Microsoft Azure AI Fundamentals (AI-901) | `exams/ai-901` | 100 | 700 / 1000 to pass |
 | AWS Certified AI Practitioner (AIF-C01) | `exams/aws-aif` | 132 | 700 on 100–1000 to pass |
 | Google Cloud Generative AI Leader | `exams/google-gail` | 110 | ~70% (Google doesn't publish a cut score) |
+| AAPC Certified Professional Coder (CPC) | `exams/cpc` | 152 | 70% to pass (real exam is open-book) |
+| NHA Certified Billing and Coding Specialist (CBCS) · beginner | `exams/cbcs` | 106 | 390 on 200–500 to pass |
+| NHA Certified Medical Administrative Assistant (CMAA) · beginner | `exams/cmaa` | 109 | 390 on 200–500 to pass |
 
-Open the site to pick an exam, or go straight to one at `/<folder>` (e.g. `/az-104`, `/network-plus`, `/security-plus`, `/ccna`, `/aws-saa`, `/ai-901`, `/aws-aif`, `/google-gail`). Each exam keeps its own progress and history.
+Open the site to pick an exam, or go straight to one at `/<folder>` (e.g. `/az-104`, `/network-plus`, `/security-plus`, `/ccna`, `/aws-saa`, `/ai-901`, `/aws-aif`, `/google-gail`, `/cpc`, `/cbcs`, `/cmaa`). Each exam keeps its own progress and history.
 
 ## Modes
 
@@ -113,6 +116,8 @@ For every new learning path, include at least one free, exam-specific YouTube vi
   }]
 }
 ```
+
+CPT is a registered trademark of the American Medical Association. The CPC, CBCS and CMAA banks and lessons paraphrase CPT concepts in their own words and don't reproduce CPT code descriptors.
 
 Visual types: `flow` (`steps`), `tree` (`levels`: array of rows), `cards` (`items` of `{t, d}`), `table` (`head`, `rows`), `code` (`lang`, `text`), `layers` (`items`, top to bottom). Video length is roughly script words ÷ 150 minutes.
 

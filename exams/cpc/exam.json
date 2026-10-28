@@ -1,0 +1,47 @@
+{
+  "slug": "cpc",
+  "code": "CPC",
+  "name": "AAPC Certified Professional Coder",
+  "vendor": "AAPC",
+  "domains": {
+    "D1": {
+      "name": "Surgery (CPT 10000–69999)",
+      "weight": "40%",
+      "pct": 40
+    },
+    "D2": {
+      "name": "E/M, anesthesia, radiology, lab, and medicine",
+      "weight": "31%",
+      "pct": 31
+    },
+    "D3": {
+      "name": "ICD-10-CM and HCPCS Level II",
+      "weight": "9%",
+      "pct": 9
+    },
+    "D4": {
+      "name": "Coding guidelines, modifiers, and compliance",
+      "weight": "11%",
+      "pct": 11
+    },
+    "D5": {
+      "name": "Medical terminology and anatomy",
+      "weight": "9%",
+      "pct": 9
+    }
+  },
+  "scoring": {
+    "min": 0,
+    "max": 100,
+    "pass": 70
+  },
+  "minutesPerQuestion": 2.4,
+  "defaultSize": 100,
+  "sizeOptions": [
+    25,
+    50,
+    100
+  ],
+  "realExamNote": "The real CPC exam has 100 multiple-choice questions in 4 hours, including 10 multi-part coding cases, and is open-book (AMA CPT Professional Edition, ICD-10-CM and HCPCS Level II books). This simulator tests the guidelines and concepts you apply with those books, without the books. CPT is a registered trademark of the American Medical Association.",
+  "scoreNote": "AAPC requires 70% (70 correct) to pass. Treat 70+ here as a readiness signal, and practice coding with your books too."
+}

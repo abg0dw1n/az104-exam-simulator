@@ -1,0 +1,1466 @@
+{
+  "intro": "Five modules follow the AAPC CPC exam's content areas, grouped into surgery, services, diagnosis and HCPCS coding, guidelines and compliance, and terminology and anatomy. Each has a study guide, exam tips, key terms, visual slides, and a narrated lesson. The real exam is open-book, so use these with the current AMA CPT Professional Edition, an ICD-10-CM book, and a HCPCS Level II book. CPT is a registered trademark of the American Medical Association.",
+  "updated": "2026-10-28",
+  "sources": [
+    {
+      "title": "AAPC: CPC exam FAQs (format, allowed books, content areas)",
+      "url": "https://www.aapc.com/resources/cpc-exam-faqs"
+    },
+    {
+      "title": "CMS: ICD-10-CM Official Guidelines for Coding and Reporting FY 2026 (PDF)",
+      "url": "https://www.cms.gov/files/document/fy-2026-icd-10-cm-coding-guidelines.pdf"
+    },
+    {
+      "title": "CMS: National Correct Coding Initiative (NCCI)",
+      "url": "https://www.cms.gov/national-correct-coding-initiative-ncci"
+    },
+    {
+      "title": "CMS: Healthcare Common Procedure Coding System (HCPCS)",
+      "url": "https://www.cms.gov/medicare/coding-billing/healthcare-common-procedure-system"
+    },
+    {
+      "title": "HHS-OIG: General Compliance Program Guidance",
+      "url": "https://oig.hhs.gov/compliance/general-compliance-program-guidance/"
+    }
+  ],
+  "modules": [
+    {
+      "id": "D1",
+      "short": "Surgery",
+      "title": "Code surgical procedures (CPT 10000–69999)",
+      "summary": "Apply the surgical package, size and depth rules, endoscopy and fracture conventions, and the section guidelines for each body system from integumentary through eye and ear.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>About 36 of the CPC exam's 100 questions come from the surgery series: integumentary (10000s), musculoskeletal (20000s), respiratory and cardiovascular (30000s), digestive (40000s), urinary, reproductive, maternity and endocrine (50000s), and nervous system, eye and ear (60000s). Many of the 10 case questions are surgical too.</p><p>The exam is open-book. You bring the AMA CPT Professional Edition, so the skill being tested is reading the operative note, finding the right family in the index, and applying the guidelines at the start of each section and the parenthetical notes under each code.</p>"
+        },
+        {
+          "h": "The surgical package and global periods",
+          "html": "<p>Each surgical code includes a package of related work: local, digital, or topical anesthesia; one related E/M encounter after the decision for surgery; immediate post-op care, orders, and the recovery-room evaluation; and typical follow-up care. Under Medicare, minor procedures have 0- or 10-day global periods. Major procedures have 90 days plus the day before and the day of surgery.</p><p>Modifiers explain work that falls outside the package: <b>57</b> for the decision for major surgery, <b>25</b> for a significant separate E/M with a minor procedure, <b>24</b> for an unrelated E/M after surgery, <b>58</b> for staged or planned procedures, <b>78</b> for an unplanned return to the OR for a complication, and <b>79</b> for an unrelated procedure.</p>"
+        },
+        {
+          "h": "Integumentary rules that drive most questions",
+          "html": "<p><b>Lesion excision:</b> code by benign or malignant status, site, and excised diameter. That diameter is the lesion's greatest clinical diameter plus the narrowest margin on each side, measured before excision. Simple closure is included; intermediate or complex repair is added.</p><p><b>Wound repair:</b> classify as simple, intermediate, or complex. Add together the lengths of repairs in the same classification and anatomic group. <b>Debridement:</b> choose the code by the deepest tissue removed and the total surface area at that depth. <b>Destruction</b> of premalignant lesions uses a first-lesion code, an add-on for lesions 2–14, and a stand-alone code for 15 or more. <b>Mohs</b> codes include the surgeon's own pathology work.</p>"
+        },
+        {
+          "h": "Musculoskeletal, endoscopy, and the 30000–40000 series",
+          "html": "<p>Fracture codes are open, closed, or percutaneous, with or without manipulation, and they include the first cast. Surgical endoscopy and arthroscopy always include the diagnostic scope. Some codes are unilateral (sinus endoscopy, transforaminal epidurals, tympanostomy, cerumen removal), so bilateral work uses modifier 50.</p><p>In vascular work, code the most selective catheter placement in each vascular family. CABG has separate venous, arterial, and combined arterial-venous families. In the digestive system, one biopsy code covers single or multiple biopsies, and a lesion biopsied and then removed is coded as removal only. Colonoscopy screening rules differ for Medicare (G0105/G0121, modifier PT) and commercial payers (modifier 33).</p>"
+        },
+        {
+          "h": "50000–60000 series highlights",
+          "html": "<p>Maternity has a global OB package: routine antepartum, delivery, and postpartum care. Ultrasounds, labs other than routine urinalysis, and complications are reported separately. Partial antepartum care is coded by visit count. VBAC and cesarean-after-attempted-VBAC have their own families.</p><p>In the nervous system, epidural and facet injections include imaging guidance, and transforaminal and facet codes are per level. For the eye, distinguish routine and complex cataract extraction. For the ear, tympanostomy codes differ by anesthesia type and are unilateral.</p>"
+        }
+      ],
+      "tips": [
+        "Read the section guidelines and the parenthetical notes. Many exam answers hinge on a single \"do not report with\" note.",
+        "Measure excisions before closure: lesion plus margins on both sides.",
+        "Add repair lengths only within the same classification and anatomic group.",
+        "Surgical endoscopy includes diagnostic endoscopy. Never add the diagnostic code.",
+        "Watch for unilateral codes and use modifier 50 when bilateral.",
+        "Use the index to find a code family, then verify the exact code in the main section."
+      ],
+      "terms": [
+        [
+          "Global period",
+          "Days after a surgery (0, 10, or 90 under Medicare) during which related routine care is included."
+        ],
+        [
+          "Excised diameter",
+          "Lesion diameter plus the narrowest margins on each side, used to choose excision codes."
+        ],
+        [
+          "Intermediate repair",
+          "Layered closure of deeper tissue, or single-layer closure of a heavily contaminated wound."
+        ],
+        [
+          "Add-on code (+)",
+          "Additional work reported with a primary code, never alone, and exempt from modifier 51."
+        ],
+        [
+          "Separate procedure",
+          "A code reportable only when done alone or distinct from other procedures in the session."
+        ],
+        [
+          "Open treatment",
+          "Fracture care where the fracture site is surgically opened."
+        ],
+        [
+          "Vascular family",
+          "Vessels reached from one primary branch, coded by the most selective catheter placement."
+        ],
+        [
+          "Global OB package",
+          "Routine antepartum care, delivery, and postpartum care reported with one code."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Surgery: the biggest share of the CPC",
+          "bullets": [
+            "About 36 questions plus cases",
+            "Open-book: the guidelines matter most",
+            "Read the note, find the family, verify"
+          ],
+          "script": [
+            "Welcome to the Surgery module. On the CPC exam, the surgery series from 10000 to 69999 makes up the largest group of questions, and many case questions are surgical as well.",
+            "Because the exam is open-book, success comes from reading the operative note carefully, finding the right code family in the index, and applying the section guidelines and parenthetical notes."
+          ],
+          "visual": {
+            "type": "layers",
+            "items": [
+              {
+                "t": "10000s",
+                "d": "Integumentary"
+              },
+              {
+                "t": "20000s",
+                "d": "Musculoskeletal"
+              },
+              {
+                "t": "30000s",
+                "d": "Respiratory · cardiovascular"
+              },
+              {
+                "t": "40000s",
+                "d": "Digestive"
+              },
+              {
+                "t": "50000s",
+                "d": "Urinary · reproductive · maternity"
+              },
+              {
+                "t": "60000s",
+                "d": "Nervous · eye · ear"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "The surgical package",
+          "bullets": [
+            "Local or topical anesthesia included",
+            "One related E/M after the decision for surgery",
+            "Typical post-op care included"
+          ],
+          "script": [
+            "Every surgical code includes a package of related services: local or topical anesthesia, immediate post-op care, the recovery-room evaluation, and typical follow-up during the global period.",
+            "Medicare minor procedures have 0- or 10-day globals. Major procedures have 90 days, plus the day before and the day of surgery."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Situation",
+              "Modifier"
+            ],
+            "rows": [
+              [
+                "Decision for major surgery",
+                "57"
+              ],
+              [
+                "Separate E/M with minor procedure",
+                "25"
+              ],
+              [
+                "Unrelated E/M in global",
+                "24"
+              ],
+              [
+                "Staged or planned",
+                "58"
+              ],
+              [
+                "Unplanned return to OR",
+                "78"
+              ],
+              [
+                "Unrelated procedure",
+                "79"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Excisions and repairs",
+          "bullets": [
+            "Size = lesion + both margins",
+            "Simple closure is included",
+            "Add repairs by class and site group"
+          ],
+          "script": [
+            "For an excision, measure the lesion's greatest diameter plus the narrowest margin on each side, before the excision. A simple closure is part of the excision code.",
+            "Repairs are classified as simple, intermediate, or complex. Add lengths together only when the classification and anatomic group match."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Measure",
+                "d": "Lesion + margins"
+              },
+              {
+                "t": "Classify",
+                "d": "Benign or malignant"
+              },
+              {
+                "t": "Choose site",
+                "d": "Anatomic group"
+              },
+              {
+                "t": "Repair?",
+                "d": "Add if intermediate+"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Debridement and destruction",
+          "bullets": [
+            "Depth chooses the family",
+            "Sum area at the same depth",
+            "15+ premalignant lesions: one code"
+          ],
+          "script": [
+            "Debridement is coded by the deepest tissue removed, then by surface area. Combine wounds debrided to the same depth, but code each depth separately.",
+            "For destruction of premalignant lesions, use the first-lesion code plus an add-on for lesions two through fourteen, or one stand-alone code for fifteen or more."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Subcutaneous",
+                "d": "First 20 sq cm + add-on"
+              },
+              {
+                "t": "Muscle/fascia",
+                "d": "Own family"
+              },
+              {
+                "t": "Bone",
+                "d": "Own family"
+              },
+              {
+                "t": "Destruction",
+                "d": "1 · 2–14 · 15+"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Fractures and endoscopy",
+          "bullets": [
+            "Open, closed, or percutaneous",
+            "First cast is included",
+            "Surgical scope includes diagnostic"
+          ],
+          "script": [
+            "Fracture treatment is open, closed, or percutaneous fixation, with or without manipulation, and the first cast is included.",
+            "Any surgical endoscopy or arthroscopy includes the diagnostic look. Watch for unilateral codes, such as sinus endoscopy, and use modifier 50 when bilateral."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Diagnostic scope",
+                "d": "Included"
+              },
+              {
+                "t": "Surgical scope",
+                "d": "Report"
+              },
+              {
+                "t": "Bilateral?",
+                "d": "Modifier 50"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Digestive, maternity, and nervous system",
+          "bullets": [
+            "One biopsy code covers multiple biopsies",
+            "Global OB: antepartum, delivery, postpartum",
+            "Spinal injections include imaging"
+          ],
+          "script": [
+            "In the digestive system, biopsy codes cover single or multiple biopsies, and a lesion that is biopsied and then removed is coded only as removal. Medicare screening colonoscopy uses G codes, or modifier PT when it becomes therapeutic.",
+            "Maternity has a global package. Partial antepartum care is coded by visit count. Epidural and facet injections include imaging guidance, and transforaminal and facet injections are coded per level."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Area",
+              "Key rule"
+            ],
+            "rows": [
+              [
+                "Colonoscopy",
+                "Biopsy then removal = removal only"
+              ],
+              [
+                "Maternity",
+                "1–3 visits E/M · 4–6 · 7+"
+              ],
+              [
+                "Epidurals",
+                "Imaging included"
+              ],
+              [
+                "Ear",
+                "Tympanostomy unilateral"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Review: Surgery",
+          "bullets": [
+            "Apply the package and modifiers",
+            "Measure and classify carefully",
+            "Read every parenthetical note"
+          ],
+          "script": [
+            "You have finished the Surgery overview. Revisit the surgical package, excision and repair math, debridement by depth, endoscopy rules, and maternity packages.",
+            "Then practice with the Surgery question set and check each explanation against your CPT book."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "short": "E/M & services",
+      "title": "Evaluation and management, anesthesia, radiology, lab, and medicine",
+      "summary": "Select E/M levels by MDM or time, calculate anesthesia, separate professional and technical components, report lab panels and pathology correctly, and code medicine services like vaccines, infusions, and psychotherapy.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>About 28 CPC questions cover E/M (6), anesthesia (4), radiology (6), pathology and laboratory (6), and medicine (6), plus related case questions. These sections reward knowing each section's guidelines well, more than looking up individual codes.</p>"
+        },
+        {
+          "h": "E/M: MDM or time",
+          "html": "<p>Office and outpatient visits (99202–99215), hospital inpatient and observation codes, and most other E/M families now use <b>medical decision making</b> or <b>total time on the date of the encounter</b>. MDM has three elements: problems addressed, data reviewed and analyzed, and risk of management. Two of three must be met or exceeded.</p><p>Office time thresholds: new 15/30/45/60 minutes for 99202–99205, established 10/20/30/40 for 99212–99215. A new patient has had no professional services from the same physician, or same specialty in the same group, in three years. ED codes have no new/established distinction and no time thresholds. Critical care starts at 30 minutes.</p>"
+        },
+        {
+          "h": "Anesthesia",
+          "html": "<p>Anesthesia is paid as (base units + time units + modifying units) × conversion factor. Time runs from when the provider begins preparing the patient until the patient is safely placed under post-anesthesia care. Physical status modifiers P1–P6 describe patient condition. Qualifying circumstance add-ons cover extreme age (99100), hypothermia, controlled hypotension, and emergencies.</p><p>For multiple procedures in one session, report the anesthesia code with the highest base units and the total time. Medicare modifiers: AA personally performed, QK medical direction of 2–4 concurrent cases, QY one CRNA, QX CRNA with direction, QZ CRNA without, and QS for MAC.</p>"
+        },
+        {
+          "h": "Radiology and pathology/lab",
+          "html": "<p>Use modifier 26 for the interpretation and TC for the equipment and technician. \"With contrast\" means intravascular, intra-articular, or intrathecal; oral or rectal contrast alone doesn't count. An ultrasound needs permanently recorded images and a report, and a complete study needs every element listed for that region.</p><p>Report lab panels only when every component test is done, and report extra tests separately. Surgical pathology is coded per specimen. Medicare requires modifier QW on certain CLIA-waived tests.</p>"
+        },
+        {
+          "h": "Medicine section",
+          "html": "<p>Vaccines need two codes: the product and the administration. Use 90460/90461 for patients through age 18 when a physician or QHP counsels; otherwise use 90471/90472. Medicare uses G0008, G0009, and G0010.</p><p>Infusions: the initial hour is reported with additional hours as add-ons, and infusions of 15 minutes or less are reported as a push. Hydration of 30 minutes or less isn't reported. Psychotherapy time codes are 16–37, 38–52, and 53+ minutes. ECG codes split into complete, tracing only, and interpretation only.</p>"
+        }
+      ],
+      "tips": [
+        "For office E/M, choose MDM or time, whichever supports the more accurate level.",
+        "Know the office time thresholds by heart; they appear often.",
+        "Anesthesia: one code per session, the one with the highest base units.",
+        "Oral contrast alone never makes a study \"with contrast.\"",
+        "Panels require every component test, and extra tests are coded separately.",
+        "Vaccines always need a product code and an administration code."
+      ],
+      "terms": [
+        [
+          "MDM",
+          "Medical decision making: problems, data, and risk. Two of three set the level."
+        ],
+        [
+          "Total time",
+          "All physician/QHP time on the encounter date, face-to-face or not, excluding separately reported services."
+        ],
+        [
+          "Base units",
+          "Anesthesia value assigned to each anesthesia code to reflect complexity."
+        ],
+        [
+          "Physical status modifier",
+          "P1–P6 descriptors of the patient's condition for anesthesia."
+        ],
+        [
+          "Professional component (26)",
+          "The physician's interpretation and report."
+        ],
+        [
+          "Technical component (TC)",
+          "Equipment, supplies, and technician work."
+        ],
+        [
+          "Panel",
+          "A group of lab tests reported with one code when all are performed."
+        ],
+        [
+          "Push",
+          "IV injection of 15 minutes or less."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Services across five sections",
+          "bullets": [
+            "E/M · Anesthesia · Radiology",
+            "Pathology & lab · Medicine",
+            "Guidelines over memorization"
+          ],
+          "script": [
+            "This module covers evaluation and management, anesthesia, radiology, pathology and laboratory, and medicine. Together they make up 28 of the CPC exam's 100 questions, plus related case questions.",
+            "Each section has its own guidelines, and the questions test those rules more than individual code numbers."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "E/M",
+                "d": "MDM or time"
+              },
+              {
+                "t": "Anesthesia",
+                "d": "Base + time + modifying"
+              },
+              {
+                "t": "Radiology",
+                "d": "26 / TC"
+              },
+              {
+                "t": "Lab",
+                "d": "Panels · specimens"
+              },
+              {
+                "t": "Medicine",
+                "d": "Vaccines · infusions"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "E/M: choose by MDM or time",
+          "bullets": [
+            "Two of three MDM elements",
+            "Or total time on that date",
+            "New patient: 3-year rule"
+          ],
+          "script": [
+            "Office visits are leveled by medical decision making or by the physician's total time on the date of service. MDM uses problems, data, and risk, and two of the three must be met.",
+            "A patient is new when they haven't had professional services from the same physician, or the same specialty in the group, within three years."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Level",
+              "New (min)",
+              "Established (min)"
+            ],
+            "rows": [
+              [
+                "2",
+                "15",
+                "10"
+              ],
+              [
+                "3",
+                "30",
+                "20"
+              ],
+              [
+                "4",
+                "45",
+                "30"
+              ],
+              [
+                "5",
+                "60",
+                "40"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Other E/M families",
+          "bullets": [
+            "ED: no time, no new/established",
+            "Critical care starts at 30 minutes",
+            "Medicare doesn't pay consult codes"
+          ],
+          "script": [
+            "Emergency department codes are leveled by MDM, with no time thresholds and no new or established distinction. Critical care requires at least thirty minutes.",
+            "Medicare doesn't recognize consultation codes, so report the office or hospital E/M instead. Preventive visits with a significant problem add a problem E/M with modifier 25."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "ED",
+                "d": "99281–99285"
+              },
+              {
+                "t": "Critical care",
+                "d": "99291 · +99292"
+              },
+              {
+                "t": "Discharge",
+                "d": "≤30 · >30 min"
+              },
+              {
+                "t": "Preventive",
+                "d": "+ problem E/M w/ 25"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Anesthesia",
+          "bullets": [
+            "(Base + time + modifying) × CF",
+            "Highest base unit code per session",
+            "Medical direction modifiers"
+          ],
+          "script": [
+            "Anesthesia payment adds base units, time units, and modifying units, then multiplies by the conversion factor. Report one anesthesia code per session, the one with the highest base value, using the total time.",
+            "Physical status modifiers and qualifying circumstance codes, such as extreme age, describe added risk. Medicare uses AA, QK, QX, QZ, and QS to show who provided the service."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Base units",
+                "d": "From the code"
+              },
+              {
+                "t": "Time units",
+                "d": "Prep to handoff"
+              },
+              {
+                "t": "Modifying",
+                "d": "P status · 99100"
+              },
+              {
+                "t": "× CF",
+                "d": "Payment"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Radiology and lab",
+          "bullets": [
+            "26 = read · TC = equipment",
+            "Oral contrast isn't \"with contrast\"",
+            "Panels need every test"
+          ],
+          "script": [
+            "Use modifier 26 for interpretation and TC for the technical component. Contrast counts only when it is intravascular, intra-articular, or intrathecal. A complete ultrasound must document every required element.",
+            "Report a lab panel only when every component test is performed. Surgical pathology is coded per specimen."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Rule",
+              "Detail"
+            ],
+            "rows": [
+              [
+                "Contrast",
+                "IV · intra-articular · intrathecal"
+              ],
+              [
+                "Ultrasound",
+                "Recorded images + report"
+              ],
+              [
+                "Panel",
+                "All components or none"
+              ],
+              [
+                "Pathology",
+                "Per specimen"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Medicine section",
+          "bullets": [
+            "Vaccine: product + administration",
+            "Infusion hierarchy and time",
+            "Psychotherapy time ranges"
+          ],
+          "script": [
+            "For vaccines, report the product and the administration. Use 90460 when a physician counsels a patient through age eighteen, or 90471 otherwise. Medicare uses G0008 for flu shots.",
+            "Infusions of fifteen minutes or less are pushes. Hydration needs more than thirty minutes. Psychotherapy uses time ranges of sixteen to thirty-seven, thirty-eight to fifty-two, and fifty-three minutes or more."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Vaccines",
+                "d": "90460 / 90471 · G0008"
+              },
+              {
+                "t": "Infusion",
+                "d": "96365 + 96366"
+              },
+              {
+                "t": "Psychotherapy",
+                "d": "90832 · 90834 · 90837"
+              },
+              {
+                "t": "ECG",
+                "d": "93000 · 93005 · 93010"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: E/M and services",
+          "bullets": [
+            "MDM or time for E/M",
+            "One anesthesia code, total time",
+            "Component rules for radiology and lab"
+          ],
+          "script": [
+            "You've finished the services overview. Practice choosing E/M levels from MDM and time, building anesthesia units, and splitting professional and technical components.",
+            "Then try the E/M and services question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "short": "ICD-10-CM & HCPCS",
+      "title": "Assign ICD-10-CM diagnoses and HCPCS Level II codes",
+      "summary": "Follow ICD-10-CM conventions and official guidelines for outpatient diagnoses, including sequencing, 7th characters, and chapter-specific rules, and use HCPCS Level II codes, units, and modifiers.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>The CPC has 5 questions on ICD-10-CM and its Official Guidelines and 3 on HCPCS Level II, but diagnosis coding also appears in nearly every case question. Diagnoses are what prove medical necessity for procedures.</p>"
+        },
+        {
+          "h": "Conventions",
+          "html": "<p>Always start in the Alphabetic Index and verify in the Tabular List. Code to the highest specificity documented. Use X as a placeholder before a required 7th character. <b>Excludes1</b> means the conditions are never coded together (except when unrelated). <b>Excludes2</b> means both may be coded. Follow \"code first,\" \"use additional code,\" and \"code also\" notes. NEC means the documentation is specific but no specific code exists. NOS means unspecified.</p>"
+        },
+        {
+          "h": "Outpatient guidelines",
+          "html": "<p>In outpatient settings, don't code diagnoses documented as probable, suspected, questionable, or rule out. Code the signs and symptoms instead. List first the condition chiefly responsible for the visit. Code chronic conditions that are treated or that affect care. Use Z codes for encounters such as screening, follow-up, and history.</p>"
+        },
+        {
+          "h": "Chapter-specific rules you'll see",
+          "html": "<p><b>Hypertension</b> with heart disease or CKD is presumed linked (I11, I12, I13). <b>Diabetes</b> defaults to type 2 (E11). Add Z79.4 for long-term insulin, and use \"with\" combination codes for complications. <b>Sepsis:</b> code the systemic infection first, then the localized infection, then R65.20/R65.21 for severe sepsis or shock. <b>Neoplasms:</b> look up the histology in the Index before using the Table, and use Z51.11 first for chemo-only encounters. <b>Injuries:</b> 7th character A, D, or S. <b>Drugs:</b> poisoning puts the T code first; an adverse effect puts the manifestation first. <b>Pregnancy:</b> O codes come first unless the provider documents that the pregnancy is incidental (Z33.1).</p>"
+        },
+        {
+          "h": "HCPCS Level II",
+          "html": "<p>HCPCS Level II codes are one letter plus four digits, maintained by CMS. Key sections: A (transport and supplies), E (DME), G (procedures and professional services), J (drugs given other than orally), L (orthotics and prosthetics), and Q (temporary codes). Drug units equal the dose given divided by the amount in the descriptor. Common modifiers include RT/LT, finger and toe (F/T), eyelid (E1–E4), coronary (LC/LD/RC), ambulance origin/destination, and the ABN modifiers GA, GZ, and GY.</p>"
+        }
+      ],
+      "tips": [
+        "Index first, Tabular second, every time.",
+        "Outpatient: uncertain diagnoses become signs and symptoms.",
+        "Hypertension plus heart disease or CKD is presumed linked unless documented otherwise.",
+        "Use the X placeholder to keep the 7th character in position 7.",
+        "Drug units = dose ÷ descriptor amount, rounded per payer rules.",
+        "GA means a signed ABN is on file; GZ means expected denial with no ABN."
+      ],
+      "terms": [
+        [
+          "Excludes1",
+          "Mutually exclusive conditions; don't code together."
+        ],
+        [
+          "Excludes2",
+          "Not included here; both may be coded if present."
+        ],
+        [
+          "Placeholder X",
+          "Fills empty positions so the 7th character stays in the 7th position."
+        ],
+        [
+          "7th character A/D/S",
+          "Initial (active treatment), subsequent (healing), sequela."
+        ],
+        [
+          "Combination code",
+          "One code describing two conditions or a condition with a complication."
+        ],
+        [
+          "First-listed diagnosis",
+          "The outpatient condition chiefly responsible for the encounter."
+        ],
+        [
+          "HCPCS Level II",
+          "CMS alphanumeric codes for drugs, supplies, DME, and services not in CPT."
+        ],
+        [
+          "ABN modifiers",
+          "GA (ABN on file), GZ (no ABN), GY (statutorily excluded)."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Diagnoses prove necessity",
+          "bullets": [
+            "ICD-10-CM: 5 questions + cases",
+            "HCPCS Level II: 3 questions",
+            "Diagnoses support every procedure"
+          ],
+          "script": [
+            "This module covers ICD-10-CM diagnosis coding and HCPCS Level II. On the CPC, diagnosis coding appears in nearly every case, because the diagnosis is what supports the medical necessity of each service.",
+            "Learn the conventions first, then the outpatient guidelines and the chapter-specific rules."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Index",
+                "d": "Find the term"
+              },
+              {
+                "t": "Tabular",
+                "d": "Verify + notes"
+              },
+              {
+                "t": "Guidelines",
+                "d": "Sequence"
+              },
+              {
+                "t": "Link",
+                "d": "To each CPT"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Conventions",
+          "bullets": [
+            "Excludes1 vs. Excludes2",
+            "Code first / use additional",
+            "Placeholder X and 7th characters"
+          ],
+          "script": [
+            "Excludes1 means the conditions are never coded together. Excludes2 means the condition isn't included here, but both may be coded.",
+            "Follow instructional notes such as code first and use additional code. Use the placeholder X so a required seventh character stays in the seventh position."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Note",
+              "Meaning"
+            ],
+            "rows": [
+              [
+                "Excludes1",
+                "Never together"
+              ],
+              [
+                "Excludes2",
+                "Both allowed"
+              ],
+              [
+                "NEC",
+                "Specific, no code"
+              ],
+              [
+                "NOS",
+                "Unspecified"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Outpatient rules",
+          "bullets": [
+            "No probable or rule-out diagnoses",
+            "Code signs and symptoms instead",
+            "Z codes for encounter reasons"
+          ],
+          "script": [
+            "In outpatient settings, never code a diagnosis described as probable, suspected, or rule out. Code the documented signs and symptoms to the highest certainty.",
+            "List first the condition chiefly responsible for the visit. Use Z codes for screenings, follow-ups, and history."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Uncertain",
+                "d": "Code symptoms"
+              },
+              {
+                "t": "Chronic",
+                "d": "Code if treated"
+              },
+              {
+                "t": "Z codes",
+                "d": "Screening · history"
+              },
+              {
+                "t": "Specificity",
+                "d": "Highest documented"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Chapter-specific highlights",
+          "bullets": [
+            "Hypertension links: I11 · I12 · I13",
+            "Sepsis sequencing",
+            "Injury 7th character A / D / S"
+          ],
+          "script": [
+            "Hypertension with heart disease or chronic kidney disease is presumed linked. Diabetes without a type defaults to type 2. Sepsis is sequenced with the systemic infection first.",
+            "Injury codes use A for active treatment, D for healing-phase follow-up, and S for sequela. For a drug adverse effect, code the reaction first. For a poisoning, the T code comes first."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Topic",
+              "Rule"
+            ],
+            "rows": [
+              [
+                "HTN + heart/CKD",
+                "Presumed link"
+              ],
+              [
+                "Diabetes NOS",
+                "E11"
+              ],
+              [
+                "Sepsis",
+                "A41.- → local → R65.2-"
+              ],
+              [
+                "Chemo visit",
+                "Z51.11 first"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "HCPCS Level II",
+          "bullets": [
+            "Letter + four digits",
+            "Units = dose ÷ descriptor",
+            "Anatomic and ABN modifiers"
+          ],
+          "script": [
+            "HCPCS Level II covers drugs, supplies, durable equipment, and services that CPT doesn't. J codes report drugs, E codes report DME, and G codes include Medicare services such as the annual wellness visit.",
+            "To bill drug units, divide the dose given by the amount in the code descriptor. Know the anatomic modifiers and the ABN modifiers GA, GZ, and GY."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "J",
+                "d": "Drugs"
+              },
+              {
+                "t": "E",
+                "d": "DME"
+              },
+              {
+                "t": "G",
+                "d": "Procedures/services"
+              },
+              {
+                "t": "L",
+                "d": "Orthotics/prosthetics"
+              },
+              {
+                "t": "A",
+                "d": "Transport/supplies"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: diagnoses and HCPCS",
+          "bullets": [
+            "Conventions and guidelines first",
+            "Sequence correctly",
+            "Units and modifiers"
+          ],
+          "script": [
+            "You've finished the diagnosis and HCPCS overview. Practice reading notes in the Tabular List, choosing seventh characters, and sequencing chapter-specific conditions.",
+            "Then try the ICD-10-CM and HCPCS question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "short": "Guidelines & compliance",
+      "title": "Coding guidelines, modifiers, and compliance",
+      "summary": "Use CPT conventions and modifiers correctly, apply NCCI and MUE edits, choose place-of-service codes, and recognize Medicare structure and fraud-and-abuse laws.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>The CPC has 7 questions on coding guidelines and modifier use and 3 on compliance and regulatory topics: Medicare Parts A–D, place of service, NCCI, HIPAA, and fraud and abuse. Modifiers also show up throughout the surgery and case questions.</p>"
+        },
+        {
+          "h": "CPT conventions",
+          "html": "<p>Know the symbols: ● new, ▲ revised, + add-on, ⊘ exempt from modifier 51, # resequenced, ★ telemedicine with modifier 95, and the lightning bolt for vaccines pending FDA approval. <b>Category I</b> codes are the main five-digit codes. <b>Category II</b> codes (ending in F) track performance measures. <b>Category III</b> codes (ending in T) cover emerging technology and are used instead of unlisted codes when one fits. Use an unlisted code only when no specific code exists; never pick a \"close\" code.</p>"
+        },
+        {
+          "h": "Modifiers",
+          "html": "<p>Pricing and information modifiers explain circumstances: <b>22</b> substantially increased work, <b>25</b> separate E/M, <b>26/TC</b> components, <b>50</b> bilateral, <b>51</b> multiple procedures, <b>52</b> reduced, <b>53</b> discontinued for patient safety, <b>57/24/58/78/79</b> for global periods, <b>59</b> and <b>XE/XS/XP/XU</b> for distinct services, <b>62</b> co-surgeons, <b>80/82/AS</b> assistants, and <b>76/77</b> repeat procedures.</p>"
+        },
+        {
+          "h": "Edits, place of service, and Medicare",
+          "html": "<p>NCCI procedure-to-procedure edits pair codes that are usually bundled. The modifier indicator (0, 1, or 9) shows whether a modifier can bypass the edit. MUEs cap the units per day. Place-of-service codes include 11 office, 19/22 off- and on-campus outpatient hospital, 21 inpatient, 23 ED, 24 ASC, and 02/10 telehealth. Medicare Part A covers inpatient care, Part B physician and outpatient services, Part C is Medicare Advantage, and Part D covers drugs.</p>"
+        },
+        {
+          "h": "Fraud, abuse, and HIPAA",
+          "html": "<p>Fraud is intentional; abuse is improper without proven intent. Upcoding and unbundling are classic examples. The False Claims Act, the Anti-Kickback Statute, and the Stark Law (self-referral) are the main federal laws. HIPAA sets privacy and security rules and adopts standard code sets: ICD-10-CM, CPT/HCPCS, ICD-10-PCS, CDT, and NDC.</p>"
+        }
+      ],
+      "tips": [
+        "Modifier 25 is for E/M only; 59 is for procedures.",
+        "Never put modifier 51 on add-on or ⊘ codes.",
+        "Category III comes before unlisted codes.",
+        "An NCCI indicator of 0 means no modifier can bypass the edit.",
+        "POS 10 is telehealth at the patient's home; POS 02 is telehealth elsewhere.",
+        "The documentation, not the edit, justifies a bypass modifier."
+      ],
+      "terms": [
+        [
+          "NCCI PTP edit",
+          "Code pair normally not reported together for one patient on one date."
+        ],
+        [
+          "MUE",
+          "Maximum units of a code for one patient on one date."
+        ],
+        [
+          "Modifier 59",
+          "Distinct procedural service; XE/XS/XP/XU are the specific subsets."
+        ],
+        [
+          "Category III",
+          "Temporary codes for emerging technology, ending in T."
+        ],
+        [
+          "Unlisted code",
+          "Code ending in 99 used when no specific code exists."
+        ],
+        [
+          "Upcoding",
+          "Reporting a higher level of service than documented."
+        ],
+        [
+          "Unbundling",
+          "Billing a procedure's components separately instead of the comprehensive code."
+        ],
+        [
+          "Stark Law",
+          "Prohibits certain self-referrals for designated health services."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Rules behind every code",
+          "bullets": [
+            "CPT symbols and categories",
+            "Modifiers tell the story",
+            "Edits and compliance"
+          ],
+          "script": [
+            "This module covers the conventions and modifiers that apply across CPT, along with the payer edits and laws that shape compliant coding.",
+            "Expect these concepts in stand-alone questions and inside the case questions."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Conventions",
+                "d": "Symbols · categories"
+              },
+              {
+                "t": "Modifiers",
+                "d": "Circumstances"
+              },
+              {
+                "t": "Edits",
+                "d": "NCCI · MUE"
+              },
+              {
+                "t": "Compliance",
+                "d": "Laws · HIPAA"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "CPT symbols and categories",
+          "bullets": [
+            "+ add-on · ⊘ exempt from 51",
+            "★ telemedicine · # resequenced",
+            "Category III before unlisted"
+          ],
+          "script": [
+            "CPT symbols tell you how a code behaves. Plus means add-on. The circle with a slash means exempt from modifier fifty-one. The star means telemedicine with modifier ninety-five.",
+            "Category II codes track quality. Category III codes cover emerging technology and are used before an unlisted code."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Symbol / category",
+              "Meaning"
+            ],
+            "rows": [
+              [
+                "●",
+                "New code"
+              ],
+              [
+                "▲",
+                "Revised"
+              ],
+              [
+                "+",
+                "Add-on"
+              ],
+              [
+                "⊘",
+                "Exempt from 51"
+              ],
+              [
+                "Cat II (F)",
+                "Performance"
+              ],
+              [
+                "Cat III (T)",
+                "Emerging tech"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Modifiers that change payment",
+          "bullets": [
+            "22 · 50 · 51 · 52 · 53",
+            "26 · TC",
+            "62 · 80 · 82 · AS"
+          ],
+          "script": [
+            "Modifier twenty-two signals substantially increased work. Fifty is bilateral, fifty-one multiple procedures, fifty-two reduced services, and fifty-three a procedure stopped for patient safety.",
+            "Twenty-six and TC split professional and technical work. Sixty-two is co-surgeons, and eighty, eighty-two, and AS identify assistants."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "22",
+                "d": "Increased work"
+              },
+              {
+                "t": "50",
+                "d": "Bilateral"
+              },
+              {
+                "t": "52 / 53",
+                "d": "Reduced / discontinued"
+              },
+              {
+                "t": "26 / TC",
+                "d": "Components"
+              },
+              {
+                "t": "62",
+                "d": "Co-surgeons"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Edits and bypass modifiers",
+          "bullets": [
+            "NCCI PTP pairs",
+            "Indicator 0 · 1 · 9",
+            "59 or XE/XS/XP/XU only with documentation"
+          ],
+          "script": [
+            "NCCI procedure-to-procedure edits flag code pairs that are usually bundled. A modifier indicator of zero means the pair can never be billed together. One means a modifier may apply.",
+            "Use fifty-nine, or the more specific XE, XS, XP, or XU, only when the documentation shows a separate encounter, structure, practitioner, or non-overlapping service."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Edit hits",
+                "d": "Check indicator"
+              },
+              {
+                "t": "Indicator 1?",
+                "d": "Review record"
+              },
+              {
+                "t": "Distinct?",
+                "d": "XE · XS · XP · XU"
+              },
+              {
+                "t": "Else",
+                "d": "Bundle"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Place of service and Medicare",
+          "bullets": [
+            "11 · 19 · 21 · 22 · 23 · 24",
+            "02 / 10 telehealth",
+            "Parts A · B · C · D"
+          ],
+          "script": [
+            "Place-of-service codes tell the payer where care happened, which affects facility versus non-facility payment.",
+            "Medicare Part A covers inpatient hospital care, Part B physician and outpatient services, Part C is Medicare Advantage, and Part D covers prescription drugs."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "POS",
+              "Setting"
+            ],
+            "rows": [
+              [
+                "11",
+                "Office"
+              ],
+              [
+                "21",
+                "Inpatient hospital"
+              ],
+              [
+                "22",
+                "On-campus outpatient"
+              ],
+              [
+                "23",
+                "Emergency room"
+              ],
+              [
+                "10",
+                "Telehealth, home"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Fraud, abuse, and HIPAA",
+          "bullets": [
+            "Fraud = intent",
+            "False Claims · Anti-Kickback · Stark",
+            "HIPAA code sets and privacy"
+          ],
+          "script": [
+            "Fraud requires intent, while abuse is improper billing without proven intent. Upcoding and unbundling are common examples, and the False Claims Act allows treble damages.",
+            "The Anti-Kickback Statute and the Stark Law address paying for referrals and self-referral. HIPAA protects patient information and sets the standard code sets."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "FCA",
+                "d": "False claims"
+              },
+              {
+                "t": "AKS",
+                "d": "Kickbacks"
+              },
+              {
+                "t": "Stark",
+                "d": "Self-referral"
+              },
+              {
+                "t": "HIPAA",
+                "d": "Privacy · code sets"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: guidelines and compliance",
+          "bullets": [
+            "Know your symbols",
+            "Choose modifiers from documentation",
+            "Respect edits and the law"
+          ],
+          "script": [
+            "You've finished the guidelines and compliance overview. Practice choosing modifiers from short scenarios and explaining which edit or law applies.",
+            "Then try the guidelines and compliance question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "short": "Terminology & anatomy",
+      "title": "Medical terminology and anatomy for coders",
+      "summary": "Break down medical terms into prefixes, roots, and suffixes, and use anatomy (directional terms, organ order, layers, and body systems) to read operative notes accurately.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>The CPC has 4 terminology and 4 anatomy questions, and both skills are essential for reading the notes in every other domain. If you can't tell -otomy from -ostomy, or the splenic flexure from the cecum, you'll choose the wrong code family.</p>"
+        },
+        {
+          "h": "Word parts",
+          "html": "<p>Most procedure names combine a root with a suffix: <b>-ectomy</b> removal, <b>-otomy</b> incision, <b>-ostomy</b> creating an opening, <b>-plasty</b> repair, <b>-rrhaphy</b> suture, <b>-pexy</b> fixation, <b>-desis</b> fusion, <b>-centesis</b> puncture to aspirate, <b>-scopy</b> viewing, <b>-lysis</b> release, <b>-tripsy</b> crushing. Diagnoses often use <b>-itis</b> inflammation, <b>-algia</b> pain, <b>-megaly</b> enlargement, <b>-lithiasis</b> stones. Prefixes include <b>brady-</b>/<b>tachy-</b>, <b>hyper-</b>/<b>hypo-</b>, <b>peri-</b>, <b>endo-</b>, <b>sub-</b>, <b>supra-</b>, and <b>hemi-</b>.</p>"
+        },
+        {
+          "h": "Anatomy that drives code choice",
+          "html": "<p>Skin layers are epidermis, dermis, and subcutaneous tissue (depth matters for debridement and repair). The colon runs cecum, ascending, transverse, descending, sigmoid, then rectum, and the splenic flexure helps define sigmoidoscopy versus colonoscopy. The heart valves are tricuspid and pulmonary on the right, and mitral and aortic on the left. The meninges are dura, arachnoid, and pia, with the epidural space outside the dura. The forearm has the radius on the thumb side and the ulna on the little-finger side.</p>"
+        },
+        {
+          "h": "Directional terms",
+          "html": "<p>Proximal is closer to the trunk and distal is farther away. Medial is toward the midline and lateral is away from it. Anterior (ventral) is the front and posterior (dorsal) is the back. Superior is toward the head and inferior is toward the feet. These terms appear in fracture, lesion, and spine documentation.</p>"
+        }
+      ],
+      "tips": [
+        "Split unfamiliar words into prefix, root, and suffix.",
+        "-otomy cuts in, -ostomy makes an opening, -ectomy takes out.",
+        "Learn the colon's order; it decides scope codes.",
+        "Depth words (epidermis, dermis, subcutaneous, fascia, muscle, bone) select debridement and repair codes.",
+        "Use your code book's anatomy illustrations during the exam.",
+        "When in doubt, look up the term in a medical dictionary while studying, not during the exam."
+      ],
+      "terms": [
+        [
+          "-ostomy",
+          "Surgical creation of an opening."
+        ],
+        [
+          "-rrhaphy",
+          "Suture or repair."
+        ],
+        [
+          "-desis",
+          "Binding or fusion."
+        ],
+        [
+          "-centesis",
+          "Puncture to remove fluid."
+        ],
+        [
+          "Splenic flexure",
+          "Bend between the transverse and descending colon."
+        ],
+        [
+          "Meninges",
+          "Dura, arachnoid, and pia membranes covering the brain and spinal cord."
+        ],
+        [
+          "Proximal / distal",
+          "Nearer to / farther from the trunk or point of attachment."
+        ],
+        [
+          "Glomerulus",
+          "Filtering capillary network of the nephron."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Words and body maps",
+          "bullets": [
+            "4 terminology + 4 anatomy questions",
+            "Needed to read every note",
+            "Word parts unlock meaning"
+          ],
+          "script": [
+            "This module covers medical terminology and anatomy. There are only a handful of direct questions, but these skills let you read operative notes accurately in every other domain.",
+            "Start with word parts, then anatomy that changes code selection."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Prefix",
+                "d": "Where / how much"
+              },
+              {
+                "t": "Root",
+                "d": "Body part"
+              },
+              {
+                "t": "Suffix",
+                "d": "Procedure / condition"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Procedure suffixes",
+          "bullets": [
+            "-ectomy · -otomy · -ostomy",
+            "-plasty · -rrhaphy · -pexy",
+            "-desis · -centesis · -scopy"
+          ],
+          "script": [
+            "Procedure suffixes tell you what was done. Ectomy removes, otomy cuts into, and ostomy creates an opening. Plasty repairs, rrhaphy sutures, and pexy fixes in place.",
+            "Desis fuses, centesis punctures to remove fluid, and scopy views with an instrument."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Suffix",
+              "Meaning"
+            ],
+            "rows": [
+              [
+                "-ectomy",
+                "Removal"
+              ],
+              [
+                "-otomy",
+                "Incision"
+              ],
+              [
+                "-ostomy",
+                "Opening"
+              ],
+              [
+                "-plasty",
+                "Repair"
+              ],
+              [
+                "-desis",
+                "Fusion"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Condition words and prefixes",
+          "bullets": [
+            "-itis · -algia · -megaly",
+            "brady- / tachy-",
+            "hyper- / hypo-"
+          ],
+          "script": [
+            "Itis means inflammation, algia means pain, megaly means enlargement, and lithiasis means stones.",
+            "Brady means slow and tachy means fast. Hyper means above or excessive and hypo means below or deficient."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "-itis",
+                "d": "Inflammation"
+              },
+              {
+                "t": "-algia",
+                "d": "Pain"
+              },
+              {
+                "t": "brady-",
+                "d": "Slow"
+              },
+              {
+                "t": "hyper-",
+                "d": "Excessive"
+              },
+              {
+                "t": "peri-",
+                "d": "Around"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Anatomy that changes the code",
+          "bullets": [
+            "Skin and tissue depth",
+            "Colon order and flexures",
+            "Heart valves and meninges"
+          ],
+          "script": [
+            "Tissue depth, from epidermis to dermis to subcutaneous tissue and below, decides debridement and repair codes. The colon runs from cecum to rectum, and the splenic flexure separates the transverse and descending colon.",
+            "The right heart has the tricuspid and pulmonary valves; the left has the mitral and aortic. The meninges are dura, arachnoid, and pia."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Cecum",
+                "d": ""
+              },
+              {
+                "t": "Ascending",
+                "d": ""
+              },
+              {
+                "t": "Transverse",
+                "d": "Splenic flexure →"
+              },
+              {
+                "t": "Descending",
+                "d": ""
+              },
+              {
+                "t": "Sigmoid",
+                "d": "→ Rectum"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Directional terms",
+          "bullets": [
+            "Proximal / distal",
+            "Medial / lateral",
+            "Anterior / posterior"
+          ],
+          "script": [
+            "Directional terms describe location from the standard anatomical position. Proximal is nearer the trunk, distal is farther away.",
+            "Medial is toward the midline and lateral away from it. Anterior is front and posterior is back."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Term",
+              "Meaning"
+            ],
+            "rows": [
+              [
+                "Proximal",
+                "Closer to trunk"
+              ],
+              [
+                "Distal",
+                "Farther"
+              ],
+              [
+                "Medial",
+                "Toward midline"
+              ],
+              [
+                "Lateral",
+                "Away"
+              ],
+              [
+                "Anterior",
+                "Front"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Review: terminology and anatomy",
+          "bullets": [
+            "Break words into parts",
+            "Map anatomy to codes",
+            "Use book illustrations"
+          ],
+          "script": [
+            "You've finished the terminology and anatomy overview. Practice breaking down terms from real operative notes and tracing the anatomy they describe.",
+            "Then try the terminology and anatomy question set."
+          ]
+        }
+      ]
+    }
+  ]
+}
