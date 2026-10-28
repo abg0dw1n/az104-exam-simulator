@@ -1255,6 +1255,17 @@ function renderAccount() {
   $('btn-header-signout').hidden = !user;
 }
 
+// "Admin" badge on the header Account button (and the Account page) for admins.
+let adminCheck = null;
+const isAdmin = () => (adminCheck ||= Auth.amIAdmin().catch(() => false));
+async function showAdminBadge() {
+  if (!(await isAdmin())) return;
+  const link = $('account');
+  if (!link.querySelector('.admin-badge')) link.insertAdjacentHTML('beforeend', '<span class="admin-badge" title="You have admin access">Admin</span>');
+  link.title = `${link.title} (admin)`;
+  $('account-admin-chip')?.removeAttribute('hidden');
+}
+
 // Sign out (header button and Account page): confirm, upload pending progress, clear this device.
 async function confirmSignOut() {
   if (!(await confirmModal('Sign out?', 'Your progress is saved to your account and removed from this device.', 'Sign out'))) return;
@@ -1327,7 +1338,7 @@ async function renderAccountPage() {
       <p class="muted">Your sign-in details and account settings.</p></div>
       <div class="panel card-pad account-card">
         <div class="account-avatar" aria-hidden="true">${escapeHtml((user?.email || '?')[0].toUpperCase())}</div>
-        <div class="account-who"><span class="muted small">Signed in as</span><b>${escapeHtml(user?.email || 'Guest')}</b>
+        <div class="account-who"><span class="muted small">Signed in as</span><b>${escapeHtml(user?.email || 'Guest')} <span id="account-admin-chip" class="admin-badge" hidden>Admin</span></b>
           <span class="muted small">Your practice progress and exam history sync to this account.</span></div>
         <div class="account-actions"><a class="btn btn-ghost btn-sm" href="/privacy">Privacy policy</a>
           ${user ? '<button id="btn-signout" class="btn btn-ghost btn-sm">Sign out</button>' : ''}</div>
@@ -1338,6 +1349,7 @@ async function renderAccountPage() {
       <div id="invites" class="stack"></div>
     </section>`;
   wireAppearance();
+  if (user) isAdmin().then((admin) => { if (admin) $('account-admin-chip')?.removeAttribute('hidden'); });
   $('btn-signout')?.addEventListener('click', confirmSignOut);
   renderInvites();
   renderAccessRequests();
@@ -1496,16 +1508,24 @@ async function renderInvites() {
   let rows;
   try { rows = await Auth.listInvites(); } catch { return; }
   if (!rows?.length) return; // not an admin
+  const me = (Auth.currentUser()?.email || '').toLowerCase();
   box.innerHTML = `<div class="panel card-pad stack" style="gap:14px">
-      <div><h2 class="section-title">Invite people</h2>
-      <p class="muted small" style="margin-top:8px">Invited people can sign in with that email address (email link${Auth.PROVIDERS.length ? ', ' + Auth.PROVIDERS.map((p) => p.label.replace('Continue with ', '')).join(', ') : ''}). Each person gets their own progress.</p></div>
+      <div><h2 class="section-title">People and admins</h2>
+      <p class="muted small" style="margin-top:8px">Invited people can sign in with that email address (email link${Auth.PROVIDERS.length ? ', ' + Auth.PROVIDERS.map((p) => p.label.replace('Continue with ', '')).join(', ') : ''}). Each person gets their own progress. Admins can also invite people, approve access requests, manage feature requests and reports, and make others admins.</p></div>
       <form id="invite-form" class="invite-row">
         <input id="invite-email" type="email" required placeholder="friend@example.com" aria-label="Email to invite">
         <input id="invite-note" type="text" placeholder="Name (optional)" aria-label="Name">
         <button class="btn btn-primary" type="submit">Invite</button>
       </form>
-      <ul class="invite-list">${rows.map((r) => `<li><span><b>${escapeHtml(r.email)}</b>${r.note ? ` <span class="muted">· ${escapeHtml(r.note)}</span>` : ''}</span>
-        ${r.is_admin ? '<span class="chip">admin</span>' : `<button class="btn btn-ghost btn-sm" data-uninvite="${escapeHtml(r.email)}">Remove</button>`}</li>`).join('')}</ul>
+      <ul class="invite-list">${[...rows].sort((a, b) => Number(b.is_admin) - Number(a.is_admin)).map((r) => {
+        const self = r.email === me;
+        const actions = r.is_admin
+          ? (self ? '<span class="muted small">You</span>' : `<button class="btn btn-ghost btn-sm" data-admin-off="${escapeHtml(r.email)}">Remove admin</button>`)
+          : `<button class="btn btn-ghost btn-sm" data-admin-on="${escapeHtml(r.email)}">Make admin</button>
+             <button class="btn btn-ghost btn-sm" data-uninvite="${escapeHtml(r.email)}">Remove</button>`;
+        return `<li><span><b>${escapeHtml(r.email)}</b>${r.is_admin ? ' <span class="admin-badge">Admin</span>' : ''}${r.note ? ` <span class="muted">· ${escapeHtml(r.note)}</span>` : ''}</span>
+          <span class="invite-actions">${actions}</span></li>`;
+      }).join('')}</ul>
     </div>`;
   $('invite-form').addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -1517,6 +1537,18 @@ async function renderInvites() {
     finally { renderInvites(); } // always show the current list
   });
   renderReports(box);
+  box.querySelectorAll('[data-admin-on]').forEach((b) => b.addEventListener('click', async () => {
+    const email = b.dataset.adminOn;
+    if (!(await confirmModal('Make admin?', `<b>${escapeHtml(email)}</b> will be able to invite and remove people, approve access requests, manage feature requests and question reports, and make other people admins.`, 'Make admin'))) return;
+    try { await Auth.setAdmin(email, true); toast(`${email} is now an admin.`); } catch (err) { toast(`Couldn't change admin access: ${err.message}`); }
+    renderInvites();
+  }));
+  box.querySelectorAll('[data-admin-off]').forEach((b) => b.addEventListener('click', async () => {
+    const email = b.dataset.adminOff;
+    if (!(await confirmModal('Remove admin access?', `<b>${escapeHtml(email)}</b> will keep their account and progress but lose admin tools.`, 'Remove admin'))) return;
+    try { await Auth.setAdmin(email, false); toast(`${email} is no longer an admin.`); } catch (err) { toast(`Couldn't change admin access: ${err.message}`); }
+    renderInvites();
+  }));
   box.querySelectorAll('[data-uninvite]').forEach((b) => b.addEventListener('click', async () => {
     if (!(await confirmModal('Remove invite?', `${escapeHtml(b.dataset.uninvite)} won't be able to create an account. If they already have one, it stays until you delete the user in Supabase.`, 'Remove'))) return;
     try { await Auth.removeInvite(b.dataset.uninvite); renderInvites(); } catch (err) { toast(`Couldn't remove: ${err.message}`); }
@@ -1589,7 +1621,7 @@ async function init() {
     if (!auth.signedIn && !Auth.isGuest()) return renderSignIn(auth.error);
     if (auth.error) toast(auth.error);
     if (Auth.isGuest()) $('guest-banner').hidden = false;
-    else await syncFromCloud();
+    else { showAdminBadge(); await syncFromCloud(); }
   }
   const slug = currentSlug();
   if (!slug) return renderHome();

@@ -159,6 +159,10 @@ Hosted on Vercel; every push to `main` deploys automatically. No build settings 
 `updated` in `exams/index.json` records when each exam's files last changed.
 After committing question changes, run `node scripts/stamp-updated.mjs` and commit `exams/index.json`. It also records each bank's question count (`"questions"`), which the home page shows without downloading every bank; `validate-questions.mjs` fails if a count is out of date.
 
+## Admins
+
+Admins have a flag in `invited_emails`. They see an "Admin" badge on the header Account button and get the admin panels on the Account page. In **People and admins** an admin can make any invited person an admin or remove admin access (via the `set_admin()` database function, which refuses removing your own admin role or the last admin).
+
 ## Access requests
 
 When someone who isn't invited tries to sign in (email link, Google or Microsoft), the invite-only hook still refuses them but records an access request in `access_requests` and tells them it was sent to the site owner. Admins approve or deny requests on the Account page (`/account#requests`); approving adds the email to `invited_emails` and emails them a sign-in link.

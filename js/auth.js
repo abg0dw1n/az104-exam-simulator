@@ -255,3 +255,15 @@ export async function sendSignInLink(email) {
     method: 'POST', auth: false, body: { email: email.trim().toLowerCase(), create_user: true },
   });
 }
+
+// ── Admin roles ──────────────────────────────────────────────────────────────
+export async function amIAdmin() {
+  if (!session) return false;
+  await ensureFresh();
+  return (await api('/rest/v1/rpc/am_i_admin', { method: 'POST', body: {} })) === true;
+}
+// Admins only; the database refuses removing your own admin role or the last admin.
+export async function setAdmin(email, makeAdmin) {
+  await ensureFresh();
+  return api('/rest/v1/rpc/set_admin', { method: 'POST', body: { target_email: email, make_admin: !!makeAdmin } });
+}
