@@ -90,6 +90,8 @@ It is a static site with no build step and no dependencies.
 
 Create `exams/<folder>/learn.json`. The Learn tab appears automatically for that exam.
 
+For every new learning path, include at least one free, exam-specific YouTube video or playlist when one is available. Verify that it targets the active exam code/version and compare its topics with the current official exam objectives. Add the video link to `sources` with a short note stating its format, exam version, and the date you checked it. Do not link an older version as if it were current; if no current video can be verified, leave it out and say so.
+
 ```jsonc
 {
   "intro": "One line shown above the modules",
