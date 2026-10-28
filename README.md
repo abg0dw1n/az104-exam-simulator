@@ -43,7 +43,7 @@ Open the site to pick an exam, or go straight to one at `/<folder>` (e.g. `/az-1
   - Filter by domain, or show only unanswered, incorrect, or flagged questions. The list stays put while you answer.
 - **Exam** – pick how many questions you want. Questions are drawn in proportion to the exam's official domain weights, preferring ones you've seen least, so a big bank rotates instead of repeating. Timer, shuffled questions and options, no feedback until you submit. Results show a scaled score, a domain breakdown with "Practice this domain" links, and recent attempts. Afterwards you can review missed questions or all questions.
 
-- **Learn** – training content for exams that have it (AZ-104 so far). One module per exam domain, each with:
+- **Learn** – training content for exams that have it (AZ-104, A+ Core 1, and A+ Core 2). One module per exam domain, each with:
   - a **study guide** (sections, exam tips, key terms, and a link to practice that domain),
   - a **slideshow** (arrow keys, speaker notes, full screen), and
   - a **video lesson** – AZ-104 slides animate with prerecorded Andrew Neural narration and captions; other courses use the device's built-in text-to-speech voice until recordings are added.
