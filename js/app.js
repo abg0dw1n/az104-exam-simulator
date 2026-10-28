@@ -941,7 +941,10 @@ async function renderHome() {
   const providers = [...new Set(exams.map((e) => e.vendor))];
   const examGroups = providers.map((provider) => {
     const key = vendorKey(provider);
-    const entries = exams.map((exam, index) => ({ exam, card: cards[index] })).filter(({ exam }) => exam.vendor === provider);
+    const entries = exams.map((exam, index) => ({ exam, card: cards[index] }))
+      .filter(({ exam }) => exam.vendor === provider)
+      .sort((a, b) => levelRank(a.exam.level) - levelRank(b.exam.level)
+        || a.exam.code.localeCompare(b.exam.code, undefined, { numeric: true }));
     const preview = entries.slice(0, 5).map(({ exam }) =>
       `<span class="folder-code" data-level="${exam.level || ''}">${escapeHtml(exam.code)}</span>`).join('');
     return `<details class="vendor-folder" data-provider-group="${key}" data-vendor="${key}" open>
