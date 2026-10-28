@@ -1,6 +1,6 @@
 // Offline support: network-first for everything (so updates show up immediately),
 // falling back to the cached copy when there's no connection.
-const CACHE = 'examsim-v22';
+const CACHE = 'examsim-v23';
 // Exam files are cached the first time each exam is opened.
 const CORE = ['/', '/css/styles.css', '/js/app.js', '/js/auth.js', '/js/learn.js', '/exams/index.json',
   '/favicon.svg', '/manifest.webmanifest', '/icons/icon-192.png'];
@@ -20,10 +20,13 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   if (request.method !== 'GET' || new URL(request.url).origin !== self.location.origin) return;
+  // Narration audio streams with Range requests (206 responses can't be cached), so let the
+  // browser handle media directly instead of copying multi-MB files into the cache.
+  if (request.headers.has('range') || request.destination === 'audio' || request.destination === 'video') return;
   event.respondWith(
     fetch(request)
       .then((response) => {
-        if (response.ok) {
+        if (response.status === 200) {
           const copy = response.clone();
           caches.open(CACHE).then((c) => c.put(request, copy));
         }

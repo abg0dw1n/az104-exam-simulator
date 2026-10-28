@@ -95,6 +95,7 @@ For every new learning path, include at least one free, exam-specific YouTube vi
 ```jsonc
 {
   "intro": "One line shown above the modules",
+  "narration": { "src": "media/{id}.mp3", "credit": "Andrew (standard Neural)" },  // optional: prerecorded audio per module
   "sources": [{ "title": "Official study guide", "url": "https://..." }],
   "modules": [{
     "id": "D1",                       // matches a domain in exam.json
@@ -153,10 +154,10 @@ python3 -m http.server 4173   # then open http://localhost:4173/?exam=az-104
 
 Hosted on Vercel; every push to `main` deploys automatically. No build settings needed (Framework preset: **Other**).
 
-## "Updated" dates
+## "Updated" dates and question counts
 
-Each exam card shows when its questions last changed, from `updated` in `exams/index.json`.
-After committing question changes, run `node scripts/stamp-updated.mjs` and commit `exams/index.json`.
+`updated` in `exams/index.json` records when each exam's files last changed.
+After committing question changes, run `node scripts/stamp-updated.mjs` and commit `exams/index.json`. It also records each bank's question count (`"questions"`), which the home page shows without downloading every bank; `validate-questions.mjs` fails if a count is out of date.
 
 ## Weak spots and reports
 

@@ -8,7 +8,8 @@
     "level": "advanced",
     "updated": "2026-10-28",
     "learning": true,
-    "learningDescription": "Configure Azure identities and governance, manage storage, deploy compute, build virtual networks, and monitor and maintain Azure resources."
+    "learningDescription": "Configure Azure identities and governance, manage storage, deploy compute, build virtual networks, and monitor and maintain Azure resources.",
+    "questions": 198
   },
   {
     "slug": "network-plus",
@@ -16,7 +17,8 @@
     "name": "CompTIA Network+",
     "vendor": "CompTIA",
     "level": "intermediate",
-    "updated": "2026-10-27"
+    "updated": "2026-10-27",
+    "questions": 237
   },
   {
     "slug": "security-plus",
@@ -24,7 +26,8 @@
     "name": "CompTIA Security+",
     "vendor": "CompTIA",
     "level": "intermediate",
-    "updated": "2026-10-27"
+    "updated": "2026-10-27",
+    "questions": 195
   },
   {
     "slug": "ccna",
@@ -32,7 +35,8 @@
     "name": "Cisco Certified Network Associate",
     "vendor": "Cisco",
     "level": "advanced",
-    "updated": "2026-10-27"
+    "updated": "2026-10-27",
+    "questions": 200
   },
   {
     "slug": "aws-saa",
@@ -40,7 +44,8 @@
     "name": "AWS Certified Solutions Architect – Associate",
     "vendor": "Amazon Web Services",
     "level": "advanced",
-    "updated": "2026-10-27"
+    "updated": "2026-10-27",
+    "questions": 197
   },
   {
     "slug": "ai-901",
@@ -48,7 +53,8 @@
     "name": "Microsoft Azure AI Fundamentals",
     "vendor": "Microsoft",
     "level": "beginner",
-    "updated": "2026-10-27"
+    "updated": "2026-10-27",
+    "questions": 100
   },
   {
     "slug": "aws-aif",
@@ -56,7 +62,8 @@
     "name": "AWS Certified AI Practitioner",
     "vendor": "Amazon Web Services",
     "level": "beginner",
-    "updated": "2026-10-27"
+    "updated": "2026-10-27",
+    "questions": 132
   },
   {
     "slug": "google-gail",
@@ -64,7 +71,8 @@
     "name": "Google Cloud Generative AI Leader",
     "vendor": "Google Cloud",
     "level": "beginner",
-    "updated": "2026-10-27"
+    "updated": "2026-10-27",
+    "questions": 110
   },
   {
     "slug": "az-900",
@@ -72,7 +80,8 @@
     "name": "Microsoft Azure Fundamentals",
     "vendor": "Microsoft",
     "level": "beginner",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "questions": 127
   },
   {
     "slug": "aws-clf",
@@ -80,7 +89,8 @@
     "name": "AWS Certified Cloud Practitioner",
     "vendor": "Amazon Web Services",
     "level": "beginner",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "questions": 130
   },
   {
     "slug": "a-plus-core1",
@@ -90,7 +100,8 @@
     "level": "beginner",
     "updated": "2026-10-28",
     "learning": true,
-    "learningDescription": "Study mobile devices, networking, hardware, virtualization and cloud, plus practical troubleshooting for common hardware and network problems."
+    "learningDescription": "Study mobile devices, networking, hardware, virtualization and cloud, plus practical troubleshooting for common hardware and network problems.",
+    "questions": 128
   },
   {
     "slug": "a-plus-core2",
@@ -100,7 +111,8 @@
     "level": "beginner",
     "updated": "2026-10-28",
     "learning": true,
-    "learningDescription": "Prepare for Windows, macOS, and Linux support; endpoint and network security; software troubleshooting; and safe, professional IT operations."
+    "learningDescription": "Prepare for Windows, macOS, and Linux support; endpoint and network security; software troubleshooting; and safe, professional IT operations.",
+    "questions": 127
   },
   {
     "slug": "sc-900",
@@ -108,7 +120,8 @@
     "name": "Microsoft Security, Compliance, and Identity Fundamentals",
     "vendor": "Microsoft",
     "level": "beginner",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "questions": 92
   },
   {
     "slug": "dp-900",
@@ -116,7 +129,8 @@
     "name": "Microsoft Azure Data Fundamentals",
     "vendor": "Microsoft",
     "level": "beginner",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "questions": 87
   },
   {
     "slug": "tech-plus",
@@ -124,7 +138,8 @@
     "name": "CompTIA Tech+",
     "vendor": "CompTIA",
     "level": "beginner",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "questions": 93
   },
   {
     "slug": "ccst-networking",
@@ -132,7 +147,8 @@
     "name": "Cisco CCST Networking",
     "vendor": "Cisco",
     "level": "beginner",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "questions": 91
   },
   {
     "slug": "ccst-cybersecurity",
@@ -140,7 +156,8 @@
     "name": "Cisco CCST Cybersecurity",
     "vendor": "Cisco",
     "level": "beginner",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "questions": 83
   },
   {
     "slug": "ccst-it-support",
@@ -148,7 +165,8 @@
     "name": "Cisco CCST IT Support",
     "vendor": "Cisco",
     "level": "beginner",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "questions": 90
   },
   {
     "slug": "ccna-cyber",
@@ -156,7 +174,8 @@
     "name": "Cisco CCNA Cybersecurity",
     "vendor": "Cisco",
     "level": "advanced",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "questions": 99
   },
   {
     "slug": "aws-dva",
@@ -164,7 +183,8 @@
     "name": "AWS Certified Developer – Associate",
     "vendor": "Amazon Web Services",
     "level": "advanced",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "questions": 93
   },
   {
     "slug": "aws-soa",
@@ -172,7 +192,8 @@
     "name": "AWS Certified CloudOps Engineer – Associate",
     "vendor": "Amazon Web Services",
     "level": "advanced",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "questions": 92
   },
   {
     "slug": "google-cdl",
@@ -180,7 +201,8 @@
     "name": "Google Cloud Digital Leader",
     "vendor": "Google Cloud",
     "level": "beginner",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "questions": 88
   },
   {
     "slug": "google-ace",
@@ -188,7 +210,8 @@
     "name": "Google Associate Cloud Engineer",
     "vendor": "Google Cloud",
     "level": "advanced",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "questions": 89
   },
   {
     "slug": "google-adp",
@@ -196,7 +219,8 @@
     "name": "Google Associate Data Practitioner",
     "vendor": "Google Cloud",
     "level": "advanced",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "questions": 85
   },
   {
     "slug": "google-pca",
@@ -204,7 +228,8 @@
     "name": "Google Professional Cloud Architect",
     "vendor": "Google Cloud",
     "level": "advanced",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "questions": 88
   },
   {
     "slug": "data-plus",
@@ -212,7 +237,8 @@
     "name": "CompTIA Data+",
     "vendor": "CompTIA",
     "level": "intermediate",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "questions": 95
   },
   {
     "slug": "tableau-foundations",
@@ -220,6 +246,7 @@
     "name": "Tableau Desktop Foundations",
     "vendor": "Salesforce",
     "level": "beginner",
-    "updated": "2026-10-28"
+    "updated": "2026-10-28",
+    "questions": 80
   }
 ]

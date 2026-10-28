@@ -32,6 +32,9 @@ for (const entry of index.filter((e) => !only || e.slug === only)) {
     if (!(q.answer >= 0 && q.answer < (q.options?.length || 0))) errors.push(`Q${q.id}: answer index out of range`);
     if (!q.scenario || !q.explanation) errors.push(`Q${q.id}: missing scenario or explanation`);
   }
+  if (entry.questions != null && entry.questions !== questions.length) {
+    errors.push(`index.json says ${entry.questions} questions but the bank has ${questions.length} (run node scripts/stamp-updated.mjs)`);
+  }
   const perDomain = Object.keys(exam.domains).map((d) => `${d}: ${questions.filter((q) => q.domain === d).length}`).join(', ');
   console.log(`${exam.code} (${entry.slug}): ${questions.length} questions (${perDomain})`);
   if (errors.length) { failed = true; console.error('  ' + errors.join('\n  ')); }

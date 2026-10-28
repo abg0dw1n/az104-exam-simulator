@@ -181,13 +181,14 @@ function session() {
 // questions don't vanish from 'Unanswered'/'Incorrect' views before you read the explanation.
 function buildPracticeList() {
   const p = state.practice;
+  const flagged = new Set(p.flagged);
   const ids = QUESTIONS.filter((q) => {
     if (p.domain !== 'ALL' && q.domain !== p.domain) return false;
     const a = p.answers[q.id];
     switch (p.status) {
       case 'unanswered': return a === undefined;
       case 'incorrect': return a !== undefined && !isCorrect(q, a);
-      case 'flagged': return p.flagged.includes(q.id);
+      case 'flagged': return flagged.has(q.id);
       default: return true;
     }
   }).map((q) => q.id);
@@ -856,8 +857,15 @@ async function fetchJson(url) {
   return res.json();
 }
 
-async function loadBank(slug) {
-  [EXAM, QUESTIONS] = await Promise.all([fetchJson(`/exams/${slug}/exam.json`), fetchJson(`/exams/${slug}/questions.json`)]);
+// The exam catalog is needed by the home page, cloud sync and the reports panel; fetch it once.
+let indexRequest = null;
+const fetchIndex = () => (indexRequest ||= fetchJson('/exams/index.json').catch((err) => { indexRequest = null; throw err; }));
+
+const fetchBank = (slug) => Promise.all([fetchJson(`/exams/${slug}/exam.json`), fetchJson(`/exams/${slug}/questions.json`)]);
+
+// `files` is an in-flight fetchBank() started early in init(), so downloads overlap sign-in.
+async function loadBank(slug, files = fetchBank(slug)) {
+  [EXAM, QUESTIONS] = await files;
   DOMAINS = EXAM.domains;
   state = load();
   BY_ID = new Map(QUESTIONS.map((q) => [q.id, q]));
@@ -883,12 +891,6 @@ function currentSlug() {
   return /^[a-z0-9-]+$/.test(slug) && slug !== 'index.html' ? slug : '';
 }
 
-// "2026-10-27" → "Oct 27, 2026" (parsed as a local date so it never shifts a day).
-const fmtDate = (iso) => {
-  const [y, m, d] = iso.split('-').map(Number);
-  return new Date(y, m - 1, d).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
-};
-
 const vendorKey = (v = '') => v.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 const LEVELS = ['beginner', 'intermediate', 'advanced'];
@@ -906,16 +908,16 @@ async function renderHome() {
   document.body.classList.add('home');
   $('navigator').hidden = true;
   let exams = [];
-  try { exams = await fetchJson('/exams/index.json'); } catch { /* offline with nothing cached */ }
+  try { exams = await fetchIndex(); } catch { /* offline with nothing cached */ }
   const cards = await Promise.all(exams.map(async (e) => {
-    let count = 0;
-    try { count = (await fetchJson(`/exams/${e.slug}/questions.json`)).length; } catch { /* ignore */ }
+    // Counts are kept in index.json by scripts/stamp-updated.mjs; fall back to the bank if missing.
+    let count = e.questions ?? 0;
+    if (e.questions == null) try { count = (await fetchJson(`/exams/${e.slug}/questions.json`)).length; } catch { /* ignore */ }
     const saved = readSaved(e.slug, e.legacyStorageKey);
     const last = saved?.history?.[0];
     const answered = saved ? Object.keys(saved.practice?.answers || {}).length : 0;
     const vendor = vendorKey(e.vendor);
     return `<a class="panel exam-card" href="/${e.slug}" data-vendor="${vendor}" data-name="${escapeHtml(`${e.name} ${e.code} ${e.vendor}`.toLowerCase())}">
-      <span class="exam-vendor">${escapeHtml(e.vendor)}</span>
       <span class="exam-card-code">${escapeHtml(e.code)}</span>
       <h2>${escapeHtml(e.name)}</h2>
       <span class="exam-card-meta"><span>${count} questions</span>${levelMeter(e.level)}</span>
@@ -1153,7 +1155,7 @@ async function renderReports(container) {
   let rows = [];
   try { rows = await Auth.listOpenReports(); } catch { return; }
   let exams = [];
-  try { exams = await fetchJson('/exams/index.json'); } catch { /* ignore */ }
+  try { exams = await fetchIndex(); } catch { /* ignore */ }
   const codes = Object.fromEntries(exams.map((e) => [e.slug, e.code]));
   container.querySelector('.reports-panel')?.remove();
   const panel = document.createElement('div');
@@ -1181,7 +1183,7 @@ const escapeHtml = (t = '') => String(t).replace(/[&<>"']/g, (c) => ({ '&': '&am
 async function syncFromCloud() {
   if (!Auth.currentUser()) return;
   let exams = [];
-  try { exams = await fetchJson('/exams/index.json'); } catch { /* offline */ }
+  try { exams = await fetchIndex(); } catch { /* offline */ }
   const legacy = Object.fromEntries(exams.map((e) => [e.slug, e.legacyStorageKey]));
   const slugs = exams.map((e) => e.slug);
   const work = Auth.pullAll((slug) => readSaved(slug, legacy[slug]), writeSaved, slugs);
@@ -1197,6 +1199,12 @@ async function init() {
       ? initialMode === 'learn' ? 'Loading learning materials…' : 'Loading exam…'
       : 'Loading the learning and practice library…';
   $('main').innerHTML = `<div class="panel empty" role="status"><p>${loadingMessage}</p></div>`;
+  // Exam content is public, so start downloading it now instead of after sign-in and sync.
+  const examPage = initialSlug && initialSlug !== 'account';
+  const bankFiles = examPage ? fetchBank(initialSlug) : null;
+  bankFiles?.catch(() => { /* reported by loadBank below */ });
+  const learnFiles = examPage ? Learn.loadLearn(initialSlug) : null;
+  if (!examPage) fetchIndex().catch(() => {});
   if (Auth.AUTH_ENABLED) {
     const auth = await Auth.initAuth();
     renderAccount();
@@ -1208,7 +1216,7 @@ async function init() {
   if (!slug) return renderHome();
   if (slug === 'account') return renderAccountPage();
   try {
-    await loadBank(slug);
+    await loadBank(slug, slug === initialSlug ? bankFiles : undefined);
   } catch (err) {
     $('main').innerHTML = `<div class="panel empty"><p>Couldn't load the "${slug}" exam (${err.message}).</p>
       <a class="btn btn-primary" href="/">All exams</a></div>`;
@@ -1219,16 +1227,15 @@ async function init() {
   document.body.dataset.vendor = vendorKey(EXAM.vendor);
   $('brand-title').textContent = 'IT Learn & Practice';
   $('brand-sub').textContent = `${EXAM.code} · ${EXAM.name}`;
-  LEARN = await Learn.loadLearn(slug);
-  if (new URLSearchParams(location.search).get('mode') === 'learn' && LEARN) state.mode = 'learn';
+  LEARN = await (slug === initialSlug ? learnFiles : Learn.loadLearn(slug));
+  if (initialMode === 'learn' && LEARN) state.mode = 'learn';
   $('btn-mode-learn').hidden = !LEARN;
   $('mode-tabs').hidden = false;
   $('btn-drawer').hidden = false;
+  const perDomain = {};
+  for (const q of QUESTIONS) perDomain[q.domain] = (perDomain[q.domain] || 0) + 1;
   $('domain-filter').innerHTML = `<option value="ALL">All domains (${QUESTIONS.length})</option>` +
-    Object.entries(DOMAINS).map(([k, d], i) => {
-      const n = QUESTIONS.filter((q) => q.domain === k).length;
-      return `<option value="${k}">${i + 1}. ${d.name} (${n})</option>`;
-    }).join('');
+    Object.entries(DOMAINS).map(([k, d], i) => `<option value="${k}">${i + 1}. ${d.name} (${perDomain[k] || 0})</option>`).join('');
   syncFilterControls();
 
   for (const id of ['domain-filter', 'status-filter', 'order-filter']) $(id).addEventListener('change', applyPracticeFilters);

@@ -1,4 +1,4 @@
-/* AZ-104 Exam Simulator — hand-written CSS (no runtime framework). */
+/* IT Learn & Practice — hand-written CSS (no runtime framework). */
 
 :root {
   color-scheme: dark;
@@ -75,12 +75,28 @@ code {
 .full { width: 100%; }
 
 /* ── Top bar ─────────────────────────────────────────── */
-.topbar { position: sticky; top: 0; z-index: 30; background: var(--panel); border-bottom: 1px solid var(--border); }
-.topbar-inner { max-width: 1280px; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
-.brand h1 { font-size: 16px; font-weight: 650; white-space: nowrap; }
-.brand-mark { width: 28px; height: 28px; flex: none; }
-.topbar-actions { display: flex; align-items: center; gap: 10px; }
+.topbar {
+  position: sticky; top: 0; z-index: 30; isolation: isolate;
+  background:
+    radial-gradient(38rem 9rem at 18% 0%, rgba(0, 120, 212, .16), transparent 74%),
+    linear-gradient(180deg, color-mix(in srgb, var(--panel) 94%, #0c3153 6%), var(--panel));
+  border-bottom: 1px solid color-mix(in srgb, var(--azure) 24%, var(--border));
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+}
+.topbar::after {
+  content: ""; position: absolute; z-index: -1; inset-inline: 0; bottom: -1px; height: 2px; opacity: .72; pointer-events: none;
+  background: linear-gradient(90deg, transparent 4%, rgba(0, 120, 212, .42) 20%, var(--azure) 50%, rgba(0, 120, 212, .42) 80%, transparent 96%);
+}
+.topbar-inner { max-width: 1280px; min-height: 76px; margin: 0 auto; padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.brand > div { display: grid; gap: 3px; }
+.brand h1 { font-size: 17px; font-weight: 650; letter-spacing: -.015em; white-space: nowrap; }
+.brand p { color: color-mix(in srgb, var(--muted) 88%, white 12%); font-size: 12px; }
+.brand-mark { width: 36px; height: 36px; flex: none; filter: drop-shadow(0 4px 10px rgba(0, 120, 212, .28)); }
+.topbar-actions { display: flex; align-items: center; gap: 8px; }
+.topbar .account-link { border-color: color-mix(in srgb, var(--azure) 24%, var(--border)); background: color-mix(in srgb, var(--panel-2) 78%, transparent); transition: background .15s, border-color .15s, color .15s; }
+.topbar .account-link:hover { border-color: transparent; background: var(--azure-soft); color: var(--azure-text); }
+.brand-link:focus-visible, .topbar-actions a:focus-visible, .topbar-actions button:focus-visible { outline: 2px solid var(--azure); outline-offset: 3px; }
 
 .segmented { display: flex; padding: 3px; gap: 2px; background: var(--panel-2); border: 1px solid var(--border); border-radius: 10px; }
 .segmented button {
@@ -289,6 +305,9 @@ kbd { font: 11px var(--mono); padding: 1px 5px; border-radius: 4px; border: 1px 
 }
 @media (max-width: 600px) {
   .brand p, .segmented span, .kbd-hint { display: none; }
+  .topbar-inner { min-height: 64px; padding: 9px 14px; }
+  .brand { gap: 10px; }
+  .brand-mark { width: 32px; height: 32px; }
   .brand h1 { font-size: 14.5px; }
   .qgrid { grid-template-columns: repeat(7, 1fr); }
   .qhead, .qbody, .qfoot { padding-left: 14px; padding-right: 14px; }
@@ -318,17 +337,16 @@ kbd { font: 11px var(--mono); padding: 1px 5px; border-radius: 4px; border: 1px 
 
 /* ── Exam picker ────────────────────────────────────── */
 .brand-link { color: inherit; text-decoration: none; }
-.brand-link:hover { text-decoration: underline; }
+.brand-link:hover { color: var(--azure-text); text-decoration: none; }
 body.home .exams-link { display: none; }
 .home-title { font-size: 24px; font-weight: 700; }
-.exam-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.exam-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 236px), 1fr)); gap: 12px; }
 .exam-card {
   display: grid; gap: 8px; padding: 20px; text-decoration: none; color: inherit; justify-items: start; align-content: start;
   transition: border-color .15s, transform .15s;
 }
 .exam-card:hover { border-color: var(--azure); transform: translateY(-1px); }
-.exam-card h2 { font-size: 18px; font-weight: 650; }
-.exam-vendor { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--v-text, var(--muted)); }
+.exam-card h2 { font-size: 17px; font-weight: 650; line-height: 1.35; }
 
 /* Vendor colors: --v (accent), --v-soft (tint), --v-text (readable text on panels). */
 [data-vendor] { --v: var(--azure); --v-soft: var(--azure-soft); --v-text: var(--azure-text); }
@@ -346,9 +364,6 @@ body.home .exams-link { display: none; }
   [data-vendor="google-cloud"]        { --v-soft: rgba(52,168,83,.12); --v-text: #1e7b3a; }
   [data-vendor="salesforce"]          { --v-soft: rgba(124,108,240,.12); --v-text: #4f3fc4; }
 }
-.exam-card[data-vendor] { border-top: 4px solid var(--v); }
-.exam-card[data-vendor]:hover { border-color: var(--v); }
-.chip-vendor { background: var(--v-soft, var(--azure-soft)); border-color: transparent; color: var(--v-text, var(--azure-text)); }
 body[data-vendor] .brand-mark rect { fill: var(--v); }
 @media (max-width: 600px) { .exams-link { padding: 7px 10px; } }
 
@@ -408,7 +423,6 @@ body.account-page .exams-link { display: inline-flex; }
 .stats .mastery .mastery-top { background: none; border: 0; padding: 0; }
 .stats .mastery .bar { padding: 0; border: 0; border-radius: 4px; background: var(--border); }
 
-.exam-chips { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 .level-meter { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--muted); padding: 4px 2px; }
 .level-bars { display: inline-flex; align-items: flex-end; gap: 2px; height: 12px; }
 .level-bars i { width: 4px; border-radius: 1px; background: var(--border-strong); }
@@ -422,8 +436,6 @@ body.account-page .exams-link { display: inline-flex; }
 .vendor-folder > summary { display: flex; align-items: center; gap: 10px; padding: 12px 16px; cursor: pointer; list-style: none; user-select: none; font-weight: 650; }
 .vendor-folder > summary::-webkit-details-marker { display: none; }
 .vendor-folder > summary:focus-visible { outline: 2px solid var(--v, var(--azure)); outline-offset: 2px; border-radius: 10px; }
-.folder-chevron { width: 16px; height: 16px; transition: transform .15s; color: var(--muted); }
-.vendor-folder[open] .folder-chevron { transform: rotate(90deg); }
 .folder-icon { color: var(--v-text, var(--v)); }
 .folder-count { margin-left: auto; font-size: 12.5px; font-weight: 500; color: var(--muted); white-space: nowrap; }
 .vendor-folder > summary { min-height: 56px; }
@@ -441,13 +453,9 @@ body.account-page .exams-link { display: inline-flex; }
   .folder-preview { order: 3; flex-basis: 100%; margin-left: 50px; }
 }
 .vendor-folder > .exam-grid { padding: 0 16px 16px; }
-@media (prefers-reduced-motion: reduce) { .folder-chevron { transition: none; } }
-.exam-updated { font-size: 11.5px; color: var(--muted); opacity: .75; margin-top: -2px; }
-.vendor-folder .exam-vendor { display: none; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* ── Learn tab ─────────────────────────────────────── */
-.segmented button[hidden] { display: none; }
 .learn-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
 .learn-card { padding: 20px; display: flex; flex-direction: column; gap: 12px; align-self: stretch; border-top: 4px solid var(--v, var(--azure)); }
 .learn-card-head { display: flex; gap: 12px; align-items: center; }
@@ -609,11 +617,9 @@ body.account-page .exams-link { display: inline-flex; }
 .catalog-results-head h3 { font-size: 18px; font-weight: 650; }
 .catalog-results-head p { margin-top: 3px; }
 .catalog-results-head > span { flex: none; }
-.exam-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 236px), 1fr)); gap: 12px; }
 .exam-card[data-vendor] { min-height: 184px; grid-template-rows: auto auto auto auto 1fr auto; gap: 6px; padding: 14px 15px 12px; border: 1px solid var(--border); border-left: 4px solid var(--v); border-top: 1px solid var(--border); }
 .exam-card[data-vendor]:hover { border-color: var(--v); border-left-color: var(--v); }
 .exam-card-code { color: var(--v-text); font-size: 13px; font-weight: 700; }
-.exam-card h2 { font-size: 17px; line-height: 1.35; }
 .exam-card-meta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 4px 10px; color: var(--muted); font-size: 12px; }
 .exam-card-meta .level-meter { padding: 0; font-size: 11.5px; }
 .exam-learning-badge { justify-self: start; padding: 4px 8px; border-radius: 999px; background: var(--azure-soft); color: var(--azure-text); font-size: 11px; font-weight: 600; }
@@ -626,7 +632,6 @@ body.account-page .exams-link { display: inline-flex; }
   .catalog-heading { align-items: flex-start; flex-direction: column; }
 }
 @media (max-width: 600px) {
-  .catalog { gap: 16px; }
   .catalog-summary { align-self: flex-start; }
   .provider-filters { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 3px; }
   .provider-filter { flex: none; }
@@ -636,9 +641,7 @@ body.account-page .exams-link { display: inline-flex; }
   .exam-card[data-vendor] { min-height: 176px; }
 }
 
-
 /* Unified learning and practice home */
-.catalog { gap: 22px; }
 .home-hero { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr); gap: 28px; align-items: center; padding: clamp(24px, 5vw, 54px); border: 1px solid var(--border); border-radius: 20px; background: radial-gradient(80% 150% at 100% 0%, rgba(0,120,212,.2), transparent 62%), linear-gradient(135deg, var(--panel), var(--panel-2)); box-shadow: var(--shadow); }
 .home-hero-copy { max-width: 680px; }
 .home-hero-copy h2 { margin: 13px 0 12px; font-size: clamp(34px, 5vw, 54px); line-height: 1.06; letter-spacing: -.04em; }
@@ -647,6 +650,7 @@ body.account-page .exams-link { display: inline-flex; }
 .home-hero-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
 .home-hero-steps { display: grid; gap: 10px; }
 .home-hero-steps > div { display: flex; gap: 13px; align-items: center; padding: 13px; border: 1px solid var(--border); border-radius: 12px; background: rgba(11,18,32,.54); }
+@media (prefers-color-scheme: light) { .home-hero-steps > div { background: rgba(255,255,255,.72); } }
 .hero-step-icon { width: 38px; height: 38px; display: grid; place-items: center; flex: none; border-radius: 11px; background: var(--azure-soft); color: var(--azure-text); font: 700 12px var(--mono); }
 .home-hero-steps > div > span:last-child { display: grid; gap: 3px; }
 .home-hero-steps b { font-size: 14px; }
@@ -679,21 +683,13 @@ body.account-page .exams-link { display: inline-flex; }
   .section-heading { align-items: flex-start; flex-direction: column; }
 }
 
-
 /* Learning scope and free exam-specific resources */
 .learn-study-support { display: grid; grid-template-columns: 1fr; gap: 18px; padding: 16px 18px; border: 1px solid var(--border); border-left: 4px solid var(--warn); border-radius: 12px; background: var(--warn-soft); }
 .learn-study-disclaimer { display: grid; align-content: start; gap: 7px; }
 .learn-support-label { color: var(--warn-text); font-size: 11px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
 .learn-study-disclaimer p { color: var(--text-2); font-size: 13px; line-height: 1.55; }
-.learn-support-resources { display: grid; align-content: start; gap: 7px; }
-.learn-support-resources h3 { font-size: 13px; font-weight: 700; }
-.learn-support-resources ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 5px; }
-.learn-support-resources li { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-top: 5px; border-top: 1px solid color-mix(in srgb, var(--border) 80%, transparent); font-size: 12px; }
-.learn-support-resources a { color: var(--azure-text); font-weight: 600; }
-.learn-support-resources li span { flex: none; color: var(--muted); font-size: 11px; text-align: right; }
 @media (max-width: 760px) { .learn-study-support { gap: 14px; } }
 @media (max-width: 520px) { .learn-study-support { padding: 14px; } }
-
 
 /* Course and exam request section */
 .request-section { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: center; padding: 22px 24px; border: 1px solid var(--border); border-radius: 16px; background: linear-gradient(115deg, var(--panel), var(--panel-2)); }
@@ -704,7 +700,6 @@ body.account-page .exams-link { display: inline-flex; }
 .request-action p { color: var(--muted); font-size: 11.5px; line-height: 1.5; }
 @media (max-width: 650px) { .request-section { grid-template-columns: 1fr; gap: 15px; padding: 18px; } .request-action { max-width: none; } }
 
-
 /* Supplemental resources sit alongside the final learning modules */
 .learn-resources-card { display: grid; align-content: start; gap: 12px; padding: 20px; border-top: 4px solid var(--azure); }
 .learn-resources-card h3 { margin-top: 4px; font-size: 17px; }
@@ -713,42 +708,3 @@ body.account-page .exams-link { display: inline-flex; }
 .learn-resources-card a { color: var(--azure-text); font-weight: 600; line-height: 1.45; }
 .learn-resources-card li span { color: var(--muted); font-size: 11px; }
 
-
-/* Refined brand header */
-.topbar {
-  position: sticky;
-  isolation: isolate;
-  background:
-    radial-gradient(38rem 9rem at 18% 0%, rgba(0, 120, 212, .16), transparent 74%),
-    linear-gradient(180deg, color-mix(in srgb, var(--panel) 94%, #0c3153 6%), var(--panel));
-  border-bottom-color: color-mix(in srgb, var(--azure) 24%, var(--border));
-  box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
-}
-.topbar::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset-inline: 0;
-  bottom: -1px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent 4%, rgba(0, 120, 212, .42) 20%, var(--azure) 50%, rgba(0, 120, 212, .42) 80%, transparent 96%);
-  opacity: .72;
-  pointer-events: none;
-}
-.topbar-inner { min-height: 76px; padding: 12px 18px; }
-.brand { gap: 14px; }
-.brand-mark { width: 36px; height: 36px; filter: drop-shadow(0 4px 10px rgba(0, 120, 212, .28)); }
-.brand > div { display: grid; gap: 3px; }
-.brand h1 { font-size: 17px; letter-spacing: -.015em; }
-.brand p { color: color-mix(in srgb, var(--muted) 88%, white 12%); font-size: 12px; }
-.brand-link:hover { color: var(--azure-text); text-decoration: none; }
-.topbar-actions { gap: 8px; }
-.topbar .account-link { border-color: color-mix(in srgb, var(--azure) 24%, var(--border)); background: color-mix(in srgb, var(--panel-2) 78%, transparent); transition: background .15s, border-color .15s, color .15s; }
-.topbar .account-link:hover { border-color: transparent; background: var(--azure-soft); color: var(--azure-text); }
-.brand-link:focus-visible, .topbar-actions a:focus-visible, .topbar-actions button:focus-visible { outline: 2px solid var(--azure); outline-offset: 3px; }
-@media (max-width: 600px) {
-  .topbar-inner { min-height: 64px; padding: 9px 14px; }
-  .brand { gap: 10px; }
-  .brand-mark { width: 32px; height: 32px; }
-  .brand h1 { font-size: 14.5px; }
-}

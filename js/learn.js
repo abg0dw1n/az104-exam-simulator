@@ -1,6 +1,6 @@
 // Learn tab: per-domain modules with a study guide, a slideshow and a narrated video lesson.
-// Content comes from /exams/<slug>/learn.json. AZ-104 uses prerecorded narration;
-// other courses can use browser speech synthesis until recordings are available.
+// Content comes from /exams/<slug>/learn.json. A course with a "narration" block plays
+// prerecorded audio (one file per module); others use the browser's speech synthesis.
 
 const $ = (id) => document.getElementById(id);
 const esc = (t = '') => String(t).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -263,7 +263,8 @@ function englishVoices() {
 function renderVideo(body, m) {
   const scenes = m.slides.map((s) => ({ slide: s, lines: scriptOf(s).length ? scriptOf(s) : [s.title] }));
   const total = scenes.reduce((n, s) => n + s.lines.length, 0);
-  const prerecorded = learnSlug === 'az-104';
+  const narration = data.narration?.src ? data.narration : null;
+  const prerecorded = !!narration;
   const tts = !prerecorded && 'speechSynthesis' in window;
   body.innerHTML = `<div class="video">
       <div class="stage video-stage" id="video-stage">
@@ -284,12 +285,12 @@ function renderVideo(body, m) {
         ${tts ? '<label class="small muted v-ctl">Voice <select id="v-voice"></select></label>' : ''}
         <button class="btn btn-ghost btn-sm" id="v-full">Full screen</button>
       </div>
-      ${prerecorded ? '<p class="muted small">Narration: Andrew (standard Neural). Captions follow the narration; use the timeline to move between slides.</p>' : tts ? '' : '<p class="muted small">Your browser can\'t read text aloud, so this lesson plays with captions only.</p>'}
+      ${prerecorded ? `<p class="muted small">${narration.credit ? `Narration: ${esc(narration.credit)}. ` : ''}Captions follow the narration; use the timeline to move between slides.</p>` : tts ? '' : '<p class="muted small">Your browser can\'t read text aloud, so this lesson plays with captions only.</p>'}
     </div>`;
 
   const st = { scene: 0, line: 0, playing: false, token: 0, cc: true, rate: Number(pref(RATE_KEY, '1')) || 1 };
   const el = { slide: $('video-slide'), cap: $('video-caption'), prog: $('video-progress'), play: $('v-play'), big: $('video-big'), time: $('v-time') };
-  const audio = prerecorded ? new Audio(`/exams/${learnSlug}/media/${encodeURIComponent(m.id)}.mp3`) : null;
+  const audio = prerecorded ? new Audio(`/exams/${learnSlug}/${narration.src.replace('{id}', encodeURIComponent(m.id))}`) : null;
   if (audio) audio.preload = 'metadata';
   $('v-rate').value = String(st.rate);
   let timer = null;
@@ -303,42 +304,45 @@ function renderVideo(body, m) {
   };
   if (tts) { fillVoices(); window.speechSynthesis.onvoiceschanged = fillVoices; }
 
-  const pos = () => scenes.slice(0, st.scene).reduce((n, s) => n + s.lines.length, 0) + st.line;
-  const segments = scenes.flatMap((scene, sceneIndex) => scene.lines.map((text, lineIndex) => ({
-    scene: sceneIndex, line: lineIndex, text, weight: Math.max(1, words(text)),
-  })));
-  const totalWeight = segments.reduce((n, segment) => n + segment.weight, 0);
-  const weightBeforeScene = (sceneIndex) => segments.filter((segment) => segment.scene < sceneIndex)
-    .reduce((n, segment) => n + segment.weight, 0);
+  // Lines before each scene, and each caption line's share of the narration (by word count).
+  const linesBefore = []; scenes.reduce((n, sc, i) => { linesBefore[i] = n; return n + sc.lines.length; }, 0);
+  const pos = () => linesBefore[st.scene] + st.line;
+  const segments = []; const sceneStartWeight = [];
+  let totalWeight = 0;
+  scenes.forEach((scene, sceneIndex) => {
+    sceneStartWeight[sceneIndex] = totalWeight;
+    scene.lines.forEach((text, lineIndex) => {
+      totalWeight += Math.max(1, words(text));
+      segments.push({ scene: sceneIndex, line: lineIndex, text, end: totalWeight });
+    });
+  });
   const syncAudio = () => {
     if (!audio?.duration || !Number.isFinite(audio.duration)) return;
     const target = Math.min(totalWeight - 1, (audio.currentTime / audio.duration) * totalWeight);
-    let elapsed = 0;
-    const segment = segments.find((item) => {
-      elapsed += item.weight;
-      return target < elapsed;
-    }) || segments[segments.length - 1];
+    const segment = segments.find((item) => target < item.end) || segments[segments.length - 1];
     const changed = segment.scene !== st.scene || segment.line !== st.line;
+    if (!changed && el.cap.textContent === segment.text) return; // timeupdate fires ~4×/s; redraw only when the line moves
     st.scene = segment.scene; st.line = segment.line;
     el.cap.textContent = segment.text;
-    if (changed) drawSlide();
-    drawChrome();
+    drawSlide(); drawChrome();
   };
   const drawSlide = () => {
     const sc = scenes[st.scene]; const b = sc.slide.bullets?.length || 0;
     const reveal = b ? Math.ceil(((st.line + 1) / sc.lines.length) * b) : 0;
     el.slide.innerHTML = slideHtml(m, sc.slide, st.scene, st.playing || st.line ? reveal : b);
   };
+  const bars = [...el.prog.children].map((span) => ({ span, fill: span.firstElementChild }));
+  let playLabel = '';
   const drawChrome = () => {
     const done = pos();
-    el.prog.querySelectorAll('span').forEach((span, i) => {
-      const n = scenes[i].lines.length;
-      const fill = i < st.scene ? 1 : i > st.scene ? 0 : st.line / n;
-      span.querySelector('i').style.width = `${fill * 100}%`;
+    bars.forEach(({ span, fill }, i) => {
+      const f = i < st.scene ? 1 : i > st.scene ? 0 : st.line / scenes[i].lines.length;
+      fill.style.width = `${f * 100}%`;
       span.classList.toggle('current', i === st.scene);
     });
     el.time.textContent = `Scene ${st.scene + 1} / ${scenes.length}`;
-    el.play.innerHTML = st.playing ? `${icon('pause')}<span>Pause</span>` : `${icon('play')}<span>${done >= total ? 'Replay' : done ? 'Resume' : 'Play'}</span>`;
+    const label = st.playing ? 'Pause' : done >= total ? 'Replay' : done ? 'Resume' : 'Play';
+    if (label !== playLabel) { playLabel = label; el.play.innerHTML = `${icon(st.playing ? 'pause' : 'play')}<span>${label}</span>`; }
     el.big.hidden = st.playing;
     el.cap.hidden = !st.cc || !el.cap.textContent;
   };
@@ -410,7 +414,7 @@ function renderVideo(body, m) {
     const was = st.playing; stop();
     st.scene = Math.min(Math.max(scene, 0), scenes.length - 1); st.line = 0;
     if (audio?.duration && Number.isFinite(audio.duration)) {
-      audio.currentTime = (weightBeforeScene(st.scene) / totalWeight) * audio.duration;
+      audio.currentTime = (sceneStartWeight[st.scene] / totalWeight) * audio.duration;
       el.cap.textContent = scenes[st.scene].lines[0];
       if (was) play(); else { drawSlide(); drawChrome(); }
       return;
@@ -463,6 +467,12 @@ function renderVideo(body, m) {
   };
   document.addEventListener('keydown', keyHandler);
 
-  player = { destroy: () => { stop(); if (tts) window.speechSynthesis.onvoiceschanged = null; } };
+  player = {
+    destroy: () => {
+      stop();
+      if (tts) window.speechSynthesis.onvoiceschanged = null;
+      if (audio) { audio.removeAttribute('src'); audio.load(); } // stop buffering the MP3
+    },
+  };
   drawSlide(); drawChrome();
 }
