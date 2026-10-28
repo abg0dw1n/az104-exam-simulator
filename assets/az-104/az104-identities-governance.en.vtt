@@ -1,0 +1,273 @@
+WEBVTT
+
+1
+00:00:00.150 --> 00:00:06.243
+Welcome to module one of the AZ-104 course: managing Azure identities and governance.
+
+2
+00:00:06.673 --> 00:00:12.287
+This domain is worth twenty to twenty-five percent of the exam, so it's one of the biggest.
+
+3
+00:00:12.717 --> 00:00:25.804
+We'll cover users, groups and licenses in Microsoft Entra ID, then how Azure role-based access control works, and finally the governance tools that keep subscriptions organized, compliant and on budget.
+
+4
+00:00:26.234 --> 00:00:30.178
+Before anything else, separate two permission systems.
+
+5
+00:00:30.608 --> 00:00:39.090
+Microsoft Entra roles, like User Administrator, control the directory itself: users, groups and licenses.
+
+6
+00:00:39.520 --> 00:00:47.558
+Azure RBAC roles, like Owner and Contributor, control Azure resources such as virtual machines and storage accounts.
+
+7
+00:00:47.988 --> 00:00:52.217
+Exam questions often hinge on picking the role from the right system.
+
+8
+00:00:52.647 --> 00:00:56.181
+Microsoft Entra ID has two kinds of users.
+
+9
+00:00:56.611 --> 00:01:03.918
+Members are created in your tenant, or synchronized from on-premises Active Directory using Microsoft Entra Connect.
+
+10
+00:01:04.348 --> 00:01:12.111
+Guests are external users you invite with B2B collaboration. They redeem the invitation and sign in with their own account.
+
+11
+00:01:12.541 --> 00:01:19.204
+For lots of users at once, the portal lets you upload a CSV file to bulk create or bulk invite.
+
+12
+00:01:19.634 --> 00:01:31.432
+Groups come in two types. Security groups are used to grant access. Microsoft 365 groups add a shared mailbox, calendar and files.
+
+13
+00:01:31.862 --> 00:01:35.651
+Membership can be assigned manually, or dynamic.
+
+14
+00:01:36.081 --> 00:01:43.804
+A dynamic rule, like the one on screen, adds and removes users automatically based on attributes such as department.
+
+15
+00:01:44.234 --> 00:01:49.647
+Remember that dynamic membership requires a Microsoft Entra ID P1 license.
+
+16
+00:01:50.077 --> 00:02:00.189
+Licenses can be assigned to individual users, but group-based licensing is easier at scale. Members get the license automatically when they join the group.
+
+17
+00:02:00.619 --> 00:02:03.448
+Group-based licensing requires P1.
+
+18
+00:02:03.878 --> 00:02:09.787
+One common gotcha: a user needs a usage location set before a license can be assigned.
+
+19
+00:02:10.217 --> 00:02:14.665
+Self-service password reset lets users reset their own passwords.
+
+20
+00:02:15.095 --> 00:02:27.143
+You choose the scope: nobody, a selected group, or all users. And you choose whether one or two methods are required, such as the Authenticator app, phone or email.
+
+21
+00:02:27.573 --> 00:02:35.041
+Administrators are treated differently. They always get a stricter two-method policy, whatever you configure.
+
+22
+00:02:35.471 --> 00:02:42.319
+For users synced from on-premises, enable password writeback so the new password reaches Active Directory.
+
+23
+00:02:42.749 --> 00:02:46.888
+Every Azure RBAC role assignment answers three questions.
+
+24
+00:02:47.318 --> 00:02:54.686
+Who: the security principal, which can be a user, group, service principal or managed identity.
+
+25
+00:02:55.116 --> 00:02:59.635
+What: the role definition, which lists the allowed actions.
+
+26
+00:03:00.065 --> 00:03:03.464
+And where: the scope the assignment applies to.
+
+27
+00:03:03.894 --> 00:03:07.262
+Four built-in roles appear constantly on the exam.
+
+28
+00:03:07.692 --> 00:03:11.986
+Owner can do everything, including granting access to others.
+
+29
+00:03:12.416 --> 00:03:16.720
+Contributor can create and manage resources but can't grant access.
+
+30
+00:03:17.150 --> 00:03:18.904
+Reader can only view.
+
+31
+00:03:19.334 --> 00:03:32.861
+And User Access Administrator can manage access, but not the resources themselves. The newer Role Based Access Control Administrator role is similar, with optional conditions that limit which roles it can assign.
+
+32
+00:03:33.291 --> 00:03:40.439
+Scopes form a hierarchy: management group, subscription, resource group, then resource.
+
+33
+00:03:40.869 --> 00:03:44.972
+A role assigned at a higher scope is inherited by everything below it.
+
+34
+00:03:45.402 --> 00:03:52.075
+Permissions add up, so a user gets the union of all their assignments, whether direct or through groups.
+
+35
+00:03:52.505 --> 00:03:57.559
+Deny assignments are the exception: they block actions even if a role allows them.
+
+36
+00:03:57.989 --> 00:04:04.402
+To troubleshoot, open Access control and use Check access to see where someone's permissions come from.
+
+37
+00:04:04.832 --> 00:04:07.721
+Management groups sit above subscriptions.
+
+38
+00:04:08.151 --> 00:04:13.740
+Assign a policy or role to a management group, and every subscription below inherits it.
+
+39
+00:04:14.170 --> 00:04:19.638
+Each tenant has one root management group, and the tree can go six levels deep below it.
+
+40
+00:04:20.068 --> 00:04:24.642
+A subscription can only have one parent at a time, but you can move it.
+
+41
+00:04:25.072 --> 00:04:28.895
+Azure Policy enforces standards across your environment.
+
+42
+00:04:29.325 --> 00:04:36.778
+A definition is a single rule, like allowed locations. An initiative groups several definitions together.
+
+43
+00:04:37.208 --> 00:04:43.221
+An assignment applies a definition or initiative to a scope, with parameters and optional exclusions.
+
+44
+00:04:43.651 --> 00:04:47.580
+Results show up as compliance data on the Policy dashboard.
+
+45
+00:04:48.010 --> 00:04:50.719
+The effect decides what a policy does.
+
+46
+00:04:51.149 --> 00:04:58.062
+Deny blocks a non-compliant create or update. Audit lets it through but marks the resource non-compliant.
+
+47
+00:04:58.492 --> 00:05:06.720
+Modify changes properties or tags, and DeployIfNotExists deploys a related resource, such as a diagnostic setting.
+
+48
+00:05:07.150 --> 00:05:13.893
+Those two need a managed identity on the assignment, and existing resources are fixed with a remediation task.
+
+49
+00:05:14.323 --> 00:05:17.571
+Locks protect critical resources from accidents.
+
+50
+00:05:18.001 --> 00:05:25.045
+A CanNotDelete lock allows changes but blocks deletion. A ReadOnly lock blocks changes entirely.
+
+51
+00:05:25.475 --> 00:05:31.483
+Locks apply to everyone, even Owners, until someone with lock permissions removes them.
+
+52
+00:05:31.913 --> 00:05:38.977
+Watch out: ReadOnly can block operations that sound like reads, such as listing storage account keys.
+
+53
+00:05:39.407 --> 00:05:45.090
+Tags are name and value pairs you attach to resources, resource groups and subscriptions.
+
+54
+00:05:45.520 --> 00:05:49.139
+They're great for cost reporting and organizing resources.
+
+55
+00:05:49.569 --> 00:06:01.411
+The key exam fact: tags are not inherited automatically. If resources should get their resource group's tags, use an Azure Policy such as inherit a tag from the resource group.
+
+56
+00:06:01.841 --> 00:06:06.510
+For costs, start with cost analysis to see where the money goes.
+
+57
+00:06:06.940 --> 00:06:16.538
+Budgets alert you when actual or forecast spending crosses a threshold. They don't stop resources on their own, but an action group can run automation.
+
+58
+00:06:16.968 --> 00:06:23.401
+Azure Advisor recommends savings, such as resizing or shutting down underused virtual machines.
+
+59
+00:06:23.831 --> 00:06:30.309
+And reservations, savings plans and Azure Hybrid Benefit can lower costs for steady workloads.
+
+60
+00:06:30.739 --> 00:06:48.385
+A company has invited an external auditor to review the Azure resources in one production resource group. The auditor needs to inspect configuration, but must not make changes or administer the directory. Pause the lesson and choose the right identity, role and scope before moving on.
+
+61
+00:06:48.815 --> 00:07:21.818
+Use Microsoft Entra B2B to invite the auditor as a guest. Put the guest in a dedicated security group, then assign the Azure RBAC Reader role to that group at the target resource-group scope. Reader lets the auditor inspect Azure resource settings without changing them. The resource-group scope avoids granting access to sibling groups. Reader is a control-plane role, so check data-plane access separately if the audit also includes stored data. Remove the assignment or group membership when the review is complete.
+
+62
+00:07:22.248 --> 00:07:24.262
+Let's recap module one.
+
+63
+00:07:24.692 --> 00:07:29.956
+Entra roles manage identities, while Azure RBAC manages resources.
+
+64
+00:07:30.386 --> 00:07:34.245
+Dynamic groups and group-based licensing require P1.
+
+65
+00:07:34.675 --> 00:07:39.018
+RBAC assignments are inherited down the hierarchy and add up.
+
+66
+00:07:39.448 --> 00:07:45.537
+Azure Policy enforces rules, locks protect resources, and tags organize them.
+
+67
+00:07:45.967 --> 00:07:50.045
+And for costs, budgets alert while Advisor recommends.
+
+68
+00:07:50.475 --> 00:07:55.319
+Next, read the study guide or try the practice questions for this domain.

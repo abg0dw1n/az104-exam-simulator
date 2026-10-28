@@ -14,6 +14,9 @@
  "modules": [
   {
    "id": "D1",
+   "videoUrl": "/assets/az-104/az104-identities-governance.mp4",
+   "captionsUrl": "/assets/az-104/az104-identities-governance.en.vtt",
+   "posterUrl": "/assets/az-104/az104-identities-governance-poster.jpg",
    "short": "Identity & governance",
    "title": "Manage Azure identities and governance",
    "summary": "Microsoft Entra users and groups, Azure RBAC, and the governance tools that keep subscriptions organized, compliant and on budget.",

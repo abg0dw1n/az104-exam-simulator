@@ -235,7 +235,36 @@ function englishVoices() {
   return en.sort((a, b) => score(b) - score(a));
 }
 
+function renderPrerenderedVideo(body, m) {
+  const p = progressOf(m.id);
+  const doneLabel = p.video ? 'Completed' : 'Mark as complete';
+  body.innerHTML = `<div class="prerendered-video">
+      <video class="prerendered-player" controls playsinline preload="metadata" poster="${esc(m.posterUrl || '')}" aria-label="${esc(m.title)} video lesson">
+        <source src="${esc(m.videoUrl)}" type="video/mp4">
+        ${m.captionsUrl ? `<track kind="captions" src="${esc(m.captionsUrl)}" srclang="en" label="English" default>` : ''}
+        Your browser doesn't support MP4 video. Use the download link below.
+      </video>
+      <div class="prerendered-meta">
+        <p class="muted small">Pre-rendered lesson · English captions are available in the video controls.</p>
+        <a class="btn btn-ghost btn-sm" href="${esc(m.videoUrl)}" download>Download video</a>
+        ${m.captionsUrl ? `<a class="btn btn-ghost btn-sm" href="${esc(m.captionsUrl)}" download>Download captions</a>` : ''}
+      </div>
+      <div class="guide-actions"><button class="btn ${p.video ? 'btn-ghost' : 'btn-primary'}" data-video-done>${icon('check')}${doneLabel}</button></div>
+    </div>`;
+  const button = body.querySelector('[data-video-done]');
+  const media = body.querySelector('video');
+  player = { destroy: () => media.pause() };
+  const markComplete = () => {
+    mark(m.id, 'video');
+    button.className = 'btn btn-ghost';
+    button.innerHTML = `${icon('check')}Completed`;
+  };
+  button.addEventListener('click', markComplete);
+  media.addEventListener('ended', markComplete);
+}
+
 function renderVideo(body, m) {
+  if (m.videoUrl) return renderPrerenderedVideo(body, m);
   const scenes = m.slides.map((s) => ({ slide: s, lines: scriptOf(s).length ? scriptOf(s) : [s.title] }));
   const total = scenes.reduce((n, s) => n + s.lines.length, 0);
   const tts = 'speechSynthesis' in window;
