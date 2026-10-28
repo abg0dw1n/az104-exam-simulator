@@ -1,7 +1,7 @@
 # Exam Simulator
 
-Practice questions and timed exams for IT certifications, live at https://it-exam-simulator.vercel.app
-(the original https://az104-exam-simulator-drab.vercel.app address still works). Currently includes:
+Learning paths, practice questions and timed exams for IT certifications, live at https://it-learn-and-practice.vercel.app
+(the older https://it-exam-simulator.vercel.app and https://az104-exam-simulator-drab.vercel.app addresses still work). Currently includes:
 
 | Exam | Folder | Questions | Scoring |
 |---|---|---|---|
