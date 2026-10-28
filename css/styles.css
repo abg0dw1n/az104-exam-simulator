@@ -33,6 +33,36 @@
   --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
 }
 
+:root[data-theme="light"] {
+  /* Theme: Monokai Pro Light */
+  color-scheme: light;
+  --bg: #f1ebe8;
+  --panel: #faf4f2;
+  --panel-2: #f5efec;
+  --border: #e2d9d6;
+  --border-strong: #cdc2be;
+  --text: #29242a;
+  --text-2: #4d474e;
+  --muted: #6e676f;
+  --azure: #f0b429;
+  --azure-hover: #f4c24f;
+  --azure-soft: rgba(204, 122, 10, .12);
+  --azure-text: #9a5500;
+  --on-accent: #29242a;
+  --accent-2: #e14775;
+  --ok: #4bb37f;
+  --ok-soft: rgba(38, 157, 105, .12);
+  --ok-text: #1b7a50;
+  --bad: #ef6d8e;
+  --bad-soft: rgba(225, 71, 117, .11);
+  --bad-text: #bd2f5a;
+  --warn: #f0905a;
+  --warn-soft: rgba(225, 96, 50, .12);
+  --warn-text: #b2471c;
+  --code-bg: #29242a;
+  --shadow: 0 1px 2px rgba(41,36,42,.06), 0 6px 20px rgba(41,36,42,.07);
+}
+
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
@@ -339,6 +369,12 @@ body.home .exams-link { display: none; }
 [data-vendor="amazon-web-services"] { --v: #ff9900; --v-soft: rgba(255,153,0,.15);  --v-text: #ffb547; }
 [data-vendor="google-cloud"]        { --v: #34a853; --v-soft: rgba(52,168,83,.16);  --v-text: #5fd17f; }
 [data-vendor="salesforce"]          { --v: #7c6cf0; --v-soft: rgba(124,108,240,.16); --v-text: #a99ff7; }
+[data-theme="light"] [data-vendor="microsoft"]           { --v-soft: rgba(0,120,212,.10); --v-text: #005ba1; }
+[data-theme="light"] [data-vendor="comptia"]             { --v-soft: rgba(224,53,63,.10); --v-text: #b4212a; }
+[data-theme="light"] [data-vendor="cisco"]               { --v-soft: rgba(0,165,168,.12); --v-text: #00787a; }
+[data-theme="light"] [data-vendor="amazon-web-services"] { --v-soft: rgba(255,153,0,.14); --v-text: #a35c00; }
+[data-theme="light"] [data-vendor="google-cloud"]        { --v-soft: rgba(52,168,83,.12); --v-text: #1e7b3a; }
+[data-theme="light"] [data-vendor="salesforce"]          { --v-soft: rgba(124,108,240,.12); --v-text: #4f3fc4; }
 @media (max-width: 600px) { .exams-link { padding: 7px 10px; } }
 
 /* ── Sign-in & invites ──────────────────────────────── */
@@ -744,3 +780,26 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 /* Access requests */
 #requests { scroll-margin-top: 90px; }
 .req-history summary { cursor: pointer; margin-bottom: 8px; }
+
+/* Light/dark switch */
+.theme-toggle .i-sun { display: none; }
+[data-theme="light"] .theme-toggle .i-sun { display: block; }
+[data-theme="light"] .theme-toggle .i-moon { display: none; }
+[data-theme="light"] .brand p { color: var(--muted); }
+[data-theme="light"] .topbar { box-shadow: 0 6px 18px rgba(41, 36, 42, .08); }
+.appearance { display: flex; align-items: center; justify-content: space-between; gap: 12px 20px; flex-wrap: wrap; }
+.appearance .segmented button { padding: 7px 14px; }
+
+/* Header sign-out button */
+.signout-link { display: inline-flex; align-items: center; gap: 6px; }
+.signout-link:hover { border-color: color-mix(in srgb, var(--bad) 45%, var(--border)); color: var(--bad-text); }
+@media (max-width: 600px) { .signout-link span { display: none; } }
+/* Phones: keep the full header row (theme, Home, Account, Sign out, modes, navigator) on screen */
+@media (max-width: 600px) {
+  .topbar-actions { gap: 5px; }
+  body:not(.home):not(.account-page) .topbar-actions { gap: 5px; }
+  .topbar .icon-btn { width: 34px; height: 34px; }
+  .topbar-actions .btn-sm { padding: 7px 9px; }
+  .topbar .segmented button { padding-left: 9px; padding-right: 9px; }
+}
+@media (max-width: 340px) { .topbar-actions .exams-link { display: none !important; } } /* the site name links home */

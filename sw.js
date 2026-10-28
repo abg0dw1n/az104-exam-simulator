@@ -1,8 +1,8 @@
 // Offline support: network-first for everything (so updates show up immediately),
 // falling back to the cached copy when there's no connection.
-const CACHE = 'examsim-v33';
+const CACHE = 'examsim-v34';
 // Exam files are cached the first time each exam is opened.
-const CORE = ['/', '/css/styles.css', '/js/app.js', '/js/auth.js', '/js/learn.js', '/exams/index.json',
+const CORE = ['/', '/css/styles.css', '/js/app.js', '/js/auth.js', '/js/learn.js', '/js/theme.js', '/exams/index.json',
   '/favicon.svg', '/manifest.webmanifest', '/icons/icon-192.png'];
 
 self.addEventListener('install', (event) => {

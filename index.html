@@ -11,6 +11,7 @@
   <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png?v=3">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="preconnect" href="https://rbywonfaduuhsnzxrmgr.supabase.co" crossorigin>
+  <script src="/js/theme.js"></script>
   <link rel="stylesheet" href="/css/styles.css">
   <script type="module" src="/js/app.js"></script>
   <link rel="modulepreload" href="/js/auth.js">
@@ -35,6 +36,9 @@
     <symbol id="i-redo" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5"/></symbol>
     <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4 2.5 20h19L12 4Zm0 6v4m0 3v.01"/></symbol>
     <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7L8 5Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M14 4h4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4M10 16l-4-4 4-4M6 12h10"/></symbol>
     <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></symbol>
     <symbol id="i-trend" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></symbol>
     <symbol id="i-shuffle" viewBox="0 0 24 24"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></symbol>
@@ -51,8 +55,10 @@
       </div>
 
       <div class="topbar-actions">
+        <button id="theme-toggle" class="icon-btn theme-toggle" type="button" aria-label="Switch theme"><svg class="icon i-sun" aria-hidden="true"><use href="#i-sun"/></svg><svg class="icon i-moon" aria-hidden="true"><use href="#i-moon"/></svg></button>
         <a href="/" class="btn btn-ghost btn-sm exams-link" id="exams-link">Home</a>
         <a id="account" href="/account" class="btn btn-ghost btn-sm account-link" hidden><svg class="icon"><use href="#i-user"/></svg><span>Account</span></a>
+        <button id="btn-header-signout" type="button" class="btn btn-ghost btn-sm signout-link" title="Sign out" hidden><svg class="icon" aria-hidden="true"><use href="#i-logout"/></svg><span>Sign out</span></button>
         <div class="segmented" role="tablist" aria-label="Mode" id="mode-tabs" hidden>
           <button id="btn-mode-practice" role="tab" data-mode="practice"><svg class="icon"><use href="#i-book"/></svg><span>Practice</span></button>
           <button id="btn-mode-exam" role="tab" data-mode="exam"><svg class="icon"><use href="#i-clock"/></svg><span>Exam</span></button>

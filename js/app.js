@@ -1249,6 +1249,15 @@ function renderAccount() {
   link.hidden = !user && !guest;
   if (user) link.title = `Signed in as ${user.email || 'you'}`;
   if (guest) { link.title = 'Guest: progress is not saved'; link.querySelector('span').textContent = 'Guest'; }
+  $('btn-header-signout').hidden = !user;
+}
+
+// Sign out (header button and Account page): confirm, upload pending progress, clear this device.
+async function confirmSignOut() {
+  if (!(await confirmModal('Sign out?', 'Your progress is saved to your account and removed from this device.', 'Sign out'))) return;
+  flushUpload();
+  await Auth.signOut();
+  location.assign('/');
 }
 
 // Leave guest mode (after confirming): discard this tab's guest progress and show the sign-in screen.
@@ -1263,6 +1272,27 @@ function leaveGuest() {
   Auth.endGuest();
   try { sessionStorage.removeItem('examsim:guest'); } catch { /* ignore */ }
   location.assign('/');
+}
+
+// ── Appearance (light/dark), saved per device by js/theme.js ─────────────────
+const appearancePanel = () => `<div class="panel card-pad appearance">
+    <div><h2 class="section-title" style="border:0;padding:0">Appearance</h2>
+      <p class="muted small" style="margin-top:4px">System follows your device's light or dark setting. Saved on this device.</p></div>
+    <div class="segmented" role="radiogroup" aria-label="Theme">
+      ${[['system', 'System'], ['light', 'Light'], ['dark', 'Dark']].map(([k, label]) =>
+        `<button type="button" role="radio" data-theme-pref="${k}" aria-checked="false">${label}</button>`).join('')}
+    </div>
+  </div>`;
+
+function wireAppearance() {
+  const sync = () => document.querySelectorAll('[data-theme-pref]').forEach((b) => {
+    const on = b.dataset.themePref === window.Theme?.pref();
+    b.setAttribute('aria-checked', String(on));
+    b.setAttribute('aria-selected', String(on)); // reuses the segmented control's selected style
+  });
+  document.querySelectorAll('[data-theme-pref]').forEach((b) => b.addEventListener('click', () => window.Theme?.set(b.dataset.themePref)));
+  document.addEventListener('themechange', sync);
+  sync();
 }
 
 // ── Account page (/account): profile, sign out, and admin tools ──────────────
@@ -1284,7 +1314,9 @@ async function renderAccountPage() {
           <button class="btn btn-ghost btn-sm" data-guest-exit="exit">Exit guest mode</button>
           <button class="btn btn-primary btn-sm" data-guest-exit="signin">Sign in to save progress</button></div>
       </div>
+      ${appearancePanel()}
     </section>`;
+    wireAppearance();
     return;
   }
   $('main').innerHTML = `<section class="stack">
@@ -1297,16 +1329,13 @@ async function renderAccountPage() {
         <div class="account-actions"><a class="btn btn-ghost btn-sm" href="/privacy">Privacy policy</a>
           ${user ? '<button id="btn-signout" class="btn btn-ghost btn-sm">Sign out</button>' : ''}</div>
       </div>
+      ${appearancePanel()}
       <div id="requests" class="stack"></div>
       <div id="features" class="stack"></div>
       <div id="invites" class="stack"></div>
     </section>`;
-  $('btn-signout')?.addEventListener('click', async () => {
-    if (!(await confirmModal('Sign out?', 'Your progress is saved to your account and removed from this device.', 'Sign out'))) return;
-    flushUpload();
-    await Auth.signOut();
-    location.assign('/');
-  });
+  wireAppearance();
+  $('btn-signout')?.addEventListener('click', confirmSignOut);
   renderInvites();
   renderAccessRequests();
   renderFeatureRequests();
@@ -1683,6 +1712,8 @@ async function init() {
   render();
   save(); // persist anything created on first render (e.g. a new practice round)
 }
+
+$('btn-header-signout').addEventListener('click', confirmSignOut);
 
 // "Exit guest mode" / "Sign in to save progress" in the banner and on the Account page.
 document.addEventListener('click', (e) => {

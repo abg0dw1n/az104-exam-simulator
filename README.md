@@ -173,6 +173,10 @@ select vault.create_secret('re_your_key_here', 'resend_api_key');
 
 Signed-in users can suggest site features from the home page ("Have an idea for the site?") or the Account page. Requests go to the `feature_requests` table: people see only their own, with its status (Submitted, Planned, In progress, Done, Not planned) and any note from the site owner; admins see everyone's on the Account page and update status/notes there. Limited to 10 requests per person per day.
 
+## Light and dark mode
+
+The theme is Monokai Pro (dark) with Monokai Pro Light. The sun/moon button in the header switches between them, and the Account page has System / Light / Dark. The choice is saved per device (`itsh:theme` in localStorage, kept on sign-out); by default the site follows the device setting. `js/theme.js` runs in `<head>` so the right theme is applied before the page draws. Colors live in the `:root` and `:root[data-theme="light"]` blocks at the top of `css/styles.css`.
+
 ## Guest mode
 
 The sign-in screen has **Continue as guest**. Guests get a preview: a fixed sample of 20 practice questions per exam (spread across domains by weight, `GUEST_QUESTIONS` in `js/app.js`), the first module of each learning path, and no timed exams, question reports or feature requests. Locked content shows a sign-in prompt. This is a client-side limit (the question files themselves are public). Nothing is saved to an account: progress is kept in `sessionStorage` for that tab only and is cleared when the tab closes. A banner reminds guests of this, with a link to sign in (which discards the guest progress). Guests can read the Most popular ranking but don't add views.
