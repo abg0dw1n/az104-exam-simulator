@@ -1,4 +1,5 @@
 import * as Auth from './auth.js';
+import * as Learn from './learn.js';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Config
@@ -22,7 +23,7 @@ const KEYS_NUMBER = '123456';
 // State (persisted to localStorage so a refresh never loses progress)
 // ─────────────────────────────────────────────────────────────────────────────
 const defaultState = () => ({
-  mode: 'practice',          // 'practice' | 'exam' | 'review'
+  mode: 'practice',          // 'practice' | 'exam' | 'review' | 'learn'
   practice: {
     answers: {}, flagged: [], optionOrder: {}, index: 0,
     domain: 'ALL', status: 'all', shuffle: true,
@@ -40,6 +41,7 @@ const defaultState = () => ({
 
 let state = null;
 let timerHandle = null;
+let LEARN = null;           // learn.json for this exam, if it has training content
 
 // Reads an exam's saved progress; legacyKey covers data saved before multi-exam support.
 function readSaved(slug, legacyKey) {
@@ -230,10 +232,16 @@ function currentHolder(s) { return s.holder || s.store; }
 // Rendering
 // ─────────────────────────────────────────────────────────────────────────────
 function render() {
+  if (state.mode === 'learn' && !LEARN) state.mode = 'practice';
   renderModeTabs();
   renderTimer();
 
   const main = $('main');
+  if (state.mode === 'learn') {
+    $('navigator').hidden = true;
+    return Learn.renderLearn(main, { exam: EXAM, state, save, practiceDomain });
+  }
+  Learn.stopLearn();
   $('practice-filters').hidden = state.mode !== 'practice';
   $('practice-stats').hidden = state.mode !== 'practice';
   $('btn-reset-practice').hidden = state.mode !== 'practice';
@@ -262,8 +270,9 @@ function render() {
 
 function renderModeTabs() {
   const examTab = state.mode === 'exam' || state.mode === 'review';
-  $('btn-mode-practice').setAttribute('aria-selected', String(!examTab));
+  $('btn-mode-practice').setAttribute('aria-selected', String(state.mode === 'practice'));
   $('btn-mode-exam').setAttribute('aria-selected', String(examTab));
+  $('btn-mode-learn').setAttribute('aria-selected', String(state.mode === 'learn'));
 }
 
 let gridKey = '';
@@ -584,7 +593,10 @@ function toggleFlag() {
 }
 
 function setMode(mode) {
-  if (mode === 'practice' && state.mode === 'exam' && state.exam && !state.exam.result) {
+  if (mode === 'learn' && state.mode === 'learn' && state.learn?.view?.module) {
+    state.learn.view.module = null; save(); return render(); // clicking Learn again returns to the module list
+  }
+  if (mode !== 'exam' && state.mode === 'exam' && state.exam && !state.exam.result) {
     // The exam keeps running in the background; just switch the view.
     toast('Your exam is still running — switch back to Exam to continue.');
   }
@@ -1099,6 +1111,8 @@ async function init() {
   document.body.dataset.vendor = vendorKey(EXAM.vendor);
   $('brand-title').textContent = `${EXAM.code} Exam Simulator`;
   $('brand-sub').textContent = `${EXAM.name} · ${QUESTIONS.length} questions`;
+  LEARN = await Learn.loadLearn(slug);
+  $('btn-mode-learn').hidden = !LEARN;
   $('mode-tabs').hidden = false;
   $('btn-drawer').hidden = false;
   $('domain-filter').innerHTML = `<option value="ALL">All domains (${QUESTIONS.length})</option>` +

@@ -43,6 +43,13 @@ Open the site to pick an exam, or go straight to one at `/<folder>` (e.g. `/az-1
   - Filter by domain, or show only unanswered, incorrect, or flagged questions. The list stays put while you answer.
 - **Exam** – pick how many questions you want. Questions are drawn in proportion to the exam's official domain weights, preferring ones you've seen least, so a big bank rotates instead of repeating. Timer, shuffled questions and options, no feedback until you submit. Results show a scaled score, a domain breakdown with "Practice this domain" links, and recent attempts. Afterwards you can review missed questions or all questions.
 
+- **Learn** – training content for exams that have it (AZ-104 so far). One module per exam domain, each with:
+  - a **study guide** (sections, exam tips, key terms, and a link to practice that domain),
+  - a **slideshow** (arrow keys, speaker notes, full screen), and
+  - a **video lesson** – the slides animate while the device's built-in text-to-speech voice reads the script, with captions, speed and voice controls. No audio files are hosted; if a device has no voice, the lesson plays with captions only.
+
+  Module progress (guide read, slides finished, video watched) is saved with the rest of your progress.
+
 Progress, flags, and exam history are saved in your browser (localStorage), and the exam timer survives refreshes. The site works offline and can be installed to a phone or desktop home screen.
 
 **Keyboard:** `A`–`F` (or `1`–`6`) answer · `←` `→` navigate · `F` flag · `R` try again (practice).
@@ -53,9 +60,11 @@ Progress, flags, and exam history are saved in your browser (localStorage), and 
 index.html              page shell + inline SVG icons
 css/styles.css          all styles (no CSS framework at runtime)
 js/app.js               app logic (exam picker, state, rendering, timer, question selection)
+js/learn.js             Learn tab: study guides, slideshow and narrated video player
 exams/index.json        list of exams shown on the home screen
 exams/<folder>/exam.json       exam settings: name, domains + weights, scoring, timing
 exams/<folder>/questions.json  the exam's question bank
+exams/<folder>/learn.json      optional training content (enables the Learn tab)
 exams/question-template.csv    spreadsheet template for bulk imports
 scripts/import-csv.mjs         CSV → questions.json importer
 scripts/validate-questions.mjs sanity checks for all question banks
@@ -76,6 +85,33 @@ It is a static site with no build step and no dependencies.
 2. Create `exams/<folder>/questions.json` containing `[]`.
 3. Add the exam to `exams/index.json`, with `"level"` set to `beginner`, `intermediate` or `advanced` (shown as a difficulty meter on its card). The home page groups exams into a folder per `vendor`, easiest first.
 4. Import questions (below), run `node scripts/validate-questions.mjs`, commit and push.
+
+## Add training content (Learn tab)
+
+Create `exams/<folder>/learn.json`. The Learn tab appears automatically for that exam.
+
+```jsonc
+{
+  "intro": "One line shown above the modules",
+  "sources": [{ "title": "Official study guide", "url": "https://..." }],
+  "modules": [{
+    "id": "D1",                       // matches a domain in exam.json
+    "title": "Full module title", "short": "Short name", "summary": "One or two sentences",
+    "guide": [{ "h": "Section heading", "html": "<p>Section body (HTML)</p>" }],
+    "tips":  ["Exam tip (HTML)"],
+    "terms": [["Term", "Definition (HTML)"]],
+    "slides": [{
+      "layout": "title",              // optional; for the opening slide
+      "kicker": "Optional label", "title": "Slide title",
+      "bullets": ["Bullet (HTML)"],
+      "visual": { "type": "flow", "steps": [{ "t": "Step", "d": "Detail" }] },
+      "script": ["Narration sentence one.", "Sentence two."]   // read aloud in the video
+    }]
+  }]
+}
+```
+
+Visual types: `flow` (`steps`), `tree` (`levels`: array of rows), `cards` (`items` of `{t, d}`), `table` (`head`, `rows`), `code` (`lang`, `text`), `layers` (`items`, top to bottom). Video length is roughly script words ÷ 150 minutes.
 
 ## Add questions in bulk (spreadsheet)
 
