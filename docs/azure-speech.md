@@ -1,34 +1,41 @@
-# Local AZ-104 narration rendering
+# Recording course narration (Andrew voice)
 
-The speech renderer uses the Azure Speech REST API from a local Node.js process. It reads the Speech key and region from environment variables, creates one MP3 per AZ-104 module, and never writes the key to a file. The default voice is the standard Neural voice `en-US-AndrewNeural`; set `AZURE_SPEECH_VOICE` to another standard Neural voice if desired. Do not choose an HD voice when staying within the Speech F0 free tier.
+Every video lesson on the site uses the same prerecorded voice: Azure Speech's standard Neural voice **Andrew** (`en-US-AndrewNeural`). The recordings are made on your computer with your own Azure Speech key; the key is read from the terminal and never written to a file or the repository.
 
 ## Requirements
 
-- Node.js 18 or newer (for built-in `fetch`)
-- An Azure Speech resource configured with the **Free F0** pricing tier
+- Node.js 18 or newer
+- An Azure Speech resource on the **Free F0** tier (about 500,000 characters of Neural speech a month; a whole course is roughly 10,000–30,000 characters)
 - The resource key and region (for example, `eastus`)
 
-The renderer makes one real-time synthesis request per module. It does not switch tiers or create Azure resources. Speech charges depend on the Azure resource's tier and usage; keep the resource on F0 and verify the Azure pricing page before rendering.
+## Record (PowerShell)
 
-## Run from PowerShell
-
-Set these values in the same PowerShell window you will use for the command. Substitute your own key; never commit it or paste it into chat:
+From the repository folder, get the latest version first, then set the key for this window only:
 
 ```powershell
+git pull
 $env:AZURE_SPEECH_KEY = "your-key"
 $env:AZURE_SPEECH_REGION = "eastus"
+npm run speech
 ```
 
-The renderer defaults to Andrew (`en-US-AndrewNeural`). To choose another standard Neural voice instead, set:
+`npm run speech` records every course that has a `learn.json`, skipping modules that already have audio for their current script. Other forms:
 
 ```powershell
-$env:AZURE_SPEECH_VOICE = "en-US-AvaNeural"
+npm run speech -- a-plus-core1   # just one course (or several, separated by spaces)
+npm run speech -- --force        # re-record everything, e.g. after changing the voice
 ```
 
-From the repository folder, run:
+To use another standard Neural voice, set `$env:AZURE_SPEECH_VOICE = "en-US-AvaNeural"` before running (this re-records all modules). Don't choose an HD voice if you want to stay within the free tier.
 
-```powershell
-npm run speech:az104
-```
+## What it changes
 
-The files are written to `exams/az-104/media/` as `D1.mp3`, `D2.mp3`, and so on. The environment variables disappear when you close PowerShell. The key is not stored in the repository. Generated MP3s can be reviewed locally before deciding whether to add them to version control.
+- `exams/<course>/media/<module>.mp3`: one recording per module
+- `exams/<course>/media/narration.json`: which script each recording was made from, so unchanged modules are skipped next time
+- `exams/<course>/learn.json`: gains a `"narration"` block once every module has audio, which switches that course's videos from the browser's voice to the recording
+
+Then commit and push those files (for example `git add exams` then `git commit -m "Record narration"` then `git push`). The site updates when Vercel finishes deploying.
+
+## When to re-run
+
+Run `npm run speech` after adding a new learning path or editing any slide's `script` lines; only the new or changed modules are recorded.

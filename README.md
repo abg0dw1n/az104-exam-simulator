@@ -46,7 +46,7 @@ Open the site to pick an exam, or go straight to one at `/<folder>` (e.g. `/az-1
 - **Learn** – training content for exams that have it (AZ-104, A+ Core 1, and A+ Core 2). One module per exam domain, each with:
   - a **study guide** (sections, exam tips, key terms, and a link to practice that domain),
   - a **slideshow** (arrow keys, speaker notes, full screen), and
-  - a **video lesson** – AZ-104 slides animate with prerecorded Andrew Neural narration and captions; other courses use the device's built-in text-to-speech voice until recordings are added.
+  - a **video lesson**: the slides animate with prerecorded narration in Azure Speech's Andrew voice, with captions. Record a new or edited course with `npm run speech` (see `docs/azure-speech.md`); until a course is recorded it falls back to the device's built-in voice.
 
   Module progress (guide read, slides finished, video watched) is saved with the rest of your progress.
 

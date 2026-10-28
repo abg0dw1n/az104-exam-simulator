@@ -3,9 +3,10 @@
   "private": true,
   "version": "3.0.0",
   "type": "module",
-  "description": "Practice and timed exam simulator for IT certifications (AZ-104, Network+)",
+  "description": "The IT Study Hall: learning paths, practice questions and timed exams for IT certifications",
   "scripts": {
     "validate": "node scripts/validate-questions.mjs",
-    "speech:az104": "node scripts/render-az104-speech.mjs"
+    "speech": "node scripts/render-speech.mjs",
+    "speech:az104": "node scripts/render-speech.mjs az-104"
   }
 }
