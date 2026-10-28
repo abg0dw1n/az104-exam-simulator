@@ -1,5 +1,9 @@
 /* The IT Study Hall — hand-written CSS (no runtime framework). */
 
+/* Fonts: self-hosted, Latin subset, variable weight (SIL Open Font License; see /fonts). */
+@font-face { font-family: "Inter"; src: url("/fonts/inter-latin-var.woff2") format("woff2"); font-weight: 100 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "JetBrains Mono"; src: url("/fonts/jetbrains-mono-latin-var.woff2") format("woff2"); font-weight: 100 800; font-style: normal; font-display: swap; }
+
 :root {
   /* Theme: Monokai Pro. The --azure* tokens are the site's accent color (yellow in this theme). */
   color-scheme: dark;
@@ -29,8 +33,9 @@
   --code-bg: #19181a;
   --radius: 12px;
   --shadow: 0 1px 2px rgba(0,0,0,.35), 0 8px 24px rgba(0,0,0,.22);
-  --font: "Segoe UI Variable", "Segoe UI", Inter, system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
-  --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+  --font: Inter, "Segoe UI Variable", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, monospace;
+  --font-head: var(--mono);      /* "Terminal" type: monospace headings, Inter body */
 }
 
 :root[data-theme="light"] {
@@ -75,6 +80,7 @@ body {
   font: 15px/1.55 var(--font); -webkit-font-smoothing: antialiased;
 }
 h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { font-family: var(--font-head); }
 button, select { font: inherit; color: inherit; }
 button { cursor: pointer; }
 code {
