@@ -23,6 +23,7 @@
     <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></symbol>
     <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
     <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3.5 7.5a2 2 0 0 1 2-2h4l2 2.5h7a2 2 0 0 1 2 2v7.5a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.75"/><path d="M4.75 19.5c1.1-3.4 3.9-5.25 7.25-5.25s6.15 1.85 7.25 5.25"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
     <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
     <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6m-5 3h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3Z"/></symbol>
@@ -44,10 +45,7 @@
 
       <div class="topbar-actions">
         <a href="/" class="btn btn-ghost btn-sm exams-link" id="exams-link">All exams</a>
-        <div id="account" class="account" hidden>
-          <span id="account-email" class="account-email small muted"></span>
-          <button id="btn-signout" class="btn btn-ghost btn-sm">Sign out</button>
-        </div>
+        <a id="account" href="/account" class="btn btn-ghost btn-sm account-link" hidden><svg class="icon"><use href="#i-user"/></svg><span>Account</span></a>
         <div class="segmented" role="tablist" aria-label="Mode" id="mode-tabs" hidden>
           <button id="btn-mode-practice" role="tab" data-mode="practice"><svg class="icon"><use href="#i-book"/></svg><span>Practice</span></button>
           <button id="btn-mode-exam" role="tab" data-mode="exam"><svg class="icon"><use href="#i-clock"/></svg><span>Exam</span></button>

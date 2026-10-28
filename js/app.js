@@ -931,9 +931,7 @@ async function renderHome() {
       <div class="stack" style="gap:6px"><h2 class="home-title">Choose an exam</h2>
       <p class="muted">Each exam keeps its own practice progress and history${Auth.currentUser() ? ', synced to your account' : ''}.</p></div>
       <div class="folder-list">${groups}</div>
-      <div id="invites"></div>
     </section>`;
-  renderInvites();
 }
 
 // ── Sign-in screen ───────────────────────────────────────────────────────────
@@ -972,11 +970,37 @@ function renderSignIn(error) {
 
 function renderAccount() {
   const user = Auth.currentUser();
-  const box = $('account');
-  if (!user) { box.hidden = true; return; }
-  box.hidden = false;
-  $('account-email').textContent = user.email || 'Signed in';
-  $('account-email').title = user.email || '';
+  const link = $('account');
+  link.hidden = !user;
+  if (user) link.title = `Signed in as ${user.email || 'you'}`;
+}
+
+// ── Account page (/account): profile, sign out, and admin tools ──────────────
+async function renderAccountPage() {
+  document.body.classList.add('home', 'account-page');
+  document.title = 'Account · Exam Simulator';
+  $('navigator').hidden = true;
+  $('account').classList.add('active');
+  const user = Auth.currentUser();
+  $('main').innerHTML = `<section class="stack">
+      <div class="stack" style="gap:6px"><h2 class="home-title">Account</h2>
+      <p class="muted">Your sign-in details and account settings.</p></div>
+      <div class="panel card-pad account-card">
+        <div class="account-avatar" aria-hidden="true">${escapeHtml((user?.email || '?')[0].toUpperCase())}</div>
+        <div class="account-who"><span class="muted small">Signed in as</span><b>${escapeHtml(user?.email || 'Guest')}</b>
+          <span class="muted small">Your practice progress and exam history sync to this account.</span></div>
+        <div class="account-actions"><a class="btn btn-ghost btn-sm" href="/privacy">Privacy policy</a>
+          ${user ? '<button id="btn-signout" class="btn btn-ghost btn-sm">Sign out</button>' : ''}</div>
+      </div>
+      <div id="invites" class="stack"></div>
+    </section>`;
+  $('btn-signout')?.addEventListener('click', async () => {
+    if (!(await confirmModal('Sign out?', 'Your progress is saved to your account and removed from this device.', 'Sign out'))) return;
+    flushUpload();
+    await Auth.signOut();
+    location.assign('/');
+  });
+  renderInvites();
 }
 
 // ── Invites (shown to admins only) ───────────────────────────────────────────
@@ -1053,12 +1077,6 @@ async function syncFromCloud() {
 }
 
 async function init() {
-  $('btn-signout').addEventListener('click', async () => {
-    if (!(await confirmModal('Sign out?', 'Your progress is saved to your account and removed from this device.', 'Sign out'))) return;
-    flushUpload();
-    await Auth.signOut();
-    location.assign('/');
-  });
   if (Auth.AUTH_ENABLED) {
     const auth = await Auth.initAuth();
     renderAccount();
@@ -1068,6 +1086,7 @@ async function init() {
   }
   const slug = currentSlug();
   if (!slug) return renderHome();
+  if (slug === 'account') return renderAccountPage();
   try {
     await loadBank(slug);
   } catch (err) {

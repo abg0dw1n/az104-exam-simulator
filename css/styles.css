@@ -363,12 +363,22 @@ body.signed-out .exams-link { display: none; }
 .signin-msg.bad-msg { background: var(--bad-soft); border-color: transparent; color: var(--bad-text); }
 .or { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 12px; }
 .or::before, .or::after { content: ""; flex: 1; height: 1px; background: var(--border); }
-.account { display: flex; align-items: center; gap: 8px; min-width: 0; }
-.account-email { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.account-link { display: inline-flex; align-items: center; gap: 6px; }
+.account-link.active { background: var(--azure-soft); border-color: transparent; color: var(--azure-text); }
+body.account-page .exams-link { display: inline-flex; }
+.account-card { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.account-avatar { width: 48px; height: 48px; flex: none; border-radius: 50%; display: grid; place-items: center; font-weight: 700; font-size: 20px; background: var(--azure-soft); color: var(--azure-text); }
+.account-who { display: grid; gap: 2px; min-width: 0; flex: 1 1 220px; overflow-wrap: anywhere; }
+.account-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 .invite-row { display: grid; grid-template-columns: 2fr 1.2fr auto; gap: 8px; }
 .invite-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
 .invite-list li { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 9px; background: var(--panel-2); border: 1px solid var(--border); font-size: 14px; overflow-wrap: anywhere; }
-@media (max-width: 900px) { .account-email { display: none; } }
+@media (max-width: 600px) {
+  .account-link span { display: none; }
+  .account-actions { flex-basis: 100%; }
+  .account-actions .btn { flex: 1; justify-content: center; }
+}
+.invite-list li > .chip, .invite-list li > .btn { flex: none; white-space: nowrap; }
 @media (max-width: 600px) { .invite-row { grid-template-columns: 1fr; } }
 
 /* ── Privacy page ───────────────────────────────────── */
