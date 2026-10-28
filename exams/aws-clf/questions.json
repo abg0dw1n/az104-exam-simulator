@@ -1,0 +1,3252 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "A startup wants to avoid buying servers up front and pay only for the computing it uses. Which cloud benefit is this?",
+    "options": [
+      {
+        "text": "Trade fixed expense for variable expense",
+        "note": ""
+      },
+      {
+        "text": "Go global in minutes with Regions",
+        "note": "About reaching new Regions quickly."
+      },
+      {
+        "text": "Increase speed and agility",
+        "note": "About provisioning faster."
+      },
+      {
+        "text": "Stop guessing your capacity needs",
+        "note": "About scaling to demand."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pay-as-you-go replaces large up-front capital expense (CapEx) with ongoing operating expense (OpEx)."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "A retailer's traffic spikes every holiday season. Which cloud benefit lets it avoid buying servers for peak load all year?",
+    "options": [
+      {
+        "text": "Stop guessing capacity",
+        "note": ""
+      },
+      {
+        "text": "Benefit from massive economies of scale",
+        "note": "About lower prices."
+      },
+      {
+        "text": "Trade fixed for variable expense",
+        "note": "Related, but the question is about sizing."
+      },
+      {
+        "text": "Go global in minutes",
+        "note": "About geography."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Scale out for the peak and back in afterward instead of overprovisioning."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "Why can AWS often offer lower prices than a company running its own data center?",
+    "options": [
+      {
+        "text": "Economies of scale",
+        "note": ""
+      },
+      {
+        "text": "Free data transfer out",
+        "note": "Data transfer out is usually charged."
+      },
+      {
+        "text": "No electricity costs",
+        "note": "AWS still pays for power."
+      },
+      {
+        "text": "Unlimited free storage",
+        "note": "Storage is billed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Aggregated usage from many customers lets AWS buy and operate at lower cost per unit."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "A company wants to launch its app for customers in Asia without building new data centers. Which benefit applies?",
+    "options": [
+      {
+        "text": "Go global in minutes",
+        "note": ""
+      },
+      {
+        "text": "Stop guessing capacity",
+        "note": "About sizing, not geography."
+      },
+      {
+        "text": "Elasticity",
+        "note": "About scaling up and down."
+      },
+      {
+        "text": "Consolidated billing",
+        "note": "A billing feature."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Deploy to AWS Regions around the world in minutes."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "Which describes elasticity in the cloud?",
+    "options": [
+      {
+        "text": "Automatically adding and removing resources to match demand",
+        "note": ""
+      },
+      {
+        "text": "Keeping copies of data in three separate locations",
+        "note": "That's durability."
+      },
+      {
+        "text": "Paying for capacity in advance to get a discount",
+        "note": "That's a pricing model."
+      },
+      {
+        "text": "Encrypting data at rest",
+        "note": "That's security."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Elasticity scales resources out and in as load changes; Auto Scaling is a common example."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "Which pillar of the AWS Well-Architected Framework focuses on recovering from failures and meeting demand?",
+    "options": [
+      {
+        "text": "Reliability",
+        "note": ""
+      },
+      {
+        "text": "Performance efficiency",
+        "note": "Using resources efficiently."
+      },
+      {
+        "text": "Cost optimization",
+        "note": "Avoiding unnecessary cost."
+      },
+      {
+        "text": "Sustainability",
+        "note": "Reducing environmental impact."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reliability covers fault tolerance, recovery and scaling to meet demand."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Which Well-Architected pillar focuses on minimizing the environmental impact of workloads?",
+    "options": [
+      {
+        "text": "Sustainability",
+        "note": ""
+      },
+      {
+        "text": "Operational excellence",
+        "note": "Running and improving operations."
+      },
+      {
+        "text": "Reliability",
+        "note": "Recovering from failures."
+      },
+      {
+        "text": "Security",
+        "note": "Protecting data and systems."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The six pillars: operational excellence, security, reliability, performance efficiency, cost optimization, sustainability."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "Which Well-Architected pillar includes running workloads, monitoring them and making small, frequent, reversible changes?",
+    "options": [
+      {
+        "text": "Operational excellence",
+        "note": ""
+      },
+      {
+        "text": "Cost optimization",
+        "note": "Spending wisely."
+      },
+      {
+        "text": "Performance efficiency",
+        "note": "Choosing the right resources."
+      },
+      {
+        "text": "Sustainability",
+        "note": "Environmental impact."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Operations as code, frequent small changes and learning from failures are key principles."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "A team selects the right EC2 instance types and uses caching to meet latency goals. Which Well-Architected pillar is this?",
+    "options": [
+      {
+        "text": "Performance efficiency",
+        "note": ""
+      },
+      {
+        "text": "Reliability",
+        "note": "Recovery and availability."
+      },
+      {
+        "text": "Security",
+        "note": "Protection."
+      },
+      {
+        "text": "Operational excellence",
+        "note": "Running operations."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Performance efficiency is about using computing resources efficiently as demand changes."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "Which Well-Architected pillar includes analyzing spending and removing unused resources?",
+    "options": [
+      {
+        "text": "Cost optimization",
+        "note": ""
+      },
+      {
+        "text": "Sustainability",
+        "note": "Environmental impact."
+      },
+      {
+        "text": "Reliability",
+        "note": "Availability."
+      },
+      {
+        "text": "Performance efficiency",
+        "note": "Speed and efficiency."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Adopt a consumption model and measure overall efficiency."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "Which tool reviews a workload against AWS best practices and highlights high-risk issues?",
+    "options": [
+      {
+        "text": "AWS Well-Architected Tool",
+        "note": ""
+      },
+      {
+        "text": "AWS Pricing Calculator",
+        "note": "Estimates costs."
+      },
+      {
+        "text": "Amazon Inspector",
+        "note": "Scans for vulnerabilities."
+      },
+      {
+        "text": "AWS Artifact",
+        "note": "Compliance reports."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The Well-Architected Tool is free in the console and uses the framework's questions."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "Which design principle recommends building systems that keep working if one component fails?",
+    "options": [
+      {
+        "text": "Design for failure",
+        "note": ""
+      },
+      {
+        "text": "Use a single large server",
+        "note": "A single point of failure."
+      },
+      {
+        "text": "Manually scale servers",
+        "note": "Slower and error-prone."
+      },
+      {
+        "text": "Keep everything in one AZ",
+        "note": "No fault isolation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use multiple Availability Zones, loose coupling and automatic recovery."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "Which principle describes breaking an application into components that communicate through queues so one failure doesn't stop the others?",
+    "options": [
+      {
+        "text": "Loose coupling",
+        "note": ""
+      },
+      {
+        "text": "Vertical scaling",
+        "note": "A bigger single server."
+      },
+      {
+        "text": "Tight coupling",
+        "note": "Components depend directly on each other."
+      },
+      {
+        "text": "Lift and shift",
+        "note": "A migration approach."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Amazon SQS is a common way to decouple components."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Which migration strategy moves an application to AWS without changes?",
+    "options": [
+      {
+        "text": "Rehost (lift and shift)",
+        "note": ""
+      },
+      {
+        "text": "Refactor",
+        "note": "Re-architects the app."
+      },
+      {
+        "text": "Repurchase (switch to SaaS)",
+        "note": "Moves to a different product, like SaaS."
+      },
+      {
+        "text": "Retire (decommission)",
+        "note": "Turns the app off."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The 7 Rs: retire, retain, rehost, relocate, repurchase, replatform and refactor."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "A company moves its database to Amazon RDS with minor changes, but doesn't redesign the app. Which strategy is this?",
+    "options": [
+      {
+        "text": "Replatform",
+        "note": ""
+      },
+      {
+        "text": "Rehost",
+        "note": "No changes at all."
+      },
+      {
+        "text": "Refactor",
+        "note": "Major redesign."
+      },
+      {
+        "text": "Retain",
+        "note": "Stays on premises."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Replatform (lift, tinker and shift) gains some cloud benefits with small changes."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "A company replaces its on-premises CRM with a SaaS product. Which migration strategy is this?",
+    "options": [
+      {
+        "text": "Repurchase",
+        "note": ""
+      },
+      {
+        "text": "Rehost",
+        "note": "Moves the same app."
+      },
+      {
+        "text": "Replatform",
+        "note": "Small changes to the same app."
+      },
+      {
+        "text": "Relocate",
+        "note": "Moves VMware workloads as is."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Repurchase means moving to a different product, often a SaaS license."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "A company decides to keep some apps in its data center for now because they're not ready to move. Which strategy is this?",
+    "options": [
+      {
+        "text": "Retain",
+        "note": ""
+      },
+      {
+        "text": "Retire",
+        "note": "Turns them off."
+      },
+      {
+        "text": "Rehost",
+        "note": "Moves them as is."
+      },
+      {
+        "text": "Refactor",
+        "note": "Redesigns them."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Retain (revisit) keeps workloads where they are until later."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "A company redesigns a monolithic app into serverless microservices. Which migration strategy is this?",
+    "options": [
+      {
+        "text": "Refactor",
+        "note": ""
+      },
+      {
+        "text": "Rehost",
+        "note": "No changes."
+      },
+      {
+        "text": "Repurchase",
+        "note": "Buys a new product."
+      },
+      {
+        "text": "Retain",
+        "note": "Keeps it on premises."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Refactor (re-architect) costs the most effort but gains the most cloud benefits."
+  },
+  {
+    "id": 19,
+    "domain": "D1",
+    "scenario": "Which framework helps organizations plan their cloud adoption across perspectives like Business, People and Governance?",
+    "options": [
+      {
+        "text": "AWS Cloud Adoption Framework (CAF)",
+        "note": ""
+      },
+      {
+        "text": "AWS Well-Architected Framework",
+        "note": "Workload design best practices."
+      },
+      {
+        "text": "AWS Shared Responsibility Model",
+        "note": "Security responsibilities."
+      },
+      {
+        "text": "AWS Organizations",
+        "note": "Account management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CAF perspectives: Business, People, Governance, Platform, Security and Operations."
+  },
+  {
+    "id": 20,
+    "domain": "D1",
+    "scenario": "Which AWS CAF perspective focuses on culture, training and organizational change?",
+    "options": [
+      {
+        "text": "People",
+        "note": ""
+      },
+      {
+        "text": "Platform",
+        "note": "Technical architecture."
+      },
+      {
+        "text": "Operations",
+        "note": "Running cloud services."
+      },
+      {
+        "text": "Security",
+        "note": "Protecting data and workloads."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The Business, People and Governance perspectives focus on business capabilities."
+  },
+  {
+    "id": 21,
+    "domain": "D1",
+    "scenario": "Which AWS CAF perspective focuses on building the cloud architecture and infrastructure?",
+    "options": [
+      {
+        "text": "Platform",
+        "note": ""
+      },
+      {
+        "text": "People",
+        "note": "Culture and skills."
+      },
+      {
+        "text": "Governance",
+        "note": "Risk and program management."
+      },
+      {
+        "text": "Business",
+        "note": "Business outcomes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Platform, Security and Operations are the technical perspectives."
+  },
+  {
+    "id": 22,
+    "domain": "D1",
+    "scenario": "Which is a benefit of the AWS Cloud Adoption Framework?",
+    "options": [
+      {
+        "text": "Reduced business risk",
+        "note": ""
+      },
+      {
+        "text": "Free EC2 instances for a year",
+        "note": "Not a CAF benefit."
+      },
+      {
+        "text": "Automatic code migration",
+        "note": "CAF is guidance, not a tool."
+      },
+      {
+        "text": "Unlimited support cases",
+        "note": "Not related to CAF."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CAF lists reduced business risk, improved ESG performance, increased revenue and increased operational efficiency."
+  },
+  {
+    "id": 23,
+    "domain": "D1",
+    "scenario": "Which service helps move on-premises servers to AWS by continuously replicating them?",
+    "options": [
+      {
+        "text": "AWS Application Migration Service",
+        "note": ""
+      },
+      {
+        "text": "AWS Database Migration Service",
+        "note": "Migrates databases."
+      },
+      {
+        "text": "AWS Artifact",
+        "note": "Compliance reports."
+      },
+      {
+        "text": "Amazon Inspector",
+        "note": "Vulnerability scanning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Application Migration Service is the main tool for rehosting servers."
+  },
+  {
+    "id": 24,
+    "domain": "D1",
+    "scenario": "Which service migrates a database to AWS while the source stays operational?",
+    "options": [
+      {
+        "text": "AWS Database Migration Service (DMS)",
+        "note": ""
+      },
+      {
+        "text": "AWS DataSync file transfer",
+        "note": "Copies files."
+      },
+      {
+        "text": "AWS Backup",
+        "note": "Backs up resources."
+      },
+      {
+        "text": "Amazon Athena with S3 queries",
+        "note": "Queries data in S3."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DMS supports homogeneous and heterogeneous migrations; Schema Conversion helps change engines."
+  },
+  {
+    "id": 25,
+    "domain": "D1",
+    "scenario": "Which concept means a company only pays for compute while its code actually runs?",
+    "options": [
+      {
+        "text": "Serverless computing",
+        "note": ""
+      },
+      {
+        "text": "Reserved Instances",
+        "note": "Pay for a 1- or 3-year term."
+      },
+      {
+        "text": "Dedicated Hosts",
+        "note": "Pay for a whole physical server."
+      },
+      {
+        "text": "On-premises servers",
+        "note": "Pay up front."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AWS Lambda charges per request and execution time."
+  },
+  {
+    "id": 26,
+    "domain": "D1",
+    "scenario": "Which deployment model connects on-premises infrastructure with cloud resources?",
+    "options": [
+      {
+        "text": "Hybrid cloud",
+        "note": ""
+      },
+      {
+        "text": "Public cloud only",
+        "note": "Everything in the cloud."
+      },
+      {
+        "text": "On-premises only",
+        "note": "No cloud."
+      },
+      {
+        "text": "Multi-Region",
+        "note": "Multiple AWS Regions, not on premises."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hybrid examples include AWS Outposts, Direct Connect and Site-to-Site VPN."
+  },
+  {
+    "id": 27,
+    "domain": "D1",
+    "scenario": "Which is an advantage of the cloud's economies of scale for customers?",
+    "options": [
+      {
+        "text": "Lower pay-as-you-go prices",
+        "note": ""
+      },
+      {
+        "text": "No need for any security",
+        "note": "Customers still have responsibilities."
+      },
+      {
+        "text": "Fixed monthly bills",
+        "note": "Costs vary with usage."
+      },
+      {
+        "text": "No internet connection required",
+        "note": "Cloud access needs a network."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AWS has reduced prices many times as it has grown."
+  },
+  {
+    "id": 28,
+    "domain": "D1",
+    "scenario": "A company wants to experiment with new ideas quickly and shut down failed experiments at low cost. Which benefit applies?",
+    "options": [
+      {
+        "text": "Increased speed and agility",
+        "note": ""
+      },
+      {
+        "text": "Economies of scale",
+        "note": "About price."
+      },
+      {
+        "text": "Global reach across many Regions",
+        "note": "About geography."
+      },
+      {
+        "text": "High durability for stored data",
+        "note": "About keeping data safe."
+      }
+    ],
+    "answer": 0,
+    "explanation": "New resources are a click away, so experiments are cheap and fast."
+  },
+  {
+    "id": 29,
+    "domain": "D1",
+    "scenario": "Which describes the cloud's total cost of ownership (TCO) advantage?",
+    "options": [
+      {
+        "text": "Lower costs for hardware, power and staff",
+        "note": ""
+      },
+      {
+        "text": "Free software licenses for all apps",
+        "note": "Licenses still cost money."
+      },
+      {
+        "text": "Zero cost for data stored",
+        "note": "Storage is billed."
+      },
+      {
+        "text": "No need to pay taxes",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "TCO compares all costs: servers, storage, network, power, cooling, space and labor."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "Under the shared responsibility model, which task is the customer's responsibility for Amazon EC2?",
+    "options": [
+      {
+        "text": "Patching the guest operating system",
+        "note": ""
+      },
+      {
+        "text": "Maintaining the physical servers",
+        "note": "AWS's responsibility."
+      },
+      {
+        "text": "Securing the data center buildings",
+        "note": "AWS's responsibility."
+      },
+      {
+        "text": "Patching the hypervisor",
+        "note": "AWS's responsibility."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AWS is responsible for security OF the cloud; customers are responsible for security IN the cloud."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "Under the shared responsibility model, which is AWS's responsibility?",
+    "options": [
+      {
+        "text": "Physical security of data centers",
+        "note": ""
+      },
+      {
+        "text": "Configuring security groups",
+        "note": "Customer's responsibility."
+      },
+      {
+        "text": "Encrypting customer data",
+        "note": "Customer's choice and responsibility."
+      },
+      {
+        "text": "Managing IAM users",
+        "note": "Customer's responsibility."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AWS manages the hardware, software, networking and facilities that run AWS services."
+  },
+  {
+    "id": 32,
+    "domain": "D2",
+    "scenario": "Which is a shared control between AWS and the customer?",
+    "options": [
+      {
+        "text": "Patch management",
+        "note": ""
+      },
+      {
+        "text": "Physical security",
+        "note": "AWS only."
+      },
+      {
+        "text": "Data center power",
+        "note": "AWS only."
+      },
+      {
+        "text": "Choosing who can access data",
+        "note": "Customer only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AWS patches infrastructure; customers patch their guest OS and apps. Configuration management and awareness training are also shared."
+  },
+  {
+    "id": 33,
+    "domain": "D2",
+    "scenario": "For a managed service like Amazon RDS, who patches the database engine?",
+    "options": [
+      {
+        "text": "AWS",
+        "note": ""
+      },
+      {
+        "text": "The customer",
+        "note": "AWS handles this for RDS."
+      },
+      {
+        "text": "A third-party auditor",
+        "note": "Not their role."
+      },
+      {
+        "text": "AWS Support only on request",
+        "note": "Patching is part of the service."
+      }
+    ],
+    "answer": 0,
+    "explanation": "With managed services, AWS takes on more responsibility. Customers still manage access and data."
+  },
+  {
+    "id": 34,
+    "domain": "D2",
+    "scenario": "Which AWS account identity has complete access and should be used only for a few account tasks?",
+    "options": [
+      {
+        "text": "The root user",
+        "note": ""
+      },
+      {
+        "text": "An IAM administrator",
+        "note": "Powerful, but limited by policies."
+      },
+      {
+        "text": "An IAM role",
+        "note": "Assumed temporarily."
+      },
+      {
+        "text": "A service-linked role",
+        "note": "Used by AWS services."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Protect the root user with MFA and don't use it for everyday tasks."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "What is the best practice for protecting the root user?",
+    "options": [
+      {
+        "text": "Enable MFA and lock away its credentials",
+        "note": ""
+      },
+      {
+        "text": "Share it with the whole admin team",
+        "note": "Never share it."
+      },
+      {
+        "text": "Create long-term access keys for it",
+        "note": "Avoid root access keys."
+      },
+      {
+        "text": "Use it for daily work",
+        "note": "Use IAM identities instead."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use IAM users, roles or IAM Identity Center for daily work."
+  },
+  {
+    "id": 36,
+    "domain": "D2",
+    "scenario": "Which task requires signing in as the root user?",
+    "options": [
+      {
+        "text": "Closing the AWS account",
+        "note": ""
+      },
+      {
+        "text": "Launching an EC2 instance",
+        "note": "Any authorized identity."
+      },
+      {
+        "text": "Creating an S3 bucket",
+        "note": "Any authorized identity."
+      },
+      {
+        "text": "Viewing CloudWatch metrics",
+        "note": "Any authorized identity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Other root-only tasks include changing account settings like the root email and restoring IAM admin permissions."
+  },
+  {
+    "id": 37,
+    "domain": "D2",
+    "scenario": "Which principle grants users only the permissions they need to do their job?",
+    "options": [
+      {
+        "text": "Least privilege",
+        "note": ""
+      },
+      {
+        "text": "Defense in depth",
+        "note": "Multiple layers of security."
+      },
+      {
+        "text": "Separation of duties",
+        "note": "Splitting tasks between people."
+      },
+      {
+        "text": "Elasticity",
+        "note": "Scaling resources."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Start with minimal permissions and add more as needed."
+  },
+  {
+    "id": 38,
+    "domain": "D2",
+    "scenario": "An EC2 instance needs to read objects from S3. What's the most secure way to give it access?",
+    "options": [
+      {
+        "text": "Attach an IAM role to the instance",
+        "note": ""
+      },
+      {
+        "text": "Store access keys on the instance",
+        "note": "Long-term keys can leak."
+      },
+      {
+        "text": "Make the bucket public",
+        "note": "Exposes data."
+      },
+      {
+        "text": "Use the root user's keys",
+        "note": "Never."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Roles provide temporary credentials that rotate automatically."
+  },
+  {
+    "id": 39,
+    "domain": "D2",
+    "scenario": "Which IAM feature groups users so they share the same permissions?",
+    "options": [
+      {
+        "text": "IAM groups",
+        "note": ""
+      },
+      {
+        "text": "IAM roles",
+        "note": "Assumed temporarily, not a collection of users."
+      },
+      {
+        "text": "Security groups",
+        "note": "Network firewall for instances."
+      },
+      {
+        "text": "Resource groups",
+        "note": "Organize resources."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Attach policies to groups rather than to individual users."
+  },
+  {
+    "id": 40,
+    "domain": "D2",
+    "scenario": "Which document defines permissions in IAM?",
+    "options": [
+      {
+        "text": "A JSON policy",
+        "note": ""
+      },
+      {
+        "text": "A CloudFormation template",
+        "note": "Defines infrastructure."
+      },
+      {
+        "text": "A security group rule",
+        "note": "Network traffic."
+      },
+      {
+        "text": "An access control vestibule",
+        "note": "Physical security."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Policies list Effect, Action, Resource and optional Conditions."
+  },
+  {
+    "id": 41,
+    "domain": "D2",
+    "scenario": "Which service provides single sign-on to multiple AWS accounts and business apps for a workforce?",
+    "options": [
+      {
+        "text": "AWS IAM Identity Center",
+        "note": ""
+      },
+      {
+        "text": "Amazon Cognito",
+        "note": "Sign-in for customer-facing apps."
+      },
+      {
+        "text": "AWS Secrets Manager",
+        "note": "Stores secrets."
+      },
+      {
+        "text": "AWS Shield",
+        "note": "DDoS protection."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IAM Identity Center can connect to an existing identity provider like Microsoft Entra ID."
+  },
+  {
+    "id": 42,
+    "domain": "D2",
+    "scenario": "Which service adds sign-up and sign-in to a customer-facing mobile app?",
+    "options": [
+      {
+        "text": "Amazon Cognito",
+        "note": ""
+      },
+      {
+        "text": "AWS IAM Identity Center",
+        "note": "Workforce access."
+      },
+      {
+        "text": "AWS Directory Service",
+        "note": "Managed Microsoft AD."
+      },
+      {
+        "text": "AWS KMS",
+        "note": "Encryption keys."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cognito supports social sign-in and user pools."
+  },
+  {
+    "id": 43,
+    "domain": "D2",
+    "scenario": "A company with many AWS accounts wants to block all accounts from using certain Regions. What should it use?",
+    "options": [
+      {
+        "text": "Service control policies in AWS Organizations",
+        "note": ""
+      },
+      {
+        "text": "IAM user policies in each account",
+        "note": "Hard to manage at scale."
+      },
+      {
+        "text": "Security groups on every instance",
+        "note": "Network rules."
+      },
+      {
+        "text": "Network ACLs on every subnet",
+        "note": "Subnet traffic rules."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SCPs set maximum permissions for accounts in an organization."
+  },
+  {
+    "id": 44,
+    "domain": "D2",
+    "scenario": "Where can a customer download AWS compliance reports such as SOC and ISO certifications?",
+    "options": [
+      {
+        "text": "AWS Artifact",
+        "note": ""
+      },
+      {
+        "text": "AWS Config",
+        "note": "Resource configuration history."
+      },
+      {
+        "text": "AWS CloudTrail",
+        "note": "API activity logs."
+      },
+      {
+        "text": "AWS Trusted Advisor",
+        "note": "Best-practice checks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Artifact also lets you review and accept agreements such as a BAA."
+  },
+  {
+    "id": 45,
+    "domain": "D2",
+    "scenario": "Which service records API calls made in an AWS account for auditing?",
+    "options": [
+      {
+        "text": "AWS CloudTrail",
+        "note": ""
+      },
+      {
+        "text": "Amazon CloudWatch",
+        "note": "Metrics and logs for performance."
+      },
+      {
+        "text": "AWS Config",
+        "note": "Resource configuration."
+      },
+      {
+        "text": "Amazon Inspector",
+        "note": "Vulnerability scanning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CloudTrail answers who did what, when and from where."
+  },
+  {
+    "id": 46,
+    "domain": "D2",
+    "scenario": "Which service tracks resource configuration changes and checks them against rules?",
+    "options": [
+      {
+        "text": "AWS Config",
+        "note": ""
+      },
+      {
+        "text": "AWS CloudTrail",
+        "note": "Records API calls."
+      },
+      {
+        "text": "Amazon GuardDuty",
+        "note": "Threat detection."
+      },
+      {
+        "text": "AWS Budgets",
+        "note": "Cost alerts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Config rules can flag noncompliant resources, like unencrypted volumes."
+  },
+  {
+    "id": 47,
+    "domain": "D2",
+    "scenario": "Which service uses machine learning to detect threats like unusual API calls or compromised instances?",
+    "options": [
+      {
+        "text": "Amazon GuardDuty",
+        "note": ""
+      },
+      {
+        "text": "Amazon Macie discovery jobs",
+        "note": "Finds sensitive data in S3."
+      },
+      {
+        "text": "AWS WAF web ACLs",
+        "note": "Filters web requests."
+      },
+      {
+        "text": "AWS Artifact",
+        "note": "Compliance reports."
+      }
+    ],
+    "answer": 0,
+    "explanation": "GuardDuty analyzes CloudTrail, VPC Flow Logs and DNS logs."
+  },
+  {
+    "id": 48,
+    "domain": "D2",
+    "scenario": "Which service automatically scans EC2 instances and container images for software vulnerabilities?",
+    "options": [
+      {
+        "text": "Amazon Inspector",
+        "note": ""
+      },
+      {
+        "text": "Amazon GuardDuty",
+        "note": "Threat detection."
+      },
+      {
+        "text": "Amazon Macie",
+        "note": "Sensitive data discovery."
+      },
+      {
+        "text": "AWS Shield",
+        "note": "DDoS protection."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Inspector also scans Lambda functions."
+  },
+  {
+    "id": 49,
+    "domain": "D2",
+    "scenario": "Which service discovers personally identifiable information (PII) stored in Amazon S3?",
+    "options": [
+      {
+        "text": "Amazon Macie",
+        "note": ""
+      },
+      {
+        "text": "Amazon Inspector",
+        "note": "Software vulnerabilities."
+      },
+      {
+        "text": "AWS Config",
+        "note": "Configuration compliance."
+      },
+      {
+        "text": "Amazon Detective",
+        "note": "Investigates findings."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Macie uses machine learning and pattern matching to find sensitive data."
+  },
+  {
+    "id": 50,
+    "domain": "D2",
+    "scenario": "Which service gives a combined view of security findings from GuardDuty, Inspector and Macie?",
+    "options": [
+      {
+        "text": "AWS Security Hub",
+        "note": ""
+      },
+      {
+        "text": "AWS Artifact",
+        "note": "Compliance documents."
+      },
+      {
+        "text": "AWS Organizations",
+        "note": "Account management."
+      },
+      {
+        "text": "Amazon CloudWatch",
+        "note": "Monitoring metrics."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Security Hub also runs automated security best-practice checks."
+  },
+  {
+    "id": 51,
+    "domain": "D2",
+    "scenario": "Which service helps investigate the root cause of a security finding using graphs of related activity?",
+    "options": [
+      {
+        "text": "Amazon Detective",
+        "note": ""
+      },
+      {
+        "text": "Amazon Inspector",
+        "note": "Scans for vulnerabilities."
+      },
+      {
+        "text": "AWS WAF",
+        "note": "Filters web traffic."
+      },
+      {
+        "text": "AWS KMS",
+        "note": "Manages keys."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Detective builds a linked view from logs to speed up investigations."
+  },
+  {
+    "id": 52,
+    "domain": "D2",
+    "scenario": "Which service protects all AWS customers from common DDoS attacks at no extra cost?",
+    "options": [
+      {
+        "text": "AWS Shield Standard",
+        "note": ""
+      },
+      {
+        "text": "AWS Shield Advanced",
+        "note": "Paid, with extra protections and response team."
+      },
+      {
+        "text": "AWS WAF",
+        "note": "Paid web request filtering."
+      },
+      {
+        "text": "Amazon GuardDuty",
+        "note": "Threat detection, paid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Shield Advanced adds cost protection and access to the Shield Response Team."
+  },
+  {
+    "id": 53,
+    "domain": "D2",
+    "scenario": "A company wants to block SQL injection and cross-site scripting requests to its web app. What should it use?",
+    "options": [
+      {
+        "text": "AWS WAF",
+        "note": ""
+      },
+      {
+        "text": "AWS Shield Standard",
+        "note": "Network-layer DDoS."
+      },
+      {
+        "text": "Security groups",
+        "note": "Can't inspect web requests."
+      },
+      {
+        "text": "Amazon Macie",
+        "note": "Sensitive data discovery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "WAF works with CloudFront, Application Load Balancer and API Gateway."
+  },
+  {
+    "id": 54,
+    "domain": "D2",
+    "scenario": "Which service creates and manages encryption keys used by many AWS services?",
+    "options": [
+      {
+        "text": "AWS KMS",
+        "note": ""
+      },
+      {
+        "text": "AWS Secrets Manager",
+        "note": "Stores secrets like passwords."
+      },
+      {
+        "text": "AWS Certificate Manager",
+        "note": "Manages TLS certificates."
+      },
+      {
+        "text": "IAM",
+        "note": "Manages identities."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AWS CloudHSM provides dedicated hardware security modules if needed."
+  },
+  {
+    "id": 55,
+    "domain": "D2",
+    "scenario": "Which service stores database passwords and can rotate them automatically?",
+    "options": [
+      {
+        "text": "AWS Secrets Manager",
+        "note": ""
+      },
+      {
+        "text": "AWS Key Management Service",
+        "note": "Manages keys, not secret rotation."
+      },
+      {
+        "text": "An encrypted Amazon S3 bucket",
+        "note": "Not designed to rotate secrets."
+      },
+      {
+        "text": "AWS Artifact",
+        "note": "Compliance reports."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Systems Manager Parameter Store can also hold configuration data and secrets."
+  },
+  {
+    "id": 56,
+    "domain": "D2",
+    "scenario": "Which service provides free public TLS certificates for use with load balancers and CloudFront?",
+    "options": [
+      {
+        "text": "AWS Certificate Manager",
+        "note": ""
+      },
+      {
+        "text": "AWS KMS",
+        "note": "Encryption keys."
+      },
+      {
+        "text": "AWS Secrets Manager",
+        "note": "Stores secrets."
+      },
+      {
+        "text": "Amazon Cognito",
+        "note": "User sign-in."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ACM renews its certificates automatically."
+  },
+  {
+    "id": 57,
+    "domain": "D2",
+    "scenario": "Which acts as a stateful firewall for an EC2 instance?",
+    "options": [
+      {
+        "text": "A security group",
+        "note": ""
+      },
+      {
+        "text": "A network ACL",
+        "note": "Stateless, at the subnet level."
+      },
+      {
+        "text": "An internet gateway",
+        "note": "Connects a VPC to the internet."
+      },
+      {
+        "text": "A route table",
+        "note": "Directs traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Security groups allow rules only; return traffic is automatically allowed."
+  },
+  {
+    "id": 58,
+    "domain": "D2",
+    "scenario": "Which is true of network ACLs?",
+    "options": [
+      {
+        "text": "They're stateless and apply to subnets",
+        "note": ""
+      },
+      {
+        "text": "They're stateful and apply to instances",
+        "note": "That describes security groups."
+      },
+      {
+        "text": "They only allow, never deny",
+        "note": "NACLs support deny rules."
+      },
+      {
+        "text": "They encrypt traffic",
+        "note": "They don't."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Because they're stateless, return traffic must be explicitly allowed."
+  },
+  {
+    "id": 59,
+    "domain": "D2",
+    "scenario": "Who is responsible for encrypting data stored in Amazon S3 for a specific compliance need?",
+    "options": [
+      {
+        "text": "The customer",
+        "note": ""
+      },
+      {
+        "text": "AWS",
+        "note": "AWS provides tools; customers choose settings."
+      },
+      {
+        "text": "The auditor",
+        "note": "Not responsible."
+      },
+      {
+        "text": "The internet provider",
+        "note": "Not responsible."
+      }
+    ],
+    "answer": 0,
+    "explanation": "S3 encrypts new objects by default, but customers decide on key management to meet their requirements."
+  },
+  {
+    "id": 60,
+    "domain": "D2",
+    "scenario": "Which describes data encryption in transit?",
+    "options": [
+      {
+        "text": "Protecting data as it moves over a network",
+        "note": ""
+      },
+      {
+        "text": "Protecting data stored on a disk",
+        "note": "That's at rest."
+      },
+      {
+        "text": "Deleting data after use",
+        "note": "Not encryption."
+      },
+      {
+        "text": "Copying data to another Region for backup",
+        "note": "Replication."
+      }
+    ],
+    "answer": 0,
+    "explanation": "TLS (HTTPS) is the most common way to encrypt data in transit."
+  },
+  {
+    "id": 61,
+    "domain": "D2",
+    "scenario": "What's the main benefit of requiring multi-factor authentication (MFA) in AWS?",
+    "options": [
+      {
+        "text": "Stolen passwords alone can't sign in",
+        "note": ""
+      },
+      {
+        "text": "Users no longer need any passwords",
+        "note": "MFA adds a factor."
+      },
+      {
+        "text": "It speeds up sign-in",
+        "note": "It adds a step."
+      },
+      {
+        "text": "It encrypts all data stored in S3",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use virtual authenticator apps, passkeys or hardware security keys."
+  },
+  {
+    "id": 62,
+    "domain": "D2",
+    "scenario": "Which IAM tool shows when a user's credentials were last used, to help remove unused ones?",
+    "options": [
+      {
+        "text": "IAM credential report",
+        "note": ""
+      },
+      {
+        "text": "AWS Cost Explorer",
+        "note": "Costs."
+      },
+      {
+        "text": "AWS Artifact",
+        "note": "Compliance reports."
+      },
+      {
+        "text": "Amazon Macie",
+        "note": "Sensitive data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IAM Access Analyzer can also find unused access and resources shared outside the account."
+  },
+  {
+    "id": 63,
+    "domain": "D2",
+    "scenario": "Which service sends alerts when a CloudWatch metric crosses a threshold, such as high CPU?",
+    "options": [
+      {
+        "text": "Amazon CloudWatch alarms",
+        "note": ""
+      },
+      {
+        "text": "AWS CloudTrail trails",
+        "note": "Records API calls."
+      },
+      {
+        "text": "AWS Artifact",
+        "note": "Compliance reports."
+      },
+      {
+        "text": "AWS Config rules",
+        "note": "Configuration changes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Alarms can notify through Amazon SNS or trigger Auto Scaling."
+  },
+  {
+    "id": 64,
+    "domain": "D2",
+    "scenario": "Which service provides managed Microsoft Active Directory in AWS?",
+    "options": [
+      {
+        "text": "AWS Directory Service",
+        "note": ""
+      },
+      {
+        "text": "Amazon Cognito",
+        "note": "App user sign-in."
+      },
+      {
+        "text": "AWS IAM",
+        "note": "AWS identities, not AD."
+      },
+      {
+        "text": "Amazon WorkSpaces",
+        "note": "Virtual desktops."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AWS Managed Microsoft AD can trust an on-premises domain."
+  },
+  {
+    "id": 65,
+    "domain": "D3",
+    "scenario": "What is an AWS Region?",
+    "options": [
+      {
+        "text": "A geographic area with multiple Availability Zones",
+        "note": ""
+      },
+      {
+        "text": "A single data center building",
+        "note": "That's closer to an AZ's building."
+      },
+      {
+        "text": "A cache location for the CDN network",
+        "note": "That's an edge location."
+      },
+      {
+        "text": "A virtual network",
+        "note": "That's a VPC."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Choose Regions based on compliance, latency, service availability and price."
+  },
+  {
+    "id": 66,
+    "domain": "D3",
+    "scenario": "What is an Availability Zone?",
+    "options": [
+      {
+        "text": "One or more data centers with separate power and networking",
+        "note": ""
+      },
+      {
+        "text": "An entire country or continent",
+        "note": "Far too large."
+      },
+      {
+        "text": "A caching site used by CloudFront",
+        "note": "Edge location."
+      },
+      {
+        "text": "A billing account",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AZs in a Region are connected with low-latency links but isolated from each other's failures."
+  },
+  {
+    "id": 67,
+    "domain": "D3",
+    "scenario": "How can an application be made highly available within a Region?",
+    "options": [
+      {
+        "text": "Deploy it across multiple Availability Zones",
+        "note": ""
+      },
+      {
+        "text": "Use a single, larger EC2 instance",
+        "note": "Still a single point of failure."
+      },
+      {
+        "text": "Use one AZ with nightly backups",
+        "note": "Recovery, not high availability."
+      },
+      {
+        "text": "Turn on CloudTrail",
+        "note": "Logging only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use a load balancer to spread traffic across instances in several AZs."
+  },
+  {
+    "id": 68,
+    "domain": "D3",
+    "scenario": "Which factor is NOT usually a reason for choosing an AWS Region?",
+    "options": [
+      {
+        "text": "The number of IAM users needed",
+        "note": ""
+      },
+      {
+        "text": "Data residency laws",
+        "note": "A key factor."
+      },
+      {
+        "text": "Latency to users",
+        "note": "A key factor."
+      },
+      {
+        "text": "Service availability",
+        "note": "A key factor."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IAM is global, so it doesn't depend on the Region. Pricing also differs between Regions."
+  },
+  {
+    "id": 69,
+    "domain": "D3",
+    "scenario": "What are edge locations used for?",
+    "options": [
+      {
+        "text": "Caching content closer to users",
+        "note": ""
+      },
+      {
+        "text": "Running Amazon RDS databases",
+        "note": "Runs in Regions."
+      },
+      {
+        "text": "Storing EBS volumes for EC2",
+        "note": "Runs in AZs."
+      },
+      {
+        "text": "Hosting IAM",
+        "note": "IAM is global."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CloudFront, Route 53 and Global Accelerator use the edge network."
+  },
+  {
+    "id": 70,
+    "domain": "D3",
+    "scenario": "Which service runs AWS infrastructure in a customer's own data center?",
+    "options": [
+      {
+        "text": "AWS Outposts",
+        "note": ""
+      },
+      {
+        "text": "AWS Local Zones",
+        "note": "AWS-run sites near cities."
+      },
+      {
+        "text": "AWS Wavelength",
+        "note": "In 5G carrier networks."
+      },
+      {
+        "text": "Amazon CloudFront",
+        "note": "Content delivery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Outposts suits low-latency or data-residency needs on premises."
+  },
+  {
+    "id": 71,
+    "domain": "D3",
+    "scenario": "Which AWS infrastructure places compute close to large cities for single-digit millisecond latency?",
+    "options": [
+      {
+        "text": "AWS Local Zones",
+        "note": ""
+      },
+      {
+        "text": "AWS Outposts",
+        "note": "In the customer's facility."
+      },
+      {
+        "text": "Edge locations only",
+        "note": "For caching and DNS."
+      },
+      {
+        "text": "AWS Regions only",
+        "note": "May be farther away."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Local Zones extend a parent Region to metro areas."
+  },
+  {
+    "id": 72,
+    "domain": "D3",
+    "scenario": "Which service provides resizable virtual servers in the cloud?",
+    "options": [
+      {
+        "text": "Amazon EC2",
+        "note": ""
+      },
+      {
+        "text": "Amazon S3",
+        "note": "Object storage."
+      },
+      {
+        "text": "AWS Lambda",
+        "note": "Serverless functions."
+      },
+      {
+        "text": "Amazon RDS",
+        "note": "Managed databases."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Choose instance families for general purpose, compute, memory, storage or accelerated workloads."
+  },
+  {
+    "id": 73,
+    "domain": "D3",
+    "scenario": "Which service runs code without servers in response to events, billed per request and duration?",
+    "options": [
+      {
+        "text": "AWS Lambda",
+        "note": ""
+      },
+      {
+        "text": "Amazon EC2",
+        "note": "You manage instances."
+      },
+      {
+        "text": "Amazon Lightsail",
+        "note": "Simple virtual servers."
+      },
+      {
+        "text": "AWS Outposts",
+        "note": "On-premises racks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lambda functions can run for up to 15 minutes."
+  },
+  {
+    "id": 74,
+    "domain": "D3",
+    "scenario": "Which service runs containers without managing servers or clusters of EC2 instances?",
+    "options": [
+      {
+        "text": "AWS Fargate",
+        "note": ""
+      },
+      {
+        "text": "Amazon EC2 Auto Scaling",
+        "note": "Scales instances you manage."
+      },
+      {
+        "text": "AWS Batch on EC2",
+        "note": "You still manage instances."
+      },
+      {
+        "text": "Amazon Lightsail",
+        "note": "Virtual servers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fargate works with Amazon ECS and Amazon EKS."
+  },
+  {
+    "id": 75,
+    "domain": "D3",
+    "scenario": "Which service runs Kubernetes clusters managed by AWS?",
+    "options": [
+      {
+        "text": "Amazon EKS",
+        "note": ""
+      },
+      {
+        "text": "Amazon ECS",
+        "note": "AWS's own container orchestrator."
+      },
+      {
+        "text": "Amazon ECR",
+        "note": "Stores container images."
+      },
+      {
+        "text": "AWS Lambda",
+        "note": "Serverless functions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Amazon ECR is the registry for container images."
+  },
+  {
+    "id": 76,
+    "domain": "D3",
+    "scenario": "A developer wants to upload code and have AWS handle deployment, load balancing and scaling. Which service fits?",
+    "options": [
+      {
+        "text": "AWS Elastic Beanstalk",
+        "note": ""
+      },
+      {
+        "text": "AWS CloudFormation",
+        "note": "Defines infrastructure as code."
+      },
+      {
+        "text": "Amazon EC2",
+        "note": "Manual setup."
+      },
+      {
+        "text": "AWS CodeCommit",
+        "note": "Source control."
+      }
+    ],
+    "answer": 0,
+    "explanation": "You still have control of the underlying resources if needed."
+  },
+  {
+    "id": 77,
+    "domain": "D3",
+    "scenario": "Which service offers simple virtual servers with a predictable monthly price for small websites?",
+    "options": [
+      {
+        "text": "Amazon Lightsail",
+        "note": ""
+      },
+      {
+        "text": "Amazon EKS",
+        "note": "Kubernetes."
+      },
+      {
+        "text": "AWS Outposts",
+        "note": "On-premises."
+      },
+      {
+        "text": "Amazon Redshift",
+        "note": "Data warehouse."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lightsail bundles compute, storage and data transfer."
+  },
+  {
+    "id": 78,
+    "domain": "D3",
+    "scenario": "Which service automatically adds or removes EC2 instances based on demand?",
+    "options": [
+      {
+        "text": "Amazon EC2 Auto Scaling",
+        "note": ""
+      },
+      {
+        "text": "Elastic Load Balancing",
+        "note": "Distributes traffic."
+      },
+      {
+        "text": "Amazon CloudFront",
+        "note": "Caches content."
+      },
+      {
+        "text": "AWS Config",
+        "note": "Tracks configurations."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Auto Scaling also replaces unhealthy instances."
+  },
+  {
+    "id": 79,
+    "domain": "D3",
+    "scenario": "Which service distributes incoming traffic across multiple EC2 instances?",
+    "options": [
+      {
+        "text": "Elastic Load Balancing",
+        "note": ""
+      },
+      {
+        "text": "Amazon Route 53",
+        "note": "DNS routing."
+      },
+      {
+        "text": "EC2 Auto Scaling",
+        "note": "Adds and removes instances."
+      },
+      {
+        "text": "AWS Direct Connect",
+        "note": "Private connection."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Application Load Balancers route HTTP; Network Load Balancers handle TCP/UDP."
+  },
+  {
+    "id": 80,
+    "domain": "D3",
+    "scenario": "Which storage service stores any amount of data as objects in buckets?",
+    "options": [
+      {
+        "text": "Amazon S3",
+        "note": ""
+      },
+      {
+        "text": "Amazon EBS",
+        "note": "Block storage for EC2."
+      },
+      {
+        "text": "Amazon EFS",
+        "note": "Shared file system."
+      },
+      {
+        "text": "Instance store",
+        "note": "Temporary block storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "S3 Standard is designed for 99.999999999% (11 nines) durability."
+  },
+  {
+    "id": 81,
+    "domain": "D3",
+    "scenario": "Which S3 storage class is lowest cost for archives that are rarely accessed and can wait hours to retrieve?",
+    "options": [
+      {
+        "text": "S3 Glacier Deep Archive",
+        "note": ""
+      },
+      {
+        "text": "S3 Standard",
+        "note": "Frequent access."
+      },
+      {
+        "text": "S3 Standard-IA",
+        "note": "Infrequent, but instant access."
+      },
+      {
+        "text": "S3 Intelligent-Tiering",
+        "note": "Automatic tiering."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Deep Archive retrievals typically take up to 12 hours (or 48 for bulk)."
+  },
+  {
+    "id": 82,
+    "domain": "D3",
+    "scenario": "A company has data with unknown or changing access patterns. Which S3 class moves data automatically to save cost?",
+    "options": [
+      {
+        "text": "S3 Intelligent-Tiering",
+        "note": ""
+      },
+      {
+        "text": "S3 One Zone-IA",
+        "note": "Single AZ, infrequent."
+      },
+      {
+        "text": "S3 Glacier Deep Archive",
+        "note": "Archive."
+      },
+      {
+        "text": "S3 Standard",
+        "note": "Doesn't tier."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Intelligent-Tiering has no retrieval fees."
+  },
+  {
+    "id": 83,
+    "domain": "D3",
+    "scenario": "Which storage is a block-level volume attached to a single EC2 instance and persists after stopping it?",
+    "options": [
+      {
+        "text": "Amazon EBS",
+        "note": ""
+      },
+      {
+        "text": "Instance store",
+        "note": "Data is lost when stopped."
+      },
+      {
+        "text": "Amazon S3",
+        "note": "Object storage."
+      },
+      {
+        "text": "Amazon EFS",
+        "note": "Shared file storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "EBS volumes live in one AZ; use snapshots to back them up."
+  },
+  {
+    "id": 84,
+    "domain": "D3",
+    "scenario": "Which storage provides a shared file system that many Linux EC2 instances can mount at once?",
+    "options": [
+      {
+        "text": "Amazon EFS",
+        "note": ""
+      },
+      {
+        "text": "Amazon EBS",
+        "note": "Usually one instance."
+      },
+      {
+        "text": "S3 Glacier",
+        "note": "Archive storage."
+      },
+      {
+        "text": "Instance store",
+        "note": "Temporary, per instance."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Amazon FSx offers Windows File Server, Lustre and other file systems."
+  },
+  {
+    "id": 85,
+    "domain": "D3",
+    "scenario": "Which service connects on-premises applications to cloud storage using a local appliance or VM?",
+    "options": [
+      {
+        "text": "AWS Storage Gateway",
+        "note": ""
+      },
+      {
+        "text": "Amazon EFS",
+        "note": "Cloud file system."
+      },
+      {
+        "text": "Amazon CloudFront",
+        "note": "CDN."
+      },
+      {
+        "text": "AWS Backup",
+        "note": "Backup management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Modes include S3 File Gateway, FSx File Gateway, Volume Gateway and Tape Gateway."
+  },
+  {
+    "id": 86,
+    "domain": "D3",
+    "scenario": "Which service centrally manages and automates backups across AWS services?",
+    "options": [
+      {
+        "text": "AWS Backup",
+        "note": ""
+      },
+      {
+        "text": "AWS Storage Gateway",
+        "note": "Hybrid storage."
+      },
+      {
+        "text": "Amazon S3 versioning",
+        "note": "Only S3 objects."
+      },
+      {
+        "text": "AWS DataSync",
+        "note": "Moves data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Backup plans set schedules and retention."
+  },
+  {
+    "id": 87,
+    "domain": "D3",
+    "scenario": "Which managed relational database service supports engines like MySQL, PostgreSQL and SQL Server?",
+    "options": [
+      {
+        "text": "Amazon RDS",
+        "note": ""
+      },
+      {
+        "text": "Amazon DynamoDB",
+        "note": "NoSQL."
+      },
+      {
+        "text": "Amazon Redshift",
+        "note": "Data warehouse."
+      },
+      {
+        "text": "Amazon ElastiCache",
+        "note": "In-memory cache."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Multi-AZ deployments add a standby for high availability."
+  },
+  {
+    "id": 88,
+    "domain": "D3",
+    "scenario": "Which AWS-built relational database is compatible with MySQL and PostgreSQL and offers higher performance?",
+    "options": [
+      {
+        "text": "Amazon Aurora",
+        "note": ""
+      },
+      {
+        "text": "Amazon DynamoDB",
+        "note": "NoSQL."
+      },
+      {
+        "text": "Amazon Neptune",
+        "note": "Graph database."
+      },
+      {
+        "text": "Amazon DocumentDB",
+        "note": "Document database."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Aurora stores six copies of data across three AZs."
+  },
+  {
+    "id": 89,
+    "domain": "D3",
+    "scenario": "Which serverless NoSQL database provides single-digit millisecond performance at any scale?",
+    "options": [
+      {
+        "text": "Amazon DynamoDB",
+        "note": ""
+      },
+      {
+        "text": "Amazon RDS",
+        "note": "Relational."
+      },
+      {
+        "text": "Amazon Redshift",
+        "note": "Analytics."
+      },
+      {
+        "text": "Amazon Aurora",
+        "note": "Relational."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DynamoDB is a key-value and document database."
+  },
+  {
+    "id": 90,
+    "domain": "D3",
+    "scenario": "Which service is a data warehouse for running analytics queries on large datasets?",
+    "options": [
+      {
+        "text": "Amazon Redshift",
+        "note": ""
+      },
+      {
+        "text": "Amazon DynamoDB",
+        "note": "NoSQL transactions."
+      },
+      {
+        "text": "Amazon ElastiCache",
+        "note": "Caching."
+      },
+      {
+        "text": "Amazon Neptune",
+        "note": "Graph data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Redshift Serverless runs analytics without managing clusters."
+  },
+  {
+    "id": 91,
+    "domain": "D3",
+    "scenario": "Which service adds an in-memory cache to speed up database reads?",
+    "options": [
+      {
+        "text": "Amazon ElastiCache",
+        "note": ""
+      },
+      {
+        "text": "Amazon S3",
+        "note": "Object storage."
+      },
+      {
+        "text": "Amazon Redshift",
+        "note": "Data warehouse."
+      },
+      {
+        "text": "AWS Backup",
+        "note": "Backups."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ElastiCache supports Valkey, Redis OSS and Memcached."
+  },
+  {
+    "id": 92,
+    "domain": "D3",
+    "scenario": "Which service creates a logically isolated virtual network in AWS?",
+    "options": [
+      {
+        "text": "Amazon VPC",
+        "note": ""
+      },
+      {
+        "text": "AWS Direct Connect",
+        "note": "Private link to AWS."
+      },
+      {
+        "text": "Amazon Route 53",
+        "note": "DNS."
+      },
+      {
+        "text": "AWS Global Accelerator",
+        "note": "Global traffic routing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "VPCs contain public and private subnets, route tables and gateways."
+  },
+  {
+    "id": 93,
+    "domain": "D3",
+    "scenario": "Which component lets resources in a public subnet reach the internet?",
+    "options": [
+      {
+        "text": "An internet gateway",
+        "note": ""
+      },
+      {
+        "text": "A NAT gateway",
+        "note": "For private subnets reaching out."
+      },
+      {
+        "text": "A VPC endpoint",
+        "note": "Private access to AWS services."
+      },
+      {
+        "text": "A virtual private gateway",
+        "note": "For VPN."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A route to the internet gateway makes a subnet public."
+  },
+  {
+    "id": 94,
+    "domain": "D3",
+    "scenario": "Which service provides a dedicated private network connection from on premises to AWS?",
+    "options": [
+      {
+        "text": "AWS Direct Connect",
+        "note": ""
+      },
+      {
+        "text": "AWS Site-to-Site VPN",
+        "note": "Encrypted, but over the internet."
+      },
+      {
+        "text": "Amazon CloudFront",
+        "note": "CDN."
+      },
+      {
+        "text": "Amazon VPC peering",
+        "note": "Connects VPCs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Direct Connect offers consistent performance; VPN is faster to set up."
+  },
+  {
+    "id": 95,
+    "domain": "D3",
+    "scenario": "Which service is a scalable DNS service that can route users based on latency or health?",
+    "options": [
+      {
+        "text": "Amazon Route 53",
+        "note": ""
+      },
+      {
+        "text": "Amazon CloudFront",
+        "note": "Caches content."
+      },
+      {
+        "text": "Elastic Load Balancing",
+        "note": "Distributes traffic."
+      },
+      {
+        "text": "Amazon VPC",
+        "note": "Virtual network."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Routing policies include simple, weighted, latency, failover and geolocation."
+  },
+  {
+    "id": 96,
+    "domain": "D3",
+    "scenario": "Which service delivers website content with low latency using a global network of edge locations?",
+    "options": [
+      {
+        "text": "Amazon CloudFront",
+        "note": ""
+      },
+      {
+        "text": "Amazon Route 53",
+        "note": "DNS."
+      },
+      {
+        "text": "AWS Direct Connect",
+        "note": "Private connection."
+      },
+      {
+        "text": "Amazon S3 Transfer Acceleration",
+        "note": "Speeds uploads to S3."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CloudFront can serve content from S3, load balancers or other origins."
+  },
+  {
+    "id": 97,
+    "domain": "D3",
+    "scenario": "Which service decouples application components using a message queue?",
+    "options": [
+      {
+        "text": "Amazon SQS",
+        "note": ""
+      },
+      {
+        "text": "Amazon SNS",
+        "note": "Pub/sub notifications."
+      },
+      {
+        "text": "Amazon EventBridge",
+        "note": "Event routing."
+      },
+      {
+        "text": "AWS Step Functions",
+        "note": "Workflow orchestration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Messages wait in the queue until a consumer processes them."
+  },
+  {
+    "id": 98,
+    "domain": "D3",
+    "scenario": "Which service sends notifications to many subscribers, such as email, SMS and Lambda, at once?",
+    "options": [
+      {
+        "text": "Amazon SNS",
+        "note": ""
+      },
+      {
+        "text": "Amazon SQS",
+        "note": "Queue for one consumer group."
+      },
+      {
+        "text": "Amazon SES only",
+        "note": "Email sending only."
+      },
+      {
+        "text": "AWS Config",
+        "note": "Configuration tracking."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SNS uses a publish/subscribe model with topics."
+  },
+  {
+    "id": 99,
+    "domain": "D3",
+    "scenario": "Which service defines AWS infrastructure as code using templates?",
+    "options": [
+      {
+        "text": "AWS CloudFormation",
+        "note": ""
+      },
+      {
+        "text": "AWS Elastic Beanstalk",
+        "note": "Deploys apps, not general templates."
+      },
+      {
+        "text": "AWS Config",
+        "note": "Tracks configurations."
+      },
+      {
+        "text": "AWS CloudTrail",
+        "note": "Logs API calls."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The AWS CDK lets you define infrastructure in programming languages."
+  },
+  {
+    "id": 100,
+    "domain": "D3",
+    "scenario": "Which service helps manage and patch fleets of EC2 instances and on-premises servers?",
+    "options": [
+      {
+        "text": "AWS Systems Manager",
+        "note": ""
+      },
+      {
+        "text": "Amazon Inspector",
+        "note": "Finds vulnerabilities."
+      },
+      {
+        "text": "AWS Trusted Advisor",
+        "note": "Best-practice checks."
+      },
+      {
+        "text": "AWS Organizations",
+        "note": "Manages accounts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Features include Patch Manager, Session Manager and Run Command."
+  },
+  {
+    "id": 101,
+    "domain": "D3",
+    "scenario": "Which service queries data in S3 using standard SQL without loading it into a database?",
+    "options": [
+      {
+        "text": "Amazon Athena",
+        "note": ""
+      },
+      {
+        "text": "Amazon RDS",
+        "note": "Needs data loaded."
+      },
+      {
+        "text": "AWS Glue",
+        "note": "ETL and data catalog."
+      },
+      {
+        "text": "Amazon QuickSight",
+        "note": "Dashboards."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Athena is serverless and charges per data scanned."
+  },
+  {
+    "id": 102,
+    "domain": "D3",
+    "scenario": "Which service creates interactive business intelligence dashboards?",
+    "options": [
+      {
+        "text": "Amazon QuickSight",
+        "note": ""
+      },
+      {
+        "text": "Amazon Athena",
+        "note": "Queries data."
+      },
+      {
+        "text": "Amazon Kinesis",
+        "note": "Streams data."
+      },
+      {
+        "text": "AWS Glue",
+        "note": "Prepares data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "QuickSight can use data from Athena, Redshift, RDS and more."
+  },
+  {
+    "id": 103,
+    "domain": "D3",
+    "scenario": "Which service collects and processes real-time streaming data, such as clickstreams?",
+    "options": [
+      {
+        "text": "Amazon Kinesis",
+        "note": ""
+      },
+      {
+        "text": "Amazon Athena",
+        "note": "Queries stored data."
+      },
+      {
+        "text": "AWS Glue",
+        "note": "Batch ETL."
+      },
+      {
+        "text": "Amazon Redshift",
+        "note": "Data warehouse."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Amazon Data Firehose can load streams into S3, Redshift and more."
+  },
+  {
+    "id": 104,
+    "domain": "D3",
+    "scenario": "Which service lets developers build and train their own machine learning models?",
+    "options": [
+      {
+        "text": "Amazon SageMaker AI",
+        "note": ""
+      },
+      {
+        "text": "Amazon Rekognition",
+        "note": "Pre-trained image analysis."
+      },
+      {
+        "text": "Amazon Polly",
+        "note": "Text to speech."
+      },
+      {
+        "text": "Amazon Translate",
+        "note": "Language translation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pre-built AI services need no ML expertise; SageMaker AI is for custom models."
+  },
+  {
+    "id": 105,
+    "domain": "D3",
+    "scenario": "Which service analyzes images and videos to detect objects and faces?",
+    "options": [
+      {
+        "text": "Amazon Rekognition",
+        "note": ""
+      },
+      {
+        "text": "Amazon Comprehend",
+        "note": "Analyzes text."
+      },
+      {
+        "text": "Amazon Textract",
+        "note": "Extracts text from documents."
+      },
+      {
+        "text": "Amazon Lex",
+        "note": "Chatbots."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Other AI services: Polly (speech), Transcribe (speech to text), Translate and Comprehend."
+  },
+  {
+    "id": 106,
+    "domain": "D3",
+    "scenario": "Which service gives access to foundation models from several providers through one API for generative AI apps?",
+    "options": [
+      {
+        "text": "Amazon Bedrock",
+        "note": ""
+      },
+      {
+        "text": "Amazon Rekognition",
+        "note": "Image analysis."
+      },
+      {
+        "text": "Amazon Polly",
+        "note": "Text to speech."
+      },
+      {
+        "text": "AWS Glue",
+        "note": "Data integration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Amazon Q is a generative AI assistant for business and developers."
+  },
+  {
+    "id": 107,
+    "domain": "D4",
+    "scenario": "A workload runs steadily 24/7 for the next three years. Which EC2 pricing option is typically cheapest?",
+    "options": [
+      {
+        "text": "Reserved Instances or Savings Plans",
+        "note": ""
+      },
+      {
+        "text": "On-Demand Instances billed per second",
+        "note": "Highest hourly price."
+      },
+      {
+        "text": "Spot Instances",
+        "note": "Can be interrupted."
+      },
+      {
+        "text": "Dedicated Hosts for each workload",
+        "note": "For licensing or compliance."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Commitments of 1 or 3 years give discounts of up to 72% compared with On-Demand."
+  },
+  {
+    "id": 108,
+    "domain": "D4",
+    "scenario": "A batch job can be stopped and restarted at any time. Which EC2 option offers the biggest discount?",
+    "options": [
+      {
+        "text": "Spot Instances",
+        "note": ""
+      },
+      {
+        "text": "On-Demand Instances",
+        "note": "No discount."
+      },
+      {
+        "text": "Reserved Instances",
+        "note": "Needs steady use."
+      },
+      {
+        "text": "Dedicated Instances",
+        "note": "Costs more."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Spot uses spare capacity at up to 90% off, with a two-minute interruption notice."
+  },
+  {
+    "id": 109,
+    "domain": "D4",
+    "scenario": "A team is testing a new app for a few weeks and doesn't know how long it'll run. Which pricing option fits?",
+    "options": [
+      {
+        "text": "On-Demand Instances",
+        "note": ""
+      },
+      {
+        "text": "3-year Reserved Instances",
+        "note": "Long commitment."
+      },
+      {
+        "text": "Spot Instances",
+        "note": "Interruptions could disrupt tests."
+      },
+      {
+        "text": "Dedicated Hosts",
+        "note": "Expensive."
+      }
+    ],
+    "answer": 0,
+    "explanation": "On-Demand has no commitment and bills per second for most Linux instances."
+  },
+  {
+    "id": 110,
+    "domain": "D4",
+    "scenario": "Which pricing option commits to a dollar amount per hour of compute and applies to EC2, Fargate and Lambda?",
+    "options": [
+      {
+        "text": "Compute Savings Plans",
+        "note": ""
+      },
+      {
+        "text": "Standard Reserved Instances",
+        "note": "Tied to instance attributes."
+      },
+      {
+        "text": "Spot Instances",
+        "note": "No commitment."
+      },
+      {
+        "text": "Dedicated Hosts",
+        "note": "Physical servers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Compute Savings Plans are flexible across instance families and Regions."
+  },
+  {
+    "id": 111,
+    "domain": "D4",
+    "scenario": "A company must use its existing per-socket software licenses on physical servers. Which option fits?",
+    "options": [
+      {
+        "text": "Dedicated Hosts",
+        "note": ""
+      },
+      {
+        "text": "Spot Instances",
+        "note": "Shared hardware."
+      },
+      {
+        "text": "On-Demand Instances",
+        "note": "Shared hardware."
+      },
+      {
+        "text": "Lambda",
+        "note": "No server visibility."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Dedicated Hosts give visibility into sockets and cores."
+  },
+  {
+    "id": 112,
+    "domain": "D4",
+    "scenario": "Which is generally free in AWS?",
+    "options": [
+      {
+        "text": "Data transfer into AWS from the internet",
+        "note": ""
+      },
+      {
+        "text": "Data transfer out to the internet",
+        "note": "Usually billed."
+      },
+      {
+        "text": "EBS storage",
+        "note": "Billed per GB."
+      },
+      {
+        "text": "NAT gateway hours",
+        "note": "Billed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Data transfer between AZs and out to the internet is usually charged."
+  },
+  {
+    "id": 113,
+    "domain": "D4",
+    "scenario": "Which tool estimates the cost of a planned AWS architecture before deployment?",
+    "options": [
+      {
+        "text": "AWS Pricing Calculator",
+        "note": ""
+      },
+      {
+        "text": "AWS Cost Explorer",
+        "note": "Analyzes past and current spend."
+      },
+      {
+        "text": "AWS Budgets",
+        "note": "Alerts on spend."
+      },
+      {
+        "text": "AWS Artifact",
+        "note": "Compliance reports."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Estimates can be shared with a link."
+  },
+  {
+    "id": 114,
+    "domain": "D4",
+    "scenario": "Which tool visualizes past AWS spending and forecasts future costs?",
+    "options": [
+      {
+        "text": "AWS Cost Explorer",
+        "note": ""
+      },
+      {
+        "text": "AWS Pricing Calculator",
+        "note": "Estimates planned costs."
+      },
+      {
+        "text": "AWS Trusted Advisor",
+        "note": "Best-practice checks."
+      },
+      {
+        "text": "Amazon CloudWatch",
+        "note": "Performance metrics."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cost Explorer can filter by service, account and tag."
+  },
+  {
+    "id": 115,
+    "domain": "D4",
+    "scenario": "A company wants an email alert when monthly spend is forecast to exceed $1,000. What should it use?",
+    "options": [
+      {
+        "text": "AWS Budgets",
+        "note": ""
+      },
+      {
+        "text": "AWS Cost Explorer",
+        "note": "Analysis, not alerts."
+      },
+      {
+        "text": "AWS Pricing Calculator",
+        "note": "Estimates only."
+      },
+      {
+        "text": "AWS CloudTrail",
+        "note": "API logs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Budgets can also trigger actions, like applying an IAM policy."
+  },
+  {
+    "id": 116,
+    "domain": "D4",
+    "scenario": "Which feature helps track costs by project or department?",
+    "options": [
+      {
+        "text": "Cost allocation tags",
+        "note": ""
+      },
+      {
+        "text": "Security groups",
+        "note": "Network rules."
+      },
+      {
+        "text": "Availability Zones",
+        "note": "Infrastructure."
+      },
+      {
+        "text": "IAM roles",
+        "note": "Permissions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Activate tags in the Billing console to see them in reports."
+  },
+  {
+    "id": 117,
+    "domain": "D4",
+    "scenario": "Which feature gives a single bill for many AWS accounts and can combine usage for volume discounts?",
+    "options": [
+      {
+        "text": "Consolidated billing in AWS Organizations",
+        "note": ""
+      },
+      {
+        "text": "AWS Budgets alerts per account",
+        "note": "Spend alerts."
+      },
+      {
+        "text": "AWS Cost Explorer",
+        "note": "Spend analysis."
+      },
+      {
+        "text": "Cost allocation tags on resources",
+        "note": "Track by tag."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reserved Instance and Savings Plans discounts can be shared across accounts."
+  },
+  {
+    "id": 118,
+    "domain": "D4",
+    "scenario": "Which tool provides the most detailed, line-item cost and usage data for analysis?",
+    "options": [
+      {
+        "text": "AWS Cost and Usage Reports (Data Exports)",
+        "note": ""
+      },
+      {
+        "text": "AWS Pricing Calculator estimates",
+        "note": "Estimates."
+      },
+      {
+        "text": "AWS Artifact",
+        "note": "Compliance reports."
+      },
+      {
+        "text": "Amazon Inspector findings",
+        "note": "Security scans."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reports are delivered to an S3 bucket and can be queried with Athena."
+  },
+  {
+    "id": 119,
+    "domain": "D4",
+    "scenario": "Which service recommends right-sized EC2 instances based on usage history?",
+    "options": [
+      {
+        "text": "AWS Compute Optimizer",
+        "note": ""
+      },
+      {
+        "text": "AWS Artifact reports",
+        "note": "Compliance reports."
+      },
+      {
+        "text": "Amazon Macie",
+        "note": "Sensitive data."
+      },
+      {
+        "text": "AWS Shield Advanced",
+        "note": "DDoS protection."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Trusted Advisor and Cost Explorer also offer rightsizing guidance."
+  },
+  {
+    "id": 120,
+    "domain": "D4",
+    "scenario": "Which service checks an account for cost savings, security gaps, fault tolerance and service limits?",
+    "options": [
+      {
+        "text": "AWS Trusted Advisor",
+        "note": ""
+      },
+      {
+        "text": "AWS Config",
+        "note": "Configuration rules."
+      },
+      {
+        "text": "Amazon GuardDuty",
+        "note": "Threat detection."
+      },
+      {
+        "text": "AWS Budgets",
+        "note": "Spend alerts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Basic Support includes core checks; paid plans unlock the full set."
+  },
+  {
+    "id": 121,
+    "domain": "D4",
+    "scenario": "Which AWS Support plan is free for every account?",
+    "options": [
+      {
+        "text": "Basic",
+        "note": ""
+      },
+      {
+        "text": "Business Support+",
+        "note": "Paid."
+      },
+      {
+        "text": "Enterprise",
+        "note": "Paid."
+      },
+      {
+        "text": "Unified Operations",
+        "note": "Paid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Basic includes billing support, documentation, re:Post, Health Dashboard and core Trusted Advisor checks."
+  },
+  {
+    "id": 122,
+    "domain": "D4",
+    "scenario": "Which AWS Support plan includes a designated Technical Account Manager (TAM)?",
+    "options": [
+      {
+        "text": "Enterprise Support",
+        "note": ""
+      },
+      {
+        "text": "Basic",
+        "note": "No technical support cases."
+      },
+      {
+        "text": "Business Support+",
+        "note": "No designated TAM."
+      },
+      {
+        "text": "AWS re:Post",
+        "note": "A community forum."
+      }
+    ],
+    "answer": 0,
+    "explanation": "As of 2026, AWS is moving Developer and Business customers to Business Support+, and Enterprise On-Ramp to Enterprise, by January 2027."
+  },
+  {
+    "id": 123,
+    "domain": "D4",
+    "scenario": "Which resource offers free answers to AWS questions from the community and AWS experts?",
+    "options": [
+      {
+        "text": "AWS re:Post",
+        "note": ""
+      },
+      {
+        "text": "AWS Marketplace",
+        "note": "Buy software."
+      },
+      {
+        "text": "AWS Artifact",
+        "note": "Compliance documents."
+      },
+      {
+        "text": "AWS Professional Services",
+        "note": "Paid consulting."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AWS Knowledge Center articles answer common questions."
+  },
+  {
+    "id": 124,
+    "domain": "D4",
+    "scenario": "Where can a customer buy third-party software, such as firewalls, that runs on AWS?",
+    "options": [
+      {
+        "text": "AWS Marketplace",
+        "note": ""
+      },
+      {
+        "text": "AWS Artifact",
+        "note": "Compliance reports."
+      },
+      {
+        "text": "AWS re:Post",
+        "note": "Q&A forum."
+      },
+      {
+        "text": "AWS Budgets",
+        "note": "Spend alerts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Marketplace offers free trials, hourly and annual pricing."
+  },
+  {
+    "id": 125,
+    "domain": "D4",
+    "scenario": "A company needs help from a consulting firm to migrate to AWS. Which program helps find one?",
+    "options": [
+      {
+        "text": "AWS Partner Network (APN)",
+        "note": ""
+      },
+      {
+        "text": "AWS Artifact",
+        "note": "Compliance reports."
+      },
+      {
+        "text": "AWS Trusted Advisor checks",
+        "note": "Automated checks."
+      },
+      {
+        "text": "AWS Marketplace reviews",
+        "note": "Software listings, not consulting help."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AWS Professional Services is AWS's own consulting team."
+  },
+  {
+    "id": 126,
+    "domain": "D4",
+    "scenario": "Which shows the status of AWS services and events that affect a customer's own resources?",
+    "options": [
+      {
+        "text": "AWS Health Dashboard",
+        "note": ""
+      },
+      {
+        "text": "AWS Cost Explorer",
+        "note": "Costs."
+      },
+      {
+        "text": "AWS Artifact",
+        "note": "Compliance reports."
+      },
+      {
+        "text": "AWS Pricing Calculator",
+        "note": "Estimates."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AWS Health gives personalized alerts about scheduled maintenance and outages."
+  },
+  {
+    "id": 127,
+    "domain": "D4",
+    "scenario": "Who should a customer contact for help with a billing question?",
+    "options": [
+      {
+        "text": "AWS Support, on any plan",
+        "note": ""
+      },
+      {
+        "text": "The AWS Marketplace sellers",
+        "note": "Only for their products."
+      },
+      {
+        "text": "Their internet service provider",
+        "note": "Unrelated."
+      },
+      {
+        "text": "AWS Artifact",
+        "note": "Compliance reports."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Account and billing support cases are included even with Basic Support."
+  },
+  {
+    "id": 128,
+    "domain": "D4",
+    "scenario": "Which factor affects Amazon S3 storage costs?",
+    "options": [
+      {
+        "text": "Storage class and amount stored",
+        "note": ""
+      },
+      {
+        "text": "The number of IAM users",
+        "note": "Free."
+      },
+      {
+        "text": "The number of VPCs in the account",
+        "note": "VPCs are free."
+      },
+      {
+        "text": "The AWS console language",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Requests and data transfer out also affect S3 costs."
+  },
+  {
+    "id": 129,
+    "domain": "D4",
+    "scenario": "What's the main cost benefit of turning off development EC2 instances outside working hours?",
+    "options": [
+      {
+        "text": "You stop paying for compute while stopped",
+        "note": ""
+      },
+      {
+        "text": "EBS volumes become free",
+        "note": "EBS is still billed."
+      },
+      {
+        "text": "Unattached Elastic IPs become free",
+        "note": "Unattached Elastic IPs cost money."
+      },
+      {
+        "text": "Data transfer out becomes free",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Instance Scheduler on AWS can automate start and stop times."
+  },
+  {
+    "id": 130,
+    "domain": "D4",
+    "scenario": "Which pricing option needs no commitment but can be reclaimed by AWS with a two-minute warning?",
+    "options": [
+      {
+        "text": "Spot Instances",
+        "note": ""
+      },
+      {
+        "text": "On-Demand Instances",
+        "note": "AWS doesn't reclaim them."
+      },
+      {
+        "text": "Savings Plans",
+        "note": "A commitment."
+      },
+      {
+        "text": "Reserved Instances",
+        "note": "A commitment."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use Spot for fault-tolerant, flexible workloads."
+  }
+]

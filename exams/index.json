@@ -31,7 +31,7 @@
   {
     "slug": "aws-saa",
     "code": "SAA-C03",
-    "name": "AWS Certified Solutions Architect – Associate",
+    "name": "AWS Certified Solutions Architect \u2013 Associate",
     "vendor": "Amazon Web Services",
     "updated": "2026-10-27"
   },
@@ -55,5 +55,37 @@
     "name": "Google Cloud Generative AI Leader",
     "vendor": "Google Cloud",
     "updated": "2026-10-27"
+  },
+  {
+    "slug": "az-900",
+    "code": "AZ-900",
+    "name": "Microsoft Azure Fundamentals",
+    "vendor": "Microsoft",
+    "level": "beginner",
+    "updated": "2026-10-28"
+  },
+  {
+    "slug": "aws-clf",
+    "code": "CLF-C02",
+    "name": "AWS Certified Cloud Practitioner",
+    "vendor": "Amazon Web Services",
+    "level": "beginner",
+    "updated": "2026-10-28"
+  },
+  {
+    "slug": "a-plus-core1",
+    "code": "220-1201",
+    "name": "CompTIA A+ Core 1",
+    "vendor": "CompTIA",
+    "level": "beginner",
+    "updated": "2026-10-28"
+  },
+  {
+    "slug": "a-plus-core2",
+    "code": "220-1202",
+    "name": "CompTIA A+ Core 2",
+    "vendor": "CompTIA",
+    "level": "beginner",
+    "updated": "2026-10-28"
   }
 ]

@@ -1,0 +1,18 @@
+{
+  "slug": "aws-clf",
+  "code": "CLF-C02",
+  "name": "AWS Certified Cloud Practitioner",
+  "vendor": "Amazon Web Services",
+  "domains": {
+    "D1": { "name": "Cloud concepts", "weight": "24%", "pct": 24 },
+    "D2": { "name": "Security and compliance", "weight": "30%", "pct": 30 },
+    "D3": { "name": "Cloud technology and services", "weight": "34%", "pct": 34 },
+    "D4": { "name": "Billing, pricing, and support", "weight": "12%", "pct": 12 }
+  },
+  "scoring": { "min": 100, "max": 1000, "pass": 700 },
+  "minutesPerQuestion": 1.385,
+  "defaultSize": 65,
+  "sizeOptions": [20, 40, 65],
+  "realExamNote": "The real exam has 65 questions (50 scored) in 90 minutes and includes multiple-response questions; this simulator uses single-answer questions.",
+  "scoreNote": "AWS uses scaled scoring, so treat 700+ as a readiness signal, not a guarantee."
+}

@@ -396,4 +396,7 @@ body.signed-out .exams-link { display: none; }
 .stats .mastery .mastery-top { background: none; border: 0; padding: 0; }
 .stats .mastery .bar { padding: 0; border: 0; border-radius: 4px; background: var(--border); }
 
+.exam-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.chip-level { background: transparent; border-color: var(--border-strong); }
+.exam-group { font-size: 13px; font-weight: 650; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 8px 0 -4px; }
 .exam-updated { font-size: 11.5px; color: var(--muted); opacity: .75; margin-top: -2px; }

@@ -1,0 +1,3177 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "A user needs BitLocker and the ability to join a company domain. Which Windows edition is the minimum?",
+    "options": [
+      {
+        "text": "Windows 11 Pro",
+        "note": ""
+      },
+      {
+        "text": "Windows 11 Home",
+        "note": "No BitLocker management or domain join."
+      },
+      {
+        "text": "Windows 11 in S mode",
+        "note": "Restricted to Store apps."
+      },
+      {
+        "text": "Windows 10 Home",
+        "note": "Same Home limitations."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pro adds BitLocker, domain join, Group Policy Editor and Remote Desktop host."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "Which hardware requirement must a PC meet to install Windows 11?",
+    "options": [
+      {
+        "text": "TPM 2.0 and Secure Boot",
+        "note": ""
+      },
+      {
+        "text": "At least 16 GB of RAM",
+        "note": "4 GB minimum."
+      },
+      {
+        "text": "A dedicated graphics card",
+        "note": "Not required."
+      },
+      {
+        "text": "An NVMe SSD of 1 TB",
+        "note": "64 GB storage minimum."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Windows 11 also needs a supported 64-bit CPU, 4 GB RAM and 64 GB storage."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "Which command shows a Windows PC's IP address, DNS servers and MAC address?",
+    "options": [
+      {
+        "text": "ipconfig /all",
+        "note": ""
+      },
+      {
+        "text": "ping -a",
+        "note": "Tests reachability and resolves names."
+      },
+      {
+        "text": "tracert",
+        "note": "Shows the route."
+      },
+      {
+        "text": "netstat -an",
+        "note": "Lists connections and ports."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ipconfig /release and /renew get a new DHCP lease; /flushdns clears the DNS cache."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "Which command shows each router hop on the path to a destination?",
+    "options": [
+      {
+        "text": "tracert",
+        "note": ""
+      },
+      {
+        "text": "ipconfig",
+        "note": "Shows local settings."
+      },
+      {
+        "text": "nslookup",
+        "note": "Queries DNS."
+      },
+      {
+        "text": "hostname",
+        "note": "Shows the PC name."
+      }
+    ],
+    "answer": 0,
+    "explanation": "On Linux and macOS the command is traceroute."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "Which command tests DNS name resolution directly?",
+    "options": [
+      {
+        "text": "nslookup",
+        "note": ""
+      },
+      {
+        "text": "netstat -an",
+        "note": "Lists connections and ports."
+      },
+      {
+        "text": "chkdsk",
+        "note": "Disk errors."
+      },
+      {
+        "text": "gpupdate",
+        "note": "Group Policy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "nslookup queries a DNS server for records."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "Which command repairs corrupted Windows system files?",
+    "options": [
+      {
+        "text": "sfc /scannow",
+        "note": ""
+      },
+      {
+        "text": "chkdsk /f",
+        "note": "Checks the disk file system."
+      },
+      {
+        "text": "format c: /q",
+        "note": "Erases the drive."
+      },
+      {
+        "text": "diskpart clean",
+        "note": "Wipes a disk's partitions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "System File Checker replaces damaged protected files. DISM can repair the component store it uses."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Which command checks a drive for file system errors and bad sectors?",
+    "options": [
+      {
+        "text": "chkdsk /r",
+        "note": ""
+      },
+      {
+        "text": "sfc /scannow",
+        "note": "System files only."
+      },
+      {
+        "text": "gpresult",
+        "note": "Group Policy results."
+      },
+      {
+        "text": "ipconfig",
+        "note": "Network settings."
+      }
+    ],
+    "answer": 0,
+    "explanation": "/f fixes errors; /r also locates bad sectors and recovers readable data."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "Which command applies new Group Policy settings immediately?",
+    "options": [
+      {
+        "text": "gpupdate /force",
+        "note": ""
+      },
+      {
+        "text": "gpresult /r",
+        "note": "Shows applied policies."
+      },
+      {
+        "text": "net use /persistent",
+        "note": "Controls mapped drive persistence."
+      },
+      {
+        "text": "shutdown /r /t 0",
+        "note": "Restarts the PC."
+      }
+    ],
+    "answer": 0,
+    "explanation": "gpresult shows which policies were applied to the user and computer."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which command copies folders with options to mirror and retry, and is suited for large file copies?",
+    "options": [
+      {
+        "text": "robocopy",
+        "note": ""
+      },
+      {
+        "text": "copy /v",
+        "note": "Basic copy with verification; no mirroring."
+      },
+      {
+        "text": "move /y",
+        "note": "Moves files without prompting."
+      },
+      {
+        "text": "xcopy /c",
+        "note": "Older copy tool; no mirror or retry options."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Robust File Copy supports mirroring, resume and logging."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "Which tool shows running processes and CPU and memory use, and lets you end an unresponsive app?",
+    "options": [
+      {
+        "text": "Task Manager",
+        "note": ""
+      },
+      {
+        "text": "Event Viewer",
+        "note": "Logs."
+      },
+      {
+        "text": "Disk Management",
+        "note": "Disks and partitions."
+      },
+      {
+        "text": "Registry Editor",
+        "note": "Configuration database."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Task Manager also manages startup apps and shows performance."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "Which tool shows system, application and security logs to investigate errors?",
+    "options": [
+      {
+        "text": "Event Viewer",
+        "note": ""
+      },
+      {
+        "text": "Device Manager",
+        "note": "Hardware and drivers."
+      },
+      {
+        "text": "Task Scheduler",
+        "note": "Scheduled tasks."
+      },
+      {
+        "text": "Disk Cleanup",
+        "note": "Removes temporary files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Look for errors and warnings around the time of the problem."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "A device shows a yellow exclamation mark. Which tool is this in, and what does it mean?",
+    "options": [
+      {
+        "text": "Device Manager; a driver or device problem",
+        "note": ""
+      },
+      {
+        "text": "Event Viewer; a security log entry",
+        "note": "Not this icon."
+      },
+      {
+        "text": "File Explorer; a hidden file",
+        "note": "Not this icon."
+      },
+      {
+        "text": "Disk Management; a full drive",
+        "note": "Not this icon."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Update, roll back or reinstall the driver."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "Which tool creates, deletes and formats partitions with a graphical interface?",
+    "options": [
+      {
+        "text": "Disk Management",
+        "note": ""
+      },
+      {
+        "text": "Task Manager",
+        "note": "Processes."
+      },
+      {
+        "text": "Services",
+        "note": "Background services."
+      },
+      {
+        "text": "Event Viewer",
+        "note": "Logs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "diskpart is the command-line equivalent."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Which tool is used to start, stop and set startup types for background services?",
+    "options": [
+      {
+        "text": "services.msc",
+        "note": ""
+      },
+      {
+        "text": "devmgmt.msc",
+        "note": "Devices."
+      },
+      {
+        "text": "diskmgmt.msc",
+        "note": "Disks."
+      },
+      {
+        "text": "lusrmgr.msc",
+        "note": "Local users and groups."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Startup types include Automatic, Automatic (Delayed), Manual and Disabled."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "Which tool can start Windows in diagnostic or selective startup mode to troubleshoot?",
+    "options": [
+      {
+        "text": "msconfig",
+        "note": ""
+      },
+      {
+        "text": "Disk Cleanup",
+        "note": "Removes files."
+      },
+      {
+        "text": "Resource Monitor",
+        "note": "Shows resource usage."
+      },
+      {
+        "text": "Device Manager",
+        "note": "Manages hardware and drivers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Startup programs are managed in Task Manager in modern Windows."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "Which file system should be used for a USB drive that must store files larger than 4 GB and work on Windows and macOS?",
+    "options": [
+      {
+        "text": "exFAT",
+        "note": ""
+      },
+      {
+        "text": "FAT32",
+        "note": "4 GB file size limit."
+      },
+      {
+        "text": "NTFS",
+        "note": "Read-only on macOS by default."
+      },
+      {
+        "text": "ext4",
+        "note": "Linux file system."
+      }
+    ],
+    "answer": 0,
+    "explanation": "exFAT is designed for flash media across platforms."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "Which Windows file system supports file permissions and encryption with EFS?",
+    "options": [
+      {
+        "text": "NTFS",
+        "note": ""
+      },
+      {
+        "text": "FAT32",
+        "note": "No permissions."
+      },
+      {
+        "text": "exFAT",
+        "note": "No permissions."
+      },
+      {
+        "text": "APFS",
+        "note": "macOS file system."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NTFS also supports compression, quotas and journaling."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "Which partition style supports drives larger than 2 TB and is required for UEFI boot on Windows 11?",
+    "options": [
+      {
+        "text": "GPT",
+        "note": ""
+      },
+      {
+        "text": "MBR",
+        "note": "Limited to 2 TB and four primary partitions."
+      },
+      {
+        "text": "FAT32",
+        "note": "A file system, not a partition style."
+      },
+      {
+        "text": "ext4",
+        "note": "A Linux file system."
+      }
+    ],
+    "answer": 0,
+    "explanation": "GUID Partition Table supports many partitions and very large disks."
+  },
+  {
+    "id": 19,
+    "domain": "D1",
+    "scenario": "Which type of Windows installation keeps the user's files and apps while moving to a newer version?",
+    "options": [
+      {
+        "text": "In-place upgrade",
+        "note": ""
+      },
+      {
+        "text": "Clean install",
+        "note": "Erases the drive."
+      },
+      {
+        "text": "Image deployment",
+        "note": "Replaces the system."
+      },
+      {
+        "text": "Recovery partition reset",
+        "note": "Restores factory state."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A clean install starts fresh; back up data first."
+  },
+  {
+    "id": 20,
+    "domain": "D1",
+    "scenario": "Which macOS feature provides automatic backups to an external drive?",
+    "options": [
+      {
+        "text": "Time Machine",
+        "note": ""
+      },
+      {
+        "text": "FileVault",
+        "note": "Disk encryption."
+      },
+      {
+        "text": "Spotlight",
+        "note": "Search."
+      },
+      {
+        "text": "iCloud Drive",
+        "note": "Cloud file sync, not local backups."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Time Machine keeps hourly, daily and weekly backups."
+  },
+  {
+    "id": 21,
+    "domain": "D1",
+    "scenario": "Which macOS feature encrypts the startup disk?",
+    "options": [
+      {
+        "text": "FileVault",
+        "note": ""
+      },
+      {
+        "text": "Time Machine",
+        "note": "Backups."
+      },
+      {
+        "text": "Mission Control",
+        "note": "Window management."
+      },
+      {
+        "text": "Boot Camp",
+        "note": "Ran Windows on Intel Macs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "FileVault is similar to BitLocker on Windows."
+  },
+  {
+    "id": 22,
+    "domain": "D1",
+    "scenario": "Which macOS app stores passwords, certificates and secure notes?",
+    "options": [
+      {
+        "text": "Keychain Access",
+        "note": ""
+      },
+      {
+        "text": "Finder",
+        "note": "File browser."
+      },
+      {
+        "text": "Disk Utility",
+        "note": "Disk management."
+      },
+      {
+        "text": "Activity Monitor",
+        "note": "Processes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "iCloud Keychain can sync passwords across Apple devices."
+  },
+  {
+    "id": 23,
+    "domain": "D1",
+    "scenario": "Which Linux command shows the current working directory?",
+    "options": [
+      {
+        "text": "pwd",
+        "note": ""
+      },
+      {
+        "text": "ls",
+        "note": "Lists files."
+      },
+      {
+        "text": "cd",
+        "note": "Changes directory."
+      },
+      {
+        "text": "cat",
+        "note": "Shows file contents."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Other basics: ls, cd, cp, mv, rm, mkdir, cat, nano."
+  },
+  {
+    "id": 24,
+    "domain": "D1",
+    "scenario": "Which Linux command changes file permissions?",
+    "options": [
+      {
+        "text": "chmod",
+        "note": ""
+      },
+      {
+        "text": "chown",
+        "note": "Changes owner."
+      },
+      {
+        "text": "grep",
+        "note": "Searches text."
+      },
+      {
+        "text": "ps",
+        "note": "Lists processes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Example: chmod 755 script.sh gives the owner full rights and others read and execute."
+  },
+  {
+    "id": 25,
+    "domain": "D1",
+    "scenario": "Which Linux command runs a single command with administrator (root) privileges?",
+    "options": [
+      {
+        "text": "sudo",
+        "note": ""
+      },
+      {
+        "text": "su",
+        "note": "Switches to another user's shell."
+      },
+      {
+        "text": "chmod",
+        "note": "Changes permissions."
+      },
+      {
+        "text": "chown",
+        "note": "Changes ownership."
+      }
+    ],
+    "answer": 0,
+    "explanation": "sudo uses your own password and logs the command."
+  },
+  {
+    "id": 26,
+    "domain": "D1",
+    "scenario": "Which command installs software on Ubuntu or Debian Linux?",
+    "options": [
+      {
+        "text": "apt install",
+        "note": ""
+      },
+      {
+        "text": "dnf install",
+        "note": "Red Hat-based systems."
+      },
+      {
+        "text": "brew install",
+        "note": "Homebrew on macOS."
+      },
+      {
+        "text": "winget install",
+        "note": "Windows."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Package managers download and install software from repositories."
+  },
+  {
+    "id": 27,
+    "domain": "D1",
+    "scenario": "Which Linux command searches text in files for a pattern?",
+    "options": [
+      {
+        "text": "grep",
+        "note": ""
+      },
+      {
+        "text": "find",
+        "note": "Searches for files by name or attributes."
+      },
+      {
+        "text": "chmod",
+        "note": "Permissions."
+      },
+      {
+        "text": "pwd",
+        "note": "Current directory."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Example: grep error /var/log/syslog."
+  },
+  {
+    "id": 28,
+    "domain": "D1",
+    "scenario": "Which Windows tool lets you edit Group Policy on a single Pro computer?",
+    "options": [
+      {
+        "text": "gpedit.msc",
+        "note": ""
+      },
+      {
+        "text": "regedit",
+        "note": "Registry Editor."
+      },
+      {
+        "text": "taskschd.msc",
+        "note": "Task Scheduler."
+      },
+      {
+        "text": "certmgr.msc",
+        "note": "Certificates."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Local Group Policy Editor isn't available in Home editions."
+  },
+  {
+    "id": 29,
+    "domain": "D1",
+    "scenario": "Which Control Panel or Settings area changes which app opens a file type?",
+    "options": [
+      {
+        "text": "Default apps",
+        "note": ""
+      },
+      {
+        "text": "Device Manager",
+        "note": "Hardware."
+      },
+      {
+        "text": "Power options",
+        "note": "Sleep and power plans."
+      },
+      {
+        "text": "Ease of Access",
+        "note": "Accessibility."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Settings > Apps > Default apps controls file associations."
+  },
+  {
+    "id": 30,
+    "domain": "D1",
+    "scenario": "Which tool schedules a script to run every night at 2 AM on Windows?",
+    "options": [
+      {
+        "text": "Task Scheduler",
+        "note": ""
+      },
+      {
+        "text": "Event Viewer",
+        "note": "Logs."
+      },
+      {
+        "text": "Resource Monitor",
+        "note": "Performance."
+      },
+      {
+        "text": "Disk Cleanup",
+        "note": "Cleanup."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tasks can run on schedules or triggers like logon or events."
+  },
+  {
+    "id": 31,
+    "domain": "D1",
+    "scenario": "Which tool shows detailed information about hardware, drivers and system components?",
+    "options": [
+      {
+        "text": "msinfo32",
+        "note": ""
+      },
+      {
+        "text": "Task Manager",
+        "note": "Processes and performance."
+      },
+      {
+        "text": "Event Viewer",
+        "note": "Logs."
+      },
+      {
+        "text": "Device Manager",
+        "note": "Manages devices, less summary detail."
+      }
+    ],
+    "answer": 0,
+    "explanation": "dxdiag shows DirectX and display information."
+  },
+  {
+    "id": 32,
+    "domain": "D1",
+    "scenario": "Which Windows setting turns off automatic sleep when a laptop is plugged in?",
+    "options": [
+      {
+        "text": "Power settings",
+        "note": ""
+      },
+      {
+        "text": "Display settings",
+        "note": "Resolution and scaling."
+      },
+      {
+        "text": "Network settings",
+        "note": "Connections."
+      },
+      {
+        "text": "Lock screen settings",
+        "note": "Lock screen appearance."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Power plans control sleep, hibernate and lid close actions."
+  },
+  {
+    "id": 33,
+    "domain": "D1",
+    "scenario": "Which mobile OS lets users install apps from outside the official store (sideloading) more easily by default?",
+    "options": [
+      {
+        "text": "Android",
+        "note": ""
+      },
+      {
+        "text": "iOS",
+        "note": "Restricted by default in most regions."
+      },
+      {
+        "text": "Windows 11",
+        "note": "Not a mobile OS."
+      },
+      {
+        "text": "ChromeOS",
+        "note": "Primarily laptops."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sideloading apps from unknown sources increases malware risk."
+  },
+  {
+    "id": 34,
+    "domain": "D1",
+    "scenario": "Which command restarts a Windows computer immediately?",
+    "options": [
+      {
+        "text": "shutdown /r /t 0",
+        "note": ""
+      },
+      {
+        "text": "shutdown /s /t 0",
+        "note": "Shuts down instead."
+      },
+      {
+        "text": "logoff",
+        "note": "Signs out the user."
+      },
+      {
+        "text": "hostname",
+        "note": "Shows the PC name."
+      }
+    ],
+    "answer": 0,
+    "explanation": "/r restarts, /s shuts down, /t sets a delay in seconds."
+  },
+  {
+    "id": 35,
+    "domain": "D1",
+    "scenario": "Which command maps a network share to a drive letter?",
+    "options": [
+      {
+        "text": "net use",
+        "note": ""
+      },
+      {
+        "text": "net user",
+        "note": "Manages user accounts."
+      },
+      {
+        "text": "ipconfig",
+        "note": "Network settings."
+      },
+      {
+        "text": "whoami",
+        "note": "Shows the current user."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Example: net use Z: \\\\server\\share."
+  },
+  {
+    "id": 36,
+    "domain": "D2",
+    "scenario": "A user gets an email claiming to be from their bank, asking them to click a link and log in. What is this?",
+    "options": [
+      {
+        "text": "Phishing",
+        "note": ""
+      },
+      {
+        "text": "Tailgating",
+        "note": "Physical entry."
+      },
+      {
+        "text": "Shoulder surfing",
+        "note": "Watching a screen."
+      },
+      {
+        "text": "Dumpster diving",
+        "note": "Searching trash."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Vishing uses phone calls; smishing uses text messages; whaling targets executives."
+  },
+  {
+    "id": 37,
+    "domain": "D2",
+    "scenario": "Someone follows an employee through a secure door without badging in. What is this?",
+    "options": [
+      {
+        "text": "Tailgating",
+        "note": ""
+      },
+      {
+        "text": "Phishing",
+        "note": "Email-based."
+      },
+      {
+        "text": "Whaling",
+        "note": "Targets executives."
+      },
+      {
+        "text": "Spoofing",
+        "note": "Faking an identity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Access control vestibules and security awareness training help prevent tailgating."
+  },
+  {
+    "id": 38,
+    "domain": "D2",
+    "scenario": "An attacker watches a user type their PIN at a coffee shop. What is this?",
+    "options": [
+      {
+        "text": "Shoulder surfing",
+        "note": ""
+      },
+      {
+        "text": "Vishing",
+        "note": "Phone-based."
+      },
+      {
+        "text": "Ransomware",
+        "note": "Malware."
+      },
+      {
+        "text": "Evil twin",
+        "note": "Fake Wi-Fi."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Privacy screen filters help prevent it."
+  },
+  {
+    "id": 39,
+    "domain": "D2",
+    "scenario": "An attacker sets up a Wi-Fi network named like the coffee shop's to capture traffic. What is this?",
+    "options": [
+      {
+        "text": "Evil twin",
+        "note": ""
+      },
+      {
+        "text": "Tailgating",
+        "note": "Physical."
+      },
+      {
+        "text": "Dumpster diving",
+        "note": "Trash."
+      },
+      {
+        "text": "Brute force",
+        "note": "Password guessing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use VPNs and verify networks before connecting."
+  },
+  {
+    "id": 40,
+    "domain": "D2",
+    "scenario": "Files are encrypted and a message demands payment for the key. What type of malware is this?",
+    "options": [
+      {
+        "text": "Ransomware",
+        "note": ""
+      },
+      {
+        "text": "Spyware",
+        "note": "Collects information."
+      },
+      {
+        "text": "Adware",
+        "note": "Shows ads."
+      },
+      {
+        "text": "Keylogger",
+        "note": "Records keystrokes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Offline backups are the best protection."
+  },
+  {
+    "id": 41,
+    "domain": "D2",
+    "scenario": "Which malware hides deep in the operating system and is very hard to detect or remove?",
+    "options": [
+      {
+        "text": "Rootkit",
+        "note": ""
+      },
+      {
+        "text": "Adware",
+        "note": "Displays ads."
+      },
+      {
+        "text": "Worm",
+        "note": "Self-replicates over networks."
+      },
+      {
+        "text": "Trojan",
+        "note": "Disguised as legitimate software."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Rootkits may require boot-time scans or reinstalling the OS."
+  },
+  {
+    "id": 42,
+    "domain": "D2",
+    "scenario": "Which malware records everything a user types?",
+    "options": [
+      {
+        "text": "Keylogger",
+        "note": ""
+      },
+      {
+        "text": "Ransomware",
+        "note": "Encrypts files."
+      },
+      {
+        "text": "Cryptominer",
+        "note": "Uses resources to mine."
+      },
+      {
+        "text": "Worm",
+        "note": "Spreads automatically."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Keyloggers steal passwords and other sensitive data."
+  },
+  {
+    "id": 43,
+    "domain": "D2",
+    "scenario": "A free game a user installed secretly opened a backdoor for attackers. What type of malware is this?",
+    "options": [
+      {
+        "text": "Trojan",
+        "note": ""
+      },
+      {
+        "text": "Worm",
+        "note": "Spreads without user action."
+      },
+      {
+        "text": "Virus",
+        "note": "Attaches to files to spread."
+      },
+      {
+        "text": "Rootkit",
+        "note": "Hides in the OS."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Trojans pretend to be legitimate software."
+  },
+  {
+    "id": 44,
+    "domain": "D2",
+    "scenario": "A PC's CPU is at 100% constantly and the fan is loud, but nothing obvious is running. Which malware is likely?",
+    "options": [
+      {
+        "text": "Cryptominer",
+        "note": ""
+      },
+      {
+        "text": "Keylogger",
+        "note": "Usually low resource use."
+      },
+      {
+        "text": "Phishing",
+        "note": "Social engineering, not malware."
+      },
+      {
+        "text": "Adware only",
+        "note": "Pop-ups, not constant CPU load."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cryptominers use system resources to mine cryptocurrency."
+  },
+  {
+    "id": 45,
+    "domain": "D2",
+    "scenario": "What is the first step in CompTIA's best-practice malware removal process?",
+    "options": [
+      {
+        "text": "Verify the malware symptoms",
+        "note": ""
+      },
+      {
+        "text": "Quarantine the infected system",
+        "note": "Second step."
+      },
+      {
+        "text": "Disable System Restore",
+        "note": "Third step."
+      },
+      {
+        "text": "Remediate the infected system",
+        "note": "Last step."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Steps: verify symptoms; quarantine; disable System Restore; remediate; schedule scans and updates; enable System Restore and create a restore point; educate the user."
+  },
+  {
+    "id": 46,
+    "domain": "D2",
+    "scenario": "Why should System Restore be disabled during malware removal?",
+    "options": [
+      {
+        "text": "Restore points may contain the malware",
+        "note": ""
+      },
+      {
+        "text": "It makes antivirus scans faster",
+        "note": "Not the reason."
+      },
+      {
+        "text": "It deletes the malware automatically",
+        "note": "It doesn't."
+      },
+      {
+        "text": "It's required to install updates",
+        "note": "Not the reason."
+      }
+    ],
+    "answer": 0,
+    "explanation": "After cleaning, re-enable it and create a new clean restore point."
+  },
+  {
+    "id": 47,
+    "domain": "D2",
+    "scenario": "What should a technician do with an infected PC before cleaning it?",
+    "options": [
+      {
+        "text": "Quarantine it from the network",
+        "note": ""
+      },
+      {
+        "text": "Share its files with other users",
+        "note": "Spreads malware."
+      },
+      {
+        "text": "Connect it to more networks",
+        "note": "Spreads malware."
+      },
+      {
+        "text": "Leave it running untouched",
+        "note": "Risky."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Disconnect it to prevent spreading."
+  },
+  {
+    "id": 48,
+    "domain": "D2",
+    "scenario": "Which is the most secure Wi-Fi security setting?",
+    "options": [
+      {
+        "text": "WPA3 with AES encryption",
+        "note": ""
+      },
+      {
+        "text": "WPA2 with TKIP",
+        "note": "TKIP is deprecated."
+      },
+      {
+        "text": "WEP",
+        "note": "Easily cracked."
+      },
+      {
+        "text": "Open network with MAC filtering",
+        "note": "No encryption."
+      }
+    ],
+    "answer": 0,
+    "explanation": "WPA3 and WPA2 use AES; avoid WEP and TKIP."
+  },
+  {
+    "id": 49,
+    "domain": "D2",
+    "scenario": "A company wants employees to authenticate to Wi-Fi with their own network credentials through a central server. What should be used?",
+    "options": [
+      {
+        "text": "WPA3-Enterprise with RADIUS",
+        "note": ""
+      },
+      {
+        "text": "WPA3-Personal with a shared password",
+        "note": "Everyone shares one key."
+      },
+      {
+        "text": "WEP with a long key",
+        "note": "Insecure."
+      },
+      {
+        "text": "An open network",
+        "note": "No authentication."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Enterprise mode uses 802.1X with a RADIUS server."
+  },
+  {
+    "id": 50,
+    "domain": "D2",
+    "scenario": "Which is an example of multifactor authentication?",
+    "options": [
+      {
+        "text": "A password and a fingerprint",
+        "note": ""
+      },
+      {
+        "text": "Two different passwords",
+        "note": "Same factor type."
+      },
+      {
+        "text": "A username and password",
+        "note": "One factor."
+      },
+      {
+        "text": "A security question and a PIN",
+        "note": "Both something you know."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Factors: something you know, something you have, something you are."
+  },
+  {
+    "id": 51,
+    "domain": "D2",
+    "scenario": "Which principle gives users only the permissions needed for their job?",
+    "options": [
+      {
+        "text": "Least privilege",
+        "note": ""
+      },
+      {
+        "text": "Single sign-on",
+        "note": "Fewer logins."
+      },
+      {
+        "text": "Defense in depth",
+        "note": "Layered security."
+      },
+      {
+        "text": "Separation of duties",
+        "note": "Splits critical tasks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use standard accounts for daily work and admin rights only when needed."
+  },
+  {
+    "id": 52,
+    "domain": "D2",
+    "scenario": "Which Windows feature prompts before changes that need administrator rights?",
+    "options": [
+      {
+        "text": "User Account Control",
+        "note": ""
+      },
+      {
+        "text": "BitLocker",
+        "note": "Disk encryption."
+      },
+      {
+        "text": "Windows Hello",
+        "note": "Biometric sign-in."
+      },
+      {
+        "text": "Windows Defender Firewall",
+        "note": "Network filtering."
+      }
+    ],
+    "answer": 0,
+    "explanation": "UAC helps stop malware from silently making system changes."
+  },
+  {
+    "id": 53,
+    "domain": "D2",
+    "scenario": "Which Windows feature encrypts an entire drive?",
+    "options": [
+      {
+        "text": "BitLocker",
+        "note": ""
+      },
+      {
+        "text": "EFS",
+        "note": "Encrypts individual files and folders."
+      },
+      {
+        "text": "UAC",
+        "note": "Elevation prompts."
+      },
+      {
+        "text": "Windows Defender Firewall",
+        "note": "Network filtering."
+      }
+    ],
+    "answer": 0,
+    "explanation": "BitLocker To Go encrypts removable drives."
+  },
+  {
+    "id": 54,
+    "domain": "D2",
+    "scenario": "A shared folder's share permission is Read, and the user's NTFS permission is Full Control. What access do they have over the network?",
+    "options": [
+      {
+        "text": "Read",
+        "note": ""
+      },
+      {
+        "text": "Full Control",
+        "note": "Most restrictive wins."
+      },
+      {
+        "text": "Modify",
+        "note": "Not combined that way."
+      },
+      {
+        "text": "No access",
+        "note": "Both allow read."
+      }
+    ],
+    "answer": 0,
+    "explanation": "When share and NTFS permissions combine, the most restrictive applies."
+  },
+  {
+    "id": 55,
+    "domain": "D2",
+    "scenario": "Which built-in Windows tool provides antivirus and anti-malware protection?",
+    "options": [
+      {
+        "text": "Microsoft Defender",
+        "note": ""
+      },
+      {
+        "text": "BitLocker",
+        "note": "Encryption."
+      },
+      {
+        "text": "Disk Cleanup",
+        "note": "Removes files."
+      },
+      {
+        "text": "Event Viewer",
+        "note": "Logs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Keep definitions updated and run scans regularly."
+  },
+  {
+    "id": 56,
+    "domain": "D2",
+    "scenario": "Which physical security control uses two doors so only one person can enter at a time?",
+    "options": [
+      {
+        "text": "Access control vestibule",
+        "note": ""
+      },
+      {
+        "text": "Bollards",
+        "note": "Stop vehicles."
+      },
+      {
+        "text": "Video surveillance",
+        "note": "Records activity; doesn't control entry."
+      },
+      {
+        "text": "Badge reader on one door",
+        "note": "Checks badges at one door."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Vestibules (formerly called mantraps) prevent tailgating."
+  },
+  {
+    "id": 57,
+    "domain": "D2",
+    "scenario": "Which data destruction method is best for an old hard drive that must never be read again?",
+    "options": [
+      {
+        "text": "Physical shredding or drilling",
+        "note": ""
+      },
+      {
+        "text": "A standard quick format",
+        "note": "Data is recoverable."
+      },
+      {
+        "text": "Deleting files and emptying the trash",
+        "note": "Recoverable."
+      },
+      {
+        "text": "Moving files to another folder",
+        "note": "Doesn't erase data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Degaussing works on magnetic drives, not SSDs. Get a certificate of destruction from vendors."
+  },
+  {
+    "id": 58,
+    "domain": "D2",
+    "scenario": "A company wants to reuse old drives internally while making old data unrecoverable. What should it do?",
+    "options": [
+      {
+        "text": "Wipe the drives with overwriting",
+        "note": ""
+      },
+      {
+        "text": "Run a quick format on each drive",
+        "note": "Data can be recovered."
+      },
+      {
+        "text": "Degauss and incinerate the drives",
+        "note": "Can't reuse them."
+      },
+      {
+        "text": "Delete the partitions only",
+        "note": "Doesn't erase."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Overwriting (wiping) or the drive's secure erase command make data unrecoverable while keeping the drive."
+  },
+  {
+    "id": 59,
+    "domain": "D2",
+    "scenario": "A website shows a certificate warning in the browser. What should the user do?",
+    "options": [
+      {
+        "text": "Not enter information and report it",
+        "note": ""
+      },
+      {
+        "text": "Click through and log in quickly",
+        "note": "Risky."
+      },
+      {
+        "text": "Disable certificate checking",
+        "note": "Unsafe."
+      },
+      {
+        "text": "Clear the browser history",
+        "note": "Doesn't fix it."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Invalid or expired certificates can indicate interception or a fake site."
+  },
+  {
+    "id": 60,
+    "domain": "D2",
+    "scenario": "Which browser practice improves security?",
+    "options": [
+      {
+        "text": "Install only trusted extensions",
+        "note": ""
+      },
+      {
+        "text": "Allow pop-ups on all sites",
+        "note": "Risky."
+      },
+      {
+        "text": "Save passwords in a text file",
+        "note": "Insecure."
+      },
+      {
+        "text": "Postpone browser updates",
+        "note": "Leaves vulnerabilities."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Keep browsers updated and use a password manager."
+  },
+  {
+    "id": 61,
+    "domain": "D2",
+    "scenario": "A lost company phone contains sensitive email. What should the admin do first?",
+    "options": [
+      {
+        "text": "Remotely lock or wipe it with MDM",
+        "note": ""
+      },
+      {
+        "text": "Wait to see if it's returned",
+        "note": "Risks data exposure."
+      },
+      {
+        "text": "Change the Wi-Fi password at home",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Buy a replacement case",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Locator apps can help find it, but protect the data first."
+  },
+  {
+    "id": 62,
+    "domain": "D2",
+    "scenario": "Which mobile setting best protects a phone if it's stolen?",
+    "options": [
+      {
+        "text": "A strong screen lock",
+        "note": ""
+      },
+      {
+        "text": "Bluetooth discoverable mode",
+        "note": "Increases exposure."
+      },
+      {
+        "text": "Developer mode enabled",
+        "note": "Increases risk."
+      },
+      {
+        "text": "Location services turned off",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Combine screen locks with full-device encryption and remote wipe."
+  },
+  {
+    "id": 63,
+    "domain": "D2",
+    "scenario": "Which account type should be used for everyday work on a Windows PC?",
+    "options": [
+      {
+        "text": "A standard user account",
+        "note": ""
+      },
+      {
+        "text": "The built-in Administrator account",
+        "note": "Too much privilege."
+      },
+      {
+        "text": "A shared guest account",
+        "note": "No accountability."
+      },
+      {
+        "text": "A domain admin account",
+        "note": "Too much privilege."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use admin accounts only for administrative tasks."
+  },
+  {
+    "id": 64,
+    "domain": "D2",
+    "scenario": "Which type of attack tries every possible password until one works?",
+    "options": [
+      {
+        "text": "Brute force",
+        "note": ""
+      },
+      {
+        "text": "Phishing",
+        "note": "Tricks users."
+      },
+      {
+        "text": "Tailgating",
+        "note": "Physical."
+      },
+      {
+        "text": "Whaling",
+        "note": "Targets executives."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Account lockout policies and long passwords defend against brute force."
+  },
+  {
+    "id": 65,
+    "domain": "D2",
+    "scenario": "Which Windows feature lets users sign in with a face, fingerprint or PIN tied to the device?",
+    "options": [
+      {
+        "text": "Windows Hello",
+        "note": ""
+      },
+      {
+        "text": "BitLocker",
+        "note": "Encryption."
+      },
+      {
+        "text": "Credential Manager",
+        "note": "Stores saved credentials."
+      },
+      {
+        "text": "Remote Desktop",
+        "note": "Remote access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Windows Hello is a passwordless sign-in option."
+  },
+  {
+    "id": 66,
+    "domain": "D2",
+    "scenario": "Which protocol is used for network authentication in Active Directory domains?",
+    "options": [
+      {
+        "text": "Kerberos",
+        "note": ""
+      },
+      {
+        "text": "SMTP",
+        "note": "Sends email."
+      },
+      {
+        "text": "RADIUS",
+        "note": "Network access authentication (e.g., Wi-Fi, VPN)."
+      },
+      {
+        "text": "TACACS+",
+        "note": "Device administration authentication."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Kerberos issues tickets so users don't send passwords repeatedly."
+  },
+  {
+    "id": 67,
+    "domain": "D2",
+    "scenario": "Which describes a zero-day vulnerability?",
+    "options": [
+      {
+        "text": "A flaw exploited before a patch exists",
+        "note": ""
+      },
+      {
+        "text": "A bug fixed on the day it's found",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "A virus that runs at midnight",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "A patch released on day zero",
+        "note": "Not the meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Defense in depth and fast patching reduce the risk."
+  },
+  {
+    "id": 68,
+    "domain": "D2",
+    "scenario": "An employee gets a call from \"IT support\" asking for their password. What is this?",
+    "options": [
+      {
+        "text": "Vishing",
+        "note": ""
+      },
+      {
+        "text": "Smishing",
+        "note": "Text messages."
+      },
+      {
+        "text": "Shoulder surfing",
+        "note": "Watching."
+      },
+      {
+        "text": "Evil twin",
+        "note": "Fake Wi-Fi."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IT staff should never ask for passwords."
+  },
+  {
+    "id": 69,
+    "domain": "D2",
+    "scenario": "Which security measure locks an account after several failed sign-in attempts?",
+    "options": [
+      {
+        "text": "Account lockout policy",
+        "note": ""
+      },
+      {
+        "text": "Screen saver timeout",
+        "note": "Locks an idle screen."
+      },
+      {
+        "text": "Password history",
+        "note": "Prevents reuse."
+      },
+      {
+        "text": "Disk quota",
+        "note": "Limits storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lockout slows brute-force attacks."
+  },
+  {
+    "id": 70,
+    "domain": "D2",
+    "scenario": "Which is an example of something you HAVE as an authentication factor?",
+    "options": [
+      {
+        "text": "A security key",
+        "note": ""
+      },
+      {
+        "text": "A password",
+        "note": "Something you know."
+      },
+      {
+        "text": "A fingerprint",
+        "note": "Something you are."
+      },
+      {
+        "text": "A PIN",
+        "note": "Something you know."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Smart cards and authenticator apps on phones are also possession factors."
+  },
+  {
+    "id": 71,
+    "domain": "D3",
+    "scenario": "A Windows PC shows a blue screen (BSOD) right after a new driver was installed. What should be tried first?",
+    "options": [
+      {
+        "text": "Use Safe Mode to roll back the driver",
+        "note": ""
+      },
+      {
+        "text": "Replace the motherboard",
+        "note": "Too drastic."
+      },
+      {
+        "text": "Reinstall Windows immediately",
+        "note": "Try simpler fixes first."
+      },
+      {
+        "text": "Run chkdsk from recovery",
+        "note": "Doesn't address a bad driver."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Safe Mode loads minimal drivers so you can remove the faulty one."
+  },
+  {
+    "id": 72,
+    "domain": "D3",
+    "scenario": "Windows is slow, and Task Manager shows memory usage near 100%. What helps most?",
+    "options": [
+      {
+        "text": "Close unneeded apps or add more RAM",
+        "note": ""
+      },
+      {
+        "text": "Defragment the SSD",
+        "note": "Not recommended and unrelated."
+      },
+      {
+        "text": "Increase screen brightness",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Change the desktop wallpaper",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check for memory-hungry processes or malware."
+  },
+  {
+    "id": 73,
+    "domain": "D3",
+    "scenario": "A PC takes a long time to boot. Which tool helps disable unnecessary startup apps?",
+    "options": [
+      {
+        "text": "Task Manager > Startup apps",
+        "note": ""
+      },
+      {
+        "text": "Disk Management",
+        "note": "Partitions."
+      },
+      {
+        "text": "Device Manager",
+        "note": "Hardware."
+      },
+      {
+        "text": "Event Viewer",
+        "note": "Logs, not startup control."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Disabling startup apps speeds boot and login."
+  },
+  {
+    "id": 74,
+    "domain": "D3",
+    "scenario": "An application crashes every time it opens. What should be tried first?",
+    "options": [
+      {
+        "text": "Repair or update the app",
+        "note": ""
+      },
+      {
+        "text": "Replace the hard drive",
+        "note": "Too drastic."
+      },
+      {
+        "text": "Reinstall Windows",
+        "note": "Too drastic first."
+      },
+      {
+        "text": "Run sfc /scannow",
+        "note": "Checks system files, not the app."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check Event Viewer for errors; try repair, update or reinstall."
+  },
+  {
+    "id": 75,
+    "domain": "D3",
+    "scenario": "A service needed by an app doesn't start at boot. Where should the technician look?",
+    "options": [
+      {
+        "text": "services.msc and Event Viewer",
+        "note": ""
+      },
+      {
+        "text": "Device Manager",
+        "note": "Hardware, not services."
+      },
+      {
+        "text": "Event Viewer",
+        "note": "Only part of the answer."
+      },
+      {
+        "text": "Disk Management",
+        "note": "Partitions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check the startup type, dependencies and logon account."
+  },
+  {
+    "id": 76,
+    "domain": "D3",
+    "scenario": "A user's PC clock keeps drifting and Kerberos sign-in errors appear. What should be checked?",
+    "options": [
+      {
+        "text": "Time sync settings",
+        "note": ""
+      },
+      {
+        "text": "DNS cache",
+        "note": "Doesn't affect the clock."
+      },
+      {
+        "text": "Firewall rules",
+        "note": "Doesn't affect the clock."
+      },
+      {
+        "text": "User profile size",
+        "note": "Doesn't affect the clock."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Kerberos requires clocks to be closely synchronized."
+  },
+  {
+    "id": 77,
+    "domain": "D3",
+    "scenario": "After a Windows update, a PC won't boot properly. Which option can undo recent system changes without affecting personal files?",
+    "options": [
+      {
+        "text": "System Restore",
+        "note": ""
+      },
+      {
+        "text": "Reset this PC with Remove everything",
+        "note": "Erases files."
+      },
+      {
+        "text": "Format the drive",
+        "note": "Erases everything."
+      },
+      {
+        "text": "Disk Cleanup",
+        "note": "Removes temp files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "System Restore reverts system files, drivers and settings to an earlier point."
+  },
+  {
+    "id": 78,
+    "domain": "D3",
+    "scenario": "Which recovery option reinstalls Windows but can keep personal files?",
+    "options": [
+      {
+        "text": "Reset this PC with Keep my files",
+        "note": ""
+      },
+      {
+        "text": "Format the drive and reinstall",
+        "note": "Removes files."
+      },
+      {
+        "text": "Disk Cleanup",
+        "note": "Not a reinstall."
+      },
+      {
+        "text": "Event Viewer",
+        "note": "Logs only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Apps are removed, so reinstall them afterward."
+  },
+  {
+    "id": 79,
+    "domain": "D3",
+    "scenario": "A user's profile takes a very long time to load at sign-in. What could help?",
+    "options": [
+      {
+        "text": "Repair the user profile",
+        "note": ""
+      },
+      {
+        "text": "Disable the firewall",
+        "note": "Unsafe and unrelated."
+      },
+      {
+        "text": "Run Disk Cleanup",
+        "note": "Won't fix a corrupt profile."
+      },
+      {
+        "text": "Add more RAM",
+        "note": "Won't fix a corrupt profile."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Corrupt profiles can be fixed by creating a new profile and migrating data."
+  },
+  {
+    "id": 80,
+    "domain": "D3",
+    "scenario": "A browser keeps redirecting to unwanted sites and showing pop-ups. What is the likely cause?",
+    "options": [
+      {
+        "text": "A malicious extension",
+        "note": ""
+      },
+      {
+        "text": "An outdated graphics driver",
+        "note": "Wouldn't cause redirects."
+      },
+      {
+        "text": "A misconfigured proxy",
+        "note": "Possible, but pop-ups point to malware."
+      },
+      {
+        "text": "A full browser cache",
+        "note": "Doesn't cause redirects."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Remove unknown extensions, reset the browser and scan for malware."
+  },
+  {
+    "id": 81,
+    "domain": "D3",
+    "scenario": "A user receives security alerts from an antivirus they never installed, asking them to pay. What is this?",
+    "options": [
+      {
+        "text": "Rogue antivirus",
+        "note": ""
+      },
+      {
+        "text": "A Defender update notice",
+        "note": "Defender doesn't demand payment."
+      },
+      {
+        "text": "A Windows activation alert",
+        "note": "Not an antivirus alert."
+      },
+      {
+        "text": "An expired Office license",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "This is a common scam; follow the malware removal process."
+  },
+  {
+    "id": 82,
+    "domain": "D3",
+    "scenario": "Files have been renamed with strange extensions and can't be opened. What should be suspected?",
+    "options": [
+      {
+        "text": "Ransomware infection",
+        "note": ""
+      },
+      {
+        "text": "A full Recycle Bin",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A missing printer driver",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A slow network",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Isolate the device immediately and restore from clean backups."
+  },
+  {
+    "id": 83,
+    "domain": "D3",
+    "scenario": "A phone's battery drains fast and data usage is unusually high. Which security issue is likely?",
+    "options": [
+      {
+        "text": "A malicious background app",
+        "note": ""
+      },
+      {
+        "text": "A failing battery",
+        "note": "Wouldn't raise data usage."
+      },
+      {
+        "text": "Automatic backups to iCloud",
+        "note": "Normal, expected data use."
+      },
+      {
+        "text": "A weak Wi-Fi signal",
+        "note": "Not a security issue."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check app permissions and data usage, and remove suspicious apps."
+  },
+  {
+    "id": 84,
+    "domain": "D3",
+    "scenario": "A mobile app won't open or crashes on launch. What should be tried first?",
+    "options": [
+      {
+        "text": "Force close and update it",
+        "note": ""
+      },
+      {
+        "text": "Factory reset the phone",
+        "note": "Too drastic first."
+      },
+      {
+        "text": "Replace the battery",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Clear the phone's storage",
+        "note": "Too broad a first step."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Then clear the app cache, reinstall or restart the device."
+  },
+  {
+    "id": 85,
+    "domain": "D3",
+    "scenario": "Why is rooting or jailbreaking a phone a security risk?",
+    "options": [
+      {
+        "text": "It bypasses security protections",
+        "note": ""
+      },
+      {
+        "text": "It voids the screen warranty",
+        "note": "Not the security risk."
+      },
+      {
+        "text": "It slows the phone's network",
+        "note": "Not true."
+      },
+      {
+        "text": "It encrypts all installed apps",
+        "note": "Not true."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Rooted devices can run unapproved code and may lose updates and warranty support."
+  },
+  {
+    "id": 86,
+    "domain": "D3",
+    "scenario": "Windows shows a \"low disk space\" warning on C:. What should be done first?",
+    "options": [
+      {
+        "text": "Run Disk Cleanup",
+        "note": ""
+      },
+      {
+        "text": "Disable the firewall",
+        "note": "Unsafe and unrelated."
+      },
+      {
+        "text": "Delete the System32 folder",
+        "note": "Breaks Windows."
+      },
+      {
+        "text": "Disable System Restore",
+        "note": "Loses recovery points."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Storage Sense can also clear temporary files automatically."
+  },
+  {
+    "id": 87,
+    "domain": "D3",
+    "scenario": "A program installed by a user keeps reinstalling itself after removal. What should be suspected?",
+    "options": [
+      {
+        "text": "Malware with persistence",
+        "note": ""
+      },
+      {
+        "text": "A full printer queue",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A weak Wi-Fi signal",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A missing font",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check startup items, scheduled tasks and services, and run a full scan."
+  },
+  {
+    "id": 88,
+    "domain": "D3",
+    "scenario": "A user can't open a document because no app is associated with its file type. What should be done?",
+    "options": [
+      {
+        "text": "Set or install a default app",
+        "note": ""
+      },
+      {
+        "text": "Rename the file to .exe",
+        "note": "Dangerous."
+      },
+      {
+        "text": "Run sfc /scannow",
+        "note": "Doesn't set file associations."
+      },
+      {
+        "text": "Clear the browser cache",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "File associations map extensions to apps."
+  },
+  {
+    "id": 89,
+    "domain": "D3",
+    "scenario": "Which tool can be used to remove an app that won't uninstall normally on Windows?",
+    "options": [
+      {
+        "text": "The vendor's removal tool",
+        "note": ""
+      },
+      {
+        "text": "Disk Defragmenter",
+        "note": "Optimizes HDDs."
+      },
+      {
+        "text": "Resource Monitor",
+        "note": "Performance monitoring."
+      },
+      {
+        "text": "Device Manager",
+        "note": "Hardware drivers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Some apps need a special cleanup tool; check Event Viewer for errors."
+  },
+  {
+    "id": 90,
+    "domain": "D3",
+    "scenario": "Windows displays \"USB device not recognized\" for a known-good flash drive. What should be tried first?",
+    "options": [
+      {
+        "text": "Try another port; update drivers",
+        "note": ""
+      },
+      {
+        "text": "Reinstall Windows",
+        "note": "Too drastic."
+      },
+      {
+        "text": "Replace the motherboard",
+        "note": "Too drastic."
+      },
+      {
+        "text": "Run chkdsk on C:",
+        "note": "Checks the system drive, not USB."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Also check Device Manager for errors or power management settings."
+  },
+  {
+    "id": 91,
+    "domain": "D3",
+    "scenario": "A user's email client keeps asking for a password after it was changed. What should be done?",
+    "options": [
+      {
+        "text": "Update the saved password",
+        "note": ""
+      },
+      {
+        "text": "Reinstall Windows",
+        "note": "Unnecessary."
+      },
+      {
+        "text": "Reset the network adapter",
+        "note": "Not a network problem."
+      },
+      {
+        "text": "Clear the DNS cache",
+        "note": "Not a DNS problem."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Credential Manager may store old passwords."
+  },
+  {
+    "id": 92,
+    "domain": "D3",
+    "scenario": "An app displays an error about a missing DLL file. What should be tried first?",
+    "options": [
+      {
+        "text": "Repair or reinstall the application",
+        "note": ""
+      },
+      {
+        "text": "Download the DLL from a random website",
+        "note": "Malware risk."
+      },
+      {
+        "text": "Delete the System32 folder",
+        "note": "Breaks Windows."
+      },
+      {
+        "text": "Change the keyboard layout",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reinstalling restores the app's required files."
+  },
+  {
+    "id": 93,
+    "domain": "D3",
+    "scenario": "A Windows PC restarts unexpectedly to install updates during work. How can this be prevented?",
+    "options": [
+      {
+        "text": "Set active hours or schedule restarts",
+        "note": ""
+      },
+      {
+        "text": "Disable all updates permanently",
+        "note": "Insecure."
+      },
+      {
+        "text": "Unplug the network cable forever",
+        "note": "Impractical."
+      },
+      {
+        "text": "Run Disk Cleanup",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Active hours tell Windows when not to restart."
+  },
+  {
+    "id": 94,
+    "domain": "D3",
+    "scenario": "After a malware cleanup, what should the technician do to reduce the chance of reinfection?",
+    "options": [
+      {
+        "text": "Educate the user",
+        "note": ""
+      },
+      {
+        "text": "Disable the antivirus",
+        "note": "Increases risk."
+      },
+      {
+        "text": "Give the user admin rights",
+        "note": "Increases risk."
+      },
+      {
+        "text": "Turn off automatic updates",
+        "note": "Increases risk."
+      }
+    ],
+    "answer": 0,
+    "explanation": "User education is the final step of malware removal."
+  },
+  {
+    "id": 95,
+    "domain": "D3",
+    "scenario": "A phone app requests access to contacts, location and SMS though it's only a flashlight. What should the user do?",
+    "options": [
+      {
+        "text": "Deny permissions or uninstall it",
+        "note": ""
+      },
+      {
+        "text": "Grant everything so it works",
+        "note": "Risky."
+      },
+      {
+        "text": "Root the phone to control it",
+        "note": "Increases risk."
+      },
+      {
+        "text": "Move it to a different folder",
+        "note": "Doesn't change permissions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Excessive permissions are a warning sign."
+  },
+  {
+    "id": 96,
+    "domain": "D3",
+    "scenario": "A user reports the cursor moves on its own and files open by themselves. What should be suspected?",
+    "options": [
+      {
+        "text": "A remote access trojan",
+        "note": ""
+      },
+      {
+        "text": "A failing mouse sensor",
+        "note": "Wouldn't open files."
+      },
+      {
+        "text": "A stuck keyboard key",
+        "note": "Wouldn't move the cursor."
+      },
+      {
+        "text": "A corrupt user profile",
+        "note": "Wouldn't open files remotely."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Disconnect from the network and investigate immediately."
+  },
+  {
+    "id": 97,
+    "domain": "D3",
+    "scenario": "A user's system time is wrong after every restart. Which hardware issue might cause this?",
+    "options": [
+      {
+        "text": "A failing CMOS battery",
+        "note": ""
+      },
+      {
+        "text": "A bad network cable",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A full hard drive",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A broken webcam",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Also check the time zone and time sync settings."
+  },
+  {
+    "id": 98,
+    "domain": "D3",
+    "scenario": "Which Windows feature boots with minimal drivers and services to troubleshoot problems?",
+    "options": [
+      {
+        "text": "Safe Mode",
+        "note": ""
+      },
+      {
+        "text": "Fast Startup",
+        "note": "Speeds boot."
+      },
+      {
+        "text": "Focus Assist",
+        "note": "Mutes notifications."
+      },
+      {
+        "text": "Night light",
+        "note": "Display color."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Safe Mode with Networking also loads network drivers."
+  },
+  {
+    "id": 99,
+    "domain": "D3",
+    "scenario": "A user's apps are slow only when a nightly antivirus scan runs during work hours. What's a good fix?",
+    "options": [
+      {
+        "text": "Reschedule the scan for off-hours",
+        "note": ""
+      },
+      {
+        "text": "Uninstall the antivirus",
+        "note": "Unsafe."
+      },
+      {
+        "text": "Disable real-time protection",
+        "note": "Unsafe."
+      },
+      {
+        "text": "Run chkdsk from recovery",
+        "note": "Unrelated to scan timing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Balance security with usability by scheduling scans."
+  },
+  {
+    "id": 100,
+    "domain": "D4",
+    "scenario": "Before replacing a laptop's motherboard, what should a technician use to protect components?",
+    "options": [
+      {
+        "text": "An ESD strap connected to ground",
+        "note": ""
+      },
+      {
+        "text": "Rubber gloves only",
+        "note": "Not ESD protection."
+      },
+      {
+        "text": "A vacuum cleaner",
+        "note": "Can create static."
+      },
+      {
+        "text": "A magnetic screwdriver on the board",
+        "note": "Risky near components."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use ESD mats and bags, and handle boards by the edges."
+  },
+  {
+    "id": 101,
+    "domain": "D4",
+    "scenario": "Which fire extinguisher type is safe for electrical fires?",
+    "options": [
+      {
+        "text": "CO2 extinguisher",
+        "note": ""
+      },
+      {
+        "text": "Water extinguisher",
+        "note": "Conducts electricity."
+      },
+      {
+        "text": "Foam extinguisher",
+        "note": "Not for live electrical equipment."
+      },
+      {
+        "text": "Wet chemical (Class K)",
+        "note": "For kitchen oil fires."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Disconnect power if it's safe to do so."
+  },
+  {
+    "id": 102,
+    "domain": "D4",
+    "scenario": "Where should a technician find safe handling and disposal information for toner?",
+    "options": [
+      {
+        "text": "The Safety Data Sheet (SDS)",
+        "note": ""
+      },
+      {
+        "text": "The printer's warranty card",
+        "note": "Not safety data."
+      },
+      {
+        "text": "The Windows Event Viewer",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The user's email signature",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SDS documents describe hazards, handling, first aid and disposal."
+  },
+  {
+    "id": 103,
+    "domain": "D4",
+    "scenario": "How should old lithium-ion batteries be disposed of?",
+    "options": [
+      {
+        "text": "Approved battery recycling",
+        "note": ""
+      },
+      {
+        "text": "In the regular trash",
+        "note": "Fire and environmental hazard."
+      },
+      {
+        "text": "In a burn barrel",
+        "note": "Fire and toxic fumes."
+      },
+      {
+        "text": "In a sealed metal can",
+        "note": "Still a fire hazard in trash."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Follow local regulations for batteries, CRTs and toner."
+  },
+  {
+    "id": 104,
+    "domain": "D4",
+    "scenario": "Which device keeps a server running briefly during a power outage so it can shut down safely?",
+    "options": [
+      {
+        "text": "UPS",
+        "note": ""
+      },
+      {
+        "text": "Surge suppressor",
+        "note": "No battery backup."
+      },
+      {
+        "text": "Power strip",
+        "note": "No protection."
+      },
+      {
+        "text": "KVM switch",
+        "note": "Shares peripherals."
+      }
+    ],
+    "answer": 0,
+    "explanation": "UPS units also condition power."
+  },
+  {
+    "id": 105,
+    "domain": "D4",
+    "scenario": "What is the correct way to lift a heavy server?",
+    "options": [
+      {
+        "text": "Lift with your legs, back straight",
+        "note": ""
+      },
+      {
+        "text": "Bend at the waist and lift",
+        "note": "Risk of injury."
+      },
+      {
+        "text": "Twist while lifting",
+        "note": "Risk of injury."
+      },
+      {
+        "text": "Hold it at arm's length",
+        "note": "Strain."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Get help or use a cart for heavy equipment."
+  },
+  {
+    "id": 106,
+    "domain": "D4",
+    "scenario": "Which backup type copies only files changed since the last backup of any type?",
+    "options": [
+      {
+        "text": "Incremental",
+        "note": ""
+      },
+      {
+        "text": "Full",
+        "note": "Copies everything."
+      },
+      {
+        "text": "Differential",
+        "note": "Changes since the last full backup."
+      },
+      {
+        "text": "Image",
+        "note": "Copies the whole system."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Incremental backups are fast but restores need the full backup plus every incremental."
+  },
+  {
+    "id": 107,
+    "domain": "D4",
+    "scenario": "Which backup type copies all changes since the last FULL backup?",
+    "options": [
+      {
+        "text": "Differential",
+        "note": ""
+      },
+      {
+        "text": "Incremental",
+        "note": "Since the last backup of any type."
+      },
+      {
+        "text": "Snapshot only",
+        "note": "Point-in-time copy."
+      },
+      {
+        "text": "Archive bit reset",
+        "note": "Not a backup type."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Restores need the last full backup plus the latest differential."
+  },
+  {
+    "id": 108,
+    "domain": "D4",
+    "scenario": "What does the 3-2-1 backup rule recommend?",
+    "options": [
+      {
+        "text": "3 copies, on 2 types of media, with 1 offsite",
+        "note": ""
+      },
+      {
+        "text": "3 backups per day for 2 weeks",
+        "note": "Not the rule."
+      },
+      {
+        "text": "3 servers, 2 sites, 1 cloud provider",
+        "note": "Not the rule."
+      },
+      {
+        "text": "3 passwords for 2 admins",
+        "note": "Not the rule."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Testing restores regularly is just as important."
+  },
+  {
+    "id": 109,
+    "domain": "D4",
+    "scenario": "Before making a major change to a production server, what should usually be approved?",
+    "options": [
+      {
+        "text": "A change request and rollback plan",
+        "note": ""
+      },
+      {
+        "text": "A new asset tag for the server",
+        "note": "Not change approval."
+      },
+      {
+        "text": "A user's help desk ticket",
+        "note": "Not change approval."
+      },
+      {
+        "text": "A backup of the server only",
+        "note": "Needed, but not approval."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Change management includes purpose, scope, risk analysis, approval (often a change advisory board), testing and rollback."
+  },
+  {
+    "id": 110,
+    "domain": "D4",
+    "scenario": "What is a rollback plan?",
+    "options": [
+      {
+        "text": "Steps to undo a change if it fails",
+        "note": ""
+      },
+      {
+        "text": "A list of new features to add",
+        "note": "Not rollback."
+      },
+      {
+        "text": "A schedule for monthly backups",
+        "note": "Not rollback."
+      },
+      {
+        "text": "A training plan for users",
+        "note": "Not rollback."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Always know how to return to the previous working state."
+  },
+  {
+    "id": 111,
+    "domain": "D4",
+    "scenario": "Which document records each IT support request and its resolution?",
+    "options": [
+      {
+        "text": "A ticket in the ticketing system",
+        "note": ""
+      },
+      {
+        "text": "A sticky note on the monitor",
+        "note": "Not tracked."
+      },
+      {
+        "text": "A personal text message",
+        "note": "Not tracked."
+      },
+      {
+        "text": "The Recycle Bin",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tickets capture the user, device, problem, steps taken, resolution and time spent."
+  },
+  {
+    "id": 112,
+    "domain": "D4",
+    "scenario": "Which best describes professional communication with a frustrated customer?",
+    "options": [
+      {
+        "text": "Listen, stay calm and avoid arguing",
+        "note": ""
+      },
+      {
+        "text": "Interrupt to explain they're wrong",
+        "note": "Unprofessional."
+      },
+      {
+        "text": "Use technical jargon to impress",
+        "note": "Confusing."
+      },
+      {
+        "text": "Take personal calls during the visit",
+        "note": "Unprofessional."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Clarify the issue, set expectations and follow up."
+  },
+  {
+    "id": 113,
+    "domain": "D4",
+    "scenario": "A technician sees confidential documents on a customer's desk during a repair. What should they do?",
+    "options": [
+      {
+        "text": "Ignore them and keep the information private",
+        "note": ""
+      },
+      {
+        "text": "Read them to understand the business",
+        "note": "Breaches confidentiality."
+      },
+      {
+        "text": "Take a photo for the ticket",
+        "note": "Inappropriate."
+      },
+      {
+        "text": "Mention them to coworkers",
+        "note": "Breaches confidentiality."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Respect customer privacy and confidentiality at all times."
+  },
+  {
+    "id": 114,
+    "domain": "D4",
+    "scenario": "Which describes personally identifiable information (PII)?",
+    "options": [
+      {
+        "text": "Data that can identify a person",
+        "note": ""
+      },
+      {
+        "text": "A company's public web address",
+        "note": "Not personal."
+      },
+      {
+        "text": "A printer's model number",
+        "note": "Not personal."
+      },
+      {
+        "text": "A list of installed software",
+        "note": "Not personal."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Protected health information (PHI) and payment card data (PCI DSS) have extra rules."
+  },
+  {
+    "id": 115,
+    "domain": "D4",
+    "scenario": "A technician finds illegal content on a work computer during a repair. What should they do?",
+    "options": [
+      {
+        "text": "Stop and follow the incident policy",
+        "note": ""
+      },
+      {
+        "text": "Delete it and finish the repair",
+        "note": "Destroys evidence."
+      },
+      {
+        "text": "Copy it to a USB drive as proof",
+        "note": "Inappropriate."
+      },
+      {
+        "text": "Ignore it and finish the repair",
+        "note": "Must be reported."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Maintain chain of custody and report to the appropriate person."
+  },
+  {
+    "id": 116,
+    "domain": "D4",
+    "scenario": "What is chain of custody?",
+    "options": [
+      {
+        "text": "A record of who handled evidence",
+        "note": ""
+      },
+      {
+        "text": "A list of approved software",
+        "note": "Not chain of custody."
+      },
+      {
+        "text": "A backup rotation schedule",
+        "note": "Not chain of custody."
+      },
+      {
+        "text": "A network cable diagram",
+        "note": "Not chain of custody."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It ensures evidence can be trusted later."
+  },
+  {
+    "id": 117,
+    "domain": "D4",
+    "scenario": "Which license type allows anyone to view and modify the source code?",
+    "options": [
+      {
+        "text": "Open-source license",
+        "note": ""
+      },
+      {
+        "text": "Commercial single-user license",
+        "note": "Closed source."
+      },
+      {
+        "text": "OEM license",
+        "note": "Tied to hardware."
+      },
+      {
+        "text": "Subscription license",
+        "note": "Payment model."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Follow the license terms, such as attribution or sharing changes."
+  },
+  {
+    "id": 118,
+    "domain": "D4",
+    "scenario": "A user wants to install one software license on ten computers. What should the technician check?",
+    "options": [
+      {
+        "text": "The license terms (EULA)",
+        "note": ""
+      },
+      {
+        "text": "The software's system requirements",
+        "note": "Doesn't cover licensing."
+      },
+      {
+        "text": "The PC's Windows edition",
+        "note": "Doesn't cover licensing."
+      },
+      {
+        "text": "The software's version number",
+        "note": "Doesn't cover licensing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Installing beyond the license is a violation."
+  },
+  {
+    "id": 119,
+    "domain": "D4",
+    "scenario": "Which script file type runs in Windows PowerShell?",
+    "options": [
+      {
+        "text": ".ps1",
+        "note": ""
+      },
+      {
+        "text": ".sh",
+        "note": "Linux shell scripts."
+      },
+      {
+        "text": ".bat",
+        "note": "Windows batch files."
+      },
+      {
+        "text": ".py",
+        "note": "Python scripts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Others: .bat (batch), .vbs (VBScript), .js (JavaScript), .sh (bash), .py (Python)."
+  },
+  {
+    "id": 120,
+    "domain": "D4",
+    "scenario": "Which is a common, appropriate use of scripting for a help desk?",
+    "options": [
+      {
+        "text": "Automating tasks like mapping drives",
+        "note": ""
+      },
+      {
+        "text": "Bypassing security controls",
+        "note": "Inappropriate."
+      },
+      {
+        "text": "Deleting logs to hide errors",
+        "note": "Inappropriate."
+      },
+      {
+        "text": "Disabling antivirus on all PCs",
+        "note": "Unsafe."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Scripts can automate backups, updates, restarts and gathering information."
+  },
+  {
+    "id": 121,
+    "domain": "D4",
+    "scenario": "What is a risk of running scripts from untrusted sources?",
+    "options": [
+      {
+        "text": "They can contain malware",
+        "note": ""
+      },
+      {
+        "text": "They always make PCs run faster",
+        "note": "Not true."
+      },
+      {
+        "text": "They only run on servers",
+        "note": "Not true."
+      },
+      {
+        "text": "They can't run on Windows 11",
+        "note": "They can."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Review scripts before running them and test in a safe environment."
+  },
+  {
+    "id": 122,
+    "domain": "D4",
+    "scenario": "Which remote access tool is built into Windows for controlling a desktop remotely?",
+    "options": [
+      {
+        "text": "Remote Desktop Connection",
+        "note": ""
+      },
+      {
+        "text": "Disk Cleanup",
+        "note": "Removes files."
+      },
+      {
+        "text": "Task Manager",
+        "note": "Processes."
+      },
+      {
+        "text": "Event Viewer",
+        "note": "Logs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Other options include VNC, SSH, RMM tools, screen-sharing and VPNs."
+  },
+  {
+    "id": 123,
+    "domain": "D4",
+    "scenario": "Which tool lets an MSP monitor and manage many clients' computers from one console?",
+    "options": [
+      {
+        "text": "RMM",
+        "note": ""
+      },
+      {
+        "text": "A local text editor",
+        "note": "Not management."
+      },
+      {
+        "text": "A KVM switch",
+        "note": "Local only."
+      },
+      {
+        "text": "A VPN",
+        "note": "Secure tunnel, not management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RMM tools patch, monitor and remotely support devices."
+  },
+  {
+    "id": 124,
+    "domain": "D4",
+    "scenario": "A user wants to paste customer records into a public AI chatbot to summarize them. What is the main concern?",
+    "options": [
+      {
+        "text": "Exposing private data",
+        "note": ""
+      },
+      {
+        "text": "The summary will be too short",
+        "note": "Not the main concern."
+      },
+      {
+        "text": "The AI can't read text",
+        "note": "It can."
+      },
+      {
+        "text": "It uses too much bandwidth",
+        "note": "Not the main concern."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Follow company policy; use approved AI tools and avoid sharing sensitive data."
+  },
+  {
+    "id": 125,
+    "domain": "D4",
+    "scenario": "An AI tool gives a confident answer with a made-up command. What is this called?",
+    "options": [
+      {
+        "text": "A hallucination",
+        "note": ""
+      },
+      {
+        "text": "A firewall rule",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A backup",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A rollback",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Verify AI output before using it, especially commands that change systems."
+  },
+  {
+    "id": 126,
+    "domain": "D4",
+    "scenario": "Which environmental control helps keep a server room safe for equipment?",
+    "options": [
+      {
+        "text": "Proper temperature and humidity control",
+        "note": ""
+      },
+      {
+        "text": "Keeping windows open for airflow",
+        "note": "Dust and humidity."
+      },
+      {
+        "text": "Storing paper boxes next to racks",
+        "note": "Fire risk."
+      },
+      {
+        "text": "Turning off HVAC at night",
+        "note": "Overheating."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Low humidity increases ESD; high humidity causes condensation."
+  },
+  {
+    "id": 127,
+    "domain": "D4",
+    "scenario": "Why should cables in an office be managed with ties and covers?",
+    "options": [
+      {
+        "text": "To prevent trips and damage",
+        "note": ""
+      },
+      {
+        "text": "To speed up the network",
+        "note": "Not the main reason."
+      },
+      {
+        "text": "To reduce interference",
+        "note": "Not the main reason."
+      },
+      {
+        "text": "To meet licensing rules",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Good cable management improves safety and airflow."
+  }
+]

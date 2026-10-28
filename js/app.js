@@ -893,15 +893,21 @@ async function renderHome() {
     return `<a class="panel exam-card" href="/${e.slug}" data-vendor="${vendorKey(e.vendor)}">
       <span class="exam-vendor">${e.vendor}</span>
       <h2>${e.name}</h2>
-      <span class="chip chip-vendor">${e.code}</span>
+      <span class="exam-chips"><span class="chip chip-vendor">${e.code}</span>${e.level === 'beginner' ? '<span class="chip chip-level">Beginner</span>' : ''}</span>
       <p class="muted small">${count ? `${count} questions` : ''}${answered ? ` · ${answered} practiced` : ''}${last ? ` · last exam <b class="${last.passed ? 'good' : 'weak'}">${last.score}</b>` : ''}</p>
       ${e.updated ? `<p class="exam-updated">Updated ${fmtDate(e.updated)}</p>` : ''}
     </a>`;
   }));
+  const beginner = cards.filter((_, i) => exams[i].level === 'beginner');
+  const other = cards.filter((_, i) => exams[i].level !== 'beginner');
+  const grid = (list) => `<div class="exam-grid">${list.join('')}</div>`;
+  const groups = beginner.length && other.length
+    ? `<h3 class="exam-group">New to IT? Start here</h3>${grid(beginner)}<h3 class="exam-group">More exams</h3>${grid(other)}`
+    : (cards.length ? grid(cards) : '<p class="muted">No exams found.</p>');
   $('main').innerHTML = `<section class="stack">
       <div class="stack" style="gap:6px"><h2 class="home-title">Choose an exam</h2>
       <p class="muted">Each exam keeps its own practice progress and history${Auth.currentUser() ? ', synced to your account' : ''}.</p></div>
-      <div class="exam-grid">${cards.join('') || '<p class="muted">No exams found.</p>'}</div>
+      ${groups}
       <div id="invites"></div>
     </section>`;
   renderInvites();

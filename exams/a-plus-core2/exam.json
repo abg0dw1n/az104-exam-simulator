@@ -1,0 +1,18 @@
+{
+  "slug": "a-plus-core2",
+  "code": "220-1202",
+  "name": "CompTIA A+ Core 2",
+  "vendor": "CompTIA",
+  "domains": {
+    "D1": { "name": "Operating systems", "weight": "28%", "pct": 28 },
+    "D2": { "name": "Security", "weight": "28%", "pct": 28 },
+    "D3": { "name": "Software troubleshooting", "weight": "23%", "pct": 23 },
+    "D4": { "name": "Operational procedures", "weight": "21%", "pct": 21 }
+  },
+  "scoring": { "min": 100, "max": 900, "pass": 700 },
+  "minutesPerQuestion": 1,
+  "defaultSize": 90,
+  "sizeOptions": [30, 60, 90],
+  "realExamNote": "The real exam has up to 90 questions in 90 minutes, including performance-based questions; this simulator is multiple choice only. You need both Core 1 and Core 2 to earn A+.",
+  "scoreNote": "CompTIA's real scoring is scaled differently, so treat 700+ as a readiness signal, not a guarantee."
+}

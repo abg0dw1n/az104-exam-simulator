@@ -1,0 +1,17 @@
+{
+  "slug": "az-900",
+  "code": "AZ-900",
+  "name": "Microsoft Azure Fundamentals",
+  "vendor": "Microsoft",
+  "domains": {
+    "D1": { "name": "Describe cloud concepts", "weight": "25–30%", "pct": 27 },
+    "D2": { "name": "Describe Azure architecture and services", "weight": "35–40%", "pct": 38 },
+    "D3": { "name": "Describe Azure management and governance", "weight": "30–35%", "pct": 35 }
+  },
+  "scoring": { "min": 0, "max": 1000, "pass": 700 },
+  "minutesPerQuestion": 1,
+  "defaultSize": 45,
+  "sizeOptions": [15, 30, 45],
+  "realExamNote": "Based on the AZ-900 skills measured as of July 20, 2026. The real exam is 45 minutes with roughly 40–60 questions, including some multiple-response and yes/no items.",
+  "scoreNote": "Microsoft uses scaled scoring, so treat 700+ as a readiness signal, not a guarantee."
+}

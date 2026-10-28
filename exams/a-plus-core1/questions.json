@@ -1,0 +1,3202 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "A laptop's battery drains quickly and the case is starting to bulge. What should the technician do?",
+    "options": [
+      {
+        "text": "Stop using it and replace the battery safely",
+        "note": ""
+      },
+      {
+        "text": "Charge it overnight to recalibrate it",
+        "note": "A swollen battery is a fire risk."
+      },
+      {
+        "text": "Press the case flat and keep using it",
+        "note": "Dangerous."
+      },
+      {
+        "text": "Update the laptop's display driver",
+        "note": "Unrelated to a swollen battery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Swollen lithium-ion batteries can catch fire. Power down, remove carefully and dispose of it according to local regulations."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "Which memory module form factor is used in most laptops?",
+    "options": [
+      {
+        "text": "SODIMM",
+        "note": ""
+      },
+      {
+        "text": "DIMM",
+        "note": "Desktop form factor."
+      },
+      {
+        "text": "RIMM",
+        "note": "Obsolete Rambus memory."
+      },
+      {
+        "text": "CompactFlash",
+        "note": "A storage card."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Small outline DIMMs are shorter than desktop DIMMs."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "A user can tap phones to a payment terminal to pay. Which technology is used?",
+    "options": [
+      {
+        "text": "NFC",
+        "note": ""
+      },
+      {
+        "text": "Infrared",
+        "note": "Line-of-sight, not tap payments."
+      },
+      {
+        "text": "Wi-Fi Direct",
+        "note": "Device-to-device Wi-Fi."
+      },
+      {
+        "text": "Lightning",
+        "note": "A cable connector."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Near-field communication works at a few centimeters for payments and pairing."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "A user wants to connect wireless earbuds to a phone. Which technology is typically used?",
+    "options": [
+      {
+        "text": "Bluetooth",
+        "note": ""
+      },
+      {
+        "text": "NFC only",
+        "note": "Too short range for audio."
+      },
+      {
+        "text": "Cellular 5G",
+        "note": "Wide-area network."
+      },
+      {
+        "text": "Ethernet",
+        "note": "Wired."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pair the devices, then enter a PIN or confirm the code if prompted."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "A laptop screen is very dim, but an image is faintly visible with a flashlight. What has most likely failed?",
+    "options": [
+      {
+        "text": "The backlight",
+        "note": ""
+      },
+      {
+        "text": "The graphics driver",
+        "note": "The image is being drawn."
+      },
+      {
+        "text": "The LCD panel's pixels",
+        "note": "Dead pixels wouldn't leave a faint full image."
+      },
+      {
+        "text": "The display's video cable",
+        "note": "A cable fault usually causes no image or flicker."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A faint image means the LCD works but isn't lit. LED backlights or older CCFL inverters can fail."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "A touchscreen registers touches in the wrong place. What should be tried first?",
+    "options": [
+      {
+        "text": "Calibrate the digitizer",
+        "note": ""
+      },
+      {
+        "text": "Replace the battery",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Reinstall the OS",
+        "note": "Too drastic first."
+      },
+      {
+        "text": "Increase screen brightness",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "If calibration doesn't help, the digitizer may need replacement."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Which feature lets a phone share its cellular internet connection with a laptop?",
+    "options": [
+      {
+        "text": "Mobile hotspot",
+        "note": ""
+      },
+      {
+        "text": "Airplane mode",
+        "note": "Disables radios."
+      },
+      {
+        "text": "Screen mirroring",
+        "note": "Shares the display."
+      },
+      {
+        "text": "Do Not Disturb",
+        "note": "Mutes notifications."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hotspots share data over Wi-Fi, USB or Bluetooth and may use the data plan quickly."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "A company wants to push apps, enforce passcodes and remotely wipe employees' phones. What should it use?",
+    "options": [
+      {
+        "text": "Mobile device management",
+        "note": ""
+      },
+      {
+        "text": "A shared docking station",
+        "note": "Hardware accessory, not device management."
+      },
+      {
+        "text": "Full-disk encryption only",
+        "note": "Protects data but doesn't push apps or wipe remotely."
+      },
+      {
+        "text": "A guest Wi-Fi network",
+        "note": "Network access, not device management."
+      }
+    ],
+    "answer": 0,
+    "explanation": "MDM enforces policies; mobile application management (MAM) can manage just company apps on personal devices."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which connector is reversible and used on most modern Android phones and many laptops?",
+    "options": [
+      {
+        "text": "USB-C",
+        "note": ""
+      },
+      {
+        "text": "Micro-USB",
+        "note": "Not reversible."
+      },
+      {
+        "text": "Mini-USB",
+        "note": "Older and not reversible."
+      },
+      {
+        "text": "DB-9 serial",
+        "note": "Legacy serial port."
+      }
+    ],
+    "answer": 0,
+    "explanation": "USB-C can carry data, power (USB PD), video and Thunderbolt on supported devices."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "A laptop needs to connect to multiple monitors, wired network and a keyboard with one cable at a desk. What fits?",
+    "options": [
+      {
+        "text": "A USB-C docking station",
+        "note": ""
+      },
+      {
+        "text": "A KVM switch",
+        "note": "Switches between computers."
+      },
+      {
+        "text": "A USB 2.0 hub",
+        "note": "Adds USB ports only, too slow for displays."
+      },
+      {
+        "text": "A wireless display adapter",
+        "note": "Mirrors a screen; no network or keyboard ports."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Docks and port replicators extend a laptop's ports."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "A laptop gets very hot and shuts down while gaming. What is the most likely cause?",
+    "options": [
+      {
+        "text": "Blocked vents or a failing fan",
+        "note": ""
+      },
+      {
+        "text": "A full recycle bin",
+        "note": "Doesn't cause heat."
+      },
+      {
+        "text": "An expired antivirus license",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A low screen brightness",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Clean vents with compressed air and check that the fan spins."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "A laptop's Wi-Fi is weak after the display was replaced. What should be checked?",
+    "options": [
+      {
+        "text": "The antenna cables in the lid",
+        "note": ""
+      },
+      {
+        "text": "The CMOS battery",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The keyboard ribbon cable",
+        "note": "Affects typing."
+      },
+      {
+        "text": "The wireless card's driver version",
+        "note": "Signal weakened after hardware work, not software."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Laptop Wi-Fi antennas usually run through the display bezel."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "A phone's battery drains quickly after installing a new app. What should be checked first?",
+    "options": [
+      {
+        "text": "Battery usage by app",
+        "note": ""
+      },
+      {
+        "text": "The phone's IMEI number",
+        "note": "Identifies the device."
+      },
+      {
+        "text": "The SIM card's PIN code",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The phone's storage capacity",
+        "note": "Doesn't drain the battery."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Rogue apps or background activity can drain batteries; malware is also possible."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Which wireless standard provides connectivity for a phone when no Wi-Fi is available?",
+    "options": [
+      {
+        "text": "Cellular data",
+        "note": ""
+      },
+      {
+        "text": "Bluetooth",
+        "note": "Short-range personal devices."
+      },
+      {
+        "text": "NFC",
+        "note": "Centimeter range."
+      },
+      {
+        "text": "Infrared",
+        "note": "Line of sight."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cellular networks connect phones to carrier data networks."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "Users want their calendar, contacts and email on both phone and computer. What should be configured?",
+    "options": [
+      {
+        "text": "Account synchronization (sync)",
+        "note": ""
+      },
+      {
+        "text": "Airplane mode",
+        "note": "Disables connectivity."
+      },
+      {
+        "text": "Screen rotation lock",
+        "note": "Display setting."
+      },
+      {
+        "text": "Bluetooth discoverable mode",
+        "note": "Pairing setting."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sync uses accounts like Microsoft 365, Google or iCloud."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "Which laptop component is usually replaced to fix a keyboard with several dead keys?",
+    "options": [
+      {
+        "text": "The keyboard assembly",
+        "note": ""
+      },
+      {
+        "text": "The touchpad",
+        "note": "Different component."
+      },
+      {
+        "text": "The display hinge",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The battery",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "First check for debris, drivers or liquid damage; otherwise replace the keyboard."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "A user's laptop doesn't detect any Wi-Fi networks. What should be checked first?",
+    "options": [
+      {
+        "text": "Whether airplane mode is on",
+        "note": ""
+      },
+      {
+        "text": "Whether the drive is nearly full",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Whether the DNS server is set",
+        "note": "DNS doesn't affect seeing networks."
+      },
+      {
+        "text": "Whether the firewall is blocking it",
+        "note": "Firewalls don't hide Wi-Fi networks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Many laptops have a function key or switch that disables wireless radios."
+  },
+  {
+    "id": 18,
+    "domain": "D2",
+    "scenario": "Which port does HTTPS use by default?",
+    "options": [
+      {
+        "text": "443",
+        "note": ""
+      },
+      {
+        "text": "80",
+        "note": "HTTP."
+      },
+      {
+        "text": "22",
+        "note": "SSH."
+      },
+      {
+        "text": "3389",
+        "note": "RDP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Common ports: 20/21 FTP, 22 SSH, 23 Telnet, 25 SMTP, 53 DNS, 80 HTTP, 443 HTTPS, 3389 RDP."
+  },
+  {
+    "id": 19,
+    "domain": "D2",
+    "scenario": "Which port is used by Remote Desktop Protocol?",
+    "options": [
+      {
+        "text": "3389",
+        "note": ""
+      },
+      {
+        "text": "443",
+        "note": "HTTPS."
+      },
+      {
+        "text": "23",
+        "note": "Telnet."
+      },
+      {
+        "text": "110",
+        "note": "POP3."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RDP lets users control a Windows computer remotely."
+  },
+  {
+    "id": 20,
+    "domain": "D2",
+    "scenario": "Which protocol and port provide encrypted remote command-line access?",
+    "options": [
+      {
+        "text": "SSH on port 22",
+        "note": ""
+      },
+      {
+        "text": "Telnet on port 23",
+        "note": "Unencrypted."
+      },
+      {
+        "text": "FTP on port 21",
+        "note": "File transfer."
+      },
+      {
+        "text": "SMTP on port 25",
+        "note": "Email sending."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use SSH instead of Telnet because Telnet sends everything in clear text."
+  },
+  {
+    "id": 21,
+    "domain": "D2",
+    "scenario": "Which ports does DNS use?",
+    "options": [
+      {
+        "text": "53",
+        "note": ""
+      },
+      {
+        "text": "67 and 68",
+        "note": "DHCP."
+      },
+      {
+        "text": "161 and 162",
+        "note": "SNMP."
+      },
+      {
+        "text": "389",
+        "note": "LDAP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DNS uses UDP 53 for most queries and TCP 53 for larger responses and zone transfers."
+  },
+  {
+    "id": 22,
+    "domain": "D2",
+    "scenario": "Which protocol automatically assigns IP addresses to devices?",
+    "options": [
+      {
+        "text": "DHCP",
+        "note": ""
+      },
+      {
+        "text": "DNS",
+        "note": "Resolves names."
+      },
+      {
+        "text": "SNMP",
+        "note": "Monitors devices."
+      },
+      {
+        "text": "LDAP",
+        "note": "Directory access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DHCP uses UDP ports 67 (server) and 68 (client)."
+  },
+  {
+    "id": 23,
+    "domain": "D2",
+    "scenario": "Which protocol is used to send email between mail servers?",
+    "options": [
+      {
+        "text": "SMTP",
+        "note": ""
+      },
+      {
+        "text": "POP3",
+        "note": "Downloads email to a client."
+      },
+      {
+        "text": "IMAP",
+        "note": "Syncs mailboxes for clients."
+      },
+      {
+        "text": "SNMP",
+        "note": "Device monitoring."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SMTP uses port 25 between servers; clients often submit mail on 587."
+  },
+  {
+    "id": 24,
+    "domain": "D2",
+    "scenario": "A user wants email to stay synced across phone and laptop, with folders kept on the server. Which protocol fits?",
+    "options": [
+      {
+        "text": "IMAP",
+        "note": ""
+      },
+      {
+        "text": "POP3",
+        "note": "Usually downloads and removes mail from the server."
+      },
+      {
+        "text": "SMTP",
+        "note": "Sends mail."
+      },
+      {
+        "text": "FTP",
+        "note": "File transfer."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IMAP uses port 143 (993 for IMAPS)."
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "scenario": "Which Windows file sharing protocol uses port 445?",
+    "options": [
+      {
+        "text": "SMB",
+        "note": ""
+      },
+      {
+        "text": "RDP",
+        "note": "Port 3389."
+      },
+      {
+        "text": "SSH",
+        "note": "Port 22."
+      },
+      {
+        "text": "SNMP",
+        "note": "Ports 161/162."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Server Message Block shares files and printers on Windows networks."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "A Windows PC shows an IP address of 169.254.12.5. What does this mean?",
+    "options": [
+      {
+        "text": "It couldn't reach a DHCP server",
+        "note": ""
+      },
+      {
+        "text": "It has a valid public IP address",
+        "note": "169.254 is APIPA."
+      },
+      {
+        "text": "It's connected over IPv6 only",
+        "note": "That's an IPv4 address."
+      },
+      {
+        "text": "It's the network's default gateway",
+        "note": "Not a gateway."
+      }
+    ],
+    "answer": 0,
+    "explanation": "APIPA addresses (169.254.0.0/16) are self-assigned when DHCP fails."
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "scenario": "Which is a private IPv4 address?",
+    "options": [
+      {
+        "text": "192.168.1.20",
+        "note": ""
+      },
+      {
+        "text": "8.8.8.8",
+        "note": "Public."
+      },
+      {
+        "text": "172.32.0.5",
+        "note": "Outside the 172.16–31 range."
+      },
+      {
+        "text": "11.0.0.1",
+        "note": "Public."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Private ranges: 10.0.0.0/8, 172.16.0.0/12 (172.16–172.31) and 192.168.0.0/16."
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "scenario": "What does a default gateway do?",
+    "options": [
+      {
+        "text": "Sends traffic to other networks",
+        "note": ""
+      },
+      {
+        "text": "Translates names into IP addresses",
+        "note": "That's DNS."
+      },
+      {
+        "text": "Assigns IP addresses to clients",
+        "note": "That's DHCP."
+      },
+      {
+        "text": "Filters traffic between VLANs only",
+        "note": "Not the gateway's main role."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The default gateway is usually the router's IP address on the local network."
+  },
+  {
+    "id": 29,
+    "domain": "D2",
+    "scenario": "Which device connects multiple devices on a LAN and forwards traffic based on MAC addresses?",
+    "options": [
+      {
+        "text": "Switch",
+        "note": ""
+      },
+      {
+        "text": "Router",
+        "note": "Forwards between networks using IP addresses."
+      },
+      {
+        "text": "Modem",
+        "note": "Connects to the ISP."
+      },
+      {
+        "text": "Patch panel",
+        "note": "Passive cable termination."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Switches learn which MAC addresses are on which ports."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "Which device connects a home network to the ISP's cable or DSL line?",
+    "options": [
+      {
+        "text": "Modem",
+        "note": ""
+      },
+      {
+        "text": "Switch",
+        "note": "Connects local devices."
+      },
+      {
+        "text": "Access point",
+        "note": "Provides Wi-Fi."
+      },
+      {
+        "text": "Firewall",
+        "note": "Filters traffic."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Many home devices combine a modem, router, switch and access point."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "Which device provides Wi-Fi to wireless clients and connects them to a wired network?",
+    "options": [
+      {
+        "text": "Wireless access point",
+        "note": ""
+      },
+      {
+        "text": "Patch panel",
+        "note": "Cable termination."
+      },
+      {
+        "text": "Modem",
+        "note": "ISP connection."
+      },
+      {
+        "text": "Network hub",
+        "note": "Legacy wired device."
+      }
+    ],
+    "answer": 0,
+    "explanation": "APs bridge wireless clients to the wired LAN."
+  },
+  {
+    "id": 32,
+    "domain": "D2",
+    "scenario": "Which twisted-pair cable category supports 10 Gbps up to 100 meters?",
+    "options": [
+      {
+        "text": "Cat6a",
+        "note": ""
+      },
+      {
+        "text": "Cat5e",
+        "note": "1 Gbps at 100 meters."
+      },
+      {
+        "text": "Cat5",
+        "note": "100 Mbps."
+      },
+      {
+        "text": "Cat3",
+        "note": "10 Mbps, legacy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cat6 supports 10 Gbps only up to about 55 meters."
+  },
+  {
+    "id": 33,
+    "domain": "D2",
+    "scenario": "Which connector is used on Ethernet twisted-pair cables?",
+    "options": [
+      {
+        "text": "RJ45",
+        "note": ""
+      },
+      {
+        "text": "RJ11",
+        "note": "Telephone lines."
+      },
+      {
+        "text": "F-type",
+        "note": "Coaxial cable."
+      },
+      {
+        "text": "LC",
+        "note": "Fiber."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RJ45 is an 8-pin modular connector."
+  },
+  {
+    "id": 34,
+    "domain": "D2",
+    "scenario": "Cable must run through the air space above a drop ceiling used for ventilation. Which type should be used?",
+    "options": [
+      {
+        "text": "Plenum-rated cable",
+        "note": ""
+      },
+      {
+        "text": "Standard PVC cable",
+        "note": "Gives off toxic smoke when burning."
+      },
+      {
+        "text": "Shielded coaxial cable",
+        "note": "Different cable type."
+      },
+      {
+        "text": "Outdoor direct-burial cable",
+        "note": "Not for plenum spaces."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Plenum jackets produce less toxic smoke and meet fire codes for air-handling spaces."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "Which cable type is best for long distances and is immune to electromagnetic interference?",
+    "options": [
+      {
+        "text": "Fiber-optic",
+        "note": ""
+      },
+      {
+        "text": "Unshielded twisted pair",
+        "note": "Susceptible to EMI."
+      },
+      {
+        "text": "Coaxial",
+        "note": "Can still pick up interference."
+      },
+      {
+        "text": "USB",
+        "note": "Very short distances."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fiber carries light; single-mode reaches farther than multimode."
+  },
+  {
+    "id": 36,
+    "domain": "D2",
+    "scenario": "Which connector is used on coaxial cable for cable TV and cable modems?",
+    "options": [
+      {
+        "text": "F-type",
+        "note": ""
+      },
+      {
+        "text": "RJ45",
+        "note": "Ethernet."
+      },
+      {
+        "text": "SC",
+        "note": "Fiber."
+      },
+      {
+        "text": "Molex",
+        "note": "Internal power."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RG6 cable with F-type connectors is common for cable internet."
+  },
+  {
+    "id": 37,
+    "domain": "D2",
+    "scenario": "Which Wi-Fi standard is Wi-Fi 6 and can use 2.4 GHz and 5 GHz (and 6 GHz for 6E)?",
+    "options": [
+      {
+        "text": "802.11ax",
+        "note": ""
+      },
+      {
+        "text": "802.11ac",
+        "note": "Wi-Fi 5, 5 GHz."
+      },
+      {
+        "text": "802.11n",
+        "note": "Wi-Fi 4."
+      },
+      {
+        "text": "802.11g",
+        "note": "Older 2.4 GHz standard."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Wi-Fi 7 is 802.11be."
+  },
+  {
+    "id": 38,
+    "domain": "D2",
+    "scenario": "Which wireless band offers more channels and higher speeds but shorter range?",
+    "options": [
+      {
+        "text": "5 GHz",
+        "note": ""
+      },
+      {
+        "text": "2.4 GHz",
+        "note": "Longer range, fewer channels."
+      },
+      {
+        "text": "900 MHz",
+        "note": "Not standard Wi-Fi."
+      },
+      {
+        "text": "60 Hz",
+        "note": "Power frequency."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Higher frequencies are absorbed more by walls."
+  },
+  {
+    "id": 39,
+    "domain": "D2",
+    "scenario": "Which wireless security protocol is the most secure for a home network?",
+    "options": [
+      {
+        "text": "WPA3",
+        "note": ""
+      },
+      {
+        "text": "WEP",
+        "note": "Easily cracked."
+      },
+      {
+        "text": "WPA",
+        "note": "Outdated."
+      },
+      {
+        "text": "Open with a hidden SSID",
+        "note": "No encryption."
+      }
+    ],
+    "answer": 0,
+    "explanation": "WPA3-Personal uses SAE to resist offline password guessing."
+  },
+  {
+    "id": 40,
+    "domain": "D2",
+    "scenario": "Which DNS record maps a hostname to an IPv4 address?",
+    "options": [
+      {
+        "text": "A",
+        "note": ""
+      },
+      {
+        "text": "AAAA",
+        "note": "IPv6."
+      },
+      {
+        "text": "MX",
+        "note": "Mail server."
+      },
+      {
+        "text": "CNAME",
+        "note": "Alias."
+      }
+    ],
+    "answer": 0,
+    "explanation": "TXT records hold text such as SPF, DKIM and DMARC email settings."
+  },
+  {
+    "id": 41,
+    "domain": "D2",
+    "scenario": "Which DNS record type is used for email authentication settings like SPF?",
+    "options": [
+      {
+        "text": "TXT",
+        "note": ""
+      },
+      {
+        "text": "A",
+        "note": "IPv4 address."
+      },
+      {
+        "text": "PTR",
+        "note": "Reverse lookup."
+      },
+      {
+        "text": "AAAA",
+        "note": "IPv6 address."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SPF, DKIM and DMARC help prevent email spoofing."
+  },
+  {
+    "id": 42,
+    "domain": "D2",
+    "scenario": "Which network type covers a building or campus?",
+    "options": [
+      {
+        "text": "LAN",
+        "note": ""
+      },
+      {
+        "text": "WAN",
+        "note": "Large geographic areas."
+      },
+      {
+        "text": "PAN",
+        "note": "Personal devices near one person."
+      },
+      {
+        "text": "MAN",
+        "note": "A city-sized network."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A WAN connects LANs over long distances."
+  },
+  {
+    "id": 43,
+    "domain": "D2",
+    "scenario": "A small office wants a firewall, routing and Wi-Fi in one device. What fits?",
+    "options": [
+      {
+        "text": "A SOHO router",
+        "note": ""
+      },
+      {
+        "text": "A patch panel",
+        "note": "Passive."
+      },
+      {
+        "text": "A cable tester",
+        "note": "A tool."
+      },
+      {
+        "text": "A KVM switch",
+        "note": "Shares keyboard and monitor."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Small office/home office routers combine many network functions."
+  },
+  {
+    "id": 44,
+    "domain": "D2",
+    "scenario": "Which protocol monitors and manages network devices like switches and printers?",
+    "options": [
+      {
+        "text": "SNMP",
+        "note": ""
+      },
+      {
+        "text": "SMTP",
+        "note": "Email."
+      },
+      {
+        "text": "SMB",
+        "note": "File sharing."
+      },
+      {
+        "text": "SFTP",
+        "note": "Secure file transfer."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SNMP uses ports 161 and 162."
+  },
+  {
+    "id": 45,
+    "domain": "D2",
+    "scenario": "What does NAT do on a home router?",
+    "options": [
+      {
+        "text": "Lets private devices share one public IP",
+        "note": ""
+      },
+      {
+        "text": "Assigns hostnames to computers",
+        "note": "That's DNS."
+      },
+      {
+        "text": "Encrypts all Wi-Fi traffic",
+        "note": "That's WPA."
+      },
+      {
+        "text": "Blocks every incoming connection",
+        "note": "That's not what NAT does."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Network address translation maps private addresses to the router's public address."
+  },
+  {
+    "id": 46,
+    "domain": "D2",
+    "scenario": "Which IPv6 address type is automatically configured on every interface and starts with fe80?",
+    "options": [
+      {
+        "text": "Link-local",
+        "note": ""
+      },
+      {
+        "text": "Global unicast",
+        "note": "Starts with 2000::/3."
+      },
+      {
+        "text": "Loopback",
+        "note": "::1."
+      },
+      {
+        "text": "Multicast",
+        "note": "Starts with ff."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Link-local addresses work only on the local network segment."
+  },
+  {
+    "id": 47,
+    "domain": "D2",
+    "scenario": "Which tool would a technician use to attach wires to a patch panel?",
+    "options": [
+      {
+        "text": "Punchdown tool",
+        "note": ""
+      },
+      {
+        "text": "Crimper",
+        "note": "Attaches RJ45 connectors."
+      },
+      {
+        "text": "Loopback plug",
+        "note": "Tests ports."
+      },
+      {
+        "text": "Multimeter",
+        "note": "Measures electricity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Punchdown tools seat wires into 110 or Krone blocks."
+  },
+  {
+    "id": 48,
+    "domain": "D2",
+    "scenario": "Which tool attaches an RJ45 connector to the end of a cable?",
+    "options": [
+      {
+        "text": "Crimper",
+        "note": ""
+      },
+      {
+        "text": "Punchdown tool",
+        "note": "For patch panels and keystones."
+      },
+      {
+        "text": "Toner probe",
+        "note": "Traces cables."
+      },
+      {
+        "text": "Wi-Fi analyzer",
+        "note": "Wireless troubleshooting."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Follow the T568A or T568B pinout consistently."
+  },
+  {
+    "id": 49,
+    "domain": "D3",
+    "scenario": "Which component stores data only while the computer is powered on?",
+    "options": [
+      {
+        "text": "RAM",
+        "note": ""
+      },
+      {
+        "text": "SSD",
+        "note": "Non-volatile storage."
+      },
+      {
+        "text": "Hard disk drive",
+        "note": "Non-volatile storage."
+      },
+      {
+        "text": "Flash drive",
+        "note": "Non-volatile storage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RAM is volatile; storage drives keep data when power is off."
+  },
+  {
+    "id": 50,
+    "domain": "D3",
+    "scenario": "How many pins does a DDR4 desktop memory module have?",
+    "options": [
+      {
+        "text": "288",
+        "note": ""
+      },
+      {
+        "text": "240",
+        "note": "DDR3 desktop modules."
+      },
+      {
+        "text": "184",
+        "note": "DDR desktop modules."
+      },
+      {
+        "text": "260",
+        "note": "DDR4 SODIMM laptop modules."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DDR4 and DDR5 DIMMs both have 288 pins but are keyed differently, so they aren't interchangeable."
+  },
+  {
+    "id": 51,
+    "domain": "D3",
+    "scenario": "A user installs two identical RAM modules in matching colored slots. What benefit does this give?",
+    "options": [
+      {
+        "text": "Dual-channel memory",
+        "note": ""
+      },
+      {
+        "text": "Error-correcting memory",
+        "note": "That's ECC."
+      },
+      {
+        "text": "A doubled CPU clock speed",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Faster SSD performance",
+        "note": "Memory channels don't affect the SSD."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Dual channel increases memory bandwidth; check the motherboard manual for the right slots."
+  },
+  {
+    "id": 52,
+    "domain": "D3",
+    "scenario": "Which type of RAM detects and corrects single-bit errors and is common in servers?",
+    "options": [
+      {
+        "text": "ECC RAM",
+        "note": ""
+      },
+      {
+        "text": "SODIMM RAM",
+        "note": "A laptop form factor."
+      },
+      {
+        "text": "Virtual RAM",
+        "note": "Disk-based paging."
+      },
+      {
+        "text": "ROM",
+        "note": "Read-only memory."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The motherboard and CPU must support ECC."
+  },
+  {
+    "id": 53,
+    "domain": "D3",
+    "scenario": "Which storage interface gives the fastest performance for an SSD in an M.2 slot?",
+    "options": [
+      {
+        "text": "NVMe",
+        "note": ""
+      },
+      {
+        "text": "SATA III",
+        "note": "Limited to about 600 MB/s."
+      },
+      {
+        "text": "USB 2.0",
+        "note": "Very slow."
+      },
+      {
+        "text": "IDE/PATA",
+        "note": "Obsolete."
+      }
+    ],
+    "answer": 0,
+    "explanation": "M.2 slots can support SATA or NVMe; check which the motherboard and drive use."
+  },
+  {
+    "id": 54,
+    "domain": "D3",
+    "scenario": "Which RAID level stripes data across disks for speed but provides no redundancy?",
+    "options": [
+      {
+        "text": "RAID 0",
+        "note": ""
+      },
+      {
+        "text": "RAID 1",
+        "note": "Mirroring."
+      },
+      {
+        "text": "RAID 5",
+        "note": "Striping with parity."
+      },
+      {
+        "text": "RAID 10",
+        "note": "Mirrored stripes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "If any disk in RAID 0 fails, all data is lost."
+  },
+  {
+    "id": 55,
+    "domain": "D3",
+    "scenario": "Which RAID level mirrors data on two disks?",
+    "options": [
+      {
+        "text": "RAID 1",
+        "note": ""
+      },
+      {
+        "text": "RAID 0",
+        "note": "Striping, no redundancy."
+      },
+      {
+        "text": "RAID 5",
+        "note": "Parity across 3+ disks."
+      },
+      {
+        "text": "RAID 6",
+        "note": "Double parity."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RAID 1 survives one disk failure."
+  },
+  {
+    "id": 56,
+    "domain": "D3",
+    "scenario": "What is the minimum number of disks for RAID 5?",
+    "options": [
+      {
+        "text": "3",
+        "note": ""
+      },
+      {
+        "text": "2",
+        "note": "RAID 1 or RAID 0 minimum."
+      },
+      {
+        "text": "4",
+        "note": "RAID 10 or RAID 6 minimum."
+      },
+      {
+        "text": "1",
+        "note": "No RAID."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RAID 5 stripes data with distributed parity and survives one disk failure."
+  },
+  {
+    "id": 57,
+    "domain": "D3",
+    "scenario": "Which RAID level combines mirroring and striping and needs at least four disks?",
+    "options": [
+      {
+        "text": "RAID 10",
+        "note": ""
+      },
+      {
+        "text": "RAID 5",
+        "note": "Needs three disks."
+      },
+      {
+        "text": "RAID 1",
+        "note": "Two disks."
+      },
+      {
+        "text": "RAID 0",
+        "note": "Two disks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RAID 10 offers good performance and redundancy."
+  },
+  {
+    "id": 58,
+    "domain": "D3",
+    "scenario": "Which power supply connector provides the main power to a modern motherboard?",
+    "options": [
+      {
+        "text": "24-pin ATX",
+        "note": ""
+      },
+      {
+        "text": "4-pin Molex",
+        "note": "Older drives and fans."
+      },
+      {
+        "text": "15-pin SATA",
+        "note": "SATA drives."
+      },
+      {
+        "text": "6-pin PCIe",
+        "note": "Graphics cards."
+      }
+    ],
+    "answer": 0,
+    "explanation": "CPUs get extra power from a 4- or 8-pin EPS connector."
+  },
+  {
+    "id": 59,
+    "domain": "D3",
+    "scenario": "Which voltages does a standard ATX power supply provide?",
+    "options": [
+      {
+        "text": "3.3 V, 5 V and 12 V",
+        "note": ""
+      },
+      {
+        "text": "1.5 V, 9 V and 24 V",
+        "note": "Not ATX rails."
+      },
+      {
+        "text": "110 V and 220 V only",
+        "note": "Those are wall input voltages."
+      },
+      {
+        "text": "48 V only",
+        "note": "Not ATX."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The 12 V rail powers the CPU and GPU through regulators."
+  },
+  {
+    "id": 60,
+    "domain": "D3",
+    "scenario": "A new graphics card needs more power than the PSU can provide. What should be done?",
+    "options": [
+      {
+        "text": "Install a higher-wattage PSU",
+        "note": ""
+      },
+      {
+        "text": "Add more RAM to the system",
+        "note": "Doesn't add power."
+      },
+      {
+        "text": "Update the BIOS firmware",
+        "note": "Doesn't add power."
+      },
+      {
+        "text": "Use a DisplayPort cable instead",
+        "note": "Doesn't add power."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check the GPU's recommended PSU wattage and required PCIe power connectors."
+  },
+  {
+    "id": 61,
+    "domain": "D3",
+    "scenario": "What should be applied between a CPU and its cooler?",
+    "options": [
+      {
+        "text": "Thermal paste",
+        "note": ""
+      },
+      {
+        "text": "Electrical tape",
+        "note": "Insulates heat."
+      },
+      {
+        "text": "Glue",
+        "note": "Damages parts."
+      },
+      {
+        "text": "Nothing; dry contact is best",
+        "note": "Air gaps reduce cooling."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Thermal compound fills microscopic gaps for better heat transfer."
+  },
+  {
+    "id": 62,
+    "domain": "D3",
+    "scenario": "Which firmware interface replaced legacy BIOS and supports Secure Boot and large GPT disks?",
+    "options": [
+      {
+        "text": "UEFI",
+        "note": ""
+      },
+      {
+        "text": "CMOS",
+        "note": "Stores settings."
+      },
+      {
+        "text": "POST",
+        "note": "Startup self-test."
+      },
+      {
+        "text": "TPM",
+        "note": "Security chip."
+      }
+    ],
+    "answer": 0,
+    "explanation": "UEFI supports Secure Boot, GPT partitions and faster startup."
+  },
+  {
+    "id": 63,
+    "domain": "D3",
+    "scenario": "A PC loses its date and time whenever it's unplugged. What should be replaced?",
+    "options": [
+      {
+        "text": "The CMOS battery",
+        "note": ""
+      },
+      {
+        "text": "The power supply",
+        "note": "PC still works when plugged in."
+      },
+      {
+        "text": "The hard drive",
+        "note": "Doesn't keep the clock running."
+      },
+      {
+        "text": "The RAM",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The coin-cell battery keeps firmware settings and the clock when power is off."
+  },
+  {
+    "id": 64,
+    "domain": "D3",
+    "scenario": "Which chip stores encryption keys and supports BitLocker and Windows 11 security features?",
+    "options": [
+      {
+        "text": "TPM",
+        "note": ""
+      },
+      {
+        "text": "CMOS",
+        "note": "Firmware settings storage."
+      },
+      {
+        "text": "GPU",
+        "note": "Graphics."
+      },
+      {
+        "text": "NIC",
+        "note": "Networking."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Windows 11 requires TPM 2.0."
+  },
+  {
+    "id": 65,
+    "domain": "D3",
+    "scenario": "Which video connector carries both digital audio and video and is common on TVs?",
+    "options": [
+      {
+        "text": "HDMI",
+        "note": ""
+      },
+      {
+        "text": "VGA",
+        "note": "Analog video only."
+      },
+      {
+        "text": "DVI-D",
+        "note": "Digital video, typically no audio."
+      },
+      {
+        "text": "PS/2",
+        "note": "Keyboard and mouse."
+      }
+    ],
+    "answer": 0,
+    "explanation": "DisplayPort also carries audio and video and is common on PCs and monitors."
+  },
+  {
+    "id": 66,
+    "domain": "D3",
+    "scenario": "Which port can provide display, data and charging through a single cable and supports very high speeds on many laptops?",
+    "options": [
+      {
+        "text": "Thunderbolt",
+        "note": ""
+      },
+      {
+        "text": "VGA",
+        "note": "Analog video only."
+      },
+      {
+        "text": "RJ11",
+        "note": "Phone line."
+      },
+      {
+        "text": "Serial",
+        "note": "Legacy data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Thunderbolt 3, 4 and 5 use the USB-C connector."
+  },
+  {
+    "id": 67,
+    "domain": "D3",
+    "scenario": "Which printer type uses heat on special paper, commonly for receipts?",
+    "options": [
+      {
+        "text": "Thermal printer",
+        "note": ""
+      },
+      {
+        "text": "Laser printer",
+        "note": "Uses toner and a fuser."
+      },
+      {
+        "text": "Inkjet printer",
+        "note": "Sprays ink."
+      },
+      {
+        "text": "Impact printer",
+        "note": "Strikes a ribbon."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Direct thermal printers need heat-sensitive paper."
+  },
+  {
+    "id": 68,
+    "domain": "D3",
+    "scenario": "A business needs to print multipart carbon forms. Which printer type fits?",
+    "options": [
+      {
+        "text": "Impact printer",
+        "note": ""
+      },
+      {
+        "text": "Laser printer",
+        "note": "Can't print through carbon layers."
+      },
+      {
+        "text": "Thermal printer",
+        "note": "Heat-sensitive paper only."
+      },
+      {
+        "text": "Inkjet printer",
+        "note": "No impact."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Impact printers strike a ribbon hard enough to print on multiple layers."
+  },
+  {
+    "id": 69,
+    "domain": "D3",
+    "scenario": "In a laser printer, which step melts toner onto the paper?",
+    "options": [
+      {
+        "text": "Fusing",
+        "note": ""
+      },
+      {
+        "text": "Charging",
+        "note": "Charges the drum."
+      },
+      {
+        "text": "Exposing",
+        "note": "Writes the image with a laser."
+      },
+      {
+        "text": "Cleaning",
+        "note": "Removes leftover toner."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Steps: processing, charging, exposing, developing, transferring, fusing, cleaning."
+  },
+  {
+    "id": 70,
+    "domain": "D3",
+    "scenario": "Which component in a laser printer is extremely hot and should be allowed to cool before servicing?",
+    "options": [
+      {
+        "text": "Fuser assembly",
+        "note": ""
+      },
+      {
+        "text": "Paper tray",
+        "note": "Not hot."
+      },
+      {
+        "text": "Toner cartridge only",
+        "note": "Not the hot part."
+      },
+      {
+        "text": "Control panel",
+        "note": "Not hot."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The fuser uses heat and pressure to bond toner to paper."
+  },
+  {
+    "id": 71,
+    "domain": "D3",
+    "scenario": "Which expansion slot is used by modern graphics cards?",
+    "options": [
+      {
+        "text": "PCIe x16",
+        "note": ""
+      },
+      {
+        "text": "PCI",
+        "note": "Legacy slot."
+      },
+      {
+        "text": "AGP",
+        "note": "Obsolete."
+      },
+      {
+        "text": "ISA",
+        "note": "Obsolete."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PCIe x1 slots are used for smaller cards like some NICs and sound cards."
+  },
+  {
+    "id": 72,
+    "domain": "D3",
+    "scenario": "A user needs to add USB ports and wired networking to a desktop. Which component could be installed?",
+    "options": [
+      {
+        "text": "A PCIe expansion card",
+        "note": ""
+      },
+      {
+        "text": "A larger CPU cooler",
+        "note": "Cooling only."
+      },
+      {
+        "text": "A new CMOS battery",
+        "note": "Firmware settings."
+      },
+      {
+        "text": "A RAM module",
+        "note": "Memory only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Expansion cards add ports or functions."
+  },
+  {
+    "id": 73,
+    "domain": "D3",
+    "scenario": "Which input device converts handwriting or drawings into digital input?",
+    "options": [
+      {
+        "text": "Graphics tablet",
+        "note": ""
+      },
+      {
+        "text": "Barcode scanner",
+        "note": "Reads barcodes."
+      },
+      {
+        "text": "KVM switch",
+        "note": "Shares peripherals."
+      },
+      {
+        "text": "Webcam",
+        "note": "Video input."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Touchscreens also use digitizers."
+  },
+  {
+    "id": 74,
+    "domain": "D3",
+    "scenario": "Which device lets one keyboard, monitor and mouse control several computers?",
+    "options": [
+      {
+        "text": "KVM switch",
+        "note": ""
+      },
+      {
+        "text": "Network switch",
+        "note": "Connects network devices."
+      },
+      {
+        "text": "Docking station",
+        "note": "Expands one laptop."
+      },
+      {
+        "text": "USB hub",
+        "note": "Adds ports to one computer."
+      }
+    ],
+    "answer": 0,
+    "explanation": "KVM stands for keyboard, video and mouse."
+  },
+  {
+    "id": 75,
+    "domain": "D3",
+    "scenario": "Which type of drive has spinning platters and moving read/write heads?",
+    "options": [
+      {
+        "text": "Hard disk drive (HDD)",
+        "note": ""
+      },
+      {
+        "text": "Solid-state drive (SSD)",
+        "note": "No moving parts."
+      },
+      {
+        "text": "NVMe SSD",
+        "note": "Flash memory."
+      },
+      {
+        "text": "eMMC",
+        "note": "Embedded flash."
+      }
+    ],
+    "answer": 0,
+    "explanation": "HDD speeds are often 5,400 or 7,200 RPM."
+  },
+  {
+    "id": 76,
+    "domain": "D3",
+    "scenario": "A technician must work inside a PC. What protects the components from static discharge?",
+    "options": [
+      {
+        "text": "An anti-static wrist strap",
+        "note": ""
+      },
+      {
+        "text": "Rubber-soled shoes only",
+        "note": "Not reliable ESD protection."
+      },
+      {
+        "text": "Working on carpet",
+        "note": "Increases static."
+      },
+      {
+        "text": "Wearing gloves made of wool",
+        "note": "Generates static."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use an ESD strap and mat, and handle components by their edges."
+  },
+  {
+    "id": 77,
+    "domain": "D3",
+    "scenario": "Which CPU feature lets one physical core run two threads at once?",
+    "options": [
+      {
+        "text": "Hyper-threading (SMT)",
+        "note": ""
+      },
+      {
+        "text": "Overclocking",
+        "note": "Increases clock speed."
+      },
+      {
+        "text": "Virtualization support",
+        "note": "Allows hypervisors."
+      },
+      {
+        "text": "Integrated graphics",
+        "note": "Graphics on the CPU."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Simultaneous multithreading improves throughput for multithreaded workloads."
+  },
+  {
+    "id": 78,
+    "domain": "D3",
+    "scenario": "Which BIOS/UEFI setting must usually be enabled to run virtual machines efficiently?",
+    "options": [
+      {
+        "text": "CPU virtualization",
+        "note": ""
+      },
+      {
+        "text": "Fast boot",
+        "note": "Speeds startup."
+      },
+      {
+        "text": "USB legacy support",
+        "note": "USB keyboards at boot."
+      },
+      {
+        "text": "Secure Boot keys",
+        "note": "Not required for virtualization."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hypervisors rely on hardware virtualization extensions."
+  },
+  {
+    "id": 79,
+    "domain": "D3",
+    "scenario": "A user wants a printer that everyone on the network can use. How should it be connected?",
+    "options": [
+      {
+        "text": "As a network printer",
+        "note": ""
+      },
+      {
+        "text": "By USB to one user's laptop",
+        "note": "Only that laptop can print easily."
+      },
+      {
+        "text": "Through a Bluetooth pairing",
+        "note": "Not practical for sharing with everyone."
+      },
+      {
+        "text": "Through a parallel port",
+        "note": "Legacy, local-only connection."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Network printers can be shared directly; USB printers can be shared through a computer."
+  },
+  {
+    "id": 80,
+    "domain": "D4",
+    "scenario": "Which hypervisor type runs directly on hardware without a host operating system?",
+    "options": [
+      {
+        "text": "Type 1",
+        "note": ""
+      },
+      {
+        "text": "Type 2",
+        "note": "Runs as an app on a host OS."
+      },
+      {
+        "text": "Type 0",
+        "note": "Not a standard type."
+      },
+      {
+        "text": "Type 3",
+        "note": "Not a standard type."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Examples: VMware ESXi and Microsoft Hyper-V. Type 2 examples: VirtualBox and VMware Workstation."
+  },
+  {
+    "id": 81,
+    "domain": "D4",
+    "scenario": "A developer wants to test software in an isolated VM on their Windows laptop. Which hypervisor type fits?",
+    "options": [
+      {
+        "text": "Type 2",
+        "note": ""
+      },
+      {
+        "text": "Type 1 on bare metal",
+        "note": "Would replace the laptop's OS."
+      },
+      {
+        "text": "A container registry",
+        "note": "Stores container images."
+      },
+      {
+        "text": "A thin client",
+        "note": "A lightweight endpoint."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Type 2 hypervisors such as VirtualBox run on top of the existing OS."
+  },
+  {
+    "id": 82,
+    "domain": "D4",
+    "scenario": "Which is a common use of virtual machines?",
+    "options": [
+      {
+        "text": "Testing software in a sandbox",
+        "note": ""
+      },
+      {
+        "text": "Increasing the size of a monitor",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Charging a laptop faster",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Replacing network cables",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "VMs also run legacy software and consolidate servers."
+  },
+  {
+    "id": 83,
+    "domain": "D4",
+    "scenario": "Which cloud service model provides ready-to-use applications such as webmail?",
+    "options": [
+      {
+        "text": "SaaS",
+        "note": ""
+      },
+      {
+        "text": "IaaS",
+        "note": "Provides infrastructure."
+      },
+      {
+        "text": "PaaS",
+        "note": "Provides a development platform."
+      },
+      {
+        "text": "DaaS",
+        "note": "Provides desktops."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Software as a service: the provider manages everything except users and data."
+  },
+  {
+    "id": 84,
+    "domain": "D4",
+    "scenario": "Which cloud service model provides virtual servers, storage and networking that the customer manages?",
+    "options": [
+      {
+        "text": "IaaS",
+        "note": ""
+      },
+      {
+        "text": "SaaS",
+        "note": "Complete applications."
+      },
+      {
+        "text": "PaaS",
+        "note": "Managed platform."
+      },
+      {
+        "text": "FaaS",
+        "note": "Serverless functions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Infrastructure as a service gives the most control."
+  },
+  {
+    "id": 85,
+    "domain": "D4",
+    "scenario": "Developers want to deploy code without managing the operating system. Which model fits?",
+    "options": [
+      {
+        "text": "PaaS",
+        "note": ""
+      },
+      {
+        "text": "IaaS",
+        "note": "They'd manage the OS."
+      },
+      {
+        "text": "SaaS",
+        "note": "No custom code."
+      },
+      {
+        "text": "On-premises",
+        "note": "They'd manage everything."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Platform as a service handles the OS, runtime and scaling."
+  },
+  {
+    "id": 86,
+    "domain": "D4",
+    "scenario": "A cloud is shared by several organizations with the same compliance needs, such as hospitals. Which model is this?",
+    "options": [
+      {
+        "text": "Community cloud",
+        "note": ""
+      },
+      {
+        "text": "Public cloud",
+        "note": "Open to anyone."
+      },
+      {
+        "text": "Private cloud",
+        "note": "One organization."
+      },
+      {
+        "text": "Hybrid cloud",
+        "note": "Public plus private."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Community clouds share costs among organizations with common concerns."
+  },
+  {
+    "id": 87,
+    "domain": "D4",
+    "scenario": "Which cloud characteristic means resources automatically grow and shrink with demand?",
+    "options": [
+      {
+        "text": "Rapid elasticity",
+        "note": ""
+      },
+      {
+        "text": "Metered utilization",
+        "note": "Pay for what you use."
+      },
+      {
+        "text": "Multitenancy",
+        "note": "Shared infrastructure."
+      },
+      {
+        "text": "File synchronization",
+        "note": "Keeps files in sync."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Elasticity helps handle traffic spikes without overpaying."
+  },
+  {
+    "id": 88,
+    "domain": "D4",
+    "scenario": "Which cloud characteristic means customers are billed based on usage?",
+    "options": [
+      {
+        "text": "Metered utilization",
+        "note": ""
+      },
+      {
+        "text": "High availability",
+        "note": "Uptime."
+      },
+      {
+        "text": "Shared resources",
+        "note": "Multitenancy."
+      },
+      {
+        "text": "Rapid elasticity",
+        "note": "Scaling."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Usage is measured and billed, like a utility."
+  },
+  {
+    "id": 89,
+    "domain": "D4",
+    "scenario": "What is multitenancy in cloud computing?",
+    "options": [
+      {
+        "text": "Many customers share the same infrastructure",
+        "note": ""
+      },
+      {
+        "text": "One customer owns dedicated hardware",
+        "note": "Single-tenant."
+      },
+      {
+        "text": "Each app runs in its own region",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "Users share one administrator account",
+        "note": "Not the meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Providers isolate tenants logically while sharing physical resources."
+  },
+  {
+    "id": 90,
+    "domain": "D4",
+    "scenario": "A company provides employees with Windows desktops hosted in the cloud and accessed from any device. What is this?",
+    "options": [
+      {
+        "text": "VDI",
+        "note": ""
+      },
+      {
+        "text": "A Type 2 hypervisor",
+        "note": "Runs VMs locally."
+      },
+      {
+        "text": "A KVM switch",
+        "note": "Shares peripherals."
+      },
+      {
+        "text": "A roaming user profile",
+        "note": "Follows a user between PCs, but the desktop isn't hosted."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud VDI is sometimes called desktop as a service (DaaS)."
+  },
+  {
+    "id": 91,
+    "domain": "D4",
+    "scenario": "Which is a benefit of containers compared with virtual machines?",
+    "options": [
+      {
+        "text": "They start faster and use fewer resources",
+        "note": ""
+      },
+      {
+        "text": "They each include a full guest OS",
+        "note": "VMs do; containers share the kernel."
+      },
+      {
+        "text": "They require dedicated hardware",
+        "note": "Not required."
+      },
+      {
+        "text": "They can't run on Linux",
+        "note": "They commonly do."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Containers package an app with its dependencies and share the host OS kernel."
+  },
+  {
+    "id": 92,
+    "domain": "D4",
+    "scenario": "Users want files on their laptop to automatically match the copies stored in the cloud. Which feature fits?",
+    "options": [
+      {
+        "text": "File synchronization",
+        "note": ""
+      },
+      {
+        "text": "Disk defragmentation",
+        "note": "Optimizes HDDs."
+      },
+      {
+        "text": "Virtual memory",
+        "note": "Paging."
+      },
+      {
+        "text": "Port forwarding",
+        "note": "Networking."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Services like OneDrive keep files synced across devices."
+  },
+  {
+    "id": 93,
+    "domain": "D4",
+    "scenario": "Which minimum resources must a host have to run several VMs smoothly?",
+    "options": [
+      {
+        "text": "Enough cores, RAM and storage",
+        "note": ""
+      },
+      {
+        "text": "A larger display",
+        "note": "Not a VM requirement."
+      },
+      {
+        "text": "A dedicated GPU",
+        "note": "Not required for typical VMs."
+      },
+      {
+        "text": "A faster internet plan",
+        "note": "VMs run on the host's local resources."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Each VM consumes host CPU, memory, storage and network resources."
+  },
+  {
+    "id": 94,
+    "domain": "D5",
+    "scenario": "What is the first step of the CompTIA troubleshooting methodology?",
+    "options": [
+      {
+        "text": "Identify the problem",
+        "note": ""
+      },
+      {
+        "text": "Establish a theory of probable cause",
+        "note": "Second step."
+      },
+      {
+        "text": "Test the theory",
+        "note": "Third step."
+      },
+      {
+        "text": "Document findings",
+        "note": "Last step."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Steps: identify the problem; establish a theory; test it; plan and implement; verify and add preventive measures; document."
+  },
+  {
+    "id": 95,
+    "domain": "D5",
+    "scenario": "After fixing a problem, what should a technician do before documenting?",
+    "options": [
+      {
+        "text": "Verify functionality and prevent recurrence",
+        "note": ""
+      },
+      {
+        "text": "Establish a theory of probable cause",
+        "note": "Done earlier."
+      },
+      {
+        "text": "Identify the problem",
+        "note": "Done first."
+      },
+      {
+        "text": "Close the ticket and inform the user",
+        "note": "Skips verification."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Make sure everything works and help prevent the issue from happening again."
+  },
+  {
+    "id": 96,
+    "domain": "D5",
+    "scenario": "A technician's first theory turns out to be wrong. What should they do next?",
+    "options": [
+      {
+        "text": "Establish a new theory or escalate",
+        "note": ""
+      },
+      {
+        "text": "Document the fix as complete",
+        "note": "It isn't fixed."
+      },
+      {
+        "text": "Replace every component",
+        "note": "Not methodical."
+      },
+      {
+        "text": "Tell the user nothing can be done",
+        "note": "Not helpful."
+      }
+    ],
+    "answer": 0,
+    "explanation": "If a theory isn't confirmed, form a new one or escalate."
+  },
+  {
+    "id": 97,
+    "domain": "D5",
+    "scenario": "When establishing a theory of probable cause, which approach is recommended?",
+    "options": [
+      {
+        "text": "Question the obvious",
+        "note": ""
+      },
+      {
+        "text": "Start with the most expensive part",
+        "note": "Not efficient."
+      },
+      {
+        "text": "Reinstall the operating system first",
+        "note": "Too drastic."
+      },
+      {
+        "text": "Replace the most likely part first",
+        "note": "Guessing before investigating."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Simple causes like an unplugged cable are common."
+  },
+  {
+    "id": 98,
+    "domain": "D5",
+    "scenario": "A PC makes a series of beeps and shows nothing on screen at startup. What do the beeps indicate?",
+    "options": [
+      {
+        "text": "A POST hardware error code",
+        "note": ""
+      },
+      {
+        "text": "A successful Windows login",
+        "note": "No display yet."
+      },
+      {
+        "text": "A network connection",
+        "note": "Unrelated."
+      },
+      {
+        "text": "A DHCP scope that is full",
+        "note": "Not related to this symptom."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Beep codes vary by firmware vendor; look them up for the motherboard."
+  },
+  {
+    "id": 99,
+    "domain": "D5",
+    "scenario": "A desktop shows no lights and no fans when turned on. What should be checked first?",
+    "options": [
+      {
+        "text": "The power cable and outlet",
+        "note": ""
+      },
+      {
+        "text": "The graphics driver",
+        "note": "No power at all."
+      },
+      {
+        "text": "The Windows registry",
+        "note": "System won't start."
+      },
+      {
+        "text": "The DNS settings",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "No power at all points to the outlet, cable, PSU or front power switch connection."
+  },
+  {
+    "id": 100,
+    "domain": "D5",
+    "scenario": "A computer randomly shuts down, and the case feels hot. What is the likely cause?",
+    "options": [
+      {
+        "text": "Overheating",
+        "note": ""
+      },
+      {
+        "text": "A failing hard drive",
+        "note": "Doesn't explain the heat."
+      },
+      {
+        "text": "A corrupt user profile",
+        "note": "Wouldn't cause shutdowns."
+      },
+      {
+        "text": "A loose monitor cable",
+        "note": "Doesn't shut down the PC."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Clean dust, check fans and reapply thermal paste if needed."
+  },
+  {
+    "id": 101,
+    "domain": "D5",
+    "scenario": "A hard drive makes grinding or clicking noises. What is the most likely issue?",
+    "options": [
+      {
+        "text": "The drive is failing",
+        "note": ""
+      },
+      {
+        "text": "The RAM is too fast",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The monitor is loose",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The keyboard is dirty",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Back up data immediately and replace the drive."
+  },
+  {
+    "id": 102,
+    "domain": "D5",
+    "scenario": "A technician smells burning near the power supply. What should they do?",
+    "options": [
+      {
+        "text": "Power off, unplug and replace the PSU",
+        "note": ""
+      },
+      {
+        "text": "Keep it running to see if it stops",
+        "note": "Fire hazard."
+      },
+      {
+        "text": "Open the PSU and repair it",
+        "note": "Dangerous; PSUs hold high voltage."
+      },
+      {
+        "text": "Spray water on the PSU",
+        "note": "Electrical hazard."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Never open a PSU; capacitors can hold a dangerous charge."
+  },
+  {
+    "id": 103,
+    "domain": "D5",
+    "scenario": "Capacitors on a motherboard are bulging and leaking. What does this mean?",
+    "options": [
+      {
+        "text": "The motherboard is failing and should be replaced",
+        "note": ""
+      },
+      {
+        "text": "The motherboard is overclocked correctly",
+        "note": "Not a sign of overclocking."
+      },
+      {
+        "text": "The BIOS needs updating",
+        "note": "Hardware damage."
+      },
+      {
+        "text": "The RAM needs reseating",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Swollen capacitors cause instability and random shutdowns."
+  },
+  {
+    "id": 104,
+    "domain": "D5",
+    "scenario": "A PC shows \"No boot device found.\" What should be checked first?",
+    "options": [
+      {
+        "text": "Boot order and drive cables",
+        "note": ""
+      },
+      {
+        "text": "The monitor's input source",
+        "note": "The error is already on screen."
+      },
+      {
+        "text": "The network adapter driver",
+        "note": "Not needed to boot from a local drive."
+      },
+      {
+        "text": "The RAM timing settings",
+        "note": "Wouldn't cause a missing boot device."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check the drive appears in UEFI, the cables are seated and the boot order is correct."
+  },
+  {
+    "id": 105,
+    "domain": "D5",
+    "scenario": "Which tool tests whether each wire in an Ethernet cable is connected correctly?",
+    "options": [
+      {
+        "text": "Cable tester",
+        "note": ""
+      },
+      {
+        "text": "Multimeter only",
+        "note": "Can test continuity but not pairs easily."
+      },
+      {
+        "text": "Toner probe",
+        "note": "Traces cables."
+      },
+      {
+        "text": "Wi-Fi analyzer",
+        "note": "Wireless only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cable testers detect opens, shorts and miswired pairs."
+  },
+  {
+    "id": 106,
+    "domain": "D5",
+    "scenario": "A technician needs to find which wall jack connects to which patch panel port. Which tool fits?",
+    "options": [
+      {
+        "text": "Toner probe",
+        "note": ""
+      },
+      {
+        "text": "Crimper",
+        "note": "Attaches connectors."
+      },
+      {
+        "text": "Loopback plug",
+        "note": "Tests a port."
+      },
+      {
+        "text": "Thermal camera",
+        "note": "Not for tracing cables."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A tone generator puts a signal on the cable, and the probe detects it."
+  },
+  {
+    "id": 107,
+    "domain": "D5",
+    "scenario": "Which tool tests whether a network port on a NIC or switch is working?",
+    "options": [
+      {
+        "text": "Loopback plug",
+        "note": ""
+      },
+      {
+        "text": "Punchdown tool",
+        "note": "Terminates wires."
+      },
+      {
+        "text": "Crimper",
+        "note": "Attaches connectors."
+      },
+      {
+        "text": "Torx screwdriver",
+        "note": "Hand tool."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A loopback plug sends the transmit signal back to the receive pins."
+  },
+  {
+    "id": 108,
+    "domain": "D5",
+    "scenario": "Which tool checks power supply voltages or outlet wiring?",
+    "options": [
+      {
+        "text": "Multimeter",
+        "note": ""
+      },
+      {
+        "text": "Cable tester",
+        "note": "Network cables."
+      },
+      {
+        "text": "Toner probe",
+        "note": "Traces cables."
+      },
+      {
+        "text": "Wi-Fi analyzer",
+        "note": "Wireless signals."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Multimeters measure voltage, resistance and continuity."
+  },
+  {
+    "id": 109,
+    "domain": "D5",
+    "scenario": "Users report slow Wi-Fi in one area. Which tool helps find interference and channel overlap?",
+    "options": [
+      {
+        "text": "Wi-Fi analyzer",
+        "note": ""
+      },
+      {
+        "text": "Punchdown tool",
+        "note": "Wired termination."
+      },
+      {
+        "text": "Crimper",
+        "note": "Cable connectors."
+      },
+      {
+        "text": "Loopback plug",
+        "note": "Port testing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Analyzers show signal strength and channel usage."
+  },
+  {
+    "id": 110,
+    "domain": "D5",
+    "scenario": "Two computers show an \"IP address conflict\" message. What is the cause?",
+    "options": [
+      {
+        "text": "Two devices share one IP address",
+        "note": ""
+      },
+      {
+        "text": "The DNS server is offline",
+        "note": "Different error."
+      },
+      {
+        "text": "The Ethernet cable is too long",
+        "note": "Different symptom."
+      },
+      {
+        "text": "The DHCP lease expired normally",
+        "note": "Leases renew automatically without conflicts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Often caused by a static IP inside the DHCP scope. Fix the static address or DHCP reservations."
+  },
+  {
+    "id": 111,
+    "domain": "D5",
+    "scenario": "A user can reach websites by IP address but not by name. What is the most likely cause?",
+    "options": [
+      {
+        "text": "A DNS problem",
+        "note": ""
+      },
+      {
+        "text": "A bad network cable",
+        "note": "IP access works."
+      },
+      {
+        "text": "A failed DHCP lease",
+        "note": "They have connectivity."
+      },
+      {
+        "text": "A failed power supply",
+        "note": "Computer works."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check DNS server settings with ipconfig /all and test with nslookup."
+  },
+  {
+    "id": 112,
+    "domain": "D5",
+    "scenario": "A user has a connection to the local network but no internet. Which setting should be checked?",
+    "options": [
+      {
+        "text": "The default gateway",
+        "note": ""
+      },
+      {
+        "text": "The screen resolution",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The display driver",
+        "note": "Unrelated to network routing."
+      },
+      {
+        "text": "The mouse speed",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Without a correct gateway, traffic can't leave the local subnet."
+  },
+  {
+    "id": 113,
+    "domain": "D5",
+    "scenario": "A network connection drops intermittently. The cable runs next to fluorescent lights and motors. What is a likely cause?",
+    "options": [
+      {
+        "text": "EMI",
+        "note": ""
+      },
+      {
+        "text": "An outdated NIC driver",
+        "note": "Wouldn't depend on nearby lights and motors."
+      },
+      {
+        "text": "A DHCP scope that is full",
+        "note": "Not related to this symptom."
+      },
+      {
+        "text": "A duplex mismatch",
+        "note": "Causes steady slowness, not EMI-related drops."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reroute the cable, use shielded cable or switch to fiber."
+  },
+  {
+    "id": 114,
+    "domain": "D5",
+    "scenario": "Wi-Fi is slow, and many nearby networks use the same 2.4 GHz channel. What should be done?",
+    "options": [
+      {
+        "text": "Use a less crowded channel or 5 GHz",
+        "note": ""
+      },
+      {
+        "text": "Switch to WEP for faster speed",
+        "note": "Insecure and doesn't fix congestion."
+      },
+      {
+        "text": "Use a shorter Ethernet cable",
+        "note": "Wired, not Wi-Fi."
+      },
+      {
+        "text": "Disable WPA3 encryption",
+        "note": "Reduces security."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use non-overlapping channels 1, 6 or 11 on 2.4 GHz."
+  },
+  {
+    "id": 115,
+    "domain": "D5",
+    "scenario": "A laser printer prints faint, repeated images of earlier content on the page. What is this called and what's the likely cause?",
+    "options": [
+      {
+        "text": "Ghosting from a failing drum",
+        "note": ""
+      },
+      {
+        "text": "Speckling from a dirty paper tray",
+        "note": "Different symptom."
+      },
+      {
+        "text": "Low ink in an inkjet cartridge",
+        "note": "Wrong printer type."
+      },
+      {
+        "text": "A corrupt printer driver",
+        "note": "Drivers cause garbled output, not ghost images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Replace the imaging drum or fuser as indicated."
+  },
+  {
+    "id": 116,
+    "domain": "D5",
+    "scenario": "Toner smears off the page when touched. Which laser printer part is most likely failing?",
+    "options": [
+      {
+        "text": "Fuser",
+        "note": ""
+      },
+      {
+        "text": "Paper tray",
+        "note": "Doesn't bond toner."
+      },
+      {
+        "text": "Control panel",
+        "note": "Unrelated."
+      },
+      {
+        "text": "Network card",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The fuser melts toner onto the paper."
+  },
+  {
+    "id": 117,
+    "domain": "D5",
+    "scenario": "An inkjet printer produces streaks or missing lines. What should be done first?",
+    "options": [
+      {
+        "text": "Clean the print heads",
+        "note": ""
+      },
+      {
+        "text": "Replace the fuser",
+        "note": "Inkjets don't have fusers."
+      },
+      {
+        "text": "Update the printer's IP address",
+        "note": "Network settings don't affect print quality."
+      },
+      {
+        "text": "Replace the imaging drum",
+        "note": "Laser printer part."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Clogged nozzles are common; then check ink levels."
+  },
+  {
+    "id": 118,
+    "domain": "D5",
+    "scenario": "A printer shows garbled characters on every page. What is the likely cause?",
+    "options": [
+      {
+        "text": "A wrong printer driver",
+        "note": ""
+      },
+      {
+        "text": "Low toner",
+        "note": "Faint prints, not garbage."
+      },
+      {
+        "text": "A dirty fuser",
+        "note": "Smearing."
+      },
+      {
+        "text": "A misaligned paper tray",
+        "note": "Causes jams or skewed pages, not garbage text."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reinstall the correct driver for the printer model."
+  },
+  {
+    "id": 119,
+    "domain": "D5",
+    "scenario": "Paper keeps jamming in a laser printer. What should be checked?",
+    "options": [
+      {
+        "text": "Paper, tray guides and rollers",
+        "note": ""
+      },
+      {
+        "text": "The network cable",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The printer's IP address",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The print spooler service",
+        "note": "Spooler issues stop printing, not cause jams."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Worn rollers or damp, wrong-size paper often cause jams."
+  },
+  {
+    "id": 120,
+    "domain": "D5",
+    "scenario": "A monitor shows no image, but the PC is running. What should be checked first?",
+    "options": [
+      {
+        "text": "The video cable and input",
+        "note": ""
+      },
+      {
+        "text": "The CPU cooler",
+        "note": "PC is running."
+      },
+      {
+        "text": "The graphics card's power",
+        "note": "The PC runs, so first check the cable and input."
+      },
+      {
+        "text": "The PSU wattage",
+        "note": "PC is running."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check that the monitor is on the right input and cables are seated."
+  },
+  {
+    "id": 121,
+    "domain": "D5",
+    "scenario": "A RAID 5 array shows a degraded status. What does this mean?",
+    "options": [
+      {
+        "text": "One drive failed; data is still available",
+        "note": ""
+      },
+      {
+        "text": "All data on the array has been lost",
+        "note": "RAID 5 survives one failure."
+      },
+      {
+        "text": "The array is rebuilding faster than usual",
+        "note": "Degraded means a drive failed."
+      },
+      {
+        "text": "The array is working normally",
+        "note": "It needs attention."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Replace the failed drive promptly so the array can rebuild."
+  },
+  {
+    "id": 122,
+    "domain": "D5",
+    "scenario": "A system boots, but Windows reports far less RAM than installed. What should be checked?",
+    "options": [
+      {
+        "text": "That RAM is seated and compatible",
+        "note": ""
+      },
+      {
+        "text": "The paging file size",
+        "note": "Doesn't change installed RAM shown."
+      },
+      {
+        "text": "The DNS settings",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The display driver",
+        "note": "Doesn't affect RAM detection."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reseat RAM, check slots and confirm module compatibility."
+  },
+  {
+    "id": 123,
+    "domain": "D5",
+    "scenario": "A new SSD isn't shown in File Explorer but appears in Disk Management as unallocated. What should be done?",
+    "options": [
+      {
+        "text": "Initialize, partition and format it",
+        "note": ""
+      },
+      {
+        "text": "Replace the SSD immediately",
+        "note": "It's working."
+      },
+      {
+        "text": "Enable the drive in Device Manager",
+        "note": "The drive is already detected."
+      },
+      {
+        "text": "Run CHKDSK on drive C:",
+        "note": "The new drive has no file system yet."
+      }
+    ],
+    "answer": 0,
+    "explanation": "New drives need partitions and a file system before use."
+  },
+  {
+    "id": 124,
+    "domain": "D5",
+    "scenario": "A laptop's display flickers when the lid is moved. What is the likely cause?",
+    "options": [
+      {
+        "text": "A worn display cable",
+        "note": ""
+      },
+      {
+        "text": "A failing hard drive",
+        "note": "Wouldn't depend on lid movement."
+      },
+      {
+        "text": "A failing backlight",
+        "note": "Wouldn't depend on lid movement."
+      },
+      {
+        "text": "An outdated display driver",
+        "note": "Wouldn't depend on lid movement."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The display cable runs through the hinge and can wear."
+  },
+  {
+    "id": 125,
+    "domain": "D5",
+    "scenario": "Which device shows a hex code on a motherboard to help diagnose startup failures?",
+    "options": [
+      {
+        "text": "POST card",
+        "note": ""
+      },
+      {
+        "text": "Loopback plug",
+        "note": "Network port testing."
+      },
+      {
+        "text": "Toner probe",
+        "note": "Cable tracing."
+      },
+      {
+        "text": "Crimper",
+        "note": "Cable connectors."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Many motherboards also have built-in debug LEDs or code displays."
+  },
+  {
+    "id": 126,
+    "domain": "D5",
+    "scenario": "A phone won't charge with its cable but charges with another cable. What has failed?",
+    "options": [
+      {
+        "text": "The original cable",
+        "note": ""
+      },
+      {
+        "text": "The phone's battery",
+        "note": "It charges with another cable."
+      },
+      {
+        "text": "The phone's screen",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The cellular radio",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Isolate the problem by swapping one component at a time."
+  },
+  {
+    "id": 127,
+    "domain": "D5",
+    "scenario": "Several users on one switch lose connectivity at the same time. What is the most likely single point of failure?",
+    "options": [
+      {
+        "text": "The switch or its uplink",
+        "note": ""
+      },
+      {
+        "text": "Each user's monitor",
+        "note": "Wouldn't affect all users."
+      },
+      {
+        "text": "Each user's keyboard",
+        "note": "Unrelated."
+      },
+      {
+        "text": "The printer's toner",
+        "note": "Unrelated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Look for what the affected devices have in common."
+  },
+  {
+    "id": 128,
+    "domain": "D5",
+    "scenario": "Which step comes after testing a theory and confirming the cause?",
+    "options": [
+      {
+        "text": "Plan and implement the fix",
+        "note": ""
+      },
+      {
+        "text": "Identify the problem again",
+        "note": "Already done."
+      },
+      {
+        "text": "Document findings",
+        "note": "Comes last."
+      },
+      {
+        "text": "Question the obvious",
+        "note": "Part of forming a theory."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Plan for possible effects, such as backups or change approvals, before implementing."
+  }
+]

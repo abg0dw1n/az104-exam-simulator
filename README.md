@@ -5,6 +5,10 @@ Practice questions and timed exams for IT certifications, live at https://it-exa
 
 | Exam | Folder | Questions | Scoring |
 |---|---|---|---|
+| Microsoft Azure Fundamentals (AZ-900) · beginner | `exams/az-900` | 127 | 700 / 1000 to pass |
+| AWS Certified Cloud Practitioner (CLF-C02) · beginner | `exams/aws-clf` | 130 | 700 on 100–1000 to pass |
+| CompTIA A+ Core 1 (220-1201) · beginner | `exams/a-plus-core1` | 128 | 675 on 100–900 to pass |
+| CompTIA A+ Core 2 (220-1202) · beginner | `exams/a-plus-core2` | 127 | 700 on 100–900 to pass |
 | Microsoft Azure Administrator (AZ-104) | `exams/az-104` | 198 | 700 / 1000 to pass |
 | CompTIA Network+ (N10-009) | `exams/network-plus` | 237 | 720 on 100–900 to pass |
 | CompTIA Security+ (SY0-701) | `exams/security-plus` | 195 | 750 on 100–900 to pass |
@@ -55,7 +59,7 @@ It is a static site with no build step and no dependencies.
    - `scoring` – `min`, `max`, `pass` (e.g. 100 / 900 / 720 for CompTIA, 0 / 1000 / 700 for Microsoft)
    - `minutesPerQuestion`, `defaultSize`, `sizeOptions`, and optional `realExamNote` / `scoreNote`
 2. Create `exams/<folder>/questions.json` containing `[]`.
-3. Add the exam to `exams/index.json`.
+3. Add the exam to `exams/index.json`. Add `"level": "beginner"` to list it under "New to IT? Start here".
 4. Import questions (below), run `node scripts/validate-questions.mjs`, commit and push.
 
 ## Add questions in bulk (spreadsheet)
