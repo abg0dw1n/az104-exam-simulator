@@ -939,6 +939,21 @@ async function renderHome() {
       <p>Structured guides, slides, and lessons will be added alongside the practice exams.</p>
     </div>`;
   const providers = [...new Set(exams.map((e) => e.vendor))];
+  const examGroups = providers.map((provider) => {
+    const key = vendorKey(provider);
+    const entries = exams.map((exam, index) => ({ exam, card: cards[index] })).filter(({ exam }) => exam.vendor === provider);
+    const preview = entries.slice(0, 5).map(({ exam }) =>
+      `<span class="folder-code" data-level="${exam.level || ''}">${escapeHtml(exam.code)}</span>`).join('');
+    return `<details class="vendor-folder" data-provider-group="${key}" data-vendor="${key}" open>
+      <summary>
+        ${icon('folder', 'icon folder-icon')}
+        <span class="folder-name">${escapeHtml(provider)}</span>
+        <span class="folder-preview">${preview}</span>
+        <span class="folder-count">${entries.length} exams</span>
+      </summary>
+      <div class="exam-grid">${entries.map(({ card }) => card).join('')}</div>
+    </details>`;
+  }).join('');
   const providerControls = ['All providers', ...providers].map((provider, index) => {
     const key = index === 0 ? 'all' : vendorKey(provider);
     const count = index === 0 ? exams.length : exams.filter((e) => e.vendor === provider).length;
@@ -980,7 +995,7 @@ async function renderHome() {
       <div class="provider-filters" role="group" aria-label="Filter exams by provider">${providerControls}</div>
     </div>
     <div class="catalog-results-head"><div><h3>All practice exams</h3><p class="muted small">Search by certification or filter by provider to find your next practice session.</p></div><span id="exam-result-count" class="muted small">${exams.length} exams</span></div>
-    <div id="exam-grid" class="exam-grid">${cards.join('')}</div>
+    <div id="exam-grid" class="folder-list">${examGroups}</div>
     <p id="exam-empty" class="panel catalog-empty" hidden>No certifications match your search. Try a different term or provider.</p>
     </section>
   </section>`;
@@ -990,11 +1005,17 @@ async function renderHome() {
   const applyFilters = () => {
     const query = search.value.trim().toLowerCase();
     let visible = 0;
-    grid.querySelectorAll('.exam-card').forEach((card) => {
-      const match = (activeProvider === 'all' || card.dataset.vendor === activeProvider)
-        && (!query || card.dataset.name.includes(query));
-      card.hidden = !match;
-      if (match) visible++;
+    grid.querySelectorAll('.vendor-folder').forEach((group) => {
+      const providerMatch = activeProvider === 'all' || group.dataset.providerGroup === activeProvider;
+      let groupVisible = 0;
+      group.querySelectorAll('.exam-card').forEach((card) => {
+        const match = !query || card.dataset.name.includes(query);
+        card.hidden = !match;
+        if (match) groupVisible++;
+      });
+      group.hidden = !providerMatch || groupVisible === 0;
+      group.querySelector('.folder-count').textContent = `${groupVisible} exam${groupVisible === 1 ? '' : 's'}`;
+      visible += groupVisible;
     });
     $('exam-result-count').textContent = `${visible} exam${visible === 1 ? '' : 's'}`;
     $('exam-empty').hidden = visible > 0;
