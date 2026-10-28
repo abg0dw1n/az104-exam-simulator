@@ -678,3 +678,18 @@ body.account-page .exams-link { display: inline-flex; }
   .learning-section { padding: 17px; }
   .section-heading { align-items: flex-start; flex-direction: column; }
 }
+
+
+/* Learning scope and free exam-specific resources */
+.learn-study-support { display: grid; grid-template-columns: minmax(0, .95fr) minmax(320px, 1.05fr); gap: 18px; padding: 16px 18px; border: 1px solid var(--border); border-left: 4px solid var(--warn); border-radius: 12px; background: var(--warn-soft); }
+.learn-study-disclaimer { display: grid; align-content: start; gap: 7px; }
+.learn-support-label { color: var(--warn-text); font-size: 11px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.learn-study-disclaimer p { color: var(--text-2); font-size: 13px; line-height: 1.55; }
+.learn-support-resources { display: grid; align-content: start; gap: 7px; }
+.learn-support-resources h3 { font-size: 13px; font-weight: 700; }
+.learn-support-resources ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 5px; }
+.learn-support-resources li { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-top: 5px; border-top: 1px solid color-mix(in srgb, var(--border) 80%, transparent); font-size: 12px; }
+.learn-support-resources a { color: var(--azure-text); font-weight: 600; }
+.learn-support-resources li span { flex: none; color: var(--muted); font-size: 11px; text-align: right; }
+@media (max-width: 760px) { .learn-study-support { grid-template-columns: 1fr; gap: 14px; } }
+@media (max-width: 520px) { .learn-study-support { padding: 14px; } .learn-support-resources li { align-items: flex-start; flex-direction: column; gap: 3px; } .learn-support-resources li span { text-align: left; } }
