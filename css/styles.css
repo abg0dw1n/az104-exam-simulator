@@ -744,6 +744,9 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 .recent-row b.good { color: var(--ok-text); }
 .recent-row b.weak { color: var(--bad-text); }
 .recent-row b.running { color: var(--azure-text); }
+.recent-row b.none { color: var(--muted); font-weight: 600; }
+.recent-bar-none { visibility: hidden; }
+.recent-when { font-size: 12px; color: var(--muted); margin-top: -4px; }
 .recent-bar { display: block; height: 5px; border-radius: 99px; background: var(--border); overflow: hidden; margin-bottom: 4px; }
 .recent-bar i { display: block; height: 100%; background: var(--v, var(--azure)); border-radius: inherit; }
 .popular-folder { --v: var(--azure); border-left-color: var(--azure); background: linear-gradient(135deg, var(--azure-soft), transparent 55%), var(--panel-2); }
@@ -850,3 +853,6 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
   /* Phones: the header badge becomes a small dot on the Account icon */
   .account-link .admin-badge { display: block; position: absolute; top: -3px; right: -3px; width: 10px; height: 10px; padding: 0; font-size: 0; border: 2px solid var(--panel); }
 }
+
+/* Recents: reserve two title lines so the progress rows line up across cards. */
+.recent-card h3 { line-height: 1.3; min-height: 2.6em; }

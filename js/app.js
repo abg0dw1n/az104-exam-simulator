@@ -1009,25 +1009,39 @@ function recentActivity(e, saved) {
   return { answered, parts, totalParts: (e.learningModules || 0) * 3, examRunning, last, openedModule, mode: saved.mode };
 }
 
-function recentCard({ e, activity: a }) {
+// "today", "yesterday", "3 days ago", or a short date like "Oct 2".
+function lastStudied(at) {
+  if (!at) return '';
+  const day = 864e5, start = new Date(); start.setHours(0, 0, 0, 0);
+  if (at >= start.getTime()) return 'today';
+  if (at >= start.getTime() - day) return 'yesterday';
+  const days = Math.ceil((start.getTime() - at) / day);
+  return days < 7 ? `${days} days ago` : new Date(at).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+}
+
+// Every Recents card shows the same three rows in the same order (learning, practice,
+// timed exam), each with a plain-language status, so cards are comparable at a glance.
+function recentCard({ e, saved, activity: a }) {
   const pct = (n, total) => (total ? Math.min(100, Math.round((n / total) * 100)) : 0);
-  const rows = [];
-  if (e.learning && (a.parts || a.openedModule || a.mode === 'learn')) {
-    rows.push(`<span class="recent-row"><span>Learning</span><b>${a.totalParts ? `${a.parts} / ${a.totalParts} parts` : `${a.parts} parts`}</b></span>
-      <span class="recent-bar"><i style="width:${pct(a.parts, a.totalParts)}%"></i></span>`);
-  }
-  if (a.answered || (!rows.length && !a.last && !a.examRunning)) {
-    rows.push(`<span class="recent-row"><span>Practice</span><b>${a.answered}${e.questions ? ` / ${e.questions}` : ''} answered</b></span>
-      <span class="recent-bar"><i style="width:${pct(a.answered, e.questions)}%"></i></span>`);
-  }
-  if (a.examRunning) rows.push('<span class="recent-row"><span>Timed exam</span><b class="running">In progress</b></span>');
-  else if (a.last) rows.push(`<span class="recent-row"><span>Last exam</span><b class="${a.last.passed ? 'good' : 'weak'}">${a.last.score}</b></span>`);
-  const learnFirst = a.mode === 'learn' && e.learning;
-  const action = a.examRunning ? 'Resume exam' : learnFirst ? 'Continue learning' : 'Continue practice';
-  return `<a class="panel learning-path-card recent-card" href="/${e.slug}${learnFirst ? '?mode=learn' : ''}" data-vendor="${vendorKey(e.vendor)}">
+  const row = (label, value, cls = '', bar = null) => `<span class="recent-row"><span>${label}</span><b class="${cls}">${value}</b></span>
+      ${bar === null ? '<span class="recent-bar recent-bar-none"></span>' : `<span class="recent-bar"><i style="width:${bar}%"></i></span>`}`;
+  const learnPct = pct(a.parts, a.totalParts);
+  const learning = !e.learning ? row('Learning path', 'Not available', 'none')
+    : row('Learning path', a.parts ? `${learnPct}% complete` : a.openedModule || a.mode === 'learn' ? 'Started' : 'Not started',
+      a.parts ? '' : 'none', learnPct);
+  const practice = row('Practice questions', a.answered ? `${a.answered} of ${e.questions || '?'} answered` : 'Not started',
+    a.answered ? '' : 'none', pct(a.answered, e.questions));
+  const exam = a.examRunning ? row('Timed exam', 'In progress', 'running')
+    : a.last ? row('Last timed exam', `${a.last.score} · ${a.last.passed ? 'Passed' : 'Not passed'}`, a.last.passed ? 'good' : 'weak')
+      : row('Timed exam', 'Not taken', 'none');
+  const mode = a.examRunning ? 'exam' : a.mode === 'learn' && e.learning ? 'learn' : 'practice';
+  const action = { exam: 'Resume timed exam', learn: 'Resume learning path', practice: 'Resume practice' }[mode];
+  const when = lastStudied(saved?.updatedAt);
+  return `<a class="panel learning-path-card recent-card" href="/${e.slug}${mode === 'learn' ? '?mode=learn' : ''}" data-vendor="${vendorKey(e.vendor)}">
       <span class="learning-path-eyebrow">${escapeHtml(e.vendor.toUpperCase())} · ${escapeHtml(e.code)}</span>
       <h3>${escapeHtml(e.name)}</h3>
-      <span class="recent-rows">${rows.join('')}</span>
+      ${when ? `<span class="recent-when">Last studied ${when}</span>` : ''}
+      <span class="recent-rows">${learning}${practice}${exam}</span>
       <span class="learning-path-action">${action} ${icon('right', 'icon')}</span>
     </a>`;
 }
@@ -1129,7 +1143,7 @@ async function renderHome() {
     <section class="learning-section" id="recents" aria-labelledby="recents-title">
       <div class="section-heading">
         <div><span class="eyebrow">RECENTS</span><h2 id="recents-title">${recents.length ? 'Pick up where you left off' : 'Start learning'}</h2>
-          <p class="muted">${recents.length ? 'Your in-progress courses and practice exams, most recent first.' : 'Courses and exams you start will appear here.'}</p></div>
+          <p class="muted">${recents.length ? 'Courses you have opened, most recent first, with your learning, practice and timed-exam progress.' : 'Courses and exams you start will appear here.'}</p></div>
         ${recents.length ? `<span class="learning-count">${recents.length} in progress</span>` : ''}
       </div>
       ${recentsBody}
