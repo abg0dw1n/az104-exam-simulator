@@ -1,0 +1,888 @@
+{
+  "intro": "Hands-on Linux Essentials labs graded in your browser: a simulated Ubuntu terminal for files, text processing, permissions, archives and processes, plus drills on the file system layout, licenses and commands.",
+  "labs": [
+    {
+      "id": "le-files",
+      "title": "Organize files from the command line",
+      "domain": "D2",
+      "kind": "cli",
+      "level": "beginner",
+      "minutes": 15,
+      "summary": "Move around the file system, make directories, copy, move, rename and delete files, and find a hidden file.",
+      "scenario": "<p>Your <code>~/downloads</code> folder is a mess. Tidy it up from the terminal:</p><ul><li>Create <code>~/projects/2026/reports</code> in one command</li><li><b>Copy</b> both <code>report-q1.txt</code> and <code>report-q2.txt</code> into it (keep the originals)</li><li>Create <code>~/pictures</code> and <b>move</b> <code>photo.jpg</code> there, renamed to <code>vacation.jpg</code></li><li>Delete the old installer <code>old-installer.deb</code></li><li>There's also a hidden file in <code>~/downloads</code>. Find it and read the guest Wi-Fi code inside</li></ul>",
+      "devices": [
+        {
+          "platform": "linux",
+          "hostname": "ubuntu01",
+          "ip": "10.0.0.21",
+          "name": "ubuntu01",
+          "files": {
+            "/home/student/downloads": {
+              "dir": true,
+              "owner": "student"
+            },
+            "/home/student/downloads/report-q1.txt": {
+              "content": [
+                "Q1 sales report",
+                "Revenue: $412,000"
+              ],
+              "owner": "student"
+            },
+            "/home/student/downloads/report-q2.txt": {
+              "content": [
+                "Q2 sales report",
+                "Revenue: $455,000"
+              ],
+              "owner": "student"
+            },
+            "/home/student/downloads/photo.jpg": {
+              "content": "",
+              "size": 2400000,
+              "owner": "student"
+            },
+            "/home/student/downloads/old-installer.deb": {
+              "content": "",
+              "size": 85000000,
+              "owner": "student"
+            },
+            "/home/student/downloads/.wifi-notes": {
+              "content": [
+                "Guest Wi-Fi code: LINUX-4521"
+              ],
+              "owner": "student"
+            }
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Create <code>~/projects/2026/reports</code>",
+          "check": {
+            "file": [
+              "ubuntu01",
+              "/home/student/projects/2026/reports"
+            ],
+            "type": "d"
+          }
+        },
+        {
+          "text": "Both reports are copied into it, and the originals are still in <code>~/downloads</code>",
+          "check": {
+            "all": [
+              {
+                "file": [
+                  "ubuntu01",
+                  "/home/student/projects/2026/reports/report-q1.txt"
+                ]
+              },
+              {
+                "file": [
+                  "ubuntu01",
+                  "/home/student/projects/2026/reports/report-q2.txt"
+                ]
+              },
+              {
+                "file": [
+                  "ubuntu01",
+                  "/home/student/downloads/report-q1.txt"
+                ]
+              },
+              {
+                "file": [
+                  "ubuntu01",
+                  "/home/student/downloads/report-q2.txt"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "text": "<code>photo.jpg</code> is now <code>~/pictures/vacation.jpg</code>",
+          "check": {
+            "all": [
+              {
+                "file": [
+                  "ubuntu01",
+                  "/home/student/pictures/vacation.jpg"
+                ]
+              },
+              {
+                "file": [
+                  "ubuntu01",
+                  "/home/student/downloads/photo.jpg"
+                ],
+                "exists": false
+              }
+            ]
+          }
+        },
+        {
+          "text": "The old installer is deleted",
+          "check": {
+            "file": [
+              "ubuntu01",
+              "/home/student/downloads/old-installer.deb"
+            ],
+            "exists": false
+          }
+        },
+        {
+          "text": "List hidden files with <code>ls -a</code>",
+          "check": {
+            "ran": [
+              "ubuntu01",
+              "^ls\\s+(-\\w*a|--all)"
+            ]
+          }
+        },
+        {
+          "text": "What is the guest Wi-Fi code?",
+          "check": {
+            "q": "wifi",
+            "eq": 2
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "wifi",
+          "prompt": "Guest Wi-Fi code:",
+          "options": [
+            "GUEST-2026",
+            "WIFI-1234",
+            "LINUX-4521",
+            "There is no hidden file"
+          ]
+        }
+      ],
+      "hints": [
+        "<code>cd ~/downloads</code> then <code>ls -la</code>. Names that start with a dot are hidden.",
+        "<code>mkdir -p</code> creates every missing directory in the path.",
+        "<code>cp SOURCE... DEST/</code> copies; <code>mv OLD NEW</code> moves and renames in one step."
+      ],
+      "solution": "<pre>mkdir -p ~/projects/2026/reports\ncp ~/downloads/report-q1.txt ~/downloads/report-q2.txt ~/projects/2026/reports/\nmkdir ~/pictures\nmv ~/downloads/photo.jpg ~/pictures/vacation.jpg\nrm ~/downloads/old-installer.deb\nls -la ~/downloads\ncat ~/downloads/.wifi-notes</pre>",
+      "review": "<p>Absolute paths start at <code>/</code>; relative paths start from where you are; <code>~</code> is your home. <code>cp</code> leaves the original, <code>mv</code> doesn't, and <code>rm</code> has no recycle bin.</p>"
+    },
+    {
+      "id": "le-text",
+      "title": "Search and count with pipes",
+      "domain": "D3",
+      "kind": "cli",
+      "level": "beginner",
+      "minutes": 15,
+      "summary": "Use grep, wc, cut, sort, uniq and redirection to answer questions about log files and save the results.",
+      "scenario": "<p>The order app on <b>ubuntu01</b> had a bad morning. Its logs are in <code>/var/log/app/</code>: <code>app.log</code> and <code>access.log</code>. Use pipes to answer the team's questions, and save two results to files in your home directory:</p><ul><li><code>~/errors.txt</code>: every ERROR line from <code>app.log</code>, and nothing else</li><li><code>~/users.txt</code>: the account names from <code>/etc/passwd</code>, sorted alphabetically, one per line</li></ul>",
+      "devices": [
+        {
+          "platform": "linux",
+          "hostname": "ubuntu01",
+          "ip": "10.0.0.21",
+          "name": "ubuntu01",
+          "users": {
+            "alex": {
+              "groups": [
+                "alex"
+              ]
+            },
+            "maria": {
+              "groups": [
+                "maria"
+              ]
+            }
+          },
+          "files": {
+            "/var/log/app/app.log": {
+              "content": [
+                "2026-10-29 08:00:00 INFO  user=alex action=view page=/orders/1000",
+                "2026-10-29 08:01:13 INFO  user=priya action=view page=/orders/1001",
+                "2026-10-29 08:02:26 INFO  user=maria action=view page=/orders/1002",
+                "2026-10-29 08:03:39 INFO  user=omar action=view page=/orders/1003",
+                "2026-10-29 08:04:52 INFO  user=jsmith action=view page=/orders/1004",
+                "2026-10-29 08:05:05 WARN  user=alex slow query took 845ms",
+                "2026-10-29 08:06:18 INFO  user=priya action=view page=/orders/1006",
+                "2026-10-29 08:07:31 WARN  user=maria slow query took 863ms",
+                "2026-10-29 08:08:44 INFO  user=omar action=view page=/orders/1008",
+                "2026-10-29 08:09:57 ERROR user=jsmith payment gateway timeout order=1009",
+                "2026-10-29 08:10:10 INFO  user=alex action=view page=/orders/1010",
+                "2026-10-29 08:11:23 ERROR user=priya payment gateway timeout order=1011",
+                "2026-10-29 08:12:36 INFO  user=maria action=view page=/orders/1012",
+                "2026-10-29 08:13:49 INFO  user=omar action=view page=/orders/1013",
+                "2026-10-29 08:14:02 INFO  user=jsmith action=view page=/orders/1014",
+                "2026-10-29 08:15:15 INFO  user=alex action=view page=/orders/1015",
+                "2026-10-29 08:16:28 INFO  user=priya action=view page=/orders/1016",
+                "2026-10-29 08:17:41 INFO  user=maria action=view page=/orders/1017",
+                "2026-10-29 08:18:54 WARN  user=omar slow query took 962ms",
+                "2026-10-29 08:19:07 INFO  user=jsmith action=view page=/orders/1019",
+                "2026-10-29 08:20:20 WARN  user=alex slow query took 980ms",
+                "2026-10-29 08:21:33 INFO  user=priya action=view page=/orders/1021",
+                "2026-10-29 08:22:46 ERROR user=maria payment gateway timeout order=1022",
+                "2026-10-29 08:23:59 INFO  user=omar action=view page=/orders/1023",
+                "2026-10-29 08:24:12 ERROR user=jsmith payment gateway timeout order=1024",
+                "2026-10-29 08:25:25 INFO  user=alex action=view page=/orders/1025",
+                "2026-10-29 08:26:38 INFO  user=priya action=view page=/orders/1026",
+                "2026-10-29 08:27:51 INFO  user=maria action=view page=/orders/1027",
+                "2026-10-29 08:28:04 INFO  user=omar action=view page=/orders/1028",
+                "2026-10-29 08:29:17 INFO  user=jsmith action=view page=/orders/1029",
+                "2026-10-29 08:30:30 INFO  user=alex action=view page=/orders/1030",
+                "2026-10-29 08:31:43 WARN  user=priya slow query took 1079ms",
+                "2026-10-29 08:32:56 INFO  user=maria action=view page=/orders/1032",
+                "2026-10-29 08:33:09 WARN  user=omar slow query took 1097ms",
+                "2026-10-29 08:34:22 INFO  user=jsmith action=view page=/orders/1034",
+                "2026-10-29 08:35:35 ERROR user=alex payment gateway timeout order=1035",
+                "2026-10-29 08:36:48 INFO  user=priya action=view page=/orders/1036",
+                "2026-10-29 08:37:01 ERROR user=maria payment gateway timeout order=1037",
+                "2026-10-29 08:38:14 INFO  user=omar action=view page=/orders/1038",
+                "2026-10-29 08:39:27 INFO  user=jsmith action=view page=/orders/1039",
+                "2026-10-29 08:40:40 INFO  user=alex action=view page=/orders/1040",
+                "2026-10-29 08:41:53 INFO  user=priya action=view page=/orders/1041",
+                "2026-10-29 08:42:06 INFO  user=maria action=view page=/orders/1042",
+                "2026-10-29 08:43:19 INFO  user=omar action=view page=/orders/1043",
+                "2026-10-29 08:44:32 WARN  user=jsmith slow query took 1196ms",
+                "2026-10-29 08:45:45 INFO  user=alex action=view page=/orders/1045",
+                "2026-10-29 08:46:58 WARN  user=priya slow query took 1214ms",
+                "2026-10-29 08:47:11 INFO  user=maria action=view page=/orders/1047"
+              ]
+            },
+            "/var/log/app/access.log": {
+              "content": [
+                "203.0.113.7 - - [29/Oct/2026:08:00:11 -0400] \"GET /orders/1000 HTTP/1.1\" 200 512",
+                "192.0.2.44 - - [29/Oct/2026:08:01:11 -0400] \"GET /orders/1001 HTTP/1.1\" 200 515",
+                "10.0.0.5 - - [29/Oct/2026:08:02:11 -0400] \"GET /orders/1002 HTTP/1.1\" 200 518",
+                "192.0.2.44 - - [29/Oct/2026:08:03:11 -0400] \"GET /orders/1003 HTTP/1.1\" 200 521",
+                "203.0.113.7 - - [29/Oct/2026:08:04:11 -0400] \"GET /orders/1004 HTTP/1.1\" 200 524",
+                "198.51.100.23 - - [29/Oct/2026:08:05:11 -0400] \"GET /orders/1005 HTTP/1.1\" 200 527",
+                "10.0.0.5 - - [29/Oct/2026:08:06:11 -0400] \"GET /orders/1006 HTTP/1.1\" 200 530",
+                "10.0.0.5 - - [29/Oct/2026:08:07:11 -0400] \"GET /orders/1007 HTTP/1.1\" 200 533",
+                "203.0.113.7 - - [29/Oct/2026:08:08:11 -0400] \"GET /orders/1008 HTTP/1.1\" 200 536",
+                "192.0.2.44 - - [29/Oct/2026:08:09:11 -0400] \"GET /orders/1009 HTTP/1.1\" 200 539",
+                "198.51.100.23 - - [29/Oct/2026:08:10:11 -0400] \"GET /orders/1010 HTTP/1.1\" 200 542",
+                "192.0.2.44 - - [29/Oct/2026:08:11:11 -0400] \"GET /orders/1011 HTTP/1.1\" 200 545",
+                "203.0.113.7 - - [29/Oct/2026:08:12:11 -0400] \"GET /orders/1012 HTTP/1.1\" 200 548",
+                "203.0.113.7 - - [29/Oct/2026:08:13:11 -0400] \"GET /orders/1013 HTTP/1.1\" 200 551",
+                "198.51.100.23 - - [29/Oct/2026:08:14:11 -0400] \"GET /orders/1014 HTTP/1.1\" 200 554",
+                "198.51.100.23 - - [29/Oct/2026:08:15:11 -0400] \"GET /orders/1015 HTTP/1.1\" 200 557",
+                "203.0.113.7 - - [29/Oct/2026:08:16:11 -0400] \"GET /orders/1016 HTTP/1.1\" 200 560",
+                "203.0.113.7 - - [29/Oct/2026:08:17:11 -0400] \"GET /orders/1017 HTTP/1.1\" 200 563",
+                "203.0.113.7 - - [29/Oct/2026:08:18:11 -0400] \"GET /orders/1018 HTTP/1.1\" 200 566",
+                "198.51.100.23 - - [29/Oct/2026:08:19:11 -0400] \"GET /orders/1019 HTTP/1.1\" 200 569",
+                "203.0.113.7 - - [29/Oct/2026:08:20:11 -0400] \"GET /orders/1020 HTTP/1.1\" 200 572",
+                "198.51.100.23 - - [29/Oct/2026:08:21:11 -0400] \"GET /orders/1021 HTTP/1.1\" 200 575"
+              ]
+            }
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "How many ERROR lines are in <code>app.log</code>?",
+          "check": {
+            "q": "errs",
+            "eq": 1
+          }
+        },
+        {
+          "text": "Which IP address made the most requests in <code>access.log</code>?",
+          "check": {
+            "q": "ip",
+            "eq": 0
+          }
+        },
+        {
+          "text": "Save the ERROR lines to <code>~/errors.txt</code>",
+          "check": {
+            "file": [
+              "ubuntu01",
+              "/home/student/errors.txt"
+            ],
+            "equals": "2026-10-29 08:09:57 ERROR user=jsmith payment gateway timeout order=1009\n2026-10-29 08:11:23 ERROR user=priya payment gateway timeout order=1011\n2026-10-29 08:22:46 ERROR user=maria payment gateway timeout order=1022\n2026-10-29 08:24:12 ERROR user=jsmith payment gateway timeout order=1024\n2026-10-29 08:35:35 ERROR user=alex payment gateway timeout order=1035\n2026-10-29 08:37:01 ERROR user=maria payment gateway timeout order=1037"
+          }
+        },
+        {
+          "text": "Save the sorted account names to <code>~/users.txt</code>",
+          "check": {
+            "file": [
+              "ubuntu01",
+              "/home/student/users.txt"
+            ],
+            "equals": "alex\nmaria\nroot\nstudent"
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "errs",
+          "prompt": "ERROR lines in app.log:",
+          "options": [
+            "9",
+            "6",
+            "4",
+            "48"
+          ]
+        },
+        {
+          "id": "ip",
+          "prompt": "Busiest client IP:",
+          "options": [
+            "203.0.113.7",
+            "198.51.100.23",
+            "192.0.2.44",
+            "10.0.0.5"
+          ]
+        }
+      ],
+      "hints": [
+        "<code>grep ERROR FILE | wc -l</code> counts matching lines (or use <code>grep -c</code>).",
+        "The IP is the first field: <code>cut -d\" \" -f1 access.log | sort | uniq -c | sort -rn | head</code>.",
+        "<code>&gt;</code> saves output to a file. In /etc/passwd fields are separated by colons: <code>cut -d: -f1</code>."
+      ],
+      "solution": "<pre>cd /var/log/app\ngrep -c ERROR app.log\ncut -d\" \" -f1 access.log | sort | uniq -c | sort -rn | head -3\ngrep ERROR app.log &gt; ~/errors.txt\ncut -d: -f1 /etc/passwd | sort &gt; ~/users.txt</pre>",
+      "review": "<p>Small tools joined with pipes answer most log questions: filter (grep), cut out a field (cut, awk), sort, count duplicates (uniq -c), and keep the top lines (head).</p>"
+    },
+    {
+      "id": "le-perms",
+      "title": "Users, groups and permissions",
+      "domain": "D5",
+      "kind": "cli",
+      "level": "beginner",
+      "minutes": 15,
+      "summary": "Create a group, add a user to it, build a shared directory, and set file permissions with chmod.",
+      "scenario": "<p>Marketing needs a shared folder on <b>ubuntu01</b>, and two of your own files need tighter permissions.</p><ul><li>Create the group <code>marketing</code> and add the existing user <code>maria</code> to it (she keeps her other groups)</li><li>Create <code>/srv/marketing</code>, owned by <code>root</code> with group <code>marketing</code>; the owner and group get full access and others get nothing</li><li><code>~/backup.sh</code>: you can read, write and run it; the group can read it; others get nothing</li><li><code>~/private.txt</code>: only you can read and write it</li></ul>",
+      "devices": [
+        {
+          "platform": "linux",
+          "hostname": "ubuntu01",
+          "ip": "10.0.0.21",
+          "name": "ubuntu01",
+          "users": {
+            "maria": {
+              "groups": [
+                "maria",
+                "users"
+              ]
+            },
+            "alex": {
+              "groups": [
+                "alex"
+              ]
+            }
+          },
+          "files": {
+            "/home/student/backup.sh": {
+              "content": [
+                "#!/bin/bash",
+                "tar -czf ~/backup.tar.gz ~/projects"
+              ],
+              "owner": "student",
+              "mode": "644"
+            },
+            "/home/student/private.txt": {
+              "content": [
+                "Salary notes for my review"
+              ],
+              "owner": "student",
+              "mode": "644"
+            }
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "<code>maria</code> is in <code>marketing</code> and still in <code>users</code>",
+          "check": {
+            "all": [
+              {
+                "lq": [
+                  "ubuntu01",
+                  "userHasGroup",
+                  "maria:marketing"
+                ],
+                "eq": true
+              },
+              {
+                "lq": [
+                  "ubuntu01",
+                  "userHasGroup",
+                  "maria:users"
+                ],
+                "eq": true
+              }
+            ]
+          }
+        },
+        {
+          "text": "<code>/srv/marketing</code> is root:marketing with mode 770",
+          "check": {
+            "file": [
+              "ubuntu01",
+              "/srv/marketing"
+            ],
+            "type": "d",
+            "owner": "root",
+            "group": "marketing",
+            "mode": "770"
+          }
+        },
+        {
+          "text": "<code>~/backup.sh</code> is mode 740",
+          "check": {
+            "file": [
+              "ubuntu01",
+              "/home/student/backup.sh"
+            ],
+            "mode": "740"
+          }
+        },
+        {
+          "text": "<code>~/private.txt</code> is mode 600",
+          "check": {
+            "file": [
+              "ubuntu01",
+              "/home/student/private.txt"
+            ],
+            "mode": "600"
+          }
+        },
+        {
+          "text": "Which octal mode matches <code>-rwxr-x---</code>?",
+          "check": {
+            "q": "oct",
+            "eq": 3
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "oct",
+          "prompt": "-rwxr-x--- in octal:",
+          "options": [
+            "755",
+            "740",
+            "570",
+            "750"
+          ]
+        }
+      ],
+      "hints": [
+        "Group and user changes need root: <code>sudo groupadd marketing</code>, then <code>sudo usermod -aG marketing maria</code>. Without -a, usermod replaces her groups.",
+        "r=4, w=2, x=1. Add them per position: owner, group, others.",
+        "<code>sudo chown root:marketing /srv/marketing</code> sets owner and group together."
+      ],
+      "solution": "<pre>sudo groupadd marketing\nsudo usermod -aG marketing maria\nid maria\nsudo mkdir /srv/marketing\nsudo chown root:marketing /srv/marketing\nsudo chmod 770 /srv/marketing\nchmod 740 ~/backup.sh\nchmod 600 ~/private.txt\nls -l ~ /srv</pre>",
+      "review": "<p>Permissions are three sets (owner, group, others) of read, write and execute. Groups let several users share files without opening them to everyone.</p>"
+    },
+    {
+      "id": "le-archive",
+      "title": "Back up and restore with tar",
+      "domain": "D3",
+      "kind": "cli",
+      "level": "beginner",
+      "minutes": 12,
+      "summary": "Create a compressed tar archive, list what's inside, and restore it to a different folder.",
+      "scenario": "<p>Before a laptop upgrade, back up <code>~/projects</code> and test the restore:</p><ul><li>Create <code>~/backup/projects.tar.gz</code>, a gzip-compressed archive of <code>~/projects</code></li><li>List the archive's contents without extracting it</li><li>Extract it into <code>/tmp/restore</code> and check that <code>index.html</code> came back</li></ul>",
+      "devices": [
+        {
+          "platform": "linux",
+          "hostname": "ubuntu01",
+          "ip": "10.0.0.21",
+          "name": "ubuntu01",
+          "files": {
+            "/home/student/projects": {
+              "dir": true,
+              "owner": "student"
+            },
+            "/home/student/projects/website": {
+              "dir": true,
+              "owner": "student"
+            },
+            "/home/student/projects/website/index.html": {
+              "content": [
+                "<h1>Hello</h1>"
+              ],
+              "owner": "student"
+            },
+            "/home/student/projects/website/style.css": {
+              "content": [
+                "body { font-family: sans-serif; }"
+              ],
+              "owner": "student"
+            },
+            "/home/student/projects/notes.txt": {
+              "content": [
+                "Ideas for the next release"
+              ],
+              "owner": "student"
+            }
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "<code>~/backup/projects.tar.gz</code> is a gzip archive containing the website",
+          "check": {
+            "all": [
+              {
+                "lq": [
+                  "ubuntu01",
+                  "archiveComp",
+                  "/home/student/backup/projects.tar.gz"
+                ],
+                "eq": "gzip"
+              },
+              {
+                "any": [
+                  {
+                    "lq": [
+                      "ubuntu01",
+                      "archiveHas",
+                      "/home/student/backup/projects.tar.gz::projects/website/index.html"
+                    ],
+                    "eq": true
+                  },
+                  {
+                    "lq": [
+                      "ubuntu01",
+                      "archiveHas",
+                      "/home/student/backup/projects.tar.gz::home/student/projects/website/index.html"
+                    ],
+                    "eq": true
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "text": "List the archive with <code>tar -t</code>",
+          "check": {
+            "ran": [
+              "ubuntu01",
+              "^tar\\s+-?\\w*t"
+            ]
+          }
+        },
+        {
+          "text": "The restore in <code>/tmp/restore</code> contains <code>index.html</code>",
+          "check": {
+            "any": [
+              {
+                "file": [
+                  "ubuntu01",
+                  "/tmp/restore/projects/website/index.html"
+                ]
+              },
+              {
+                "file": [
+                  "ubuntu01",
+                  "/tmp/restore/home/student/projects/website/index.html"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "text": "In <code>tar -czf</code>, what does the <code>z</code> do?",
+          "check": {
+            "q": "z",
+            "eq": 1
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "z",
+          "prompt": "The z option:",
+          "options": [
+            "Zips each file separately",
+            "Compresses the archive with gzip",
+            "Lists the archive",
+            "Keeps file permissions"
+          ]
+        }
+      ],
+      "hints": [
+        "c = create, t = list, x = extract, z = gzip, f = the archive file name (put f last).",
+        "Run tar from your home directory so the paths inside the archive are relative: <code>cd ~</code>.",
+        "<code>-C DIR</code> extracts into another directory, which must exist first."
+      ],
+      "solution": "<pre>cd ~\nmkdir backup\ntar -czf backup/projects.tar.gz projects\ntar -tzf backup/projects.tar.gz\nmkdir /tmp/restore\ntar -xzf backup/projects.tar.gz -C /tmp/restore\nls /tmp/restore/projects/website</pre>",
+      "review": "<p>tar bundles files; gzip (-z), bzip2 (-j) or xz (-J) compress the bundle. Always test a restore: a backup you can't restore isn't a backup.</p>"
+    },
+    {
+      "id": "le-system",
+      "title": "Processes, disk space and network info",
+      "domain": "D4",
+      "kind": "cli",
+      "level": "beginner",
+      "minutes": 12,
+      "summary": "Find and stop a runaway process, and look up who runs a process, how full the disk is and the server's IP address.",
+      "scenario": "<p>Users say <b>ubuntu01</b> is slow. Something you started earlier is using all the CPU. Find it and stop it, then gather a few facts for the help desk ticket.</p>",
+      "devices": [
+        {
+          "platform": "linux",
+          "hostname": "ubuntu01",
+          "ip": "10.0.0.21",
+          "name": "ubuntu01",
+          "procs": [
+            {
+              "pid": 1,
+              "user": "root",
+              "cmd": "/sbin/init",
+              "cpu": 0.0
+            },
+            {
+              "pid": 612,
+              "user": "root",
+              "cmd": "/usr/sbin/sshd -D",
+              "cpu": 0.0
+            },
+            {
+              "pid": 1450,
+              "user": "student",
+              "cmd": "-bash",
+              "cpu": 0.0
+            },
+            {
+              "pid": 2431,
+              "user": "student",
+              "cmd": "yes",
+              "cpu": 99.1,
+              "mem": 0.1
+            },
+            {
+              "pid": 2502,
+              "user": "root",
+              "cmd": "/usr/local/bin/nightly-backup.sh",
+              "cpu": 2.0
+            },
+            {
+              "pid": 2600,
+              "user": "www-data",
+              "cmd": "nginx: worker process",
+              "cpu": 0.3
+            }
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Look at the running processes with <code>ps</code> or <code>top</code>",
+          "check": {
+            "ran": [
+              "ubuntu01",
+              "^(ps|top)\\b"
+            ]
+          }
+        },
+        {
+          "text": "Stop the process that's using all the CPU",
+          "check": {
+            "lq": [
+              "ubuntu01",
+              "proc",
+              "yes"
+            ],
+            "eq": false
+          }
+        },
+        {
+          "text": "Which user runs <code>nightly-backup.sh</code>?",
+          "check": {
+            "q": "owner",
+            "eq": 2
+          }
+        },
+        {
+          "text": "How full is the root (/) file system?",
+          "check": {
+            "q": "disk",
+            "eq": 0
+          }
+        },
+        {
+          "text": "What is the server's IPv4 address?",
+          "check": {
+            "q": "ip",
+            "eq": 1
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "owner",
+          "prompt": "nightly-backup.sh runs as:",
+          "options": [
+            "student",
+            "www-data",
+            "root",
+            "backup"
+          ]
+        },
+        {
+          "id": "disk",
+          "prompt": "Root file system use:",
+          "options": [
+            "38%",
+            "82%",
+            "12%",
+            "100%"
+          ]
+        },
+        {
+          "id": "ip",
+          "prompt": "IPv4 address:",
+          "options": [
+            "127.0.0.1",
+            "10.0.0.21",
+            "10.0.0.1",
+            "192.168.1.21"
+          ]
+        }
+      ],
+      "hints": [
+        "<code>ps aux</code> shows every process with its user and CPU use; <code>top</code> sorts by CPU.",
+        "<code>kill PID</code> stops a process you own.",
+        "<code>df -h</code> shows disk use; <code>ip addr</code> shows addresses."
+      ],
+      "solution": "<pre>ps aux\nkill 2431\ndf -h\nip addr</pre>",
+      "review": "<p>Every process has an ID and an owner. You can stop your own processes; stopping other users' processes needs root. <code>df</code> reports space per file system and <code>ip addr</code> shows interface addresses.</p>"
+    },
+    {
+      "id": "le-concepts",
+      "title": "Linux and open source essentials",
+      "domain": "D1",
+      "kind": "tasks",
+      "level": "beginner",
+      "minutes": 10,
+      "summary": "Match the main directories of the file system hierarchy, open source licenses, and common commands to what they do.",
+      "scenario": "<p>You're preparing a one-page cheat sheet for new team members.</p>",
+      "activities": [
+        {
+          "type": "match",
+          "title": "Where things live",
+          "prompt": "Match each directory to what it holds.",
+          "categories": [
+            "/etc",
+            "/var/log",
+            "/home",
+            "/usr/bin",
+            "/tmp",
+            "/dev"
+          ],
+          "items": [
+            {
+              "text": "System configuration files",
+              "cat": 0
+            },
+            {
+              "text": "Log files",
+              "cat": 1
+            },
+            {
+              "text": "Users' personal files",
+              "cat": 2
+            },
+            {
+              "text": "Installed programs for all users",
+              "cat": 3
+            },
+            {
+              "text": "Temporary files that can be deleted",
+              "cat": 4
+            },
+            {
+              "text": "Device files such as disks",
+              "cat": 5
+            }
+          ]
+        },
+        {
+          "type": "match",
+          "title": "Licenses",
+          "prompt": "Match each license to its description.",
+          "categories": [
+            "GPL",
+            "MIT",
+            "Apache 2.0",
+            "Creative Commons"
+          ],
+          "items": [
+            {
+              "text": "Copyleft: modified versions you distribute must stay open",
+              "cat": 0
+            },
+            {
+              "text": "Short permissive license; keep the notice and do almost anything",
+              "cat": 1
+            },
+            {
+              "text": "Permissive, with an explicit patent grant",
+              "cat": 2
+            },
+            {
+              "text": "Often used for documents, images and other non-software works",
+              "cat": 3
+            }
+          ]
+        },
+        {
+          "type": "match",
+          "title": "Commands",
+          "prompt": "Match each command to its job.",
+          "categories": [
+            "man",
+            "grep",
+            "chmod",
+            "sudo",
+            "df"
+          ],
+          "items": [
+            {
+              "text": "Show the manual for a command",
+              "cat": 0
+            },
+            {
+              "text": "Search text for a pattern",
+              "cat": 1
+            },
+            {
+              "text": "Change file permissions",
+              "cat": 2
+            },
+            {
+              "text": "Run one command as root",
+              "cat": 3
+            },
+            {
+              "text": "Show free disk space",
+              "cat": 4
+            }
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Match the directories",
+          "check": {
+            "activity": 0
+          }
+        },
+        {
+          "text": "Match the licenses",
+          "check": {
+            "activity": 1
+          }
+        },
+        {
+          "text": "Match the commands",
+          "check": {
+            "activity": 2
+          }
+        }
+      ],
+      "hints": [
+        "/var holds data that changes while the system runs, including logs."
+      ],
+      "review": "<p>The Filesystem Hierarchy Standard keeps every distribution's layout familiar, and knowing licenses tells you what you may do with code you find.</p>"
+    }
+  ]
+}

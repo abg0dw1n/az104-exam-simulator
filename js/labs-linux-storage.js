@@ -295,7 +295,8 @@ export function storage(sh, cmd, a, input) {
     }
     case 'df': {
       const h = flags.some((x) => /h/.test(x)); const T = flags.some((x) => /T/.test(x)); const fmt = (n) => (h ? fmtSize(n) : String(n * 1024));
-      const rows = s.mounts.map((m) => { const total = /:\//.test(m.src) ? 51200 : s.blk[m.src]?.fsSize ?? 0; const used = m.dir === '/' ? Math.round(total * 0.38) : m.dir === '/boot' ? 312 : Math.min(total, 40 + Math.round(total * 0.01));
+      const pick = args.map((x) => sh.abs(x)); const within = (m) => !pick.length || pick.some((p) => m.dir === [...s.mounts].map((x) => x.dir).filter((d) => p === d || p.startsWith(d === '/' ? '/' : `${d}/`)).sort((a, b) => b.length - a.length)[0]);
+      const rows = s.mounts.filter(within).map((m) => { const total = /:\//.test(m.src) ? 51200 : s.blk[m.src]?.fsSize ?? 0; const used = m.dir === '/' ? Math.min(total, Math.round((s.rootBase ?? total * 0.38) + Object.values(s.fs).reduce((n, x) => n + (x.size || 0), 0) / 1048576)) : m.dir === '/boot' ? 312 : Math.min(total, 40 + Math.round(total * 0.01));
         return `${m.src.replace(/^\/dev\/([^/]+)\/([^/]+)$/, (x, v, l) => (s.vgs[v] ? `/dev/mapper/${v}-${l}` : x)).padEnd(26)} ${T ? `${m.type.padEnd(6)} ` : ''}${fmt(total).padStart(6)} ${fmt(used).padStart(6)} ${fmt(total - used).padStart(6)} ${`${Math.round((used / Math.max(total, 1)) * 100)}%`.padStart(4)} ${m.dir}`; });
       return `${'Filesystem'.padEnd(26)} ${T ? 'Type   ' : ''}${h ? '  Size   Used  Avail' : '1K-blocks  Used Available'} Use% Mounted on\n${rows.join('\n')}`;
     }

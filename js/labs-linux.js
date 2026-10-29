@@ -33,7 +33,15 @@ export function newLinux(def) {
     ufw: { enabled: false, rules: [], ...(def.ufw || {}) }, pkgServices: { nginx: { active: true, enabled: true, port: 80, desc: 'A high performance web server' }, apache2: { active: true, enabled: true, port: 80 }, ...(def.pkgServices || {}) }, ip: def.ip || '10.0.0.10', net: def.net || {}, web: def.web || {}, nextPid: 4000,
     shell: { stack: [] }, vars: {},
   };
-  return extendState(sys, def);
+  extendState(sys, def);
+  // Labs can prepare the machine by running commands as root (users, LVM, broken configs...).
+  if (def.setup?.length) {
+    const sh = new LinuxSession(sys, {}); sys.shell.stack.push({ user: 'root', cwd: '/root' });
+    for (const c of def.setup) { const out = sh.run(c); if (/command not found|No such|Error|invalid|failed|cannot/i.test(out) && !/^#/.test(c)) console.warn(`lab setup: ${c}\n${out}`); }
+    sys.shell.stack = []; sys.cwd = `/home/${user}`;
+    if (def.afterSetup) for (const [k, v] of Object.entries(def.afterSetup)) sys[k] = v;
+  }
+  return sys;
 }
 
 const rwx = (d) => { const n = +d; return `${n & 4 ? 'r' : '-'}${n & 2 ? 'w' : '-'}${n & 1 ? 'x' : '-'}`; };
@@ -148,7 +156,7 @@ export class LinuxSession {
     const stages = splitPipes(body);
     let data = input ? this.readFile(input) : null; let text = '';
     try {
-      for (const st of stages) { text = this.exec(tokenize(this.expandQuoted(st)), data); data = text; }
+      for (const st of stages) { text = this.exec(this.glob(tokenize(this.expandQuoted(st))), data); data = text; }
     } catch (e) {
       this.lastFailed = true; this.root = false;
       if (!(e instanceof ShellError)) throw e;
@@ -161,6 +169,25 @@ export class LinuxSession {
       return '';
     }
     return text;
+  }
+  // Expand unquoted * ? [..] in arguments against the filesystem, like bash (no match: left as is).
+  glob(argv) {
+    const out = [];
+    argv.forEach((t, i) => {
+      if (i === 0 || argv.quoted?.has(i) || !/[*?[]/.test(t) || /^-/.test(t) || /^[\w-]+=/.test(t)) { out.push(t); return; }
+      const absP = t.startsWith('/'); const base = absP ? '' : this.s.cwd; const parts = t.split('/');
+      let cands = [absP ? '' : base];
+      parts.forEach((part, k) => {
+        if (k === 0 && absP) return;
+        if (!/[*?[]/.test(part)) { cands = cands.map((c) => `${c}/${part}`).filter((c) => this.s.fs[c] || k < parts.length - 1); return; }
+        const re = new RegExp(`^${part.replace(/[.+^${}()|\\]/g, '\\$&').replace(/\*/g, '[^/]*').replace(/\?/g, '[^/]')}$`);
+        cands = cands.flatMap((c) => Object.keys(this.s.fs).filter((kk) => parentOf(kk) === (c || '/') && kk !== '/' && re.test(kk.split('/').pop()) && (part.startsWith('.') || !kk.split('/').pop().startsWith('.')))).sort();
+      });
+      const hits = cands.filter((c) => this.s.fs[c]);
+      if (!hits.length) { out.push(t); return; }
+      for (const h of hits) out.push(absP ? h : h.slice(base.length + 1));
+    });
+    return out;
   }
   // Expand $VARS except inside single quotes.
   expandQuoted(s) { let out = ''; let q = null; let buf = ''; for (const ch of s) { if (q === "'") { buf += ch; if (ch === "'") { out += buf; buf = ''; q = null; } continue; } if (ch === "'" && !q) { out += this.expand(buf); buf = ch; q = "'"; continue; } if (ch === '"') q = q === '"' ? null : '"'; buf += ch; } return q === "'" ? out + buf : out + this.expand(buf); }
@@ -426,7 +453,7 @@ export class LinuxSession {
         else {
           const sep = ex[1]; const [, from, to, opt = ''] = ex.split(sep); if (from == null || to == null) throw new ShellError(`sed: -e expression #1, char ${ex.length}: unterminated \`s' command`);
           let re; try { re = new RegExp(from.replace(/\\([()|+?{}])/g, '$1'), `${opt.includes('g') ? 'g' : ''}${opt.includes('I') || opt.includes('i') ? 'i' : ''}`); } catch { throw new ShellError('sed: -e expression #1: Invalid regular expression'); }
-          res = t.split('\n').map((l) => l.replace(re, to.replace(/\\\//g, '/').replace(/&/g, '$&').replace(/\\(\d)/g, '$$$1'))).join('\n');
+          res = t.split('\n').map((l) => l.replace(re, to.replace(/\\\//g, '/').replace(/&/g, '$&').replace(/\\(\d)/g, '$$$1').replace(/\\t/g, '\t').replace(/\\n/g, '\n'))).join('\n');
         }
         if (!inPlace) return res;
         const p = this.follow(this.abs(file)); const n = this.s.fs[p];
@@ -546,16 +573,16 @@ export class LinuxSession {
 }
 
 function tokenize(s) {
-  const out = []; let cur = ''; let q = null; let any = false;
+  const out = []; let cur = ''; let q = null; let any = false; out.quoted = new Set();
   for (let i = 0; i < s.trim().length; i++) {
     const ch = s.trim()[i];
     if (q) { if (ch === q) { q = null; } else cur += ch; continue; }
     if (ch === '\\' && i + 1 < s.trim().length && s.trim()[i + 1] !== ';') { cur += s.trim()[++i]; any = true; continue; }
     if (ch === '"' || ch === "'") { q = ch; any = true; continue; }
-    if (/\s/.test(ch)) { if (cur || any) out.push(cur); cur = ''; any = false; continue; }
+    if (/\s/.test(ch)) { if (cur || any) { if (any) out.quoted.add(out.length); out.push(cur); } cur = ''; any = false; continue; }
     cur += ch;
   }
-  if (cur || any) out.push(cur);
+  if (cur || any) { if (any) out.quoted.add(out.length); out.push(cur); }
   return out;
 }
 // Split a line into commands joined by ;, && or || (outside quotes).

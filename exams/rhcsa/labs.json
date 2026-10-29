@@ -1,0 +1,1336 @@
+{
+  "intro": "Exam-style RHCSA tasks on a simulated RHEL 10 server, graded in your browser. Work as root (sudo -i), use vi or nano to edit files, and reboot to prove your configuration persists, just like the real exam. Simplified, so some commands and outputs differ from a real system.",
+  "labs": [
+    {
+      "id": "rh-tools",
+      "title": "Essential tools: grep, find, tar and links",
+      "domain": "D1",
+      "kind": "cli",
+      "level": "advanced",
+      "minutes": 20,
+      "summary": "Exam-style tasks on servera: filter text into files, find and copy files by owner, create a bzip2 archive, and make a symbolic link.",
+      "scenario": "<p>Complete these tasks on <b>servera</b> as root:</p><ol><li>Save every line of <code>/usr/share/dict/words</code> that contains <code>ich</code> to <code>/root/lines</code>, in the original order</li><li>Copy all regular files owned by <code>harry</code> into <code>/root/found</code> (create it first)</li><li>Create <code>/root/local.tar.bz2</code>, a bzip2-compressed archive of <code>/usr/local</code></li><li>Create a symbolic link <code>/root/logs</code> that points to <code>/var/log</code></li><li>Save only the active lines of <code>/etc/ssh/sshd_config</code> (no comments, no blank lines) to <code>/root/sshd-active</code></li></ol>",
+      "devices": [
+        {
+          "platform": "linux",
+          "distro": "rhel",
+          "name": "servera",
+          "hostname": "servera.lab.example.com",
+          "ip": "172.25.250.10",
+          "gw": "172.25.250.254",
+          "net": {
+            "172.25.250.254": true,
+            "172.25.250.220": true,
+            "172.25.250.9": true
+          },
+          "dns": {
+            "utility.lab.example.com": "172.25.250.220",
+            "utility": "172.25.250.220",
+            "workstation.lab.example.com": "172.25.250.9",
+            "classroom.example.com": "172.25.254.254"
+          },
+          "files": {
+            "/usr/share/dict/words": {
+              "content": [
+                "abandon",
+                "ability",
+                "which",
+                "kitchen",
+                "rich",
+                "sandwich",
+                "apple",
+                "ostrich",
+                "niche",
+                "banana",
+                "richest",
+                "ichthyology",
+                "mercy",
+                "switch",
+                "michigan",
+                "lichen",
+                "zebra",
+                "chicken",
+                "stich",
+                "ditch"
+              ]
+            },
+            "/etc/ssh/sshd_config": {
+              "content": [
+                "#\t$OpenBSD: sshd_config,v 1.104 $",
+                "",
+                "# This is the sshd server system-wide configuration file.",
+                "Include /etc/ssh/sshd_config.d/*.conf",
+                "",
+                "#Port 22",
+                "PermitRootLogin prohibit-password",
+                "#MaxAuthTries 6",
+                "AuthorizedKeysFile\t.ssh/authorized_keys",
+                "",
+                "PasswordAuthentication yes",
+                "Subsystem\tsftp\t/usr/libexec/openssh/sftp-server"
+              ],
+              "mode": "600"
+            },
+            "/usr/local/bin/report.sh": {
+              "content": [
+                "#!/bin/bash",
+                "uptime"
+              ],
+              "mode": "755"
+            },
+            "/usr/local/share/motd.txt": {
+              "content": [
+                "Authorized use only"
+              ]
+            }
+          },
+          "setup": [
+            "useradd harry",
+            "mkdir -p /srv/project",
+            "touch /srv/project/plan.md /var/tmp/harry-notes.txt",
+            "chown harry /srv/project/plan.md /var/tmp/harry-notes.txt",
+            "echo \"Q4 goals\" > /srv/project/plan.md"
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "<code>/root/lines</code> has exactly the matching lines",
+          "check": {
+            "file": [
+              "servera",
+              "/root/lines"
+            ],
+            "equals": "which\nrich\nsandwich\nostrich\nniche\nrichest\nichthyology\nmichigan\nlichen\nstich"
+          }
+        },
+        {
+          "text": "Harry's files are in <code>/root/found</code>",
+          "check": {
+            "all": [
+              {
+                "file": [
+                  "servera",
+                  "/root/found/plan.md"
+                ]
+              },
+              {
+                "file": [
+                  "servera",
+                  "/root/found/harry-notes.txt"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "text": "<code>/root/local.tar.bz2</code> is a bzip2 archive of <code>/usr/local</code>",
+          "check": {
+            "all": [
+              {
+                "lq": [
+                  "servera",
+                  "archiveComp",
+                  "/root/local.tar.bz2"
+                ],
+                "eq": "bzip2"
+              },
+              {
+                "lq": [
+                  "servera",
+                  "archiveHas",
+                  "/root/local.tar.bz2::usr/local/bin/report.sh"
+                ],
+                "eq": true
+              }
+            ]
+          }
+        },
+        {
+          "text": "<code>/root/logs</code> is a symbolic link to <code>/var/log</code>",
+          "check": {
+            "file": [
+              "servera",
+              "/root/logs"
+            ],
+            "type": "l",
+            "link": "^/var/log/?$"
+          }
+        },
+        {
+          "text": "<code>/root/sshd-active</code> has only the active lines",
+          "check": {
+            "file": [
+              "servera",
+              "/root/sshd-active"
+            ],
+            "equals": "Include /etc/ssh/sshd_config.d/*.conf\nPermitRootLogin prohibit-password\nAuthorizedKeysFile\t.ssh/authorized_keys\nPasswordAuthentication yes\nSubsystem\tsftp\t/usr/libexec/openssh/sftp-server"
+          }
+        }
+      ],
+      "hints": [
+        "<code>grep ich /usr/share/dict/words &gt; /root/lines</code>",
+        "<code>find / -user harry -type f -exec cp -a {} /root/found/ \\;</code>",
+        "tar options: c create, j bzip2, f file. <code>ln -s TARGET LINKNAME</code>.",
+        "<code>grep -Ev '^#|^$' FILE</code> drops comment and blank lines."
+      ],
+      "solution": "<pre>sudo -i\ngrep ich /usr/share/dict/words &gt; /root/lines\nmkdir /root/found\nfind / -user harry -type f -exec cp -a {} /root/found/ \\;\ntar -cjf /root/local.tar.bz2 /usr/local\nln -s /var/log /root/logs\ngrep -Ev '^#|^$' /etc/ssh/sshd_config &gt; /root/sshd-active</pre>",
+      "review": "<p>On the exam, read each task literally (file name, order, exact content) and check your result with cat, ls -l or tar -t before moving on.</p>"
+    },
+    {
+      "id": "rh-users",
+      "title": "Users, groups, sudo and a shared directory",
+      "domain": "D8",
+      "kind": "cli",
+      "level": "advanced",
+      "minutes": 20,
+      "summary": "Classic RHCSA account tasks: groups and supplementary membership, a user without a login shell, passwords and aging, a sudo drop-in, and a set-GID collaborative directory.",
+      "scenario": "<p>On <b>servera</b>:</p><ol><li>Create the group <code>sysadms</code></li><li>Create users <code>natasha</code> and <code>harry</code>, both with <code>sysadms</code> as a supplementary group</li><li>Create user <code>sarah</code> with no interactive shell; she is <b>not</b> in <code>sysadms</code></li><li>Set the password of all three to <code>trootent</code></li><li><code>natasha</code>'s password must be changed every 90 days</li><li>Members of <code>sysadms</code> can run any command as root with sudo</li><li>Create <code>/common/admin</code>: group owner <code>sysadms</code>, full access for the group, no access for others, and new files inside inherit the <code>sysadms</code> group</li></ol>",
+      "devices": [
+        {
+          "platform": "linux",
+          "distro": "rhel",
+          "name": "servera",
+          "hostname": "servera.lab.example.com",
+          "ip": "172.25.250.10",
+          "gw": "172.25.250.254",
+          "net": {
+            "172.25.250.254": true,
+            "172.25.250.220": true,
+            "172.25.250.9": true
+          },
+          "dns": {
+            "utility.lab.example.com": "172.25.250.220",
+            "utility": "172.25.250.220",
+            "workstation.lab.example.com": "172.25.250.9",
+            "classroom.example.com": "172.25.254.254"
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "<code>natasha</code> and <code>harry</code> are in <code>sysadms</code>",
+          "check": {
+            "all": [
+              {
+                "lq": [
+                  "servera",
+                  "userHasGroup",
+                  "natasha:sysadms"
+                ],
+                "eq": true
+              },
+              {
+                "lq": [
+                  "servera",
+                  "userHasGroup",
+                  "harry:sysadms"
+                ],
+                "eq": true
+              }
+            ]
+          }
+        },
+        {
+          "text": "<code>sarah</code> has no interactive shell and isn't in <code>sysadms</code>",
+          "check": {
+            "all": [
+              {
+                "dev": "servera",
+                "path": "users.sarah.shell",
+                "re": "nologin$"
+              },
+              {
+                "lq": [
+                  "servera",
+                  "userHasGroup",
+                  "sarah:sysadms"
+                ],
+                "eq": false
+              }
+            ]
+          }
+        },
+        {
+          "text": "All three have passwords set",
+          "check": {
+            "all": [
+              {
+                "dev": "servera",
+                "path": "users.natasha.pw",
+                "eq": true
+              },
+              {
+                "dev": "servera",
+                "path": "users.harry.pw",
+                "eq": true
+              },
+              {
+                "dev": "servera",
+                "path": "users.sarah.pw",
+                "eq": true
+              }
+            ]
+          }
+        },
+        {
+          "text": "<code>natasha</code>'s maximum password age is 90 days",
+          "check": {
+            "dev": "servera",
+            "path": "users.natasha.maxDays",
+            "eq": 90
+          }
+        },
+        {
+          "text": "<code>sysadms</code> members can use sudo",
+          "check": {
+            "all": [
+              {
+                "lq": [
+                  "servera",
+                  "canSudo",
+                  "harry"
+                ],
+                "eq": true
+              },
+              {
+                "lq": [
+                  "servera",
+                  "canSudo",
+                  "sarah"
+                ],
+                "eq": false
+              }
+            ]
+          }
+        },
+        {
+          "text": "<code>/common/admin</code> is group sysadms, mode 770, with set-GID",
+          "check": {
+            "file": [
+              "servera",
+              "/common/admin"
+            ],
+            "type": "d",
+            "group": "sysadms",
+            "mode": "770",
+            "special": 2
+          }
+        }
+      ],
+      "hints": [
+        "<code>useradd -G sysadms natasha</code>; <code>useradd -s /sbin/nologin sarah</code>.",
+        "<code>echo trootent | passwd --stdin USER</code> sets a password without prompting (RHEL).",
+        "<code>chage -M 90 natasha</code>. Sudo: <code>echo '%sysadms ALL=(ALL) ALL' &gt; /etc/sudoers.d/sysadms</code>.",
+        "<code>chmod 2770</code> = set-GID (2) + rwx for owner and group."
+      ],
+      "solution": "<pre>sudo -i\ngroupadd sysadms\nuseradd -G sysadms natasha\nuseradd -G sysadms harry\nuseradd -s /sbin/nologin sarah\nfor u in natasha harry sarah; do echo trootent | passwd --stdin $u; done\nchage -M 90 natasha\necho '%sysadms ALL=(ALL) ALL' &gt; /etc/sudoers.d/sysadms\nmkdir -p /common/admin\nchgrp sysadms /common/admin\nchmod 2770 /common/admin</pre>",
+      "review": "<p>Supplementary groups (-G) add access without changing a user's primary group. The set-GID bit on a directory makes new files inherit the directory's group, which keeps shared folders working.</p>"
+    },
+    {
+      "id": "rh-storage",
+      "title": "Partitions, LVM and swap",
+      "domain": "D4",
+      "kind": "cli",
+      "level": "advanced",
+      "minutes": 25,
+      "summary": "Partition a disk with parted, build a volume group with a custom extent size, create a logical volume by extents, add persistent swap, and verify after a reboot.",
+      "scenario": "<p><b>servera</b> has an empty 5 GiB disk, <code>/dev/vdb</code>. Without touching <code>/dev/vda</code>:</p><ol><li>Create a volume group <code>datastore</code> with a physical extent size of 16 MiB, on a 2 GiB partition of <code>/dev/vdb</code></li><li>Create a logical volume <code>database</code> of exactly 50 extents</li><li>Format it with <b>ext4</b> and mount it persistently at <code>/mnt/database</code></li><li>Add a 512 MiB swap partition on <code>/dev/vdb</code> that's active now and at every boot</li><li>Reboot and make sure the system comes back with everything mounted</li></ol>",
+      "devices": [
+        {
+          "platform": "linux",
+          "distro": "rhel",
+          "name": "servera",
+          "hostname": "servera.lab.example.com",
+          "ip": "172.25.250.10",
+          "gw": "172.25.250.254",
+          "net": {
+            "172.25.250.254": true,
+            "172.25.250.220": true,
+            "172.25.250.9": true
+          },
+          "dns": {
+            "utility.lab.example.com": "172.25.250.220",
+            "utility": "172.25.250.220",
+            "workstation.lab.example.com": "172.25.250.9",
+            "classroom.example.com": "172.25.254.254"
+          },
+          "disks": {
+            "vdb": "5G"
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "<code>datastore</code> uses 16 MiB extents",
+          "check": {
+            "dev": "servera",
+            "path": "vgs.datastore.pe",
+            "eq": 16
+          }
+        },
+        {
+          "text": "<code>database</code> is 50 extents (800 MiB) with ext4",
+          "check": {
+            "all": [
+              {
+                "lq": [
+                  "servera",
+                  "lvSize",
+                  "datastore/database"
+                ],
+                "eq": 800
+              },
+              {
+                "lq": [
+                  "servera",
+                  "devFs",
+                  "/dev/datastore/database"
+                ],
+                "eq": "ext4"
+              }
+            ]
+          }
+        },
+        {
+          "text": "<code>/mnt/database</code> is in <code>/etc/fstab</code> and mounted",
+          "check": {
+            "all": [
+              {
+                "lq": [
+                  "servera",
+                  "fstabMounts",
+                  "/mnt/database"
+                ],
+                "eq": true
+              },
+              {
+                "lq": [
+                  "servera",
+                  "mountSrc",
+                  "/mnt/database"
+                ],
+                "eq": "/dev/datastore/database"
+              }
+            ]
+          }
+        },
+        {
+          "text": "About 512 MiB of swap is active and listed in <code>/etc/fstab</code>",
+          "check": {
+            "all": [
+              {
+                "lq": [
+                  "servera",
+                  "swapMiB",
+                  ""
+                ],
+                "min": 500,
+                "max": 530
+              },
+              {
+                "file": [
+                  "servera",
+                  "/etc/fstab"
+                ],
+                "contains": "\\sswap\\s"
+              }
+            ]
+          }
+        },
+        {
+          "text": "After a reboot (no emergency mode), the volume and swap are back",
+          "check": {
+            "all": [
+              {
+                "dev": "servera",
+                "path": "boots",
+                "min": 1
+              },
+              {
+                "lq": [
+                  "servera",
+                  "emergency",
+                  ""
+                ],
+                "eq": false
+              },
+              {
+                "lq": [
+                  "servera",
+                  "mountSrc",
+                  "/mnt/database"
+                ],
+                "eq": "/dev/datastore/database"
+              },
+              {
+                "lq": [
+                  "servera",
+                  "swapMiB",
+                  ""
+                ],
+                "min": 500,
+                "max": 530
+              }
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "Partition in one command: <code>parted -s /dev/vdb mklabel gpt mkpart lvm 1MiB 2049MiB set 1 lvm on mkpart swap 2049MiB 2561MiB</code>.",
+        "<code>vgcreate -s 16M datastore /dev/vdb1</code>; <code>lvcreate -n database -l 50 datastore</code> (small L = extents).",
+        "Swap: <code>mkswap /dev/vdb2</code>, add <code>UUID=... swap swap defaults 0 0</code> to fstab, then <code>swapon -a</code>.",
+        "Before rebooting, run <code>mount -a</code>, <code>swapon -a</code> and <code>findmnt --verify</code>. A broken fstab line drops the server into emergency mode."
+      ],
+      "solution": "<pre>sudo -i\nparted -s /dev/vdb mklabel gpt mkpart lvm 1MiB 2049MiB set 1 lvm on mkpart swap 2049MiB 2561MiB\nvgcreate -s 16M datastore /dev/vdb1\nlvcreate -n database -l 50 datastore\nmkfs.ext4 /dev/datastore/database\nmkdir /mnt/database\nmkswap /dev/vdb2\nblkid\nvi /etc/fstab\n  /dev/datastore/database  /mnt/database  ext4  defaults  0 0\n  UUID=&lt;vdb2-uuid&gt;          swap           swap  defaults  0 0\nmount -a\nswapon -a\nfindmnt --verify\nreboot</pre>",
+      "review": "<p>Extent size is set when the volume group is created and determines how sizes round. Always test fstab (mount -a, swapon -a, findmnt --verify) before you reboot; the exam grader reboots your system.</p>"
+    },
+    {
+      "id": "rh-resize-nfs",
+      "title": "Resize a logical volume and mount NFS",
+      "domain": "D5",
+      "kind": "cli",
+      "level": "advanced",
+      "minutes": 18,
+      "summary": "Grow a mounted XFS logical volume into a size range without data loss, and mount an NFS export persistently.",
+      "scenario": "<p>On <b>servera</b>:</p><ol><li>The logical volume <code>lvweb</code> (volume group <code>vgweb</code>, mounted at <code>/srv/web</code>) must be resized to between <b>830 MiB and 890 MiB</b>. Keep the data and the file system mounted</li><li><code>utility.lab.example.com</code> exports a shared directory over NFS. Mount it at <code>/mnt/shared</code> now and at every boot</li><li>Reboot and verify both</li></ol>",
+      "devices": [
+        {
+          "platform": "linux",
+          "distro": "rhel",
+          "name": "servera",
+          "hostname": "servera.lab.example.com",
+          "ip": "172.25.250.10",
+          "gw": "172.25.250.254",
+          "net": {
+            "172.25.250.254": true,
+            "172.25.250.220": true,
+            "172.25.250.9": true
+          },
+          "dns": {
+            "utility.lab.example.com": "172.25.250.220",
+            "utility": "172.25.250.220",
+            "workstation.lab.example.com": "172.25.250.9",
+            "classroom.example.com": "172.25.254.254"
+          },
+          "disks": {
+            "vdb": "5G"
+          },
+          "nfs": {
+            "utility.lab.example.com:/exports/shared": true
+          },
+          "setup": [
+            "parted -s /dev/vdb mklabel gpt mkpart lvm 1MiB 2049MiB set 1 lvm on",
+            "vgcreate vgweb /dev/vdb1",
+            "lvcreate -n lvweb -L 300M vgweb",
+            "mkfs.xfs /dev/vgweb/lvweb",
+            "mkdir -p /srv/web",
+            "echo \"/dev/vgweb/lvweb /srv/web xfs defaults 0 0\" >> /etc/fstab",
+            "mount -a",
+            "echo \"<h1>servera</h1>\" > /srv/web/index.html"
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "<code>lvweb</code> and its file system are 830–890 MiB",
+          "check": {
+            "all": [
+              {
+                "lq": [
+                  "servera",
+                  "lvSize",
+                  "vgweb/lvweb"
+                ],
+                "min": 830,
+                "max": 890
+              },
+              {
+                "lq": [
+                  "servera",
+                  "fsSize",
+                  "/srv/web"
+                ],
+                "min": 830,
+                "max": 890
+              }
+            ]
+          }
+        },
+        {
+          "text": "The web content is still there",
+          "check": {
+            "file": [
+              "servera",
+              "/srv/web/index.html"
+            ]
+          }
+        },
+        {
+          "text": "Find the export with <code>showmount</code>",
+          "check": {
+            "ran": [
+              "servera",
+              "showmount\\s+-e"
+            ]
+          }
+        },
+        {
+          "text": "The NFS share is mounted at <code>/mnt/shared</code> and listed in fstab",
+          "check": {
+            "all": [
+              {
+                "lq": [
+                  "servera",
+                  "mountType",
+                  "/mnt/shared"
+                ],
+                "eq": "nfs4"
+              },
+              {
+                "lq": [
+                  "servera",
+                  "fstabMounts",
+                  "/mnt/shared"
+                ],
+                "eq": true
+              }
+            ]
+          }
+        },
+        {
+          "text": "Both survive a reboot",
+          "check": {
+            "all": [
+              {
+                "dev": "servera",
+                "path": "boots",
+                "min": 1
+              },
+              {
+                "lq": [
+                  "servera",
+                  "mountType",
+                  "/mnt/shared"
+                ],
+                "eq": "nfs4"
+              },
+              {
+                "lq": [
+                  "servera",
+                  "fsSize",
+                  "/srv/web"
+                ],
+                "min": 830,
+                "max": 890
+              }
+            ]
+          }
+        },
+        {
+          "text": "Why can't you shrink <code>lvweb</code> instead?",
+          "check": {
+            "q": "shrink",
+            "eq": 1
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "shrink",
+          "prompt": "XFS volumes can't be shrunk because:",
+          "options": [
+            "LVM never allows shrinking",
+            "XFS file systems can only grow, not shrink",
+            "The volume is mounted",
+            "The volume group is full"
+          ]
+        }
+      ],
+      "hints": [
+        "Pick a size safely inside the range, such as 850M: <code>lvextend -r -L 850M /dev/vgweb/lvweb</code>.",
+        "<code>showmount -e utility.lab.example.com</code> lists exports.",
+        "fstab line: <code>utility.lab.example.com:/exports/shared  /mnt/shared  nfs  defaults,_netdev  0 0</code>"
+      ],
+      "solution": "<pre>sudo -i\nlvs\nlvextend -r -L 850M /dev/vgweb/lvweb\ndf -h /srv/web\nshowmount -e utility.lab.example.com\nmkdir /mnt/shared\necho \"utility.lab.example.com:/exports/shared /mnt/shared nfs defaults,_netdev 0 0\" &gt;&gt; /etc/fstab\nmount -a\nreboot</pre>",
+      "review": "<p>Sizes round to whole extents, so aim for the middle of a range. _netdev tells systemd to wait for the network before mounting a network file system.</p>"
+    },
+    {
+      "id": "rh-network",
+      "title": "Configure networking and the hostname",
+      "domain": "D7",
+      "kind": "cli",
+      "level": "advanced",
+      "minutes": 15,
+      "summary": "Switch a DHCP connection to a static IPv4 and IPv6 configuration with nmcli, set a persistent hostname, and add a local host entry.",
+      "scenario": "<p><b>servera</b> got its address from DHCP. Configure it statically on connection <code>eth0</code>:</p><ul><li>IPv4 <code>172.25.250.11/24</code>, gateway <code>172.25.250.254</code>, DNS <code>172.25.250.254</code></li><li>IPv6 <code>fd00:25:250::11/64</code></li><li>Hostname <code>servera.lab.example.com</code>, persistent</li><li>The short name <code>workstation</code> must resolve to <code>172.25.250.9</code> on this server</li></ul><p>Everything must survive a reboot.</p>",
+      "devices": [
+        {
+          "platform": "linux",
+          "distro": "rhel",
+          "name": "servera",
+          "hostname": "localhost.localdomain",
+          "ip": "172.25.250.99",
+          "gw": "172.25.250.254",
+          "net": {
+            "172.25.250.254": true,
+            "172.25.250.220": true,
+            "172.25.250.9": true
+          },
+          "dns": {
+            "utility.lab.example.com": "172.25.250.220",
+            "utility": "172.25.250.220",
+            "workstation.lab.example.com": "172.25.250.9",
+            "classroom.example.com": "172.25.254.254"
+          },
+          "dhcp": true,
+          "dhcpIp": "172.25.250.99",
+          "files": {
+            "/etc/hostname": {
+              "content": [
+                "localhost.localdomain"
+              ]
+            }
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "<code>eth0</code> is static: 172.25.250.11/24, gateway and DNS 172.25.250.254",
+          "check": {
+            "all": [
+              {
+                "dev": "servera",
+                "path": "nm.cons.eth0.method",
+                "eq": "manual"
+              },
+              {
+                "dev": "servera",
+                "path": "nm.cons.eth0.addresses",
+                "eq": "172.25.250.11/24"
+              },
+              {
+                "dev": "servera",
+                "path": "nm.cons.eth0.gateway",
+                "eq": "172.25.250.254"
+              },
+              {
+                "dev": "servera",
+                "path": "nm.cons.eth0.dns",
+                "re": "172\\.25\\.250\\.254"
+              }
+            ]
+          }
+        },
+        {
+          "text": "IPv6 address fd00:25:250::11/64 is configured",
+          "check": {
+            "dev": "servera",
+            "path": "nm.cons.eth0.addresses6",
+            "re": "^fd00:25:250::11/64$"
+          }
+        },
+        {
+          "text": "The hostname is set persistently",
+          "check": {
+            "all": [
+              {
+                "file": [
+                  "servera",
+                  "/etc/hostname"
+                ],
+                "contains": "^servera\\.lab\\.example\\.com$"
+              },
+              {
+                "dev": "servera",
+                "path": "hostname",
+                "eq": "servera.lab.example.com"
+              }
+            ]
+          }
+        },
+        {
+          "text": "<code>workstation</code> resolves to 172.25.250.9",
+          "check": {
+            "lq": [
+              "servera",
+              "resolve",
+              "workstation"
+            ],
+            "eq": "172.25.250.9"
+          }
+        },
+        {
+          "text": "After a reboot the server uses 172.25.250.11 and can reach utility by name",
+          "check": {
+            "all": [
+              {
+                "dev": "servera",
+                "path": "boots",
+                "min": 1
+              },
+              {
+                "dev": "servera",
+                "path": "ip",
+                "eq": "172.25.250.11"
+              },
+              {
+                "lq": [
+                  "servera",
+                  "ping",
+                  "utility.lab.example.com"
+                ],
+                "eq": true
+              }
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "<code>nmcli con mod eth0 ipv4.addresses 172.25.250.11/24 ipv4.gateway 172.25.250.254 ipv4.dns 172.25.250.254 ipv4.method manual</code>",
+        "IPv6: <code>nmcli con mod eth0 ipv6.addresses fd00:25:250::11/64 ipv6.method manual</code>, then <code>nmcli con up eth0</code>.",
+        "<code>hostnamectl set-hostname</code>; add <code>172.25.250.9 workstation</code> to <code>/etc/hosts</code>."
+      ],
+      "solution": "<pre>sudo -i\nnmcli con show\nnmcli con mod eth0 ipv4.addresses 172.25.250.11/24 ipv4.gateway 172.25.250.254 ipv4.dns 172.25.250.254 ipv4.method manual\nnmcli con mod eth0 ipv6.addresses fd00:25:250::11/64 ipv6.method manual\nnmcli con up eth0\nhostnamectl set-hostname servera.lab.example.com\necho \"172.25.250.9 workstation workstation.lab.example.com\" &gt;&gt; /etc/hosts\nreboot</pre>",
+      "review": "<p>NetworkManager keeps settings in connection profiles, so nmcli changes persist. Remember to bring the connection up again (or reboot) for changes to apply.</p>"
+    },
+    {
+      "id": "rh-software",
+      "title": "Repositories, packages and services",
+      "domain": "D6",
+      "kind": "cli",
+      "level": "advanced",
+      "minutes": 20,
+      "summary": "Configure dnf repositories, install packages, run a web server that starts at boot, open the firewall, set the boot target and tuning profile.",
+      "scenario": "<p><b>servera</b> has no package repositories. Configure these and install software:</p><ol><li>Repositories: <code>http://content.example.com/rhel10.0/x86_64/dvd/BaseOS</code> and <code>http://content.example.com/rhel10.0/x86_64/dvd/AppStream</code></li><li>Install <code>httpd</code> and <code>tmux</code></li><li>Run <code>httpd</code> now and at boot, serving a page with the text <code>Welcome to servera</code> from <code>/var/www/html/index.html</code></li><li>The site must be reachable from other machines (permanently)</li><li>The server should boot to the text-mode multi-user target</li><li>Apply the tuning profile that <code>tuned</code> recommends</li></ol>",
+      "devices": [
+        {
+          "platform": "linux",
+          "distro": "rhel",
+          "name": "servera",
+          "hostname": "servera.lab.example.com",
+          "ip": "172.25.250.10",
+          "gw": "172.25.250.254",
+          "net": {
+            "172.25.250.254": true,
+            "172.25.250.220": true,
+            "172.25.250.9": true
+          },
+          "dns": {
+            "utility.lab.example.com": "172.25.250.220",
+            "utility": "172.25.250.220",
+            "workstation.lab.example.com": "172.25.250.9",
+            "classroom.example.com": "172.25.254.254"
+          },
+          "repoUrls": [
+            "http://content.example.com/rhel10.0/x86_64/dvd/BaseOS",
+            "http://content.example.com/rhel10.0/x86_64/dvd/AppStream"
+          ],
+          "available": [
+            "httpd",
+            "tmux",
+            "vsftpd",
+            "autofs",
+            "mod_ssl"
+          ],
+          "bootTarget": "graphical.target",
+          "tuned": "balanced"
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Two working repositories are configured",
+          "check": {
+            "lq": [
+              "servera",
+              "repos",
+              ""
+            ],
+            "min": 2
+          }
+        },
+        {
+          "text": "<code>httpd</code> and <code>tmux</code> are installed",
+          "check": {
+            "all": [
+              {
+                "dev": "servera",
+                "path": "packages",
+                "re": "(^|,)httpd(,|$)"
+              },
+              {
+                "dev": "servera",
+                "path": "packages",
+                "re": "(^|,)tmux(,|$)"
+              }
+            ]
+          }
+        },
+        {
+          "text": "<code>httpd</code> is running and enabled",
+          "check": {
+            "all": [
+              {
+                "dev": "servera",
+                "path": "services.httpd.active",
+                "eq": true
+              },
+              {
+                "dev": "servera",
+                "path": "services.httpd.enabled",
+                "eq": true
+              }
+            ]
+          }
+        },
+        {
+          "text": "Other machines can load the page (after a reboot too)",
+          "check": {
+            "all": [
+              {
+                "dev": "servera",
+                "path": "boots",
+                "min": 1
+              },
+              {
+                "lq": [
+                  "servera",
+                  "httpBody",
+                  "http://servera.lab.example.com/"
+                ],
+                "re": "Welcome to servera"
+              }
+            ]
+          }
+        },
+        {
+          "text": "Default target is <code>multi-user.target</code>",
+          "check": {
+            "dev": "servera",
+            "path": "bootTarget",
+            "eq": "multi-user.target"
+          }
+        },
+        {
+          "text": "The recommended tuned profile is active",
+          "check": {
+            "dev": "servera",
+            "path": "tuned.active",
+            "eq": "virtual-guest"
+          }
+        }
+      ],
+      "hints": [
+        "Either <code>dnf config-manager --add-repo URL</code> for each, or write a file in <code>/etc/yum.repos.d/</code> with [id], name=, baseurl=, enabled=1 and gpgcheck=0. Check with <code>dnf repolist</code>.",
+        "RHEL doesn't start services on install: <code>systemctl enable --now httpd</code>.",
+        "<code>firewall-cmd --permanent --add-service=http</code> then <code>firewall-cmd --reload</code>.",
+        "<code>tuned-adm recommend</code>, then <code>tuned-adm profile NAME</code>."
+      ],
+      "solution": "<pre>sudo -i\ndnf config-manager --add-repo http://content.example.com/rhel10.0/x86_64/dvd/BaseOS\ndnf config-manager --add-repo http://content.example.com/rhel10.0/x86_64/dvd/AppStream\ndnf repolist\ndnf install -y httpd tmux\necho \"Welcome to servera\" &gt; /var/www/html/index.html\nsystemctl enable --now httpd\nfirewall-cmd --permanent --add-service=http\nfirewall-cmd --reload\nsystemctl set-default multi-user.target\ntuned-adm recommend\ntuned-adm profile virtual-guest\nreboot</pre>",
+      "review": "<p>dnf needs at least one reachable, enabled repository. On RHEL, installing a service doesn't start or enable it, and the firewall blocks it until you allow it.</p>"
+    },
+    {
+      "id": "rh-selinux",
+      "title": "SELinux: a web server on a custom port and directory",
+      "domain": "D9",
+      "kind": "cli",
+      "level": "advanced",
+      "minutes": 25,
+      "summary": "Switch SELinux to enforcing, then fix the port label, file contexts and a boolean so httpd serves content from a custom directory on port 82, with the firewall open.",
+      "scenario": "<p>A colleague configured <code>httpd</code> on <b>servera</b> to serve <code>/srv/web</code> on port <b>82</b>, then \"fixed\" the errors by switching SELinux to permissive. Put SELinux back to <b>enforcing</b> (now and at boot) and make the site work properly:</p><ul><li>The page at <code>http://servera.lab.example.com:82/</code> loads from other machines, now and after a reboot</li><li>Don't change httpd's port or document root</li><li>The app team also needs httpd to connect to a remote database: allow it permanently</li></ul>",
+      "devices": [
+        {
+          "platform": "linux",
+          "distro": "rhel",
+          "name": "servera",
+          "hostname": "servera.lab.example.com",
+          "ip": "172.25.250.10",
+          "gw": "172.25.250.254",
+          "net": {
+            "172.25.250.254": true,
+            "172.25.250.220": true,
+            "172.25.250.9": true
+          },
+          "dns": {
+            "utility.lab.example.com": "172.25.250.220",
+            "utility": "172.25.250.220",
+            "workstation.lab.example.com": "172.25.250.9",
+            "classroom.example.com": "172.25.254.254"
+          },
+          "selinux": "permissive",
+          "selinuxConfig": "permissive",
+          "available": [
+            "httpd",
+            "mod_ssl"
+          ],
+          "setup": [
+            "dnf install -y httpd",
+            "sed -i 's/^Listen 80/Listen 82/' /etc/httpd/conf/httpd.conf",
+            "sed -i 's#^DocumentRoot.*#DocumentRoot \"/srv/web\"#' /etc/httpd/conf/httpd.conf",
+            "sed -i 's#<Directory \"/var/www\">#<Directory \"/srv/web\">#' /etc/httpd/conf/httpd.conf",
+            "mkdir -p /srv/web",
+            "echo \"<h1>Quarterly dashboard</h1>\" > /srv/web/index.html",
+            "systemctl enable --now httpd"
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "SELinux is enforcing now and in <code>/etc/selinux/config</code>",
+          "check": {
+            "all": [
+              {
+                "dev": "servera",
+                "path": "selinux.mode",
+                "eq": "enforcing"
+              },
+              {
+                "file": [
+                  "servera",
+                  "/etc/selinux/config"
+                ],
+                "contains": "^SELINUX=enforcing\\s*$"
+              }
+            ]
+          }
+        },
+        {
+          "text": "Port 82/tcp is labeled <code>http_port_t</code>",
+          "check": {
+            "lq": [
+              "servera",
+              "portType",
+              "82"
+            ],
+            "eq": "http_port_t"
+          }
+        },
+        {
+          "text": "A persistent file-context rule labels <code>/srv/web</code> content <code>httpd_sys_content_t</code>, and the files carry it",
+          "check": {
+            "all": [
+              {
+                "lq": [
+                  "servera",
+                  "policyCtx",
+                  "/srv/web/index.html"
+                ],
+                "eq": "httpd_sys_content_t"
+              },
+              {
+                "lq": [
+                  "servera",
+                  "ctx",
+                  "/srv/web/index.html"
+                ],
+                "eq": "httpd_sys_content_t"
+              }
+            ]
+          }
+        },
+        {
+          "text": "Port 82/tcp is open in the firewall permanently",
+          "check": {
+            "lq": [
+              "servera",
+              "fwOpen",
+              "permanent:82/tcp"
+            ],
+            "eq": true
+          }
+        },
+        {
+          "text": "httpd can connect to databases (persistent boolean)",
+          "check": {
+            "dev": "servera",
+            "path": "selinux.bools.httpd_can_network_connect_db.perm",
+            "eq": true
+          }
+        },
+        {
+          "text": "After a reboot, the page loads from other machines",
+          "check": {
+            "all": [
+              {
+                "dev": "servera",
+                "path": "boots",
+                "min": 1
+              },
+              {
+                "lq": [
+                  "servera",
+                  "http",
+                  "http://servera.lab.example.com:82/"
+                ],
+                "eq": 200
+              }
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "<code>setenforce 1</code> changes the running mode; edit <code>SELINUX=</code> in <code>/etc/selinux/config</code> for boot.",
+        "<code>semanage port -a -t http_port_t -p tcp 82</code>",
+        "<code>semanage fcontext -a -t httpd_sys_content_t '/srv/web(/.*)?'</code>, then <code>restorecon -Rv /srv/web</code>. chcon alone doesn't survive a relabel.",
+        "<code>setsebool -P httpd_can_network_connect_db on</code>. If something still fails: <code>ausearch -m avc -ts recent</code>."
+      ],
+      "solution": "<pre>sudo -i\nsetenforce 1\nsed -i 's/^SELINUX=permissive/SELINUX=enforcing/' /etc/selinux/config\nsemanage port -a -t http_port_t -p tcp 82\nsemanage fcontext -a -t httpd_sys_content_t '/srv/web(/.*)?'\nrestorecon -Rv /srv/web\nsetsebool -P httpd_can_network_connect_db on\nsystemctl restart httpd\nfirewall-cmd --permanent --add-port=82/tcp\nfirewall-cmd --reload\ncurl http://localhost:82/\nreboot</pre>",
+      "review": "<p>Never fix SELinux by disabling it. Denials usually mean a missing label: ports need a port type, files need the right context (semanage fcontext + restorecon), and optional behaviors are booleans. Use -P so booleans survive a reboot.</p>"
+    },
+    {
+      "id": "rh-schedule",
+      "title": "Scheduling, time, logs and boot settings",
+      "domain": "D6",
+      "kind": "cli",
+      "level": "advanced",
+      "minutes": 20,
+      "summary": "Schedule recurring and one-time jobs, make servera an NTP client, set the time zone, keep the journal across reboots, and add a kernel argument.",
+      "scenario": "<p>On <b>servera</b>:</p><ol><li>User <code>natasha</code> runs <code>/usr/bin/logger \"EX200 in progress\"</code> every 2 minutes</li><li>Run <code>/usr/local/bin/cleanup.sh</code> once, at 23:00 today</li><li>Synchronize time with <code>classroom.example.com</code></li><li>Set the time zone to <code>America/New_York</code></li><li>Keep the systemd journal across reboots</li><li>Boot all installed kernels with the argument <code>audit=1</code></li></ol>",
+      "devices": [
+        {
+          "platform": "linux",
+          "distro": "rhel",
+          "name": "servera",
+          "hostname": "servera.lab.example.com",
+          "ip": "172.25.250.10",
+          "gw": "172.25.250.254",
+          "net": {
+            "172.25.250.254": true,
+            "172.25.250.220": true,
+            "172.25.250.9": true
+          },
+          "dns": {
+            "utility.lab.example.com": "172.25.250.220",
+            "utility": "172.25.250.220",
+            "workstation.lab.example.com": "172.25.250.9",
+            "classroom.example.com": "172.25.254.254"
+          },
+          "tz": "UTC",
+          "timeServers": [
+            "classroom.example.com"
+          ],
+          "setup": [
+            "useradd natasha"
+          ],
+          "files": {
+            "/usr/local/bin/cleanup.sh": {
+              "content": [
+                "#!/bin/bash",
+                "find /tmp -mtime +7 -delete"
+              ],
+              "mode": "755"
+            }
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "<code>natasha</code>'s crontab runs the logger command every 2 minutes",
+          "check": {
+            "lq": [
+              "servera",
+              "cron",
+              "natasha"
+            ],
+            "re": "^\\*/2\\s+\\*\\s+\\*\\s+\\*\\s+\\*\\s+/usr/bin/logger\\s+\"?EX200 in progress\"?\\s*$"
+          }
+        },
+        {
+          "text": "A one-time <code>at</code> job runs <code>cleanup.sh</code>",
+          "check": {
+            "items": [
+              "servera",
+              "atJobs"
+            ],
+            "has": {
+              "cmd": "/usr/local/bin/cleanup.sh"
+            }
+          }
+        },
+        {
+          "text": "chronyd uses <code>classroom.example.com</code>",
+          "check": {
+            "all": [
+              {
+                "file": [
+                  "servera",
+                  "/etc/chrony.conf"
+                ],
+                "contains": "^(server|pool)\\s+classroom\\.example\\.com"
+              },
+              {
+                "dev": "servera",
+                "path": "chrony.sources",
+                "re": "classroom"
+              }
+            ]
+          }
+        },
+        {
+          "text": "Time zone is America/New_York",
+          "check": {
+            "dev": "servera",
+            "path": "tz",
+            "eq": "America/New_York"
+          }
+        },
+        {
+          "text": "The journal is persistent",
+          "check": {
+            "any": [
+              {
+                "file": [
+                  "servera",
+                  "/var/log/journal"
+                ],
+                "type": "d"
+              },
+              {
+                "file": [
+                  "servera",
+                  "/etc/systemd/journald.conf"
+                ],
+                "contains": "^Storage=persistent"
+              }
+            ]
+          }
+        },
+        {
+          "text": "After a reboot, the kernel command line includes <code>audit=1</code>",
+          "check": {
+            "all": [
+              {
+                "dev": "servera",
+                "path": "boots",
+                "min": 1
+              },
+              {
+                "dev": "servera",
+                "path": "bootArgs",
+                "re": "(^|\\s)audit=1(\\s|$)"
+              }
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "<code>echo '*/2 * * * * /usr/bin/logger \"EX200 in progress\"' | crontab -u natasha -</code> (crontab -e works on a real system).",
+        "<code>echo /usr/local/bin/cleanup.sh | at 23:00</code>; check with <code>atq</code>.",
+        "In <code>/etc/chrony.conf</code>, replace the pool line with <code>server classroom.example.com iburst</code>, then restart chronyd and run <code>chronyc sources</code>.",
+        "<code>timedatectl set-timezone</code>; <code>mkdir /var/log/journal</code> (or Storage=persistent); <code>grubby --update-kernel=ALL --args=\"audit=1\"</code>."
+      ],
+      "solution": "<pre>sudo -i\necho '*/2 * * * * /usr/bin/logger \"EX200 in progress\"' | crontab -u natasha -\ncrontab -l -u natasha\necho /usr/local/bin/cleanup.sh | at 23:00\nsed -i 's/^pool .*/server classroom.example.com iburst/' /etc/chrony.conf\nsystemctl restart chronyd\nchronyc sources\ntimedatectl set-timezone America/New_York\nmkdir /var/log/journal\nsystemctl restart systemd-journald\ngrubby --update-kernel=ALL --args=\"audit=1\"\nreboot\ncat /proc/cmdline</pre>",
+      "review": "<p>cron repeats, at runs once, and systemd timers do both. Persistent journals let you read logs from previous boots (<code>journalctl -b -1</code>). grubby changes the boot entries for every installed kernel.</p>"
+    },
+    {
+      "id": "rh-boot-scripts",
+      "title": "Boot recovery and shell scripts",
+      "domain": "D3",
+      "kind": "tasks",
+      "level": "advanced",
+      "minutes": 12,
+      "summary": "Put the root password reset procedure in order, complete an exam-style script, and match systemd targets and test operators.",
+      "scenario": "<p>Two classic RHCSA skills you can't practice safely on a shared machine: recovering a lost root password, and writing short scripts with arguments, tests and loops.</p>",
+      "activities": [
+        {
+          "type": "order",
+          "title": "Reset a lost root password (RHEL 9/10)",
+          "prompt": "Arrange the steps in order.",
+          "items": [
+            "Reboot and press e on the kernel entry in the GRUB menu",
+            "Append rd.break to the line that starts with linux, then press Ctrl+X",
+            "mount -o remount,rw /sysroot",
+            "chroot /sysroot",
+            "passwd root",
+            "touch /.autorelabel",
+            "Exit twice so the system relabels and reboots"
+          ]
+        },
+        {
+          "type": "fill",
+          "title": "Finish the script",
+          "prompt": "Write /usr/local/bin/myfiles: it prints the files in the directory given as the first argument, or prints an error and exits 1 if that isn't a directory.\n<pre>#!/bin/bash\nif [ ____ (1) \"$1\" ]; then\n  ls \"$1\"\nelse\n  echo \"not a directory: $1\" ____ (2)\n  exit 1\nfi</pre>",
+          "rows": [
+            {
+              "label": "(1) test for \"is a directory\"",
+              "answer": [
+                "-d"
+              ]
+            },
+            {
+              "label": "(2) send the message to standard error",
+              "answer": [
+                ">&2",
+                "1>&2"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "match",
+          "title": "Targets and tests",
+          "prompt": "Match each item to its meaning.",
+          "categories": [
+            "multi-user.target",
+            "graphical.target",
+            "rescue.target",
+            "-f FILE",
+            "-z STRING",
+            "N -lt M"
+          ],
+          "items": [
+            {
+              "text": "Text-mode boot with networking and services",
+              "cat": 0
+            },
+            {
+              "text": "Multi-user plus a graphical login",
+              "cat": 1
+            },
+            {
+              "text": "Single-user maintenance with local file systems mounted",
+              "cat": 2
+            },
+            {
+              "text": "True if the file exists and is a regular file",
+              "cat": 3
+            },
+            {
+              "text": "True if the string is empty",
+              "cat": 4
+            },
+            {
+              "text": "True if N is numerically less than M",
+              "cat": 5
+            }
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Order the root password reset",
+          "check": {
+            "activity": 0
+          }
+        },
+        {
+          "text": "Complete the script",
+          "check": {
+            "activity": 1
+          }
+        },
+        {
+          "text": "Match targets and tests",
+          "check": {
+            "activity": 2
+          }
+        }
+      ],
+      "hints": [
+        "After rd.break the real root file system is mounted read-only at /sysroot.",
+        "touch /.autorelabel fixes the SELinux label on /etc/shadow at the next boot."
+      ],
+      "review": "<p>rd.break stops the boot in the initramfs before switching to the real root, which is why you remount /sysroot read-write and chroot into it. Without /.autorelabel, SELinux blocks logins because the new shadow file has the wrong label.</p>"
+    }
+  ]
+}

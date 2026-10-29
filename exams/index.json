@@ -313,7 +313,8 @@
     "learningDescription": "Start with Linux: distributions and open source licensing, the command line, files and text processing, simple scripts, processes and networking, users, and permissions.",
     "learningModules": 5,
     "questions": 110,
-    "updated": "2026-10-29"
+    "updated": "2026-10-29",
+    "labs": 6
   },
   {
     "slug": "linux-plus",
@@ -325,7 +326,8 @@
     "learningDescription": "Administer Linux servers: boot, storage and LVM, networking, systemd, containers, security hardening, automation with scripts, Ansible and Git, and troubleshooting.",
     "learningModules": 5,
     "questions": 148,
-    "updated": "2026-10-29"
+    "updated": "2026-10-29",
+    "labs": 7
   },
   {
     "slug": "rhcsa",
@@ -337,6 +339,7 @@
     "learningDescription": "Prepare for the hands-on RHEL 10 exam: essential tools, scripting, boot and processes, LVM and file systems, software, networking, users, firewalld and SELinux.",
     "learningModules": 9,
     "questions": 106,
-    "updated": "2026-10-29"
+    "updated": "2026-10-29",
+    "labs": 9
   }
 ]

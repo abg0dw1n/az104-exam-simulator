@@ -939,7 +939,9 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 .term-editor textarea { width: 100%; min-height: 260px; resize: vertical; background: #121113; color: #e6e6e3; border: 1px solid #3a363b; border-radius: 6px; padding: 8px 10px; font: 13px/1.5 var(--mono); tab-size: 8; white-space: pre; overflow: auto; }
 .term-editor textarea:focus { outline: 2px solid var(--azure); outline-offset: 1px; }
 .term-editor-actions { display: flex; flex-wrap: wrap; gap: 8px; }
-.term-editor .btn-ghost { color: #e6e6e3; }
+.term-editor .btn-ghost { color: #e6e6e3; background: transparent; border: 1px solid #4a464b; }
+.term-editor .btn-ghost:hover { background: #2d2a2e; }
+.lab-layout > *, .terminal-wrap, .terminal, .term-out, .term-editor, .term-editor textarea { min-width: 0; }
 
 /* Activities */
 .activity h3 { display: flex; gap: 10px; align-items: center; font-size: 15px; }

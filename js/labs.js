@@ -520,6 +520,7 @@ function check(c, net) {
     if (c.owner && n.owner !== c.owner) return false;
     if (c.group && n.group !== c.group) return false;
     if (c.type && n.t !== c.type) return false;
+    if (c.equals != null && String(n.content || '').replace(/\n+$/, '') !== c.equals.replace(/\n+$/, '')) return false;
     if (c.link && !(n.t === 'l' && new RegExp(c.link).test(n.target))) return false;
     if (c.special != null && (n.sp || 0) !== c.special) return false;
     if (c.ctx && (n.ctx || '') !== c.ctx) return false;

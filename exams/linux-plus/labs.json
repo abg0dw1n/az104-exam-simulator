@@ -1,0 +1,1090 @@
+{
+  "intro": "Hands-on Linux+ labs graded in your browser: simulated RHEL and Ubuntu servers for LVM storage, systemd, accounts and sudo, hardening, disk and network troubleshooting, plus a scripting and automation drill. Changes are checked after a reboot where it matters.",
+  "labs": [
+    {
+      "id": "lp-lvm",
+      "title": "Add storage with LVM",
+      "domain": "D1",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 20,
+      "summary": "Turn a new disk into an LVM volume with an XFS file system, mount it persistently by UUID, prove it survives a reboot, then grow it online.",
+      "scenario": "<p>The app server <b>app01</b> (RHEL) has a new 10 GiB disk, <code>/dev/vdb</code>. The application needs space at <code>/srv/app</code>:</p><ul><li>Use the whole disk as an LVM physical volume in a volume group <code>vgapp</code></li><li>Create a 4 GiB logical volume <code>lvapp</code> with an XFS file system</li><li>Mount it at <code>/srv/app</code> through <code>/etc/fstab</code> using its UUID</li><li>Reboot and confirm it's still mounted</li><li>The app grew faster than planned: extend <code>lvapp</code> and its file system to 6 GiB without unmounting</li></ul>",
+      "devices": [
+        {
+          "platform": "linux",
+          "distro": "rhel",
+          "name": "app01",
+          "hostname": "app01.example.com",
+          "ip": "10.20.0.15",
+          "disks": {
+            "vdb": "10G"
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Volume group <code>vgapp</code> uses <code>/dev/vdb</code>",
+          "check": {
+            "dev": "app01",
+            "path": "vgs.vgapp.pvs",
+            "re": "/dev/vdb"
+          }
+        },
+        {
+          "text": "<code>lvapp</code> has an XFS file system",
+          "check": {
+            "lq": [
+              "app01",
+              "devFs",
+              "/dev/vgapp/lvapp"
+            ],
+            "eq": "xfs"
+          }
+        },
+        {
+          "text": "<code>/etc/fstab</code> mounts it at <code>/srv/app</code> by UUID",
+          "check": {
+            "lq": [
+              "app01",
+              "fstabSpec",
+              "/srv/app"
+            ],
+            "re": "^UUID="
+          }
+        },
+        {
+          "text": "After a reboot, <code>/srv/app</code> is mounted from <code>lvapp</code>",
+          "check": {
+            "all": [
+              {
+                "dev": "app01",
+                "path": "boots",
+                "min": 1
+              },
+              {
+                "lq": [
+                  "app01",
+                  "mountSrc",
+                  "/srv/app"
+                ],
+                "eq": "/dev/vgapp/lvapp"
+              }
+            ]
+          }
+        },
+        {
+          "text": "<code>lvapp</code> and its file system are 6 GiB",
+          "check": {
+            "all": [
+              {
+                "lq": [
+                  "app01",
+                  "lvSize",
+                  "vgapp/lvapp"
+                ],
+                "min": 6100,
+                "max": 6200
+              },
+              {
+                "lq": [
+                  "app01",
+                  "fsSize",
+                  "/srv/app"
+                ],
+                "min": 6100,
+                "max": 6200
+              }
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "Order: pvcreate → vgcreate → lvcreate → mkfs.xfs → mkdir → fstab → mount -a. Run them as root (sudo -i).",
+        "<code>blkid /dev/vgapp/lvapp</code> prints the UUID. Edit fstab with <code>vi /etc/fstab</code>, or append with echo ... &gt;&gt; /etc/fstab.",
+        "Test fstab with <code>mount -a</code> (and <code>findmnt --verify</code>) before rebooting.",
+        "<code>lvextend -r -L 6G</code> grows the volume and the file system together."
+      ],
+      "solution": "<pre>sudo -i\npvcreate /dev/vdb\nvgcreate vgapp /dev/vdb\nlvcreate -n lvapp -L 4G vgapp\nmkfs.xfs /dev/vgapp/lvapp\nmkdir /srv/app\nblkid /dev/vgapp/lvapp\necho \"UUID=&lt;uuid&gt; /srv/app xfs defaults 0 0\" &gt;&gt; /etc/fstab\nmount -a\nreboot\nfindmnt /srv/app\nlvextend -r -L 6G /dev/vgapp/lvapp\ndf -h /srv/app</pre>",
+      "review": "<p>LVM pools disks into volume groups so logical volumes can grow later. Mount by UUID because device names can change, and always test fstab before a reboot.</p>"
+    },
+    {
+      "id": "lp-systemd",
+      "title": "Fix a failing service",
+      "domain": "D5",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 15,
+      "summary": "Read systemd status and the journal to find why a service won't start, fix its config, enable it and its timer, and set the default boot target.",
+      "scenario": "<p>The <code>inventory</code> API on <b>app02</b> stopped after a config change last night. Get it running and make sure it starts at boot. The nightly report timer, <code>inventory-report.timer</code>, was never turned on. This server also boots to a graphical desktop it doesn't need: make it boot to the multi-user (text) target instead.</p>",
+      "devices": [
+        {
+          "platform": "linux",
+          "distro": "rhel",
+          "name": "app02",
+          "hostname": "app02.example.com",
+          "ip": "10.20.0.16",
+          "bootTarget": "graphical.target",
+          "services": {
+            "inventory": {
+              "active": false,
+              "enabled": false,
+              "failed": true,
+              "port": 8081,
+              "desc": "Inventory API",
+              "requires": [
+                {
+                  "file": "/etc/inventory/inventory.conf",
+                  "re": "^port=([1-9]\\d{0,3}|[1-5]\\d{4}|6[0-4]\\d{3}|65[0-4]\\d{2}|655[0-2]\\d|6553[0-5])\\s*$",
+                  "msg": "inventory: invalid port \"80800\" in /etc/inventory/inventory.conf: must be 1-65535"
+                }
+              ]
+            }
+          },
+          "timers": {
+            "inventory-report": {
+              "enabled": false,
+              "active": false,
+              "onCalendar": "daily",
+              "service": "inventory-report.service"
+            }
+          },
+          "journal": [
+            {
+              "unit": "inventory",
+              "prio": 6,
+              "msg": "Starting Inventory API..."
+            },
+            {
+              "unit": "inventory",
+              "prio": 3,
+              "msg": "inventory: invalid port \"80800\" in /etc/inventory/inventory.conf: must be 1-65535"
+            },
+            {
+              "unit": "inventory",
+              "prio": 3,
+              "msg": "inventory.service: Failed with result 'exit-code'."
+            }
+          ],
+          "files": {
+            "/etc/inventory/inventory.conf": {
+              "content": [
+                "# Inventory API settings",
+                "port=80800",
+                "log_level=info",
+                "db=/var/lib/inventory/db.sqlite"
+              ]
+            }
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Find the error with <code>systemctl status</code> or <code>journalctl</code>",
+          "check": {
+            "any": [
+              {
+                "ran": [
+                  "app02",
+                  "journalctl.*inventory"
+                ]
+              },
+              {
+                "ran": [
+                  "app02",
+                  "systemctl\\s+status\\s+inventory"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "text": "Fix the port: the API should listen on 8081",
+          "check": {
+            "file": [
+              "app02",
+              "/etc/inventory/inventory.conf"
+            ],
+            "contains": "^port=8081\\s*$"
+          }
+        },
+        {
+          "text": "<code>inventory</code> is running and enabled at boot",
+          "check": {
+            "all": [
+              {
+                "dev": "app02",
+                "path": "services.inventory.active",
+                "eq": true
+              },
+              {
+                "dev": "app02",
+                "path": "services.inventory.enabled",
+                "eq": true
+              }
+            ]
+          }
+        },
+        {
+          "text": "<code>inventory-report.timer</code> is enabled and active",
+          "check": {
+            "all": [
+              {
+                "dev": "app02",
+                "path": "timers.inventory-report.enabled",
+                "eq": true
+              },
+              {
+                "dev": "app02",
+                "path": "timers.inventory-report.active",
+                "eq": true
+              }
+            ]
+          }
+        },
+        {
+          "text": "The default target is <code>multi-user.target</code>",
+          "check": {
+            "dev": "app02",
+            "path": "bootTarget",
+            "eq": "multi-user.target"
+          }
+        },
+        {
+          "text": "Everything still works after a reboot",
+          "check": {
+            "all": [
+              {
+                "dev": "app02",
+                "path": "boots",
+                "min": 1
+              },
+              {
+                "dev": "app02",
+                "path": "services.inventory.active",
+                "eq": true
+              },
+              {
+                "dev": "app02",
+                "path": "timers.inventory-report.active",
+                "eq": true
+              }
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "<code>systemctl status inventory</code> shows recent log lines; <code>journalctl -u inventory</code> shows them all.",
+        "Edit the file with <code>sudo vi /etc/inventory/inventory.conf</code> or <code>sudo sed -i 's/80800/8081/' ...</code>.",
+        "<code>systemctl enable --now</code> enables and starts in one step; it works for timers too.",
+        "<code>systemctl set-default multi-user.target</code>"
+      ],
+      "solution": "<pre>systemctl status inventory\njournalctl -u inventory\nsudo sed -i 's/^port=80800/port=8081/' /etc/inventory/inventory.conf\nsudo systemctl enable --now inventory\nsudo systemctl enable --now inventory-report.timer\nsudo systemctl set-default multi-user.target\nsudo reboot</pre>",
+      "review": "<p>When a unit fails, <code>systemctl status</code> and <code>journalctl -u</code> usually name the problem. <em>Enable</em> controls boot; <em>start</em> controls now. Timers are systemd's alternative to cron.</p>"
+    },
+    {
+      "id": "lp-accounts",
+      "title": "Manage accounts, groups and sudo",
+      "domain": "D2",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 18,
+      "summary": "Create users and groups, grant a group sudo with a drop-in file, make a service account, and handle account expiry, locking and password aging.",
+      "scenario": "<p>Account requests for <b>app03</b>:</p><ul><li>New group <code>devops</code> with new users <code>dana</code> and <code>omar</code> as members</li><li>Members of <code>devops</code> can run any command with sudo. Use a file in <code>/etc/sudoers.d/</code>, never edit <code>/etc/sudoers</code> directly</li><li><code>omar</code> is a contractor: his account expires on <code>2026-12-31</code></li><li>A system account <code>svc-backup</code> for the backup agent: system UID (below 1000) and no login shell</li><li><code>jlee</code> left the company: lock the account but keep the files</li><li>Passwords of users created from now on must expire after 90 days</li></ul>",
+      "devices": [
+        {
+          "platform": "linux",
+          "distro": "rhel",
+          "name": "app03",
+          "hostname": "app03.example.com",
+          "ip": "10.20.0.17",
+          "setup": [
+            "useradd jlee",
+            "echo Winter2026 | passwd --stdin jlee",
+            "touch /home/jlee/handover.docx",
+            "chown jlee:jlee /home/jlee/handover.docx"
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "<code>dana</code> and <code>omar</code> are in <code>devops</code>",
+          "check": {
+            "all": [
+              {
+                "lq": [
+                  "app03",
+                  "userHasGroup",
+                  "dana:devops"
+                ],
+                "eq": true
+              },
+              {
+                "lq": [
+                  "app03",
+                  "userHasGroup",
+                  "omar:devops"
+                ],
+                "eq": true
+              }
+            ]
+          }
+        },
+        {
+          "text": "<code>devops</code> members can use sudo (via <code>/etc/sudoers.d</code>)",
+          "check": {
+            "all": [
+              {
+                "lq": [
+                  "app03",
+                  "canSudo",
+                  "dana"
+                ],
+                "eq": true
+              },
+              {
+                "file": [
+                  "app03",
+                  "/etc/sudoers"
+                ],
+                "notContains": "devops"
+              }
+            ]
+          }
+        },
+        {
+          "text": "<code>omar</code> expires on 2026-12-31",
+          "check": {
+            "dev": "app03",
+            "path": "users.omar.expire",
+            "eq": "2026-12-31"
+          }
+        },
+        {
+          "text": "<code>svc-backup</code> is a system account with no login shell",
+          "check": {
+            "all": [
+              {
+                "dev": "app03",
+                "path": "users.svc-backup.uid",
+                "max": 999
+              },
+              {
+                "dev": "app03",
+                "path": "users.svc-backup.shell",
+                "re": "nologin$"
+              }
+            ]
+          }
+        },
+        {
+          "text": "<code>jlee</code> is locked and his files are kept",
+          "check": {
+            "all": [
+              {
+                "dev": "app03",
+                "path": "users.jlee.locked",
+                "eq": true
+              },
+              {
+                "file": [
+                  "app03",
+                  "/home/jlee/handover.docx"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "text": "New users' passwords expire after 90 days",
+          "check": {
+            "file": [
+              "app03",
+              "/etc/login.defs"
+            ],
+            "contains": "^PASS_MAX_DAYS\\s+90\\s*$"
+          }
+        }
+      ],
+      "hints": [
+        "<code>useradd -G devops dana</code> adds a supplementary group at creation.",
+        "<code>echo '%devops ALL=(ALL) ALL' | sudo tee /etc/sudoers.d/devops</code>, then check it with <code>sudo visudo -c</code>.",
+        "<code>chage -E 2026-12-31 omar</code>; <code>useradd -r -s /sbin/nologin svc-backup</code>; <code>usermod -L jlee</code>.",
+        "Password aging defaults for new accounts are in <code>/etc/login.defs</code> (PASS_MAX_DAYS)."
+      ],
+      "solution": "<pre>sudo -i\ngroupadd devops\nuseradd -G devops dana\nuseradd -G devops omar\necho '%devops ALL=(ALL) ALL' &gt; /etc/sudoers.d/devops\nvisudo -c\nchage -E 2026-12-31 omar\nuseradd -r -s /sbin/nologin svc-backup\nusermod -L jlee\nsed -i 's/^PASS_MAX_DAYS.*/PASS_MAX_DAYS\t90/' /etc/login.defs</pre>",
+      "review": "<p>Grant privileges to groups, not individuals, and keep sudo rules in drop-in files you can audit and remove. Lock, don't delete, accounts of people who leave until their data is handed over.</p>"
+    },
+    {
+      "id": "lp-harden",
+      "title": "Harden an internet-facing server",
+      "domain": "D3",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 20,
+      "summary": "Lock down SSH, remove an insecure service, tighten firewalld, and fix a SUID binary and a world-writable cron file found by find.",
+      "scenario": "<p>A security scan of <b>web01</b> (RHEL) found:</p><ul><li>SSH allows root logins and passwords. Only key-based logins should work, and never as root</li><li>The legacy <code>telnet</code> service is running</li><li>The firewall allows <code>cockpit</code> and port <code>23/tcp</code>, which aren't needed. HTTPS (the site's only public service besides SSH) isn't allowed. Fix it now and for future boots</li><li>An unexpected program has the SUID bit set somewhere under <code>/usr/local</code></li><li>A file in <code>/etc/cron.d</code> is world-writable</li></ul>",
+      "devices": [
+        {
+          "platform": "linux",
+          "distro": "rhel",
+          "name": "web01",
+          "hostname": "web01.example.com",
+          "ip": "10.20.0.30",
+          "services": {
+            "telnet": {
+              "active": true,
+              "enabled": true,
+              "port": 23,
+              "desc": "Telnet server"
+            }
+          },
+          "firewalld": {
+            "runtime": {
+              "services": [
+                "cockpit",
+                "dhcpv6-client",
+                "ssh"
+              ],
+              "ports": [
+                "23/tcp"
+              ],
+              "rich": []
+            }
+          },
+          "files": {
+            "/etc/ssh/sshd_config": {
+              "content": [
+                "# See sshd_config(5)",
+                "Include /etc/ssh/sshd_config.d/*.conf",
+                "Port 22",
+                "PermitRootLogin yes",
+                "PubkeyAuthentication yes",
+                "PasswordAuthentication yes",
+                "X11Forwarding no",
+                "Subsystem sftp /usr/libexec/openssh/sftp-server"
+              ],
+              "mode": "600"
+            },
+            "/usr/local/bin/netcheck": {
+              "content": [
+                "#!/bin/bash",
+                "/bin/bash -p"
+              ],
+              "mode": "755",
+              "sp": 4
+            },
+            "/usr/local/bin/report.sh": {
+              "content": [
+                "#!/bin/bash",
+                "uptime"
+              ],
+              "mode": "755"
+            },
+            "/etc/cron.d/cleanup": {
+              "content": [
+                "15 3 * * * root /usr/local/bin/report.sh"
+              ],
+              "mode": "666"
+            },
+            "/etc/cron.d/0hourly": {
+              "content": [
+                "01 * * * * root run-parts /etc/cron.hourly"
+              ]
+            }
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "SSH: no root login, no passwords, and sshd restarted",
+          "check": {
+            "all": [
+              {
+                "file": [
+                  "web01",
+                  "/etc/ssh/sshd_config"
+                ],
+                "contains": "^PermitRootLogin\\s+no\\s*$",
+                "notContains": "^PermitRootLogin\\s+yes|^PasswordAuthentication\\s+yes"
+              },
+              {
+                "file": [
+                  "web01",
+                  "/etc/ssh/sshd_config"
+                ],
+                "contains": "^PasswordAuthentication\\s+no\\s*$"
+              },
+              {
+                "dev": "web01",
+                "path": "services.sshd.restartedAt",
+                "exists": true
+              }
+            ]
+          }
+        },
+        {
+          "text": "<code>telnet</code> is stopped and disabled",
+          "check": {
+            "all": [
+              {
+                "dev": "web01",
+                "path": "services.telnet.active",
+                "eq": false
+              },
+              {
+                "dev": "web01",
+                "path": "services.telnet.enabled",
+                "eq": false
+              }
+            ]
+          }
+        },
+        {
+          "text": "Firewall (runtime and permanent): https allowed; cockpit and 23/tcp removed",
+          "check": {
+            "all": [
+              {
+                "lq": [
+                  "web01",
+                  "fwOpen",
+                  "runtime:https"
+                ],
+                "eq": true
+              },
+              {
+                "lq": [
+                  "web01",
+                  "fwOpen",
+                  "permanent:https"
+                ],
+                "eq": true
+              },
+              {
+                "lq": [
+                  "web01",
+                  "fwOpen",
+                  "runtime:cockpit"
+                ],
+                "eq": false
+              },
+              {
+                "lq": [
+                  "web01",
+                  "fwOpen",
+                  "runtime:23/tcp"
+                ],
+                "eq": false
+              },
+              {
+                "lq": [
+                  "web01",
+                  "fwOpen",
+                  "permanent:cockpit"
+                ],
+                "eq": false
+              },
+              {
+                "lq": [
+                  "web01",
+                  "fwOpen",
+                  "permanent:23/tcp"
+                ],
+                "eq": false
+              },
+              {
+                "lq": [
+                  "web01",
+                  "fwOpen",
+                  "permanent:ssh"
+                ],
+                "eq": true
+              }
+            ]
+          }
+        },
+        {
+          "text": "The SUID bit is removed from the unexpected program",
+          "check": {
+            "file": [
+              "web01",
+              "/usr/local/bin/netcheck"
+            ],
+            "special": 0
+          }
+        },
+        {
+          "text": "The cron file is no longer world-writable (mode 644)",
+          "check": {
+            "file": [
+              "web01",
+              "/etc/cron.d/cleanup"
+            ],
+            "mode": "644"
+          }
+        }
+      ],
+      "hints": [
+        "Validate sshd config with <code>sudo sshd -t</code> before restarting... in this lab just restart: <code>sudo systemctl restart sshd</code>.",
+        "<code>firewall-cmd --permanent</code> changes the saved config; <code>--reload</code> applies it to the running firewall.",
+        "<code>find /usr/local -perm -4000</code> finds SUID files; <code>find /etc/cron.d -perm 666</code> finds world-writable ones."
+      ],
+      "solution": "<pre>sudo -i\nsed -i 's/^PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config\nsed -i 's/^PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config\nsystemctl restart sshd\nsystemctl disable --now telnet\nfirewall-cmd --permanent --remove-service=cockpit --remove-port=23/tcp --add-service=https\nfirewall-cmd --reload\nfind /usr/local -perm -4000\nchmod u-s /usr/local/bin/netcheck\nfind /etc/cron.d -perm 666\nchmod 644 /etc/cron.d/cleanup</pre>",
+      "review": "<p>Reduce attack surface: key-only SSH without root, no clear-text services, a firewall that allows only what the server offers, and regular scans for SUID and world-writable files.</p>"
+    },
+    {
+      "id": "lp-diskfull",
+      "title": "Troubleshoot a full disk and a slow server",
+      "domain": "D5",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 18,
+      "summary": "Find what filled the root file system with df and du, free space safely, stop a runaway process and lower a backup job's priority.",
+      "scenario": "<p><b>ubuntu02</b> is slow and apps report \"No space left on device\". Free space on <code>/</code> (target: under 80% used) without breaking the app: the app keeps its log file open, so empty <code>debug.log</code> instead of deleting it. Old crash dumps can go. Also stop the runaway report script hogging the CPU, and make the running <code>rsync</code> backup yield CPU to other work (nice value 10 or higher) without stopping it.</p>",
+      "devices": [
+        {
+          "platform": "linux",
+          "hostname": "ubuntu02",
+          "ip": "10.0.0.22",
+          "name": "ubuntu02",
+          "rootBase": 8000,
+          "procs": [
+            {
+              "pid": 1,
+              "user": "root",
+              "cmd": "/sbin/init",
+              "cpu": 0
+            },
+            {
+              "pid": 3011,
+              "user": "root",
+              "cmd": "rsync -a /srv/ /backup/",
+              "cpu": 35.2
+            },
+            {
+              "pid": 3150,
+              "user": "svc-report",
+              "cmd": "python3 /opt/report/loop.py",
+              "cpu": 98.7,
+              "stubborn": true
+            },
+            {
+              "pid": 3170,
+              "user": "www-data",
+              "cmd": "nginx: worker process",
+              "cpu": 0.4
+            }
+          ],
+          "users": {
+            "svc-report": {
+              "groups": [
+                "svc-report"
+              ],
+              "shell": "/usr/sbin/nologin"
+            }
+          },
+          "files": {
+            "/var/log/app": {
+              "dir": true
+            },
+            "/var/log/app/debug.log": {
+              "content": "2026-10-29 10:41:59 DEBUG cache miss key=order:1043",
+              "size": 9878424780
+            },
+            "/var/log/app/app.log": {
+              "content": [
+                "2026-10-29 10:41:58 INFO started"
+              ]
+            },
+            "/var/tmp/core.4411": {
+              "content": "",
+              "size": 2147483648
+            },
+            "/var/tmp/core.4502": {
+              "content": "",
+              "size": 1610612736
+            },
+            "/home/student/notes.txt": {
+              "content": [
+                "todo"
+              ],
+              "owner": "student"
+            }
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Find the big directories with <code>du</code>",
+          "check": {
+            "ran": [
+              "ubuntu02",
+              "\\bdu\\b"
+            ]
+          }
+        },
+        {
+          "text": "<code>debug.log</code> still exists but is empty (truncated)",
+          "check": {
+            "all": [
+              {
+                "file": [
+                  "ubuntu02",
+                  "/var/log/app/debug.log"
+                ]
+              },
+              {
+                "lq": [
+                  "ubuntu02",
+                  "size",
+                  "/var/log/app/debug.log"
+                ],
+                "max": 1048576
+              }
+            ]
+          }
+        },
+        {
+          "text": "The crash dumps in <code>/var/tmp</code> are deleted",
+          "check": {
+            "all": [
+              {
+                "file": [
+                  "ubuntu02",
+                  "/var/tmp/core.4411"
+                ],
+                "exists": false
+              },
+              {
+                "file": [
+                  "ubuntu02",
+                  "/var/tmp/core.4502"
+                ],
+                "exists": false
+              }
+            ]
+          }
+        },
+        {
+          "text": "<code>/</code> is less than 80% used",
+          "check": {
+            "lq": [
+              "ubuntu02",
+              "rootUse",
+              "/"
+            ],
+            "max": 79
+          }
+        },
+        {
+          "text": "The runaway <code>loop.py</code> is stopped",
+          "check": {
+            "lq": [
+              "ubuntu02",
+              "proc",
+              "loop.py"
+            ],
+            "eq": false
+          }
+        },
+        {
+          "text": "<code>rsync</code> still runs, with a nice value of 10 or more",
+          "check": {
+            "all": [
+              {
+                "lq": [
+                  "ubuntu02",
+                  "proc",
+                  "rsync"
+                ],
+                "eq": true
+              },
+              {
+                "lq": [
+                  "ubuntu02",
+                  "procNice",
+                  "rsync"
+                ],
+                "min": 10,
+                "max": 19
+              }
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "<code>df -h</code> shows which file system is full; <code>sudo du -h --max-depth=1 /var | sort -h</code> narrows it down.",
+        "Empty a file that a program holds open with <code>sudo truncate -s 0 FILE</code> (deleting it wouldn't free the space until the program restarts).",
+        "If <code>kill PID</code> doesn't stop a process, <code>kill -9 PID</code> forces it.",
+        "<code>sudo renice -n 15 -p PID</code>"
+      ],
+      "solution": "<pre>df -h\nsudo du -h --max-depth=1 /var | sort -h\nsudo du -sh /var/log/app/* /var/tmp/*\nsudo truncate -s 0 /var/log/app/debug.log\nsudo rm /var/tmp/core.*\nps aux --sort=-%cpu | head\nsudo kill 3150      # ignored\nsudo kill -9 3150\nsudo renice -n 15 -p 3011\ndf -h /</pre>",
+      "review": "<p>Work from the top down: <code>df</code> for the file system, <code>du</code> for the directory, then decide what can go. Truncate open logs instead of deleting them, and use nice/renice to shift priority instead of killing work you need.</p>"
+    },
+    {
+      "id": "lp-network",
+      "title": "Troubleshoot network connectivity",
+      "domain": "D5",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 18,
+      "summary": "Find and fix a mistyped IP address, a missing default gateway, the wrong DNS server and a stale /etc/hosts entry, using ip, nmcli, ping and getent.",
+      "scenario": "<p>After a hurried rebuild, <b>db01</b> can't reach anything. It should be:</p><ul><li>Address <code>172.25.250.11/24</code> on connection <code>eth0</code>, with gateway <code>172.25.250.254</code></li><li>DNS server <code>172.25.250.254</code> (the internal resolver; public resolvers are blocked)</li><li>Able to reach <code>repo.example.com</code> (on another network) and <code>utility.lab.example.com</code> by name</li></ul><p>Make the fix persistent: it must survive a reboot.</p>",
+      "devices": [
+        {
+          "platform": "linux",
+          "distro": "rhel",
+          "name": "db01",
+          "hostname": "db01.lab.example.com",
+          "ip": "172.25.205.11",
+          "gw": "",
+          "dnsServer": "8.8.4.4",
+          "gwReal": "172.25.250.254",
+          "dnsServerNeeded": "172.25.250.254",
+          "nm": {
+            "addresses": "172.25.205.11/24",
+            "gateway": "",
+            "dns": "8.8.4.4"
+          },
+          "net": {
+            "172.25.250.254": true,
+            "172.25.250.220": true,
+            "10.20.30.40": true
+          },
+          "dns": {
+            "utility.lab.example.com": "172.25.250.220",
+            "utility": "172.25.250.220",
+            "repo.example.com": "10.20.30.40"
+          },
+          "files": {
+            "/etc/hosts": {
+              "content": [
+                "127.0.0.1   localhost localhost.localdomain",
+                "::1         localhost localhost.localdomain",
+                "172.25.250.99   utility.lab.example.com utility"
+              ]
+            }
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Check the address and routes with <code>ip</code>",
+          "check": {
+            "ran": [
+              "db01",
+              "^ip\\s+(-\\w+\\s+)?(a|addr|address|r|route)\\b"
+            ]
+          }
+        },
+        {
+          "text": "<code>eth0</code> uses 172.25.250.11/24 with gateway 172.25.250.254",
+          "check": {
+            "all": [
+              {
+                "dev": "db01",
+                "path": "nm.cons.eth0.addresses",
+                "eq": "172.25.250.11/24"
+              },
+              {
+                "dev": "db01",
+                "path": "nm.cons.eth0.gateway",
+                "eq": "172.25.250.254"
+              },
+              {
+                "dev": "db01",
+                "path": "ip",
+                "eq": "172.25.250.11"
+              },
+              {
+                "dev": "db01",
+                "path": "gw",
+                "eq": "172.25.250.254"
+              }
+            ]
+          }
+        },
+        {
+          "text": "DNS resolves <code>repo.example.com</code>",
+          "check": {
+            "lq": [
+              "db01",
+              "resolve",
+              "repo.example.com"
+            ],
+            "eq": "10.20.30.40"
+          }
+        },
+        {
+          "text": "<code>utility.lab.example.com</code> resolves to its real address (172.25.250.220)",
+          "check": {
+            "lq": [
+              "db01",
+              "resolve",
+              "utility.lab.example.com"
+            ],
+            "eq": "172.25.250.220"
+          }
+        },
+        {
+          "text": "After a reboot, <code>repo.example.com</code> is reachable",
+          "check": {
+            "all": [
+              {
+                "dev": "db01",
+                "path": "boots",
+                "min": 1
+              },
+              {
+                "lq": [
+                  "db01",
+                  "ping",
+                  "repo.example.com"
+                ],
+                "eq": true
+              }
+            ]
+          }
+        },
+        {
+          "text": "Which command shows only the routing table?",
+          "check": {
+            "q": "route",
+            "eq": 2
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "route",
+          "prompt": "Show the routing table:",
+          "options": [
+            "ip addr",
+            "ss -tlnp",
+            "ip route",
+            "nmcli dev status"
+          ]
+        }
+      ],
+      "hints": [
+        "Compare <code>ip addr</code> and <code>ip route</code> with what the server should have. <code>nmcli con show eth0</code> shows the saved settings.",
+        "One command fixes all three: <code>sudo nmcli con mod eth0 ipv4.addresses ... ipv4.gateway ... ipv4.dns ... ipv4.method manual</code>, then <code>sudo nmcli con up eth0</code>.",
+        "<code>getent hosts NAME</code> shows what a name resolves to; <code>/etc/hosts</code> wins over DNS."
+      ],
+      "solution": "<pre>ip addr\nip route\nnmcli con show eth0\nsudo nmcli con mod eth0 ipv4.addresses 172.25.250.11/24 ipv4.gateway 172.25.250.254 ipv4.dns 172.25.250.254 ipv4.method manual\nsudo nmcli con up eth0\ngetent hosts utility.lab.example.com\nsudo sed -i '/utility/d' /etc/hosts\nping -c 3 repo.example.com\nsudo reboot\nping -c 3 repo.example.com</pre>",
+      "review": "<p>Work up the stack: address and mask, then gateway (can you leave the subnet?), then name resolution (/etc/hosts before DNS). nmcli changes are saved in the connection profile, so they survive a reboot.</p>"
+    },
+    {
+      "id": "lp-automation",
+      "title": "Scripting, Git and automation",
+      "domain": "D4",
+      "kind": "tasks",
+      "level": "intermediate",
+      "minutes": 12,
+      "summary": "Complete a Bash script, put a Git workflow in order, and match Ansible and infrastructure-as-code terms.",
+      "scenario": "<p>You're automating user onboarding: a Bash script now, then an Ansible playbook in a Git repository.</p>",
+      "activities": [
+        {
+          "type": "fill",
+          "title": "Finish the script",
+          "prompt": "This script creates every user named on the command line and refuses to run without arguments. Fill in the blanks.\n<pre>____ (1)\nset -euo pipefail\nif [ ____ (2) -eq 0 ]; then\n  echo \"usage: $0 USER...\" &gt;&amp;2\n  exit 1\nfi\nfor u in ____ (3); do\n  useradd \"$u\"\ndone</pre>",
+          "rows": [
+            {
+              "label": "(1) interpreter line",
+              "answer": [
+                "#!/bin/bash",
+                "#!/usr/bin/bash",
+                "#!/usr/bin/env bash"
+              ]
+            },
+            {
+              "label": "(2) number of arguments",
+              "answer": [
+                "$#"
+              ]
+            },
+            {
+              "label": "(3) all arguments, each as its own word",
+              "answer": [
+                "\"$@\"",
+                "$@"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "order",
+          "title": "Git workflow",
+          "prompt": "Put the steps for changing a playbook in order.",
+          "items": [
+            "git clone",
+            "git switch -c fix-ssh",
+            "Edit the playbook",
+            "git add site.yml",
+            "git commit -m \"Harden SSH\"",
+            "git push -u origin fix-ssh",
+            "Open a pull request for review"
+          ]
+        },
+        {
+          "type": "match",
+          "title": "Automation terms",
+          "prompt": "Match each term to its meaning.",
+          "categories": [
+            "Inventory",
+            "Playbook",
+            "Module",
+            "Idempotent",
+            "Infrastructure as code"
+          ],
+          "items": [
+            {
+              "text": "The list of hosts and groups Ansible manages",
+              "cat": 0
+            },
+            {
+              "text": "A YAML file of plays and tasks",
+              "cat": 1
+            },
+            {
+              "text": "A unit of work such as dnf, user or copy",
+              "cat": 2
+            },
+            {
+              "text": "Running it again changes nothing if the system is already correct",
+              "cat": 3
+            },
+            {
+              "text": "Servers and settings defined in version-controlled files",
+              "cat": 4
+            }
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Complete the script",
+          "check": {
+            "activity": 0
+          }
+        },
+        {
+          "text": "Order the Git workflow",
+          "check": {
+            "activity": 1
+          }
+        },
+        {
+          "text": "Match the automation terms",
+          "check": {
+            "activity": 2
+          }
+        }
+      ],
+      "hints": [
+        "$# is the argument count; \"$@\" keeps each argument separate even if it contains spaces."
+      ],
+      "review": "<p>Scripts automate one machine; Ansible applies the same desired state to many, idempotently. Git adds history and review to both.</p>"
+    }
+  ]
+}

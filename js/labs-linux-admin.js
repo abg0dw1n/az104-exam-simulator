@@ -52,15 +52,16 @@ export function extendState(s, def) {
   s.tz = def.tz || 'America/New_York'; s.ntp = true; s.chrony = { sources: [] };
   s.boots = 0; s.sshTrust = def.sshTrust || []; s.remote = {}; s.flatpak = { remotes: {}, apps: [] };
   s.repoUrls = def.repoUrls || []; s.presetRepos = def.presetRepos ?? !def.repoUrls; s.provides = def.provides || {};
-  s.dns = def.dns || {}; s.prefix = def.prefix || 24; s.gw = def.gw || s.ip.replace(/\d+$/, '1');
+  s.dns = def.dns || {}; s.prefix = def.prefix || 24; s.gw = def.gw ?? s.ip.replace(/\d+$/, '1');
+  for (const k of ['gwReal', 'dnsServerNeeded', 'timeServers', 'rootBase', 'load']) if (def[k] != null) s[k] = def[k];
   s.nm = rhel ? { cons: { [def.con || 'eth0']: { dev: 'eth0', method: def.dhcp ? 'auto' : 'manual', addresses: def.dhcp ? '' : `${s.ip}/${s.prefix}`, gateway: def.dhcp ? '' : s.gw, dns: def.dnsServer ?? '172.25.250.254', autoconnect: 'yes', ...(def.nm || {}) } } } : null;
   s.dhcpIp = def.dhcpIp || null; s.wrongNet = def.wrongNet || null;
   Object.assign(s, storageState(def), secState(def));
   // Files every server has (labs can override any of them).
   const f = (path, content, mode = '644', owner = 'root', group = owner) => { if (!s.fs[path]) mkNode(s, path, { t: 'f', mode, owner, group, content }); };
   const d = (path, mode = '755', owner = 'root', group = owner) => { if (!s.fs[path]) mkNode(s, path, { t: 'd', mode, owner, group }); };
-  for (const x of ['/etc', '/var', '/var/log', '/tmp', '/root', '/srv', '/mnt', '/opt', '/usr', '/usr/bin', '/usr/local', '/usr/local/bin', '/home', '/etc/sudoers.d', '/etc/cron.d', '/etc/systemd', '/etc/systemd/system']) d(x, x === '/tmp' ? '777' : x === '/root' ? '550' : x === '/etc/sudoers.d' ? '750' : '755');
-  if (s.fs['/tmp']) s.fs['/tmp'].sp = 1;
+  for (const x of ['/etc', '/var', '/var/log', '/var/tmp', '/var/spool', '/usr/share', '/tmp', '/root', '/srv', '/mnt', '/opt', '/usr', '/usr/bin', '/usr/local', '/usr/local/bin', '/home', '/etc/sudoers.d', '/etc/cron.d', '/etc/systemd', '/etc/systemd/system']) d(x, x === '/tmp' || x === '/var/tmp' ? '777' : x === '/root' ? '550' : x === '/etc/sudoers.d' ? '750' : '755');
+  for (const t of ['/tmp', '/var/tmp']) if (s.fs[t]) s.fs[t].sp = 1;
   f('/etc/hostname', `${s.hostname}\n`); f('/etc/hosts', '127.0.0.1   localhost localhost.localdomain\n::1         localhost localhost.localdomain\n');
   f('/etc/fstab', defaultFstab(s)); f('/etc/login.defs', 'MAIL_DIR\t/var/spool/mail\nPASS_MAX_DAYS\t99999\nPASS_MIN_DAYS\t0\nPASS_WARN_AGE\t7\nUID_MIN\t\t1000\nUMASK\t\t022\nCREATE_HOME\tyes\nENCRYPT_METHOD\tSHA512');
   f('/etc/sudoers', `root\tALL=(ALL)\tALL\n${rhel ? '%wheel\tALL=(ALL)\tALL' : '%sudo\tALL=(ALL:ALL) ALL'}\n#includedir /etc/sudoers.d`, '440');
@@ -116,7 +117,9 @@ function users(sh, cmd, a, input) {
       if (s.users[u]) throw new ShellError(`useradd: user '${u}' already exists`);
       const supp = (val('-G', '--groups') || '').split(',').filter(Boolean); const prim = val('-g', '--gid');
       for (const g of [...supp, ...(prim ? [prim] : [])]) if (!s.groups[g]) throw new ShellError(`useradd: group '${g}' does not exist`);
-      const id = val('-u', '--uid') ? +val('-u', '--uid') : Math.max(999, ...Object.values(s.users).map((x) => (x.uid < 60000 ? x.uid : 0))) + 1;
+      const sysAcct = flags.includes('-r') || flags.includes('--system');
+      let id = val('-u', '--uid') ? +val('-u', '--uid') : sysAcct ? 999 : Math.max(999, ...Object.values(s.users).map((x) => (x.uid < 60000 ? x.uid : 0))) + 1;
+      if (sysAcct && !val('-u', '--uid')) while (Object.values(s.users).some((x) => x.uid === id)) id--;
       if (Object.values(s.users).some((x) => x.uid === id)) throw new ShellError(`useradd: UID ${id} is not unique`);
       const g0 = prim || u; if (!prim) { if (s.groups[u]) throw new ShellError(`useradd: group ${u} exists - if you want to add this user to that group, use -g.`); let gid = id; while (Object.values(s.groups).some((x) => x.gid === gid)) gid++; s.groups[u] = { gid }; }
       const home = val('-d', '--home-dir') || `/home/${u}`;
@@ -331,7 +334,7 @@ function systemctl(sh, a) {
       case 'is-failed': out.push(u.failed ? 'failed' : u.active ? 'active' : 'inactive'); break;
       case 'start': case 'restart': case 'reload': case 'try-restart': {
         need(); if (u.masked) throw new ShellError(`Failed to start ${unit}: Unit ${unit} is masked.`);
-        if (!timer) { const err = webStart(s, name); if (err) { u.active = false; u.failed = true; changed(); throw new ShellError(err); } }
+        if (!timer) { const err = webStart(s, name) || reqFail(s, name); if (err) { u.active = false; u.failed = true; changed(); throw new ShellError(err); } }
         if (name === 'chronyd') s.chrony.sources = chronySources(s);
         if (name === 'atd' || name === 'crond' || name === 'cron') u.failed = false;
         u.active = true; u.failed = false; if (verb !== 'start') u.restartedAt = Date.now(); break;
@@ -341,7 +344,7 @@ function systemctl(sh, a) {
         need(); if (u.masked && verb === 'enable') throw new ShellError(`Failed to enable unit: Unit file ${unit} is masked.`);
         u.enabled = verb === 'enable';
         if (flags.includes('--now')) {
-          if (verb === 'enable') { if (!timer) { const err = webStart(s, name); if (err) { u.failed = true; changed(); throw new ShellError(`Created symlink '/etc/systemd/system/multi-user.target.wants/${unit}' → '${libdir}/${unit}'.\n${err}`); } } u.active = true; u.failed = false; if (name === 'chronyd') s.chrony.sources = chronySources(s); } else u.active = false;
+          if (verb === 'enable') { if (!timer) { const err = webStart(s, name) || reqFail(s, name); if (err) { u.failed = true; changed(); throw new ShellError(`Created symlink '/etc/systemd/system/multi-user.target.wants/${unit}' → '${libdir}/${unit}'.\n${err}`); } } u.active = true; u.failed = false; if (name === 'chronyd') s.chrony.sources = chronySources(s); } else u.active = false;
         }
         out.push(verb === 'enable' ? `Created symlink '/etc/systemd/system/${timer ? 'timers' : 'multi-user'}.target.wants/${unit}' → '${libdir}/${unit}'.` : `Removed '/etc/systemd/system/multi-user.target.wants/${unit}'.`);
         break;
@@ -352,6 +355,17 @@ function systemctl(sh, a) {
     }
   }
   changed(); return out.join('\n');
+}
+// A service can declare requirements on its config, e.g. requires: [{file, re, msg}].
+function reqFail(s, name) {
+  for (const r of s.services[name]?.requires || []) {
+    const t = s.fs[r.file]?.content;
+    if (t == null || !new RegExp(r.re, 'm').test(t)) {
+      s.journal.push({ unit: name, prio: 3, msg: r.msg || `configuration error in ${r.file}` }, { unit: name, prio: 3, msg: `${name}.service: Main process exited, code=exited, status=1/FAILURE` }, { unit: name, prio: 4, msg: `${name}.service: Failed with result 'exit-code'.` });
+      return `Job for ${name}.service failed because the control process exited with error code.\nSee "systemctl status ${name}.service" and "journalctl -xeu ${name}.service" for details.`;
+    }
+  }
+  return '';
 }
 function journalctl(sh, a) {
   const s = sh.s; const u = (a.find((x) => x.startsWith('--unit=')) || '').slice(7) || (a.indexOf('-u') >= 0 ? a[a.indexOf('-u') + 1] : null);
@@ -566,6 +580,7 @@ function net(sh, cmd, a) {
 }
 
 // ── Files: archives, links, disk usage ──────────────────────────────────────
+export const rootUsed = (s) => Math.round((s.rootBase ?? (s.blk['/dev/vda2']?.fsSize || 19454) * 0.38) + Object.values(s.fs).reduce((n, x) => n + (x.size || 0), 0) / 1048576);
 const nodeSize = (n) => (n.t === 'd' ? 4096 : n.size ?? (n.content || '').length);
 export function human(bytes) { const u = ['', 'K', 'M', 'G', 'T']; let i = 0; let v = bytes; while (v >= 1024 && i < 4) { v /= 1024; i++; } return i === 0 ? String(bytes) : `${v < 10 ? v.toFixed(1) : Math.round(v)}${u[i]}`; }
 function files(sh, cmd, a, input) {
@@ -674,7 +689,7 @@ function files(sh, cmd, a, input) {
 export function reboot(sh) {
   const s = sh.s; s.boots = (s.boots || 0) + 1; sh.rootShell = false; sh.root = false;
   s.hostname = (s.fs['/etc/hostname']?.content || s.hostname).trim() || s.hostname;
-  for (const [n, x] of Object.entries(s.services)) { x.active = !!x.enabled && !x.masked; x.failed = false; if (x.active) { const err = webStart(s, n); if (err) { x.active = false; x.failed = true; } } }
+  for (const [n, x] of Object.entries(s.services)) { x.active = !!x.enabled && !x.masked; x.failed = false; if (x.active) { const err = webStart(s, n) || reqFail(s, n); if (err) { x.active = false; x.failed = true; } } }
   for (const t of Object.values(s.timers)) t.active = !!t.enabled;
   if (s.fw) { s.fw.running = !!s.services.firewalld?.active; s.fw.runtime = JSON.parse(JSON.stringify(s.fw.permanent)); }
   if (s.selinux) { const cfg = (s.fs['/etc/selinux/config']?.content.match(/^SELINUX=(\w+)/m) || [])[1] || 'enforcing'; s.selinux.mode = cfg; for (const b of Object.values(s.selinux.bools)) b.cur = b.perm; }
@@ -713,7 +728,15 @@ export function linuxQuery(s, q, arg) {
     case 'emergency': return !!s.emergency;
     case 'portType': return Object.entries(s.selinux?.ports || {}).find(([, ps]) => ps.includes(String(arg)))?.[0] || null;
     case 'fwOpen': { const fw = s.fw; if (!fw) return false; const [where, item] = arg.split(':'); const z = fw[where]; return z.services.includes(item) || z.ports.includes(item); }
+    case 'repos': return repos(s).filter((r) => repoOk(s, r)).length;
+    case 'policyCtx': return policyCtx(s, arg);
     case 'sshLogin': return (s.sshLogins || []).includes(arg);
+    case 'archiveComp': { const n = s.fs[arg]; return n?.archive ? n.archive.comp || 'none' : null; }
+    case 'archiveHas': { const [f, entry] = arg.split('::'); return Object.keys(s.fs[f]?.archive?.entries || {}).some((k) => k === entry || k.startsWith(`${entry}/`)); }
+    case 'size': { const n = s.fs[arg]; return n ? n.size ?? (n.content || '').length : null; }
+    case 'proc': return s.procs.some((p) => p.cmd.includes(arg));
+    case 'procNice': return s.procs.find((p) => p.cmd.includes(arg))?.nice ?? 0;
+    case 'rootUse': { const m = s.mounts.find((x) => x.dir === '/'); const total = s.blk[m.src]?.fsSize || 1; return Math.round((rootUsed(s) / total) * 100); }
     default: return null;
   }
 }
