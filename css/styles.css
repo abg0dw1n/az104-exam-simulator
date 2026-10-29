@@ -833,6 +833,10 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 .exam-card-actions { position: relative; z-index: 1; grid-row: -2; justify-self: stretch; display: flex; gap: 8px; padding-top: 10px; border-top: 1px solid var(--border); align-self: end; }
 .card-btn { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 36px; padding: 6px 10px; border-radius: 9px; border: 1px solid var(--border); background: var(--panel-2); color: var(--text); font-size: 12.5px; font-weight: 650; text-decoration: none; transition: border-color .15s, background .15s; }
 .card-btn .icon { width: 15px; height: 15px; }
+.card-btn { min-width: 0; white-space: nowrap; }
+/* Three actions don't fit on one row in a card: Practice spans the top, Learn and Labs share the row below. */
+.exam-card-actions:has(> .card-btn:nth-child(3)) { display: grid; grid-template-columns: 1fr 1fr; }
+.exam-card-actions:has(> .card-btn:nth-child(3)) > .card-btn-primary { grid-column: 1 / -1; order: -1; }
 .card-btn:hover { border-color: var(--v, var(--azure)); }
 .card-btn-primary { background: var(--azure-soft); border-color: transparent; color: var(--azure-text); }
 .card-btn-primary:hover { background: color-mix(in srgb, var(--azure) 24%, transparent); border-color: transparent; }
