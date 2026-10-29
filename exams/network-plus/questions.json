@@ -3292,8 +3292,8 @@
         "note": "Reliability measure."
       },
       {
-        "text": "Service set identifier (SSID)",
-        "note": "A Wi-Fi network name."
+        "text": "Mean time to repair (MTTR)",
+        "note": "MTTR is the average time actually taken to fix a failure; RTO is the target."
       }
     ],
     "answer": 0,
@@ -5923,5 +5923,580 @@
     ],
     "answer": 0,
     "explanation": "A network tap passively copies all traffic, including errors, without depending on switch configuration. Port mirroring (SPAN) is the switch-based alternative."
+  },
+  {
+    "id": 238,
+    "domain": "D1",
+    "scenario": "A company wants a private, dedicated connection from its data center to its cloud provider that doesn't cross the public internet and offers consistent latency. What should it use?",
+    "options": [
+      {
+        "text": "A direct connection service such as AWS Direct Connect or Azure ExpressRoute",
+        "note": ""
+      },
+      {
+        "text": "A site-to-site VPN over the internet",
+        "note": "Encrypted, but it still crosses the internet, so performance varies."
+      },
+      {
+        "text": "A client-to-site VPN for each server",
+        "note": "Client VPNs connect individual users, not whole networks."
+      },
+      {
+        "text": "A NAT gateway",
+        "note": "It gives private hosts outbound internet access; it isn't a private link to the provider."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Direct cloud connections are dedicated circuits through a provider or colocation facility. They give predictable bandwidth and latency, and many organizations add a VPN as a backup path."
+  },
+  {
+    "id": 239,
+    "domain": "D1",
+    "scenario": "A SaaS provider runs one application instance that serves many customers, keeping each customer's data logically separated. What is this property called?",
+    "options": [
+      {
+        "text": "Multitenancy",
+        "note": ""
+      },
+      {
+        "text": "Elasticity",
+        "note": "Elasticity is adding and removing resources automatically as demand changes."
+      },
+      {
+        "text": "High availability",
+        "note": "HA is about staying up through failures."
+      },
+      {
+        "text": "Network function virtualization",
+        "note": "NFV runs network appliances as software."
+      }
+    ],
+    "answer": 0,
+    "explanation": "In a multitenant design, customers (tenants) share infrastructure while isolation keeps their data and configuration separate. It's a key reason public cloud is cost-effective."
+  },
+  {
+    "id": 240,
+    "domain": "D1",
+    "scenario": "A remote workforce needs secure web gateway, CASB, zero trust access and SD-WAN delivered as one cloud service close to users. What is this architecture called?",
+    "options": [
+      {
+        "text": "Secure access service edge (SASE)",
+        "note": ""
+      },
+      {
+        "text": "A screened subnet",
+        "note": "It's a perimeter network segment in a data center."
+      },
+      {
+        "text": "Network address translation",
+        "note": "NAT translates addresses; it isn't a security architecture."
+      },
+      {
+        "text": "A jump box",
+        "note": "A jump box is one hardened host for administration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SASE combines networking (SD-WAN) and security service edge (SSE) functions such as SWG, CASB, ZTNA and firewall-as-a-service, delivered from the cloud. SSE is the security-only part."
+  },
+  {
+    "id": 241,
+    "domain": "D1",
+    "scenario": "A team stores switch configurations as templates in a Git repository and deploys them with automation. Someone changed a switch by hand at the console. What problem does this create?",
+    "options": [
+      {
+        "text": "Configuration drift: the device no longer matches the version-controlled source of truth",
+        "note": ""
+      },
+      {
+        "text": "A broadcast storm",
+        "note": "That's a switching loop symptom, unrelated to how changes are made."
+      },
+      {
+        "text": "VLAN hopping",
+        "note": "That's an attack using double tagging or switch spoofing."
+      },
+      {
+        "text": "Asymmetric routing",
+        "note": "That's traffic taking different paths in each direction."
+      }
+    ],
+    "answer": 0,
+    "explanation": "With infrastructure as code, the repository is the source of truth. Manual changes cause drift that the next automated deployment may overwrite. Changes should go through version control and review."
+  },
+  {
+    "id": 242,
+    "domain": "D1",
+    "scenario": "A top-of-rack switch needs 40 Gbps uplinks to the spine switches. Which pluggable transceiver form factor is typical?",
+    "options": [
+      {
+        "text": "QSFP+",
+        "note": ""
+      },
+      {
+        "text": "SFP",
+        "note": "SFP supports up to about 1 Gbps."
+      },
+      {
+        "text": "SFP+",
+        "note": "SFP+ is typically 10 Gbps."
+      },
+      {
+        "text": "RJ45 Cat 6",
+        "note": "An RJ45 connector, not a transceiver for 40G uplinks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SFP (1G), SFP+ (10G), SFP28 (25G), QSFP+ (40G) and QSFP28 (100G) are common. QSFP stands for quad small form-factor pluggable: four lanes in one module."
+  },
+  {
+    "id": 243,
+    "domain": "D1",
+    "scenario": "A remote site uses a geostationary satellite link for internet access. Users report that video calls feel delayed even though bandwidth is adequate. What is the main reason?",
+    "options": [
+      {
+        "text": "High latency from the long round trip to geostationary orbit",
+        "note": ""
+      },
+      {
+        "text": "Crosstalk between pairs in the cabling",
+        "note": "Crosstalk is a copper cabling issue."
+      },
+      {
+        "text": "A duplex mismatch",
+        "note": "Duplex mismatches cause errors and collisions, not consistently high delay."
+      },
+      {
+        "text": "DHCP scope exhaustion",
+        "note": "That stops new clients from getting addresses."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Geostationary satellites orbit about 35,786 km up, adding roughly 600 ms or more of round-trip delay. Low Earth orbit (LEO) services reduce latency considerably."
+  },
+  {
+    "id": 244,
+    "domain": "D2",
+    "scenario": "One router interface connects to a switch trunk carrying VLANs 10, 20 and 30, and the router routes between them. What must you configure on the router?",
+    "options": [
+      {
+        "text": "A subinterface per VLAN with 802.1Q encapsulation and an IP address for each VLAN",
+        "note": ""
+      },
+      {
+        "text": "A separate physical interface for each VLAN",
+        "note": "Possible, but this design uses one trunk link."
+      },
+      {
+        "text": "Spanning tree on the router",
+        "note": "Routers don't run STP to route between VLANs."
+      },
+      {
+        "text": "A native VLAN for each subnet",
+        "note": "There is only one native VLAN per trunk."
+      }
+    ],
+    "answer": 0,
+    "explanation": "This is \"router on a stick\": subinterfaces such as g0/0.10 with encapsulation dot1Q 10 act as each VLAN's default gateway. Layer 3 switches use switch virtual interfaces instead."
+  },
+  {
+    "id": 245,
+    "domain": "D2",
+    "scenario": "Hosts use 10.1.1.1 as their default gateway. Two routers share this address so that hosts keep working if one router fails. What is 10.1.1.1 called?",
+    "options": [
+      {
+        "text": "A virtual IP (VIP)",
+        "note": ""
+      },
+      {
+        "text": "A loopback address",
+        "note": "Loopbacks are logical interfaces on one device."
+      },
+      {
+        "text": "An APIPA address",
+        "note": "APIPA is 169.254.0.0/16 self-assigned addressing."
+      },
+      {
+        "text": "A broadcast address",
+        "note": "The broadcast address reaches every host on a subnet."
+      }
+    ],
+    "answer": 0,
+    "explanation": "First hop redundancy protocols such as VRRP and HSRP present a virtual IP (and virtual MAC) that moves to the standby router when the active one fails. Hosts never change their gateway."
+  },
+  {
+    "id": 246,
+    "domain": "D2",
+    "scenario": "A server room's humidity has dropped to 15% in winter. Which risk increases most?",
+    "options": [
+      {
+        "text": "Electrostatic discharge (ESD) damaging equipment",
+        "note": ""
+      },
+      {
+        "text": "Condensation forming on components",
+        "note": "That's the risk of high humidity."
+      },
+      {
+        "text": "Fiber attenuation",
+        "note": "Humidity doesn't meaningfully change fiber loss."
+      },
+      {
+        "text": "Increased DHCP lease times",
+        "note": "Unrelated to the environment."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Too-dry air increases static buildup and ESD; too-humid air risks condensation and corrosion. Data centers typically keep relative humidity roughly between 40% and 60% and monitor it with environmental sensors."
+  },
+  {
+    "id": 247,
+    "domain": "D3",
+    "scenario": "A vendor has announced that a firewall model reaches end of support next year. What does this mean for the organization?",
+    "options": [
+      {
+        "text": "After that date the vendor stops security patches and support, so the device should be replaced before then",
+        "note": ""
+      },
+      {
+        "text": "The device stops forwarding traffic on that date",
+        "note": "It keeps working, but without fixes."
+      },
+      {
+        "text": "The device's warranty is extended automatically",
+        "note": "End of support is the opposite."
+      },
+      {
+        "text": "Only the documentation is withdrawn",
+        "note": "Patches and technical support end too."
+      }
+    ],
+    "answer": 0,
+    "explanation": "End of life (EOL) usually means a product is no longer sold; end of support (EOS) means no more updates or help. Life-cycle management tracks these dates in the asset inventory so replacements are planned and budgeted."
+  },
+  {
+    "id": 248,
+    "domain": "D3",
+    "scenario": "Old switches are being decommissioned and sent to a recycler. What should happen first?",
+    "options": [
+      {
+        "text": "Remove them from inventory and monitoring, and securely erase their configurations, which can contain credentials and keys",
+        "note": ""
+      },
+      {
+        "text": "Ship them as they are, since switches don't store data",
+        "note": "Configs can include passwords, SNMP strings and keys."
+      },
+      {
+        "text": "Just unplug the power so the running config is lost",
+        "note": "The startup config is still saved in NVRAM."
+      },
+      {
+        "text": "Leave them in the monitoring system for history",
+        "note": "Stale entries cause false alerts and clutter."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Decommissioning follows a documented process: back up and erase configurations (or destroy storage), update asset records, IPAM, diagrams and monitoring, and keep chain-of-custody records for disposal."
+  },
+  {
+    "id": 249,
+    "domain": "D3",
+    "scenario": "An SNMP manager needs to read the inbound error counter of a specific switch interface. What identifies that value in the device's data structure?",
+    "options": [
+      {
+        "text": "An object identifier (OID) defined in a MIB",
+        "note": ""
+      },
+      {
+        "text": "A community-string index",
+        "note": "Community strings are SNMPv1/v2c passwords, not data identifiers."
+      },
+      {
+        "text": "A TCP port number",
+        "note": "SNMP uses UDP 161 for queries; ports don't identify values."
+      },
+      {
+        "text": "A syslog severity level",
+        "note": "Severity is part of syslog messages, not SNMP."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A management information base (MIB) describes the values a device exposes. Each value has a numeric OID, such as the ifInErrors counter for an interface. Managers poll OIDs; agents send traps for events (UDP 162)."
+  },
+  {
+    "id": 250,
+    "domain": "D3",
+    "scenario": "You need to know which hosts talk to which, on what ports, and how much data they send, across a WAN link for capacity planning, without capturing full packets. What should you collect?",
+    "options": [
+      {
+        "text": "Flow data such as NetFlow, IPFIX or sFlow",
+        "note": ""
+      },
+      {
+        "text": "Full packet captures on every link",
+        "note": "Possible, but storage-heavy and more than you need."
+      },
+      {
+        "text": "SNMP interface counters only",
+        "note": "Counters show totals per interface, not who talks to whom."
+      },
+      {
+        "text": "Syslog from the routers",
+        "note": "Syslog records events, not traffic conversations."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Flow records summarize conversations (source, destination, ports, protocol, bytes, packets) and are exported to a collector for traffic analysis. Packet capture is for deep inspection of specific problems."
+  },
+  {
+    "id": 251,
+    "domain": "D3",
+    "scenario": "A company wants a disaster recovery site with power, network links and some equipment already in place, ready to run within a day or two after restoring recent backups. Which type of site is this?",
+    "options": [
+      {
+        "text": "A warm site",
+        "note": ""
+      },
+      {
+        "text": "A hot site",
+        "note": "A hot site is fully equipped and replicated, ready almost immediately, at higher cost."
+      },
+      {
+        "text": "A cold site",
+        "note": "A cold site has space and power but little or no equipment."
+      },
+      {
+        "text": "A tabletop site",
+        "note": "A tabletop is an exercise, not a facility."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cold, warm and hot sites trade cost against recovery time. Choose the site type that meets the recovery time objective (RTO) and recovery point objective (RPO) at an acceptable cost."
+  },
+  {
+    "id": 252,
+    "domain": "D3",
+    "scenario": "Security wants clients to verify that the time they receive from NTP servers is authentic and hasn't been tampered with. What should be deployed?",
+    "options": [
+      {
+        "text": "Network Time Security (NTS)",
+        "note": ""
+      },
+      {
+        "text": "DNSSEC",
+        "note": "DNSSEC protects DNS answers, not time."
+      },
+      {
+        "text": "PTP",
+        "note": "PTP improves precision; NTS adds authentication to NTP."
+      },
+      {
+        "text": "SNMPv3",
+        "note": "SNMPv3 secures management traffic, not time sync."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NTS uses TLS for key establishment, then authenticates NTP packets, protecting against spoofed time. Accurate time matters for logs, certificates and Kerberos."
+  },
+  {
+    "id": 253,
+    "domain": "D4",
+    "scenario": "An attacker follows an employee through a badge-controlled door before it closes. What is this called, and what control best prevents it?",
+    "options": [
+      {
+        "text": "Tailgating, prevented by an access control vestibule (mantrap)",
+        "note": ""
+      },
+      {
+        "text": "Shoulder surfing, prevented by privacy screens",
+        "note": "Shoulder surfing is watching someone enter information."
+      },
+      {
+        "text": "Phishing, prevented by email filtering",
+        "note": "Phishing uses deceptive messages."
+      },
+      {
+        "text": "Dumpster diving, prevented by shredding",
+        "note": "That's searching the trash for information."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tailgating (or piggybacking, when the employee knowingly lets them in) defeats badge readers. Access control vestibules, security guards, turnstiles and staff training reduce it."
+  },
+  {
+    "id": 254,
+    "domain": "D4",
+    "scenario": "Printed network diagrams and old password lists are thrown in a dumpster behind the office. Which attack does this enable, and what control prevents it?",
+    "options": [
+      {
+        "text": "Dumpster diving, prevented by shredding and secure disposal policies",
+        "note": ""
+      },
+      {
+        "text": "Evil twin, prevented by WPA3",
+        "note": "An evil twin is a rogue access point."
+      },
+      {
+        "text": "ARP poisoning, prevented by dynamic ARP inspection",
+        "note": "That's a layer 2 network attack."
+      },
+      {
+        "text": "VLAN hopping, prevented by disabling DTP",
+        "note": "That's a switching attack."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Social engineers search trash for useful information. Shred sensitive documents, use locked disposal bins, and include media destruction in data handling policies."
+  },
+  {
+    "id": 255,
+    "domain": "D4",
+    "scenario": "Many network devices use SSH keys, TLS certificates and SNMPv3 credentials. Which practice reduces the risk of a compromised or expired key causing an outage or breach?",
+    "options": [
+      {
+        "text": "Key management: generate keys securely, store them protected, track expiry, rotate them and revoke them when compromised",
+        "note": ""
+      },
+      {
+        "text": "Use the same key on every device to simplify renewal",
+        "note": "One leaked key would compromise everything."
+      },
+      {
+        "text": "Disable encryption on management interfaces",
+        "note": "That exposes credentials in clear text."
+      },
+      {
+        "text": "Keep private keys in the network diagram documentation",
+        "note": "Private keys must never be stored in shared documents."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Key management covers the whole life cycle of cryptographic keys and certificates. Inventory them, alert before expiry, rotate regularly, and revoke compromised keys and certificates promptly."
+  },
+  {
+    "id": 256,
+    "domain": "D4",
+    "scenario": "Customer payment card data must be stored and processed only in data centers inside the European Union. Which concept does this describe?",
+    "options": [
+      {
+        "text": "Data locality (data sovereignty) requirements",
+        "note": ""
+      },
+      {
+        "text": "Geofencing",
+        "note": "Geofencing triggers actions based on a device's location."
+      },
+      {
+        "text": "Multitenancy",
+        "note": "Multitenancy is about shared infrastructure."
+      },
+      {
+        "text": "Least privilege",
+        "note": "Least privilege limits access rights, not where data lives."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Regulations such as GDPR and contracts can require data to stay in specific jurisdictions. Network and cloud designs must keep data, and often backups and replicas, in approved regions."
+  },
+  {
+    "id": 257,
+    "domain": "D5",
+    "scenario": "You need to discover which hosts are up on 10.20.0.0/24 and which TCP ports they have open, to compare with your documentation. Which tool should you use?",
+    "options": [
+      {
+        "text": "Nmap",
+        "note": ""
+      },
+      {
+        "text": "tracert",
+        "note": "It shows the path to one destination."
+      },
+      {
+        "text": "nslookup",
+        "note": "It queries DNS."
+      },
+      {
+        "text": "ipconfig",
+        "note": "It shows the local host's IP settings."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Nmap scans for live hosts, open ports, services and OS fingerprints. Only scan networks you're authorized to test, because scanning can trigger security alerts."
+  },
+  {
+    "id": 258,
+    "domain": "D5",
+    "scenario": "Laptops keep dropping their Wi-Fi connection briefly and reconnecting, mostly in one part of the building. Signal there is weak. What is the most likely issue?",
+    "options": [
+      {
+        "text": "Insufficient coverage causing client disassociation; add or reposition access points after a site survey",
+        "note": ""
+      },
+      {
+        "text": "A DHCP lease time that is too long",
+        "note": "Long leases don't cause disconnections."
+      },
+      {
+        "text": "A duplex mismatch on the AP uplink",
+        "note": "That causes slow wired performance for all clients, not location-specific drops."
+      },
+      {
+        "text": "An expired SSL certificate on the web server",
+        "note": "Unrelated to wireless associations."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Weak signal and interference make clients disassociate and reassociate. Wireless surveys and heat maps show coverage gaps. Fixes include adding APs, adjusting placement, power and channels, and checking roaming settings."
+  },
+  {
+    "id": 259,
+    "domain": "D5",
+    "scenario": "After the troubleshooting team implements a fix for an outage, what should they do next, according to the CompTIA methodology?",
+    "options": [
+      {
+        "text": "Verify full system functionality and, if applicable, implement preventive measures",
+        "note": ""
+      },
+      {
+        "text": "Establish a theory of probable cause",
+        "note": "That comes before testing and implementing a fix."
+      },
+      {
+        "text": "Identify the problem",
+        "note": "This is the first step."
+      },
+      {
+        "text": "Close the ticket immediately without testing",
+        "note": "Verification comes before documentation and closure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The steps are: identify the problem; establish a theory of probable cause; test the theory; establish a plan of action and identify potential effects; implement the solution or escalate; verify full system functionality and implement preventive measures; document findings, actions, outcomes and lessons learned."
+  },
+  {
+    "id": 260,
+    "domain": "D5",
+    "scenario": "A switch port connected to a new access point is up, but the AP keeps rebooting. The switch's <code>show power inline</code> output shows the port is denied power. What is the most likely cause?",
+    "options": [
+      {
+        "text": "The switch's PoE power budget is exhausted, or the AP needs more power than the port's PoE standard provides",
+        "note": ""
+      },
+      {
+        "text": "The VLAN on the port is wrong",
+        "note": "A wrong VLAN affects connectivity, not power."
+      },
+      {
+        "text": "The cable is plenum-rated",
+        "note": "Plenum rating concerns fire safety, not power."
+      },
+      {
+        "text": "The AP's DHCP reservation expired",
+        "note": "DHCP doesn't cause power-related reboots."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PoE (802.3af, about 15.4 W), PoE+ (802.3at, about 30 W) and PoE++ (802.3bt, up to about 90 W) differ in available power. Check the device's requirement, the per-port standard and the total budget on the switch."
   }
 ]

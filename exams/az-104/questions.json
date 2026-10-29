@@ -576,31 +576,6 @@
     "explanation": "ACI runs containers on demand and bills per second, with no infrastructure to manage. Set the restart policy to Never or OnFailure for run-to-completion jobs. (Container Apps jobs are another serverless option.)"
   },
   {
-    "id": 24,
-    "domain": "D3",
-    "scenario": "You are creating an AKS cluster and need to restrict pod-to-pod traffic using Kubernetes network policies. What should you choose at creation time?",
-    "options": [
-      {
-        "text": "Kubenet with no network policy engine",
-        "note": "Without a policy engine, NetworkPolicy objects are not enforced. Kubenet also retires on March 31, 2028."
-      },
-      {
-        "text": "Azure CNI with a network policy engine such as Cilium or Calico",
-        "note": ""
-      },
-      {
-        "text": "A route table with user-defined routes only",
-        "note": "UDRs control routing, not pod-level filtering."
-      },
-      {
-        "text": "A NAT gateway on the node subnet",
-        "note": "Provides outbound SNAT, not pod traffic isolation."
-      }
-    ],
-    "answer": 1,
-    "explanation": "Kubernetes NetworkPolicy resources need a policy engine chosen when you create the cluster. Microsoft recommends Azure CNI powered by Cilium; Calico is also supported. Azure Network Policy Manager on Linux nodes retires on September 30, 2028, and kubenet retires March 31, 2028 (migrate to Azure CNI Overlay)."
-  },
-  {
     "id": 25,
     "domain": "D3",
     "scenario": "You want to resize <code>vm-db01</code> from Standard_D2s_v3 to Standard_D4s_v3, but the new size is not listed because the current hardware cluster does not support it. What should you do?",
@@ -799,31 +774,6 @@
     ],
     "answer": 0,
     "explanation": "ASGs group NICs by role so NSG rules can reference the group instead of IPs. New VMs only need to join the ASG to pick up the rules."
-  },
-  {
-    "id": 33,
-    "domain": "D4",
-    "scenario": "You are deploying Azure Application Gateway v2 for HTTP/HTTPS traffic. Which option protects the backends against SQL injection and cross-site scripting?",
-    "options": [
-      {
-        "text": "The WAF v2 SKU with a WAF policy",
-        "note": ""
-      },
-      {
-        "text": "Custom NSG rules on the gateway subnet",
-        "note": "NSGs work at layers 3–4 and cannot inspect HTTP payloads."
-      },
-      {
-        "text": "Azure Route Server",
-        "note": "Exchanges BGP routes with NVAs; no traffic inspection."
-      },
-      {
-        "text": "Azure NAT Gateway",
-        "note": "Outbound SNAT only."
-      }
-    ],
-    "answer": 0,
-    "explanation": "Web Application Firewall on Application Gateway inspects layer 7 traffic and blocks common attacks such as SQLi and XSS using managed rule sets."
   },
   {
     "id": 34,
@@ -1900,56 +1850,6 @@
     ],
     "answer": 0,
     "explanation": "Access reviews let owners, managers or the users themselves recertify membership on a schedule. Auto-apply can remove access that is denied or not reviewed. This requires Entra ID P2 or Entra ID Governance."
-  },
-  {
-    "id": 77,
-    "domain": "D1",
-    "scenario": "Only members of the IT group should be able to join Windows devices to Microsoft Entra ID. Where do you configure this?",
-    "options": [
-      {
-        "text": "Device settings in Microsoft Entra ID",
-        "note": ""
-      },
-      {
-        "text": "Azure Policy at the subscription scope.",
-        "note": "Azure Policy governs Azure resources, not device joins."
-      },
-      {
-        "text": "A Conditional Access policy requiring a compliant device",
-        "note": "That controls sign-in, not who may join devices."
-      },
-      {
-        "text": "A resource lock on the tenant.",
-        "note": "Locks apply to Azure resources only."
-      }
-    ],
-    "answer": 0,
-    "explanation": "Device settings control who can join or register devices, the maximum devices per user, and whether MFA is required to join."
-  },
-  {
-    "id": 78,
-    "domain": "D1",
-    "scenario": "You need to require MFA for all users when they sign in to the Azure portal from outside the corporate network. What should you configure?",
-    "options": [
-      {
-        "text": "A Conditional Access policy requiring MFA outside trusted locations",
-        "note": ""
-      },
-      {
-        "text": "Per-user MFA enforced through RBAC role assignments",
-        "note": "RBAC authorizes actions after sign-in; it doesn't add MFA."
-      },
-      {
-        "text": "An Azure Policy that denies sign-ins from untrusted IP ranges",
-        "note": "Policy evaluates resource configuration, not sign-ins."
-      },
-      {
-        "text": "Self-service password reset.",
-        "note": "SSPR handles password resets, not sign-in MFA."
-      }
-    ],
-    "answer": 0,
-    "explanation": "Conditional Access combines signals (user, app, location, device, risk) with controls such as requiring MFA. Named locations define trusted networks. Conditional Access requires Entra ID P1."
   },
   {
     "id": 79,
@@ -4951,5 +4851,880 @@
     ],
     "answer": 0,
     "explanation": "The Azure Monitor Agent can collect custom text and JSON logs through a DCR, which defines the file pattern, the transformation and the destination table (a custom _CL table)."
+  },
+  {
+    "id": 199,
+    "domain": "D1",
+    "scenario": "You enable self-service password reset (SSPR) for the group <code>sspr-pilot</code> and require two authentication methods. A Global Administrator in the pilot asks to use security questions as one of their methods. What happens?",
+    "options": [
+      {
+        "text": "Administrators can't use security questions; Microsoft Entra ID applies a stricter two-method policy to admin roles regardless of your SSPR settings.",
+        "note": ""
+      },
+      {
+        "text": "Security questions work for admins if the tenant allows them for users.",
+        "note": "Admin accounts follow the built-in two-gate policy, which excludes security questions."
+      },
+      {
+        "text": "Admins are excluded from SSPR and must call the help desk.",
+        "note": "Admins have SSPR enabled by default; they just get a stricter policy."
+      },
+      {
+        "text": "The admin must be removed from sspr-pilot first.",
+        "note": "Group scope applies to users; admin roles are always covered by their own policy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Microsoft Entra ID always enables SSPR for administrator roles with a two-gate policy (two methods such as the Authenticator app, email or phone) and never allows security questions for them. Your SSPR settings for scope and methods apply to regular users."
+  },
+  {
+    "id": 200,
+    "domain": "D1",
+    "scenario": "Users created in on-premises AD DS and synchronized with Microsoft Entra Connect reset their passwords with SSPR, but they still can't sign in to their domain-joined PCs with the new password. What must you configure?",
+    "options": [
+      {
+        "text": "Password writeback in Microsoft Entra Connect (and enable it in SSPR settings)",
+        "note": ""
+      },
+      {
+        "text": "A longer SSPR registration period",
+        "note": "Registration affects who can use SSPR, not where the new password is stored."
+      },
+      {
+        "text": "Require one fewer authentication method",
+        "note": "The number of methods doesn't change where the password is written."
+      },
+      {
+        "text": "Seamless single sign-on",
+        "note": "Seamless SSO uses the on-premises password; it doesn't send cloud resets back to AD DS."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Without writeback, an SSPR reset only changes the cloud password. Password writeback (a Microsoft Entra ID P1 feature) sends the new password back to AD DS through Microsoft Entra Connect so on-premises sign-ins accept it."
+  },
+  {
+    "id": 201,
+    "domain": "D1",
+    "scenario": "Every member of the dynamic group <code>Sales-All</code> must receive a Microsoft 365 E3 license automatically, including people who join Sales later. What is the most efficient approach?",
+    "options": [
+      {
+        "text": "Assign the license to the Sales-All group (group-based licensing)",
+        "note": ""
+      },
+      {
+        "text": "Assign the license to each user, and run a weekly script for new users",
+        "note": "Works, but it's manual and misses users between runs."
+      },
+      {
+        "text": "Create an Azure Policy that assigns licenses",
+        "note": "Azure Policy governs Azure resources, not Microsoft Entra licenses."
+      },
+      {
+        "text": "Add the license to the administrative unit that contains Sales",
+        "note": "Administrative units delegate administration; they don't assign licenses."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Group-based licensing assigns licenses to everyone in a group, and adds or removes them as membership changes. Combined with a dynamic group, new Sales users are licensed automatically."
+  },
+  {
+    "id": 202,
+    "domain": "D1",
+    "scenario": "All new resources must carry the <code>costCenter</code> tag of the resource group they're created in. Teams often forget to add it. What should you do?",
+    "options": [
+      {
+        "text": "Assign the built-in Azure Policy \"Inherit a tag from the resource group if missing\" and create a remediation task for existing resources",
+        "note": ""
+      },
+      {
+        "text": "Add the tag to each resource group; resources inherit it automatically",
+        "note": "Resources don't inherit tags from their resource group."
+      },
+      {
+        "text": "Apply a CanNotDelete lock to each resource group",
+        "note": "Locks prevent deletion; they don't add tags."
+      },
+      {
+        "text": "Use a Deny policy that blocks resources without tags",
+        "note": "That stops deployments instead of adding the tag; the requirement is to carry the value automatically."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tags aren't inherited. The built-in policy uses the Modify effect to copy the tag from the resource group at create or update time. A remediation task fixes resources that already exist."
+  },
+  {
+    "id": 203,
+    "domain": "D1",
+    "scenario": "Your organization wants to apply one Azure Policy to 40 subscriptions that belong to the finance department, and to any finance subscriptions created later. What should you use?",
+    "options": [
+      {
+        "text": "A management group that contains the finance subscriptions, with the policy assigned at that management group",
+        "note": ""
+      },
+      {
+        "text": "A resource group in each subscription with the policy assigned there",
+        "note": "Policy assigned to a resource group only covers that group."
+      },
+      {
+        "text": "A policy initiative assigned to each subscription individually",
+        "note": "Initiatives group policies, but per-subscription assignment doesn't cover new subscriptions."
+      },
+      {
+        "text": "A tag on each subscription called department=finance",
+        "note": "Tags don't carry policy assignments."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Policy and RBAC assignments at a management group are inherited by every subscription, resource group and resource beneath it, including subscriptions moved in later. A management group tree supports up to six levels below the root."
+  },
+  {
+    "id": 204,
+    "domain": "D2",
+    "scenario": "You gave a partner a service SAS URI for the container <code>invoices</code>. It was created from the stored access policy <code>partner-read</code>. The partner relationship has ended and access must stop immediately. What should you do?",
+    "options": [
+      {
+        "text": "Delete the stored access policy partner-read (or change its expiry to the past)",
+        "note": ""
+      },
+      {
+        "text": "Delete the SAS URI from your records",
+        "note": "The token stays valid; deleting your copy doesn't revoke it."
+      },
+      {
+        "text": "Regenerate both storage account keys",
+        "note": "This also revokes access, but it breaks every other app and SAS that uses the keys."
+      },
+      {
+        "text": "Turn on soft delete for blobs",
+        "note": "Soft delete protects data from deletion; it doesn't revoke access."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A stored access policy lets you revoke or change service SAS tokens on the server side. Up to five policies can exist per container. Without a policy, the only way to revoke a key-signed SAS is to rotate the key that signed it."
+  },
+  {
+    "id": 205,
+    "domain": "D2",
+    "scenario": "A developer wants to issue a user delegation SAS for a blob and manage its expiry through a stored access policy. Why won't this work?",
+    "options": [
+      {
+        "text": "Stored access policies only apply to service SAS tokens, not to user delegation SAS or account SAS",
+        "note": ""
+      },
+      {
+        "text": "User delegation SAS tokens can't be used with blobs",
+        "note": "User delegation SAS is a blob-only SAS type."
+      },
+      {
+        "text": "Stored access policies are only for Azure Files",
+        "note": "They work for containers, file shares, queues and tables."
+      },
+      {
+        "text": "A user delegation SAS can only last one hour",
+        "note": "It can last up to seven days."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A user delegation SAS is signed with Microsoft Entra credentials and a user delegation key, so it can't reference a stored access policy. To revoke it, revoke the user delegation key or remove the signer's permissions."
+  },
+  {
+    "id": 206,
+    "domain": "D2",
+    "scenario": "The storage account <code>stlogs01</code> allows access only from selected networks. A Microsoft Fabric workspace must read data through its managed identity, and no other service of that type should get in. What should you configure?",
+    "options": [
+      {
+        "text": "A resource instance rule for that workspace in the storage account's networking settings",
+        "note": ""
+      },
+      {
+        "text": "Enable \"Allow Azure services on the trusted services list\"",
+        "note": "That admits trusted services broadly, not one specific instance."
+      },
+      {
+        "text": "Add the workspace's public IP addresses to the firewall",
+        "note": "PaaS outbound IPs are shared and change; IP rules aren't meant for Azure services."
+      },
+      {
+        "text": "Disable the storage firewall",
+        "note": "That removes the restriction for everyone."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Resource instance rules allow traffic from a specific Azure resource instance (identified by its resource ID and managed identity) through the storage firewall. The identity still needs an RBAC role such as Storage Blob Data Reader."
+  },
+  {
+    "id": 207,
+    "domain": "D2",
+    "scenario": "You need blobs written to a container in <code>steastprod</code> (East US) to be copied automatically to a container in <code>stwestdr</code> (West US). Which settings must be in place?",
+    "options": [
+      {
+        "text": "Object replication, with blob versioning on both accounts and change feed on the source account",
+        "note": ""
+      },
+      {
+        "text": "Geo-redundant storage (GRS) on the source account",
+        "note": "GRS replicates the whole account to the paired region; you can't pick the target account or container."
+      },
+      {
+        "text": "A lifecycle management rule that copies new blobs",
+        "note": "Lifecycle rules tier or delete blobs; they don't copy them."
+      },
+      {
+        "text": "Blob soft delete on both accounts",
+        "note": "Soft delete isn't a prerequisite for object replication."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Object replication asynchronously copies block blobs between containers in two accounts, which can be in different regions. It requires blob versioning on source and destination and change feed on the source."
+  },
+  {
+    "id": 208,
+    "domain": "D2",
+    "scenario": "Two departments share a storage account. Finance data must be encrypted with a customer-managed key in Key Vault, while Marketing data uses Microsoft-managed keys. What should you use?",
+    "options": [
+      {
+        "text": "Encryption scopes, with a customer-managed-key scope set as the default on the finance container",
+        "note": ""
+      },
+      {
+        "text": "A second storage account is the only option",
+        "note": "That works too, but encryption scopes solve it within one account."
+      },
+      {
+        "text": "Infrastructure encryption on the finance container",
+        "note": "Infrastructure encryption is enabled for a whole account, at creation, and adds a second layer; it doesn't pick keys per container."
+      },
+      {
+        "text": "Azure Disk Encryption",
+        "note": "That encrypts VM disks, not blob containers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Encryption scopes let you choose Microsoft-managed or customer-managed keys per container or per blob. A container can enforce its default scope so every blob in it uses that key."
+  },
+  {
+    "id": 209,
+    "domain": "D2",
+    "scenario": "A user deleted the file share <code>projects</code> in Azure Files four days ago. Soft delete for file shares was left at its default settings. What can you do?",
+    "options": [
+      {
+        "text": "Undelete the share from the storage account's File shares list (show deleted shares), because the default retention is 7 days",
+        "note": ""
+      },
+      {
+        "text": "Nothing; deleted file shares can't be recovered",
+        "note": "Share soft delete is on by default for new accounts."
+      },
+      {
+        "text": "Restore it from a blob version",
+        "note": "Blob versioning doesn't cover Azure Files."
+      },
+      {
+        "text": "Open a support ticket to restore it from geo-redundant storage",
+        "note": "GRS replicates deletions too; it isn't a backup."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Soft delete for Azure file shares is enabled by default with 7-day retention (configurable from 1 to 365 days). A soft-deleted share keeps its snapshots and can be undeleted during the retention period."
+  },
+  {
+    "id": 210,
+    "domain": "D2",
+    "scenario": "An app uses key1 of a storage account in its connection string. Security requires rotating the account keys without downtime. In what order should you work?",
+    "options": [
+      {
+        "text": "Switch the app to key2, regenerate key1, then later switch back to key1 and regenerate key2",
+        "note": ""
+      },
+      {
+        "text": "Regenerate both keys at the same time, then update the app",
+        "note": "The app fails between the regeneration and the update."
+      },
+      {
+        "text": "Regenerate key1 first, then update the app",
+        "note": "The app fails as soon as key1 changes."
+      },
+      {
+        "text": "Disable shared key access, then re-enable it",
+        "note": "This doesn't rotate anything and blocks key-based access in the meantime."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Storage accounts have two keys so you can rotate one while apps use the other. Better still, move apps to Microsoft Entra ID authorization and disallow shared key access entirely."
+  },
+  {
+    "id": 211,
+    "domain": "D2",
+    "scenario": "An administrator signs in to Azure Storage Explorer with a Microsoft Entra account that has the Contributor role on the storage account, but gets \"authorization permission mismatch\" when listing blobs with Entra authentication. What is missing?",
+    "options": [
+      {
+        "text": "A data-plane role such as Storage Blob Data Reader or Storage Blob Data Contributor",
+        "note": ""
+      },
+      {
+        "text": "The Owner role on the subscription",
+        "note": "Owner manages resources but still doesn't grant blob data access through Entra ID."
+      },
+      {
+        "text": "A SAS token",
+        "note": "A SAS is a different way to authorize; the question is about Entra authentication."
+      },
+      {
+        "text": "Public network access set to \"Enabled from all networks\"",
+        "note": "A network block returns a different error; this is a permission problem."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Contributor is a control-plane role: it can manage the account and read its keys, but Entra-based data access needs a Storage Blob Data role. Storage Explorer falls back to keys only if you choose that option."
+  },
+  {
+    "id": 212,
+    "domain": "D3",
+    "scenario": "You try to enable encryption at host on a new VM, but the option is unavailable. The VM size supports it. What should you check first?",
+    "options": [
+      {
+        "text": "That the EncryptionAtHost feature is registered for the Microsoft.Compute provider on the subscription",
+        "note": ""
+      },
+      {
+        "text": "That Azure Disk Encryption is enabled first",
+        "note": "It's the opposite: encryption at host can't be used on VMs that ever had Azure Disk Encryption."
+      },
+      {
+        "text": "That the VM uses an unmanaged disk",
+        "note": "Encryption at host is for managed disks."
+      },
+      {
+        "text": "That the VM is in an availability set",
+        "note": "Availability options are unrelated to this feature."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Encryption at host must be registered on the subscription (Register-AzProviderFeature -FeatureName EncryptionAtHost -ProviderNamespace Microsoft.Compute). It encrypts temp disks, caches and data flowing to storage. Existing VMs must be deallocated to turn it on."
+  },
+  {
+    "id": 213,
+    "domain": "D3",
+    "scenario": "A VM has used Azure Disk Encryption (ADE) for years. Security now wants end-to-end encryption including the temporary disk and disk caches, using encryption at host. What is true?",
+    "options": [
+      {
+        "text": "Encryption at host can't be enabled on a VM that currently has or ever had ADE; you need a new VM with new disks",
+        "note": ""
+      },
+      {
+        "text": "Enable encryption at host while the VM is running",
+        "note": "Even without ADE, existing VMs must be deallocated first."
+      },
+      {
+        "text": "Encryption at host and ADE can be layered on the same VM",
+        "note": "Microsoft blocks this combination."
+      },
+      {
+        "text": "Disable ADE, then enable encryption at host on the same VM",
+        "note": "A VM that ever had ADE isn't eligible."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Encryption at host and Azure Disk Encryption are mutually exclusive, including history: a VM that ever had ADE can't use encryption at host. Plan a migration to new disks on a new VM."
+  },
+  {
+    "id": 214,
+    "domain": "D3",
+    "scenario": "You need to move a running VM, its disks and its network resources from East US to Sweden Central with a guided process that checks dependencies. What should you use?",
+    "options": [
+      {
+        "text": "Azure Resource Mover",
+        "note": ""
+      },
+      {
+        "text": "Move the VM to another resource group",
+        "note": "Moving between resource groups doesn't change its region."
+      },
+      {
+        "text": "Resize the VM",
+        "note": "Resizing changes the VM size, not its region."
+      },
+      {
+        "text": "Export the resource group template and edit the location",
+        "note": "Possible but manual; it doesn't move disks or data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Azure Resource Mover moves resources across regions, identifies dependencies, and uses Azure Site Recovery replication for VMs. Moving between resource groups or subscriptions keeps the region and changes the resource ID."
+  },
+  {
+    "id": 215,
+    "domain": "D3",
+    "scenario": "A container app must pull images from a private Azure Container Registry without storing a password. What is the recommended setup?",
+    "options": [
+      {
+        "text": "Give the container app a managed identity and assign it the AcrPull role on the registry",
+        "note": ""
+      },
+      {
+        "text": "Enable the registry's admin user and store its password as a secret",
+        "note": "This works, but it uses a shared password, which Microsoft discourages."
+      },
+      {
+        "text": "Make the registry's repositories public",
+        "note": "This exposes images to everyone."
+      },
+      {
+        "text": "Assign the container app the Contributor role on the registry",
+        "note": "Contributor is far more than needed; AcrPull is the least-privilege role."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Managed identities with the AcrPull role avoid credentials entirely. The same pattern works for Container Instances, App Service and AKS."
+  },
+  {
+    "id": 216,
+    "domain": "D3",
+    "scenario": "You want to send 10% of traffic to a new version of a container app and 90% to the current version, then shift traffic gradually. What must you configure?",
+    "options": [
+      {
+        "text": "Multiple revision mode, then set traffic weights on the two revisions",
+        "note": ""
+      },
+      {
+        "text": "Single revision mode with two replicas",
+        "note": "Single revision mode runs one active revision; replicas are copies of the same revision."
+      },
+      {
+        "text": "A second container app behind the same ingress",
+        "note": "Container Apps does this natively with revisions."
+      },
+      {
+        "text": "An App Service deployment slot",
+        "note": "Slots are an App Service feature, not Container Apps."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Each change to a container app's template creates a revision. In multiple revision mode, several revisions can be active and ingress splits traffic between them by percentage."
+  },
+  {
+    "id": 217,
+    "domain": "D3",
+    "scenario": "A nightly data job runs in Azure Container Instances. It should be restarted only if it exits with an error, and must stop after it succeeds. Which restart policy should you set?",
+    "options": [
+      {
+        "text": "OnFailure",
+        "note": ""
+      },
+      {
+        "text": "Always",
+        "note": "The default; it restarts even after success, so the job would run endlessly."
+      },
+      {
+        "text": "Never",
+        "note": "It won't retry a failed run."
+      },
+      {
+        "text": "Manual",
+        "note": "Not an ACI restart policy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Container Instances supports Always (default, for long-running services), OnFailure (retry tasks that fail) and Never (run once). CPU and memory are set per container when you create the container group."
+  },
+  {
+    "id": 218,
+    "domain": "D3",
+    "scenario": "You need to back up an App Service app every 2 hours, keep backups for 90 days, and store them in your own storage account. The app runs on a Standard plan. What should you configure?",
+    "options": [
+      {
+        "text": "A custom backup schedule that points to a storage account container",
+        "note": ""
+      },
+      {
+        "text": "Automatic backups; they meet these requirements by default",
+        "note": "Automatic backups are hourly with 30-day retention that you can't change."
+      },
+      {
+        "text": "Deployment slots",
+        "note": "Slots stage releases; they aren't backups."
+      },
+      {
+        "text": "Upgrade to Premium because Standard can't back up",
+        "note": "Basic, Standard, Premium and Isolated all support backups."
+      }
+    ],
+    "answer": 0,
+    "explanation": "App Service has automatic backups (hourly, 30 days, no storage account needed) and custom backups (configurable schedule and retention, written to a storage account through SAS). Custom backups are limited to 10 GB."
+  },
+  {
+    "id": 219,
+    "domain": "D3",
+    "scenario": "You want to map <code>www.contoso.com</code> to an App Service app and secure it with a free certificate. Which statement is correct?",
+    "options": [
+      {
+        "text": "Add a CNAME record to the app's default host name and an asuid.www TXT record for verification, then create a free App Service managed certificate",
+        "note": ""
+      },
+      {
+        "text": "A free managed certificate can cover *.contoso.com",
+        "note": "Managed certificates don't support wildcard names."
+      },
+      {
+        "text": "Custom domains work on the Free (F1) tier with a managed certificate",
+        "note": "Managed certificates and TLS bindings need a paid tier (Basic or higher)."
+      },
+      {
+        "text": "Only an A record is needed, and the certificate is created automatically",
+        "note": "A records are for root (apex) domains, and you must create the certificate and binding."
+      }
+    ],
+    "answer": 0,
+    "explanation": "App Service verifies domain ownership with a TXT record named asuid.<subdomain> containing the app's verification ID. Free managed certificates renew automatically but can't be wildcard or exported. Use a purchased or Key Vault certificate for those cases."
+  },
+  {
+    "id": 220,
+    "domain": "D3",
+    "scenario": "Before swapping a staging slot into production, you need the production slot to keep its own database connection string. What should you do?",
+    "options": [
+      {
+        "text": "Mark the connection string as a deployment slot setting in each slot",
+        "note": ""
+      },
+      {
+        "text": "Store the connection string in the code",
+        "note": "It would swap with the code."
+      },
+      {
+        "text": "Use auto swap",
+        "note": "Auto swap triggers swaps automatically; it doesn't keep settings in place."
+      },
+      {
+        "text": "Scale out the production slot",
+        "note": "Instance count doesn't affect which settings swap."
+      }
+    ],
+    "answer": 0,
+    "explanation": "App settings and connection strings swap with the slot unless they're marked as deployment slot settings (\"sticky\"). Sticky settings stay with the slot, so production keeps its production values."
+  },
+  {
+    "id": 221,
+    "domain": "D3",
+    "scenario": "Your team has an ARM template JSON file and wants to maintain it in Bicep from now on. Which command creates a starting Bicep file?",
+    "options": [
+      {
+        "text": "<code>az bicep decompile --file main.json</code>",
+        "note": ""
+      },
+      {
+        "text": "<code>az bicep build --file main.json</code>",
+        "note": "build compiles Bicep into ARM JSON, the opposite direction."
+      },
+      {
+        "text": "<code>az deployment group export</code>",
+        "note": "Not a real conversion command; export works on existing resource groups."
+      },
+      {
+        "text": "<code>az group create --template-file main.json</code>",
+        "note": "az group create makes resource groups; it doesn't convert templates."
+      }
+    ],
+    "answer": 0,
+    "explanation": "az bicep decompile converts ARM JSON to Bicep on a best-effort basis; review the output and fix any warnings. To capture deployed resources, export the resource group as a template, then decompile it."
+  },
+  {
+    "id": 222,
+    "domain": "D3",
+    "scenario": "You're creating a new scale set that must mix VM sizes and include Spot VMs, and you want to manage instances with standard VM operations. Which orchestration mode should you choose?",
+    "options": [
+      {
+        "text": "Flexible orchestration",
+        "note": ""
+      },
+      {
+        "text": "Uniform orchestration",
+        "note": "Uniform uses one identical VM model, which suits large stateless fleets."
+      },
+      {
+        "text": "An availability set",
+        "note": "Availability sets don't scale automatically."
+      },
+      {
+        "text": "A proximity placement group",
+        "note": "It controls physical closeness, not orchestration."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Flexible orchestration, recommended for most new scale sets, supports mixed sizes, Spot and regular VMs, and standard VM APIs. Uniform mode manages identical instances through the scale set model."
+  },
+  {
+    "id": 223,
+    "domain": "D4",
+    "scenario": "A VM's subnet has an NSG that allows inbound TCP 443 from the internet. The VM's NIC has another NSG with only the default rules. Can clients reach the VM on port 443?",
+    "options": [
+      {
+        "text": "No; inbound traffic must be allowed by both the subnet NSG and the NIC NSG, and the NIC's default rules deny it",
+        "note": ""
+      },
+      {
+        "text": "Yes, because the subnet NSG is evaluated last and wins",
+        "note": "For inbound traffic the subnet NSG is evaluated first, then the NIC NSG; both must allow it."
+      },
+      {
+        "text": "Yes, because NIC NSGs only filter outbound traffic",
+        "note": "NSGs on NICs filter both directions."
+      },
+      {
+        "text": "Only if the VM has a Standard SKU public IP",
+        "note": "The SKU doesn't override NSG rules."
+      }
+    ],
+    "answer": 0,
+    "explanation": "For inbound traffic Azure applies the subnet NSG and then the NIC NSG; for outbound, the NIC NSG and then the subnet NSG. Use the NIC's Effective security rules view (the VM must be running) to see the combined result."
+  },
+  {
+    "id": 224,
+    "domain": "D4",
+    "scenario": "Admins must connect to VMs through Azure Bastion using the native SSH and RDP clients on their workstations (az network bastion ssh/rdp), not the browser. Which Bastion configuration supports this?",
+    "options": [
+      {
+        "text": "Standard or Premium SKU with native client support enabled",
+        "note": ""
+      },
+      {
+        "text": "Developer SKU",
+        "note": "Developer is a free browser-only option for dev/test."
+      },
+      {
+        "text": "Basic SKU",
+        "note": "Basic doesn't support native client connections."
+      },
+      {
+        "text": "Any SKU, as long as the VMs have public IPs",
+        "note": "Bastion exists so VMs don't need public IPs; native client needs Standard or higher."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Native client support, shareable links and IP-based connections need the Standard SKU (Premium adds features such as session recording). Bastion needs a subnet named AzureBastionSubnet of /26 or larger."
+  },
+  {
+    "id": 225,
+    "domain": "D4",
+    "scenario": "Two backend VMs behind a Standard internal load balancer show as unhealthy, although the app responds locally on port 8080. The NSG has a custom rule <code>DenyAllInbound</code> at priority 4000. What is the likely cause?",
+    "options": [
+      {
+        "text": "The custom deny rule overrides the default AllowAzureLoadBalancerInBound rule, so the health probe is blocked",
+        "note": ""
+      },
+      {
+        "text": "Standard load balancers don't support health probes on port 8080",
+        "note": "Probes can use any TCP or HTTP port."
+      },
+      {
+        "text": "The VMs need public IP addresses for probes",
+        "note": "Probes come from the platform address 168.63.129.16, not over the internet."
+      },
+      {
+        "text": "Health probes only work with Basic load balancers",
+        "note": "Basic load balancers were retired in 2025; Standard uses probes normally."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Health probes come from 168.63.129.16, matched by the AzureLoadBalancer service tag. The default rule that allows them has priority 65001, so any custom deny with a lower number blocks probes. Add an allow rule for AzureLoadBalancer above your deny rule."
+  },
+  {
+    "id": 226,
+    "domain": "D4",
+    "scenario": "VMs in <code>snet-app</code> must reach a storage account over the Azure backbone. The storage account can keep its public endpoint, but only that subnet should be allowed, with no extra IP addresses to manage. What should you configure?",
+    "options": [
+      {
+        "text": "A Microsoft.Storage service endpoint on snet-app, plus a virtual network rule in the storage firewall",
+        "note": ""
+      },
+      {
+        "text": "A private endpoint and a private DNS zone",
+        "note": "Also secure, but it adds a private IP and DNS; a service endpoint meets the requirement more simply."
+      },
+      {
+        "text": "A NAT gateway on the subnet",
+        "note": "It controls outbound internet IPs; it doesn't restrict the storage account to the subnet."
+      },
+      {
+        "text": "A user-defined route to the Internet next hop",
+        "note": "Routing to Internet doesn't authorize the subnet at the storage firewall."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Service endpoints extend the subnet's identity to the PaaS service over the backbone while traffic still targets the public endpoint. Private endpoints give the service a private IP in your VNet and are required when traffic must stay private end to end or come from on-premises."
+  },
+  {
+    "id": 227,
+    "domain": "D5",
+    "scenario": "You must back up Azure managed disks with incremental snapshots, and blobs with operational backup. Which vault type do you create?",
+    "options": [
+      {
+        "text": "A Backup vault",
+        "note": ""
+      },
+      {
+        "text": "A Recovery Services vault",
+        "note": "Recovery Services vaults hold backups for VMs, Azure Files, SQL/SAP HANA in VMs and on-premises (MARS/MABS)."
+      },
+      {
+        "text": "A Key Vault",
+        "note": "Key Vault stores secrets, keys and certificates, not backups."
+      },
+      {
+        "text": "A storage account with soft delete",
+        "note": "Soft delete helps, but it isn't Azure Backup."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Azure Backup uses two vault types. Backup vaults serve newer workloads such as Azure Disk Backup, Azure Blob backup, Azure Database for PostgreSQL and AKS. Recovery Services vaults serve Azure VMs, Azure Files and workloads inside VMs."
+  },
+  {
+    "id": 228,
+    "domain": "D5",
+    "scenario": "Management wants weekly reports of backup jobs, storage used and policy compliance across 12 vaults. What must you configure first?",
+    "options": [
+      {
+        "text": "Diagnostic settings on each vault that send backup data to a Log Analytics workspace, then use Backup Reports",
+        "note": ""
+      },
+      {
+        "text": "An action group with an email receiver",
+        "note": "Action groups send alerts, not reports."
+      },
+      {
+        "text": "Cross Region Restore on each vault",
+        "note": "It enables restores in the paired region; it doesn't produce reports."
+      },
+      {
+        "text": "A storage account lifecycle policy",
+        "note": "Lifecycle policies tier or delete blobs; they don't report on backups."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Backup Reports (in Business Continuity Center or Backup center) read from Log Analytics. Send each vault's diagnostics to a workspace, preferably in resource-specific mode. For failures, use the built-in Azure Monitor alerts for Azure Backup."
+  },
+  {
+    "id": 229,
+    "domain": "D5",
+    "scenario": "You replicate a production VM to another region with Azure Site Recovery. You must prove that failover works without affecting production or replication. What should you do?",
+    "options": [
+      {
+        "text": "Run a test failover into an isolated virtual network, then clean up the test failover",
+        "note": ""
+      },
+      {
+        "text": "Run an unplanned failover to the production VNet",
+        "note": "A real failover disrupts production."
+      },
+      {
+        "text": "Stop replication and restore from backup",
+        "note": "This breaks protection and doesn't test Site Recovery."
+      },
+      {
+        "text": "Run a planned failover during business hours",
+        "note": "A planned failover still moves production."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Test failover creates VMs from replicated data in a network you choose (ideally isolated) while replication continues. After validating, run Cleanup test failover to delete the test resources."
+  },
+  {
+    "id": 230,
+    "domain": "D5",
+    "scenario": "After a real Site Recovery failover to the secondary region, the VMs are running and confirmed healthy. What are the next steps to get protection and a way back?",
+    "options": [
+      {
+        "text": "Commit the failover, then re-protect the VMs so they replicate back to the primary region",
+        "note": ""
+      },
+      {
+        "text": "Delete the source VMs immediately",
+        "note": "You need them, or the primary region, for failback."
+      },
+      {
+        "text": "Run a test failover again",
+        "note": "Testing doesn't restore replication."
+      },
+      {
+        "text": "Disable replication",
+        "note": "This removes protection entirely."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Commit finalizes the failover and removes other recovery points. Re-protect starts replication from the secondary back to the primary, so you can later fail back with a planned failover."
+  },
+  {
+    "id": 231,
+    "domain": "D5",
+    "scenario": "Every Saturday from 1 AM to 5 AM you patch servers, and alerts fire during the window. Alert rules should still evaluate, but no one should be notified then. What should you create?",
+    "options": [
+      {
+        "text": "An alert processing rule with a recurring schedule that suppresses notifications",
+        "note": ""
+      },
+      {
+        "text": "Delete the alert rules and recreate them each week",
+        "note": "Manual and error-prone."
+      },
+      {
+        "text": "Disable the action group permanently",
+        "note": "You'd miss alerts outside the window too."
+      },
+      {
+        "text": "Raise the severity of the alerts",
+        "note": "Severity doesn't stop notifications."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Alert processing rules modify fired alerts at scale: suppress action groups during maintenance windows, or add action groups to many alert rules at once, filtered by scope, resource type or severity."
+  },
+  {
+    "id": 232,
+    "domain": "D5",
+    "scenario": "You need to continuously measure reachability, latency and packet loss between Azure VMs and an on-premises server, and be alerted when it degrades. Which tool fits?",
+    "options": [
+      {
+        "text": "Connection monitor in Azure Network Watcher",
+        "note": ""
+      },
+      {
+        "text": "IP flow verify",
+        "note": "IP flow verify tests one packet against NSG rules at a point in time."
+      },
+      {
+        "text": "Next hop",
+        "note": "It shows the next routing hop, not ongoing performance."
+      },
+      {
+        "text": "NSG flow logs",
+        "note": "Flow logs record traffic; they don't measure latency between endpoints."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Connection monitor runs scheduled tests between Azure VMs, scale sets, on-premises machines (through Azure Arc and Azure Monitor Agent) and URLs, and records reachability, round-trip time and loss with alerting."
+  },
+  {
+    "id": 233,
+    "domain": "D5",
+    "scenario": "You need VM insights performance charts and the dependency map for 30 VMs. What do the VMs need?",
+    "options": [
+      {
+        "text": "The Azure Monitor Agent with a VM insights data collection rule (and the Dependency agent for the map)",
+        "note": ""
+      },
+      {
+        "text": "Only boot diagnostics enabled",
+        "note": "Boot diagnostics captures console screenshots and logs only."
+      },
+      {
+        "text": "The legacy Log Analytics agent (MMA)",
+        "note": "MMA was retired in August 2024."
+      },
+      {
+        "text": "Network Watcher enabled in the region",
+        "note": "Network Watcher doesn't collect guest performance data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "VM insights collects guest performance through Azure Monitor Agent and a data collection rule into Log Analytics. The Map feature also needs the Dependency agent. Enable it from Monitor > Insights > Virtual machines or with Azure Policy at scale."
   }
 ]
