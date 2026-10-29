@@ -18,8 +18,9 @@
     "name": "CompTIA Network+",
     "vendor": "CompTIA",
     "level": "intermediate",
-    "updated": "2026-10-27",
-    "questions": 237
+    "updated": "2026-10-29",
+    "questions": 237,
+    "labs": 8
   },
   {
     "slug": "security-plus",
@@ -36,8 +37,9 @@
     "name": "Cisco Certified Network Associate",
     "vendor": "Cisco",
     "level": "advanced",
-    "updated": "2026-10-27",
-    "questions": 200
+    "updated": "2026-10-29",
+    "questions": 200,
+    "labs": 8
   },
   {
     "slug": "aws-saa",
