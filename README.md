@@ -1,6 +1,7 @@
 # The IT Study Hall
 
 Learning paths, practice questions and timed exams for IT, Linux and healthcare administration certifications, live at **The IT Study Hall**, https://it-study-hall.vercel.app
+Source: https://github.com/abg0dw1n/it-study-hall
 (the older it-learn-and-practice, it-exam-simulator and az104-exam-simulator-drab `.vercel.app` addresses forward there; see `redirects` in `vercel.json`). Currently includes:
 
 | Exam | Folder | Questions | Scoring |
@@ -24,8 +25,8 @@ Learning paths, practice questions and timed exams for IT, Linux and healthcare 
 | Google Professional Cloud Architect | `exams/google-pca` | 88 | ~70% (Google doesn't publish a cut score) |
 | CompTIA Data+ (DA0-002) | `exams/data-plus` | 95 | 675 on 100–900 to pass |
 | Tableau Desktop Foundations (Analytics-101) · beginner | `exams/tableau-foundations` | 80 | 48% to pass |
-| Microsoft Azure Administrator (AZ-104) | `exams/az-104` | 198 | 700 / 1000 to pass |
-| CompTIA Network+ (N10-009) | `exams/network-plus` | 237 | 720 on 100–900 to pass |
+| Microsoft Azure Administrator (AZ-104) | `exams/az-104` | 229 | 700 / 1000 to pass |
+| CompTIA Network+ (N10-009) | `exams/network-plus` | 260 | 720 on 100–900 to pass |
 | CompTIA Security+ (SY0-701) | `exams/security-plus` | 195 | 750 on 100–900 to pass |
 | Cisco CCNA (200-301 v2.0) | `exams/ccna` | 200 | ~825 / 1000 (Cisco doesn't publish a cut score) |
 | AWS Solutions Architect – Associate (SAA-C03) | `exams/aws-saa` | 197 | 720 on 100–1000 to pass |

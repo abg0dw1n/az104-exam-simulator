@@ -1012,7 +1012,7 @@ async function renderLearningPathsPage() {
       <p class="muted">Structured study for each exam: a study guide, slides and a narrated video lesson for every exam domain. Easiest first.</p></div>
       ${paths.length ? `<div class="learning-path-grid">${paths.map(learningPathCard).join('')}</div>`
         : '<p class="panel empty">Learning paths are on the way. In the meantime, try the practice exams.</p>'}
-      <p class="muted small">Don't see your exam? <a href="https://github.com/abg0dw1n/az104-exam-simulator/issues/new?template=course-exam-request.yml" target="_blank" rel="noopener noreferrer">Request a learning path</a>.</p>
+      <p class="muted small">Don't see your exam? <a href="https://github.com/abg0dw1n/it-study-hall/issues/new?template=course-exam-request.yml" target="_blank" rel="noopener noreferrer">Request a learning path</a>.</p>
     </section>`;
 }
 
@@ -1218,7 +1218,7 @@ async function renderHome() {
         <p>Tell us which certification you’re studying for and what learning materials would help. Requests help us prioritize future additions.</p>
       </div>
       <div class="request-action">
-        <a class="btn btn-primary" href="https://github.com/abg0dw1n/az104-exam-simulator/issues/new?template=course-exam-request.yml" target="_blank" rel="noopener noreferrer">Submit a request ${icon("right","icon")}</a>
+        <a class="btn btn-primary" href="https://github.com/abg0dw1n/it-study-hall/issues/new?template=course-exam-request.yml" target="_blank" rel="noopener noreferrer">Submit a request ${icon("right","icon")}</a>
         <p>Requests are public on GitHub. A GitHub account is required. Please don’t include personal or sensitive information.</p>
       </div>
     </section>
