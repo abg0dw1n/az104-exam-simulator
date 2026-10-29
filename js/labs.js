@@ -7,7 +7,7 @@
 import { Net, newIos, canonIf, ip2n, isIp, maskBits, vlanSet } from './labs-net.js';
 import { IosSession } from './labs-ios.js';
 import { newWin, WinSession } from './labs-win.js';
-import { newLinux, LinuxSession } from './labs-linux.js';
+import { newLinux, LinuxSession, linuxQuery } from './labs-linux.js';
 import { newAz, AzSession } from './labs-az.js';
 const CONSOLE = ['ios', 'windows', 'linux', 'az'];
 
@@ -173,7 +173,7 @@ function netFor(w) { return new Net(w.devices, live.lab.links || []); }
 function session(name) {
   if (live.sessions[name]) return live.sessions[name];
   const d = live.w.devices[name];
-  const opts = { log: (m) => print(m), clear: () => { live.w.log[name] = []; drawLog(); } };
+  const opts = { log: (m) => print(m), clear: () => { live.w.log[name] = []; drawLog(); }, edit: (f) => openEditor(f) };
   const s = d.platform === 'windows' ? new WinSession(d, opts) : d.platform === 'linux' ? new LinuxSession(d, opts)
     : d.platform === 'az' ? new AzSession(d, opts) : new IosSession(d, netFor(live.w), opts);
   s.history = live.w.history?.[name] || [];
@@ -190,6 +190,27 @@ function drawLog() {
   out.innerHTML = log.map(([c, t]) => `<div class="${c}">${esc(t) || '&nbsp;'}</div>`).join('');
   out.scrollTop = out.scrollHeight;
 }
+// A simple full-file editor that stands in for vi/nano in Linux labs.
+function openEditor(f) {
+  const wrap = document.querySelector('.terminal-wrap'); if (!wrap) return;
+  wrap.querySelector('.term-editor')?.remove();
+  const box = document.createElement('div'); box.className = 'term-editor'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-label', `Editing ${f.name}`);
+  box.innerHTML = `<div class="term-editor-bar"><b>${esc(f.editor)} ${esc(f.path)}</b><span class="small">${f.readonly ? 'Read-only: you need sudo to save this file' : 'Ctrl+S saves · Esc closes without saving'}</span></div>
+    <textarea spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" aria-label="File contents">${esc(f.content)}</textarea>
+    <div class="term-editor-actions"><button type="button" class="btn btn-primary btn-sm" data-ed-save ${f.readonly ? 'disabled' : ''}>Save and close (:wq)</button>
+    <button type="button" class="btn btn-ghost btn-sm" data-ed-cancel>Close without saving (:q!)</button></div>`;
+  wrap.querySelector('.terminal').after(box);
+  const ta = box.querySelector('textarea'); ta.focus(); ta.setSelectionRange(0, 0); ta.scrollTop = 0;
+  const done = (msg) => { box.remove(); if (msg) print(msg, 'muted'); (live.w.history ||= {})[live.current] = session(live.current).history.slice(-50); ctx.save(); $('term-prompt').textContent = session(live.current).prompt(); drawLog(); renderSide(true); $('term-in')?.focus(); };
+  const save = () => { if (f.readonly) return; try { f.save(ta.value); done(`"${f.path}" ${ta.value.split('\n').length}L written`); } catch (e) { print(e.message); done(); } };
+  box.querySelector('[data-ed-save]').addEventListener('click', save);
+  box.querySelector('[data-ed-cancel]').addEventListener('click', () => done(f.readonly ? '' : `"${f.path}" closed without saving`));
+  ta.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') { e.preventDefault(); save(); }
+    else if (e.key === 'Escape') { e.preventDefault(); done(`"${f.path}" closed without saving`); }
+    else if (e.key === 'Tab') { e.preventDefault(); const p = ta.selectionStart; ta.setRangeText('\t', p, ta.selectionEnd, 'end'); }
+  });
+}
 function renderTerminal(el) {
   const consoles = live.lab.devices.filter((d) => CONSOLE.includes(d.platform));
   el.innerHTML = `<div class="terminal-wrap">
@@ -203,7 +224,7 @@ function renderTerminal(el) {
     <p class="small muted term-help">${{
       ios: 'Type commands as you would on the device. Abbreviations work (conf t, int g0/1, sh ip int br). Type ? for help, Tab to complete, ↑/↓ for history.',
       windows: 'Type Windows commands (ipconfig, ping, nslookup, netsh, net user, tasklist…). Type help for the list; ↑/↓ for history.',
-      linux: 'Type Linux commands (ls -l, cat, grep, chmod, sudo, systemctl…). Pipes work. Type help for the list; Tab completes paths; ↑/↓ for history.',
+      linux: 'Type Linux commands (ls -l, cat, grep, chmod, sudo, systemctl…). Pipes, ;, &&, > and >> work, and vi or nano opens a simple editor. Type help for the list; Tab completes; ↑/↓ for history.',
       az: 'Type Azure CLI commands starting with az (for example az group list -o table). ↑/↓ for history.',
     }[consoles[0]?.platform] || ''}</p>
   </div>`;
@@ -214,6 +235,7 @@ function renderTerminal(el) {
     const lg = (live.w.log[d.name] ||= []);
     if (!lg.length) {
       if (d.platform === 'windows') lg.push(['', 'Microsoft Windows [Version 10.0.22631.4317]'], ['', '(c) Microsoft Corporation. All rights reserved.'], ['', '']);
+      else if (d.platform === 'linux' && d.distro === 'rhel') lg.push(['', 'Red Hat Enterprise Linux 10.0 (Coughlan)'], ['', 'Kernel 6.12.0-55.el10.x86_64 on x86_64'], ['muted', 'Activate the web console with: systemctl enable --now cockpit.socket'], ['muted', `Last login: Thu Oct 29 08:02:44 2026 from 172.25.250.250`]);
       else if (d.platform === 'linux') lg.push(['', `Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.8.0-45-generic x86_64)`], ['muted', `Last login: Thu Oct 29 08:02:44 2026 from 10.0.0.5`]);
       else if (d.platform === 'az') lg.push(['', 'Requesting a Cloud Shell... Succeeded.'], ['muted', `Subscription: ${live.w.devices[d.name].sub.name}. Type "az help" to see the command groups in this lab.`]);
       else lg.push(['muted', `Connected to ${d.name} console. Press Enter to start.`]);
@@ -457,6 +479,7 @@ function compare(v, c) {
   if ('notre' in c) return !new RegExp(c.notre, 'i').test(String(v ?? ''));
   if ('exists' in c) return (v != null && v !== '') === c.exists;
   if ('nonEmpty' in c) return (v && typeof v === 'object' ? Object.keys(v).length > 0 : !!v) === c.nonEmpty;
+  if ('min' in c || 'max' in c) return v != null && Number(v) >= (c.min ?? -Infinity) && Number(v) <= (c.max ?? Infinity);
   return !!v;
 }
 function check(c, net) {
@@ -465,6 +488,7 @@ function check(c, net) {
   if (c.any) return c.any.some((x) => check(x, net));
   if (c.not) return !check(c.not, net);
   if (c.dev) return compare(getPath(w.devices[c.dev], c.path), c);
+  if (c.lq) { const [dn, q, arg] = c.lq; return compare(linuxQuery(w.devices[dn], q, arg), c); }
   if (c.iface) {
     const [dn, ...rest] = c.iface.split(/\s+/); const d = w.devices[dn]; const n = canonIf(rest.join(''));
     const i = d?.interfaces?.[n]; if (!i) return false;
@@ -495,6 +519,11 @@ function check(c, net) {
     if (c.mode && n.mode !== c.mode) return false;
     if (c.owner && n.owner !== c.owner) return false;
     if (c.group && n.group !== c.group) return false;
+    if (c.type && n.t !== c.type) return false;
+    if (c.link && !(n.t === 'l' && new RegExp(c.link).test(n.target))) return false;
+    if (c.special != null && (n.sp || 0) !== c.special) return false;
+    if (c.ctx && (n.ctx || '') !== c.ctx) return false;
+    if (c.acl && !Object.entries(c.acl).every(([k, v]) => new RegExp(v).test(n.acl?.[k] || ''))) return false;
     if (c.contains && !new RegExp(c.contains, 'm').test(n.content || '')) return false;
     if (c.notContains && new RegExp(c.notContains, 'm').test(n.content || '')) return false;
     return true;

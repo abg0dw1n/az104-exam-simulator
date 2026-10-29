@@ -933,6 +933,13 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 .term-prompt { color: #a9dc76; white-space: pre; }
 .term-line input { flex: 1; min-width: 0; background: transparent; border: 0; outline: 0; color: #fcfcfa; font: inherit; padding: 2px 0; caret-color: #ffd866; }
 .term-help { margin: 0; }
+.term-editor { display: grid; gap: 8px; background: #19181a; color: #e6e6e3; border: 1px solid #2d2a2e; border-radius: 10px; padding: 10px 12px; }
+.term-editor-bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; font: 12.5px/1.4 var(--mono); }
+.term-editor-bar .small { color: #a9a6a0; }
+.term-editor textarea { width: 100%; min-height: 260px; resize: vertical; background: #121113; color: #e6e6e3; border: 1px solid #3a363b; border-radius: 6px; padding: 8px 10px; font: 13px/1.5 var(--mono); tab-size: 8; white-space: pre; overflow: auto; }
+.term-editor textarea:focus { outline: 2px solid var(--azure); outline-offset: 1px; }
+.term-editor-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.term-editor .btn-ghost { color: #e6e6e3; }
 
 /* Activities */
 .activity h3 { display: flex; gap: 10px; align-items: center; font-size: 15px; }
