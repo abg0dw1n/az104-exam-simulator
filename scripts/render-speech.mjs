@@ -6,13 +6,14 @@
 //   npm run speech -- --force      # re-record modules even if their script hasn't changed
 //
 // Needs AZURE_SPEECH_KEY and AZURE_SPEECH_REGION in the environment (never written to disk).
-// Writes exams/<slug>/media/<module>.mp3, records what was rendered in media/narration.json
-// (so unchanged modules are skipped next time), and adds the "narration" block to learn.json
-// once every module of a course has audio, which switches the site from the browser's voice
-// to the recording.
+// Writes one clip per slide, exams/<slug>/media/<module>-<n>.mp3 (n = slide number), records
+// what was rendered in media/narration.json (so unchanged slides are skipped next time), and
+// adds the "narration" block to learn.json once every slide of a course has audio, which
+// switches the site from the browser's voice to the recording. Separate clips let the player
+// change slides exactly when the narration does, with a short pause in between.
 import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
-import { mkdir, readdir, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readdir, readFile, unlink, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -35,10 +36,11 @@ const credit = `${voice.replace(/^[a-z]{2}-[A-Z]{2}-/, '').replace(/Neural$/, ''
 const xmlEscape = (v) => v.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
   .replaceAll('"', '&quot;').replaceAll("'", '&apos;');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const narrationOf = (module) => (module.slides || [])
-  .flatMap((slide) => (Array.isArray(slide.script) ? slide.script : []))
-  .map((line) => line.trim())
-  .filter(Boolean);
+// The lines spoken for a slide: its script, or its title if it has none (same as the player).
+const linesOf = (slide) => {
+  const lines = (Array.isArray(slide.script) ? slide.script : []).map((l) => String(l).trim()).filter(Boolean);
+  return lines.length ? lines : [String(slide.title || '').trim()].filter(Boolean);
+};
 
 async function synthesize(lines) {
   const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US"><voice name="${xmlEscape(voice)}">${lines.map((l) => `<p>${xmlEscape(l)}</p>`).join('')}</voice></speak>`;
@@ -71,33 +73,35 @@ for (const slug of slugs) {
   const mediaDir = path.join(examsDir, slug, 'media');
   const manifestPath = path.join(mediaDir, 'narration.json');
   await mkdir(mediaDir, { recursive: true });
-  const manifest = existsSync(manifestPath) ? JSON.parse(await readFile(manifestPath, 'utf8')) : { voice, modules: {} };
-  if (manifest.voice !== voice) manifest.modules = {}; // a different voice re-records everything
+  const manifest = existsSync(manifestPath) ? JSON.parse(await readFile(manifestPath, 'utf8')) : { voice, slides: {} };
+  if (manifest.voice !== voice || !manifest.slides) { manifest.slides = {}; delete manifest.modules; } // new voice or old per-module format: re-record
   manifest.voice = voice;
 
   let complete = true;
+  const keep = new Set(['narration.json']);
   for (const module of lesson.modules || []) {
-    const lines = narrationOf(module);
-    if (!lines.length) { console.warn(`${slug} ${module.id}: no narration script, skipped`); complete = false; continue; }
-    const hash = createHash('sha256').update(`${voice}\n${lines.join('\n')}`).digest('hex').slice(0, 16);
-    const mp3 = path.join(mediaDir, `${module.id}.mp3`);
-    // Audio recorded before this manifest existed is treated as current unless --force.
-    if (!force && existsSync(mp3) && !manifest.modules[module.id]) manifest.modules[module.id] = hash;
-    if (!force && existsSync(mp3) && manifest.modules[module.id] === hash) {
-      console.log(`${slug} ${module.id}: up to date`);
-      continue;
+    for (const [i, slide] of (module.slides || []).entries()) {
+      const lines = linesOf(slide); const name = `${module.id}-${i + 1}`;
+      if (!lines.length) { console.warn(`${slug} ${name}: nothing to narrate, skipped`); complete = false; continue; }
+      const file = `${name}.mp3`; keep.add(file);
+      const hash = createHash('sha256').update(`${voice}\n${lines.join('\n')}`).digest('hex').slice(0, 16);
+      const mp3 = path.join(mediaDir, file);
+      if (!force && existsSync(mp3) && manifest.slides[name] === hash) continue;
+      process.stdout.write(`${slug} ${name}: recording ${lines.length} line(s)... `);
+      await writeFile(mp3, await synthesize(lines));
+      manifest.slides[name] = hash;
+      rendered++;
+      console.log('done');
+      await writeFile(manifestPath, JSON.stringify(manifest, null, 2) + '\n'); // save progress as we go
+      await sleep(3200); // free tier allows about 20 requests a minute
     }
-    process.stdout.write(`${slug} ${module.id}: recording ${lines.length} lines... `);
-    await writeFile(mp3, await synthesize(lines));
-    manifest.modules[module.id] = hash;
-    rendered++;
-    console.log('done');
-    await sleep(1500);
   }
+  // Remove clips for slides that no longer exist, and the old one-file-per-module recordings.
+  for (const f of await readdir(mediaDir)) if (f.endsWith('.mp3') && !keep.has(f)) { await unlink(path.join(mediaDir, f)); delete manifest.slides[f.replace(/\.mp3$/, '')]; }
   await writeFile(manifestPath, JSON.stringify(manifest, null, 2) + '\n');
 
   if (complete) {
-    const narration = { src: 'media/{id}.mp3', credit };
+    const narration = { src: 'media/{id}-{n}.mp3', perSlide: true, credit };
     if (JSON.stringify(lesson.narration) !== JSON.stringify(narration)) {
       // Put "narration" right after "intro", keeping the other keys in order.
       const out = {};
@@ -111,7 +115,7 @@ for (const slug of slugs) {
       console.log(`${slug}: learn.json now uses the recorded narration`);
     }
   } else {
-    console.warn(`${slug}: not every module has audio, so the site keeps the browser voice for this course`);
+    console.warn(`${slug}: not every slide has audio, so the site keeps the browser voice for this course`);
   }
 }
-console.log(`Done. Voice: ${voice}. Recorded ${rendered} module(s). No key was written to disk.`);
+console.log(`Done. Voice: ${voice}. Recorded ${rendered} slide(s). No key was written to disk.`);

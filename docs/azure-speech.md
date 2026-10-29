@@ -40,7 +40,7 @@ To use another standard Neural voice, set `$env:AZURE_SPEECH_VOICE = "en-US-AvaN
 
 ## What it changes
 
-- `exams/<course>/media/<module>.mp3`: one recording per module
+- `exams/<course>/media/<module>-<n>.mp3`: one recording per slide, so the video changes slides exactly when the narration does (with a short pause between slides)
 - `exams/<course>/media/narration.json`: which script each recording was made from, so unchanged modules are skipped next time
 - `exams/<course>/learn.json`: gains a `"narration"` block once every module has audio, which switches that course's videos from the browser's voice to the recording
 
@@ -48,4 +48,4 @@ Then commit and push those files (for example `git add exams` then `git commit -
 
 ## When to re-run
 
-Run `npm run speech` after adding a new learning path or editing any slide's `script` lines; only the new or changed modules are recorded.
+Run `npm run speech` after adding a new learning path or editing any slide's `script` lines; only the new or changed slides are recorded.

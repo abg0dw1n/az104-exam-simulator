@@ -299,13 +299,20 @@ function renderVideo(body, m) {
         ${tts ? '<label class="small muted v-ctl">Voice <select id="v-voice"></select></label>' : ''}
         <button class="btn btn-ghost btn-sm" id="v-full">Full screen</button>
       </div>
-      ${prerecorded ? `<p class="muted small">${narration.credit ? `Narration: ${esc(narration.credit)}. ` : ''}Captions follow the narration; use the timeline to move between slides.</p>` : tts ? '' : '<p class="muted small">Your browser can\'t read text aloud, so this lesson plays with captions only.</p>'}
+      ${prerecorded ? `<p class="muted small">${narration.credit ? `Narration: ${esc(narration.credit)}. ` : ''}Captions follow the narration; use the timeline or the arrow keys to move between slides.</p>` : tts ? '' : '<p class="muted small">Your browser can\'t read text aloud, so this lesson plays with captions only.</p>'}
     </div>`;
 
   const st = { scene: 0, line: 0, playing: false, token: 0, cc: true, rate: Number(pref(RATE_KEY, '1')) || 1 };
   const el = { slide: $('video-slide'), cap: $('video-caption'), prog: $('video-progress'), play: $('v-play'), big: $('video-big'), time: $('v-time') };
-  const audio = prerecorded ? new Audio(`/exams/${learnSlug}/${narration.src.replace('{id}', encodeURIComponent(m.id))}`) : null;
+  // Recorded narration is either one clip per slide ({n} in src) or one file for the module.
+  const perSlide = prerecorded && narration.src.includes('{n}');
+  const clipSrc = (i) => `/exams/${learnSlug}/${narration.src.replace('{id}', encodeURIComponent(m.id)).replace('{n}', String(i + 1))}`;
+  const audio = prerecorded ? new Audio(clipSrc(0)) : null;
   if (audio) audio.preload = 'metadata';
+  const nextClip = perSlide ? new Audio() : null; // warms the cache for the next slide
+  if (nextClip) { nextClip.preload = 'auto'; if (scenes.length > 1) nextClip.src = clipSrc(1); }
+  const GAP = 1100; // pause between slides, in ms at 1x speed
+  let gapTimer = null;
   $('v-rate').value = String(st.rate);
   let timer = null;
 
@@ -332,6 +339,14 @@ function renderVideo(body, m) {
   });
   const syncAudio = () => {
     if (!audio?.duration || !Number.isFinite(audio.duration)) return;
+    if (perSlide) {
+      const lines = scenes[st.scene].lines; const w = lines.map((t) => Math.max(1, words(t))); const tw = w.reduce((a, b) => a + b, 0);
+      let target = (audio.currentTime / audio.duration) * tw; let line = 0;
+      while (line < lines.length - 1 && target >= w[line]) { target -= w[line]; line += 1; }
+      if (line === st.line && el.cap.textContent === lines[line]) return;
+      st.line = line; el.cap.textContent = lines[line]; drawSlide(); drawChrome();
+      return;
+    }
     const target = Math.min(totalWeight - 1, (audio.currentTime / audio.duration) * totalWeight);
     const segment = segments.find((item) => target < item.end) || segments[segments.length - 1];
     const changed = segment.scene !== st.scene || segment.line !== st.line;
@@ -398,13 +413,25 @@ function renderVideo(body, m) {
     clearTimeout(timer);
     const sc = scenes[st.scene];
     if (st.line < sc.lines.length - 1) st.line += 1;
-    else if (st.scene < scenes.length - 1) { st.scene += 1; st.line = 0; }
+    else if (st.scene < scenes.length - 1) {
+      // New slide: show it, pause briefly, then start its narration.
+      st.scene += 1; st.line = 0; el.cap.textContent = ''; drawSlide(); drawChrome();
+      const token = st.token; clearTimeout(timer);
+      timer = setTimeout(() => { if (token === st.token && st.playing) speakLine(); }, GAP / st.rate);
+      return;
+    }
     else { stop(); st.line = sc.lines.length; mark(m.id, 'video'); el.cap.textContent = ''; drawSlide(); drawChrome(); return; }
     speakLine();
   };
+  const loadClip = (i) => {
+    st.scene = i; st.line = 0;
+    audio.src = clipSrc(i); audio.load();
+    if (nextClip && i + 1 < scenes.length) nextClip.src = clipSrc(i + 1);
+  };
   const play = () => {
     if (audio) {
-      if (audio.ended) audio.currentTime = 0;
+      if (perSlide && audio.ended && st.scene === scenes.length - 1) { loadClip(0); }
+      else if (audio.ended) audio.currentTime = 0;
       st.playing = true;
       audio.playbackRate = st.rate;
       audio.play().then(syncAudio).catch(() => {
@@ -419,7 +446,7 @@ function renderVideo(body, m) {
     st.playing = true; speakLine();
   };
   const stop = () => {
-    st.playing = false; st.token += 1; clearTimeout(timer);
+    st.playing = false; st.token += 1; clearTimeout(timer); clearTimeout(gapTimer);
     if (audio) audio.pause();
     else if (tts) window.speechSynthesis.cancel();
     drawChrome();
@@ -427,6 +454,11 @@ function renderVideo(body, m) {
   const seek = (scene) => {
     const was = st.playing; stop();
     st.scene = Math.min(Math.max(scene, 0), scenes.length - 1); st.line = 0;
+    if (perSlide) {
+      loadClip(st.scene); el.cap.textContent = scenes[st.scene].lines[0];
+      if (was) play(); else { drawSlide(); drawChrome(); }
+      return;
+    }
     if (audio?.duration && Number.isFinite(audio.duration)) {
       audio.currentTime = (sceneStartWeight[st.scene] / totalWeight) * audio.duration;
       el.cap.textContent = scenes[st.scene].lines[0];
@@ -440,6 +472,13 @@ function renderVideo(body, m) {
   if (audio) {
     audio.addEventListener('timeupdate', syncAudio);
     audio.addEventListener('ended', () => {
+      if (perSlide && st.scene < scenes.length - 1) {
+        // Next slide appears right away; its narration starts after a short pause.
+        loadClip(st.scene + 1); st.line = 0; el.cap.textContent = ''; drawSlide(); drawChrome();
+        const token = st.token; clearTimeout(gapTimer);
+        gapTimer = setTimeout(() => { if (token === st.token && st.playing) { audio.playbackRate = st.rate; audio.play().catch(() => {}); } }, GAP / st.rate);
+        return;
+      }
       st.playing = false;
       st.scene = scenes.length - 1;
       st.line = scenes[scenes.length - 1].lines.length - 1;
@@ -486,6 +525,8 @@ function renderVideo(body, m) {
       stop();
       if (tts) window.speechSynthesis.onvoiceschanged = null;
       if (audio) { audio.removeAttribute('src'); audio.load(); } // stop buffering the MP3
+      if (nextClip) { nextClip.removeAttribute('src'); nextClip.load(); }
+      clearTimeout(gapTimer);
     },
   };
   drawSlide(); drawChrome();
