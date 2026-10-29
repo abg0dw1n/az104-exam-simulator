@@ -1,0 +1,12 @@
+{
+  "voice": "en-US-AndrewNeural",
+  "modules": {
+    "D1": "d65be793099fb721",
+    "D2": "cb7e74bc850f0944",
+    "D3": "fca821ad1774235d",
+    "D4": "f4287a8059912e05",
+    "D5": "425bc4368acc500a",
+    "D6": "4a7faa8392b8a821",
+    "D7": "fd828a37e596621f"
+  }
+}

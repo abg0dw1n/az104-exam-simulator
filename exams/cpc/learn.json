@@ -1,5 +1,9 @@
 {
   "intro": "Five modules follow the AAPC CPC exam's content areas, grouped into surgery, services, diagnosis and HCPCS coding, guidelines and compliance, and terminology and anatomy. Each has a study guide, exam tips, key terms, visual slides, and a narrated lesson. The real exam is open-book, so use these with the current AMA CPT Professional Edition, an ICD-10-CM book, and a HCPCS Level II book. CPT is a registered trademark of the American Medical Association.",
+  "narration": {
+    "src": "media/{id}.mp3",
+    "credit": "Andrew (standard Neural)"
+  },
   "updated": "2026-10-28",
   "sources": [
     {

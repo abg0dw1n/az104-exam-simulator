@@ -1,0 +1,9 @@
+{
+  "voice": "en-US-AndrewNeural",
+  "modules": {
+    "D1": "b0482f2d63d85c73",
+    "D2": "df37526c1e137eeb",
+    "D3": "631f369d1e8e9bef",
+    "D4": "5c2e8969d5170ace"
+  }
+}

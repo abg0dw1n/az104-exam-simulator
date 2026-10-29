@@ -1,5 +1,9 @@
 {
   "intro": "Two modules follow the AI-901 skills measured as of April 15, 2026: AI concepts and capabilities, and implementing AI solutions with Microsoft Foundry. Each combines a study guide, exam tips, key terms, visual slides, and a narrated lesson. Pair them with the free Microsoft Learn training and hands-on practice in the Foundry portal.",
+  "narration": {
+    "src": "media/{id}.mp3",
+    "credit": "Andrew (standard Neural)"
+  },
   "updated": "2026-10-28",
   "sources": [
     {

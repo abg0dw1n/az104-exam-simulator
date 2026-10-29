@@ -1,5 +1,9 @@
 {
   "intro": "Five modules follow the five A+ Core 1 domains. Each module includes a practical study guide, exam tips, key terms, a visual slideshow, and a narrated lesson. The narrated lessons use your browser's built-in speech voice; the simulator's questions are multiple choice, so also practice hands-on tasks for performance-based questions.",
+  "narration": {
+    "src": "media/{id}.mp3",
+    "credit": "Andrew (standard Neural)"
+  },
   "updated": "2026-10-28",
   "sources": [
     {

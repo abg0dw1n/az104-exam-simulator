@@ -1,5 +1,9 @@
 {
   "intro": "Four modules follow the Generative AI Leader exam guide's sections and weights. Each combines a study guide, exam tips, key terms, visual slides, and a narrated lesson. Google renamed Vertex AI to Gemini Enterprise Agent Platform in April 2026; lessons use the new names and mention the old ones.",
+  "narration": {
+    "src": "media/{id}.mp3",
+    "credit": "Andrew (standard Neural)"
+  },
   "updated": "2026-10-28",
   "sources": [
     {

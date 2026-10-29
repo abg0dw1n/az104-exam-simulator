@@ -1,5 +1,9 @@
 {
   "intro": "Four modules follow the NHA CBCS test plan's domains and weights. Each combines a study guide, exam tips, key terms, visual slides, and a narrated lesson. Use them alongside the official test plan and current code books. CPT is a registered trademark of the American Medical Association.",
+  "narration": {
+    "src": "media/{id}.mp3",
+    "credit": "Andrew (standard Neural)"
+  },
   "updated": "2026-10-28",
   "sources": [
     {
