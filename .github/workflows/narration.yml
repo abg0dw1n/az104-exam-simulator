@@ -1,0 +1,73 @@
+# Records the video-lesson narration in the Andrew voice (Azure Speech, en-US-AndrewNeural)
+# for every course, and commits the MP3s so the site plays them instead of the browser voice.
+# Needs two repository secrets: AZURE_SPEECH_KEY and AZURE_SPEECH_REGION (for example eastus).
+# Modules whose script hasn't changed are skipped, so runs with nothing new take seconds.
+name: Record narration
+
+on:
+  workflow_dispatch:
+    inputs:
+      courses:
+        description: 'Course folders separated by spaces (blank = all)'
+        required: false
+        default: ''
+      force:
+        description: 'Re-record everything'
+        type: boolean
+        default: false
+  push:
+    branches: [main]
+    paths: ['exams/*/learn.json', 'scripts/render-speech.mjs']
+  schedule:
+    - cron: '41 9 * * *'   # daily catch-up, 09:41 UTC
+
+permissions:
+  contents: write
+
+concurrency:
+  group: narration
+  cancel-in-progress: false
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check for the Azure Speech secrets
+        id: keys
+        env:
+          KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+        run: |
+          if [ -z "$KEY" ] || [ -z "$REGION" ]; then
+            echo "::notice::Add AZURE_SPEECH_KEY and AZURE_SPEECH_REGION under Settings > Secrets and variables > Actions to record narration. Skipping."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/checkout@v4
+        if: steps.keys.outputs.ready == 'true'
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        if: steps.keys.outputs.ready == 'true'
+        with:
+          node-version: 22
+      - name: Record changed or missing modules
+        if: steps.keys.outputs.ready == 'true'
+        env:
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+          COURSES: ${{ github.event.inputs.courses }}
+          FORCE: ${{ github.event.inputs.force == 'true' && '--force' || '' }}
+        run: node scripts/render-speech.mjs $COURSES $FORCE
+      - name: Commit the recordings
+        if: steps.keys.outputs.ready == 'true'
+        run: |
+          git add exams
+          if git diff --cached --quiet; then echo "Nothing new to record."; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Record Andrew narration" -m "Recorded by the narration workflow with Azure Speech (en-US-AndrewNeural)."
+          git pull --rebase origin main
+          git push origin HEAD:main

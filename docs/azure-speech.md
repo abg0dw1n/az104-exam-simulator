@@ -8,7 +8,17 @@ Every video lesson on the site uses the same prerecorded voice: Azure Speech's s
 - An Azure Speech resource on the **Free F0** tier (about 500,000 characters of Neural speech a month; a whole course is roughly 10,000–30,000 characters)
 - The resource key and region (for example, `eastus`)
 
-## Record (PowerShell)
+## Record on GitHub (automatic)
+
+The **Record narration** workflow (`.github/workflows/narration.yml`) records on GitHub, so nothing needs to run on your computer:
+
+1. In the repository on GitHub, open **Settings → Secrets and variables → Actions → New repository secret**.
+2. Add `AZURE_SPEECH_KEY` (your key) and `AZURE_SPEECH_REGION` (for example `eastus`).
+3. Open **Actions → Record narration → Run workflow** to record now (otherwise it runs within a day).
+
+After that it runs by itself whenever a `learn.json` changes on `main` (and once a day as a catch-up), records only new or changed modules, and commits the MP3s; Vercel then redeploys. Without the secrets it skips quietly.
+
+## Record on your computer (PowerShell)
 
 From the repository folder, get the latest version first, then set the key for this window only:
 
