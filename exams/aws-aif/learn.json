@@ -1,0 +1,1220 @@
+{
+  "intro": "Five modules follow the AIF-C01 exam guide's domains and weights. Each combines a study guide, exam tips, key terms, visual slides, and a narrated lesson. Pair them with AWS Skill Builder and hands-on time in Amazon Bedrock or PartyRock.",
+  "updated": "2026-10-28",
+  "sources": [
+    {
+      "title": "AWS Certified AI Practitioner (AIF-C01) exam guide",
+      "url": "https://docs.aws.amazon.com/aws-certification/latest/examguides/ai-practitioner-01.html"
+    },
+    {
+      "title": "AWS AI Practitioner AIF-C01 Full Course (sthithapragna, YouTube)",
+      "url": "https://www.youtube.com/watch?v=wrlYYRgaW5w",
+      "note": "Free · AIF-C01 · ~6-hour full course · uploaded August 2026 · checked October 2026"
+    }
+  ],
+  "modules": [
+    {
+      "id": "D1",
+      "short": "AI and ML basics",
+      "title": "Fundamentals of AI and ML",
+      "summary": "Define core AI and ML terms, choose between learning types and inference options, recognize when AI fits (and when it doesn't), match AWS AI services to use cases, and walk through the ML development lifecycle.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>Domain 1 is <b>20%</b> of AIF-C01. It covers three task statements: basic AI concepts and terms, practical use cases for AI, and the ML development lifecycle.</p>"
+        },
+        {
+          "h": "Core concepts",
+          "html": "<p><b>AI</b> is the broad goal of machines performing tasks that need human-like intelligence. <b>Machine learning</b> learns patterns from data, and <b>deep learning</b> uses multi-layer neural networks. <b>Generative AI</b> creates new content. Learning types: <b>supervised</b> (labeled data, for classification and regression), <b>unsupervised</b> (unlabeled, for clustering and anomaly detection), and <b>reinforcement</b> (an agent learns from rewards). Data can be structured (tables) or unstructured (text, images, audio), labeled or unlabeled, and time-series. <b>Inference</b> can be real-time (low latency, one request at a time) or batch (large volumes, not time-sensitive). Training fits a model; inference uses it.</p>"
+        },
+        {
+          "h": "When AI fits, and AWS services",
+          "html": "<p>AI adds value when you need to scale decisions, find patterns, or automate perception tasks. It's a poor fit when a deterministic rule works, when you need exact and fully explainable answers, or when the cost outweighs the benefit. Know the managed services: <b>Amazon Comprehend</b> (text insights and sentiment), <b>Amazon Translate</b>, <b>Amazon Transcribe</b> (speech to text), <b>Amazon Polly</b> (text to speech), <b>Amazon Lex</b> (chatbots), <b>Amazon Rekognition</b> (image and video analysis), <b>Amazon Textract</b> (text and forms from documents), <b>Amazon Kendra</b> (intelligent enterprise search), <b>Amazon Personalize</b> (recommendations), and <b>Amazon SageMaker AI</b> for building custom models.</p>"
+        },
+        {
+          "h": "The ML lifecycle",
+          "html": "<p>Stages: business goal and problem framing, data collection, data preparation and feature engineering, training, tuning, evaluation, deployment, and monitoring, then retraining. SageMaker supports each stage: Data Wrangler (data prep), Feature Store, training and automatic model tuning, JumpStart (pre-trained models), Model Monitor (drift), and Pipelines (MLOps). Evaluation metrics include <b>accuracy</b>, <b>precision</b>, <b>recall</b>, <b>F1 score</b>, and <b>AUC</b> for classification, and RMSE or MAE for regression, alongside business metrics such as cost and ROI. Watch for <b>overfitting</b> (great on training data, poor on new data) and <b>underfitting</b> (poor everywhere).</p>"
+        }
+      ],
+      "tips": [
+        "Labeled data means supervised learning; grouping with no labels means clustering.",
+        "Batch inference for big, non-urgent jobs; real-time for low latency.",
+        "Pick the managed AI service before building a custom model.",
+        "Overfitting = memorized training data; fix with more data or regularization.",
+        "Recall matters when missing a positive is costly; precision when false alarms are costly."
+      ],
+      "terms": [
+        [
+          "Supervised learning",
+          "Learning from labeled examples to predict labels or values."
+        ],
+        [
+          "Unsupervised learning",
+          "Finding structure, such as clusters, in unlabeled data."
+        ],
+        [
+          "Reinforcement learning",
+          "An agent learns actions by maximizing rewards."
+        ],
+        [
+          "Inference",
+          "Using a trained model to make predictions."
+        ],
+        [
+          "Feature engineering",
+          "Creating and selecting input variables for a model."
+        ],
+        [
+          "Overfitting",
+          "A model fits training data too closely and generalizes poorly."
+        ],
+        [
+          "Precision / recall",
+          "Share of predicted positives that are right / share of actual positives found."
+        ],
+        [
+          "Model drift",
+          "Performance decline as real-world data changes."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "AI and ML fundamentals",
+          "bullets": [
+            "20% of AIF-C01",
+            "Concepts, use cases, lifecycle",
+            "The vocabulary for the rest of the exam"
+          ],
+          "script": [
+            "Welcome to the AI and ML fundamentals module. It builds the vocabulary for the rest of the AWS AI Practitioner exam.",
+            "You'll cover core concepts, when AI is the right tool, AWS's managed AI services, and the machine learning lifecycle."
+          ],
+          "visual": {
+            "type": "layers",
+            "items": [
+              {
+                "t": "AI",
+                "d": "Machines doing intelligent tasks"
+              },
+              {
+                "t": "Machine learning",
+                "d": "Learn patterns from data"
+              },
+              {
+                "t": "Deep learning",
+                "d": "Neural networks"
+              },
+              {
+                "t": "Generative AI",
+                "d": "Create new content"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Learning types and inference",
+          "bullets": [
+            "Supervised · unsupervised · reinforcement",
+            "Labeled vs. unlabeled data",
+            "Real-time vs. batch inference"
+          ],
+          "script": [
+            "Supervised learning uses labeled data for classification or regression. Unsupervised learning finds clusters or anomalies in unlabeled data. Reinforcement learning learns from rewards.",
+            "Real-time inference answers single requests quickly. Batch inference processes large volumes when speed isn't critical."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Type",
+              "Data",
+              "Example"
+            ],
+            "rows": [
+              [
+                "Supervised",
+                "Labeled",
+                "Spam or not"
+              ],
+              [
+                "Unsupervised",
+                "Unlabeled",
+                "Customer segments"
+              ],
+              [
+                "Reinforcement",
+                "Rewards",
+                "Robot navigation"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Managed AI services",
+          "bullets": [
+            "Text: Comprehend · Translate",
+            "Speech: Transcribe · Polly · Lex",
+            "Vision and docs: Rekognition · Textract"
+          ],
+          "script": [
+            "AWS offers managed AI services so you don't need to build a model. Comprehend analyzes text, Translate translates, Transcribe converts speech to text, and Polly speaks text aloud.",
+            "Lex builds chatbots, Rekognition analyzes images and video, Textract reads documents, Kendra searches enterprise content, and Personalize makes recommendations."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Comprehend",
+                "d": "Sentiment · entities"
+              },
+              {
+                "t": "Transcribe / Polly",
+                "d": "STT / TTS"
+              },
+              {
+                "t": "Rekognition",
+                "d": "Images · video"
+              },
+              {
+                "t": "Textract",
+                "d": "Documents"
+              },
+              {
+                "t": "Kendra",
+                "d": "Enterprise search"
+              },
+              {
+                "t": "Personalize",
+                "d": "Recommendations"
+              }
+            ]
+          }
+        },
+        {
+          "title": "The ML lifecycle",
+          "bullets": [
+            "Frame, collect, prepare",
+            "Train, tune, evaluate",
+            "Deploy, monitor, retrain"
+          ],
+          "script": [
+            "The machine learning lifecycle starts with a business goal, then collects and prepares data, trains and tunes a model, and evaluates it.",
+            "After deployment, monitor for drift and retrain as needed. Amazon SageMaker AI supports each stage."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Frame",
+                "d": "Goal"
+              },
+              {
+                "t": "Data",
+                "d": "Collect · prep"
+              },
+              {
+                "t": "Train",
+                "d": "Tune"
+              },
+              {
+                "t": "Evaluate",
+                "d": "Metrics"
+              },
+              {
+                "t": "Deploy",
+                "d": "Monitor · retrain"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Evaluating models",
+          "bullets": [
+            "Accuracy · precision · recall · F1",
+            "RMSE for regression",
+            "Watch for over- and underfitting"
+          ],
+          "script": [
+            "Classification metrics include accuracy, precision, recall, F1 score, and AUC. Regression uses errors such as RMSE.",
+            "An overfit model memorizes training data and fails on new data. An underfit model is too simple to learn the pattern."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Metric",
+              "Use when"
+            ],
+            "rows": [
+              [
+                "Precision",
+                "False alarms are costly"
+              ],
+              [
+                "Recall",
+                "Misses are costly"
+              ],
+              [
+                "F1",
+                "Balance both"
+              ],
+              [
+                "RMSE",
+                "Predicting numbers"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Review: AI and ML fundamentals",
+          "bullets": [
+            "Know the learning types",
+            "Match services to needs",
+            "Walk the lifecycle"
+          ],
+          "script": [
+            "You've finished the fundamentals overview. Practice choosing the learning type and the managed service for short scenarios.",
+            "Then try the fundamentals question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "short": "Generative AI basics",
+      "title": "Fundamentals of generative AI",
+      "summary": "Explain tokens, embeddings, transformers, and foundation models; weigh the capabilities and limits of generative AI; and choose AWS infrastructure and services for generative AI applications.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>Domain 2 is <b>24%</b> of AIF-C01: basic generative AI concepts, the capabilities and limitations of generative AI for business problems, and AWS infrastructure and technologies for building generative AI applications.</p>"
+        },
+        {
+          "h": "Concepts",
+          "html": "<p><b>Foundation models</b> (FMs) are large models pre-trained on broad data and adaptable to many tasks. <b>Large language models</b> work with <b>tokens</b> and use the <b>transformer</b> architecture. <b>Embeddings</b> are vectors that capture meaning and power semantic search. <b>Prompt engineering</b> shapes output. <b>Multimodal</b> models handle several data types, and <b>diffusion models</b> generate images by removing noise step by step. The FM lifecycle: data selection, model selection, pre-training, fine-tuning, evaluation, deployment, and feedback.</p>"
+        },
+        {
+          "h": "Capabilities and limits",
+          "html": "<p>Strengths: adaptability, responsiveness, and simplicity for tasks like summarization, chat, code, and content creation. Limits: <b>hallucinations</b>, nondeterministic output, limited interpretability, bias, and a knowledge cutoff. Choose a model by modality, accuracy, latency, cost, context size, and customization needs. Measure business value with metrics such as conversion rate, average revenue per user, efficiency, and customer lifetime value.</p>"
+        },
+        {
+          "h": "AWS for generative AI",
+          "html": "<p><b>Amazon Bedrock</b> gives API access to many foundation models (from Amazon and other providers) with features like Knowledge Bases, Agents, and Guardrails. <b>Amazon SageMaker JumpStart</b> deploys and fine-tunes open models with more control. <b>PartyRock</b> is a no-code playground for experimenting with Bedrock. <b>Amazon Q</b> is a generative AI assistant: Amazon Q Business for company data and Amazon Q Developer for coding. Advantages include security, compliance, accessibility, and lower barriers to entry. Costs depend on token-based on-demand pricing versus provisioned throughput, model size, and customization.</p>"
+        }
+      ],
+      "tips": [
+        "FMs are pre-trained broadly, then adapted.",
+        "Embeddings + vector search = semantic search and RAG.",
+        "Hallucinations and nondeterminism are core limits.",
+        "Bedrock: managed FM access via API; JumpStart: more control in SageMaker.",
+        "On-demand pricing is per token; provisioned throughput is reserved capacity."
+      ],
+      "terms": [
+        [
+          "Foundation model",
+          "Large pre-trained model adaptable to many tasks."
+        ],
+        [
+          "Token",
+          "A chunk of text a model processes; also the unit of pricing."
+        ],
+        [
+          "Embedding",
+          "Vector representation of meaning."
+        ],
+        [
+          "Transformer",
+          "Neural architecture using attention, behind most LLMs."
+        ],
+        [
+          "Diffusion model",
+          "Generates images by iteratively removing noise."
+        ],
+        [
+          "Amazon Bedrock",
+          "Managed service for building with foundation models through an API."
+        ],
+        [
+          "SageMaker JumpStart",
+          "Hub for deploying and fine-tuning pre-trained models."
+        ],
+        [
+          "Amazon Q",
+          "AWS generative AI assistant for business and development."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Generative AI fundamentals",
+          "bullets": [
+            "24% of AIF-C01",
+            "Concepts, limits, AWS services",
+            "From tokens to Bedrock"
+          ],
+          "script": [
+            "Welcome to the generative AI fundamentals module. It explains how foundation models work, what they're good and bad at, and which AWS services you use to build with them."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Concepts",
+                "d": "Tokens · embeddings"
+              },
+              {
+                "t": "Models",
+                "d": "FMs · LLMs · diffusion"
+              },
+              {
+                "t": "Limits",
+                "d": "Hallucinations"
+              },
+              {
+                "t": "AWS",
+                "d": "Bedrock · JumpStart · Q"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "How foundation models work",
+          "bullets": [
+            "Pre-trained on broad data",
+            "Tokens and transformers",
+            "Embeddings capture meaning"
+          ],
+          "script": [
+            "Foundation models are pre-trained on broad data, then adapted to many tasks. Language models process tokens with the transformer architecture.",
+            "Embeddings turn text into vectors, so similar meanings land close together. That powers semantic search and retrieval-augmented generation."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Data",
+                "d": "Select"
+              },
+              {
+                "t": "Pre-train",
+                "d": "Broad"
+              },
+              {
+                "t": "Adapt",
+                "d": "Prompt · fine-tune"
+              },
+              {
+                "t": "Evaluate",
+                "d": ""
+              },
+              {
+                "t": "Deploy",
+                "d": "Feedback"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Strengths and limits",
+          "bullets": [
+            "Adaptable and fast to start",
+            "Hallucinations and nondeterminism",
+            "Bias and knowledge cutoff"
+          ],
+          "script": [
+            "Generative AI is adaptable and quick to apply to summarization, chat, code, and content. But it can hallucinate, give different answers to the same prompt, and reflect bias in its training data.",
+            "Choose a model by modality, accuracy, latency, cost, and context size, and measure value with business metrics."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Strength",
+              "Limit"
+            ],
+            "rows": [
+              [
+                "Adaptable",
+                "Hallucinations"
+              ],
+              [
+                "Fast to deploy",
+                "Nondeterministic"
+              ],
+              [
+                "Many tasks",
+                "Hard to interpret"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "AWS services for generative AI",
+          "bullets": [
+            "Amazon Bedrock",
+            "SageMaker JumpStart",
+            "PartyRock · Amazon Q"
+          ],
+          "script": [
+            "Amazon Bedrock offers many foundation models through one API, with Knowledge Bases, Agents, and Guardrails. SageMaker JumpStart gives more control to deploy and fine-tune open models.",
+            "PartyRock is a no-code playground, and Amazon Q is a ready-made assistant for business and developers."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Bedrock",
+                "d": "FMs via API"
+              },
+              {
+                "t": "JumpStart",
+                "d": "Deploy · fine-tune"
+              },
+              {
+                "t": "PartyRock",
+                "d": "No-code playground"
+              },
+              {
+                "t": "Amazon Q",
+                "d": "Assistant"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Cost considerations",
+          "bullets": [
+            "On-demand: pay per token",
+            "Provisioned throughput: reserved",
+            "Bigger models cost more"
+          ],
+          "script": [
+            "Costs depend on how you use models. On-demand pricing charges per input and output token, while provisioned throughput reserves capacity for steady, heavy use.",
+            "Larger models and customization cost more, so pick the smallest model that meets your quality needs."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Option",
+              "Best for"
+            ],
+            "rows": [
+              [
+                "On-demand",
+                "Variable or light use"
+              ],
+              [
+                "Provisioned throughput",
+                "Steady high volume"
+              ],
+              [
+                "Smaller model",
+                "Lower cost and latency"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Review: generative AI fundamentals",
+          "bullets": [
+            "Explain FMs and embeddings",
+            "Know the limits",
+            "Pick the AWS service"
+          ],
+          "script": [
+            "You've finished the generative AI fundamentals overview. Practice explaining tokens and embeddings, and choosing between Bedrock, JumpStart, and Amazon Q.",
+            "Then try the generative AI question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "short": "Foundation model apps",
+      "title": "Applications of foundation models",
+      "summary": "Design foundation-model applications: choose and configure models, use RAG and vector stores, build agents, engineer prompts, decide between prompting, fine-tuning, and pre-training, and evaluate model performance.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>Domain 3 is the largest, <b>28%</b> of AIF-C01: design considerations for FM applications, prompt engineering, training and fine-tuning, and evaluating FM performance.</p>"
+        },
+        {
+          "h": "Design choices",
+          "html": "<p>Select a model by cost, modality, latency, multilingual support, size, complexity, customization, and input/output length. Inference parameters: <b>temperature</b> (randomness), <b>top-p</b> and <b>top-k</b>, and <b>maximum length</b>. <b>Retrieval-augmented generation (RAG)</b> retrieves relevant company data and adds it to the prompt so answers are current and grounded; <b>Amazon Bedrock Knowledge Bases</b> manages this. Embeddings are stored in vector databases such as Amazon OpenSearch Service, Amazon Aurora PostgreSQL or Amazon RDS for PostgreSQL with pgvector, Amazon Neptune, and Amazon DocumentDB. <b>Agents for Amazon Bedrock</b> break down multi-step tasks and call APIs. Customization cost increases from in-context learning, to RAG, to fine-tuning, to pre-training.</p>"
+        },
+        {
+          "h": "Prompt engineering",
+          "html": "<p>Good prompts provide context, an instruction, examples, and a clear output format, plus <b>negative prompts</b> (what to avoid). Techniques: <b>zero-shot</b>, <b>single-shot</b>, <b>few-shot</b>, <b>chain-of-thought</b>, and prompt templates. Risks include <b>prompt injection</b>, jailbreaking, poisoning, hijacking, and exposure of sensitive data. Guardrails and input validation help.</p>"
+        },
+        {
+          "h": "Training, fine-tuning, and evaluation",
+          "html": "<p><b>Pre-training</b> builds a model from scratch (rare and expensive). <b>Fine-tuning</b> adapts it with labeled examples (instruction tuning, domain adaptation, transfer learning), and <b>continued pre-training</b> uses unlabeled domain data. Prepare data that is curated, governed, representative, and sized appropriately; RLHF (reinforcement learning from human feedback) aligns models with human preferences. Evaluate with human evaluation, benchmark datasets, and metrics such as <b>ROUGE</b> (summarization), <b>BLEU</b> (translation), and <b>BERTScore</b> (semantic similarity). Amazon Bedrock model evaluation supports automatic and human reviews. Confirm the model meets business objectives such as productivity, user engagement, and task completion.</p>"
+        }
+      ],
+      "tips": [
+        "RAG for current or private knowledge; fine-tuning to change style or behavior.",
+        "Customization cost: prompting < RAG < fine-tuning < pre-training.",
+        "Few-shot = examples in the prompt; chain-of-thought = reason step by step.",
+        "ROUGE for summaries, BLEU for translation.",
+        "Prompt injection tries to override your instructions."
+      ],
+      "terms": [
+        [
+          "RAG",
+          "Retrieving relevant data and adding it to the prompt to ground answers."
+        ],
+        [
+          "Vector database",
+          "Stores embeddings for similarity search."
+        ],
+        [
+          "Agents for Amazon Bedrock",
+          "Orchestrate multi-step tasks and call APIs."
+        ],
+        [
+          "Few-shot prompting",
+          "Including several examples in the prompt."
+        ],
+        [
+          "Chain-of-thought",
+          "Prompting the model to reason step by step."
+        ],
+        [
+          "Fine-tuning",
+          "Further training a pre-trained model on labeled task data."
+        ],
+        [
+          "Prompt injection",
+          "Malicious input that tries to override a model's instructions."
+        ],
+        [
+          "ROUGE / BLEU",
+          "Metrics comparing generated text to references for summaries and translations."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Applications of foundation models",
+          "bullets": [
+            "28% of AIF-C01: largest domain",
+            "Design, prompt, customize, evaluate",
+            "Most scenario questions live here"
+          ],
+          "script": [
+            "Welcome to the applications module, the largest domain on the AWS AI Practitioner exam. It covers how to design, prompt, customize, and evaluate foundation-model applications."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Choose model",
+                "d": "Cost · modality"
+              },
+              {
+                "t": "Ground",
+                "d": "RAG"
+              },
+              {
+                "t": "Prompt",
+                "d": "Techniques"
+              },
+              {
+                "t": "Customize",
+                "d": "If needed"
+              },
+              {
+                "t": "Evaluate",
+                "d": "Metrics"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "RAG and vector stores",
+          "bullets": [
+            "Retrieve, then generate",
+            "Bedrock Knowledge Bases",
+            "OpenSearch · pgvector · Neptune"
+          ],
+          "script": [
+            "Retrieval-augmented generation finds relevant company documents and adds them to the prompt, so answers are current and grounded. Amazon Bedrock Knowledge Bases manages the pipeline.",
+            "Embeddings are stored in vector databases such as OpenSearch Service, Aurora or RDS for PostgreSQL with pgvector, Neptune, or DocumentDB."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Question",
+                "d": ""
+              },
+              {
+                "t": "Embed",
+                "d": "Vector"
+              },
+              {
+                "t": "Search",
+                "d": "Vector store"
+              },
+              {
+                "t": "Augment",
+                "d": "Add context"
+              },
+              {
+                "t": "Generate",
+                "d": "Grounded answer"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Customization ladder",
+          "bullets": [
+            "Prompting → RAG",
+            "→ fine-tuning",
+            "→ pre-training"
+          ],
+          "script": [
+            "Start with the cheapest option that works. Prompting and in-context examples cost least, RAG adds knowledge, fine-tuning changes behavior with labeled data, and pre-training builds a model from scratch.",
+            "Agents for Amazon Bedrock add the ability to plan multi-step tasks and call APIs."
+          ],
+          "visual": {
+            "type": "layers",
+            "items": [
+              {
+                "t": "Prompt engineering",
+                "d": "Cheapest, fastest"
+              },
+              {
+                "t": "RAG",
+                "d": "Add knowledge"
+              },
+              {
+                "t": "Fine-tuning",
+                "d": "Change behavior"
+              },
+              {
+                "t": "Pre-training",
+                "d": "Most costly"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Prompt engineering",
+          "bullets": [
+            "Context · instruction · examples · format",
+            "Zero-, one-, few-shot; chain-of-thought",
+            "Guard against injection"
+          ],
+          "script": [
+            "A strong prompt gives context, a clear instruction, examples, and an output format, and can say what to avoid.",
+            "Zero-shot has no examples, few-shot includes several, and chain-of-thought asks the model to reason step by step. Watch for prompt injection and jailbreak attempts."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Technique",
+              "Idea"
+            ],
+            "rows": [
+              [
+                "Zero-shot",
+                "No examples"
+              ],
+              [
+                "Few-shot",
+                "Several examples"
+              ],
+              [
+                "Chain-of-thought",
+                "Step-by-step reasoning"
+              ],
+              [
+                "Template",
+                "Reusable structure"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Evaluating foundation models",
+          "bullets": [
+            "Human evaluation and benchmarks",
+            "ROUGE · BLEU · BERTScore",
+            "Tie results to business goals"
+          ],
+          "script": [
+            "Evaluate with human reviewers, benchmark datasets, and automatic metrics. ROUGE suits summarization, BLEU suits translation, and BERTScore measures semantic similarity.",
+            "Amazon Bedrock model evaluation supports automatic and human evaluation. Always check results against business objectives."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Human eval",
+                "d": "Quality · tone"
+              },
+              {
+                "t": "ROUGE",
+                "d": "Summaries"
+              },
+              {
+                "t": "BLEU",
+                "d": "Translation"
+              },
+              {
+                "t": "BERTScore",
+                "d": "Meaning match"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: foundation model applications",
+          "bullets": [
+            "Ground with RAG",
+            "Choose the right customization",
+            "Prompt and evaluate well"
+          ],
+          "script": [
+            "You've finished the applications overview. Practice deciding between prompting, RAG, and fine-tuning, and matching metrics to tasks.",
+            "Then try the applications question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "short": "Responsible AI",
+      "title": "Guidelines for responsible AI",
+      "summary": "Develop AI responsibly: understand bias, fairness, robustness, safety, and veracity; use tools like Guardrails, Clarify, and A2I; and make models transparent and explainable.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>Domain 4 is <b>14%</b> of AIF-C01: developing responsible AI systems, and recognizing the importance of transparent and explainable models.</p>"
+        },
+        {
+          "h": "Responsible AI features and risks",
+          "html": "<p>Features of responsible AI include <b>bias</b> and <b>fairness</b>, <b>inclusivity</b>, <b>robustness</b>, <b>safety</b>, and <b>veracity</b> (truthfulness). Legal risks include intellectual property claims, biased outputs, loss of customer trust, end-user risk, and hallucinations. Datasets should be inclusive, diverse, curated, and balanced. Bias and variance cause problems: <b>overfitting</b> (high variance) and <b>underfitting</b> (high bias) can both affect demographic groups unequally. Consider environmental impact and sustainability when choosing models.</p>"
+        },
+        {
+          "h": "AWS tools",
+          "html": "<p><b>Guardrails for Amazon Bedrock</b> filter harmful content, block denied topics, and redact PII. <b>Amazon SageMaker Clarify</b> detects bias and explains predictions. <b>SageMaker Model Monitor</b> watches for drift. <b>Amazon Augmented AI (A2I)</b> adds human review of low-confidence predictions. <b>SageMaker Model Cards</b> document intended use, risks, and evaluation results.</p>"
+        },
+        {
+          "h": "Transparency and explainability",
+          "html": "<p>A <b>transparent</b> model's workings are understandable; <b>explainable</b> results can be traced to the inputs that drove them. Simpler, interpretable models are easier to explain but may be less accurate, so there's a trade-off. Use model cards, open-source or documented models, data licensing records, and human-centered design, so people understand AI decisions and can contest them.</p>"
+        }
+      ],
+      "tips": [
+        "Guardrails = content filters, denied topics, PII redaction.",
+        "Clarify = bias detection and explainability.",
+        "A2I = human review loop.",
+        "Model Cards document intended use and risks.",
+        "Interpretability often trades off with performance."
+      ],
+      "terms": [
+        [
+          "Bias",
+          "Systematic unfairness in data or model outcomes."
+        ],
+        [
+          "Veracity",
+          "Truthfulness and accuracy of outputs."
+        ],
+        [
+          "Robustness",
+          "Reliable performance on unexpected or adversarial input."
+        ],
+        [
+          "Guardrails for Amazon Bedrock",
+          "Configurable safety controls for generative AI apps."
+        ],
+        [
+          "SageMaker Clarify",
+          "Detects bias and explains model predictions."
+        ],
+        [
+          "Amazon A2I",
+          "Human review workflows for ML predictions."
+        ],
+        [
+          "Model card",
+          "Documentation of a model's purpose, data, performance, and risks."
+        ],
+        [
+          "Explainability",
+          "Ability to show why a model produced a result."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Responsible AI",
+          "bullets": [
+            "14% of AIF-C01",
+            "Fair, safe, truthful",
+            "Transparent and explainable"
+          ],
+          "script": [
+            "Welcome to the responsible AI module. It covers how to build AI that is fair, safe, and truthful, and how to make its decisions understandable."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Fairness",
+                "d": "Bias checks"
+              },
+              {
+                "t": "Safety",
+                "d": "Guardrails"
+              },
+              {
+                "t": "Veracity",
+                "d": "Truthful output"
+              },
+              {
+                "t": "Transparency",
+                "d": "Explainable"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Features and risks",
+          "bullets": [
+            "Bias, fairness, inclusivity",
+            "Robustness, safety, veracity",
+            "Legal and trust risks"
+          ],
+          "script": [
+            "Responsible AI covers bias and fairness, inclusivity, robustness, safety, and veracity. Use diverse, curated, balanced datasets.",
+            "Risks include intellectual property claims, biased outputs, hallucinations, and lost customer trust."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Risk",
+              "Mitigation"
+            ],
+            "rows": [
+              [
+                "Biased output",
+                "Balanced data · Clarify"
+              ],
+              [
+                "Harmful content",
+                "Guardrails"
+              ],
+              [
+                "Hallucination",
+                "RAG · human review"
+              ],
+              [
+                "Unclear decisions",
+                "Model cards · explainability"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "AWS responsible AI tools",
+          "bullets": [
+            "Guardrails for Amazon Bedrock",
+            "SageMaker Clarify · Model Monitor",
+            "Amazon A2I · Model Cards"
+          ],
+          "script": [
+            "Guardrails for Amazon Bedrock filter harmful content, deny topics, and redact personal information. SageMaker Clarify detects bias and explains predictions.",
+            "Model Monitor watches for drift, Amazon Augmented AI adds human review, and Model Cards document intended use and risks."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Guardrails",
+                "d": "Filter · redact"
+              },
+              {
+                "t": "Clarify",
+                "d": "Bias · explain"
+              },
+              {
+                "t": "Model Monitor",
+                "d": "Drift"
+              },
+              {
+                "t": "A2I",
+                "d": "Human review"
+              },
+              {
+                "t": "Model Cards",
+                "d": "Documentation"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Transparency and explainability",
+          "bullets": [
+            "Understand how and why",
+            "Interpretability vs. performance",
+            "Human-centered design"
+          ],
+          "script": [
+            "Transparent models are understandable, and explainable results can be traced to their inputs. Simpler models are easier to explain but may be less accurate.",
+            "Document models with model cards and design so people can understand and challenge AI decisions."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Document",
+                "d": "Model card"
+              },
+              {
+                "t": "Explain",
+                "d": "Clarify"
+              },
+              {
+                "t": "Review",
+                "d": "Humans"
+              },
+              {
+                "t": "Improve",
+                "d": "Feedback"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: responsible AI",
+          "bullets": [
+            "Name the risk",
+            "Pick the tool",
+            "Explain the trade-off"
+          ],
+          "script": [
+            "You've finished the responsible AI overview. Practice matching each risk to an AWS tool and explaining the interpretability trade-off.",
+            "Then try the responsible AI question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "short": "Security & governance",
+      "title": "Security, compliance, and governance for AI solutions",
+      "summary": "Secure AI systems with IAM, encryption, private networking, and data protection, and govern them with compliance standards, lineage, logging, and AWS governance services.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>Domain 5 is <b>14%</b> of AIF-C01: methods to secure AI systems, and governance and compliance regulations for AI systems.</p>"
+        },
+        {
+          "h": "Securing AI systems",
+          "html": "<p>Apply the <b>shared responsibility model</b>: AWS secures the cloud, you secure what you put in it. Use <b>IAM</b> roles, policies, and least privilege; encryption at rest and in transit with <b>AWS KMS</b>; <b>Amazon Macie</b> to find sensitive data in S3; and <b>AWS PrivateLink</b> to reach services without the public internet. Track <b>data lineage</b> and source citations, catalog data, and document provenance. Security considerations for AI include threat detection, vulnerability management, infrastructure protection, prompt injection, and encryption.</p>"
+        },
+        {
+          "h": "Governance and compliance",
+          "html": "<p>Standards include ISO and SOC reports, and algorithm accountability laws. Services: <b>AWS Config</b> (resource configuration compliance), <b>Amazon Inspector</b> (vulnerabilities), <b>AWS Audit Manager</b> (audit evidence), <b>AWS Artifact</b> (AWS compliance reports), <b>AWS CloudTrail</b> (API activity logs), and <b>AWS Trusted Advisor</b> (best-practice checks). Governance practices: data lifecycles, logging, residency, monitoring, observation, retention, review cadences, and frameworks such as the Generative AI Security Scoping Matrix.</p>"
+        }
+      ],
+      "tips": [
+        "Least privilege with IAM; encrypt with KMS.",
+        "Macie finds PII in S3.",
+        "PrivateLink keeps traffic off the public internet.",
+        "CloudTrail = who did what; Config = is it configured correctly.",
+        "Artifact = download AWS's compliance reports."
+      ],
+      "terms": [
+        [
+          "Shared responsibility model",
+          "AWS secures the cloud; customers secure their data and configurations."
+        ],
+        [
+          "IAM",
+          "Controls who can access which AWS resources."
+        ],
+        [
+          "AWS KMS",
+          "Managed encryption keys."
+        ],
+        [
+          "Amazon Macie",
+          "Discovers sensitive data in Amazon S3."
+        ],
+        [
+          "AWS PrivateLink",
+          "Private connectivity to services without the public internet."
+        ],
+        [
+          "Data lineage",
+          "Record of where data came from and how it changed."
+        ],
+        [
+          "AWS CloudTrail",
+          "Logs API calls for auditing."
+        ],
+        [
+          "AWS Artifact",
+          "Portal for AWS compliance reports and agreements."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Security and governance for AI",
+          "bullets": [
+            "14% of AIF-C01",
+            "Protect data and models",
+            "Prove compliance"
+          ],
+          "script": [
+            "Welcome to the security and governance module. It covers how to protect AI systems and their data on AWS and how to show they meet compliance requirements."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Identity",
+                "d": "IAM"
+              },
+              {
+                "t": "Data",
+                "d": "KMS · Macie"
+              },
+              {
+                "t": "Network",
+                "d": "PrivateLink"
+              },
+              {
+                "t": "Governance",
+                "d": "Config · CloudTrail"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Securing AI systems",
+          "bullets": [
+            "Shared responsibility",
+            "Least privilege and encryption",
+            "Private connectivity and lineage"
+          ],
+          "script": [
+            "Under the shared responsibility model, AWS secures the infrastructure and you secure your data, access, and configurations.",
+            "Use IAM least privilege, encrypt with KMS, find sensitive data with Macie, connect privately with PrivateLink, and track data lineage."
+          ],
+          "visual": {
+            "type": "layers",
+            "items": [
+              {
+                "t": "Your data and prompts",
+                "d": "You secure"
+              },
+              {
+                "t": "Access and configuration",
+                "d": "You secure"
+              },
+              {
+                "t": "Managed services",
+                "d": "Shared"
+              },
+              {
+                "t": "Infrastructure",
+                "d": "AWS secures"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Governance services",
+          "bullets": [
+            "Config · Inspector · Audit Manager",
+            "Artifact · CloudTrail",
+            "Trusted Advisor"
+          ],
+          "script": [
+            "AWS Config checks resource configurations, Inspector finds vulnerabilities, and Audit Manager collects audit evidence.",
+            "Artifact provides AWS's compliance reports, CloudTrail logs API activity, and Trusted Advisor checks best practices."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Service",
+              "Question it answers"
+            ],
+            "rows": [
+              [
+                "CloudTrail",
+                "Who did what, when?"
+              ],
+              [
+                "Config",
+                "Is it configured correctly?"
+              ],
+              [
+                "Inspector",
+                "Any vulnerabilities?"
+              ],
+              [
+                "Artifact",
+                "Where's the SOC report?"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Governance practices",
+          "bullets": [
+            "Data lifecycle and residency",
+            "Logging and monitoring",
+            "Regular reviews"
+          ],
+          "script": [
+            "Good AI governance defines how data is kept, where it resides, how long it's retained, and how activity is logged and monitored.",
+            "Set a review cadence and use frameworks, such as the Generative AI Security Scoping Matrix, to decide which controls apply."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Policy",
+                "d": ""
+              },
+              {
+                "t": "Log",
+                "d": "CloudTrail"
+              },
+              {
+                "t": "Monitor",
+                "d": "Config"
+              },
+              {
+                "t": "Review",
+                "d": "Cadence"
+              },
+              {
+                "t": "Improve",
+                "d": ""
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: security and governance",
+          "bullets": [
+            "Secure identities, data, network",
+            "Choose the governance service",
+            "Document and review"
+          ],
+          "script": [
+            "You've finished the security and governance overview. Practice matching each governance question to the AWS service that answers it.",
+            "Then try the security and governance question set."
+          ]
+        }
+      ]
+    }
+  ]
+}

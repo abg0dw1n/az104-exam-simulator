@@ -55,7 +55,9 @@
     "vendor": "Microsoft",
     "level": "beginner",
     "updated": "2026-10-27",
-    "questions": 100
+    "questions": 100,
+    "learning": true,
+    "learningDescription": "Learn AI concepts and responsible AI, then build generative apps, agents, speech, vision, and information extraction with Microsoft Foundry."
   },
   {
     "slug": "aws-aif",
@@ -64,7 +66,9 @@
     "vendor": "Amazon Web Services",
     "level": "beginner",
     "updated": "2026-10-27",
-    "questions": 132
+    "questions": 132,
+    "learning": true,
+    "learningDescription": "Understand AI, ML, and generative AI on AWS: foundation model apps with Amazon Bedrock, prompt engineering, responsible AI, and security and governance."
   },
   {
     "slug": "google-gail",
@@ -73,7 +77,9 @@
     "vendor": "Google Cloud",
     "level": "beginner",
     "updated": "2026-10-27",
-    "questions": 110
+    "questions": 110,
+    "learning": true,
+    "learningDescription": "Lead with generative AI on Google Cloud: core concepts, Gemini and Agent Platform offerings, techniques to improve output, and secure, responsible business strategy."
   },
   {
     "slug": "az-900",

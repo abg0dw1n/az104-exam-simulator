@@ -1,0 +1,927 @@
+{
+  "intro": "Four modules follow the Generative AI Leader exam guide's sections and weights. Each combines a study guide, exam tips, key terms, visual slides, and a narrated lesson. Google renamed Vertex AI to Gemini Enterprise Agent Platform in April 2026; lessons use the new names and mention the old ones.",
+  "updated": "2026-10-28",
+  "sources": [
+    {
+      "title": "Google Cloud: Generative AI Leader certification",
+      "url": "https://cloud.google.com/learn/certification/generative-ai-leader"
+    },
+    {
+      "title": "Generative AI Leader exam guide (PDF)",
+      "url": "https://services.google.com/fh/files/misc/generative_ai_leader_exam_guide_english.pdf"
+    },
+    {
+      "title": "Generative AI Leader study guide (PDF)",
+      "url": "https://services.google.com/fh/files/misc/generative_ai_leader_study_guide_english.pdf"
+    },
+    {
+      "title": "Google Generative AI Leader Certification Course (freeCodeCamp, YouTube)",
+      "url": "https://www.youtube.com/watch?v=30diF8dKpAY",
+      "note": "Free · Generative AI Leader · ~3.5-hour course · October 2025, so it uses pre-April-2026 names like Vertex AI · checked October 2026"
+    }
+  ],
+  "modules": [
+    {
+      "id": "D1",
+      "short": "Gen AI fundamentals",
+      "title": "Fundamentals of gen AI",
+      "summary": "Define core AI and gen AI concepts, learning types, and the ML lifecycle; understand data types and quality; know the layers of the gen AI landscape; and match Google's foundation models (Gemini, Gemma, Imagen, Veo) to use cases.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>Section 1 is about <b>30%</b> of the Generative AI Leader exam. It's aimed at leaders, so it tests understanding and business judgment rather than coding.</p>"
+        },
+        {
+          "h": "Core concepts",
+          "html": "<p><b>AI</b> is the broad field; <b>machine learning</b> learns from data; <b>natural language processing</b> works with human language; <b>generative AI</b> creates new content. <b>Foundation models</b> are large models trained on broad data and adapted to many tasks. <b>LLMs</b> are foundation models for language, <b>multimodal</b> models handle several data types, and <b>diffusion models</b> generate images and video. Learning types are supervised (labeled data), unsupervised (finding structure), and reinforcement (learning from rewards). The ML lifecycle runs data ingestion, preparation, training, deployment, and management, and Google Cloud has tools for each stage.</p>"
+        },
+        {
+          "h": "Data matters",
+          "html": "<p>Data quality depends on <b>completeness</b>, <b>consistency</b>, <b>relevance</b>, <b>availability</b>, <b>cost</b>, and <b>format</b>. <b>Structured</b> data fits tables (sales records). <b>Unstructured</b> data is text, images, audio, and video (emails, call recordings). <b>Labeled</b> data has known answers for training; <b>unlabeled</b> data doesn't. Poor data leads to poor or biased output.</p>"
+        },
+        {
+          "h": "The gen AI landscape and Google's models",
+          "html": "<p>Think in layers: <b>infrastructure</b> (compute like TPUs and GPUs), <b>models</b>, <b>platforms</b> (tools to build and manage), <b>agents</b> (systems that reason and use tools), and <b>applications</b> (what end users touch). Google's models: <b>Gemini</b> (multimodal, Google's most capable family), <b>Gemma</b> (lightweight open models you can run and customize yourself), <b>Imagen</b> (text-to-image), and <b>Veo</b> (video generation). Choose a model by modality, context window, security, availability and reliability, cost, performance, and customization options.</p>"
+        }
+      ],
+      "tips": [
+        "Pick the model by modality first, then cost and performance.",
+        "Gemma = open and lightweight; Gemini = flagship multimodal.",
+        "Imagen makes images; Veo makes video.",
+        "Data quality: complete, consistent, relevant, available.",
+        "Know the five landscape layers in order."
+      ],
+      "terms": [
+        [
+          "Foundation model",
+          "Large model trained on broad data, adaptable to many tasks."
+        ],
+        [
+          "Multimodal",
+          "Able to process several data types, such as text, images, audio, and video."
+        ],
+        [
+          "Diffusion model",
+          "Generates images or video by gradually removing noise."
+        ],
+        [
+          "Structured data",
+          "Organized in rows and columns."
+        ],
+        [
+          "Labeled data",
+          "Examples with known correct answers."
+        ],
+        [
+          "Gemini",
+          "Google's flagship multimodal model family."
+        ],
+        [
+          "Gemma",
+          "Google's lightweight open models."
+        ],
+        [
+          "Context window",
+          "How much input a model can consider at once."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Gen AI fundamentals",
+          "bullets": [
+            "About 30% of the exam",
+            "Concepts, data, landscape, models",
+            "Business judgment over code"
+          ],
+          "script": [
+            "Welcome to the gen AI fundamentals module. This section of the Generative AI Leader exam tests whether you understand the concepts and can make sound business choices."
+          ],
+          "visual": {
+            "type": "layers",
+            "items": [
+              {
+                "t": "Applications",
+                "d": "What users touch"
+              },
+              {
+                "t": "Agents",
+                "d": "Reason and use tools"
+              },
+              {
+                "t": "Platforms",
+                "d": "Build and manage"
+              },
+              {
+                "t": "Models",
+                "d": "Gemini · Gemma · Imagen · Veo"
+              },
+              {
+                "t": "Infrastructure",
+                "d": "TPUs · GPUs"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Core concepts",
+          "bullets": [
+            "AI ⊃ ML ⊃ gen AI",
+            "Foundation models and LLMs",
+            "Supervised · unsupervised · reinforcement"
+          ],
+          "script": [
+            "Artificial intelligence is the broad field, machine learning learns from data, and generative AI creates new content. Foundation models are trained broadly and adapted to many tasks.",
+            "Supervised learning uses labeled data, unsupervised learning finds patterns, and reinforcement learning learns from rewards."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Ingest",
+                "d": "Data"
+              },
+              {
+                "t": "Prepare",
+                "d": "Clean · label"
+              },
+              {
+                "t": "Train",
+                "d": "Model"
+              },
+              {
+                "t": "Deploy",
+                "d": "Serve"
+              },
+              {
+                "t": "Manage",
+                "d": "Monitor"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Data quality and types",
+          "bullets": [
+            "Complete, consistent, relevant",
+            "Structured vs. unstructured",
+            "Labeled vs. unlabeled"
+          ],
+          "script": [
+            "Good results start with good data: complete, consistent, relevant, available, affordable, and in a usable format.",
+            "Structured data fits tables, unstructured data includes text, images, and audio, and labeled data has known answers."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Type",
+              "Example"
+            ],
+            "rows": [
+              [
+                "Structured",
+                "Sales table"
+              ],
+              [
+                "Unstructured",
+                "Customer emails"
+              ],
+              [
+                "Labeled",
+                "Photos tagged cat/dog"
+              ],
+              [
+                "Unlabeled",
+                "Raw call recordings"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Google's foundation models",
+          "bullets": [
+            "Gemini: multimodal flagship",
+            "Gemma: open and lightweight",
+            "Imagen: images · Veo: video"
+          ],
+          "script": [
+            "Gemini is Google's most capable multimodal family. Gemma is a lightweight open model family you can run and customize yourself.",
+            "Imagen generates images from text, and Veo generates video. Choose by modality, context window, cost, performance, and customization."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Gemini",
+                "d": "Multimodal reasoning"
+              },
+              {
+                "t": "Gemma",
+                "d": "Open · lightweight"
+              },
+              {
+                "t": "Imagen",
+                "d": "Text → image"
+              },
+              {
+                "t": "Veo",
+                "d": "Text → video"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: gen AI fundamentals",
+          "bullets": [
+            "Explain the concepts",
+            "Judge the data",
+            "Pick the model"
+          ],
+          "script": [
+            "You've finished the fundamentals overview. Practice choosing a Google model for a business use case and naming the data issue in a scenario.",
+            "Then try the fundamentals question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "short": "Google Cloud offerings",
+      "title": "Google Cloud's gen AI offerings",
+      "summary": "Explain Google Cloud's AI strengths and infrastructure; match prebuilt offerings (Gemini app, Gemini Enterprise, Gemini for Google Workspace, Customer Engagement Suite) to needs; and know developer tools on Gemini Enterprise Agent Platform, RAG offerings, and agent tooling.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>Section 2 is the largest, about <b>35%</b> of the exam. In April 2026 Google renamed Vertex AI to <b>Gemini Enterprise Agent Platform</b> (\"Agent Platform\"), and Vertex AI Search is now <b>Agent Search</b>. Expect both old and new names in study materials.</p>"
+        },
+        {
+          "h": "Why Google Cloud",
+          "html": "<p>Google emphasizes an AI-first approach, an enterprise-ready platform (responsible, secure, private, reliable, scalable), AI integrated across its products, and an open approach that supports Google, partner, and open models. Its AI-optimized infrastructure includes the AI Hypercomputer, custom <b>TPUs</b>, GPUs, and global data centers. The platform keeps customers in control of their data and makes AI accessible with low-code and no-code tools, pre-trained models, and APIs.</p>"
+        },
+        {
+          "h": "Prebuilt offerings",
+          "html": "<p><b>Gemini app</b> (with <b>Gems</b>, custom versions of Gemini for repeated tasks) helps individuals. <b>Gemini Enterprise</b> brings AI assistance, multimodal search across company data, and custom agents to the whole organization. <b>Gemini for Google Workspace</b> adds AI to Gmail, Docs, Sheets, Slides, and Meet. For customer experience: <b>Agent Search</b> (enterprise search on Agent Platform), Google Search grounding, and the <b>Customer Engagement Suite</b>: Conversational Agents, Agent Assist (helps human agents live), Conversational Insights (analytics), and Contact Center as a Service.</p>"
+        },
+        {
+          "h": "Building with Agent Platform",
+          "html": "<p>Developers use <b>Agent Platform</b> with <b>Model Garden</b> (catalog of Google, partner, and open models), Agent Search, and AutoML for custom models without heavy coding. RAG options include prebuilt RAG with Agent Search and RAG APIs. Agents use <b>tools</b> (extensions, functions, data stores, plugins) to act. Supporting services include Cloud Storage, databases, Cloud Functions, Cloud Run, and pre-built APIs: Speech-to-Text, Text-to-Speech, Translation, Document Translation, Document AI, Cloud Vision, Video Intelligence, and Natural Language. Use <b>Google AI Studio</b> for quick prototyping with Gemini, and <b>Agent Studio</b> on Agent Platform for enterprise-grade agent building and deployment.</p>"
+        }
+      ],
+      "tips": [
+        "Gemini app = individuals; Gemini Enterprise = organization-wide.",
+        "Workspace users get Gemini inside Gmail, Docs, and Meet.",
+        "Agent Assist helps human contact-center agents in real time.",
+        "Model Garden = catalog of models on Agent Platform.",
+        "AI Studio for prototyping; Agent Studio for enterprise agents."
+      ],
+      "terms": [
+        [
+          "Gemini Enterprise Agent Platform",
+          "Google Cloud's AI development platform (formerly Vertex AI)."
+        ],
+        [
+          "Agent Search",
+          "Enterprise search and prebuilt RAG (formerly Vertex AI Search)."
+        ],
+        [
+          "Model Garden",
+          "Catalog of Google, partner, and open models."
+        ],
+        [
+          "Gemini Enterprise",
+          "Organization-wide AI assistant, search, and agents."
+        ],
+        [
+          "Gems",
+          "Custom versions of Gemini for repeated tasks."
+        ],
+        [
+          "Customer Engagement Suite",
+          "Conversational Agents, Agent Assist, Conversational Insights, and CCaaS."
+        ],
+        [
+          "TPU",
+          "Google's custom AI accelerator chip."
+        ],
+        [
+          "Google AI Studio",
+          "Web tool for quickly prototyping with Gemini."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Google Cloud's gen AI offerings",
+          "bullets": [
+            "About 35%: largest section",
+            "Prebuilt to custom",
+            "New names since April 2026"
+          ],
+          "script": [
+            "Welcome to the Google Cloud offerings module, the largest section of the exam. It goes from ready-made AI for employees to tools developers use to build agents.",
+            "In April 2026, Vertex AI became Gemini Enterprise Agent Platform, and Vertex AI Search became Agent Search."
+          ],
+          "visual": {
+            "type": "layers",
+            "items": [
+              {
+                "t": "Prebuilt for work",
+                "d": "Gemini app · Enterprise · Workspace"
+              },
+              {
+                "t": "Customer experience",
+                "d": "Search · Engagement Suite"
+              },
+              {
+                "t": "Build",
+                "d": "Agent Platform · Model Garden"
+              },
+              {
+                "t": "Infrastructure",
+                "d": "AI Hypercomputer · TPUs"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Why Google Cloud",
+          "bullets": [
+            "AI-first and open",
+            "Enterprise-ready and in your control",
+            "AI-optimized infrastructure"
+          ],
+          "script": [
+            "Google highlights an AI-first approach, an enterprise-ready platform that is secure and private, and an open ecosystem supporting Google, partner, and open models.",
+            "Its infrastructure includes custom TPUs, GPUs, and the AI Hypercomputer, with low-code tools and APIs that make AI accessible."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Open",
+                "d": "Many models"
+              },
+              {
+                "t": "Secure",
+                "d": "Your data, your control"
+              },
+              {
+                "t": "Infrastructure",
+                "d": "TPUs · GPUs"
+              },
+              {
+                "t": "Accessible",
+                "d": "Low-code · APIs"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Prebuilt offerings",
+          "bullets": [
+            "Gemini app and Gems",
+            "Gemini Enterprise",
+            "Gemini for Google Workspace"
+          ],
+          "script": [
+            "The Gemini app helps individuals, and Gems save custom instructions for repeated tasks. Gemini Enterprise brings assistance, search across company data, and custom agents to the whole organization.",
+            "Gemini for Google Workspace adds AI to Gmail, Docs, Sheets, Slides, and Meet."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Offering",
+              "Best for"
+            ],
+            "rows": [
+              [
+                "Gemini app + Gems",
+                "Individuals"
+              ],
+              [
+                "Gemini Enterprise",
+                "Whole organization"
+              ],
+              [
+                "Gemini in Workspace",
+                "Everyday documents and email"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Customer experience",
+          "bullets": [
+            "Agent Search and Google Search grounding",
+            "Conversational Agents",
+            "Agent Assist · Insights · CCaaS"
+          ],
+          "script": [
+            "For customers, Agent Search powers enterprise search, and grounding with Google Search adds fresh world knowledge.",
+            "The Customer Engagement Suite includes Conversational Agents, Agent Assist for human agents, Conversational Insights for analytics, and Contact Center as a Service."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Conversational Agents",
+                "d": "Self-service"
+              },
+              {
+                "t": "Agent Assist",
+                "d": "Help live agents"
+              },
+              {
+                "t": "Insights",
+                "d": "Analyze conversations"
+              },
+              {
+                "t": "CCaaS",
+                "d": "Contact center"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Building on Agent Platform",
+          "bullets": [
+            "Model Garden and AutoML",
+            "RAG with Agent Search or APIs",
+            "Agents use tools"
+          ],
+          "script": [
+            "Developers choose models from Model Garden, build custom models with AutoML, and ground answers with prebuilt RAG in Agent Search or with RAG APIs.",
+            "Agents use tools such as functions, extensions, and data stores, plus APIs like Document AI, Vision, Speech, and Translation. Prototype in Google AI Studio, and build enterprise agents in Agent Studio."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Pick model",
+                "d": "Model Garden"
+              },
+              {
+                "t": "Ground",
+                "d": "Agent Search · RAG"
+              },
+              {
+                "t": "Add tools",
+                "d": "APIs · functions"
+              },
+              {
+                "t": "Build agent",
+                "d": "Agent Studio"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: Google Cloud offerings",
+          "bullets": [
+            "Match offering to audience",
+            "Know the new names",
+            "Prototype vs. enterprise build"
+          ],
+          "script": [
+            "You've finished the Google Cloud offerings overview. Practice matching each scenario to the right product, using both old and new names.",
+            "Then try the offerings question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "short": "Improving output",
+      "title": "Techniques to improve gen AI model output",
+      "summary": "Overcome model limitations with grounding, RAG, prompt engineering, fine-tuning, and human oversight; use prompting techniques from zero-shot to ReAct; and tune sampling parameters like temperature and top-p.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>Section 3 is about <b>20%</b> of the exam: overcoming foundation model limitations, prompt engineering, and grounding.</p>"
+        },
+        {
+          "h": "Limitations and fixes",
+          "html": "<p>Common limitations: <b>data dependency</b>, <b>knowledge cutoff</b>, <b>bias</b> and fairness issues, <b>hallucinations</b>, and <b>edge cases</b>. Google-recommended fixes: <b>grounding</b>, <b>retrieval-augmented generation (RAG)</b>, <b>prompt engineering</b>, <b>fine-tuning</b>, and <b>human in the loop</b>. Keep improving with continuous monitoring and evaluation: automatic model upgrades, KPIs, security patches, versioning, performance tracking, drift monitoring, and Agent Platform Feature Store.</p>"
+        },
+        {
+          "h": "Prompt engineering",
+          "html": "<p><b>Zero-shot</b> gives no examples; <b>one-shot</b> gives one; <b>few-shot</b> gives several. <b>Role prompting</b> assigns a persona. <b>Prompt chaining</b> breaks a task into linked prompts. Advanced: <b>chain-of-thought</b> asks for step-by-step reasoning, and <b>ReAct</b> (reason and act) interleaves reasoning with tool use.</p>"
+        },
+        {
+          "h": "Grounding and sampling",
+          "html": "<p><b>Grounding</b> ties output to verifiable sources: first-party enterprise data, third-party data, or world data. Google's options: prebuilt RAG with <b>Agent Search</b>, <b>RAG APIs</b>, and <b>grounding with Google Search</b>. Sampling settings: <b>temperature</b> (randomness), <b>top-p</b> (nucleus sampling), token count and output length, and <b>safety settings</b> (content thresholds).</p>"
+        }
+      ],
+      "tips": [
+        "Hallucinations and knowledge cutoff → grounding or RAG.",
+        "Change tone or format → prompt engineering; change behavior deeply → fine-tuning.",
+        "Few-shot = examples; chain-of-thought = reasoning; ReAct = reasoning plus tools.",
+        "Grounding with Google Search for current world facts.",
+        "Lower temperature for factual, consistent answers."
+      ],
+      "terms": [
+        [
+          "Grounding",
+          "Connecting model output to verifiable data sources."
+        ],
+        [
+          "RAG",
+          "Retrieving relevant data and adding it to the prompt."
+        ],
+        [
+          "Human in the loop",
+          "People review or approve model outputs."
+        ],
+        [
+          "Prompt chaining",
+          "Breaking a task into a sequence of linked prompts."
+        ],
+        [
+          "ReAct",
+          "Prompting that interleaves reasoning steps with actions or tool calls."
+        ],
+        [
+          "Top-p",
+          "Samples from the smallest set of tokens whose probabilities add up to p."
+        ],
+        [
+          "Knowledge cutoff",
+          "The date after which a model has no training data."
+        ],
+        [
+          "Drift",
+          "Changes in data or behavior that degrade performance over time."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Improving model output",
+          "bullets": [
+            "About 20% of the exam",
+            "Limits and fixes",
+            "Prompting, grounding, settings"
+          ],
+          "script": [
+            "Welcome to the improving output module. It covers why foundation models fall short and the techniques Google recommends to get better, safer results."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Limits",
+                "d": "Hallucination · cutoff"
+              },
+              {
+                "t": "Prompting",
+                "d": "Few-shot · ReAct"
+              },
+              {
+                "t": "Grounding",
+                "d": "RAG · Search"
+              },
+              {
+                "t": "Settings",
+                "d": "Temperature · top-p"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Limitations and fixes",
+          "bullets": [
+            "Data dependency · knowledge cutoff",
+            "Bias · hallucinations · edge cases",
+            "Ground, prompt, tune, review"
+          ],
+          "script": [
+            "Foundation models depend on their training data, stop at a knowledge cutoff, can be biased, and can hallucinate.",
+            "Google recommends grounding, RAG, prompt engineering, fine-tuning, and human in the loop, plus ongoing monitoring for drift."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Problem",
+              "Fix"
+            ],
+            "rows": [
+              [
+                "Outdated facts",
+                "Grounding with Search"
+              ],
+              [
+                "Private knowledge",
+                "RAG with Agent Search"
+              ],
+              [
+                "Wrong style",
+                "Prompting · fine-tuning"
+              ],
+              [
+                "High stakes",
+                "Human in the loop"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Prompting techniques",
+          "bullets": [
+            "Zero-, one-, few-shot",
+            "Role prompting · chaining",
+            "Chain-of-thought · ReAct"
+          ],
+          "script": [
+            "Zero-shot gives no examples, one-shot gives one, and few-shot gives several. Role prompting assigns a persona, and prompt chaining links steps.",
+            "Chain-of-thought asks the model to reason step by step, and ReAct combines reasoning with actions such as tool calls."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Zero-shot",
+                "d": ""
+              },
+              {
+                "t": "Few-shot",
+                "d": "Examples"
+              },
+              {
+                "t": "Chain-of-thought",
+                "d": "Reason"
+              },
+              {
+                "t": "ReAct",
+                "d": "Reason + act"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Grounding and sampling settings",
+          "bullets": [
+            "First-party, third-party, world data",
+            "Agent Search · RAG APIs · Google Search",
+            "Temperature · top-p · safety"
+          ],
+          "script": [
+            "Grounding connects answers to trusted data, from your own enterprise data to Google Search for world facts.",
+            "Sampling settings control behavior: temperature for randomness, top-p for nucleus sampling, length limits, and safety thresholds."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Setting",
+              "Lower means"
+            ],
+            "rows": [
+              [
+                "Temperature",
+                "More focused"
+              ],
+              [
+                "Top-p",
+                "Fewer token choices"
+              ],
+              [
+                "Max tokens",
+                "Shorter output"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Review: improving output",
+          "bullets": [
+            "Match fix to limitation",
+            "Choose a prompting technique",
+            "Tune the settings"
+          ],
+          "script": [
+            "You've finished the improving output overview. Practice matching each limitation to the right fix and each task to a prompting technique.",
+            "Then try the improving output question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "short": "Business strategy",
+      "title": "Business strategies for a successful gen AI solution",
+      "summary": "Choose and implement gen AI solutions for business needs, measure impact, secure AI with SAIF and Google Cloud security tools, and apply responsible AI: privacy, bias, accountability, and explainability.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>Section 4 is about <b>15%</b> of the exam: implementing transformational gen AI solutions, secure AI, and responsible AI in business.</p>"
+        },
+        {
+          "h": "Implementing gen AI",
+          "html": "<p>Solution types include text, image, and code generation and personalized experiences. Choose based on <b>business requirements</b> and <b>technical constraints</b> such as data, budget, skills, and latency. Integration steps typically are: identify high-value use cases, build a cross-functional team, prepare data, pilot, measure, then scale with change management. Measure impact with KPIs tied to the goal, such as productivity, cost savings, revenue, customer satisfaction, and adoption.</p>"
+        },
+        {
+          "h": "Secure AI",
+          "html": "<p><b>Secure AI</b> protects AI systems from attacks and misuse across the whole ML lifecycle: data, training, deployment, and use. Google's <b>Secure AI Framework (SAIF)</b> extends security foundations to AI, automates defenses, aligns controls, adapts with feedback, and contextualizes risk in business processes. Google Cloud tools: secure-by-design infrastructure, <b>Identity and Access Management (IAM)</b>, <b>Security Command Center</b>, and workload monitoring.</p>"
+        },
+        {
+          "h": "Responsible AI",
+          "html": "<p>Responsible AI and transparency build trust. Privacy risks are reduced with <b>anonymization</b> (removing identity) and <b>pseudonymization</b> (replacing identifiers with tokens). Data quality affects bias and fairness. <b>Accountability</b> means people own AI outcomes, and <b>explainability</b> means decisions can be understood and questioned.</p>"
+        }
+      ],
+      "tips": [
+        "Start with a high-value use case and a pilot, then scale.",
+        "Measure with KPIs tied to the business goal.",
+        "SAIF = Google's framework for securing AI.",
+        "Anonymization removes identity; pseudonymization replaces it with a token.",
+        "IAM controls who can use AI resources."
+      ],
+      "terms": [
+        [
+          "SAIF",
+          "Google's Secure AI Framework for protecting AI systems."
+        ],
+        [
+          "Security Command Center",
+          "Google Cloud's security and risk management service."
+        ],
+        [
+          "IAM",
+          "Identity and Access Management: who can do what."
+        ],
+        [
+          "Anonymization",
+          "Removing data that identifies a person."
+        ],
+        [
+          "Pseudonymization",
+          "Replacing identifiers with substitute values."
+        ],
+        [
+          "KPI",
+          "Key performance indicator used to measure impact."
+        ],
+        [
+          "Explainability",
+          "Ability to understand why an AI system produced a result."
+        ],
+        [
+          "Change management",
+          "Helping people adopt new tools and processes."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Business strategy for gen AI",
+          "bullets": [
+            "About 15% of the exam",
+            "Implement, secure, act responsibly",
+            "Leadership decisions"
+          ],
+          "script": [
+            "Welcome to the business strategy module. It covers how leaders choose, roll out, secure, and govern generative AI solutions."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Use case",
+                "d": "High value"
+              },
+              {
+                "t": "Pilot",
+                "d": "Small team"
+              },
+              {
+                "t": "Measure",
+                "d": "KPIs"
+              },
+              {
+                "t": "Scale",
+                "d": "Change management"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Implementing gen AI",
+          "bullets": [
+            "Requirements and constraints",
+            "Pilot, measure, scale",
+            "KPIs tied to goals"
+          ],
+          "script": [
+            "Pick a solution that fits business requirements and technical constraints such as data, budget, skills, and latency. Start with a high-value use case and a pilot.",
+            "Measure impact with KPIs like productivity, cost savings, revenue, satisfaction, and adoption, then scale with change management."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Goal",
+              "Example KPI"
+            ],
+            "rows": [
+              [
+                "Productivity",
+                "Time saved per task"
+              ],
+              [
+                "Cost",
+                "Cost per interaction"
+              ],
+              [
+                "Revenue",
+                "Conversion rate"
+              ],
+              [
+                "Experience",
+                "Satisfaction score"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Secure AI and SAIF",
+          "bullets": [
+            "Protect the whole ML lifecycle",
+            "Secure AI Framework",
+            "IAM · Security Command Center"
+          ],
+          "script": [
+            "Secure AI protects systems from attacks and misuse from data to deployment. Google's Secure AI Framework extends security foundations to AI and automates defenses.",
+            "Use IAM to control access, Security Command Center to manage risk, and monitoring to watch workloads."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "SAIF",
+                "d": "Framework"
+              },
+              {
+                "t": "IAM",
+                "d": "Access control"
+              },
+              {
+                "t": "Security Command Center",
+                "d": "Risk view"
+              },
+              {
+                "t": "Monitoring",
+                "d": "Workloads"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Responsible AI in business",
+          "bullets": [
+            "Transparency builds trust",
+            "Anonymize or pseudonymize",
+            "Accountability and explainability"
+          ],
+          "script": [
+            "Responsible AI requires transparency, attention to data quality and bias, and privacy protections such as anonymization and pseudonymization.",
+            "People must remain accountable for AI outcomes, and decisions should be explainable."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Technique",
+              "What it does"
+            ],
+            "rows": [
+              [
+                "Anonymization",
+                "Removes identity"
+              ],
+              [
+                "Pseudonymization",
+                "Replaces identifiers"
+              ],
+              [
+                "Explainability",
+                "Shows why"
+              ],
+              [
+                "Accountability",
+                "People own outcomes"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Review: business strategy",
+          "bullets": [
+            "Choose and measure",
+            "Secure with SAIF",
+            "Lead responsibly"
+          ],
+          "script": [
+            "You've finished the business strategy overview. Practice choosing a rollout plan and KPIs, and matching each risk to a security or responsible AI practice.",
+            "Then try the business strategy question set."
+          ]
+        }
+      ]
+    }
+  ]
+}

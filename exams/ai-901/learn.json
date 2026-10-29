@@ -1,0 +1,597 @@
+{
+  "intro": "Two modules follow the AI-901 skills measured as of April 15, 2026: AI concepts and capabilities, and implementing AI solutions with Microsoft Foundry. Each combines a study guide, exam tips, key terms, visual slides, and a narrated lesson. Pair them with the free Microsoft Learn training and hands-on practice in the Foundry portal.",
+  "updated": "2026-10-28",
+  "sources": [
+    {
+      "title": "Microsoft Learn: Study guide for Exam AI-901",
+      "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-901"
+    },
+    {
+      "title": "Microsoft Azure AI Fundamentals (AI-901): full course with labs (Vladimir Zivkovic, YouTube)",
+      "url": "https://www.youtube.com/watch?v=URHWDE-Ocuw",
+      "note": "Free · AI-901 (not AI-900) · full course with labs · published May 2026 · checked October 2026"
+    }
+  ],
+  "modules": [
+    {
+      "id": "D1",
+      "short": "AI concepts",
+      "title": "Identify AI concepts and capabilities",
+      "summary": "Apply Microsoft's responsible AI principles, understand how generative models work and how to choose and configure them, and recognize common AI workloads: generative and agentic AI, text analysis, speech, vision, and information extraction.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>This domain is <b>40–45%</b> of AI-901. It tests whether you can name the right kind of AI for a scenario, explain how generative models behave, and apply responsible AI principles. Questions are conceptual: you won't write code, but you need to recognize which capability fits a business need.</p>"
+        },
+        {
+          "h": "Responsible AI: six principles",
+          "html": "<p>Microsoft's principles are <b>fairness</b> (similar people are treated similarly; test for bias across groups), <b>reliability and safety</b> (behaves as intended, including on unusual inputs; content filters and testing), <b>privacy and security</b> (protect personal data and the system), <b>inclusiveness</b> (works for people of all abilities and backgrounds), <b>transparency</b> (people understand that they're using AI and its limits), and <b>accountability</b> (people remain responsible for the system and its outcomes). Exam scenarios usually describe one concern and ask which principle it maps to.</p>"
+        },
+        {
+          "h": "How generative models work",
+          "html": "<p>Large language models are trained on huge amounts of text to predict the next <b>token</b> (a word or word piece). They understand meaning through <b>embeddings</b>, numeric vectors in which similar meanings sit close together, and the <b>transformer</b> architecture uses attention to weigh relationships among tokens. Output is generated one token at a time, so it can sound confident and still be wrong (a <b>hallucination</b>). <b>Grounding</b> the prompt in trusted data, as in retrieval-augmented generation (RAG), reduces that risk.</p><p>Choose a model by capability (text, chat, reasoning, vision, image generation, speech, embeddings), quality, cost, latency, and context window. Configuration parameters include <b>temperature</b> (higher means more varied output, lower means more focused), <b>top-p</b>, <b>max tokens</b> (limits response length), and the <b>system message</b> that sets behavior. Deployment options trade cost and throughput, such as pay-as-you-go standard deployments or provisioned throughput for predictable heavy use.</p>"
+        },
+        {
+          "h": "AI workloads to recognize",
+          "html": "<p><b>Generative AI</b> creates text, code, or images from prompts. <b>Agentic AI</b> combines a model with instructions and tools so it can take multi-step actions toward a goal. <b>Text analysis</b> includes keyword (key phrase) extraction, entity detection (people, places, organizations), sentiment analysis, language detection, and summarization. <b>Speech</b> covers speech recognition (speech to text) and speech synthesis (text to speech). <b>Computer vision</b> covers image analysis, tagging, captioning, object detection, and OCR, while image-generation models create new images. <b>Information extraction</b> pulls structured fields from documents, forms, images, audio, and video.</p>"
+        }
+      ],
+      "tips": [
+        "Map each scenario to one responsible AI principle; the wording usually signals it.",
+        "Temperature controls randomness; max tokens controls length.",
+        "Grounding and RAG reduce hallucinations by supplying trusted data in the prompt.",
+        "Agents = model + instructions + tools, acting over multiple steps.",
+        "Speech recognition turns audio into text; speech synthesis turns text into audio."
+      ],
+      "terms": [
+        [
+          "Token",
+          "A unit of text (word or word piece) that models read and generate."
+        ],
+        [
+          "Embedding",
+          "A numeric vector that represents meaning, so similar items are close together."
+        ],
+        [
+          "Hallucination",
+          "Fluent but incorrect or unsupported model output."
+        ],
+        [
+          "Grounding",
+          "Supplying trusted source data to a model so answers are based on it."
+        ],
+        [
+          "Temperature",
+          "Setting that makes output more random (higher) or more focused (lower)."
+        ],
+        [
+          "Agent",
+          "An AI system that uses a model, instructions, and tools to complete tasks."
+        ],
+        [
+          "Entity recognition",
+          "Detecting names of people, places, organizations, dates, and so on in text."
+        ],
+        [
+          "Speech synthesis",
+          "Generating spoken audio from text."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "AI concepts and capabilities",
+          "bullets": [
+            "40–45% of AI-901",
+            "Responsible AI principles",
+            "Models and workloads"
+          ],
+          "script": [
+            "Welcome to the AI concepts module. This half of AI-901 is about recognizing which kind of AI fits a scenario, understanding how generative models behave, and applying responsible AI.",
+            "You won't write code here, but you will need to match business needs to capabilities."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Responsible AI",
+                "d": "Six principles"
+              },
+              {
+                "t": "Generative models",
+                "d": "Tokens · settings"
+              },
+              {
+                "t": "Workloads",
+                "d": "Text · speech · vision"
+              },
+              {
+                "t": "Extraction",
+                "d": "Docs · media"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Six responsible AI principles",
+          "bullets": [
+            "Fairness · reliability and safety",
+            "Privacy and security · inclusiveness",
+            "Transparency · accountability"
+          ],
+          "script": [
+            "Microsoft's responsible AI principles are fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability.",
+            "Exam questions describe one concern, such as a loan model treating groups differently, which is fairness, and ask you to name the principle."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Scenario",
+              "Principle"
+            ],
+            "rows": [
+              [
+                "Model disadvantages a group",
+                "Fairness"
+              ],
+              [
+                "Works for screen-reader users",
+                "Inclusiveness"
+              ],
+              [
+                "Users told they're chatting with AI",
+                "Transparency"
+              ],
+              [
+                "A person owns the outcome",
+                "Accountability"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "How generative models work",
+          "bullets": [
+            "Predict the next token",
+            "Embeddings capture meaning",
+            "Fluent isn't the same as correct"
+          ],
+          "script": [
+            "Large language models predict the next token based on patterns learned in training. Embeddings represent meaning as vectors, and the transformer's attention relates tokens to one another.",
+            "Because output is generated, it can be confident and wrong. Grounding the prompt in trusted data reduces hallucinations."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Prompt",
+                "d": "Tokenized"
+              },
+              {
+                "t": "Model",
+                "d": "Attention"
+              },
+              {
+                "t": "Next token",
+                "d": "Repeated"
+              },
+              {
+                "t": "Response",
+                "d": "Check it"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Choosing and configuring models",
+          "bullets": [
+            "Pick by capability, cost, and speed",
+            "Temperature · top-p · max tokens",
+            "System message sets behavior"
+          ],
+          "script": [
+            "Choose a model for the job: chat, reasoning, vision, image generation, speech, or embeddings, balancing quality, cost, latency, and context window.",
+            "Temperature and top-p control how varied the output is, and max tokens limits length. The system message tells the model how to behave."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Setting",
+              "Effect"
+            ],
+            "rows": [
+              [
+                "Temperature ↑",
+                "More varied"
+              ],
+              [
+                "Temperature ↓",
+                "More focused"
+              ],
+              [
+                "Max tokens",
+                "Length limit"
+              ],
+              [
+                "System message",
+                "Role and rules"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Common AI workloads",
+          "bullets": [
+            "Generative and agentic AI",
+            "Text analysis and speech",
+            "Vision and extraction"
+          ],
+          "script": [
+            "Generative AI creates content, and agentic AI adds tools so the model can act over several steps. Text analysis finds key phrases, entities, sentiment, and summaries.",
+            "Speech recognition turns audio into text, and synthesis does the reverse. Computer vision analyzes images, and information extraction pulls fields from documents and media."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Generative",
+                "d": "Create content"
+              },
+              {
+                "t": "Agentic",
+                "d": "Use tools, act"
+              },
+              {
+                "t": "Text",
+                "d": "Entities · sentiment"
+              },
+              {
+                "t": "Speech",
+                "d": "STT · TTS"
+              },
+              {
+                "t": "Vision",
+                "d": "Analyze · generate"
+              },
+              {
+                "t": "Extraction",
+                "d": "Fields from files"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: AI concepts",
+          "bullets": [
+            "Name the principle",
+            "Explain model settings",
+            "Match workload to need"
+          ],
+          "script": [
+            "You've finished the AI concepts overview. Practice naming the responsible AI principle in a scenario and picking the right workload for a business need.",
+            "Then try the AI concepts question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "short": "Microsoft Foundry",
+      "title": "Implement AI solutions by using Microsoft Foundry",
+      "summary": "Use Microsoft Foundry to write prompts, deploy and test models, build chat clients and single-agent solutions, and add text, speech, vision, image generation, and Content Understanding extraction to lightweight apps.",
+      "guide": [
+        {
+          "h": "What this domain covers",
+          "html": "<p>This domain is <b>55–60%</b> of AI-901. It's hands-on: you should know what you do in the <b>Microsoft Foundry portal</b> and what a small app does with the <b>Foundry SDK</b>, for generative apps and agents, text and speech, vision and image generation, and information extraction.</p>"
+        },
+        {
+          "h": "Prompts, models, and chat apps",
+          "html": "<p>A <b>system prompt</b> sets the assistant's role, tone, rules, and output format. <b>User prompts</b> carry each request. Good prompts are specific, give context and examples, and state the expected format. In the Foundry portal you pick a model from the catalog, <b>deploy</b> it, and test it in the playground, adjusting parameters like temperature and max tokens. A lightweight chat client uses the Foundry SDK with the project endpoint, authentication, and the deployment name, and sends the conversation history with each request so the model has context.</p>"
+        },
+        {
+          "h": "Agents",
+          "html": "<p>A single-agent solution combines a deployed model, <b>instructions</b>, and <b>tools</b> such as knowledge (files or search for grounding), code execution, or custom functions. You create and test the agent in the Foundry portal, then a client app starts a conversation, sends the user's messages to the agent, and reads its responses, including any tool results.</p>"
+        },
+        {
+          "h": "Text, speech, and vision",
+          "html": "<p>For text analysis, a deployed language model can extract key phrases, entities, and sentiment or summarize text based on your prompt, and Foundry Tools provide prebuilt language capabilities. <b>Multimodal models</b> accept audio and images as input, so an app can respond to a spoken prompt or describe a picture. <b>Azure Speech in Foundry Tools</b> provides speech to text and text to speech, including neural voices, for apps that listen and talk. Image-generation models create new images from text descriptions; describe subject, style, and composition clearly, and apply content safety.</p>"
+        },
+        {
+          "h": "Information extraction with Content Understanding",
+          "html": "<p><b>Azure Content Understanding in Foundry Tools</b> extracts structured information from documents and forms, images, audio, and video. You define an <b>analyzer</b> with the fields you want (such as invoice number, total, speaker, or topics), test it in the portal, then call it from a lightweight app that sends files and receives structured results (for example, JSON) to store or act on.</p>"
+        }
+      ],
+      "tips": [
+        "Put role, rules, and format in the system prompt.",
+        "Test deployments in the playground before writing client code.",
+        "Agents need instructions plus tools; knowledge tools ground answers.",
+        "Multimodal models take images and audio directly as input.",
+        "Content Understanding analyzers define the fields to extract."
+      ],
+      "terms": [
+        [
+          "Microsoft Foundry",
+          "Microsoft's platform for building, deploying, and managing AI apps and agents."
+        ],
+        [
+          "Deployment",
+          "A hosted instance of a model your app calls by name."
+        ],
+        [
+          "Playground",
+          "Portal area for testing prompts and parameters on a deployment."
+        ],
+        [
+          "System prompt",
+          "Instructions that set the model's role, rules, and output format."
+        ],
+        [
+          "Foundry SDK",
+          "Code library for calling models and agents from an app."
+        ],
+        [
+          "Multimodal model",
+          "A model that accepts more than one input type, such as text, images, and audio."
+        ],
+        [
+          "Azure Speech",
+          "Speech to text and text to speech capabilities in Foundry Tools."
+        ],
+        [
+          "Content Understanding",
+          "Foundry Tools service that extracts structured data from documents, images, audio, and video."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Building with Microsoft Foundry",
+          "bullets": [
+            "55–60% of AI-901",
+            "Portal and SDK",
+            "Apps, agents, and extraction"
+          ],
+          "script": [
+            "Welcome to the Microsoft Foundry module, the larger half of AI-901. It covers what you do in the Foundry portal and what a small app does with the SDK.",
+            "You'll see generative chat apps, agents, speech, vision, image generation, and information extraction."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Pick model",
+                "d": "Catalog"
+              },
+              {
+                "t": "Deploy",
+                "d": "Endpoint"
+              },
+              {
+                "t": "Test",
+                "d": "Playground"
+              },
+              {
+                "t": "Build",
+                "d": "SDK client"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Effective prompts",
+          "bullets": [
+            "System prompt: role and rules",
+            "User prompt: the request",
+            "Be specific; show the format"
+          ],
+          "script": [
+            "The system prompt sets the assistant's role, tone, limits, and output format. Each user prompt carries the request.",
+            "Strong prompts are specific, give context or examples, and say exactly what format to return."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Part",
+              "Example"
+            ],
+            "rows": [
+              [
+                "Role",
+                "You are a helpful HR assistant"
+              ],
+              [
+                "Rules",
+                "Answer only from the policy"
+              ],
+              [
+                "Format",
+                "Reply in three bullets"
+              ],
+              [
+                "Request",
+                "How many vacation days?"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Deploy and build a chat client",
+          "bullets": [
+            "Deploy from the model catalog",
+            "Tune in the playground",
+            "SDK client sends history"
+          ],
+          "script": [
+            "In the Foundry portal, pick a model from the catalog, deploy it, and try prompts in the playground while adjusting temperature and length.",
+            "A lightweight chat app uses the Foundry SDK with the project endpoint, credentials, and deployment name, and sends the conversation history so the model keeps context."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Endpoint",
+                "d": "+ auth"
+              },
+              {
+                "t": "Deployment",
+                "d": "By name"
+              },
+              {
+                "t": "Messages",
+                "d": "System + history"
+              },
+              {
+                "t": "Reply",
+                "d": "Show user"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Single-agent solutions",
+          "bullets": [
+            "Model + instructions + tools",
+            "Test in the portal",
+            "Client runs the agent"
+          ],
+          "script": [
+            "An agent combines a deployed model, instructions, and tools such as knowledge for grounding, code execution, or custom functions.",
+            "Build and test it in the portal. A client app starts a conversation, sends the user's message to the agent, and reads the response."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Instructions",
+                "d": "Goal and limits"
+              },
+              {
+                "t": "Knowledge",
+                "d": "Ground in data"
+              },
+              {
+                "t": "Actions",
+                "d": "Functions · code"
+              },
+              {
+                "t": "Conversation",
+                "d": "Message history"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Text and speech",
+          "bullets": [
+            "Text analysis with models or tools",
+            "Multimodal models hear prompts",
+            "Azure Speech: STT and TTS"
+          ],
+          "script": [
+            "Apps can analyze text for key phrases, entities, sentiment, and summaries using a deployed model or Foundry Tools.",
+            "Multimodal models can respond to spoken prompts directly. Azure Speech in Foundry Tools adds speech to text and natural-sounding text to speech."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Text analysis",
+                "d": "Entities · sentiment"
+              },
+              {
+                "t": "Multimodal",
+                "d": "Audio in"
+              },
+              {
+                "t": "Speech to text",
+                "d": "Transcribe"
+              },
+              {
+                "t": "Text to speech",
+                "d": "Neural voices"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Vision and image generation",
+          "bullets": [
+            "Describe and interpret images",
+            "Generate new images",
+            "Apply content safety"
+          ],
+          "script": [
+            "A multimodal model can interpret an image in the prompt, such as describing a photo or reading a chart. Image-generation models create new visuals from text descriptions.",
+            "Describe the subject, style, and composition clearly, and rely on content filters to block harmful output."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Image in",
+                "d": "Multimodal prompt"
+              },
+              {
+                "t": "Interpret",
+                "d": "Describe · answer"
+              },
+              {
+                "t": "Or generate",
+                "d": "Text → image"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Content Understanding",
+          "bullets": [
+            "Documents, images, audio, video",
+            "Analyzers define fields",
+            "Structured results for apps"
+          ],
+          "script": [
+            "Azure Content Understanding extracts structured information from documents and forms, images, audio, and video.",
+            "Define an analyzer with the fields you need, test it in the portal, then call it from an app and use the structured results."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Input",
+              "Example output"
+            ],
+            "rows": [
+              [
+                "Invoice",
+                "Vendor · total · date"
+              ],
+              [
+                "Form",
+                "Field values"
+              ],
+              [
+                "Call recording",
+                "Speakers · summary"
+              ],
+              [
+                "Video",
+                "Scenes · topics"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Review: Microsoft Foundry",
+          "bullets": [
+            "Prompt, deploy, test, build",
+            "Agents with tools",
+            "Speech, vision, extraction"
+          ],
+          "script": [
+            "You've finished the Microsoft Foundry overview. Practice describing the portal steps and what a small app sends and receives for each capability.",
+            "Then try the Microsoft Foundry question set."
+          ]
+        }
+      ]
+    }
+  ]
+}
