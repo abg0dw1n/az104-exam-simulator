@@ -1,7 +1,19 @@
 {
   "voice": "en-US-AndrewNeural",
-  "modules": {
-    "D1": "10066ce8f7ae3ffd",
-    "D2": "f2a6967999a0a06d"
+  "slides": {
+    "D1-1": "528fa23e456f892d",
+    "D1-2": "a8d880634e35ac97",
+    "D1-3": "7b439ea5b4928406",
+    "D1-4": "c803bf6460814c32",
+    "D1-5": "a45cf554c799ae56",
+    "D1-6": "babc93d3b4788122",
+    "D2-1": "1f1b9c421cbd660c",
+    "D2-2": "afb8297848fb123e",
+    "D2-3": "c2dd20bb14851b69",
+    "D2-4": "e09cac48a41be2ac",
+    "D2-5": "683ce7d27b7d80f9",
+    "D2-6": "50a7ecccb15f5d00",
+    "D2-7": "e8cac4693fc08dad",
+    "D2-8": "1e8cbe5ad1168ce3"
   }
 }

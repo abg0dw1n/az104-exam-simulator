@@ -1,7 +1,8 @@
 {
   "intro": "Four modules follow the 220-1202 Core 2 domains and their exam weights. Each combines a practical study guide, exam tips, key terms, visual slides, and a narrated lesson. These summaries are a starting point; use the official objectives and hands-on practice to cover the full exam scope.",
   "narration": {
-    "src": "media/{id}.mp3",
+    "src": "media/{id}-{n}.mp3",
+    "perSlide": true,
     "credit": "Andrew (standard Neural)"
   },
   "updated": "2026-10-28",

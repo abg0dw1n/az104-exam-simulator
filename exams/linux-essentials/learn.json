@@ -1,7 +1,8 @@
 {
   "intro": "Five modules follow the five Linux Essentials 2.0 topics and their weights. Each one has a study guide, exam tips, key terms, visual slides, and a narrated lesson. Practice the commands in the Labs tab, and use LPI's free official learning materials alongside these modules.",
   "narration": {
-    "src": "media/{id}.mp3",
+    "src": "media/{id}-{n}.mp3",
+    "perSlide": true,
     "credit": "Andrew (standard Neural)"
   },
   "updated": "2026-10-29",

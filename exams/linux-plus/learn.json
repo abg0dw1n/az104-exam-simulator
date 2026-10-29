@@ -1,7 +1,8 @@
 {
   "intro": "Five modules follow the five Linux+ XK0-006 domains and their weights. Each has a study guide, exam tips, key terms, visual slides, and a narrated lesson. Linux+ includes performance-based questions, so pair these modules with the hands-on labs.",
   "narration": {
-    "src": "media/{id}.mp3",
+    "src": "media/{id}-{n}.mp3",
+    "perSlide": true,
     "credit": "Andrew (standard Neural)"
   },
   "updated": "2026-10-29",

@@ -1,7 +1,8 @@
 {
   "intro": "Five modules, one per AZ-104 skill area. Each has a study guide, a slideshow and a narrated video lesson, aligned with the skills measured as of April 17, 2026.",
   "narration": {
-    "src": "media/{id}.mp3",
+    "src": "media/{id}-{n}.mp3",
+    "perSlide": true,
     "credit": "Andrew (standard Neural)"
   },
   "updated": "2026-10-28",

@@ -1,7 +1,8 @@
 {
   "intro": "Seven modules follow the NHA CMAA test plan's domains and weights. Each combines a study guide, exam tips, key terms, visual slides, and a narrated lesson. Use them alongside the official test plan and your training program's materials.",
   "narration": {
-    "src": "media/{id}.mp3",
+    "src": "media/{id}-{n}.mp3",
+    "perSlide": true,
     "credit": "Andrew (standard Neural)"
   },
   "updated": "2026-10-28",

@@ -1,7 +1,8 @@
 {
   "intro": "Five modules follow the AIF-C01 exam guide's domains and weights. Each combines a study guide, exam tips, key terms, visual slides, and a narrated lesson. Pair them with AWS Skill Builder and hands-on time in Amazon Bedrock or PartyRock.",
   "narration": {
-    "src": "media/{id}.mp3",
+    "src": "media/{id}-{n}.mp3",
+    "perSlide": true,
     "credit": "Andrew (standard Neural)"
   },
   "updated": "2026-10-28",

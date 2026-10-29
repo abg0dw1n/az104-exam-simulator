@@ -1,7 +1,8 @@
 {
   "intro": "Nine modules follow the RHCSA (EX200) objectives for RHEL 10. Each has a study guide, exam tips, key terms, visual slides, and a narrated lesson. RHCSA is fully hands-on, so work through the Labs tab and practice on a RHEL 10 virtual machine (Red Hat's no-cost Developer Subscription lets you install one).",
   "narration": {
-    "src": "media/{id}.mp3",
+    "src": "media/{id}-{n}.mp3",
+    "perSlide": true,
     "credit": "Andrew (standard Neural)"
   },
   "updated": "2026-10-29",
