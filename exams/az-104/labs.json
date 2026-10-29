@@ -1,0 +1,1008 @@
+{
+  "intro": "Hands-on AZ-104 labs graded in your browser: an Azure CLI (Cloud Shell) simulator for networking, storage, RBAC, peering, VMs, tags and locks, plus a monitoring console for alerts. Simulated, so some commands and outputs are simplified; nothing touches a real subscription.",
+  "labs": [
+    {
+      "id": "az-vnet-nsg",
+      "title": "Build a VNet with subnets and an NSG",
+      "domain": "D4",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 15,
+      "summary": "Use the Azure CLI to create a resource group, a VNet with two subnets, and an NSG that allows HTTPS to the web subnet.",
+      "scenario": "<p>In Cloud Shell, build the network for a new app:</p><ul><li>Resource group <code>rg-net-lab</code> in <code>eastus</code></li><li>VNet <code>vnet-app</code> with address space <code>10.20.0.0/16</code></li><li>Subnets <code>snet-web</code> <code>10.20.1.0/24</code> and <code>snet-db</code> <code>10.20.2.0/24</code></li><li>NSG <code>nsg-web</code> with an inbound rule <code>Allow-HTTPS</code> (priority 100) allowing TCP 443 from <code>Internet</code></li><li>Associate <code>nsg-web</code> with <code>snet-web</code></li></ul>",
+      "devices": [
+        {
+          "name": "cloud",
+          "platform": "az",
+          "subscription": "Contoso-Lab",
+          "principals": [
+            "alex@contoso.com",
+            "priya@contoso.com",
+            "contractor@fabrikam.com",
+            "8d2c6b1e-4f3a-4e2b-9c1d-7a6b5c4d3e2f"
+          ],
+          "state": {}
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Resource group <code>rg-net-lab</code> in eastus",
+          "check": {
+            "dev": "cloud",
+            "path": "rgs.rg-net-lab.location",
+            "eq": "eastus"
+          }
+        },
+        {
+          "text": "VNet <code>vnet-app</code> with 10.20.0.0/16",
+          "check": {
+            "dev": "cloud",
+            "path": "vnets.vnet-app.prefixes",
+            "re": "10\\.20\\.0\\.0/16"
+          }
+        },
+        {
+          "text": "Subnets snet-web (10.20.1.0/24) and snet-db (10.20.2.0/24)",
+          "check": {
+            "all": [
+              {
+                "dev": "cloud",
+                "path": "vnets.vnet-app.subnets.snet-web.prefix",
+                "eq": "10.20.1.0/24"
+              },
+              {
+                "dev": "cloud",
+                "path": "vnets.vnet-app.subnets.snet-db.prefix",
+                "eq": "10.20.2.0/24"
+              }
+            ]
+          }
+        },
+        {
+          "text": "NSG <code>nsg-web</code> allows inbound TCP 443 from Internet at priority 100",
+          "check": {
+            "items": [
+              "cloud",
+              "nsgs.nsg-web.rules"
+            ],
+            "has": {
+              "name": "Allow-HTTPS",
+              "priority": 100,
+              "direction": "Inbound",
+              "access": "Allow",
+              "protocol": "Tcp",
+              "destinationPorts": "443",
+              "sourcePrefixes": "Internet"
+            }
+          }
+        },
+        {
+          "text": "<code>nsg-web</code> is associated with snet-web",
+          "check": {
+            "dev": "cloud",
+            "path": "vnets.vnet-app.subnets.snet-web.nsg",
+            "eq": "nsg-web"
+          }
+        }
+      ],
+      "hints": [
+        "Every command starts with <code>az</code>. Add <code>-o table</code> to list commands for readable output.",
+        "<code>az network vnet create -g rg-net-lab -n vnet-app --address-prefixes 10.20.0.0/16 --subnet-name snet-web --subnet-prefixes 10.20.1.0/24</code>",
+        "<code>az network nsg rule create -g rg-net-lab --nsg-name nsg-web -n Allow-HTTPS --priority 100 --direction Inbound --access Allow --protocol Tcp --destination-port-ranges 443 --source-address-prefixes Internet</code>",
+        "<code>az network vnet subnet update -g rg-net-lab --vnet-name vnet-app -n snet-web --network-security-group nsg-web</code>"
+      ],
+      "solution": "<pre>az group create -n rg-net-lab -l eastus\naz network vnet create -g rg-net-lab -n vnet-app --address-prefixes 10.20.0.0/16 --subnet-name snet-web --subnet-prefixes 10.20.1.0/24\naz network vnet subnet create -g rg-net-lab --vnet-name vnet-app -n snet-db --address-prefixes 10.20.2.0/24\naz network nsg create -g rg-net-lab -n nsg-web\naz network nsg rule create -g rg-net-lab --nsg-name nsg-web -n Allow-HTTPS --priority 100 --direction Inbound --access Allow --protocol Tcp --destination-port-ranges 443 --source-address-prefixes Internet\naz network vnet subnet update -g rg-net-lab --vnet-name vnet-app -n snet-web --network-security-group nsg-web</pre>",
+      "review": "<p>Subnets must sit inside the VNet's address space without overlapping. NSG rules are evaluated by priority (lower first), and associating an NSG with a subnet applies it to every NIC in that subnet.</p>"
+    },
+    {
+      "id": "az-storage",
+      "title": "Secure a storage account",
+      "domain": "D2",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 12,
+      "summary": "Create a zone-redundant StorageV2 account with secure defaults, add a private container, and fix an insecure legacy account.",
+      "scenario": "<p>Resource group <code>rg-data</code> already exists and contains an older account, <code>stlegacy01</code>, that allows public blob access and TLS 1.0.</p><ul><li>Create <code>stfinance01</code>: StorageV2, <code>Standard_ZRS</code>, HTTPS only, minimum TLS 1.2, no public blob access</li><li>Add a private container named <code>invoices</code></li><li>Update <code>stlegacy01</code>: minimum TLS 1.2 and no public blob access</li></ul>",
+      "devices": [
+        {
+          "name": "cloud",
+          "platform": "az",
+          "subscription": "Contoso-Lab",
+          "principals": [
+            "alex@contoso.com",
+            "priya@contoso.com",
+            "contractor@fabrikam.com",
+            "8d2c6b1e-4f3a-4e2b-9c1d-7a6b5c4d3e2f"
+          ],
+          "state": {
+            "rgs": {
+              "rg-data": {
+                "location": "eastus",
+                "tags": {}
+              }
+            },
+            "storage": {
+              "stlegacy01": {
+                "rg": "rg-data",
+                "location": "eastus",
+                "sku": "Standard_LRS",
+                "kind": "StorageV2",
+                "httpsOnly": true,
+                "minTls": "TLS1_0",
+                "publicBlob": true,
+                "accessTier": "Hot",
+                "containers": {
+                  "public-assets": {
+                    "publicAccess": "blob"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "<code>stfinance01</code> is StorageV2 with Standard_ZRS",
+          "check": {
+            "all": [
+              {
+                "dev": "cloud",
+                "path": "storage.stfinance01.kind",
+                "eq": "StorageV2"
+              },
+              {
+                "dev": "cloud",
+                "path": "storage.stfinance01.sku",
+                "eq": "Standard_ZRS"
+              }
+            ]
+          }
+        },
+        {
+          "text": "<code>stfinance01</code>: HTTPS only, TLS 1.2 minimum, no public blob access",
+          "check": {
+            "all": [
+              {
+                "dev": "cloud",
+                "path": "storage.stfinance01.httpsOnly",
+                "eq": true
+              },
+              {
+                "dev": "cloud",
+                "path": "storage.stfinance01.minTls",
+                "eq": "TLS1_2"
+              },
+              {
+                "dev": "cloud",
+                "path": "storage.stfinance01.publicBlob",
+                "eq": false
+              }
+            ]
+          }
+        },
+        {
+          "text": "A private container <code>invoices</code> exists in stfinance01",
+          "check": {
+            "dev": "cloud",
+            "path": "storage.stfinance01.containers.invoices.publicAccess",
+            "eq": "off"
+          }
+        },
+        {
+          "text": "<code>stlegacy01</code> now requires TLS 1.2 and blocks public blob access",
+          "check": {
+            "all": [
+              {
+                "dev": "cloud",
+                "path": "storage.stlegacy01.minTls",
+                "eq": "TLS1_2"
+              },
+              {
+                "dev": "cloud",
+                "path": "storage.stlegacy01.publicBlob",
+                "eq": false
+              }
+            ]
+          }
+        },
+        {
+          "text": "Which redundancy option protects against a single datacenter (zone) failure but keeps data in one region?",
+          "check": {
+            "q": "zrs",
+            "eq": 1
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "zrs",
+          "prompt": "Pick the redundancy option:",
+          "options": [
+            "LRS",
+            "ZRS",
+            "GRS",
+            "RA-GRS"
+          ]
+        }
+      ],
+      "hints": [
+        "Every command starts with <code>az</code>. Add <code>-o table</code> to list commands for readable output.",
+        "<code>az storage account create -n stfinance01 -g rg-data --sku Standard_ZRS --kind StorageV2 --https-only true --min-tls-version TLS1_2 --allow-blob-public-access false</code>",
+        "<code>az storage container create --account-name stfinance01 -n invoices --public-access off --auth-mode login</code>"
+      ],
+      "solution": "<pre>az storage account create -n stfinance01 -g rg-data -l eastus --sku Standard_ZRS --kind StorageV2 --https-only true --min-tls-version TLS1_2 --allow-blob-public-access false\naz storage container create --account-name stfinance01 -n invoices --public-access off --auth-mode login\naz storage account update -n stlegacy01 -g rg-data --min-tls-version TLS1_2 --allow-blob-public-access false</pre>",
+      "review": "<p>LRS keeps three copies in one datacenter, ZRS spreads them across availability zones in a region, and GRS/GZRS add a secondary region. Disabling public blob access at the account level overrides container-level public settings.</p>"
+    },
+    {
+      "id": "az-rbac",
+      "title": "Apply least-privilege RBAC",
+      "domain": "D1",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 12,
+      "summary": "Grant scoped built-in roles to a user and a group, and remove an over-privileged contractor assignment.",
+      "scenario": "<p>Access review findings for subscription <code>Contoso-Lab</code> (ID <code>6f1c2a9e-3b4d-4e5f-9a8b-7c6d5e4f3a21</code>):</p><ul><li><code>alex@contoso.com</code> needs to view (not change) everything in <code>rg-app</code></li><li>The Operations group (object ID <code>8d2c6b1e-4f3a-4e2b-9c1d-7a6b5c4d3e2f</code>) manages VMs in <code>rg-app</code> but not their networks or storage</li><li><code>contractor@fabrikam.com</code> has <b>Owner</b> on the whole subscription; the contract ended</li></ul>",
+      "devices": [
+        {
+          "name": "cloud",
+          "platform": "az",
+          "subscription": "Contoso-Lab",
+          "principals": [
+            "alex@contoso.com",
+            "priya@contoso.com",
+            "contractor@fabrikam.com",
+            "8d2c6b1e-4f3a-4e2b-9c1d-7a6b5c4d3e2f"
+          ],
+          "state": {
+            "rgs": {
+              "rg-app": {
+                "location": "eastus",
+                "tags": {}
+              },
+              "rg-shared": {
+                "location": "eastus",
+                "tags": {}
+              }
+            },
+            "roles": [
+              {
+                "assignee": "priya@contoso.com",
+                "role": "Owner",
+                "scope": "/subscriptions/6f1c2a9e-3b4d-4e5f-9a8b-7c6d5e4f3a21"
+              },
+              {
+                "assignee": "contractor@fabrikam.com",
+                "role": "Owner",
+                "scope": "/subscriptions/6f1c2a9e-3b4d-4e5f-9a8b-7c6d5e4f3a21"
+              }
+            ]
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Review current assignments with <code>az role assignment list</code>",
+          "check": {
+            "ran": [
+              "cloud",
+              "^az\\s+role\\s+assignment\\s+list"
+            ]
+          }
+        },
+        {
+          "text": "alex has Reader on rg-app (not the subscription)",
+          "check": {
+            "items": [
+              "cloud",
+              "roles"
+            ],
+            "has": {
+              "assignee": "alex@contoso.com",
+              "role": "Reader",
+              "scope": "/subscriptions/6f1c2a9e-3b4d-4e5f-9a8b-7c6d5e4f3a21/resourceGroups/rg-app"
+            }
+          }
+        },
+        {
+          "text": "The Operations group has Virtual Machine Contributor on rg-app",
+          "check": {
+            "items": [
+              "cloud",
+              "roles"
+            ],
+            "has": {
+              "assignee": "8d2c6b1e-4f3a-4e2b-9c1d-7a6b5c4d3e2f",
+              "role": "Virtual Machine Contributor",
+              "scope": "/subscriptions/6f1c2a9e-3b4d-4e5f-9a8b-7c6d5e4f3a21/resourceGroups/rg-app"
+            }
+          }
+        },
+        {
+          "text": "The contractor no longer has any role",
+          "check": {
+            "items": [
+              "cloud",
+              "roles"
+            ],
+            "none": {
+              "assignee": "contractor@fabrikam.com"
+            }
+          }
+        },
+        {
+          "text": "priya's Owner assignment is untouched",
+          "check": {
+            "items": [
+              "cloud",
+              "roles"
+            ],
+            "has": {
+              "assignee": "priya@contoso.com",
+              "role": "Owner"
+            }
+          }
+        }
+      ],
+      "hints": [
+        "Every command starts with <code>az</code>. Add <code>-o table</code> to list commands for readable output.",
+        "<code>az role assignment create --assignee alex@contoso.com --role Reader -g rg-app</code> scopes the role to the resource group.",
+        "Quote role names with spaces: <code>--role \"Virtual Machine Contributor\"</code>.",
+        "<code>az role assignment delete --assignee contractor@fabrikam.com --role Owner --scope /subscriptions/…</code>"
+      ],
+      "solution": "<pre>az role assignment list -o table\naz role assignment create --assignee alex@contoso.com --role Reader -g rg-app\naz role assignment create --assignee 8d2c6b1e-4f3a-4e2b-9c1d-7a6b5c4d3e2f --role \"Virtual Machine Contributor\" -g rg-app\naz role assignment delete --assignee contractor@fabrikam.com --role Owner --scope /subscriptions/6f1c2a9e-3b4d-4e5f-9a8b-7c6d5e4f3a21</pre>",
+      "review": "<p>Assign the narrowest built-in role at the narrowest scope that works, prefer groups over individuals, and remove access promptly when it's no longer needed.</p>"
+    },
+    {
+      "id": "az-peering",
+      "title": "Connect VNets with peering",
+      "domain": "D4",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 12,
+      "summary": "Peer a hub and a spoke VNet in both directions and explain why an overlapping VNet can't be peered.",
+      "scenario": "<p>Hub <code>vnet-hub</code> (<code>10.0.0.0/16</code>, rg <code>rg-hub</code>) hosts shared services. Peer it with spoke <code>vnet-spoke1</code> (<code>10.1.0.0/16</code>, rg <code>rg-spoke1</code>). Traffic from the hub's firewall appliance must be accepted by the spoke. A third network, <code>vnet-legacy</code> (<code>10.0.0.0/20</code>), also wants to connect to the hub.</p>",
+      "devices": [
+        {
+          "name": "cloud",
+          "platform": "az",
+          "subscription": "Contoso-Lab",
+          "principals": [
+            "alex@contoso.com",
+            "priya@contoso.com",
+            "contractor@fabrikam.com",
+            "8d2c6b1e-4f3a-4e2b-9c1d-7a6b5c4d3e2f"
+          ],
+          "state": {
+            "rgs": {
+              "rg-hub": {
+                "location": "eastus",
+                "tags": {}
+              },
+              "rg-spoke1": {
+                "location": "eastus",
+                "tags": {}
+              },
+              "rg-legacy": {
+                "location": "eastus",
+                "tags": {}
+              }
+            },
+            "vnets": {
+              "vnet-hub": {
+                "rg": "rg-hub",
+                "location": "eastus",
+                "prefixes": [
+                  "10.0.0.0/16"
+                ],
+                "subnets": {
+                  "AzureFirewallSubnet": {
+                    "prefix": "10.0.1.0/26",
+                    "nsg": null
+                  }
+                },
+                "peerings": {}
+              },
+              "vnet-spoke1": {
+                "rg": "rg-spoke1",
+                "location": "eastus",
+                "prefixes": [
+                  "10.1.0.0/16"
+                ],
+                "subnets": {
+                  "snet-app": {
+                    "prefix": "10.1.1.0/24",
+                    "nsg": null
+                  }
+                },
+                "peerings": {}
+              },
+              "vnet-legacy": {
+                "rg": "rg-legacy",
+                "location": "eastus",
+                "prefixes": [
+                  "10.0.0.0/20"
+                ],
+                "subnets": {},
+                "peerings": {}
+              }
+            }
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Peering from vnet-hub to vnet-spoke1",
+          "check": {
+            "items": [
+              "cloud",
+              "vnets.vnet-hub.peerings"
+            ],
+            "has": {
+              "remote": "vnet-spoke1"
+            }
+          }
+        },
+        {
+          "text": "Peering from vnet-spoke1 to vnet-hub that allows forwarded traffic",
+          "check": {
+            "items": [
+              "cloud",
+              "vnets.vnet-spoke1.peerings"
+            ],
+            "has": {
+              "remote": "vnet-hub",
+              "allowForwardedTraffic": true
+            }
+          }
+        },
+        {
+          "text": "Check that the peering shows Connected",
+          "check": {
+            "ran": [
+              "cloud",
+              "^az\\s+network\\s+vnet\\s+peering\\s+list"
+            ]
+          }
+        },
+        {
+          "text": "Why can't vnet-legacy peer with vnet-hub?",
+          "check": {
+            "q": "legacy",
+            "eq": 2
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "legacy",
+          "prompt": "vnet-legacy can't peer with vnet-hub because:",
+          "options": [
+            "They're in different resource groups",
+            "Peering requires a VPN gateway",
+            "Their address spaces overlap (10.0.0.0/20 is inside 10.0.0.0/16)",
+            "Peering only works across regions"
+          ]
+        }
+      ],
+      "hints": [
+        "Every command starts with <code>az</code>. Add <code>-o table</code> to list commands for readable output.",
+        "Peering is created separately on each side; it shows Connected only when both exist.",
+        "<code>az network vnet peering create -g rg-spoke1 -n spoke1-to-hub --vnet-name vnet-spoke1 --remote-vnet vnet-hub --allow-vnet-access --allow-forwarded-traffic</code> (outside this lab, use the hub's full resource ID for --remote-vnet when it's in another resource group)."
+      ],
+      "solution": "<pre>az network vnet peering create -g rg-hub -n hub-to-spoke1 --vnet-name vnet-hub --remote-vnet vnet-spoke1 --allow-vnet-access\naz network vnet peering create -g rg-spoke1 -n spoke1-to-hub --vnet-name vnet-spoke1 --remote-vnet vnet-hub --allow-vnet-access --allow-forwarded-traffic\naz network vnet peering list -g rg-hub --vnet-name vnet-hub -o table</pre>",
+      "review": "<p>VNet peering needs a link on both sides and non-overlapping address spaces. Allow forwarded traffic lets a spoke accept traffic that a hub appliance forwards on behalf of other networks. Peering isn't transitive between spokes.</p>"
+    },
+    {
+      "id": "az-vm",
+      "title": "Deploy and manage a private VM",
+      "domain": "D3",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 15,
+      "summary": "Create an Ubuntu VM with no public IP in an existing subnet, attach a data disk, resize it, and stop billing for compute when idle.",
+      "scenario": "<p>Resource group <code>rg-compute</code> has VNet <code>vnet-prod</code> with subnet <code>snet-app</code>. Deploy <code>vm-app01</code>:</p><ul><li>Image <code>Ubuntu2204</code>, size <code>Standard_B2s</code>, admin <code>azureuser</code> with SSH keys</li><li>In vnet-prod/snet-app with <b>no public IP</b> (it's reached through Bastion)</li><li>Attach a new 128 GB data disk named <code>disk-app01-data</code></li><li>Load testing shows it needs more CPU: resize to <code>Standard_D2s_v5</code></li><li>It's only used in business hours: deallocate it now so compute stops billing</li></ul>",
+      "devices": [
+        {
+          "name": "cloud",
+          "platform": "az",
+          "subscription": "Contoso-Lab",
+          "principals": [
+            "alex@contoso.com",
+            "priya@contoso.com",
+            "contractor@fabrikam.com",
+            "8d2c6b1e-4f3a-4e2b-9c1d-7a6b5c4d3e2f"
+          ],
+          "state": {
+            "rgs": {
+              "rg-compute": {
+                "location": "eastus",
+                "tags": {}
+              }
+            },
+            "vnets": {
+              "vnet-prod": {
+                "rg": "rg-compute",
+                "location": "eastus",
+                "prefixes": [
+                  "10.30.0.0/16"
+                ],
+                "subnets": {
+                  "snet-app": {
+                    "prefix": "10.30.1.0/24",
+                    "nsg": null
+                  },
+                  "AzureBastionSubnet": {
+                    "prefix": "10.30.255.0/26",
+                    "nsg": null
+                  }
+                },
+                "peerings": {}
+              }
+            }
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "vm-app01 runs Ubuntu2204 in vnet-prod/snet-app",
+          "check": {
+            "all": [
+              {
+                "dev": "cloud",
+                "path": "vms.vm-app01.image",
+                "eq": "Ubuntu2204"
+              },
+              {
+                "dev": "cloud",
+                "path": "vms.vm-app01.vnet",
+                "eq": "vnet-prod"
+              },
+              {
+                "dev": "cloud",
+                "path": "vms.vm-app01.subnet",
+                "eq": "snet-app"
+              }
+            ]
+          }
+        },
+        {
+          "text": "It has no public IP address",
+          "check": {
+            "dev": "cloud",
+            "path": "vms.vm-app01.publicIp",
+            "exists": false
+          }
+        },
+        {
+          "text": "A 128 GB data disk is attached",
+          "check": {
+            "items": [
+              "cloud",
+              "vms.vm-app01.dataDisks"
+            ],
+            "has": {
+              "name": "disk-app01-data",
+              "sizeGb": 128
+            }
+          }
+        },
+        {
+          "text": "It's resized to Standard_D2s_v5",
+          "check": {
+            "dev": "cloud",
+            "path": "vms.vm-app01.size",
+            "eq": "Standard_D2s_v5"
+          }
+        },
+        {
+          "text": "It's deallocated (not just stopped)",
+          "check": {
+            "dev": "cloud",
+            "path": "vms.vm-app01.power",
+            "eq": "deallocated"
+          }
+        }
+      ],
+      "hints": [
+        "Every command starts with <code>az</code>. Add <code>-o table</code> to list commands for readable output.",
+        "<code>--public-ip-address \"\"</code> creates the VM without a public IP.",
+        "<code>az vm disk attach -g rg-compute --vm-name vm-app01 --name disk-app01-data --new --size-gb 128</code>",
+        "A stopped VM still bills for compute; a deallocated VM doesn't."
+      ],
+      "solution": "<pre>az vm create -g rg-compute -n vm-app01 --image Ubuntu2204 --size Standard_B2s --admin-username azureuser --generate-ssh-keys --vnet-name vnet-prod --subnet snet-app --public-ip-address \"\"\naz vm disk attach -g rg-compute --vm-name vm-app01 --name disk-app01-data --new --size-gb 128\naz vm resize -g rg-compute -n vm-app01 --size Standard_D2s_v5\naz vm deallocate -g rg-compute -n vm-app01</pre>",
+      "review": "<p>Keep management traffic private with Bastion instead of public IPs, size VMs from measured load, and deallocate idle VMs because stopped-but-allocated VMs still incur compute charges.</p>"
+    },
+    {
+      "id": "az-governance",
+      "title": "Tag and lock production resources",
+      "domain": "D1",
+      "kind": "cli",
+      "level": "beginner",
+      "minutes": 10,
+      "summary": "Tag a resource group for cost reporting and protect it with a CanNotDelete lock, then confirm the lock works.",
+      "scenario": "<p>Finance needs cost reports by environment and cost center, and last month someone deleted a production resource group by mistake. For <code>rg-prod</code>:</p><ul><li>Tags <code>env=prod</code> and <code>costCenter=4410</code></li><li>A lock named <code>lock-prod-nodelete</code> that prevents deletion but still allows changes</li><li>Prove it: try to delete the resource group</li></ul>",
+      "devices": [
+        {
+          "name": "cloud",
+          "platform": "az",
+          "subscription": "Contoso-Lab",
+          "principals": [
+            "alex@contoso.com",
+            "priya@contoso.com",
+            "contractor@fabrikam.com",
+            "8d2c6b1e-4f3a-4e2b-9c1d-7a6b5c4d3e2f"
+          ],
+          "state": {
+            "rgs": {
+              "rg-prod": {
+                "location": "eastus2",
+                "tags": {
+                  "owner": "web-team"
+                }
+              },
+              "rg-dev": {
+                "location": "eastus2",
+                "tags": {}
+              }
+            }
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "rg-prod has tags env=prod and costCenter=4410",
+          "check": {
+            "all": [
+              {
+                "dev": "cloud",
+                "path": "rgs.rg-prod.tags.env",
+                "eq": "prod"
+              },
+              {
+                "dev": "cloud",
+                "path": "rgs.rg-prod.tags.costCenter",
+                "eq": "4410"
+              }
+            ]
+          }
+        },
+        {
+          "text": "A CanNotDelete lock named lock-prod-nodelete is on rg-prod",
+          "check": {
+            "items": [
+              "cloud",
+              "locks"
+            ],
+            "has": {
+              "name": "lock-prod-nodelete",
+              "level": "CanNotDelete",
+              "rg": "rg-prod"
+            }
+          }
+        },
+        {
+          "text": "A delete attempt on rg-prod is blocked",
+          "check": {
+            "all": [
+              {
+                "ran": [
+                  "cloud",
+                  "^az\\s+group\\s+delete\\s.*rg-prod"
+                ]
+              },
+              {
+                "dev": "cloud",
+                "path": "rgs.rg-prod",
+                "exists": true
+              }
+            ]
+          }
+        },
+        {
+          "text": "Choose the lock that would also block changes",
+          "check": {
+            "q": "lock",
+            "eq": 1
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "lock",
+          "prompt": "Which lock level blocks both deletes and modifications?",
+          "options": [
+            "CanNotDelete",
+            "ReadOnly",
+            "Neither: use Azure Policy",
+            "Both are the same"
+          ]
+        }
+      ],
+      "hints": [
+        "Every command starts with <code>az</code>. Add <code>-o table</code> to list commands for readable output.",
+        "<code>az group update -n rg-prod --tags env=prod costCenter=4410</code> replaces the tag set; <code>--set tags.env=prod</code> adds one tag.",
+        "<code>az lock create -n lock-prod-nodelete --lock-type CanNotDelete -g rg-prod</code>"
+      ],
+      "solution": "<pre>az group update -n rg-prod --set tags.env=prod tags.costCenter=4410\naz lock create -n lock-prod-nodelete --lock-type CanNotDelete -g rg-prod\naz group delete -n rg-prod --yes      # fails: the scope is locked</pre>",
+      "review": "<p>Tags drive cost reporting and automation. CanNotDelete still allows changes; ReadOnly blocks writes too (and can break operations like listing storage keys). Locks apply to everyone, including Owners.</p>"
+    },
+    {
+      "id": "az-alert",
+      "title": "Create a CPU alert with an action group",
+      "domain": "D5",
+      "kind": "portal",
+      "level": "beginner",
+      "minutes": 10,
+      "summary": "Configure a metric alert rule and an action group in a cloud monitoring console.",
+      "scenario": "<p>The ops team wants an email when <code>vm-app01</code> averages more than 80% CPU over 5 minutes, evaluated every minute, at severity 2 (warning). Notifications go to an action group <code>ag-ops</code> that emails <code>ops@contoso.com</code>. Save each page.</p>",
+      "portal": {
+        "app": "Cloud Monitoring Console",
+        "address": "Monitor › Alerts",
+        "pages": [
+          {
+            "id": "ag",
+            "title": "Action group",
+            "sections": [
+              {
+                "title": "Basics",
+                "fields": [
+                  {
+                    "id": "name",
+                    "label": "Action group name",
+                    "type": "text",
+                    "value": ""
+                  },
+                  {
+                    "id": "rg",
+                    "label": "Resource group",
+                    "type": "select",
+                    "options": [
+                      "rg-compute",
+                      "rg-monitor",
+                      "rg-net-lab"
+                    ],
+                    "value": "rg-compute"
+                  }
+                ]
+              },
+              {
+                "title": "Notifications",
+                "fields": [
+                  {
+                    "id": "email",
+                    "label": "Email address",
+                    "type": "text",
+                    "value": ""
+                  },
+                  {
+                    "id": "sms",
+                    "label": "SMS",
+                    "type": "toggle",
+                    "value": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "rule",
+            "title": "Alert rule",
+            "sections": [
+              {
+                "title": "Scope and condition",
+                "fields": [
+                  {
+                    "id": "resource",
+                    "label": "Resource",
+                    "type": "select",
+                    "options": [
+                      "(select)",
+                      "vm-app01",
+                      "vm-web01",
+                      "stfinance01"
+                    ],
+                    "value": "(select)"
+                  },
+                  {
+                    "id": "signal",
+                    "label": "Signal",
+                    "type": "select",
+                    "options": [
+                      "Percentage CPU",
+                      "Available Memory Bytes",
+                      "Disk Read Operations/Sec",
+                      "Network In Total"
+                    ],
+                    "value": "Available Memory Bytes"
+                  },
+                  {
+                    "id": "agg",
+                    "label": "Aggregation",
+                    "type": "select",
+                    "options": [
+                      "Average",
+                      "Maximum",
+                      "Minimum",
+                      "Total",
+                      "Count"
+                    ],
+                    "value": "Maximum"
+                  },
+                  {
+                    "id": "op",
+                    "label": "Operator",
+                    "type": "select",
+                    "options": [
+                      "Greater than",
+                      "Greater than or equal to",
+                      "Less than",
+                      "Less than or equal to"
+                    ],
+                    "value": "Greater than"
+                  },
+                  {
+                    "id": "threshold",
+                    "label": "Threshold",
+                    "type": "text",
+                    "value": ""
+                  },
+                  {
+                    "id": "window",
+                    "label": "Lookback period (window size)",
+                    "type": "select",
+                    "options": [
+                      "1 minute",
+                      "5 minutes",
+                      "15 minutes",
+                      "1 hour"
+                    ],
+                    "value": "15 minutes"
+                  },
+                  {
+                    "id": "freq",
+                    "label": "Check every (frequency)",
+                    "type": "select",
+                    "options": [
+                      "1 minute",
+                      "5 minutes",
+                      "15 minutes"
+                    ],
+                    "value": "5 minutes"
+                  }
+                ]
+              },
+              {
+                "title": "Details",
+                "fields": [
+                  {
+                    "id": "name",
+                    "label": "Alert rule name",
+                    "type": "text",
+                    "value": ""
+                  },
+                  {
+                    "id": "sev",
+                    "label": "Severity",
+                    "type": "select",
+                    "options": [
+                      "0 - Critical",
+                      "1 - Error",
+                      "2 - Warning",
+                      "3 - Informational",
+                      "4 - Verbose"
+                    ],
+                    "value": "3 - Informational"
+                  },
+                  {
+                    "id": "group",
+                    "label": "Action group",
+                    "type": "select",
+                    "options": [
+                      "(none)",
+                      "ag-ops"
+                    ],
+                    "value": "(none)"
+                  },
+                  {
+                    "id": "enabled",
+                    "label": "Enable upon creation",
+                    "type": "toggle",
+                    "value": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tasks": [
+        {
+          "text": "Action group ag-ops emails ops@contoso.com",
+          "check": {
+            "all": [
+              {
+                "field": "ag.name",
+                "eq": "ag-ops"
+              },
+              {
+                "field": "ag.email",
+                "eq": "ops@contoso.com"
+              }
+            ]
+          }
+        },
+        {
+          "text": "The rule targets vm-app01 on Percentage CPU (Average)",
+          "check": {
+            "all": [
+              {
+                "field": "rule.resource",
+                "eq": "vm-app01"
+              },
+              {
+                "field": "rule.signal",
+                "eq": "Percentage CPU"
+              },
+              {
+                "field": "rule.agg",
+                "eq": "Average"
+              }
+            ]
+          }
+        },
+        {
+          "text": "Greater than 80 over 5 minutes, checked every minute",
+          "check": {
+            "all": [
+              {
+                "field": "rule.op",
+                "eq": "Greater than"
+              },
+              {
+                "field": "rule.threshold",
+                "re": "^80%?$"
+              },
+              {
+                "field": "rule.window",
+                "eq": "5 minutes"
+              },
+              {
+                "field": "rule.freq",
+                "eq": "1 minute"
+              }
+            ]
+          }
+        },
+        {
+          "text": "Severity 2, uses ag-ops, enabled, and has a name",
+          "check": {
+            "all": [
+              {
+                "field": "rule.sev",
+                "eq": "2 - Warning"
+              },
+              {
+                "field": "rule.group",
+                "eq": "ag-ops"
+              },
+              {
+                "field": "rule.enabled",
+                "eq": true
+              },
+              {
+                "field": "rule.name",
+                "minLen": 3
+              }
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "Save the action group page before selecting it on the rule page (both are graded on saved values)."
+      ],
+      "solution": "<p>Action group: ag-ops, ops@contoso.com. Alert rule: vm-app01, Percentage CPU, Average, Greater than, 80, 5 minutes, 1 minute, name e.g. cpu-high-vm-app01, 2 - Warning, ag-ops, enabled.</p>",
+      "review": "<p>Metric alerts combine a signal, aggregation, operator, threshold, window and frequency. Action groups hold the notifications and actions so many rules can reuse them.</p>"
+    }
+  ]
+}

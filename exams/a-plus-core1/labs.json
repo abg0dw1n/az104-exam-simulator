@@ -1,0 +1,822 @@
+{
+  "intro": "Hands-on A+ Core 1 labs graded in your browser: hardware identification and troubleshooting drills, a Windows networking fix, a SOHO router setup console, and cloud and virtualization sorting. Simulated, so some details are simplified.",
+  "labs": [
+    {
+      "id": "connectors-wifi",
+      "title": "Connectors, cables and Wi-Fi standards",
+      "domain": "D3",
+      "kind": "tasks",
+      "level": "beginner",
+      "minutes": 10,
+      "summary": "Sort connectors by what they carry and match 802.11 standards to their Wi-Fi generation names.",
+      "scenario": "<p>You're stocking a new technician's bench kit and labeling a box of mixed cables and adapters.</p>",
+      "activities": [
+        {
+          "type": "match",
+          "title": "Sort the connectors",
+          "prompt": "Put each connector in the group it belongs to.",
+          "categories": [
+            "Copper network",
+            "Fiber optic",
+            "Coaxial",
+            "Video",
+            "Peripheral / USB",
+            "Internal storage"
+          ],
+          "items": [
+            {
+              "text": "RJ45",
+              "cat": 0
+            },
+            {
+              "text": "RJ11",
+              "cat": 0
+            },
+            {
+              "text": "LC",
+              "cat": 1
+            },
+            {
+              "text": "SC",
+              "cat": 1
+            },
+            {
+              "text": "F-type",
+              "cat": 2
+            },
+            {
+              "text": "HDMI",
+              "cat": 3
+            },
+            {
+              "text": "DisplayPort",
+              "cat": 3
+            },
+            {
+              "text": "USB-C",
+              "cat": 4
+            },
+            {
+              "text": "SATA",
+              "cat": 5
+            }
+          ]
+        },
+        {
+          "type": "match",
+          "title": "Wi-Fi generations",
+          "prompt": "Match each IEEE standard to its Wi-Fi Alliance name.",
+          "categories": [
+            "Wi-Fi 4",
+            "Wi-Fi 5",
+            "Wi-Fi 6 / 6E"
+          ],
+          "items": [
+            {
+              "text": "802.11n",
+              "cat": 0
+            },
+            {
+              "text": "802.11ac",
+              "cat": 1
+            },
+            {
+              "text": "802.11ax",
+              "cat": 2
+            }
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Sort every connector correctly",
+          "check": {
+            "activity": 0
+          }
+        },
+        {
+          "text": "Match each 802.11 standard to its generation",
+          "check": {
+            "activity": 1
+          }
+        },
+        {
+          "text": "Answer the band question",
+          "check": {
+            "q": "band",
+            "eq": 2
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "band",
+          "prompt": "Which standard adds the 6 GHz band?",
+          "options": [
+            "802.11n (Wi-Fi 4)",
+            "802.11ac (Wi-Fi 5)",
+            "802.11ax as Wi-Fi 6E",
+            "None of them"
+          ]
+        }
+      ],
+      "hints": [
+        "RJ11 is the smaller telephone/DSL jack; RJ45 is Ethernet. Both are copper.",
+        "F-type screws onto coaxial cable for cable modems and TV.",
+        "Wi-Fi 6E is 802.11ax extended into 6 GHz."
+      ],
+      "review": "<p>Connector identification and Wi-Fi generations show up throughout Core 1 hardware and networking questions.</p>"
+    },
+    {
+      "id": "printer-raid",
+      "title": "Laser printing steps and RAID levels",
+      "domain": "D3",
+      "kind": "tasks",
+      "level": "intermediate",
+      "minutes": 10,
+      "summary": "Put the laser imaging process in order and match RAID levels to how they protect data.",
+      "scenario": "<p>A small office wants you to explain why its laser printer smears toner and to recommend a RAID level for a new file server.</p>",
+      "activities": [
+        {
+          "type": "order",
+          "title": "Laser imaging process",
+          "prompt": "Arrange the steps of the laser printing (imaging) process in order.",
+          "items": [
+            "Processing",
+            "Charging",
+            "Exposing",
+            "Developing",
+            "Transferring",
+            "Fusing",
+            "Cleaning"
+          ]
+        },
+        {
+          "type": "match",
+          "title": "RAID levels",
+          "prompt": "Match each description to its RAID level.",
+          "categories": [
+            "RAID 0",
+            "RAID 1",
+            "RAID 5",
+            "RAID 10"
+          ],
+          "items": [
+            {
+              "text": "Striping, no fault tolerance, minimum 2 drives",
+              "cat": 0
+            },
+            {
+              "text": "Mirroring, minimum 2 drives",
+              "cat": 1
+            },
+            {
+              "text": "Striping with distributed parity, minimum 3 drives",
+              "cat": 2
+            },
+            {
+              "text": "Stripe of mirrors, minimum 4 drives",
+              "cat": 3
+            }
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Order the laser imaging process",
+          "check": {
+            "activity": 0
+          }
+        },
+        {
+          "text": "Match the RAID levels",
+          "check": {
+            "activity": 1
+          }
+        },
+        {
+          "text": "Diagnose the smearing toner",
+          "check": {
+            "q": "smear",
+            "eq": 1
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "smear",
+          "prompt": "Toner smears and rubs off the page. Which part is most likely failing?",
+          "options": [
+            "Pickup roller",
+            "Fuser assembly",
+            "Transfer belt",
+            "Laser scanner"
+          ]
+        }
+      ],
+      "hints": [
+        "The fuser melts toner onto the paper with heat and pressure, so unfused toner smears.",
+        "Only RAID 0 offers no redundancy; RAID 5 survives one drive failure."
+      ],
+      "review": "<p>Each laser step maps to symptoms: charging and drum issues cause marks, transfer issues cause faint prints, and fuser problems cause smearing.</p>"
+    },
+    {
+      "id": "troubleshoot-method",
+      "title": "Troubleshooting method and symptoms",
+      "domain": "D5",
+      "kind": "tasks",
+      "level": "beginner",
+      "minutes": 10,
+      "summary": "Order the CompTIA troubleshooting methodology and match common hardware symptoms to their likely causes.",
+      "scenario": "<p>Your help desk is standardizing how technicians work tickets. Start with the official method, then triage a few symptoms.</p>",
+      "activities": [
+        {
+          "type": "order",
+          "title": "CompTIA troubleshooting methodology",
+          "prompt": "Arrange the six steps in order.",
+          "items": [
+            "Identify the problem",
+            "Establish a theory of probable cause (question the obvious)",
+            "Test the theory to determine the cause",
+            "Establish a plan of action and implement the solution",
+            "Verify full system functionality and implement preventive measures",
+            "Document findings, actions and outcomes"
+          ]
+        },
+        {
+          "type": "match",
+          "title": "Symptoms and likely causes",
+          "prompt": "Match each symptom to its most likely cause.",
+          "categories": [
+            "Failing hard drive",
+            "Overheating",
+            "Display backlight failure",
+            "Fuser problem",
+            "Bad RAM"
+          ],
+          "items": [
+            {
+              "text": "Clicking noise and S.M.A.R.T. warnings",
+              "cat": 0
+            },
+            {
+              "text": "Shuts down under load; fans loud",
+              "cat": 1
+            },
+            {
+              "text": "Image barely visible with a flashlight",
+              "cat": 2
+            },
+            {
+              "text": "Toner wipes off printed pages",
+              "cat": 3
+            },
+            {
+              "text": "Random BSODs that a memory test confirms",
+              "cat": 4
+            }
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Order the six steps",
+          "check": {
+            "activity": 0
+          }
+        },
+        {
+          "text": "Match every symptom",
+          "check": {
+            "activity": 1
+          }
+        }
+      ],
+      "hints": [
+        "Documentation is always last; verification comes right after implementing the fix."
+      ],
+      "review": "<p>Following the method in order prevents changing several things at once and helps you prove which change fixed the issue.</p>"
+    },
+    {
+      "id": "win-wrong-subnet",
+      "title": "Fix a PC with no network access",
+      "domain": "D5",
+      "kind": "cli",
+      "level": "beginner",
+      "minutes": 10,
+      "summary": "Diagnose a home-office PC with a static address on the wrong subnet, switch it back to DHCP and confirm it works.",
+      "scenario": "<p>A remote worker moved their PC to a new router. Now nothing works, not even the printer. The new network is <code>192.168.1.0/24</code> with the router at <code>192.168.1.1</code> handing out DHCP; the printer is <code>192.168.1.40</code>.</p>",
+      "devices": [
+        {
+          "name": "HOME-PC",
+          "platform": "windows",
+          "adapter": {
+            "name": "Ethernet",
+            "dhcp": false,
+            "ip": "192.168.0.50",
+            "mask": "255.255.255.0",
+            "gw": "192.168.0.1",
+            "dns": [
+              "192.168.0.1"
+            ]
+          },
+          "network": {
+            "subnet": "192.168.1.0",
+            "mask": "255.255.255.0",
+            "gateway": "192.168.1.1",
+            "internet": true,
+            "dhcp": {
+              "available": true,
+              "server": "192.168.1.1",
+              "ip": "192.168.1.23",
+              "mask": "255.255.255.0",
+              "gw": "192.168.1.1",
+              "dns": [
+                "192.168.1.1"
+              ]
+            },
+            "dnsServers": {
+              "192.168.1.1": true
+            },
+            "records": {
+              "www.example.com": "93.184.216.34"
+            },
+            "hosts": {
+              "192.168.1.40": "PRINTER"
+            },
+            "remote": {
+              "93.184.216.34": true
+            }
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Check the IP configuration",
+          "check": {
+            "ran": [
+              "HOME-PC",
+              "^ipconfig"
+            ]
+          }
+        },
+        {
+          "text": "Identify the problem",
+          "check": {
+            "q": "cause",
+            "eq": 0
+          }
+        },
+        {
+          "text": "Set the adapter to get its address automatically (DHCP)",
+          "check": {
+            "all": [
+              {
+                "dev": "HOME-PC",
+                "path": "adapter.dhcp",
+                "eq": true
+              },
+              {
+                "dev": "HOME-PC",
+                "path": "adapter.ip",
+                "re": "^192\\.168\\.1\\."
+              }
+            ]
+          }
+        },
+        {
+          "text": "The printer at 192.168.1.40 answers a ping",
+          "check": {
+            "all": [
+              {
+                "ping": [
+                  "HOME-PC",
+                  "192.168.1.40"
+                ]
+              },
+              {
+                "ran": [
+                  "HOME-PC",
+                  "^ping\\s+192\\.168\\.1\\.40"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "text": "Names resolve and the web is reachable",
+          "check": {
+            "ping": [
+              "HOME-PC",
+              "www.example.com"
+            ]
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "cause",
+          "prompt": "Why can't the PC reach anything?",
+          "options": [
+            "It has a static IP from the old network (192.168.0.x) on the new 192.168.1.x network",
+            "The DNS server is down",
+            "The network cable is bad",
+            "The printer's IP changed"
+          ]
+        }
+      ],
+      "hints": [
+        "<code>netsh interface ip set address name=\"Ethernet\" dhcp</code> and <code>netsh interface ip set dns name=\"Ethernet\" dhcp</code> switch both settings back to automatic."
+      ],
+      "solution": "<pre>ipconfig /all\nnetsh interface ip set address name=\"Ethernet\" dhcp\nnetsh interface ip set dns name=\"Ethernet\" dhcp\nipconfig\nping 192.168.1.40\nping www.example.com</pre>",
+      "review": "<p>A static address from another subnet means the PC can't talk to anything on the new LAN, not even its gateway. DHCP is the usual fix for home and small-office clients.</p>"
+    },
+    {
+      "id": "soho-setup",
+      "title": "Set up a small-office router",
+      "domain": "D2",
+      "kind": "portal",
+      "level": "beginner",
+      "minutes": 12,
+      "summary": "Configure a SOHO router's LAN, DHCP scope, a printer reservation, dual-band Wi-Fi security and DNS.",
+      "scenario": "<p>Set up a new router for a five-person office:</p><ul><li>LAN <code>192.168.1.1</code>, DHCP pool <code>192.168.1.100</code>–<code>192.168.1.199</code></li><li>Reserve <code>192.168.1.50</code> for the printer (MAC <code>3C:52:82:10:AA:4F</code>)</li><li>Turn on the 5 GHz network with WPA3 (or WPA2/WPA3)</li><li>Use DNS servers <code>1.1.1.1</code> and <code>9.9.9.9</code></li><li>Change the admin password</li></ul><p>Save each page.</p>",
+      "portal": {
+        "app": "SOHO Router Setup",
+        "address": "http://192.168.1.1",
+        "pages": [
+          {
+            "id": "lan",
+            "title": "LAN and DHCP",
+            "sections": [
+              {
+                "title": "LAN",
+                "fields": [
+                  {
+                    "id": "ip",
+                    "label": "Router LAN IP",
+                    "type": "text",
+                    "value": "192.168.1.1"
+                  },
+                  {
+                    "id": "mask",
+                    "label": "Subnet mask",
+                    "type": "text",
+                    "value": "255.255.255.0"
+                  },
+                  {
+                    "id": "dhcp",
+                    "label": "DHCP server",
+                    "type": "toggle",
+                    "value": true
+                  },
+                  {
+                    "id": "start",
+                    "label": "DHCP start address",
+                    "type": "text",
+                    "value": "192.168.1.2"
+                  },
+                  {
+                    "id": "end",
+                    "label": "DHCP end address",
+                    "type": "text",
+                    "value": "192.168.1.254"
+                  },
+                  {
+                    "id": "dns1",
+                    "label": "Primary DNS",
+                    "type": "text",
+                    "value": "Automatic (ISP)"
+                  },
+                  {
+                    "id": "dns2",
+                    "label": "Secondary DNS",
+                    "type": "text",
+                    "value": ""
+                  }
+                ]
+              }
+            ],
+            "tables": [
+              {
+                "id": "res",
+                "title": "DHCP reservations",
+                "columns": [
+                  {
+                    "id": "name",
+                    "label": "Device"
+                  },
+                  {
+                    "id": "mac",
+                    "label": "MAC address"
+                  },
+                  {
+                    "id": "ip",
+                    "label": "IP address"
+                  }
+                ],
+                "rows": []
+              }
+            ]
+          },
+          {
+            "id": "wifi",
+            "title": "Wireless",
+            "sections": [
+              {
+                "title": "2.4 GHz",
+                "fields": [
+                  {
+                    "id": "on24",
+                    "label": "Enable 2.4 GHz",
+                    "type": "toggle",
+                    "value": true
+                  },
+                  {
+                    "id": "ssid24",
+                    "label": "SSID",
+                    "type": "text",
+                    "value": "Office"
+                  }
+                ]
+              },
+              {
+                "title": "5 GHz",
+                "fields": [
+                  {
+                    "id": "on5",
+                    "label": "Enable 5 GHz",
+                    "type": "toggle",
+                    "value": false
+                  },
+                  {
+                    "id": "ssid5",
+                    "label": "SSID",
+                    "type": "text",
+                    "value": "Office-5G"
+                  },
+                  {
+                    "id": "width",
+                    "label": "Channel width",
+                    "type": "select",
+                    "options": [
+                      "20 MHz",
+                      "40 MHz",
+                      "80 MHz",
+                      "160 MHz"
+                    ],
+                    "value": "20 MHz"
+                  }
+                ]
+              },
+              {
+                "title": "Security (both bands)",
+                "fields": [
+                  {
+                    "id": "sec",
+                    "label": "Security",
+                    "type": "select",
+                    "options": [
+                      "None (open)",
+                      "WEP",
+                      "WPA2-Personal (AES)",
+                      "WPA2/WPA3-Personal (transition)",
+                      "WPA3-Personal (SAE)"
+                    ],
+                    "value": "WPA2-Personal (AES)"
+                  },
+                  {
+                    "id": "pass",
+                    "label": "Wi-Fi password",
+                    "type": "password",
+                    "value": "office2024"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "admin",
+            "title": "Administration",
+            "sections": [
+              {
+                "title": "Router login",
+                "fields": [
+                  {
+                    "id": "pass",
+                    "label": "Admin password",
+                    "type": "password",
+                    "value": "password"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tasks": [
+        {
+          "text": "DHCP pool 192.168.1.100–192.168.1.199",
+          "check": {
+            "all": [
+              {
+                "field": "lan.dhcp",
+                "eq": true
+              },
+              {
+                "field": "lan.start",
+                "eq": "192.168.1.100"
+              },
+              {
+                "field": "lan.end",
+                "eq": "192.168.1.199"
+              }
+            ]
+          }
+        },
+        {
+          "text": "Reserve 192.168.1.50 for the printer's MAC",
+          "check": {
+            "rows": "lan.res",
+            "has": {
+              "mac": [
+                "3C:52:82:10:AA:4F",
+                "3c:52:82:10:aa:4f",
+                "3C-52-82-10-AA-4F",
+                "3c-52-82-10-aa-4f"
+              ],
+              "ip": "192.168.1.50"
+            }
+          }
+        },
+        {
+          "text": "DNS servers 1.1.1.1 and 9.9.9.9",
+          "check": {
+            "any": [
+              {
+                "all": [
+                  {
+                    "field": "lan.dns1",
+                    "eq": "1.1.1.1"
+                  },
+                  {
+                    "field": "lan.dns2",
+                    "eq": "9.9.9.9"
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "field": "lan.dns1",
+                    "eq": "9.9.9.9"
+                  },
+                  {
+                    "field": "lan.dns2",
+                    "eq": "1.1.1.1"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "text": "5 GHz network turned on",
+          "check": {
+            "field": "wifi.on5",
+            "eq": true
+          }
+        },
+        {
+          "text": "WPA3 or WPA2/WPA3 with a 12+ character password",
+          "check": {
+            "all": [
+              {
+                "field": "wifi.sec",
+                "in": [
+                  "WPA3-Personal (SAE)",
+                  "WPA2/WPA3-Personal (transition)"
+                ]
+              },
+              {
+                "field": "wifi.pass",
+                "minLen": 12
+              }
+            ]
+          }
+        },
+        {
+          "text": "A new admin password (12+ characters)",
+          "check": {
+            "all": [
+              {
+                "field": "admin.pass",
+                "minLen": 12
+              },
+              {
+                "field": "admin.pass",
+                "ne": "password"
+              }
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "A reservation should sit outside the dynamic pool so DHCP never hands that address to another device.",
+        "5 GHz is faster with less interference; 2.4 GHz reaches farther."
+      ],
+      "solution": "<p>LAN and DHCP: start 192.168.1.100, end 192.168.1.199, DNS 1.1.1.1 / 9.9.9.9, reservation Printer 3C:52:82:10:AA:4F → 192.168.1.50. Wireless: enable 5 GHz, WPA3-Personal, long password. Administration: new password.</p>",
+      "review": "<p>DHCP scopes, reservations, DNS settings and wireless security are the core SOHO configuration tasks on Core 1.</p>"
+    },
+    {
+      "id": "cloud-virt",
+      "title": "Cloud models and virtualization",
+      "domain": "D4",
+      "kind": "tasks",
+      "level": "beginner",
+      "minutes": 8,
+      "summary": "Match services to IaaS, PaaS and SaaS, and classify hypervisors and cloud deployment models.",
+      "scenario": "<p>A manager asks you to explain the company's cloud and virtualization options in plain terms.</p>",
+      "activities": [
+        {
+          "type": "match",
+          "title": "Service models",
+          "prompt": "Match each example to its cloud service model.",
+          "categories": [
+            "IaaS",
+            "PaaS",
+            "SaaS"
+          ],
+          "items": [
+            {
+              "text": "Rent virtual machines and manage the OS yourself",
+              "cat": 0
+            },
+            {
+              "text": "Deploy code to a managed app platform",
+              "cat": 1
+            },
+            {
+              "text": "Web-based email and office apps",
+              "cat": 2
+            },
+            {
+              "text": "Cloud block storage and virtual networks",
+              "cat": 0
+            },
+            {
+              "text": "Managed database where you only manage data and schema",
+              "cat": 1
+            }
+          ]
+        },
+        {
+          "type": "match",
+          "title": "Hypervisors and deployment models",
+          "prompt": "Classify each item.",
+          "categories": [
+            "Type 1 hypervisor",
+            "Type 2 hypervisor",
+            "Hybrid cloud",
+            "Private cloud"
+          ],
+          "items": [
+            {
+              "text": "Runs directly on server hardware (bare metal)",
+              "cat": 0
+            },
+            {
+              "text": "Runs as an app on a desktop OS",
+              "cat": 1
+            },
+            {
+              "text": "On-premises systems connected to a public cloud",
+              "cat": 2
+            },
+            {
+              "text": "Cloud infrastructure used by one organization",
+              "cat": 3
+            }
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Match the service models",
+          "check": {
+            "activity": 0
+          }
+        },
+        {
+          "text": "Classify hypervisors and deployment models",
+          "check": {
+            "activity": 1
+          }
+        }
+      ],
+      "hints": [
+        "The more the provider manages, the further you move from IaaS to SaaS."
+      ],
+      "review": "<p>Shared responsibility shifts toward the provider as you move from IaaS to PaaS to SaaS.</p>"
+    }
+  ]
+}

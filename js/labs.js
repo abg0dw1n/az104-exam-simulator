@@ -7,6 +7,9 @@
 import { Net, newIos, canonIf, ip2n, isIp, maskBits, vlanSet } from './labs-net.js';
 import { IosSession } from './labs-ios.js';
 import { newWin, WinSession } from './labs-win.js';
+import { newLinux, LinuxSession } from './labs-linux.js';
+import { newAz, AzSession } from './labs-az.js';
+const CONSOLE = ['ios', 'windows', 'linux', 'az'];
 
 const $ = (id) => document.getElementById(id);
 const esc = (t = '') => String(t).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -90,6 +93,8 @@ function freshWork(lab) {
   for (const d of lab.devices || []) {
     if (d.platform === 'ios') w.devices[d.name] = newIos(d);
     else if (d.platform === 'windows') w.devices[d.name] = newWin(d);
+    else if (d.platform === 'linux') w.devices[d.name] = newLinux(d);
+    else if (d.platform === 'az') w.devices[d.name] = newAz(d);
     else w.devices[d.name] = { ...d, platform: 'host' };
   }
   if (lab.portal) {
@@ -107,7 +112,7 @@ const workFor = (lab) => (store().work[lab.id] ||= freshWork(lab));
 function renderLab(main, lab) {
   const idx = data.labs.indexOf(lab);
   const w = workFor(lab);
-  const consoles = (lab.devices || []).filter((d) => d.platform === 'ios' || d.platform === 'windows');
+  const consoles = (lab.devices || []).filter((d) => CONSOLE.includes(d.platform));
   live = { lab, w, sessions: {}, current: w.current && consoles.some((d) => d.name === w.current) ? w.current : consoles[0]?.name, checked: null };
   main.innerHTML = `<section class="stack labs lab-view">
     <div class="learn-crumbs"><button class="btn btn-ghost btn-sm" data-back>${icon('left')}All labs</button>
@@ -169,7 +174,8 @@ function session(name) {
   if (live.sessions[name]) return live.sessions[name];
   const d = live.w.devices[name];
   const opts = { log: (m) => print(m), clear: () => { live.w.log[name] = []; drawLog(); } };
-  const s = d.platform === 'windows' ? new WinSession(d, opts) : new IosSession(d, netFor(live.w), opts);
+  const s = d.platform === 'windows' ? new WinSession(d, opts) : d.platform === 'linux' ? new LinuxSession(d, opts)
+    : d.platform === 'az' ? new AzSession(d, opts) : new IosSession(d, netFor(live.w), opts);
   s.history = live.w.history?.[name] || [];
   return (live.sessions[name] = s);
 }
@@ -185,7 +191,7 @@ function drawLog() {
   out.scrollTop = out.scrollHeight;
 }
 function renderTerminal(el) {
-  const consoles = live.lab.devices.filter((d) => d.platform === 'ios' || d.platform === 'windows');
+  const consoles = live.lab.devices.filter((d) => CONSOLE.includes(d.platform));
   el.innerHTML = `<div class="terminal-wrap">
     ${consoles.length > 1 ? `<div class="term-tabs" role="tablist" aria-label="Device consoles">${consoles.map((d) =>
       `<button role="tab" data-dev="${esc(d.name)}" aria-selected="${d.name === live.current}">${icon(d.platform === 'windows' ? 'window' : 'terminal')}${esc(d.name)}</button>`).join('')}</div>` : ''}
@@ -194,9 +200,12 @@ function renderTerminal(el) {
       <form class="term-line" id="term-form" autocomplete="off"><label class="term-prompt" id="term-prompt" for="term-in"></label>
         <input id="term-in" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label="Command"></form>
     </div>
-    <p class="small muted term-help">${consoles.some((d) => d.platform === 'ios')
-      ? 'Type commands as you would on the device. Abbreviations work (conf t, int g0/1, sh ip int br). Type ? for help, Tab to complete, ↑/↓ for history.'
-      : 'Type Windows commands such as ipconfig /all, ping, tracert, nslookup and netsh. ↑/↓ for history.'}</p>
+    <p class="small muted term-help">${{
+      ios: 'Type commands as you would on the device. Abbreviations work (conf t, int g0/1, sh ip int br). Type ? for help, Tab to complete, ↑/↓ for history.',
+      windows: 'Type Windows commands (ipconfig, ping, nslookup, netsh, net user, tasklist…). Type help for the list; ↑/↓ for history.',
+      linux: 'Type Linux commands (ls -l, cat, grep, chmod, sudo, systemctl…). Pipes work. Type help for the list; Tab completes paths; ↑/↓ for history.',
+      az: 'Type Azure CLI commands starting with az (for example az group list -o table). ↑/↓ for history.',
+    }[consoles[0]?.platform] || ''}</p>
   </div>`;
   const input = $('term-in'); const form = $('term-form');
   let hpos = -1;
@@ -205,6 +214,8 @@ function renderTerminal(el) {
     const lg = (live.w.log[d.name] ||= []);
     if (!lg.length) {
       if (d.platform === 'windows') lg.push(['', 'Microsoft Windows [Version 10.0.22631.4317]'], ['', '(c) Microsoft Corporation. All rights reserved.'], ['', '']);
+      else if (d.platform === 'linux') lg.push(['', `Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.8.0-45-generic x86_64)`], ['muted', `Last login: Thu Oct 29 08:02:44 2026 from 10.0.0.5`]);
+      else if (d.platform === 'az') lg.push(['', 'Requesting a Cloud Shell... Succeeded.'], ['muted', `Subscription: ${live.w.devices[d.name].sub.name}. Type "az help" to see the command groups in this lab.`]);
       else lg.push(['muted', `Connected to ${d.name} console. Press Enter to start.`]);
     }
   }
@@ -316,7 +327,7 @@ function drawActivity(i) {
       ${st.results ? `<ul class="rule-tests">${a.tests.map((t, k) => `<li class="${st.results[k] ? 'pass' : 'fail'}">${icon(st.results[k] ? 'check' : 'x')}${esc(t.label)} → should be <b>${t.expect}</b></li>`).join('')}</ul>` : ''}`;
     box.querySelectorAll('.rules-row[data-r]').forEach((row) => {
       const k = Number(row.dataset.r); const r = st.rules[k];
-      row.querySelectorAll('[data-f]').forEach((f) => f.addEventListener('change', () => { r[f.dataset.f] = f.value; st.results = null; changed(); }));
+      row.querySelectorAll('[data-f]').forEach((f) => f.addEventListener('input', () => { r[f.dataset.f] = f.value; st.results = null; changed(); }));
       row.querySelector('[data-up]').addEventListener('click', () => { [st.rules[k - 1], st.rules[k]] = [st.rules[k], st.rules[k - 1]]; st.results = null; drawActivity(i); changed(); });
       row.querySelector('[data-down]').addEventListener('click', () => { [st.rules[k + 1], st.rules[k]] = [st.rules[k], st.rules[k + 1]]; st.results = null; drawActivity(i); changed(); });
       row.querySelector('[data-del]').addEventListener('click', () => { st.rules.splice(k, 1); st.results = null; drawActivity(i); changed(); });
@@ -443,6 +454,7 @@ function compare(v, c) {
   if ('in' in c) return c.in.some((x) => same(v, x));
   if ('minLen' in c) return String(v ?? '').length >= c.minLen;
   if ('re' in c) return new RegExp(c.re, 'i').test(String(v ?? ''));
+  if ('notre' in c) return !new RegExp(c.notre, 'i').test(String(v ?? ''));
   if ('exists' in c) return (v != null && v !== '') === c.exists;
   if ('nonEmpty' in c) return (v && typeof v === 'object' ? Object.keys(v).length > 0 : !!v) === c.nonEmpty;
   return !!v;
@@ -476,6 +488,32 @@ function check(c, net) {
       && d.vty.transport.includes('ssh') && !d.vty.transport.includes('telnet') && d.vty.transport !== 'all' && Object.keys(d.users).length > 0;
   }
   if (c.lookup) { const [dn, name] = c.lookup; const s = new WinSession(w.devices[dn]); return !!s.resolve(name).ip === (c.expect ?? true); }
+  if (c.file) {
+    const [dn, path] = c.file; const n = w.devices[dn]?.fs?.[path];
+    if (c.exists === false) return !n;
+    if (!n) return false;
+    if (c.mode && n.mode !== c.mode) return false;
+    if (c.owner && n.owner !== c.owner) return false;
+    if (c.group && n.group !== c.group) return false;
+    if (c.contains && !new RegExp(c.contains, 'm').test(n.content || '')) return false;
+    if (c.notContains && new RegExp(c.notContains, 'm').test(n.content || '')) return false;
+    return true;
+  }
+  if (c.items) {
+    const [dn, path] = c.items; const list = getPath(w.devices[dn], path) || [];
+    const arr = Array.isArray(list) ? list : Object.values(list);
+    const match = (r) => Object.entries(c.has || c.none || {}).every(([k, v]) => (Array.isArray(v) ? v.some((x) => same(r[k], x)) : Array.isArray(r[k]) ? r[k].some((x) => same(x, v)) : same(r[k], v)));
+    if (c.count != null) return arr.length === c.count;
+    if (c.none) return !arr.some(match);
+    return arr.some(match);
+  }
+  if (c.before) {
+    // {before: [dev, path, {a}, {b}]}: the first item matching a appears, and before any item matching b.
+    const [dn, path, A, B] = c.before; const arr = getPath(w.devices[dn], path) || [];
+    const m = (r, spec) => Object.entries(spec).every(([k, v]) => (Array.isArray(v) ? v.some((x) => same(r[k], x)) : same(r[k], v)));
+    const ia = arr.findIndex((r) => m(r, A)); const ib = arr.findIndex((r) => m(r, B));
+    return ia >= 0 && (ib < 0 || ia < ib);
+  }
   if (c.q) return w.answers[c.q] === c.eq;
   if (c.activity != null) return activityOk(c.activity);
   if (c.field) return compare(w.portal.applied[c.field], c);
@@ -506,7 +544,7 @@ function renderSide(soft = false) {
     ${(lab.questions || []).map((q) => `<div class="lab-q"><b>${esc(q.prompt)}</b>${q.options.map((o, k) =>
       `<label><input type="radio" name="q-${q.id}" value="${k}" ${w.answers[q.id] === k ? 'checked' : ''}><span>${esc(o)}</span></label>`).join('')}</div>`).join('')}
     ${marks ? `<p class="lab-result ${passed === marks.length ? 'good' : ''}" role="status">${passed === marks.length
-      ? `${icon('check')}All ${marks.length} tasks complete. Nice work!` : `${passed} of ${marks.length} tasks complete. Keep going.`}</p>` : ''}
+      ? `${icon('check')}All ${marks.length} task${marks.length === 1 ? '' : 's'} complete. Nice work!` : `${passed} of ${marks.length} tasks complete. Keep going.`}</p>` : ''}
     <div class="lab-actions">
       <button type="button" class="btn btn-primary" data-check>${icon('check')}Check my work</button>
       <button type="button" class="btn btn-ghost btn-sm" data-reset>${icon('redo')}Reset lab</button>

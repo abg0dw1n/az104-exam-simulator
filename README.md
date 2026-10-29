@@ -123,7 +123,7 @@ Visual types: `flow` (`steps`), `tree` (`levels`: array of rows), `cards` (`item
 
 ## Labs (hands-on simulations)
 
-Create `exams/<folder>/labs.json` and a **Labs** tab appears for that exam (signed-in users only; guests see a preview list). Labs run entirely in the browser and are graded by checking the simulated state, so there's no backend or cloud cost. Code: `js/labs.js` (UI, grading), `js/labs-ios.js` (Cisco IOS-style CLI), `js/labs-win.js` (Windows command prompt), `js/labs-net.js` (network model: VLANs, trunks, subinterfaces, static routes, OSPF, standard ACLs, ping/traceroute).
+Create `exams/<folder>/labs.json` and a **Labs** tab appears for that exam (signed-in users only; guests see a preview list). Labs run entirely in the browser and are graded by checking the simulated state, so there's no backend or cloud cost. Code: `js/labs.js` (UI, grading), `js/labs-ios.js` (Cisco IOS-style CLI), `js/labs-win.js` (Windows command prompt), `js/labs-linux.js` (Linux shell with users, permissions, systemctl, apt and ufw), `js/labs-az.js` (Azure CLI / Cloud Shell), `js/labs-net.js` (network model: VLANs, trunks, subinterfaces, static routes, OSPF, standard ACLs, ping/traceroute).
 
 Three kinds of lab:
 
@@ -131,9 +131,9 @@ Three kinds of lab:
 - `tasks`: `activities` of type `match` (drag items into categories), `order`, `fill` (accepted answers), or `rules` (ordered firewall rules graded against test packets).
 - `portal`: a generic admin console (`portal.pages` with `sections`/`fields` and editable `tables`); only saved values count.
 
-Every lab has `tasks: [{ text, check }]`. Checks include `{dev, path, eq|ne|in|re|minLen|exists|nonEmpty}`, `{iface: "SW1 f0/1", is: {mode, accessVlan, up, ...}}`, `{ping: [from, to], expect}`, `{route: [dev, "10.0.0.0/24"], code}`, `{ospfNbr: [a, b]}`, `{saved: dev}`, `{ran: [dev, regex]}`, `{sshReady: dev}`, `{lookup: [pc, name]}`, `{q: id, eq}` (with `questions`), `{activity: n}`, `{field: "page.field", ...}`, `{rows: "page.table", has|none|count}`, combined with `all`/`any`/`not`. Optional: `hints`, `solution` (shown after a first check), `review`.
+Every lab has `tasks: [{ text, check }]`. Checks include `{dev, path, eq|ne|in|re|minLen|exists|nonEmpty}`, `{iface: "SW1 f0/1", is: {mode, accessVlan, up, ...}}`, `{ping: [from, to], expect}`, `{route: [dev, "10.0.0.0/24"], code}`, `{ospfNbr: [a, b]}`, `{saved: dev}`, `{ran: [dev, regex]}`, `{sshReady: dev}`, `{lookup: [pc, name]}`, `{q: id, eq}` (with `questions`), `{activity: n}`, `{field: "page.field", ...}`, `{rows: "page.table", has|none|count}`, `{file: [dev, path], mode|owner|group|contains|notContains}`, `{items: [dev, path], has|none|count}`, `{before: [dev, path, A, B]}` (an item matching A comes before one matching B, e.g. firewall rule order), combined with `all`/`any`/`not`. Optional: `hints`, `solution` (shown after a first check), `review`.
 
-Current labs: Network+ (8) and CCNA (8). `scripts/stamp-updated.mjs` records the lab count in `exams/index.json`.
+Current labs: Network+ (8), CCNA (8), A+ Core 1 (6), A+ Core 2 (6), Security+ (6) and AZ-104 (7). Device platforms for CLI labs: `ios`, `windows`, `linux`, `az`. `scripts/stamp-updated.mjs` records the lab count in `exams/index.json`.
 
 ## Add questions in bulk (spreadsheet)
 

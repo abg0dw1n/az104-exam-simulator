@@ -1,0 +1,831 @@
+{
+  "intro": "Hands-on A+ Core 2 labs graded in your browser: a Windows command-line malware cleanup, Linux permissions and services, mapped drives, workstation hardening in a settings console, and malware, backup and change-management drills. Simulated, so some details are simplified.",
+  "labs": [
+    {
+      "id": "win-cleanup",
+      "title": "Clean up a compromised workstation",
+      "domain": "D2",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 15,
+      "summary": "Use tasklist, taskkill, schtasks and net commands to stop a malicious process, remove its persistence and an unauthorized admin account, then repair system files.",
+      "scenario": "<p>Antivirus flagged <code>updater_svc.exe</code> on <b>WS-114</b>. You're in an elevated command prompt. Investigation notes: the malware reinstalls itself with a scheduled task named <code>SysHelperUpdate</code>, and someone added a local account <code>helpdesk_tmp</code> to Administrators. Clean it up without reimaging (the user has already been disconnected from the network).</p>",
+      "devices": [
+        {
+          "name": "WS-114",
+          "platform": "windows",
+          "hostname": "WS-114",
+          "adapter": {
+            "name": "Ethernet",
+            "dhcp": true,
+            "ip": "10.50.0.114",
+            "mask": "255.255.255.0",
+            "gw": "10.50.0.1",
+            "dns": [
+              "10.50.0.10"
+            ]
+          },
+          "network": {
+            "subnet": "10.50.0.0",
+            "mask": "255.255.255.0",
+            "gateway": "10.50.0.1"
+          },
+          "users": {
+            "Administrator": {
+              "active": false,
+              "groups": [
+                "Administrators"
+              ]
+            },
+            "student": {
+              "active": true,
+              "groups": [
+                "Administrators",
+                "Users"
+              ]
+            },
+            "jlopez": {
+              "active": true,
+              "groups": [
+                "Users"
+              ]
+            },
+            "helpdesk_tmp": {
+              "active": true,
+              "groups": [
+                "Administrators",
+                "Users"
+              ]
+            }
+          },
+          "procs": [
+            {
+              "name": "explorer.exe",
+              "pid": 4412,
+              "mem": "98,212 K"
+            },
+            {
+              "name": "svchost.exe",
+              "pid": 1020,
+              "mem": "24,180 K"
+            },
+            {
+              "name": "updater_svc.exe",
+              "pid": 6620,
+              "mem": "41,904 K",
+              "protected": true
+            },
+            {
+              "name": "OUTLOOK.EXE",
+              "pid": 7312,
+              "mem": "182,446 K"
+            }
+          ],
+          "tasks": [
+            {
+              "name": "MicrosoftEdgeUpdateTaskMachineUA",
+              "next": "10/29/2026 12:00:00 PM"
+            },
+            {
+              "name": "SysHelperUpdate",
+              "next": "10/29/2026 11:15:00 AM"
+            }
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Find the process with <code>tasklist</code>",
+          "check": {
+            "ran": [
+              "WS-114",
+              "^tasklist"
+            ]
+          }
+        },
+        {
+          "text": "End <code>updater_svc.exe</code>",
+          "check": {
+            "items": [
+              "WS-114",
+              "procs"
+            ],
+            "none": {
+              "name": "updater_svc.exe"
+            }
+          }
+        },
+        {
+          "text": "Delete the <code>SysHelperUpdate</code> scheduled task",
+          "check": {
+            "items": [
+              "WS-114",
+              "tasks"
+            ],
+            "none": {
+              "name": "SysHelperUpdate"
+            }
+          }
+        },
+        {
+          "text": "Remove <code>helpdesk_tmp</code> from Administrators and disable the account",
+          "check": {
+            "all": [
+              {
+                "dev": "WS-114",
+                "path": "users.helpdesk_tmp.groups",
+                "notre": "Administrators"
+              },
+              {
+                "dev": "WS-114",
+                "path": "users.helpdesk_tmp.active",
+                "eq": false
+              }
+            ]
+          }
+        },
+        {
+          "text": "Repair system files with <code>sfc /scannow</code>",
+          "check": {
+            "dev": "WS-114",
+            "path": "log.sfc",
+            "eq": true
+          }
+        },
+        {
+          "text": "Reapply security policy with <code>gpupdate /force</code>",
+          "check": {
+            "dev": "WS-114",
+            "path": "log.gpupdate",
+            "eq": true
+          }
+        }
+      ],
+      "hints": [
+        "<code>taskkill /im updater_svc.exe /f</code> (this one needs /f).",
+        "<code>schtasks /query</code> lists tasks; <code>schtasks /delete /tn SysHelperUpdate /f</code> removes one.",
+        "<code>net localgroup administrators helpdesk_tmp /delete</code> then <code>net user helpdesk_tmp /active:no</code>."
+      ],
+      "solution": "<pre>tasklist\ntaskkill /im updater_svc.exe /f\nschtasks /query\nschtasks /delete /tn SysHelperUpdate /f\nnet localgroup administrators\nnet localgroup administrators helpdesk_tmp /delete\nnet user helpdesk_tmp /active:no\nsfc /scannow\ngpupdate /force</pre>",
+      "review": "<p>Removing malware means stopping it, removing its persistence (tasks, services, run keys), reversing privilege changes, and repairing the OS. Then follow the full CompTIA removal steps.</p>"
+    },
+    {
+      "id": "linux-basics",
+      "title": "Linux file permissions and services",
+      "domain": "D1",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 15,
+      "summary": "Navigate a Linux server, fix file permissions and ownership, install a package with apt, and start and enable a service.",
+      "scenario": "<p>You're <code>student</code> on <b>web01</b> (Ubuntu) with sudo rights. Tasks from the team lead:</p><ul><li>Make <code>~/scripts/backup.sh</code> executable by you (and readable by others, not writable)</li><li>Give the <code>student</code> account ownership of <code>/srv/reports/q3.csv</code></li><li>Create a <code>~/archive</code> directory</li><li>Install the <code>nginx</code> package, then make sure the nginx service is running and starts at boot</li></ul>",
+      "devices": [
+        {
+          "name": "web01",
+          "platform": "linux",
+          "hostname": "web01",
+          "ip": "10.0.0.21",
+          "files": {
+            "/home/student/scripts/backup.sh": {
+              "owner": "student",
+              "mode": "644",
+              "content": "#!/bin/bash\ntar czf ~/archive/www-$(date +%F).tgz /var/www\n"
+            },
+            "/home/student/scripts": {
+              "dir": true,
+              "owner": "student",
+              "mode": "755"
+            },
+            "/home/student/notes.txt": {
+              "owner": "student",
+              "content": "Remember: nginx config lives in /etc/nginx/nginx.conf"
+            },
+            "/srv/reports": {
+              "dir": true,
+              "owner": "root",
+              "mode": "755"
+            },
+            "/srv/reports/q3.csv": {
+              "owner": "root",
+              "mode": "644",
+              "content": "region,revenue\nnorth,120000\nsouth,98000"
+            },
+            "/var/www/html/index.html": {
+              "owner": "root",
+              "content": "<h1>It works</h1>"
+            }
+          },
+          "available": [
+            "nginx",
+            "htop",
+            "curl",
+            "git"
+          ],
+          "packages": [
+            "openssh-server",
+            "curl"
+          ],
+          "services": {
+            "ssh": {
+              "active": true,
+              "enabled": true,
+              "port": 22,
+              "desc": "OpenBSD Secure Shell server"
+            }
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "<code>backup.sh</code> is 755 (rwxr-xr-x)",
+          "check": {
+            "file": [
+              "web01",
+              "/home/student/scripts/backup.sh"
+            ],
+            "mode": "755"
+          }
+        },
+        {
+          "text": "<code>/srv/reports/q3.csv</code> is owned by student",
+          "check": {
+            "file": [
+              "web01",
+              "/srv/reports/q3.csv"
+            ],
+            "owner": "student"
+          }
+        },
+        {
+          "text": "<code>~/archive</code> exists",
+          "check": {
+            "file": [
+              "web01",
+              "/home/student/archive"
+            ]
+          }
+        },
+        {
+          "text": "nginx is installed",
+          "check": {
+            "dev": "web01",
+            "path": "packages",
+            "re": "nginx"
+          }
+        },
+        {
+          "text": "nginx is running and enabled at boot",
+          "check": {
+            "all": [
+              {
+                "dev": "web01",
+                "path": "services.nginx.active",
+                "eq": true
+              },
+              {
+                "dev": "web01",
+                "path": "services.nginx.enabled",
+                "eq": true
+              }
+            ]
+          }
+        },
+        {
+          "text": "Confirm with <code>systemctl status nginx</code>",
+          "check": {
+            "ran": [
+              "web01",
+              "systemctl\\s+status\\s+nginx"
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "<code>chmod 755 scripts/backup.sh</code> (or <code>chmod u+x,go-w</code>).",
+        "Changing an owner needs root: <code>sudo chown student /srv/reports/q3.csv</code>.",
+        "<code>sudo apt install nginx</code>, then <code>sudo systemctl enable --now nginx</code>."
+      ],
+      "solution": "<pre>ls -l scripts\nchmod 755 scripts/backup.sh\nsudo chown student /srv/reports/q3.csv\nmkdir ~/archive\nsudo apt update\nsudo apt install nginx\nsudo systemctl enable --now nginx\nsystemctl status nginx</pre>",
+      "review": "<p>Octal permissions are owner/group/other with r=4, w=2, x=1. Ownership changes and package installs need sudo; systemctl enable makes a service start at boot, while start runs it now.</p>"
+    },
+    {
+      "id": "malware-steps",
+      "title": "Malware types and the removal process",
+      "domain": "D3",
+      "kind": "tasks",
+      "level": "beginner",
+      "minutes": 10,
+      "summary": "Identify malware types from their behavior and order CompTIA's best-practice malware removal steps.",
+      "scenario": "<p>You're writing the help desk's malware runbook.</p>",
+      "activities": [
+        {
+          "type": "match",
+          "title": "Malware types",
+          "prompt": "Match each behavior to the malware type.",
+          "categories": [
+            "Ransomware",
+            "Trojan",
+            "Rootkit",
+            "Keylogger",
+            "Cryptominer",
+            "Spyware"
+          ],
+          "items": [
+            {
+              "text": "Encrypts files and demands payment",
+              "cat": 0
+            },
+            {
+              "text": "Pretends to be useful software but carries a malicious payload",
+              "cat": 1
+            },
+            {
+              "text": "Hides deep in the OS to conceal itself and other malware",
+              "cat": 2
+            },
+            {
+              "text": "Records everything typed",
+              "cat": 3
+            },
+            {
+              "text": "Uses the CPU/GPU to generate cryptocurrency",
+              "cat": 4
+            },
+            {
+              "text": "Secretly monitors browsing and collects data",
+              "cat": 5
+            }
+          ]
+        },
+        {
+          "type": "order",
+          "title": "Malware removal steps",
+          "prompt": "Arrange the best-practice malware removal steps in order.",
+          "items": [
+            "Investigate and verify malware symptoms",
+            "Quarantine infected systems",
+            "Disable System Restore (Windows Home)",
+            "Remediate: update anti-malware and scan/remove",
+            "Schedule scans and run updates",
+            "Enable System Restore and create a restore point (Windows Home)",
+            "Educate the end user"
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Match every malware type",
+          "check": {
+            "activity": 0
+          }
+        },
+        {
+          "text": "Order the removal steps",
+          "check": {
+            "activity": 1
+          }
+        }
+      ],
+      "hints": [
+        "System Restore is disabled before cleaning so infected restore points are removed, then re-enabled afterward."
+      ],
+      "review": "<p>The order matters: confirm, isolate, clean without reinfecting from restore points, protect, and make sure the user knows how it happened.</p>"
+    },
+    {
+      "id": "workstation-hardening",
+      "title": "Harden a Windows workstation",
+      "domain": "D2",
+      "kind": "portal",
+      "level": "beginner",
+      "minutes": 10,
+      "summary": "Use a workstation settings console to enable encryption, firewall and updates, tighten accounts and screen locking, and disable risky features.",
+      "scenario": "<p>A new laptop for the finance team must meet the security baseline: full-disk encryption, all firewall profiles on, automatic updates, real-time antivirus, the Guest account disabled, a 5-minute screen lock, UAC at its default or higher, AutoRun off and Remote Desktop off. Save each page.</p>",
+      "portal": {
+        "app": "Workstation Settings",
+        "address": "FIN-LT-031",
+        "pages": [
+          {
+            "id": "acct",
+            "title": "Accounts",
+            "sections": [
+              {
+                "title": "Local accounts",
+                "fields": [
+                  {
+                    "id": "guest",
+                    "label": "Guest account enabled",
+                    "type": "toggle",
+                    "value": true
+                  },
+                  {
+                    "id": "lock",
+                    "label": "Lock screen after inactivity",
+                    "type": "select",
+                    "options": [
+                      "Never",
+                      "30 minutes",
+                      "15 minutes",
+                      "5 minutes"
+                    ],
+                    "value": "Never"
+                  },
+                  {
+                    "id": "uac",
+                    "label": "User Account Control",
+                    "type": "select",
+                    "options": [
+                      "Never notify",
+                      "Notify only when apps make changes (no dim)",
+                      "Notify only when apps make changes (default)",
+                      "Always notify"
+                    ],
+                    "value": "Never notify"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "sec",
+            "title": "Security",
+            "sections": [
+              {
+                "title": "Protection",
+                "fields": [
+                  {
+                    "id": "bitlocker",
+                    "label": "BitLocker drive encryption (C:)",
+                    "type": "toggle",
+                    "value": false
+                  },
+                  {
+                    "id": "fwdomain",
+                    "label": "Firewall: domain profile",
+                    "type": "toggle",
+                    "value": true
+                  },
+                  {
+                    "id": "fwprivate",
+                    "label": "Firewall: private profile",
+                    "type": "toggle",
+                    "value": true
+                  },
+                  {
+                    "id": "fwpublic",
+                    "label": "Firewall: public profile",
+                    "type": "toggle",
+                    "value": false
+                  },
+                  {
+                    "id": "av",
+                    "label": "Real-time antivirus protection",
+                    "type": "toggle",
+                    "value": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "sys",
+            "title": "System",
+            "sections": [
+              {
+                "title": "Updates and features",
+                "fields": [
+                  {
+                    "id": "updates",
+                    "label": "Windows Update",
+                    "type": "select",
+                    "options": [
+                      "Paused",
+                      "Notify only",
+                      "Automatic"
+                    ],
+                    "value": "Paused"
+                  },
+                  {
+                    "id": "autorun",
+                    "label": "AutoRun/AutoPlay for removable media",
+                    "type": "toggle",
+                    "value": true
+                  },
+                  {
+                    "id": "rdp",
+                    "label": "Remote Desktop",
+                    "type": "toggle",
+                    "value": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tasks": [
+        {
+          "text": "BitLocker on",
+          "check": {
+            "field": "sec.bitlocker",
+            "eq": true
+          }
+        },
+        {
+          "text": "All three firewall profiles on and real-time antivirus on",
+          "check": {
+            "all": [
+              {
+                "field": "sec.fwdomain",
+                "eq": true
+              },
+              {
+                "field": "sec.fwprivate",
+                "eq": true
+              },
+              {
+                "field": "sec.fwpublic",
+                "eq": true
+              },
+              {
+                "field": "sec.av",
+                "eq": true
+              }
+            ]
+          }
+        },
+        {
+          "text": "Updates set to Automatic",
+          "check": {
+            "field": "sys.updates",
+            "eq": "Automatic"
+          }
+        },
+        {
+          "text": "Guest disabled and a 5-minute screen lock",
+          "check": {
+            "all": [
+              {
+                "field": "acct.guest",
+                "eq": false
+              },
+              {
+                "field": "acct.lock",
+                "eq": "5 minutes"
+              }
+            ]
+          }
+        },
+        {
+          "text": "UAC at the default level or higher",
+          "check": {
+            "field": "acct.uac",
+            "in": [
+              "Notify only when apps make changes (default)",
+              "Always notify"
+            ]
+          }
+        },
+        {
+          "text": "AutoRun and Remote Desktop off",
+          "check": {
+            "all": [
+              {
+                "field": "sys.autorun",
+                "eq": false
+              },
+              {
+                "field": "sys.rdp",
+                "eq": false
+              }
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "The public firewall profile protects the laptop on coffee-shop and hotel networks."
+      ],
+      "solution": "<p>Accounts: Guest off, 5 minutes, default UAC. Security: everything on. System: Automatic updates, AutoRun off, Remote Desktop off.</p>",
+      "review": "<p>These settings come straight from the Core 2 workstation security objectives: encryption, firewall, AV, patching, account and login hardening, and disabling AutoRun.</p>"
+    },
+    {
+      "id": "backups-docs",
+      "title": "Backups and operational procedures",
+      "domain": "D4",
+      "kind": "tasks",
+      "level": "beginner",
+      "minutes": 8,
+      "summary": "Match backup types to how they work, apply the 3-2-1 rule, and identify what belongs in a change request.",
+      "scenario": "<p>You're documenting backup and change procedures for a small business.</p>",
+      "activities": [
+        {
+          "type": "match",
+          "title": "Backup types",
+          "prompt": "Match each description to its backup type.",
+          "categories": [
+            "Full",
+            "Incremental",
+            "Differential",
+            "Synthetic full"
+          ],
+          "items": [
+            {
+              "text": "Copies everything every time",
+              "cat": 0
+            },
+            {
+              "text": "Copies changes since the last backup of any kind",
+              "cat": 1
+            },
+            {
+              "text": "Copies changes since the last full backup",
+              "cat": 2
+            },
+            {
+              "text": "Builds a new full backup from the last full plus later incrementals",
+              "cat": 3
+            }
+          ]
+        },
+        {
+          "type": "fill",
+          "title": "The 3-2-1 rule",
+          "prompt": "Fill in the numbers.",
+          "rows": [
+            {
+              "label": "Total copies of the data",
+              "answer": [
+                "3",
+                "three"
+              ]
+            },
+            {
+              "label": "Different types of media",
+              "answer": [
+                "2",
+                "two"
+              ]
+            },
+            {
+              "label": "Copies kept off-site",
+              "answer": [
+                "1",
+                "one"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "match",
+          "title": "Change management",
+          "prompt": "Which items belong in a change request form, and which are separate steps?",
+          "categories": [
+            "Part of the change request",
+            "Separate step in the process"
+          ],
+          "items": [
+            {
+              "text": "Purpose and scope of the change",
+              "cat": 0
+            },
+            {
+              "text": "Risk analysis and risk level",
+              "cat": 0
+            },
+            {
+              "text": "Affected systems and date/time",
+              "cat": 0
+            },
+            {
+              "text": "Change advisory board approval",
+              "cat": 1
+            },
+            {
+              "text": "End-user acceptance",
+              "cat": 1
+            }
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Match the backup types",
+          "check": {
+            "activity": 0
+          }
+        },
+        {
+          "text": "Apply the 3-2-1 rule",
+          "check": {
+            "activity": 1
+          }
+        },
+        {
+          "text": "Sort the change-management items",
+          "check": {
+            "activity": 2
+          }
+        }
+      ],
+      "hints": [
+        "Restoring incrementals needs the full plus every incremental; restoring a differential needs the full plus the latest differential."
+      ],
+      "review": "<p>Backup type affects backup time and restore time in opposite ways. Change requests document purpose, scope, risk and affected systems before approval.</p>"
+    },
+    {
+      "id": "win-drive-map",
+      "title": "Map network drives from the command line",
+      "domain": "D1",
+      "kind": "cli",
+      "level": "beginner",
+      "minutes": 8,
+      "summary": "Inspect, remove and create mapped network drives with net use, and check a user's group membership.",
+      "scenario": "<p>A user in Finance can't open shared spreadsheets. Their <code>Y:</code> drive points to a decommissioned server. Map <code>Z:</code> to <code>\\\\FS01\\Finance</code> and remove the stale mapping. Also confirm the user <code>mchen</code> is in the <code>Finance</code> group.</p>",
+      "devices": [
+        {
+          "name": "FIN-PC07",
+          "platform": "windows",
+          "hostname": "FIN-PC07",
+          "elevated": false,
+          "adapter": {
+            "name": "Ethernet",
+            "dhcp": true,
+            "ip": "10.60.0.87",
+            "mask": "255.255.255.0",
+            "gw": "10.60.0.1",
+            "dns": [
+              "10.60.0.10"
+            ]
+          },
+          "network": {
+            "subnet": "10.60.0.0",
+            "mask": "255.255.255.0",
+            "gateway": "10.60.0.1"
+          },
+          "users": {
+            "mchen": {
+              "active": true,
+              "groups": [
+                "Users",
+                "Finance"
+              ]
+            },
+            "student": {
+              "active": true,
+              "groups": [
+                "Users"
+              ]
+            }
+          },
+          "drives": {
+            "Y:": "\\\\OLDFS\\Finance"
+          },
+          "shares": {
+            "\\\\fs01\\finance": true,
+            "\\\\fs01\\public": true
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "List current mappings with <code>net use</code>",
+          "check": {
+            "ran": [
+              "FIN-PC07",
+              "^net\\s+use$"
+            ]
+          }
+        },
+        {
+          "text": "Delete the stale Y: mapping",
+          "check": {
+            "dev": "FIN-PC07",
+            "path": "drives.Y:",
+            "exists": false
+          }
+        },
+        {
+          "text": "Map Z: to \\\\FS01\\Finance",
+          "check": {
+            "dev": "FIN-PC07",
+            "path": "drives.Z:",
+            "re": "^\\\\\\\\FS01\\\\Finance$"
+          }
+        },
+        {
+          "text": "Check mchen's groups with <code>net user mchen</code>",
+          "check": {
+            "ran": [
+              "FIN-PC07",
+              "^net\\s+user\\s+mchen$"
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "<code>net use Y: /delete</code>",
+        "<code>net use Z: \\\\FS01\\Finance</code>"
+      ],
+      "solution": "<pre>net use\nnet use Y: /delete\nnet use Z: \\\\FS01\\Finance\nnet user mchen</pre>",
+      "review": "<p><code>net use</code> maps and removes drive letters for SMB shares; <code>net user</code> shows account details including group memberships.</p>"
+    }
+  ]
+}

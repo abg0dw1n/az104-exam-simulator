@@ -1,0 +1,952 @@
+{
+  "intro": "Hands-on Security+ labs graded in your browser: Linux log analysis and SSH hardening, firewall segmentation, an identity admin console, and attack, incident-response, control and cryptography drills. Simulated, so some details are simplified.",
+  "labs": [
+    {
+      "id": "attack-types",
+      "title": "Identify the attack",
+      "domain": "D2",
+      "kind": "tasks",
+      "level": "beginner",
+      "minutes": 10,
+      "summary": "Match incident descriptions to social engineering, application, network and password attacks.",
+      "scenario": "<p>The SOC queue has eight new tickets. Classify each one so it goes to the right playbook.</p>",
+      "activities": [
+        {
+          "type": "match",
+          "title": "Classify the tickets",
+          "prompt": "Match each description to the attack type.",
+          "categories": [
+            "Smishing",
+            "Vishing",
+            "SQL injection",
+            "Cross-site scripting",
+            "On-path",
+            "Password spraying",
+            "DDoS",
+            "Business email compromise"
+          ],
+          "items": [
+            {
+              "text": "Text message with a fake package-delivery link",
+              "cat": 0
+            },
+            {
+              "text": "Caller posing as IT asks for an MFA code",
+              "cat": 1
+            },
+            {
+              "text": "Login field input ' OR 1=1 -- returns every record",
+              "cat": 2
+            },
+            {
+              "text": "Comment field stores <script> that runs in other users' browsers",
+              "cat": 3
+            },
+            {
+              "text": "Rogue access point relays and alters traffic between users and a site",
+              "cat": 4
+            },
+            {
+              "text": "One common password tried against thousands of accounts",
+              "cat": 5
+            },
+            {
+              "text": "Botnet floods the web server until it stops responding",
+              "cat": 6
+            },
+            {
+              "text": "Compromised vendor mailbox requests a change to bank details",
+              "cat": 7
+            }
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Classify every ticket",
+          "check": {
+            "activity": 0
+          }
+        },
+        {
+          "text": "Choose the best mitigation for the SQL injection",
+          "check": {
+            "q": "sqli",
+            "eq": 0
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "sqli",
+          "prompt": "Best fix for the SQL injection?",
+          "options": [
+            "Parameterized queries / input validation",
+            "A longer TLS certificate",
+            "Disabling ICMP",
+            "Full-disk encryption"
+          ]
+        }
+      ],
+      "hints": [
+        "Smishing = SMS, vishing = voice.",
+        "Password spraying tries few passwords against many accounts; brute force tries many passwords against one."
+      ],
+      "review": "<p>Recognizing the attack from its indicators is the first step in choosing a response and a control.</p>"
+    },
+    {
+      "id": "ir-controls",
+      "title": "Incident response and control types",
+      "domain": "D4",
+      "kind": "tasks",
+      "level": "beginner",
+      "minutes": 10,
+      "summary": "Order the incident response process and classify security controls by category and type.",
+      "scenario": "<p>You're updating the incident response plan and the control inventory for an audit.</p>",
+      "activities": [
+        {
+          "type": "order",
+          "title": "Incident response process",
+          "prompt": "Arrange the phases in order.",
+          "items": [
+            "Preparation",
+            "Detection",
+            "Analysis",
+            "Containment",
+            "Eradication",
+            "Recovery",
+            "Lessons learned"
+          ]
+        },
+        {
+          "type": "match",
+          "title": "Control categories",
+          "prompt": "Match each control to its category.",
+          "categories": [
+            "Technical",
+            "Managerial",
+            "Operational",
+            "Physical"
+          ],
+          "items": [
+            {
+              "text": "Firewall rules",
+              "cat": 0
+            },
+            {
+              "text": "Risk assessment policy",
+              "cat": 1
+            },
+            {
+              "text": "Security awareness training",
+              "cat": 2
+            },
+            {
+              "text": "Badge-controlled door",
+              "cat": 3
+            },
+            {
+              "text": "Endpoint encryption",
+              "cat": 0
+            }
+          ]
+        },
+        {
+          "type": "match",
+          "title": "Control types",
+          "prompt": "Match each control to its type (function).",
+          "categories": [
+            "Preventive",
+            "Detective",
+            "Corrective",
+            "Deterrent",
+            "Compensating"
+          ],
+          "items": [
+            {
+              "text": "Account lockout after failed logins",
+              "cat": 0
+            },
+            {
+              "text": "SIEM alert on unusual logins",
+              "cat": 1
+            },
+            {
+              "text": "Restoring from backup after ransomware",
+              "cat": 2
+            },
+            {
+              "text": "Warning sign: \"Premises under video surveillance\"",
+              "cat": 3
+            },
+            {
+              "text": "Extra monitoring on a legacy system that can't be patched",
+              "cat": 4
+            }
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Order the IR phases",
+          "check": {
+            "activity": 0
+          }
+        },
+        {
+          "text": "Classify control categories",
+          "check": {
+            "activity": 1
+          }
+        },
+        {
+          "text": "Classify control types",
+          "check": {
+            "activity": 2
+          }
+        }
+      ],
+      "hints": [
+        "Containment limits the damage before you remove the cause (eradication)."
+      ],
+      "review": "<p>Security+ uses these exact IR phases and control categories/types, often inside scenario questions.</p>"
+    },
+    {
+      "id": "ssh-bruteforce",
+      "title": "Investigate and stop an SSH brute-force attack",
+      "domain": "D4",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 20,
+      "summary": "Analyze auth.log with grep and pipes, block the attacker with ufw in the right rule order, and harden SSH.",
+      "scenario": "<p>A monitoring alert shows a spike of SSH logins on <b>web01</b>. You're <code>student</code> with sudo. Investigate <code>/var/log/auth.log</code>, block the attacking address at the host firewall without locking out SSH for everyone else, and harden the SSH server: no root login and no password authentication (keys only). Restart SSH to apply the change.</p>",
+      "devices": [
+        {
+          "name": "web01",
+          "platform": "linux",
+          "hostname": "web01",
+          "ip": "10.0.0.21",
+          "files": {
+            "/var/log/auth.log": {
+              "owner": "root",
+              "group": "adm",
+              "mode": "640",
+              "content": [
+                "Oct 29 07:40:07 web01 sshd[1988]: Accepted publickey for deploy from 10.0.0.5 port 50112 ssh2: ED25519 SHA256:q1x...",
+                "Oct 29 07:40:14 web01 sshd[2200]: Failed password for root from 203.0.113.45 port 51000 ssh2",
+                "Oct 29 07:40:21 web01 sshd[2201]: Failed password for root from 203.0.113.45 port 51003 ssh2",
+                "Oct 29 07:40:28 web01 sshd[2202]: Failed password for invalid user admin from 203.0.113.45 port 51006 ssh2",
+                "Oct 29 07:40:35 web01 sshd[2203]: Failed password for root from 203.0.113.45 port 51009 ssh2",
+                "Oct 29 07:40:42 web01 sshd[2204]: Failed password for invalid user ubuntu from 203.0.113.45 port 51012 ssh2",
+                "Oct 29 07:40:49 web01 sshd[2205]: Failed password for root from 203.0.113.45 port 51015 ssh2",
+                "Oct 29 07:40:56 web01 sshd[2206]: Failed password for invalid user test from 203.0.113.45 port 51018 ssh2",
+                "Oct 29 07:41:03 web01 sshd[2300]: Failed password for jsmith from 198.51.100.7 port 40211 ssh2",
+                "Oct 29 07:41:10 web01 sshd[2207]: Failed password for root from 203.0.113.45 port 51021 ssh2",
+                "Oct 29 07:41:17 web01 sshd[2208]: Failed password for root from 203.0.113.45 port 51024 ssh2",
+                "Oct 29 07:41:24 web01 sshd[2209]: Failed password for invalid user admin from 203.0.113.45 port 51027 ssh2",
+                "Oct 29 07:41:31 web01 sshd[2301]: Accepted password for jsmith from 198.51.100.7 port 40233 ssh2",
+                "Oct 29 07:41:38 web01 sshd[2210]: Failed password for root from 203.0.113.45 port 51030 ssh2",
+                "Oct 29 07:41:45 web01 sshd[2211]: Failed password for invalid user ubuntu from 203.0.113.45 port 51033 ssh2",
+                "Oct 29 07:41:52 web01 sshd[2212]: Failed password for root from 203.0.113.45 port 51036 ssh2",
+                "Oct 29 07:41:59 web01 sshd[2213]: Failed password for invalid user test from 203.0.113.45 port 51039 ssh2",
+                "Oct 29 07:42:06 web01 sudo:  student : TTY=pts/0 ; PWD=/home/student ; USER=root ; COMMAND=/usr/bin/apt update"
+              ]
+            },
+            "/etc/ssh/sshd_config": {
+              "owner": "root",
+              "mode": "644",
+              "content": [
+                "Include /etc/ssh/sshd_config.d/*.conf",
+                "Port 22",
+                "PermitRootLogin yes",
+                "PubkeyAuthentication yes",
+                "PasswordAuthentication yes",
+                "KbdInteractiveAuthentication no",
+                "UsePAM yes",
+                "X11Forwarding yes"
+              ]
+            },
+            "/home/student/.bash_history": {
+              "owner": "student",
+              "mode": "600",
+              "content": ""
+            }
+          },
+          "services": {
+            "ssh": {
+              "active": true,
+              "enabled": true,
+              "port": 22,
+              "desc": "OpenBSD Secure Shell server"
+            },
+            "nginx": {
+              "active": true,
+              "enabled": true,
+              "port": 80
+            }
+          },
+          "ufw": {
+            "enabled": true,
+            "rules": [
+              {
+                "action": "allow",
+                "port": "22/tcp"
+              },
+              {
+                "action": "allow",
+                "port": "80/tcp"
+              }
+            ]
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Read the auth log (it needs elevated rights)",
+          "check": {
+            "ran": [
+              "web01",
+              "auth\\.log"
+            ]
+          }
+        },
+        {
+          "text": "How many failed password attempts are in the log?",
+          "check": {
+            "q": "count",
+            "eq": 2
+          }
+        },
+        {
+          "text": "Which address is attacking?",
+          "check": {
+            "q": "ip",
+            "eq": 1
+          }
+        },
+        {
+          "text": "Block 203.0.113.45 with ufw, placed above the SSH allow rule",
+          "check": {
+            "before": [
+              "web01",
+              "ufw.rules",
+              {
+                "action": [
+                  "deny",
+                  "reject"
+                ],
+                "from": "203.0.113.45"
+              },
+              {
+                "action": "allow",
+                "port": [
+                  "22",
+                  "22/tcp",
+                  "OpenSSH",
+                  "ssh"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "text": "The firewall is still active and SSH is still allowed for everyone else",
+          "check": {
+            "all": [
+              {
+                "dev": "web01",
+                "path": "ufw.enabled",
+                "eq": true
+              },
+              {
+                "items": [
+                  "web01",
+                  "ufw.rules"
+                ],
+                "has": {
+                  "action": "allow",
+                  "port": [
+                    "22",
+                    "22/tcp",
+                    "OpenSSH",
+                    "ssh"
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "text": "Disable root login and password authentication in <code>sshd_config</code>",
+          "check": {
+            "file": [
+              "web01",
+              "/etc/ssh/sshd_config"
+            ],
+            "contains": "^PermitRootLogin no$",
+            "notContains": "^PermitRootLogin yes|^PasswordAuthentication yes"
+          }
+        },
+        {
+          "text": "Also confirm <code>PasswordAuthentication no</code> is set, then restart SSH",
+          "check": {
+            "all": [
+              {
+                "file": [
+                  "web01",
+                  "/etc/ssh/sshd_config"
+                ],
+                "contains": "^PasswordAuthentication no$"
+              },
+              {
+                "dev": "web01",
+                "path": "services.ssh.restartedAt",
+                "exists": true
+              }
+            ]
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "count",
+          "prompt": "Failed password attempts in the log:",
+          "options": [
+            "14",
+            "13",
+            "15",
+            "21"
+          ]
+        },
+        {
+          "id": "ip",
+          "prompt": "Attacking address:",
+          "options": [
+            "10.0.0.5",
+            "203.0.113.45",
+            "198.51.100.7",
+            "10.0.0.21"
+          ]
+        }
+      ],
+      "hints": [
+        "<code>sudo grep \"Failed password\" /var/log/auth.log | wc -l</code> counts failures.",
+        "<code>sudo grep \"Failed password\" /var/log/auth.log | grep -c 203.0.113.45</code> narrows it down.",
+        "ufw uses the first matching rule. <code>sudo ufw insert 1 deny from 203.0.113.45</code> puts the block above the SSH allow.",
+        "<code>sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config</code>, then the same for PasswordAuthentication, then <code>sudo systemctl restart ssh</code>."
+      ],
+      "solution": "<pre>sudo grep \"Failed password\" /var/log/auth.log | wc -l        # 15\nsudo grep \"Failed password\" /var/log/auth.log | grep -c 203.0.113.45\nsudo ufw insert 1 deny from 203.0.113.45\nsudo ufw status numbered\nsudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/' /etc/ssh/sshd_config\nsudo sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config\nsudo systemctl restart ssh</pre><p>Note: 198.51.100.7 had one failure and then a successful login for jsmith. That's worth a follow-up with the user (possible credential compromise), but it isn't the brute-force source.</p>",
+      "review": "<p>Log analysis with grep and pipes finds the indicators; a host firewall rule contains the source; disabling root and password logins removes the attack path. Rule order matters in first-match firewalls.</p>"
+    },
+    {
+      "id": "segmentation-rules",
+      "title": "Segment a three-tier application",
+      "domain": "D3",
+      "kind": "tasks",
+      "level": "intermediate",
+      "minutes": 15,
+      "summary": "Write least-privilege firewall rules between the internet, a DMZ web tier, an app tier, a database tier and a jump host.",
+      "scenario": "<p>Zones and hosts:</p><ul><li>Web server (DMZ) <code>172.16.10.10</code>: HTTPS from the internet</li><li>App server <code>10.10.20.10</code>: TCP 8443 from the web server only</li><li>Database <code>10.10.30.10</code>: TCP 1433 from the app server only</li><li>Jump host <code>10.10.99.5</code>: SSH (22) and RDP (3389) to any internal server</li></ul><p>Everything else is denied.</p>",
+      "activities": [
+        {
+          "type": "rules",
+          "title": "Inter-zone firewall policy",
+          "prompt": "Build the ordered rule set. Use single IPs, CIDR, or <b>Any</b>; ports can be lists like <code>22,3389</code>.",
+          "start": [
+            {
+              "action": "Allow",
+              "proto": "TCP",
+              "src": "Any",
+              "dst": "10.10.0.0/16",
+              "port": "Any"
+            }
+          ],
+          "tests": [
+            {
+              "label": "Internet → web 443",
+              "packet": {
+                "proto": "TCP",
+                "src": "198.51.100.40",
+                "dst": "172.16.10.10",
+                "port": 443
+              },
+              "expect": "allow"
+            },
+            {
+              "label": "Web → app 8443",
+              "packet": {
+                "proto": "TCP",
+                "src": "172.16.10.10",
+                "dst": "10.10.20.10",
+                "port": 8443
+              },
+              "expect": "allow"
+            },
+            {
+              "label": "App → DB 1433",
+              "packet": {
+                "proto": "TCP",
+                "src": "10.10.20.10",
+                "dst": "10.10.30.10",
+                "port": 1433
+              },
+              "expect": "allow"
+            },
+            {
+              "label": "Jump → DB 3389",
+              "packet": {
+                "proto": "TCP",
+                "src": "10.10.99.5",
+                "dst": "10.10.30.10",
+                "port": 3389
+              },
+              "expect": "allow"
+            },
+            {
+              "label": "Jump → app 22",
+              "packet": {
+                "proto": "TCP",
+                "src": "10.10.99.5",
+                "dst": "10.10.20.10",
+                "port": 22
+              },
+              "expect": "allow"
+            },
+            {
+              "label": "Web → DB 1433 (skip the app tier)",
+              "packet": {
+                "proto": "TCP",
+                "src": "172.16.10.10",
+                "dst": "10.10.30.10",
+                "port": 1433
+              },
+              "expect": "deny"
+            },
+            {
+              "label": "Internet → DB 1433",
+              "packet": {
+                "proto": "TCP",
+                "src": "198.51.100.40",
+                "dst": "10.10.30.10",
+                "port": 1433
+              },
+              "expect": "deny"
+            },
+            {
+              "label": "Internet → web 22",
+              "packet": {
+                "proto": "TCP",
+                "src": "198.51.100.40",
+                "dst": "172.16.10.10",
+                "port": 22
+              },
+              "expect": "deny"
+            },
+            {
+              "label": "Internet → app 8443",
+              "packet": {
+                "proto": "TCP",
+                "src": "198.51.100.40",
+                "dst": "10.10.20.10",
+                "port": 8443
+              },
+              "expect": "deny"
+            }
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Every test packet gets the expected result",
+          "check": {
+            "activity": 0
+          }
+        }
+      ],
+      "hints": [
+        "Delete the starting rule: it allows anything to the internal network.",
+        "Jump host rule: source 10.10.99.5, destination 10.10.0.0/16, ports 22,3389."
+      ],
+      "solution": "<pre>1 Allow TCP Any           172.16.10.10  443\n2 Allow TCP 172.16.10.10  10.10.20.10   8443\n3 Allow TCP 10.10.20.10   10.10.30.10   1433\n4 Allow TCP 10.10.99.5    10.10.0.0/16  22,3389</pre>",
+      "review": "<p>Segmentation limits lateral movement: each tier talks only to the next one on the port it needs, and administration goes through a single, monitored jump host.</p>"
+    },
+    {
+      "id": "iam-console",
+      "title": "Fix identity and access findings",
+      "domain": "D4",
+      "kind": "portal",
+      "level": "intermediate",
+      "minutes": 12,
+      "summary": "Use an identity admin console to strengthen password and lockout policy, enforce phishing-resistant MFA, and fix account findings from an access review.",
+      "scenario": "<p>The quarterly access review found: a terminated employee (<code>kpatel</code>) is still active, an intern (<code>jdoe</code>) has admin rights, and the front desk uses a shared account. Policy needs a minimum password length of at least 14, lockout after at most 5 failed attempts, MFA for everyone, and phishing-resistant MFA (FIDO2 security keys) for admins. Save each page.</p>",
+      "portal": {
+        "app": "Identity Admin Console",
+        "address": "https://id.example.com/admin",
+        "pages": [
+          {
+            "id": "users",
+            "title": "Users",
+            "tables": [
+              {
+                "id": "list",
+                "title": "Accounts",
+                "add": false,
+                "columns": [
+                  {
+                    "id": "user",
+                    "label": "User"
+                  },
+                  {
+                    "id": "dept",
+                    "label": "Department"
+                  },
+                  {
+                    "id": "role",
+                    "label": "Role",
+                    "type": "select",
+                    "options": [
+                      "User",
+                      "Admin"
+                    ]
+                  },
+                  {
+                    "id": "status",
+                    "label": "Status",
+                    "type": "select",
+                    "options": [
+                      "Active",
+                      "Disabled"
+                    ]
+                  }
+                ],
+                "rows": [
+                  {
+                    "user": "agarcia",
+                    "dept": "IT",
+                    "role": "Admin",
+                    "status": "Active"
+                  },
+                  {
+                    "user": "kpatel",
+                    "dept": "Sales (terminated)",
+                    "role": "User",
+                    "status": "Active"
+                  },
+                  {
+                    "user": "jdoe",
+                    "dept": "Marketing (intern)",
+                    "role": "Admin",
+                    "status": "Active"
+                  },
+                  {
+                    "user": "frontdesk",
+                    "dept": "Shared account",
+                    "role": "User",
+                    "status": "Active"
+                  },
+                  {
+                    "user": "lwong",
+                    "dept": "Finance",
+                    "role": "User",
+                    "status": "Active"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "pw",
+            "title": "Password policy",
+            "sections": [
+              {
+                "title": "Passwords and lockout",
+                "fields": [
+                  {
+                    "id": "minlen",
+                    "label": "Minimum length",
+                    "type": "select",
+                    "options": [
+                      "8",
+                      "10",
+                      "12",
+                      "14",
+                      "16"
+                    ],
+                    "value": "8"
+                  },
+                  {
+                    "id": "expire",
+                    "label": "Force periodic password changes",
+                    "type": "toggle",
+                    "value": true,
+                    "help": "Current guidance favors long passwords without forced periodic changes unless compromise is suspected."
+                  },
+                  {
+                    "id": "lockout",
+                    "label": "Lock account after failed attempts",
+                    "type": "select",
+                    "options": [
+                      "Never",
+                      "10",
+                      "5",
+                      "3"
+                    ],
+                    "value": "Never"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mfa",
+            "title": "MFA",
+            "sections": [
+              {
+                "title": "Multifactor authentication",
+                "fields": [
+                  {
+                    "id": "all",
+                    "label": "Require MFA for all users",
+                    "type": "toggle",
+                    "value": false
+                  },
+                  {
+                    "id": "users",
+                    "label": "Allowed methods for users",
+                    "type": "select",
+                    "options": [
+                      "SMS codes",
+                      "Authenticator app (push/TOTP)",
+                      "FIDO2 security keys"
+                    ],
+                    "value": "SMS codes"
+                  },
+                  {
+                    "id": "admins",
+                    "label": "Required method for admins",
+                    "type": "select",
+                    "options": [
+                      "SMS codes",
+                      "Authenticator app (push/TOTP)",
+                      "FIDO2 security keys"
+                    ],
+                    "value": "SMS codes"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tasks": [
+        {
+          "text": "Disable the terminated user kpatel",
+          "check": {
+            "rows": "users.list",
+            "has": {
+              "user": "kpatel",
+              "status": "Disabled"
+            }
+          }
+        },
+        {
+          "text": "Remove admin rights from the intern jdoe",
+          "check": {
+            "rows": "users.list",
+            "has": {
+              "user": "jdoe",
+              "role": "User"
+            }
+          }
+        },
+        {
+          "text": "Disable the shared frontdesk account (issue individual accounts instead)",
+          "check": {
+            "rows": "users.list",
+            "has": {
+              "user": "frontdesk",
+              "status": "Disabled"
+            }
+          }
+        },
+        {
+          "text": "Keep agarcia as an active admin",
+          "check": {
+            "rows": "users.list",
+            "has": {
+              "user": "agarcia",
+              "role": "Admin",
+              "status": "Active"
+            }
+          }
+        },
+        {
+          "text": "Minimum length 14+ and lockout after 5 or fewer attempts",
+          "check": {
+            "all": [
+              {
+                "field": "pw.minlen",
+                "in": [
+                  "14",
+                  "16"
+                ]
+              },
+              {
+                "field": "pw.lockout",
+                "in": [
+                  "5",
+                  "3"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "text": "MFA required for everyone; FIDO2 keys for admins",
+          "check": {
+            "all": [
+              {
+                "field": "mfa.all",
+                "eq": true
+              },
+              {
+                "field": "mfa.admins",
+                "eq": "FIDO2 security keys"
+              },
+              {
+                "field": "mfa.users",
+                "ne": "SMS codes"
+              }
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "SMS codes can be intercepted through SIM swapping; prefer an authenticator app or security keys.",
+        "FIDO2/WebAuthn keys are phishing-resistant because they're bound to the real site."
+      ],
+      "solution": "<p>Users: kpatel Disabled, jdoe User, frontdesk Disabled. Password policy: 14 or 16, lockout 5 (or 3). MFA: required for all, authenticator app for users, FIDO2 for admins.</p>",
+      "review": "<p>Deprovisioning, least privilege, no shared accounts, strong length-based passwords and phishing-resistant MFA are core identity controls on Security+.</p>"
+    },
+    {
+      "id": "crypto-pki",
+      "title": "Cryptography and PKI basics",
+      "domain": "D1",
+      "kind": "tasks",
+      "level": "intermediate",
+      "minutes": 10,
+      "summary": "Classify algorithms as symmetric, asymmetric, hashing or key exchange, and match PKI terms to their purpose.",
+      "scenario": "<p>A developer asks which tools to use for confidentiality, integrity and certificate management.</p>",
+      "activities": [
+        {
+          "type": "match",
+          "title": "Algorithm families",
+          "prompt": "Classify each algorithm.",
+          "categories": [
+            "Symmetric encryption",
+            "Asymmetric encryption / signatures",
+            "Hashing",
+            "Key exchange"
+          ],
+          "items": [
+            {
+              "text": "AES-256",
+              "cat": 0
+            },
+            {
+              "text": "ChaCha20",
+              "cat": 0
+            },
+            {
+              "text": "RSA",
+              "cat": 1
+            },
+            {
+              "text": "ECDSA",
+              "cat": 1
+            },
+            {
+              "text": "SHA-256",
+              "cat": 2
+            },
+            {
+              "text": "Diffie-Hellman (ECDHE)",
+              "cat": 3
+            }
+          ]
+        },
+        {
+          "type": "match",
+          "title": "PKI terms",
+          "prompt": "Match each term to what it does.",
+          "categories": [
+            "CSR",
+            "OCSP",
+            "Wildcard certificate",
+            "Root CA",
+            "Key escrow"
+          ],
+          "items": [
+            {
+              "text": "Request sent to a CA to get a certificate",
+              "cat": 0
+            },
+            {
+              "text": "Real-time check of whether a certificate is revoked",
+              "cat": 1
+            },
+            {
+              "text": "One certificate covering *.example.com",
+              "cat": 2
+            },
+            {
+              "text": "Top of the trust chain, usually kept offline",
+              "cat": 3
+            },
+            {
+              "text": "A trusted third party holds a copy of keys for recovery",
+              "cat": 4
+            }
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Classify every algorithm",
+          "check": {
+            "activity": 0
+          }
+        },
+        {
+          "text": "Match the PKI terms",
+          "check": {
+            "activity": 1
+          }
+        },
+        {
+          "text": "Choose the right key for a digital signature",
+          "check": {
+            "q": "sign",
+            "eq": 1
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "sign",
+          "prompt": "To digitally sign a document, the sender uses:",
+          "options": [
+            "The recipient's public key",
+            "The sender's private key",
+            "The sender's public key",
+            "A shared symmetric key"
+          ]
+        }
+      ],
+      "hints": [
+        "Signing uses your private key; anyone verifies with your public key."
+      ],
+      "review": "<p>Symmetric ciphers protect bulk data, asymmetric keys handle identity and key exchange, and hashes prove integrity.</p>"
+    }
+  ]
+}

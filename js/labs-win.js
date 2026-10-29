@@ -7,7 +7,10 @@ export function newWin(def) {
   return {
     name: def.name, platform: 'windows', hostname: def.hostname || def.name,
     adapter: { name: 'Ethernet', dhcp: true, ip: null, mask: null, gw: null, dns: [], mac: '00-1A-2B-3C-4D-5E', ...(def.adapter || {}) },
-    network: def.network || {}, dnsCache: false,
+    network: def.network || {}, dnsCache: false, elevated: def.elevated ?? true,
+    users: def.users || { Administrator: { active: false, groups: ['Administrators'] }, student: { active: true, groups: ['Administrators', 'Users'] } },
+    procs: def.procs || [{ name: 'explorer.exe', pid: 4412, mem: '98,212 K' }, { name: 'svchost.exe', pid: 1020, mem: '24,180 K' }],
+    tasks: def.tasks || [], drives: def.drives || {}, shares: def.shares || {}, log: {},
   };
 }
 
@@ -51,7 +54,7 @@ export class WinSession {
     switch (cmd) {
       case 'cls': this.opts.clear?.(); return '';
       case 'hostname': return this.pc.hostname;
-      case 'help': return 'Commands in this lab: ipconfig, ping, tracert, nslookup, netsh, arp, netstat, getmac, hostname, cls';
+      case 'help': return 'Commands in this lab: ipconfig, ping, tracert, nslookup, netsh, arp, netstat, getmac, hostname, whoami, net user, net localgroup, net use, tasklist, taskkill, schtasks, sfc, DISM, chkdsk, gpupdate, gpresult, dir, cls';
       case 'getmac': return `Physical Address    Transport Name\n=================== ==========================================================\n${this.a.mac}   \\Device\\Tcpip_{4D36E972}`;
       case 'ipconfig': return this.ipconfig(flags);
       case 'ping': return this.ping(args);
@@ -65,6 +68,45 @@ export class WinSession {
         for (const h of Object.keys(this.n.hosts || {})) if (this.reach(h)) rows.push([h, '3c-52-82-10-aa-4f']);
         return `\nInterface: ${this.a.ip || '0.0.0.0'} --- 0x7\n  Internet Address      Physical Address      Type\n${rows.map(([i, m]) => `  ${i.padEnd(22)}${m.padEnd(22)}dynamic`).join('\n')}`;
       }
+      case 'whoami': return `${this.pc.hostname.toLowerCase()}\\student`;
+      case 'winver': case 'ver': return 'Microsoft Windows [Version 10.0.22631.4317]';
+      case 'net': return this.net(args, flags);
+      case 'tasklist': return `\nImage Name                     PID Session Name        Mem Usage\n========================= ======== ================ ============\n${this.pc.procs.map((p) => `${p.name.padEnd(26)}${String(p.pid).padStart(8)} Console          ${p.mem.padStart(12)}`).join('\n')}`;
+      case 'taskkill': {
+        const im = args[args.findIndex((x) => x.toLowerCase() === '/im') + 1]; const pid = args[args.findIndex((x) => x.toLowerCase() === '/pid') + 1];
+        const hit = this.pc.procs.filter((p) => (im && p.name.toLowerCase() === im.toLowerCase()) || (pid && String(p.pid) === pid));
+        if (!hit.length) return `ERROR: The process "${im || pid}" not found.`;
+        if (hit.some((p) => p.protected) && !flags.includes('/f')) return `ERROR: The process "${hit[0].name}" with PID ${hit[0].pid} could not be terminated.\nReason: This process can only be terminated forcefully (with /F option).`;
+        this.pc.procs = this.pc.procs.filter((p) => !hit.includes(p)); this.opts.onChange?.();
+        return hit.map((p) => `SUCCESS: The process "${p.name}" with PID ${p.pid} has been terminated.`).join('\n');
+      }
+      case 'schtasks': {
+        if (flags.includes('/query') || !args.length) return `\nFolder: \\\nTaskName                                 Next Run Time          Status\n======================================== ====================== ===============\n${this.pc.tasks.map((t) => `${t.name.padEnd(41)}${(t.next || 'N/A').padEnd(23)}${t.enabled === false ? 'Disabled' : 'Ready'}`).join('\n')}`;
+        if (flags.includes('/delete')) {
+          if (!this.pc.elevated) return 'ERROR: Access is denied.';
+          const tn = args[args.findIndex((x) => x.toLowerCase() === '/tn') + 1]?.replace(/"/g, '');
+          const t = this.pc.tasks.find((x) => x.name.toLowerCase() === (tn || '').toLowerCase());
+          if (!t) return 'ERROR: The system cannot find the file specified.';
+          this.pc.tasks = this.pc.tasks.filter((x) => x !== t); this.opts.onChange?.();
+          return `SUCCESS: The scheduled task "${t.name}" was successfully deleted.`;
+        }
+        return 'Usage: schtasks /query  |  schtasks /delete /tn "TaskName" /f';
+      }
+      case 'sfc':
+        if (!flags.includes('/scannow')) return 'Usage: sfc /scannow';
+        if (!this.pc.elevated) return 'You must be an administrator running a console session in order to use the sfc utility.';
+        this.pc.log.sfc = true; this.opts.onChange?.();
+        return '\nBeginning system scan.  This process will take some time.\n\nVerification 100% complete.\n\nWindows Resource Protection found corrupt files and successfully repaired them.';
+      case 'dism':
+        if (!/restorehealth/i.test(line)) return 'Example: DISM /Online /Cleanup-Image /RestoreHealth';
+        this.pc.log.dism = true; this.opts.onChange?.(); return '\n[==========================100.0%==========================]\nThe restore operation completed successfully.\nThe operation completed successfully.';
+      case 'chkdsk':
+        if (flags.includes('/f') || flags.includes('/r')) { this.pc.log.chkdsk = true; this.opts.onChange?.(); return 'Chkdsk cannot run because the volume is in use by another\nprocess.  Would you like to schedule this volume to be\nchecked the next time the system restarts? (Y/N) Y\n\nThis volume will be checked the next time the system restarts.'; }
+        return 'The type of the file system is NTFS.\nWindows has scanned the file system and found no problems.\nNo further action is required.';
+      case 'gpupdate': this.pc.log.gpupdate = true; this.opts.onChange?.(); return 'Updating policy...\n\nComputer Policy update has completed successfully.\nUser Policy update has completed successfully.';
+      case 'gpresult': return `\nRSOP data for ${this.pc.hostname}\\student on ${this.pc.hostname} : Logging Mode\n\nCOMPUTER SETTINGS\n    Applied Group Policy Objects\n        Default Domain Policy\n        Workstation Security Baseline\n\nUSER SETTINGS\n    Applied Group Policy Objects\n        Default Domain Policy`;
+      case 'shutdown': return flags.includes('/r') ? 'The system will restart (simulated; the lab keeps running).' : 'Usage: shutdown /r /t 0';
+      case 'dir': return ' Volume in drive C is Windows\n Directory of C:\\Users\\student\n\n10/29/2026  08:02 AM    <DIR>          Desktop\n10/29/2026  08:02 AM    <DIR>          Documents\n10/29/2026  08:02 AM    <DIR>          Downloads';
       case 'netstat': {
         const list = this.n.netstat || [];
         return `\nActive Connections\n\n  Proto  Local Address          Foreign Address        State\n${list.map((r) => `  ${r.proto.padEnd(7)}${r.local.padEnd(23)}${r.remote.padEnd(23)}${r.state || ''}`).join('\n')}`;
@@ -184,6 +226,49 @@ export class WinSession {
     if (rest[0].toLowerCase() === 'dhcp') { a.dnsStatic = false; a.dns = a.dhcp && this.n.dhcp?.available ? [...(this.n.dhcp.dns || [])] : []; this.opts.onChange?.(); return 'Ok.\n'; }
     if (rest[0].toLowerCase() !== 'static' || !isIp(rest[1])) return 'The parameter is incorrect.';
     a.dns = [rest[1]]; a.dnsStatic = true; this.opts.onChange?.(); return 'Ok.\n';
+  }
+  // net user / net localgroup / net use
+  net(args, flags) {
+    const [sub, ...rest] = args.map((x) => x); const subL = (sub || '').toLowerCase(); const pc = this.pc;
+    const deny = () => 'System error 5 has occurred.\n\nAccess is denied.';
+    const words = rest.filter((x) => !x.startsWith('/'));
+    if (subL === 'user') {
+      if (!words.length) return `\nUser accounts for \\\\${pc.hostname}\n\n-------------------------------------------------------------------------------\n${Object.keys(pc.users).join('    ')}\nThe command completed successfully.`;
+      const [name, pw] = words; const u = pc.users[name];
+      const add = flags.includes('/add'); const del = flags.includes('/delete');
+      const active = flags.find((f) => f.startsWith('/active:'));
+      if (add) { if (!pc.elevated) return deny(); if (u) return 'The account already exists.'; pc.users[name] = { active: true, groups: ['Users'], hasPassword: !!pw }; this.opts.onChange?.(); return 'The command completed successfully.'; }
+      if (!u) return 'The user name could not be found.\n\nMore help is available by typing NET HELPMSG 2221.';
+      if (del) { if (!pc.elevated) return deny(); delete pc.users[name]; this.opts.onChange?.(); return 'The command completed successfully.'; }
+      if (active) { if (!pc.elevated) return deny(); u.active = active.endsWith(':yes'); this.opts.onChange?.(); return 'The command completed successfully.'; }
+      if (pw) { if (!pc.elevated) return deny(); u.hasPassword = true; this.opts.onChange?.(); return 'The command completed successfully.'; }
+      return `User name                    ${name}\nAccount active               ${u.active ? 'Yes' : 'No'}\nPassword required            Yes\n\nLocal Group Memberships      ${u.groups.map((g) => `*${g}`).join('  ')}\nThe command completed successfully.`;
+    }
+    if (subL === 'localgroup') {
+      const groups = [...new Set(Object.values(pc.users).flatMap((u) => u.groups))];
+      if (!words.length) return `\nAliases for \\\\${pc.hostname}\n\n-------------------------------------------------------------------------------\n${['Administrators', 'Remote Desktop Users', 'Users', 'Guests', ...groups].filter((g, i, a) => a.indexOf(g) === i).map((g) => `*${g}`).join('\n')}\nThe command completed successfully.`;
+      const [g, user] = [words[0], words.slice(1).join(' ')];
+      const gname = ['Administrators', 'Remote Desktop Users', 'Users', 'Guests'].find((x) => x.toLowerCase() === g.toLowerCase()) || g;
+      if (flags.includes('/add') || flags.includes('/delete')) {
+        if (!pc.elevated) return deny();
+        const u = pc.users[user]; if (!u) return 'There is no such global user or group.';
+        if (flags.includes('/add')) { if (u.groups.includes(gname)) return 'System error 1378 has occurred.\n\nThe specified account name is already a member of the group.'; u.groups.push(gname); }
+        else { if (!u.groups.includes(gname)) return 'System error 1377 has occurred.\n\nThe specified account name is not a member of the group.'; u.groups = u.groups.filter((x) => x !== gname); }
+        this.opts.onChange?.(); return 'The command completed successfully.';
+      }
+      const members = Object.entries(pc.users).filter(([, u]) => u.groups.includes(gname)).map(([n]) => n);
+      return `Alias name     ${gname}\n\nMembers\n\n-------------------------------------------------------------------------------\n${members.join('\n')}\nThe command completed successfully.`;
+    }
+    if (subL === 'use') {
+      if (!words.length) return `New connections will be remembered.\n\nStatus       Local     Remote\n-------------------------------------------------------------------------------\n${Object.entries(pc.drives).map(([d, r]) => `OK           ${d.padEnd(10)}${r}`).join('\n')}\nThe command completed successfully.`;
+      const [drive, unc] = words;
+      if (flags.includes('/delete')) { delete pc.drives[drive.toUpperCase()]; this.opts.onChange?.(); return `${drive} was deleted successfully.`; }
+      if (!/^[a-z]:$/i.test(drive) || !/^\\\\[^\\]+\\.+/.test(unc || '')) return 'The syntax of this command is:\n\nNET USE [devicename:] [\\\\computername\\sharename]';
+      const share = pc.shares[unc.toLowerCase()];
+      if (!share) return 'System error 53 has occurred.\n\nThe network path was not found.';
+      pc.drives[drive.toUpperCase()] = unc; this.opts.onChange?.(); return 'The command completed successfully.';
+    }
+    return 'The syntax of this command is:\n\nNET [ USE | USER | LOCALGROUP ]';
   }
   complete(line) { return line; }
 }
