@@ -1073,6 +1073,8 @@ const VENDOR_BLURBS = {
   Salesforce: 'Data visualization and analytics with Tableau',
   AAPC: 'Professional medical coding',
   NHA: 'Healthcare billing, coding and front-office administration',
+  'Linux Professional Institute': 'Vendor-neutral Linux, starting from the basics',
+  'Red Hat': 'Hands-on Red Hat Enterprise Linux administration',
 };
 
 async function renderHome() {

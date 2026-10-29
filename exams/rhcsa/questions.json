@@ -1,0 +1,2652 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "Save every line of /usr/share/dict/words that contains \"ich\" into /root/lines, in the original order. Which command does it?",
+    "options": [
+      {
+        "text": "grep ich /usr/share/dict/words > /root/lines",
+        "note": ""
+      },
+      {
+        "text": "grep ich /usr/share/dict/words | sort > /root/lines",
+        "note": "Sorting changes the order."
+      },
+      {
+        "text": "find /usr/share/dict -name ich > /root/lines",
+        "note": "find matches file names, not lines."
+      },
+      {
+        "text": "grep -c ich /usr/share/dict/words > /root/lines",
+        "note": "-c writes only a count."
+      }
+    ],
+    "answer": 0,
+    "explanation": "grep prints matching lines in the order they appear, and > writes them to the file. Read the task precisely: output file, order, and whether matches should be exact or case-insensitive."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "Find every regular file owned by user harry and copy each one, keeping its attributes, into /root/found. Which command does it?",
+    "options": [
+      {
+        "text": "find / -user harry -type f -exec cp -a {} /root/found/ \\;",
+        "note": ""
+      },
+      {
+        "text": "ls -R / | grep harry > /root/found",
+        "note": "Lists names, doesn't copy files."
+      },
+      {
+        "text": "cp -r /home/harry /root/found",
+        "note": "Misses files owned by harry elsewhere and copies files he doesn't own."
+      },
+      {
+        "text": "locate harry | cp /root/found",
+        "note": "cp doesn't read stdin."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Create /root/found first. -exec ... {} \\; runs once per match; {} + batches them. Add 2>/dev/null to hide /proc noise."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "Which find expression matches files larger than 30 MiB and smaller than 50 MiB?",
+    "options": [
+      {
+        "text": "find / -type f -size +30M -size -50M",
+        "note": ""
+      },
+      {
+        "text": "find / -size 30M-50M",
+        "note": "Not valid syntax."
+      },
+      {
+        "text": "find / -size >30M <50M",
+        "note": "Redirections, not tests."
+      },
+      {
+        "text": "find / -type f -mtime +30 -mtime -50",
+        "note": "-mtime is days since modification."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Other useful tests: -perm -4000 (SUID), -mmin -60, -newer file, -name, -iname, -group."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "Create a gzip-compressed archive /root/etc.tar.gz of /etc. Which command is correct?",
+    "options": [
+      {
+        "text": "tar -czf /root/etc.tar.gz /etc",
+        "note": ""
+      },
+      {
+        "text": "tar -xzf /root/etc.tar.gz /etc",
+        "note": "-x extracts."
+      },
+      {
+        "text": "gzip -r /etc > /root/etc.tar.gz",
+        "note": "gzip doesn't create tar archives."
+      },
+      {
+        "text": "tar -cjf /root/etc.tar.gz /etc",
+        "note": "-j uses bzip2."
+      }
+    ],
+    "answer": 0,
+    "explanation": "bzip2: tar -cjf file.tar.bz2; xz: tar -cJf file.tar.xz. List with tar -tf; extract with tar -xf file -C dir."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "Which command creates a symbolic link /root/logs that points to /var/log?",
+    "options": [
+      {
+        "text": "ln -s /var/log /root/logs",
+        "note": ""
+      },
+      {
+        "text": "ln /var/log /root/logs",
+        "note": "Hard links to directories aren't allowed."
+      },
+      {
+        "text": "ln -s /root/logs /var/log",
+        "note": "Arguments are target, then link name."
+      },
+      {
+        "text": "cp -s /var/log /root/logs",
+        "note": "cp -s creates symlinks only for files, and isn't the standard method."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ln TARGET LINK_NAME. Hard links must be on the same file system and can't point to directories."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "Which command switches to user natasha with her login environment?",
+    "options": [
+      {
+        "text": "su - natasha",
+        "note": ""
+      },
+      {
+        "text": "su natasha -e",
+        "note": "Not valid."
+      },
+      {
+        "text": "sudo natasha",
+        "note": "sudo runs a command; natasha isn't a command."
+      },
+      {
+        "text": "login natasha -s",
+        "note": "Not the usual method."
+      }
+    ],
+    "answer": 0,
+    "explanation": "su - starts a login shell with the user's environment. sudo -i -u natasha does the same for sudoers."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "In ls -l output, what does drwxrws--- for /shared/sales indicate?",
+    "options": [
+      {
+        "text": "A directory with the SGID bit set: new files inherit its group",
+        "note": ""
+      },
+      {
+        "text": "SUID on a directory",
+        "note": "s in the group position is SGID."
+      },
+      {
+        "text": "The sticky bit",
+        "note": "That's t in the others position."
+      },
+      {
+        "text": "A symbolic link",
+        "note": "Links start with l."
+      }
+    ],
+    "answer": 0,
+    "explanation": "chmod 2770 /shared/sales sets rwxrws---."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "Set /shared/docs so the owner and the group have full access, others none, and new files inherit the group. Which mode?",
+    "options": [
+      {
+        "text": "2770",
+        "note": ""
+      },
+      {
+        "text": "0770",
+        "note": "Lacks SGID."
+      },
+      {
+        "text": "1770",
+        "note": "Sets the sticky bit, not SGID."
+      },
+      {
+        "text": "4770",
+        "note": "SUID has no effect on directories."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Special bits: 4 SUID, 2 SGID, 1 sticky, written before the three permission digits."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which command shows the options of the useradd command in the documentation installed on the system?",
+    "options": [
+      {
+        "text": "man useradd (or useradd --help)",
+        "note": ""
+      },
+      {
+        "text": "info --web useradd",
+        "note": "Not valid."
+      },
+      {
+        "text": "help useradd",
+        "note": "help covers Bash builtins only."
+      },
+      {
+        "text": "whatis -l useradd",
+        "note": "Gives a one-line description."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The exam has no internet. Use man, man -k, --help, info, and /usr/share/doc."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "Which redirection appends both standard output and errors of a command to /root/out.log?",
+    "options": [
+      {
+        "text": "command >> /root/out.log 2>&1",
+        "note": ""
+      },
+      {
+        "text": "command > /root/out.log 2>&1",
+        "note": "> overwrites."
+      },
+      {
+        "text": "command 2>> /root/out.log",
+        "note": "Only errors."
+      },
+      {
+        "text": "command | /root/out.log",
+        "note": "A pipe needs a command."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Order matters: 2>&1 after the file redirection sends stderr to the same place."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "Which command searches /etc for files containing \"PermitRootLogin\" and shows line numbers?",
+    "options": [
+      {
+        "text": "grep -rn PermitRootLogin /etc",
+        "note": ""
+      },
+      {
+        "text": "find /etc -name PermitRootLogin",
+        "note": "Searches names."
+      },
+      {
+        "text": "grep -l PermitRootLogin",
+        "note": "No file argument."
+      },
+      {
+        "text": "locate -n PermitRootLogin",
+        "note": "Searches names."
+      }
+    ],
+    "answer": 0,
+    "explanation": "-r recursive, -n line numbers, -l file names only, -i ignore case."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "Which regular expression with grep -E matches lines beginning with \"#\" or \";\" (comments)?",
+    "options": [
+      {
+        "text": "^[#;]",
+        "note": ""
+      },
+      {
+        "text": "[#;]$",
+        "note": "Matches at the end of the line."
+      },
+      {
+        "text": "^#;",
+        "note": "Matches the literal two-character sequence."
+      },
+      {
+        "text": "#|;",
+        "note": "Matches anywhere in the line."
+      }
+    ],
+    "answer": 0,
+    "explanation": "grep -Ev '^[#;]|^$' file shows only active configuration lines."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "Which command copies /root/report.txt to /tmp on server2 securely?",
+    "options": [
+      {
+        "text": "scp /root/report.txt root@server2:/tmp/",
+        "note": ""
+      },
+      {
+        "text": "cp /root/report.txt server2:/tmp",
+        "note": "cp is local only."
+      },
+      {
+        "text": "ftp server2 report.txt",
+        "note": "FTP is insecure and not installed."
+      },
+      {
+        "text": "ssh report.txt server2:/tmp",
+        "note": "ssh runs a remote shell."
+      }
+    ],
+    "answer": 0,
+    "explanation": "scp copies files over SSH, so the data and credentials are encrypted. rsync -av -e ssh and sftp also transfer files securely."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Which command shows the permissions in octal, owner, and size of /etc/shadow?",
+    "options": [
+      {
+        "text": "stat /etc/shadow",
+        "note": ""
+      },
+      {
+        "text": "file /etc/shadow",
+        "note": "Shows content type."
+      },
+      {
+        "text": "ls -o /etc/shadow",
+        "note": "Omits the group, and doesn't show octal."
+      },
+      {
+        "text": "getfacl -o",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "stat -c '%a %U %G' file prints just mode, user, and group."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "In vim, how do you replace every \"http\" with \"https\" in the whole file?",
+    "options": [
+      {
+        "text": ":%s/http/https/g",
+        "note": ""
+      },
+      {
+        "text": ":s/http/https/",
+        "note": "Only the first match on the current line."
+      },
+      {
+        "text": "/http/https",
+        "note": "Searches only."
+      },
+      {
+        "text": ":replace http https",
+        "note": "Not a vim command."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Save and quit with :wq; quit without saving with :q!."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "Which command shows the 10 most recent lines of /var/log/messages and keeps showing new ones?",
+    "options": [
+      {
+        "text": "tail -f /var/log/messages",
+        "note": ""
+      },
+      {
+        "text": "head -f /var/log/messages",
+        "note": "head shows the start."
+      },
+      {
+        "text": "cat -f /var/log/messages",
+        "note": "Not valid."
+      },
+      {
+        "text": "less -n /var/log/messages",
+        "note": "Doesn't follow."
+      }
+    ],
+    "answer": 0,
+    "explanation": "tail shows the last 10 lines by default, and -f keeps the file open and prints new lines as they're added. journalctl -f follows the systemd journal."
+  },
+  {
+    "id": 17,
+    "domain": "D2",
+    "scenario": "Which line should start a Bash script so it runs with Bash regardless of the user's shell?",
+    "options": [
+      {
+        "text": "#!/bin/bash",
+        "note": ""
+      },
+      {
+        "text": "#bash",
+        "note": "A comment."
+      },
+      {
+        "text": "//bin/bash",
+        "note": "Not a shebang."
+      },
+      {
+        "text": "$!/bin/bash",
+        "note": "$! is the last background PID."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The shebang line tells the kernel which interpreter runs the script. Make the script executable with chmod +x and run it as ./script.sh or by full path."
+  },
+  {
+    "id": 18,
+    "domain": "D2",
+    "scenario": "In a script, which variable holds the number of arguments passed?",
+    "options": [
+      {
+        "text": "$#",
+        "note": ""
+      },
+      {
+        "text": "$@",
+        "note": "All arguments."
+      },
+      {
+        "text": "$0",
+        "note": "Script name."
+      },
+      {
+        "text": "$?",
+        "note": "Last exit status."
+      }
+    ],
+    "answer": 0,
+    "explanation": "\"$@\" expands each argument as a separate word, which is safest in loops."
+  },
+  {
+    "id": 19,
+    "domain": "D2",
+    "scenario": "Which construct runs a block only if the script received no arguments?",
+    "options": [
+      {
+        "text": "if [ $# -eq 0 ]; then ... fi",
+        "note": ""
+      },
+      {
+        "text": "if [ $1 ]; else ... fi",
+        "note": "Not valid."
+      },
+      {
+        "text": "while $# = 0; do ... done",
+        "note": "Loops and uses the wrong test."
+      },
+      {
+        "text": "case $# in ... done",
+        "note": "case ends with esac."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Print a usage message and exit with a non-zero status, for example exit 1."
+  },
+  {
+    "id": 20,
+    "domain": "D2",
+    "scenario": "Which loop prints each user name listed in /root/users.txt, one per line?",
+    "options": [
+      {
+        "text": "for u in $(cat /root/users.txt); do echo \"$u\"; done",
+        "note": ""
+      },
+      {
+        "text": "for u in /root/users.txt; do echo $u; done",
+        "note": "Loops once over the file name."
+      },
+      {
+        "text": "while cat /root/users.txt; do echo $u; done",
+        "note": "Loops forever."
+      },
+      {
+        "text": "foreach u (users.txt) echo $u",
+        "note": "C shell syntax."
+      }
+    ],
+    "answer": 0,
+    "explanation": "while read -r u; do ...; done < /root/users.txt is safer for lines with spaces."
+  },
+  {
+    "id": 21,
+    "domain": "D2",
+    "scenario": "What does this script print if run as ./greet.sh alice bob? echo \"Hello $2\"",
+    "options": [
+      {
+        "text": "Hello bob",
+        "note": ""
+      },
+      {
+        "text": "Hello alice",
+        "note": "That's $1."
+      },
+      {
+        "text": "Hello alice bob",
+        "note": "That's $@."
+      },
+      {
+        "text": "Hello $2",
+        "note": "Double quotes expand variables."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Positional parameters: $1, $2, ... ${10} for two-digit positions."
+  },
+  {
+    "id": 22,
+    "domain": "D2",
+    "scenario": "Which test checks that $1 is an existing directory?",
+    "options": [
+      {
+        "text": "[ -d \"$1\" ]",
+        "note": ""
+      },
+      {
+        "text": "[ -f \"$1\" ]",
+        "note": "Tests for a regular file."
+      },
+      {
+        "text": "[ -x \"$1\" ]",
+        "note": "Tests execute permission."
+      },
+      {
+        "text": "[ -z \"$1\" ]",
+        "note": "Tests for an empty string."
+      }
+    ],
+    "answer": 0,
+    "explanation": "-e exists, -s size > 0, -r readable, -w writable, -L symbolic link."
+  },
+  {
+    "id": 23,
+    "domain": "D2",
+    "scenario": "How does a script capture the hostname into a variable?",
+    "options": [
+      {
+        "text": "host=$(hostname)",
+        "note": ""
+      },
+      {
+        "text": "host=hostname",
+        "note": "Assigns the literal word."
+      },
+      {
+        "text": "host = $(hostname)",
+        "note": "Spaces make Bash run \"host\" as a command."
+      },
+      {
+        "text": "set host hostname",
+        "note": "Not Bash syntax."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Command substitution also processes command output, for example count=$(grep -c ERROR app.log)."
+  },
+  {
+    "id": 24,
+    "domain": "D2",
+    "scenario": "Which script line exits with status 2 and an error message if /etc/app.conf is missing?",
+    "options": [
+      {
+        "text": "[ -f /etc/app.conf ] || { echo \"missing config\" >&2; exit 2; }",
+        "note": ""
+      },
+      {
+        "text": "[ -f /etc/app.conf ] && exit 2",
+        "note": "Exits when the file exists."
+      },
+      {
+        "text": "test /etc/app.conf; exit 2",
+        "note": "Always exits."
+      },
+      {
+        "text": "if /etc/app.conf; then exit 2; fi",
+        "note": "Tries to execute the file."
+      }
+    ],
+    "answer": 0,
+    "explanation": ">&2 writes to standard error. || runs the right side only if the left fails."
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "scenario": "Which loop counts from 1 to 5?",
+    "options": [
+      {
+        "text": "for i in {1..5}; do echo $i; done",
+        "note": ""
+      },
+      {
+        "text": "for i in 1-5; do echo $i; done",
+        "note": "Loops once over \"1-5\"."
+      },
+      {
+        "text": "for (i=1; i<5) echo $i",
+        "note": "Missing double parentheses and do/done."
+      },
+      {
+        "text": "while i<=5; do echo $i; done",
+        "note": "Not valid syntax."
+      }
+    ],
+    "answer": 0,
+    "explanation": "C-style: for ((i=1; i<=5; i++)); do ...; done. seq 1 5 also works."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "A script must print each line of command output that contains \"error\" with a prefix. Which pipeline fits?",
+    "options": [
+      {
+        "text": "journalctl -b | grep -i error | while read -r line; do echo \"ALERT: $line\"; done",
+        "note": ""
+      },
+      {
+        "text": "journalctl -b > grep error",
+        "note": "Writes to a file named grep."
+      },
+      {
+        "text": "grep error | journalctl -b",
+        "note": "Order is backwards."
+      },
+      {
+        "text": "journalctl -b && echo ALERT",
+        "note": "Doesn't process lines."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Piping into while read -r line handles the output one line at a time, so each line can be prefixed. Processing command output is a core RHCSA scripting objective."
+  },
+  {
+    "id": 27,
+    "domain": "D3",
+    "scenario": "Which command makes the system boot to a text console by default?",
+    "options": [
+      {
+        "text": "systemctl set-default multi-user.target",
+        "note": ""
+      },
+      {
+        "text": "systemctl isolate multi-user.target",
+        "note": "Switches now but doesn't change the default."
+      },
+      {
+        "text": "init 3 --default",
+        "note": "Not valid."
+      },
+      {
+        "text": "systemctl enable multi-user",
+        "note": "Not how defaults are set."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check with systemctl get-default. graphical.target is the GUI default."
+  },
+  {
+    "id": 28,
+    "domain": "D3",
+    "scenario": "How do you boot once into rescue mode from the GRUB menu?",
+    "options": [
+      {
+        "text": "Press e on the entry and add systemd.unit=rescue.target to the linux line, then press Ctrl+X",
+        "note": ""
+      },
+      {
+        "text": "Type rescue at the login prompt",
+        "note": "Too late in the boot."
+      },
+      {
+        "text": "Edit /etc/fstab",
+        "note": "Not a boot option."
+      },
+      {
+        "text": "Run systemctl rescue from another host",
+        "note": "Not possible."
+      }
+    ],
+    "answer": 0,
+    "explanation": "emergency.target is more minimal (root mounted read-only). Edits made at the GRUB menu apply to that boot only."
+  },
+  {
+    "id": 29,
+    "domain": "D3",
+    "scenario": "You must reset a forgotten root password on RHEL. After adding rd.break (or init=/bin/bash) at GRUB, what is the key extra step before rebooting?",
+    "options": [
+      {
+        "text": "Ensure SELinux relabels or restore the shadow file context (touch /.autorelabel or restorecon /etc/shadow)",
+        "note": ""
+      },
+      {
+        "text": "Disable SELinux permanently",
+        "note": "Not needed."
+      },
+      {
+        "text": "Reinstall the kernel",
+        "note": "Not needed."
+      },
+      {
+        "text": "Delete /etc/shadow",
+        "note": "Removes all passwords."
+      }
+    ],
+    "answer": 0,
+    "explanation": "With rd.break: mount -o remount,rw /sysroot; chroot /sysroot; passwd root; touch /.autorelabel; exit twice. Without the relabel, logins can fail because /etc/shadow has the wrong context."
+  },
+  {
+    "id": 30,
+    "domain": "D3",
+    "scenario": "Which command reboots the system immediately?",
+    "options": [
+      {
+        "text": "systemctl reboot",
+        "note": ""
+      },
+      {
+        "text": "systemctl halt --reboot",
+        "note": "Not valid."
+      },
+      {
+        "text": "shutdown -h now",
+        "note": "Powers off."
+      },
+      {
+        "text": "init 0",
+        "note": "Powers off."
+      }
+    ],
+    "answer": 0,
+    "explanation": "systemctl poweroff powers off. shutdown -r +5 schedules a reboot in five minutes."
+  },
+  {
+    "id": 31,
+    "domain": "D3",
+    "scenario": "Which command shows the processes using the most memory, sorted?",
+    "options": [
+      {
+        "text": "ps aux --sort=-%mem | head",
+        "note": ""
+      },
+      {
+        "text": "ps aux | sort -k2",
+        "note": "Sorts by PID."
+      },
+      {
+        "text": "free --sort",
+        "note": "Not valid."
+      },
+      {
+        "text": "top -m",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ps aux --sort=-%mem sorts processes by memory use in descending order (the minus sign), and head keeps the top entries. In top, press M to sort by memory and P to sort by CPU."
+  },
+  {
+    "id": 32,
+    "domain": "D3",
+    "scenario": "Which command starts /usr/local/bin/batch.sh with a nice value of 15?",
+    "options": [
+      {
+        "text": "nice -n 15 /usr/local/bin/batch.sh",
+        "note": ""
+      },
+      {
+        "text": "renice 15 /usr/local/bin/batch.sh",
+        "note": "renice takes PIDs."
+      },
+      {
+        "text": "nice 15 batch.sh -p",
+        "note": "Not valid."
+      },
+      {
+        "text": "chrt -n 15 batch.sh",
+        "note": "chrt sets real-time policies."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Higher nice = lower priority. Change a running process with renice -n 15 -p PID."
+  },
+  {
+    "id": 33,
+    "domain": "D3",
+    "scenario": "A process named cpuhog uses all CPU. Which command ends every process with that name?",
+    "options": [
+      {
+        "text": "pkill cpuhog (or killall cpuhog)",
+        "note": ""
+      },
+      {
+        "text": "kill cpuhog",
+        "note": "kill needs a PID unless using job specs."
+      },
+      {
+        "text": "rm cpuhog",
+        "note": "Deletes a file."
+      },
+      {
+        "text": "systemctl stop cpuhog",
+        "note": "Works only if it's a service unit."
+      }
+    ],
+    "answer": 0,
+    "explanation": "pgrep -l cpuhog finds the PIDs first."
+  },
+  {
+    "id": 34,
+    "domain": "D3",
+    "scenario": "Which command applies the tuned profile recommended for the system?",
+    "options": [
+      {
+        "text": "tuned-adm profile $(tuned-adm recommend)",
+        "note": ""
+      },
+      {
+        "text": "tuned-adm on",
+        "note": "Not valid."
+      },
+      {
+        "text": "systemctl tune",
+        "note": "Not valid."
+      },
+      {
+        "text": "sysctl -p tuned",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "tuned-adm active shows the current profile; tuned-adm list shows all. The tuned service must be enabled and running."
+  },
+  {
+    "id": 35,
+    "domain": "D3",
+    "scenario": "Which command shows journal messages with priority err or higher from the current boot?",
+    "options": [
+      {
+        "text": "journalctl -b -p err",
+        "note": ""
+      },
+      {
+        "text": "journalctl --errors",
+        "note": "Not valid."
+      },
+      {
+        "text": "dmesg -e",
+        "note": "Not the journal filter."
+      },
+      {
+        "text": "journalctl -u err",
+        "note": "-u filters by unit."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Other filters: --since today, -u sshd, _PID=1234, -o verbose."
+  },
+  {
+    "id": 36,
+    "domain": "D3",
+    "scenario": "How do you make the systemd journal persist across reboots?",
+    "options": [
+      {
+        "text": "Set Storage=persistent in /etc/systemd/journald.conf (or create /var/log/journal) and restart systemd-journald",
+        "note": ""
+      },
+      {
+        "text": "Enable rsyslog only",
+        "note": "rsyslog writes text logs, but the journal stays volatile."
+      },
+      {
+        "text": "Run journalctl --save",
+        "note": "Not valid."
+      },
+      {
+        "text": "Copy /run/log/journal to /root at shutdown",
+        "note": "Not the supported method."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Then journalctl -b -1 shows the previous boot."
+  },
+  {
+    "id": 37,
+    "domain": "D3",
+    "scenario": "Which command starts the httpd service now and at every boot?",
+    "options": [
+      {
+        "text": "systemctl enable --now httpd",
+        "note": ""
+      },
+      {
+        "text": "systemctl start httpd",
+        "note": "Not persistent."
+      },
+      {
+        "text": "systemctl enable httpd",
+        "note": "Starts only at the next boot."
+      },
+      {
+        "text": "chkconfig httpd start",
+        "note": "Legacy and wrong syntax."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Verify with systemctl is-enabled httpd and systemctl is-active httpd."
+  },
+  {
+    "id": 38,
+    "domain": "D3",
+    "scenario": "Which command securely copies a directory tree /var/www to server2, preserving permissions?",
+    "options": [
+      {
+        "text": "rsync -av /var/www/ server2:/var/www/",
+        "note": ""
+      },
+      {
+        "text": "scp /var/www server2:",
+        "note": "Needs -r and doesn't preserve everything by default."
+      },
+      {
+        "text": "cp -a /var/www server2",
+        "note": "Local copy."
+      },
+      {
+        "text": "tar /var/www | server2",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "rsync uses SSH by default for remote paths."
+  },
+  {
+    "id": 39,
+    "domain": "D3",
+    "scenario": "Which command lists all running services?",
+    "options": [
+      {
+        "text": "systemctl list-units --type=service --state=running",
+        "note": ""
+      },
+      {
+        "text": "service --status",
+        "note": "Not valid."
+      },
+      {
+        "text": "ps -s",
+        "note": "Not valid."
+      },
+      {
+        "text": "systemctl get-default",
+        "note": "Shows the default target."
+      }
+    ],
+    "answer": 0,
+    "explanation": "systemctl list-unit-files --type=service shows enabled/disabled state."
+  },
+  {
+    "id": 40,
+    "domain": "D3",
+    "scenario": "In top, a process shows NI 19. What does that mean?",
+    "options": [
+      {
+        "text": "It has the lowest scheduling priority",
+        "note": ""
+      },
+      {
+        "text": "It has the highest priority",
+        "note": "That's -20."
+      },
+      {
+        "text": "It uses 19% CPU",
+        "note": "That's %CPU."
+      },
+      {
+        "text": "It has 19 threads",
+        "note": "Not NI."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Regular users can only raise the nice value of their own processes."
+  },
+  {
+    "id": 41,
+    "domain": "D3",
+    "scenario": "Which command shows boot-time messages from the previous boot?",
+    "options": [
+      {
+        "text": "journalctl -b -1",
+        "note": ""
+      },
+      {
+        "text": "journalctl -b 0",
+        "note": "Current boot."
+      },
+      {
+        "text": "dmesg -1",
+        "note": "Not valid."
+      },
+      {
+        "text": "last -b",
+        "note": "Shows reboots, not messages."
+      }
+    ],
+    "answer": 0,
+    "explanation": "This requires persistent journal storage."
+  },
+  {
+    "id": 42,
+    "domain": "D3",
+    "scenario": "Which command shows memory and CPU statistics refreshed every 2 seconds?",
+    "options": [
+      {
+        "text": "vmstat 2",
+        "note": ""
+      },
+      {
+        "text": "free -h",
+        "note": "One snapshot of memory."
+      },
+      {
+        "text": "uptime -2",
+        "note": "Not valid."
+      },
+      {
+        "text": "lsmem 2",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "vmstat 2 prints memory, swap, I/O and CPU statistics every 2 seconds until you stop it. Also useful: top, uptime (load average), and pidstat."
+  },
+  {
+    "id": 43,
+    "domain": "D4",
+    "scenario": "Which tool creates GPT partitions non-interactively with a single command?",
+    "options": [
+      {
+        "text": "parted (for example parted /dev/vdb mkpart data xfs 1MiB 1GiB)",
+        "note": ""
+      },
+      {
+        "text": "mkfs.gpt",
+        "note": "Not a tool."
+      },
+      {
+        "text": "blkid",
+        "note": "Shows identifiers."
+      },
+      {
+        "text": "lvcreate",
+        "note": "Creates logical volumes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Create the label first: parted /dev/vdb mklabel gpt. gdisk and fdisk are interactive alternatives. Run udevadm settle or partprobe if the kernel doesn't see the new partition."
+  },
+  {
+    "id": 44,
+    "domain": "D4",
+    "scenario": "Which commands create a 2 GiB logical volume named lvdata in a new volume group vgdata on /dev/vdb1?",
+    "options": [
+      {
+        "text": "pvcreate /dev/vdb1; vgcreate vgdata /dev/vdb1; lvcreate -n lvdata -L 2G vgdata",
+        "note": ""
+      },
+      {
+        "text": "lvcreate -n lvdata -L 2G /dev/vdb1",
+        "note": "Needs a VG name, not a partition."
+      },
+      {
+        "text": "vgcreate lvdata -L 2G",
+        "note": "Not valid."
+      },
+      {
+        "text": "mkfs.xfs /dev/vdb1; lvcreate vgdata",
+        "note": "Order is wrong."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The device appears as /dev/vgdata/lvdata and /dev/mapper/vgdata-lvdata."
+  },
+  {
+    "id": 45,
+    "domain": "D4",
+    "scenario": "Create a logical volume of exactly 50 extents in vgapp, where each extent is 16 MiB. Which command?",
+    "options": [
+      {
+        "text": "lvcreate -n lvapp -l 50 vgapp",
+        "note": ""
+      },
+      {
+        "text": "lvcreate -n lvapp -L 50 vgapp",
+        "note": "-L means size in MiB by default (50 MiB)."
+      },
+      {
+        "text": "lvcreate -n lvapp -s 50 vgapp",
+        "note": "-s creates snapshots."
+      },
+      {
+        "text": "lvcreate -n lvapp -e 50",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Set extent size when creating the VG: vgcreate -s 16M vgapp /dev/vdb2. -l 100%FREE uses all free space."
+  },
+  {
+    "id": 46,
+    "domain": "D4",
+    "scenario": "How do you add the new partition /dev/vdc1 to the existing volume group vgdata?",
+    "options": [
+      {
+        "text": "pvcreate /dev/vdc1; vgextend vgdata /dev/vdc1",
+        "note": ""
+      },
+      {
+        "text": "lvextend vgdata /dev/vdc1",
+        "note": "Extends LVs, not VGs."
+      },
+      {
+        "text": "vgcreate vgdata /dev/vdc1",
+        "note": "vgdata already exists."
+      },
+      {
+        "text": "mount /dev/vdc1 /vgdata",
+        "note": "Not LVM."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check with vgs and pvs."
+  },
+  {
+    "id": 47,
+    "domain": "D4",
+    "scenario": "Which /etc/fstab line activates a swap logical volume at boot?",
+    "options": [
+      {
+        "text": "/dev/vgdata/lvswap none swap defaults 0 0",
+        "note": ""
+      },
+      {
+        "text": "/dev/vgdata/lvswap /swap xfs defaults 0 0",
+        "note": "Wrong type and mount point."
+      },
+      {
+        "text": "swap /dev/vgdata/lvswap swap",
+        "note": "Fields are out of order."
+      },
+      {
+        "text": "/dev/vgdata/lvswap swap defaults",
+        "note": "Missing fields."
+      }
+    ],
+    "answer": 0,
+    "explanation": "First run mkswap /dev/vgdata/lvswap, then swapon -a to test. Check with swapon --show or free -h."
+  },
+  {
+    "id": 48,
+    "domain": "D4",
+    "scenario": "You need more swap without touching existing data. Which approach is correct?",
+    "options": [
+      {
+        "text": "Create a new partition or LV, run mkswap on it, add it to /etc/fstab, and swapon -a",
+        "note": ""
+      },
+      {
+        "text": "Reformat the root partition",
+        "note": "Destroys data."
+      },
+      {
+        "text": "Resize the existing swap while in use",
+        "note": "Requires swapoff and isn't needed."
+      },
+      {
+        "text": "Edit /proc/swaps",
+        "note": "Read-only view."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Never reuse a partition that holds data."
+  },
+  {
+    "id": 49,
+    "domain": "D4",
+    "scenario": "Which command shows UUIDs and file system types of block devices?",
+    "options": [
+      {
+        "text": "blkid (or lsblk -f)",
+        "note": ""
+      },
+      {
+        "text": "df -u",
+        "note": "Not valid."
+      },
+      {
+        "text": "mount -u",
+        "note": "Not valid."
+      },
+      {
+        "text": "fdisk -U",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use UUID= or LABEL= in /etc/fstab so mounts survive device-name changes."
+  },
+  {
+    "id": 50,
+    "domain": "D4",
+    "scenario": "Which command assigns the label DATA to an XFS file system on /dev/vdb1?",
+    "options": [
+      {
+        "text": "xfs_admin -L DATA /dev/vdb1",
+        "note": ""
+      },
+      {
+        "text": "e2label /dev/vdb1 DATA",
+        "note": "e2label is for ext file systems."
+      },
+      {
+        "text": "blkid -L DATA",
+        "note": "Finds a device by label."
+      },
+      {
+        "text": "mkfs.xfs -U DATA /dev/vdb1",
+        "note": "-U sets a UUID."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Labels can also be set at creation: mkfs.xfs -L DATA. Mount with LABEL=DATA."
+  },
+  {
+    "id": 51,
+    "domain": "D4",
+    "scenario": "What does vgdisplay vgdata show that helps size a new logical volume?",
+    "options": [
+      {
+        "text": "The physical extent size and the number of free extents",
+        "note": ""
+      },
+      {
+        "text": "The mount points",
+        "note": "Shown by findmnt."
+      },
+      {
+        "text": "File permissions",
+        "note": "Not LVM."
+      },
+      {
+        "text": "The UUID of files",
+        "note": "Not LVM."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Free size = free PE × PE size."
+  },
+  {
+    "id": 52,
+    "domain": "D4",
+    "scenario": "After creating a partition, lsblk doesn't show it. What should you run?",
+    "options": [
+      {
+        "text": "partprobe /dev/vdb (or udevadm settle)",
+        "note": ""
+      },
+      {
+        "text": "mkfs -a",
+        "note": "Not valid."
+      },
+      {
+        "text": "systemctl daemon-reload",
+        "note": "Reloads unit files."
+      },
+      {
+        "text": "pvscan --part",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Rebooting also works, but isn't usually needed."
+  },
+  {
+    "id": 53,
+    "domain": "D4",
+    "scenario": "Which GPT partition type is appropriate for a partition you'll add to LVM?",
+    "options": [
+      {
+        "text": "Linux LVM (set with parted set N lvm on)",
+        "note": ""
+      },
+      {
+        "text": "EFI System",
+        "note": "For /boot/efi."
+      },
+      {
+        "text": "Microsoft basic data",
+        "note": "For Windows file systems."
+      },
+      {
+        "text": "BIOS boot",
+        "note": "For GRUB on BIOS/GPT."
+      }
+    ],
+    "answer": 0,
+    "explanation": "pvcreate works without the flag, but setting it documents intent."
+  },
+  {
+    "id": 54,
+    "domain": "D5",
+    "scenario": "Which command creates an XFS file system on /dev/vgdata/lvdata?",
+    "options": [
+      {
+        "text": "mkfs.xfs /dev/vgdata/lvdata",
+        "note": ""
+      },
+      {
+        "text": "mkfs -t xfs /dev/vgdata",
+        "note": "Points at the VG, not the LV."
+      },
+      {
+        "text": "xfs_growfs /dev/vgdata/lvdata",
+        "note": "Grows an existing XFS."
+      },
+      {
+        "text": "mkfs.ext4 -x /dev/vgdata/lvdata",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ext4: mkfs.ext4. VFAT: mkfs.vfat. Then mount and add to /etc/fstab."
+  },
+  {
+    "id": 55,
+    "domain": "D5",
+    "scenario": "Mount /dev/vgdata/lvdata at /data persistently. Which steps are complete and safe?",
+    "options": [
+      {
+        "text": "mkdir /data; add a UUID=... /data xfs defaults 0 0 line to /etc/fstab; systemctl daemon-reload; mount -a",
+        "note": ""
+      },
+      {
+        "text": "mount /dev/vgdata/lvdata /data only",
+        "note": "Not persistent."
+      },
+      {
+        "text": "Add the line and reboot without testing",
+        "note": "A typo can stop boot."
+      },
+      {
+        "text": "ln -s /dev/vgdata/lvdata /data",
+        "note": "Not a mount."
+      }
+    ],
+    "answer": 0,
+    "explanation": "findmnt /data verifies the mount; findmnt --verify checks fstab syntax."
+  },
+  {
+    "id": 56,
+    "domain": "D5",
+    "scenario": "Grow the XFS logical volume /dev/vgdata/lvdata to 3 GiB total while it stays mounted. Which command?",
+    "options": [
+      {
+        "text": "lvextend -r -L 3G /dev/vgdata/lvdata",
+        "note": ""
+      },
+      {
+        "text": "lvextend -L +3G /dev/vgdata/lvdata",
+        "note": "Adds 3 GiB instead of setting 3 GiB, and doesn't grow XFS."
+      },
+      {
+        "text": "resize2fs /dev/vgdata/lvdata 3G",
+        "note": "resize2fs is for ext file systems."
+      },
+      {
+        "text": "xfs_growfs -L 3G /data",
+        "note": "Doesn't extend the LV."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Without -r, run xfs_growfs /data (XFS) or resize2fs /dev/... (ext4) after lvextend."
+  },
+  {
+    "id": 57,
+    "domain": "D5",
+    "scenario": "The task says a logical volume must be resized to a size between 830 MiB and 890 MiB. What should you aim for?",
+    "options": [
+      {
+        "text": "A value safely inside the range, such as 850M, then verify with lvs and df -h",
+        "note": ""
+      },
+      {
+        "text": "Exactly 830M",
+        "note": "Rounding to extents may land outside the range."
+      },
+      {
+        "text": "Anything above 890M",
+        "note": "Outside the range."
+      },
+      {
+        "text": "Leave it; ranges don't matter",
+        "note": "It's graded."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Sizes round to whole extents, so pick a middle value."
+  },
+  {
+    "id": 58,
+    "domain": "D5",
+    "scenario": "Which /etc/fstab line mounts the NFS export server1:/exports/data at /mnt/data?",
+    "options": [
+      {
+        "text": "server1:/exports/data /mnt/data nfs defaults,_netdev 0 0",
+        "note": ""
+      },
+      {
+        "text": "/mnt/data server1:/exports/data nfs",
+        "note": "Fields reversed."
+      },
+      {
+        "text": "//server1/exports/data /mnt/data nfs",
+        "note": "SMB syntax."
+      },
+      {
+        "text": "server1/exports/data /mnt/data xfs defaults 0 0",
+        "note": "Wrong type and missing colon."
+      }
+    ],
+    "answer": 0,
+    "explanation": "List exports with showmount -e server1. Install nfs-utils if needed."
+  },
+  {
+    "id": 59,
+    "domain": "D5",
+    "scenario": "Users' home directories on nfs.example.com:/home/guests/<user> must mount automatically at /home/guests/<user> when accessed. Which approach fits?",
+    "options": [
+      {
+        "text": "autofs: a master map entry /home/guests /etc/auto.guests and a wildcard map * -rw,sync nfs.example.com:/home/guests/&",
+        "note": ""
+      },
+      {
+        "text": "A separate fstab line per user",
+        "note": "Doesn't scale and mounts everything at boot."
+      },
+      {
+        "text": "A cron job that mounts every minute",
+        "note": "Unreliable."
+      },
+      {
+        "text": "Symbolic links to the NFS server",
+        "note": "Links can't reach remote paths."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Install autofs, enable --now autofs. The master map can live in /etc/auto.master.d/guests.autofs."
+  },
+  {
+    "id": 60,
+    "domain": "D5",
+    "scenario": "Which command mounts a FAT USB drive at /mnt/usb?",
+    "options": [
+      {
+        "text": "mount -t vfat /dev/sdb1 /mnt/usb",
+        "note": ""
+      },
+      {
+        "text": "mount -t ntfs /dev/sdb1",
+        "note": "Wrong type and no mount point."
+      },
+      {
+        "text": "mkfs.vfat /dev/sdb1 /mnt/usb",
+        "note": "Formats the drive."
+      },
+      {
+        "text": "mount /mnt/usb /dev/sdb1",
+        "note": "Arguments reversed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "VFAT has no Unix permissions, so use uid=, gid=, and umask= mount options to control access."
+  },
+  {
+    "id": 61,
+    "domain": "D5",
+    "scenario": "A user in the group \"projects\" can't create files in /srv/projects (mode 755, root:projects). What minimal change fixes it?",
+    "options": [
+      {
+        "text": "chmod 775 /srv/projects (or g+w)",
+        "note": ""
+      },
+      {
+        "text": "chmod 777 /srv/projects",
+        "note": "Gives everyone write access."
+      },
+      {
+        "text": "chown user /srv/projects",
+        "note": "Takes it away from the team."
+      },
+      {
+        "text": "setenforce 0",
+        "note": "Not an SELinux problem here."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Add g+s so new files keep the projects group."
+  },
+  {
+    "id": 62,
+    "domain": "D5",
+    "scenario": "Which command gives user jlee read and write access to /srv/reports/q3.xlsx with an ACL?",
+    "options": [
+      {
+        "text": "setfacl -m u:jlee:rw /srv/reports/q3.xlsx",
+        "note": ""
+      },
+      {
+        "text": "chmod jlee+rw file",
+        "note": "Not valid."
+      },
+      {
+        "text": "chacl jlee file",
+        "note": "Not standard on RHEL."
+      },
+      {
+        "text": "usermod -a file",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "getfacl shows ACLs. The effective rights are limited by the ACL mask."
+  },
+  {
+    "id": 63,
+    "domain": "D5",
+    "scenario": "Which command shows mounted file systems in a tree with their options?",
+    "options": [
+      {
+        "text": "findmnt",
+        "note": ""
+      },
+      {
+        "text": "mount -l --tree",
+        "note": "Not valid."
+      },
+      {
+        "text": "lsblk -o",
+        "note": "Needs columns; shows devices."
+      },
+      {
+        "text": "df -t",
+        "note": "Filters by type."
+      }
+    ],
+    "answer": 0,
+    "explanation": "findmnt /data checks a specific mount point."
+  },
+  {
+    "id": 64,
+    "domain": "D5",
+    "scenario": "What happens if an /etc/fstab entry for a missing device has no nofail option?",
+    "options": [
+      {
+        "text": "Boot waits and then drops to emergency mode",
+        "note": ""
+      },
+      {
+        "text": "The entry is ignored silently",
+        "note": "Only with nofail."
+      },
+      {
+        "text": "The device is created automatically",
+        "note": "No."
+      },
+      {
+        "text": "The system formats the disk",
+        "note": "No."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use nofail for removable or optional storage."
+  },
+  {
+    "id": 65,
+    "domain": "D6",
+    "scenario": "Configure the system to use the repository at http://content.example.com/rhel10/BaseOS. What is the correct approach?",
+    "options": [
+      {
+        "text": "Create a .repo file in /etc/yum.repos.d with a [BaseOS] section, baseurl=http://content.example.com/rhel10/BaseOS, enabled=1, and gpgcheck settings",
+        "note": ""
+      },
+      {
+        "text": "Add baseurl=content.example.com to /etc/dnf/dnf.conf",
+        "note": "Needs a repo section and the full URL, usually in /etc/yum.repos.d."
+      },
+      {
+        "text": "Use the keys url= and on=1 in the repo file",
+        "note": "The keys are baseurl= and enabled=."
+      },
+      {
+        "text": "Add the URL to /etc/hosts",
+        "note": "Not a repository."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Place files in /etc/yum.repos.d/*.repo or use dnf config-manager --add-repo URL. Check with dnf repolist. Use gpgcheck=1 with gpgkey= when a key is provided."
+  },
+  {
+    "id": 66,
+    "domain": "D6",
+    "scenario": "Which command installs the httpd package and answers yes automatically?",
+    "options": [
+      {
+        "text": "dnf install -y httpd",
+        "note": ""
+      },
+      {
+        "text": "rpm -i httpd",
+        "note": "Needs a package file and doesn't resolve dependencies."
+      },
+      {
+        "text": "dnf get httpd",
+        "note": "Not valid."
+      },
+      {
+        "text": "yum add httpd",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "dnf remove, dnf update, dnf info, dnf search, and dnf provides are also common."
+  },
+  {
+    "id": 67,
+    "domain": "D6",
+    "scenario": "Which commands add the Flathub remote and install an app from it with Flatpak?",
+    "options": [
+      {
+        "text": "flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo, then flatpak install flathub <app-id>",
+        "note": ""
+      },
+      {
+        "text": "dnf install flathub",
+        "note": "Not how remotes are added."
+      },
+      {
+        "text": "flatpak repo enable flathub",
+        "note": "Not valid."
+      },
+      {
+        "text": "rpm --flatpak",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "flatpak list shows installed apps; flatpak remotes lists repositories; flatpak uninstall removes apps."
+  },
+  {
+    "id": 68,
+    "domain": "D6",
+    "scenario": "Which crontab entry for user natasha runs /usr/bin/logger \"hello\" every 5 minutes?",
+    "options": [
+      {
+        "text": "*/5 * * * * /usr/bin/logger \"hello\"",
+        "note": ""
+      },
+      {
+        "text": "5 * * * * ...",
+        "note": "Runs at minute 5 of every hour."
+      },
+      {
+        "text": "* */5 * * * ...",
+        "note": "Every minute of every fifth hour."
+      },
+      {
+        "text": "*/5 * * * * * ...",
+        "note": "Six fields; not standard cron."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Edit with crontab -e -u natasha. Verify with crontab -l -u natasha."
+  },
+  {
+    "id": 69,
+    "domain": "D6",
+    "scenario": "Which pair of systemd units runs a job daily, catching up if the system was off?",
+    "options": [
+      {
+        "text": "backup.service plus backup.timer with OnCalendar=daily and Persistent=true",
+        "note": ""
+      },
+      {
+        "text": "backup.target only",
+        "note": "Targets group units."
+      },
+      {
+        "text": "A .mount unit with daily option",
+        "note": "Not for jobs."
+      },
+      {
+        "text": "An at job",
+        "note": "One-time only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Enable the timer, not the service: systemctl enable --now backup.timer. Check with systemctl list-timers."
+  },
+  {
+    "id": 70,
+    "domain": "D6",
+    "scenario": "Which command schedules a one-time job to run in 10 minutes?",
+    "options": [
+      {
+        "text": "echo \"/usr/local/bin/report.sh\" | at now + 10 minutes",
+        "note": ""
+      },
+      {
+        "text": "crontab -t 10",
+        "note": "Not valid."
+      },
+      {
+        "text": "sleep 10m report.sh",
+        "note": "Not valid syntax."
+      },
+      {
+        "text": "systemctl at 10m",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "atd must be running. atq lists and atrm removes jobs."
+  },
+  {
+    "id": 71,
+    "domain": "D6",
+    "scenario": "Configure the system as an NTP client of classroom.example.com. What do you do?",
+    "options": [
+      {
+        "text": "Add server classroom.example.com iburst to /etc/chrony.conf, restart chronyd, and check with chronyc sources",
+        "note": ""
+      },
+      {
+        "text": "timedatectl set-ntp classroom.example.com",
+        "note": "set-ntp takes true/false."
+      },
+      {
+        "text": "Edit /etc/ntp.conf and start ntpd",
+        "note": "RHEL uses chrony."
+      },
+      {
+        "text": "date -s classroom.example.com",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "timedatectl shows whether the clock is synchronized."
+  },
+  {
+    "id": 72,
+    "domain": "D6",
+    "scenario": "Which command makes the system boot a specific installed kernel by default?",
+    "options": [
+      {
+        "text": "grubby --set-default /boot/vmlinuz-<version>",
+        "note": ""
+      },
+      {
+        "text": "dnf default kernel",
+        "note": "Not valid."
+      },
+      {
+        "text": "systemctl set-default kernel",
+        "note": "Targets only."
+      },
+      {
+        "text": "Edit /proc/cmdline",
+        "note": "Read-only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "grubby --default-kernel shows the current default; grubby --update-kernel=ALL --args=... changes kernel parameters."
+  },
+  {
+    "id": 73,
+    "domain": "D6",
+    "scenario": "Which command adds a kernel argument to all installed kernels on RHEL?",
+    "options": [
+      {
+        "text": "grubby --update-kernel=ALL --args=\"audit=1\"",
+        "note": ""
+      },
+      {
+        "text": "echo audit=1 >> /boot/grub2/grub.cfg",
+        "note": "Generated file; edits get lost."
+      },
+      {
+        "text": "sysctl -w audit=1",
+        "note": "sysctl is for runtime kernel parameters, not boot args."
+      },
+      {
+        "text": "modprobe audit=1",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Alternatively edit GRUB_CMDLINE_LINUX in /etc/default/grub and regenerate with grub2-mkconfig."
+  },
+  {
+    "id": 74,
+    "domain": "D6",
+    "scenario": "Which command updates all packages to their latest available versions?",
+    "options": [
+      {
+        "text": "dnf upgrade (dnf update)",
+        "note": ""
+      },
+      {
+        "text": "dnf install --all",
+        "note": "Not valid."
+      },
+      {
+        "text": "rpm -U *",
+        "note": "Not the supported workflow."
+      },
+      {
+        "text": "dnf refresh",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Kernel updates install alongside the old kernel, so you can fall back."
+  },
+  {
+    "id": 75,
+    "domain": "D6",
+    "scenario": "Which command installs a local RPM file and resolves its dependencies from enabled repositories?",
+    "options": [
+      {
+        "text": "dnf install ./package.rpm",
+        "note": ""
+      },
+      {
+        "text": "rpm -i package.rpm --deps",
+        "note": "Not valid."
+      },
+      {
+        "text": "dnf localinstall --nodeps",
+        "note": "Not valid on modern dnf."
+      },
+      {
+        "text": "cp package.rpm /usr/bin",
+        "note": "Not an install."
+      }
+    ],
+    "answer": 0,
+    "explanation": "rpm -qip package.rpm shows information; rpm -qlp lists files."
+  },
+  {
+    "id": 76,
+    "domain": "D6",
+    "scenario": "Which command makes the httpd service start automatically at boot without starting it now?",
+    "options": [
+      {
+        "text": "systemctl enable httpd",
+        "note": ""
+      },
+      {
+        "text": "systemctl start httpd",
+        "note": "Starts now only."
+      },
+      {
+        "text": "systemctl unmask httpd",
+        "note": "Removes a mask."
+      },
+      {
+        "text": "systemctl isolate httpd",
+        "note": "Not for services."
+      }
+    ],
+    "answer": 0,
+    "explanation": "enable creates the boot-time symlink without starting the service; enable --now does both. Graders often reboot the system, so services must be enabled."
+  },
+  {
+    "id": 77,
+    "domain": "D6",
+    "scenario": "Which command sets the time zone to Europe/London?",
+    "options": [
+      {
+        "text": "timedatectl set-timezone Europe/London",
+        "note": ""
+      },
+      {
+        "text": "export TZ=Europe/London",
+        "note": "Session only."
+      },
+      {
+        "text": "hostnamectl set-timezone Europe/London",
+        "note": "Wrong tool."
+      },
+      {
+        "text": "date --zone=Europe/London -s",
+        "note": "Not persistent."
+      }
+    ],
+    "answer": 0,
+    "explanation": "timedatectl list-timezones lists valid names."
+  },
+  {
+    "id": 78,
+    "domain": "D7",
+    "scenario": "Set a static IPv4 address 172.25.250.11/24, gateway 172.25.250.254, and DNS 172.25.250.254 on connection \"eth0\". Which command does it persistently?",
+    "options": [
+      {
+        "text": "nmcli con mod eth0 ipv4.addresses 172.25.250.11/24 ipv4.gateway 172.25.250.254 ipv4.dns 172.25.250.254 ipv4.method manual, then nmcli con up eth0",
+        "note": ""
+      },
+      {
+        "text": "ip addr add 172.25.250.11/24 dev eth0",
+        "note": "Runtime only."
+      },
+      {
+        "text": "ifconfig eth0 172.25.250.11",
+        "note": "Runtime only and legacy."
+      },
+      {
+        "text": "Edit /etc/sysconfig/network-scripts/ifcfg-eth0",
+        "note": "RHEL 10 uses NetworkManager keyfiles; ifcfg is no longer used."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Profiles are stored in /etc/NetworkManager/system-connections/*.nmconnection."
+  },
+  {
+    "id": 79,
+    "domain": "D7",
+    "scenario": "Add a static IPv6 address fd00::11/64 to connection eth0 without removing IPv4.",
+    "options": [
+      {
+        "text": "nmcli con mod eth0 ipv6.addresses fd00::11/64 ipv6.method manual; nmcli con up eth0",
+        "note": ""
+      },
+      {
+        "text": "nmcli con mod eth0 ipv4.addresses fd00::11/64",
+        "note": "IPv6 needs ipv6.* properties."
+      },
+      {
+        "text": "ip -6 addr add fd00::11/64 dev eth0 only",
+        "note": "Not persistent."
+      },
+      {
+        "text": "Replace the IPv4 address",
+        "note": "Not required."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use +ipv6.addresses to add rather than replace. Verify with ip -6 addr."
+  },
+  {
+    "id": 80,
+    "domain": "D7",
+    "scenario": "Which command sets the hostname to servera.lab.example.com persistently?",
+    "options": [
+      {
+        "text": "hostnamectl set-hostname servera.lab.example.com",
+        "note": ""
+      },
+      {
+        "text": "hostname servera.lab.example.com",
+        "note": "Temporary."
+      },
+      {
+        "text": "echo servera > /etc/hosts",
+        "note": "Overwrites hosts."
+      },
+      {
+        "text": "nmcli general hostname --temp",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It writes /etc/hostname."
+  },
+  {
+    "id": 81,
+    "domain": "D7",
+    "scenario": "Which file resolves a host name without DNS?",
+    "options": [
+      {
+        "text": "/etc/hosts",
+        "note": ""
+      },
+      {
+        "text": "/etc/resolv.conf",
+        "note": "Lists DNS servers."
+      },
+      {
+        "text": "/etc/hostname",
+        "note": "The local name."
+      },
+      {
+        "text": "/etc/networks",
+        "note": "Network names."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Lines are IP name aliases, such as 172.25.250.100 utility.lab.example.com utility."
+  },
+  {
+    "id": 82,
+    "domain": "D7",
+    "scenario": "Which command shows whether connection eth0 starts automatically at boot?",
+    "options": [
+      {
+        "text": "nmcli -g connection.autoconnect con show eth0",
+        "note": ""
+      },
+      {
+        "text": "ip link show eth0 boot",
+        "note": "Not valid."
+      },
+      {
+        "text": "systemctl status eth0",
+        "note": "Not a unit."
+      },
+      {
+        "text": "ss -a eth0",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Set it with nmcli con mod eth0 connection.autoconnect yes."
+  },
+  {
+    "id": 83,
+    "domain": "D7",
+    "scenario": "Which command confirms DNS resolution of utility.lab.example.com?",
+    "options": [
+      {
+        "text": "host utility.lab.example.com (or dig, or getent hosts)",
+        "note": ""
+      },
+      {
+        "text": "ping -n",
+        "note": "Doesn't show DNS details."
+      },
+      {
+        "text": "nmcli dns",
+        "note": "Not valid."
+      },
+      {
+        "text": "ss -r",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "getent hosts follows /etc/nsswitch.conf, including /etc/hosts."
+  },
+  {
+    "id": 84,
+    "domain": "D7",
+    "scenario": "Which command shows the routing table?",
+    "options": [
+      {
+        "text": "ip route",
+        "note": ""
+      },
+      {
+        "text": "ip addr",
+        "note": "Addresses."
+      },
+      {
+        "text": "nmcli route",
+        "note": "Not valid."
+      },
+      {
+        "text": "ss -r",
+        "note": "Resolves names in socket output."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Default route: default via <gateway> dev <iface>."
+  },
+  {
+    "id": 85,
+    "domain": "D7",
+    "scenario": "Which command shows which ports sshd and httpd are listening on?",
+    "options": [
+      {
+        "text": "ss -tlnp",
+        "note": ""
+      },
+      {
+        "text": "ip -p",
+        "note": "Not valid."
+      },
+      {
+        "text": "netstat -r",
+        "note": "Routes."
+      },
+      {
+        "text": "lsof -n -i none",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ss -tlnp lists listening TCP sockets with numeric ports and the owning process. Check listening address and port when a service isn't reachable."
+  },
+  {
+    "id": 86,
+    "domain": "D8",
+    "scenario": "Create a group sysadms and user harry with supplementary group sysadms. Which commands?",
+    "options": [
+      {
+        "text": "groupadd sysadms; useradd -G sysadms harry",
+        "note": ""
+      },
+      {
+        "text": "useradd -g sysadms harry",
+        "note": "-g sets the primary group."
+      },
+      {
+        "text": "usermod -G sysadms harry before creating him",
+        "note": "User doesn't exist yet."
+      },
+      {
+        "text": "groupadd harry sysadms",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Set the password non-interactively with echo 'password' | passwd --stdin harry."
+  },
+  {
+    "id": 87,
+    "domain": "D8",
+    "scenario": "Create user sarah with UID 3533 and no interactive shell.",
+    "options": [
+      {
+        "text": "useradd -u 3533 -s /sbin/nologin sarah",
+        "note": ""
+      },
+      {
+        "text": "useradd -g 3533 sarah",
+        "note": "-g is the primary group."
+      },
+      {
+        "text": "useradd sarah -shell none",
+        "note": "Not valid."
+      },
+      {
+        "text": "adduser --uid sarah",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Verify with id sarah and grep sarah /etc/passwd."
+  },
+  {
+    "id": 88,
+    "domain": "D8",
+    "scenario": "All new users must have passwords that expire after 90 days. What do you change?",
+    "options": [
+      {
+        "text": "PASS_MAX_DAYS 90 in /etc/login.defs",
+        "note": ""
+      },
+      {
+        "text": "chage -M 90 for root only",
+        "note": "Affects one user."
+      },
+      {
+        "text": "/etc/default/useradd EXPIRE=90",
+        "note": "That's an account expiry date."
+      },
+      {
+        "text": "/etc/shadow directly",
+        "note": "Per-user and error-prone."
+      }
+    ],
+    "answer": 0,
+    "explanation": "login.defs affects only accounts created afterward. Use chage -M 90 user for existing accounts."
+  },
+  {
+    "id": 89,
+    "domain": "D8",
+    "scenario": "User natasha's password must expire every 30 days. Which command?",
+    "options": [
+      {
+        "text": "chage -M 30 natasha",
+        "note": ""
+      },
+      {
+        "text": "chage -E 30 natasha",
+        "note": "-E sets the account expiry date."
+      },
+      {
+        "text": "passwd -e 30 natasha",
+        "note": "-e expires immediately."
+      },
+      {
+        "text": "usermod -f 30 natasha",
+        "note": "-f sets inactive days after expiry."
+      }
+    ],
+    "answer": 0,
+    "explanation": "chage -l natasha shows aging. chage -d 0 forces a change at next login."
+  },
+  {
+    "id": 90,
+    "domain": "D8",
+    "scenario": "Members of group sysadms should run any command with sudo. What is the cleanest configuration?",
+    "options": [
+      {
+        "text": "Create /etc/sudoers.d/sysadms containing %sysadms ALL=(ALL) ALL (edit with visudo -f)",
+        "note": ""
+      },
+      {
+        "text": "Add them to the root group",
+        "note": "Doesn't grant sudo."
+      },
+      {
+        "text": "chmod 777 /etc/sudoers",
+        "note": "Breaks sudo."
+      },
+      {
+        "text": "Give them the root password",
+        "note": "No accountability."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Members of wheel already have full sudo on RHEL. NOPASSWD: removes the password prompt if a task requires it."
+  },
+  {
+    "id": 91,
+    "domain": "D8",
+    "scenario": "Which command adds harry to the wheel group without removing his other supplementary groups?",
+    "options": [
+      {
+        "text": "usermod -aG wheel harry",
+        "note": ""
+      },
+      {
+        "text": "usermod -G wheel harry",
+        "note": "Replaces supplementary groups."
+      },
+      {
+        "text": "gpasswd wheel harry",
+        "note": "Wrong syntax; gpasswd -a harry wheel works."
+      },
+      {
+        "text": "groupadd -u harry wheel",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "gpasswd -a harry wheel is an alternative."
+  },
+  {
+    "id": 92,
+    "domain": "D8",
+    "scenario": "Which command deletes user tom and his home directory and mail spool?",
+    "options": [
+      {
+        "text": "userdel -r tom",
+        "note": ""
+      },
+      {
+        "text": "userdel tom",
+        "note": "Keeps the home directory."
+      },
+      {
+        "text": "rm -rf /home/tom",
+        "note": "Leaves the account."
+      },
+      {
+        "text": "usermod -d tom",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check for files owned by the old UID elsewhere with find / -nouser."
+  },
+  {
+    "id": 93,
+    "domain": "D8",
+    "scenario": "Which command shows a user's UID, primary group, and supplementary groups?",
+    "options": [
+      {
+        "text": "id username",
+        "note": ""
+      },
+      {
+        "text": "who username",
+        "note": "Shows sessions."
+      },
+      {
+        "text": "groups -u",
+        "note": "Not valid."
+      },
+      {
+        "text": "finger -g",
+        "note": "Not installed by default."
+      }
+    ],
+    "answer": 0,
+    "explanation": "getent passwd username shows the account line."
+  },
+  {
+    "id": 94,
+    "domain": "D9",
+    "scenario": "Allow HTTP through the firewall now and after reboot. Which commands?",
+    "options": [
+      {
+        "text": "firewall-cmd --permanent --add-service=http; firewall-cmd --reload",
+        "note": ""
+      },
+      {
+        "text": "firewall-cmd --add-service=http",
+        "note": "Runtime only."
+      },
+      {
+        "text": "iptables -A INPUT -p tcp --dport 80 -j ACCEPT",
+        "note": "Bypasses firewalld and isn't persistent."
+      },
+      {
+        "text": "systemctl enable http",
+        "note": "Not a firewall rule."
+      }
+    ],
+    "answer": 0,
+    "explanation": "firewall-cmd --list-all shows the active zone's settings."
+  },
+  {
+    "id": 95,
+    "domain": "D9",
+    "scenario": "Open TCP port 82 in the firewall permanently.",
+    "options": [
+      {
+        "text": "firewall-cmd --permanent --add-port=82/tcp; firewall-cmd --reload",
+        "note": ""
+      },
+      {
+        "text": "firewall-cmd --add-port=82",
+        "note": "Missing protocol and not permanent."
+      },
+      {
+        "text": "firewall-cmd --permanent --add-service=82",
+        "note": "Services are names."
+      },
+      {
+        "text": "semanage port -a 82",
+        "note": "That's SELinux labeling."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Rich rules allow source-specific rules: --add-rich-rule='rule family=ipv4 source address=172.25.0.0/16 service name=ssh accept'."
+  },
+  {
+    "id": 96,
+    "domain": "D9",
+    "scenario": "httpd must listen on port 82, and SELinux is enforcing. Besides Listen 82 in httpd.conf, which SELinux command is required?",
+    "options": [
+      {
+        "text": "semanage port -a -t http_port_t -p tcp 82",
+        "note": ""
+      },
+      {
+        "text": "setsebool -P httpd_port 82",
+        "note": "Not a boolean."
+      },
+      {
+        "text": "chcon -t http_port_t 82",
+        "note": "chcon labels files."
+      },
+      {
+        "text": "setenforce 0",
+        "note": "Disables protection rather than fixing the label."
+      }
+    ],
+    "answer": 0,
+    "explanation": "List labeled ports with semanage port -l | grep http. Then restart httpd and open the port in firewalld."
+  },
+  {
+    "id": 97,
+    "domain": "D9",
+    "scenario": "Web content was moved to /srv/web. Which commands label it for httpd so the label survives a relabel?",
+    "options": [
+      {
+        "text": "semanage fcontext -a -t httpd_sys_content_t '/srv/web(/.*)?'; restorecon -Rv /srv/web",
+        "note": ""
+      },
+      {
+        "text": "chcon -R -t httpd_sys_content_t /srv/web only",
+        "note": "Temporary: a relabel or restorecon reverts it."
+      },
+      {
+        "text": "chmod -R 777 /srv/web",
+        "note": "Not SELinux."
+      },
+      {
+        "text": "Turn on an httpd boolean",
+        "note": "Booleans toggle policy features; they don't label files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ls -Zd /srv/web shows the context."
+  },
+  {
+    "id": 98,
+    "domain": "D9",
+    "scenario": "Which command shows the current SELinux mode?",
+    "options": [
+      {
+        "text": "getenforce",
+        "note": ""
+      },
+      {
+        "text": "setenforce",
+        "note": "Changes runtime mode."
+      },
+      {
+        "text": "sestatus -p",
+        "note": "Not valid; sestatus alone works."
+      },
+      {
+        "text": "selinux --mode",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "sestatus shows mode, policy, and config-file mode."
+  },
+  {
+    "id": 99,
+    "domain": "D9",
+    "scenario": "The system must boot in enforcing mode. Where is that set?",
+    "options": [
+      {
+        "text": "SELINUX=enforcing in /etc/selinux/config",
+        "note": ""
+      },
+      {
+        "text": "setenforce 1 only",
+        "note": "Runtime until reboot."
+      },
+      {
+        "text": "/etc/sysconfig/firewalld",
+        "note": "Not SELinux."
+      },
+      {
+        "text": "GRUB enforcing=0",
+        "note": "That forces permissive."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Switching from disabled to enforcing requires a relabel at boot."
+  },
+  {
+    "id": 100,
+    "domain": "D9",
+    "scenario": "Which command permanently allows httpd to connect to remote databases?",
+    "options": [
+      {
+        "text": "setsebool -P httpd_can_network_connect_db on",
+        "note": ""
+      },
+      {
+        "text": "setsebool httpd_can_network_connect_db on",
+        "note": "Without -P it's lost at reboot."
+      },
+      {
+        "text": "semanage boolean -l on",
+        "note": "Lists booleans."
+      },
+      {
+        "text": "getsebool -P httpd_can_network_connect_db",
+        "note": "getsebool reads values."
+      }
+    ],
+    "answer": 0,
+    "explanation": "getsebool -a | grep httpd lists httpd booleans; semanage boolean -l shows descriptions."
+  },
+  {
+    "id": 101,
+    "domain": "D9",
+    "scenario": "How do you find recent SELinux denials?",
+    "options": [
+      {
+        "text": "ausearch -m AVC -ts recent (or journalctl / sealert)",
+        "note": ""
+      },
+      {
+        "text": "dmesg | grep firewall",
+        "note": "Wrong subsystem."
+      },
+      {
+        "text": "getenforce -v",
+        "note": "Not valid."
+      },
+      {
+        "text": "cat /etc/selinux/denials",
+        "note": "Not a real file."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Denials are logged in /var/log/audit/audit.log. setroubleshoot's sealert suggests fixes."
+  },
+  {
+    "id": 102,
+    "domain": "D9",
+    "scenario": "Which command shows the SELinux context of running httpd processes?",
+    "options": [
+      {
+        "text": "ps -eZ | grep httpd",
+        "note": ""
+      },
+      {
+        "text": "ls -Z httpd",
+        "note": "ls -Z shows file contexts."
+      },
+      {
+        "text": "getsebool httpd",
+        "note": "Shows booleans."
+      },
+      {
+        "text": "id -Z httpd",
+        "note": "Shows the current user's context."
+      }
+    ],
+    "answer": 0,
+    "explanation": "httpd runs in the httpd_t domain."
+  },
+  {
+    "id": 103,
+    "domain": "D9",
+    "scenario": "A file copied from /root into /var/www/html keeps admin_home_t and httpd can't read it. What is the quickest correct fix?",
+    "options": [
+      {
+        "text": "restorecon -v /var/www/html/index.html",
+        "note": ""
+      },
+      {
+        "text": "chmod 777",
+        "note": "Not the problem."
+      },
+      {
+        "text": "setenforce 0",
+        "note": "Disables protection."
+      },
+      {
+        "text": "mv it again",
+        "note": "mv preserves the wrong context."
+      }
+    ],
+    "answer": 0,
+    "explanation": "cp to a new file usually takes the destination's default context; mv keeps the original context."
+  },
+  {
+    "id": 104,
+    "domain": "D9",
+    "scenario": "Configure key-based SSH so root on servera can log in to serverb as student without a password. Which steps?",
+    "options": [
+      {
+        "text": "ssh-keygen on servera, then ssh-copy-id student@serverb",
+        "note": ""
+      },
+      {
+        "text": "Copy ~/.ssh/id_rsa to serverb",
+        "note": "Never copy the private key."
+      },
+      {
+        "text": "Set PermitEmptyPasswords yes",
+        "note": "Insecure."
+      },
+      {
+        "text": "Disable sshd",
+        "note": "Breaks SSH."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The public key goes into ~student/.ssh/authorized_keys on serverb, which should be mode 600 in a 700 .ssh directory."
+  },
+  {
+    "id": 105,
+    "domain": "D9",
+    "scenario": "Every new file created by user student should be mode 640 and every new directory 750. Which umask?",
+    "options": [
+      {
+        "text": "027 (set in ~/.bashrc)",
+        "note": ""
+      },
+      {
+        "text": "022",
+        "note": "Gives 644 and 755."
+      },
+      {
+        "text": "750",
+        "note": "That's a mode, not a umask."
+      },
+      {
+        "text": "002",
+        "note": "Gives 664 and 775."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Set it per user in ~/.bashrc or ~/.bash_profile, or system-wide in /etc/profile.d or /etc/login.defs."
+  },
+  {
+    "id": 106,
+    "domain": "D9",
+    "scenario": "Which SELinux mode logs denials without blocking them?",
+    "options": [
+      {
+        "text": "Permissive",
+        "note": ""
+      },
+      {
+        "text": "Enforcing",
+        "note": "Blocks."
+      },
+      {
+        "text": "Disabled",
+        "note": "No policy and no logs."
+      },
+      {
+        "text": "Targeted",
+        "note": "The policy type, not a mode."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use permissive briefly to troubleshoot; always restore enforcing."
+  }
+]

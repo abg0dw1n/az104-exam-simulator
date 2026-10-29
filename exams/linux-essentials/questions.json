@@ -1,0 +1,2752 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "Which statement best describes Linux?",
+    "options": [
+      {
+        "text": "A kernel; a full operating system (a distribution) combines it with tools, libraries, and applications",
+        "note": ""
+      },
+      {
+        "text": "A complete operating system made by one company",
+        "note": "Linux distributions come from many projects and vendors."
+      },
+      {
+        "text": "A desktop environment",
+        "note": "GNOME and KDE Plasma are desktop environments."
+      },
+      {
+        "text": "A programming language",
+        "note": "Linux is written mostly in C, but it isn't a language."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Linus Torvalds released the Linux kernel in 1991. Distributions bundle the kernel with GNU tools, a package manager, and software."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "Which pair of distributions both belong to the Debian family and use .deb packages?",
+    "options": [
+      {
+        "text": "Ubuntu and Linux Mint",
+        "note": ""
+      },
+      {
+        "text": "Fedora and RHEL",
+        "note": "These are Red Hat family distributions using RPM."
+      },
+      {
+        "text": "openSUSE and SUSE Linux Enterprise",
+        "note": "SUSE uses RPM packages."
+      },
+      {
+        "text": "Rocky Linux and AlmaLinux",
+        "note": "Both are RHEL rebuilds that use RPM."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Debian family: Debian, Ubuntu, Linux Mint, Raspberry Pi OS. Red Hat family: RHEL, Fedora, CentOS Stream, Rocky, AlmaLinux. SUSE: openSUSE, SLES."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "Which distribution is the upstream development platform for Red Hat Enterprise Linux?",
+    "options": [
+      {
+        "text": "CentOS Stream",
+        "note": ""
+      },
+      {
+        "text": "Ubuntu",
+        "note": "Ubuntu is based on Debian."
+      },
+      {
+        "text": "Linux Mint",
+        "note": "Mint is based on Ubuntu."
+      },
+      {
+        "text": "Arch Linux",
+        "note": "Arch is an independent rolling-release distribution."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fedora feeds new technology into CentOS Stream, which tracks just ahead of the next RHEL minor release."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "A company needs a Linux distribution with paid vendor support and long-term updates for its servers. Which choice fits best?",
+    "options": [
+      {
+        "text": "An enterprise distribution such as RHEL or SUSE Linux Enterprise Server",
+        "note": ""
+      },
+      {
+        "text": "A rolling-release hobbyist distribution",
+        "note": "Rolling releases change constantly and usually lack commercial support."
+      },
+      {
+        "text": "Any live USB distribution",
+        "note": "Live media is for testing or recovery."
+      },
+      {
+        "text": "An embedded build for routers",
+        "note": "Not a general-purpose server platform."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Enterprise distributions offer certified hardware, support contracts, and long life cycles. Ubuntu LTS also has paid support through Canonical."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "What does LTS mean for a release such as Ubuntu 24.04 LTS?",
+    "options": [
+      {
+        "text": "Long-term support: security and maintenance updates for an extended period",
+        "note": ""
+      },
+      {
+        "text": "Latest test snapshot",
+        "note": "LTS releases are stable, not test builds."
+      },
+      {
+        "text": "Linux terminal server",
+        "note": "Not what LTS stands for."
+      },
+      {
+        "text": "Limited to servers",
+        "note": "LTS releases are available for desktops too."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Ubuntu LTS releases come every two years with five years of standard support (longer with Ubuntu Pro)."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "Which open source application is a full office suite with a word processor, spreadsheet, and presentation program?",
+    "options": [
+      {
+        "text": "LibreOffice",
+        "note": ""
+      },
+      {
+        "text": "GIMP",
+        "note": "GIMP is an image editor."
+      },
+      {
+        "text": "Thunderbird",
+        "note": "Thunderbird is an email client."
+      },
+      {
+        "text": "Blender",
+        "note": "Blender is 3D graphics software."
+      }
+    ],
+    "answer": 0,
+    "explanation": "LibreOffice Writer, Calc, and Impress handle documents, spreadsheets, and presentations."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Which program is an open source web server?",
+    "options": [
+      {
+        "text": "Apache HTTP Server (httpd) or NGINX",
+        "note": ""
+      },
+      {
+        "text": "MariaDB",
+        "note": "MariaDB is a database server."
+      },
+      {
+        "text": "Samba",
+        "note": "Samba provides Windows-compatible file sharing."
+      },
+      {
+        "text": "Postfix",
+        "note": "Postfix is a mail transfer agent."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Common open source server software: Apache and NGINX (web), MariaDB/MySQL and PostgreSQL (databases), Postfix (mail), Samba (SMB file sharing), OpenSSH (remote access)."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "Which software lets Linux servers share files and printers with Windows clients using SMB?",
+    "options": [
+      {
+        "text": "Samba",
+        "note": ""
+      },
+      {
+        "text": "NFS",
+        "note": "NFS is native Unix/Linux file sharing."
+      },
+      {
+        "text": "CUPS",
+        "note": "CUPS is the print system, not Windows file sharing."
+      },
+      {
+        "text": "Apache",
+        "note": "Apache serves web pages."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Samba implements the SMB/CIFS protocol and can act as an Active Directory domain controller."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "What is the defining feature of a copyleft license such as the GNU GPL?",
+    "options": [
+      {
+        "text": "Anyone who distributes modified versions must release them under the same license with source code",
+        "note": ""
+      },
+      {
+        "text": "The software can never be sold",
+        "note": "GPL software can be sold."
+      },
+      {
+        "text": "Source code must be kept secret",
+        "note": "The opposite is true."
+      },
+      {
+        "text": "Only non-commercial use is allowed",
+        "note": "The GPL permits commercial use."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Permissive licenses (MIT, BSD, Apache 2.0) let derivatives be closed source. Copyleft (GPL, AGPL) requires derivatives to stay open."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "Which license is permissive rather than copyleft?",
+    "options": [
+      {
+        "text": "MIT License",
+        "note": ""
+      },
+      {
+        "text": "GNU GPLv3",
+        "note": "GPL is strong copyleft."
+      },
+      {
+        "text": "GNU AGPL",
+        "note": "AGPL is copyleft, extended to network use."
+      },
+      {
+        "text": "GNU LGPL",
+        "note": "LGPL is weak copyleft for libraries."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Permissive licenses include MIT, BSD, and Apache 2.0. They require attribution but don't require sharing modified source."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "What does \"free\" mean in the Free Software Foundation's definition of free software?",
+    "options": [
+      {
+        "text": "Freedom to run, study, change, and share the software",
+        "note": ""
+      },
+      {
+        "text": "No cost",
+        "note": "\"Free as in speech, not as in beer.\""
+      },
+      {
+        "text": "Free of bugs",
+        "note": "Not related."
+      },
+      {
+        "text": "Free of copyright",
+        "note": "Free software is copyrighted and licensed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The FSF's four freedoms: run the program for any purpose, study and change it, redistribute copies, and distribute modified versions."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "Which organization approves licenses as meeting the Open Source Definition?",
+    "options": [
+      {
+        "text": "The Open Source Initiative (OSI)",
+        "note": ""
+      },
+      {
+        "text": "The Linux Foundation",
+        "note": "It hosts projects but doesn't approve licenses."
+      },
+      {
+        "text": "The Free Software Foundation",
+        "note": "The FSF maintains the free software definition and GPL."
+      },
+      {
+        "text": "LPI",
+        "note": "LPI provides certification."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The Open Source Initiative maintains the Open Source Definition and reviews licenses against it. OSI-approved licenses include GPL, MIT, Apache 2.0, BSD, and MPL."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "Which business model is common for companies built on open source software?",
+    "options": [
+      {
+        "text": "Selling support subscriptions, services, training, and hosted versions",
+        "note": ""
+      },
+      {
+        "text": "Charging license fees for the source code",
+        "note": "Open source code is freely available."
+      },
+      {
+        "text": "Hiding the code from customers",
+        "note": "Not open source."
+      },
+      {
+        "text": "Selling advertising inside the kernel",
+        "note": "Not a real model."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Red Hat, SUSE, and Canonical sell subscriptions for support and certified updates. Many companies offer open-core or cloud-hosted versions."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Which statement about running Linux in the cloud is correct?",
+    "options": [
+      {
+        "text": "Most cloud instances run Linux images that are provisioned automatically, often with cloud-init",
+        "note": ""
+      },
+      {
+        "text": "Linux can't run in public clouds",
+        "note": "Linux is the most common cloud OS."
+      },
+      {
+        "text": "Cloud instances must be installed from DVD",
+        "note": "They boot from prebuilt images."
+      },
+      {
+        "text": "Each cloud instance needs its own physical server",
+        "note": "Instances are virtual machines on shared hosts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Cloud providers offer images from Ubuntu, RHEL, Debian, SUSE, and others. cloud-init sets hostname, users, and SSH keys at first boot."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "What is a container compared with a virtual machine?",
+    "options": [
+      {
+        "text": "An isolated set of processes sharing the host's kernel, with its own filesystem image",
+        "note": ""
+      },
+      {
+        "text": "A full guest OS with its own kernel on a hypervisor",
+        "note": "That's a virtual machine."
+      },
+      {
+        "text": "A compressed backup file",
+        "note": "Not a container."
+      },
+      {
+        "text": "A type of disk partition",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Containers are lighter and start faster than VMs. Tools include Podman and Docker. A VM emulates hardware and runs its own kernel."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "What is Windows Subsystem for Linux (WSL)?",
+    "options": [
+      {
+        "text": "A Windows feature that runs Linux distributions and their command-line tools on Windows",
+        "note": ""
+      },
+      {
+        "text": "A Linux desktop that looks like Windows",
+        "note": "Not WSL."
+      },
+      {
+        "text": "A Windows emulator for Linux",
+        "note": "That's closer to Wine."
+      },
+      {
+        "text": "A file system for USB drives",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "WSL 2 runs a real Linux kernel in a lightweight VM so you can use Bash and Linux tools on a Windows PC."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "Which program is a desktop environment rather than an application?",
+    "options": [
+      {
+        "text": "KDE Plasma",
+        "note": ""
+      },
+      {
+        "text": "Firefox",
+        "note": "Firefox is a web browser."
+      },
+      {
+        "text": "VLC",
+        "note": "VLC is a media player."
+      },
+      {
+        "text": "Inkscape",
+        "note": "Inkscape is a vector graphics editor."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Desktop environments include GNOME, KDE Plasma, Xfce, and Cinnamon. They run on a display server such as Wayland or X11."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "Which programming languages are commonly used to write scripts and tools on Linux?",
+    "options": [
+      {
+        "text": "Bash, Python, and Perl",
+        "note": ""
+      },
+      {
+        "text": "Only C",
+        "note": "C is used for the kernel, but scripting languages are common."
+      },
+      {
+        "text": "Only Java",
+        "note": "Java is used but isn't the main scripting choice."
+      },
+      {
+        "text": "Only PowerShell",
+        "note": "PowerShell runs on Linux but isn't the traditional choice."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Shell scripts automate tasks with Bash. Python is popular for automation and tools. C remains the language of the kernel."
+  },
+  {
+    "id": 19,
+    "domain": "D1",
+    "scenario": "What is a strong password practice for a Linux user?",
+    "options": [
+      {
+        "text": "Use a long, unique passphrase per account, stored in a password manager, with MFA where available",
+        "note": ""
+      },
+      {
+        "text": "Reuse one strong password everywhere",
+        "note": "One breach then exposes every account."
+      },
+      {
+        "text": "Write passwords on a sticky note",
+        "note": "Physically insecure."
+      },
+      {
+        "text": "Use your username as your password",
+        "note": "Trivially guessed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Linux Essentials 2.0 also covers password managers, multi-factor authentication, and passkeys."
+  },
+  {
+    "id": 20,
+    "domain": "D1",
+    "scenario": "When should you prefer an encrypted protocol such as SSH or HTTPS?",
+    "options": [
+      {
+        "text": "Whenever credentials or private data cross a network",
+        "note": ""
+      },
+      {
+        "text": "Only on the internet, never on a LAN",
+        "note": "Internal networks can be sniffed too."
+      },
+      {
+        "text": "Never; encryption makes Linux slow",
+        "note": "The overhead is small."
+      },
+      {
+        "text": "Only for file downloads",
+        "note": "Logins and data need protection."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Avoid plaintext protocols like Telnet and FTP. Use SSH, SFTP/SCP, and HTTPS."
+  },
+  {
+    "id": 21,
+    "domain": "D2",
+    "scenario": "Which command shows the full path of your current working directory?",
+    "options": [
+      {
+        "text": "pwd",
+        "note": ""
+      },
+      {
+        "text": "cd",
+        "note": "cd changes directory."
+      },
+      {
+        "text": "ls",
+        "note": "ls lists contents."
+      },
+      {
+        "text": "whoami",
+        "note": "whoami shows your username."
+      }
+    ],
+    "answer": 0,
+    "explanation": "pwd prints the working directory, for example /home/alex/projects."
+  },
+  {
+    "id": 22,
+    "domain": "D2",
+    "scenario": "You type: cd ~ . Where do you end up?",
+    "options": [
+      {
+        "text": "Your home directory",
+        "note": ""
+      },
+      {
+        "text": "The root directory /",
+        "note": "That's cd /."
+      },
+      {
+        "text": "The previous directory",
+        "note": "That's cd -."
+      },
+      {
+        "text": "The parent directory",
+        "note": "That's cd .."
+      }
+    ],
+    "answer": 0,
+    "explanation": "~ expands to the home directory, such as /home/alex. cd with no argument does the same."
+  },
+  {
+    "id": 23,
+    "domain": "D2",
+    "scenario": "Which path is absolute?",
+    "options": [
+      {
+        "text": "/etc/ssh/sshd_config",
+        "note": ""
+      },
+      {
+        "text": "ssh/sshd_config",
+        "note": "Relative to the current directory."
+      },
+      {
+        "text": "../etc/hosts",
+        "note": "Relative to the parent."
+      },
+      {
+        "text": "./script.sh",
+        "note": "Relative to the current directory."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Absolute paths start at the root (/). Relative paths start from the working directory; . is the current directory and .. is the parent."
+  },
+  {
+    "id": 24,
+    "domain": "D2",
+    "scenario": "Which command lists all files, including hidden ones, in long format?",
+    "options": [
+      {
+        "text": "ls -la",
+        "note": ""
+      },
+      {
+        "text": "ls -h",
+        "note": "-h only formats sizes."
+      },
+      {
+        "text": "ls -R",
+        "note": "-R lists recursively."
+      },
+      {
+        "text": "ls -t",
+        "note": "-t sorts by time."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Hidden files start with a dot (.bashrc). -a shows them and -l shows permissions, owner, size, and date."
+  },
+  {
+    "id": 25,
+    "domain": "D2",
+    "scenario": "How do you get detailed documentation for the ls command?",
+    "options": [
+      {
+        "text": "man ls",
+        "note": ""
+      },
+      {
+        "text": "help ls",
+        "note": "help covers Bash builtins; ls is an external program."
+      },
+      {
+        "text": "info --list",
+        "note": "Not valid."
+      },
+      {
+        "text": "ls --manual",
+        "note": "Not a real option."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use man for manual pages, info for GNU info documents, command --help for a summary, and help for shell builtins like cd."
+  },
+  {
+    "id": 26,
+    "domain": "D2",
+    "scenario": "Which man page section contains configuration file formats, such as passwd(5)?",
+    "options": [
+      {
+        "text": "Section 5",
+        "note": ""
+      },
+      {
+        "text": "Section 1",
+        "note": "User commands."
+      },
+      {
+        "text": "Section 8",
+        "note": "System administration commands."
+      },
+      {
+        "text": "Section 3",
+        "note": "Library functions."
+      }
+    ],
+    "answer": 0,
+    "explanation": "man 5 passwd shows the /etc/passwd format; man 1 passwd shows the passwd command. Search pages with man -k keyword (apropos)."
+  },
+  {
+    "id": 27,
+    "domain": "D2",
+    "scenario": "You don't remember the command for a task. Which command searches man page descriptions for a keyword?",
+    "options": [
+      {
+        "text": "apropos partition (or man -k partition)",
+        "note": ""
+      },
+      {
+        "text": "whatis -r",
+        "note": "whatis gives one-line descriptions of known names."
+      },
+      {
+        "text": "which partition",
+        "note": "which finds an executable in PATH."
+      },
+      {
+        "text": "locate man",
+        "note": "locate finds file names."
+      }
+    ],
+    "answer": 0,
+    "explanation": "apropos and man -k search names and short descriptions of all manual pages."
+  },
+  {
+    "id": 28,
+    "domain": "D2",
+    "scenario": "Which command shows the location of the executable that runs when you type python3?",
+    "options": [
+      {
+        "text": "which python3",
+        "note": ""
+      },
+      {
+        "text": "whereis -m",
+        "note": "whereis -m finds man pages only."
+      },
+      {
+        "text": "pwd python3",
+        "note": "pwd takes no arguments."
+      },
+      {
+        "text": "echo python3",
+        "note": "Only prints the text."
+      }
+    ],
+    "answer": 0,
+    "explanation": "which searches the directories in $PATH. type also shows whether a name is a builtin, alias, or file."
+  },
+  {
+    "id": 29,
+    "domain": "D2",
+    "scenario": "What does the PATH environment variable contain?",
+    "options": [
+      {
+        "text": "A colon-separated list of directories the shell searches for commands",
+        "note": ""
+      },
+      {
+        "text": "The current directory",
+        "note": "That's PWD."
+      },
+      {
+        "text": "The user's home directory",
+        "note": "That's HOME."
+      },
+      {
+        "text": "The previous command",
+        "note": "Not stored there."
+      }
+    ],
+    "answer": 0,
+    "explanation": "echo $PATH shows it, for example /usr/local/bin:/usr/bin:/bin. Add a directory with export PATH=\"$PATH:$HOME/bin\"."
+  },
+  {
+    "id": 30,
+    "domain": "D2",
+    "scenario": "How do you set a variable so programs started from the shell can see it?",
+    "options": [
+      {
+        "text": "export NAME=value",
+        "note": ""
+      },
+      {
+        "text": "NAME = value",
+        "note": "Spaces around = are a syntax error in Bash."
+      },
+      {
+        "text": "set NAME",
+        "note": "set alone doesn't create an exported variable."
+      },
+      {
+        "text": "echo NAME=value",
+        "note": "echo just prints text."
+      }
+    ],
+    "answer": 0,
+    "explanation": "NAME=value creates a shell variable; export makes it an environment variable for child processes. Read it with $NAME."
+  },
+  {
+    "id": 31,
+    "domain": "D2",
+    "scenario": "What is the difference between single and double quotes in Bash?",
+    "options": [
+      {
+        "text": "Double quotes allow variable expansion; single quotes keep everything literal",
+        "note": ""
+      },
+      {
+        "text": "There's no difference",
+        "note": "Expansion differs."
+      },
+      {
+        "text": "Single quotes expand variables; double quotes don't",
+        "note": "It's the other way around."
+      },
+      {
+        "text": "Only double quotes can contain spaces",
+        "note": "Both can."
+      }
+    ],
+    "answer": 0,
+    "explanation": "echo \"$HOME\" prints /home/alex; echo '$HOME' prints $HOME. A backslash escapes one character."
+  },
+  {
+    "id": 32,
+    "domain": "D2",
+    "scenario": "Which command creates the nested directories projects/2026/reports in one step?",
+    "options": [
+      {
+        "text": "mkdir -p projects/2026/reports",
+        "note": ""
+      },
+      {
+        "text": "mkdir projects/2026/reports",
+        "note": "Fails if the parent directories don't exist."
+      },
+      {
+        "text": "touch -d projects/2026/reports",
+        "note": "touch creates files."
+      },
+      {
+        "text": "md -r projects/2026/reports",
+        "note": "md isn't a Linux command."
+      }
+    ],
+    "answer": 0,
+    "explanation": "-p creates missing parents and doesn't complain if the directory exists."
+  },
+  {
+    "id": 33,
+    "domain": "D2",
+    "scenario": "How do you copy the directory photos and everything in it to /backup?",
+    "options": [
+      {
+        "text": "cp -r photos /backup/",
+        "note": ""
+      },
+      {
+        "text": "cp photos /backup/",
+        "note": "Without -r, cp skips directories."
+      },
+      {
+        "text": "mv -c photos /backup/",
+        "note": "mv moves; there's no -c."
+      },
+      {
+        "text": "cp -d photos /backup/",
+        "note": "-d preserves links but doesn't recurse."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use -r (or -R) to copy recursively; -a also preserves permissions, ownership, and timestamps."
+  },
+  {
+    "id": 34,
+    "domain": "D2",
+    "scenario": "Which command renames report.txt to report-old.txt?",
+    "options": [
+      {
+        "text": "mv report.txt report-old.txt",
+        "note": ""
+      },
+      {
+        "text": "rn report.txt report-old.txt",
+        "note": "rn isn't a standard command."
+      },
+      {
+        "text": "cp -m report.txt report-old.txt",
+        "note": "Not valid."
+      },
+      {
+        "text": "rename -f report.txt",
+        "note": "Not the standard way."
+      }
+    ],
+    "answer": 0,
+    "explanation": "mv moves or renames files and directories."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "Which command deletes an empty directory named old?",
+    "options": [
+      {
+        "text": "rmdir old",
+        "note": ""
+      },
+      {
+        "text": "rm old",
+        "note": "rm without -r refuses directories."
+      },
+      {
+        "text": "del old",
+        "note": "Not a Linux command."
+      },
+      {
+        "text": "rm -f old",
+        "note": "-f doesn't enable directory removal."
+      }
+    ],
+    "answer": 0,
+    "explanation": "rmdir removes only empty directories. rm -r removes a directory and its contents; be careful."
+  },
+  {
+    "id": 36,
+    "domain": "D2",
+    "scenario": "What does ls *.log match in the current directory?",
+    "options": [
+      {
+        "text": "Every non-hidden file whose name ends in .log",
+        "note": ""
+      },
+      {
+        "text": "Only a file literally named *.log",
+        "note": "* is a wildcard."
+      },
+      {
+        "text": "Files in all subdirectories",
+        "note": "Globbing isn't recursive."
+      },
+      {
+        "text": "Exactly one character followed by .log",
+        "note": "That's ?.log."
+      }
+    ],
+    "answer": 0,
+    "explanation": "* matches any characters, ? matches one character, and [abc] matches one character from a set. The shell expands globs before running the command."
+  },
+  {
+    "id": 37,
+    "domain": "D2",
+    "scenario": "Which glob matches file1.txt, file2.txt, and file3.txt but not file10.txt?",
+    "options": [
+      {
+        "text": "file?.txt",
+        "note": ""
+      },
+      {
+        "text": "file*.txt",
+        "note": "Also matches file10.txt."
+      },
+      {
+        "text": "file[10].txt",
+        "note": "Matches file1.txt and file0.txt only."
+      },
+      {
+        "text": "file+.txt",
+        "note": "+ isn't a glob character."
+      }
+    ],
+    "answer": 0,
+    "explanation": "? matches exactly one character. [1-3] would also work: file[1-3].txt."
+  },
+  {
+    "id": 38,
+    "domain": "D2",
+    "scenario": "What does the command history | tail -5 show?",
+    "options": [
+      {
+        "text": "The last five commands you ran",
+        "note": ""
+      },
+      {
+        "text": "The last five lines of every log",
+        "note": "Not related."
+      },
+      {
+        "text": "Five random commands",
+        "note": "tail shows the end."
+      },
+      {
+        "text": "The five most-used commands",
+        "note": "history isn't sorted by frequency."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Bash stores history in ~/.bash_history. !! reruns the last command; Ctrl+R searches history."
+  },
+  {
+    "id": 39,
+    "domain": "D2",
+    "scenario": "Which key completes a partially typed command or file name in Bash?",
+    "options": [
+      {
+        "text": "Tab",
+        "note": ""
+      },
+      {
+        "text": "Esc",
+        "note": "Not completion."
+      },
+      {
+        "text": "Ctrl+C",
+        "note": "Ctrl+C interrupts the running command."
+      },
+      {
+        "text": "Ctrl+D",
+        "note": "Ctrl+D sends end-of-file or logs out."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Press Tab once to complete or twice to list options."
+  },
+  {
+    "id": 40,
+    "domain": "D2",
+    "scenario": "What is the difference between a hard link and a symbolic link?",
+    "options": [
+      {
+        "text": "A hard link is another name for the same inode; a symbolic link is a pointer to a path",
+        "note": ""
+      },
+      {
+        "text": "They're identical",
+        "note": "They behave differently when the original is deleted."
+      },
+      {
+        "text": "Symbolic links can't point to directories",
+        "note": "They can."
+      },
+      {
+        "text": "Hard links work across file systems",
+        "note": "Hard links must stay on the same file system."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Delete the original and a hard link still works; a symlink breaks. Create them with ln file link and ln -s target link."
+  },
+  {
+    "id": 41,
+    "domain": "D2",
+    "scenario": "Which directory holds most system configuration files?",
+    "options": [
+      {
+        "text": "/etc",
+        "note": ""
+      },
+      {
+        "text": "/var",
+        "note": "Variable data such as logs."
+      },
+      {
+        "text": "/usr/bin",
+        "note": "User commands."
+      },
+      {
+        "text": "/boot",
+        "note": "Kernel and bootloader files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The Filesystem Hierarchy Standard (FHS) defines /etc for configuration, /var for changing data, /home for users, /tmp for temporary files."
+  },
+  {
+    "id": 42,
+    "domain": "D2",
+    "scenario": "Where are log files usually stored?",
+    "options": [
+      {
+        "text": "/var/log",
+        "note": ""
+      },
+      {
+        "text": "/etc/log",
+        "note": "Not standard."
+      },
+      {
+        "text": "/tmp/log",
+        "note": "Temporary files can be cleared."
+      },
+      {
+        "text": "/usr/log",
+        "note": "Not standard."
+      }
+    ],
+    "answer": 0,
+    "explanation": "/var holds variable data: logs, mail spools, caches, and package data. systemd also keeps a binary journal (journalctl)."
+  },
+  {
+    "id": 43,
+    "domain": "D2",
+    "scenario": "Which command shows the type of a file's content, such as \"ASCII text\" or \"PNG image\"?",
+    "options": [
+      {
+        "text": "file",
+        "note": ""
+      },
+      {
+        "text": "type",
+        "note": "type describes shell commands."
+      },
+      {
+        "text": "stat -c",
+        "note": "stat shows metadata."
+      },
+      {
+        "text": "cat -t",
+        "note": "cat prints content."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Linux doesn't rely on file extensions; file inspects the content."
+  },
+  {
+    "id": 44,
+    "domain": "D2",
+    "scenario": "Which command finds every file named notes.txt under your home directory?",
+    "options": [
+      {
+        "text": "find ~ -name notes.txt",
+        "note": ""
+      },
+      {
+        "text": "locate -home notes.txt",
+        "note": "Not a valid option."
+      },
+      {
+        "text": "grep notes.txt ~",
+        "note": "grep searches file contents."
+      },
+      {
+        "text": "ls -find notes.txt",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "find walks the tree in real time. locate uses a prebuilt database (updatedb), so it's faster but may be out of date."
+  },
+  {
+    "id": 45,
+    "domain": "D3",
+    "scenario": "Which command creates a gzip-compressed archive named site.tar.gz from the site directory?",
+    "options": [
+      {
+        "text": "tar -czf site.tar.gz site",
+        "note": ""
+      },
+      {
+        "text": "tar -xzf site.tar.gz site",
+        "note": "-x extracts."
+      },
+      {
+        "text": "gzip -r site site.tar.gz",
+        "note": "gzip compresses files individually; it doesn't archive."
+      },
+      {
+        "text": "zip -t site.tar.gz site",
+        "note": "zip makes .zip files, and -t tests."
+      }
+    ],
+    "answer": 0,
+    "explanation": "tar options: -c create, -x extract, -t list, -f file, -z gzip, -j bzip2, -J xz, -v verbose."
+  },
+  {
+    "id": 46,
+    "domain": "D3",
+    "scenario": "Which command lists the contents of backup.tar.gz without extracting it?",
+    "options": [
+      {
+        "text": "tar -tzf backup.tar.gz",
+        "note": ""
+      },
+      {
+        "text": "tar -czf backup.tar.gz",
+        "note": "-c would overwrite the archive."
+      },
+      {
+        "text": "gunzip -l backup.tar.gz -x",
+        "note": "Not valid."
+      },
+      {
+        "text": "cat backup.tar.gz",
+        "note": "Prints binary data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Extract it with tar -xzf backup.tar.gz, optionally -C /target/dir."
+  },
+  {
+    "id": 47,
+    "domain": "D3",
+    "scenario": "Which compression tool usually gives the smallest files of the three, at the cost of speed?",
+    "options": [
+      {
+        "text": "xz",
+        "note": ""
+      },
+      {
+        "text": "gzip",
+        "note": "Fastest, larger files."
+      },
+      {
+        "text": "bzip2",
+        "note": "Between gzip and xz."
+      },
+      {
+        "text": "tar",
+        "note": "tar archives but doesn't compress by itself."
+      }
+    ],
+    "answer": 0,
+    "explanation": "xz usually compresses the most but is the slowest; gzip is fastest, and bzip2 sits in between. Extensions: .gz (gzip), .bz2 (bzip2), .xz (xz). Decompress with gunzip, bunzip2, unxz."
+  },
+  {
+    "id": 48,
+    "domain": "D3",
+    "scenario": "What does tar do on its own, without -z, -j, or -J?",
+    "options": [
+      {
+        "text": "Bundles files into a single archive without compressing them",
+        "note": ""
+      },
+      {
+        "text": "Compresses with gzip",
+        "note": "Needs -z."
+      },
+      {
+        "text": "Encrypts the files",
+        "note": "tar doesn't encrypt."
+      },
+      {
+        "text": "Deletes the originals",
+        "note": "Originals stay."
+      }
+    ],
+    "answer": 0,
+    "explanation": "tar = tape archive. Compression is a separate layer."
+  },
+  {
+    "id": 49,
+    "domain": "D3",
+    "scenario": "What does > do in: ls /etc > list.txt?",
+    "options": [
+      {
+        "text": "Redirects standard output into list.txt, replacing its contents",
+        "note": ""
+      },
+      {
+        "text": "Appends to list.txt",
+        "note": "That's >>."
+      },
+      {
+        "text": "Reads input from list.txt",
+        "note": "That's <."
+      },
+      {
+        "text": "Sends output to the printer",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "> overwrites, >> appends, < reads standard input from a file, 2> redirects errors."
+  },
+  {
+    "id": 50,
+    "domain": "D3",
+    "scenario": "How do you discard error messages from a command?",
+    "options": [
+      {
+        "text": "command 2> /dev/null",
+        "note": ""
+      },
+      {
+        "text": "command > /dev/null",
+        "note": "Discards normal output, not errors."
+      },
+      {
+        "text": "command < /dev/null",
+        "note": "Redirects input."
+      },
+      {
+        "text": "command | null",
+        "note": "null isn't a command."
+      }
+    ],
+    "answer": 0,
+    "explanation": "File descriptors: 0 stdin, 1 stdout, 2 stderr. &> or > file 2>&1 sends both to the same place."
+  },
+  {
+    "id": 51,
+    "domain": "D3",
+    "scenario": "What does a pipe (|) do?",
+    "options": [
+      {
+        "text": "Sends one command's standard output to the next command's standard input",
+        "note": ""
+      },
+      {
+        "text": "Runs commands in the background",
+        "note": "That's &."
+      },
+      {
+        "text": "Runs commands only if the first succeeds",
+        "note": "That's &&."
+      },
+      {
+        "text": "Writes output to a file",
+        "note": "That's >."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Example: ps aux | grep sshd. Pipes let small tools work together."
+  },
+  {
+    "id": 52,
+    "domain": "D3",
+    "scenario": "Which command counts the lines in access.log?",
+    "options": [
+      {
+        "text": "wc -l access.log",
+        "note": ""
+      },
+      {
+        "text": "count access.log",
+        "note": "Not a command."
+      },
+      {
+        "text": "cat -n access.log",
+        "note": "Numbers lines but doesn't total them."
+      },
+      {
+        "text": "lines access.log",
+        "note": "Not a command."
+      }
+    ],
+    "answer": 0,
+    "explanation": "wc counts lines (-l), words (-w), and bytes (-c)."
+  },
+  {
+    "id": 53,
+    "domain": "D3",
+    "scenario": "Which command shows only lines containing \"error\" in app.log, ignoring case?",
+    "options": [
+      {
+        "text": "grep -i error app.log",
+        "note": ""
+      },
+      {
+        "text": "grep -v error app.log",
+        "note": "-v shows non-matching lines."
+      },
+      {
+        "text": "grep -c error app.log",
+        "note": "-c counts matches."
+      },
+      {
+        "text": "find -i error app.log",
+        "note": "find searches for files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Useful grep options: -i ignore case, -v invert, -c count, -r recursive, -n line numbers, -E extended regex."
+  },
+  {
+    "id": 54,
+    "domain": "D3",
+    "scenario": "In a regular expression, what does ^root match?",
+    "options": [
+      {
+        "text": "\"root\" at the start of a line",
+        "note": ""
+      },
+      {
+        "text": "\"root\" at the end of a line",
+        "note": "That's root$."
+      },
+      {
+        "text": "Any line without root",
+        "note": "That's grep -v root."
+      },
+      {
+        "text": "The literal text ^root",
+        "note": "^ is an anchor."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Anchors: ^ start, $ end. . matches one character, * repeats the previous item, [0-9] is a character class."
+  },
+  {
+    "id": 55,
+    "domain": "D3",
+    "scenario": "Which regular expression matches lines that are completely empty?",
+    "options": [
+      {
+        "text": "^$",
+        "note": ""
+      },
+      {
+        "text": "^.*$",
+        "note": "Matches every line."
+      },
+      {
+        "text": "$^",
+        "note": "Not the standard form."
+      },
+      {
+        "text": "\\s+",
+        "note": "Matches whitespace."
+      }
+    ],
+    "answer": 0,
+    "explanation": "grep -v '^$' file removes blank lines."
+  },
+  {
+    "id": 56,
+    "domain": "D3",
+    "scenario": "Which pipeline lists unique login shells from /etc/passwd with how many users use each?",
+    "options": [
+      {
+        "text": "cut -d: -f7 /etc/passwd | sort | uniq -c",
+        "note": ""
+      },
+      {
+        "text": "sort /etc/passwd | cut -f7",
+        "note": "Uses the wrong delimiter (tab) and doesn't count."
+      },
+      {
+        "text": "uniq -c /etc/passwd | cut -d: -f7",
+        "note": "uniq needs sorted input of the field first."
+      },
+      {
+        "text": "grep -c shell /etc/passwd",
+        "note": "Counts lines containing \"shell\"."
+      }
+    ],
+    "answer": 0,
+    "explanation": "uniq only merges adjacent duplicates, so sort first. -c adds counts."
+  },
+  {
+    "id": 57,
+    "domain": "D3",
+    "scenario": "Which command shows the first 20 lines of a file?",
+    "options": [
+      {
+        "text": "head -n 20 file",
+        "note": ""
+      },
+      {
+        "text": "tail -n 20 file",
+        "note": "Shows the last 20."
+      },
+      {
+        "text": "less -20 file",
+        "note": "Opens a pager."
+      },
+      {
+        "text": "cat -20 file",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "tail -f follows a file as it grows, useful for logs."
+  },
+  {
+    "id": 58,
+    "domain": "D3",
+    "scenario": "Which command lets you scroll through a long file one page at a time and search with /?",
+    "options": [
+      {
+        "text": "less",
+        "note": ""
+      },
+      {
+        "text": "cat",
+        "note": "Dumps the whole file."
+      },
+      {
+        "text": "echo",
+        "note": "Prints arguments."
+      },
+      {
+        "text": "wc",
+        "note": "Counts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "In less: Space pages down, b pages up, /text searches, n repeats, q quits."
+  },
+  {
+    "id": 59,
+    "domain": "D3",
+    "scenario": "Which command replaces every \"http:\" with \"https:\" in links.txt and prints the result?",
+    "options": [
+      {
+        "text": "sed 's/http:/https:/g' links.txt",
+        "note": ""
+      },
+      {
+        "text": "sed 's/https:/http:/' links.txt",
+        "note": "Reversed and only the first per line."
+      },
+      {
+        "text": "grep -r http https links.txt",
+        "note": "grep doesn't replace."
+      },
+      {
+        "text": "tr http https links.txt",
+        "note": "tr translates characters, and doesn't take a file argument."
+      }
+    ],
+    "answer": 0,
+    "explanation": "sed -i edits the file in place. The g flag replaces every match on each line."
+  },
+  {
+    "id": 60,
+    "domain": "D3",
+    "scenario": "What is the first line of a Bash script, #!/bin/bash, called?",
+    "options": [
+      {
+        "text": "The shebang (interpreter directive)",
+        "note": ""
+      },
+      {
+        "text": "A comment that is ignored",
+        "note": "The kernel reads it to choose the interpreter."
+      },
+      {
+        "text": "The script's name",
+        "note": "Not the name."
+      },
+      {
+        "text": "A variable declaration",
+        "note": "Not a variable."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It tells the kernel which interpreter runs the script, such as /bin/bash or /usr/bin/env python3."
+  },
+  {
+    "id": 61,
+    "domain": "D3",
+    "scenario": "You wrote backup.sh. Which steps let you run it as ./backup.sh?",
+    "options": [
+      {
+        "text": "Add a shebang and run chmod +x backup.sh",
+        "note": ""
+      },
+      {
+        "text": "Rename it to backup.exe",
+        "note": "Linux doesn't use extensions to decide."
+      },
+      {
+        "text": "Move it to /etc",
+        "note": "Not required."
+      },
+      {
+        "text": "Run sudo backup.sh",
+        "note": "Still needs execute permission or bash backup.sh."
+      }
+    ],
+    "answer": 0,
+    "explanation": "./ runs it from the current directory, since . usually isn't in PATH. bash backup.sh works without +x."
+  },
+  {
+    "id": 62,
+    "domain": "D3",
+    "scenario": "Inside a script, what does $1 contain?",
+    "options": [
+      {
+        "text": "The first argument passed to the script",
+        "note": ""
+      },
+      {
+        "text": "The script's name",
+        "note": "That's $0."
+      },
+      {
+        "text": "The number of arguments",
+        "note": "That's $#."
+      },
+      {
+        "text": "The last command's exit status",
+        "note": "That's $?."
+      }
+    ],
+    "answer": 0,
+    "explanation": "$@ is all arguments, $# their count, $? the last exit status, $$ the script's PID."
+  },
+  {
+    "id": 63,
+    "domain": "D3",
+    "scenario": "What does an exit status of 0 mean?",
+    "options": [
+      {
+        "text": "The command succeeded",
+        "note": ""
+      },
+      {
+        "text": "The command failed",
+        "note": "Non-zero means failure."
+      },
+      {
+        "text": "The command is still running",
+        "note": "Status is set when it ends."
+      },
+      {
+        "text": "No output was produced",
+        "note": "Exit status isn't about output."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check it with echo $?. Scripts set it with exit N. && runs the next command only on success."
+  },
+  {
+    "id": 64,
+    "domain": "D3",
+    "scenario": "Which test checks whether the file /etc/app.conf exists in a Bash if statement?",
+    "options": [
+      {
+        "text": "if [ -f /etc/app.conf ]; then",
+        "note": ""
+      },
+      {
+        "text": "if exists /etc/app.conf; then",
+        "note": "Not Bash syntax."
+      },
+      {
+        "text": "if [ /etc/app.conf == true ]; then",
+        "note": "Compares strings."
+      },
+      {
+        "text": "if (-e /etc/app.conf) then",
+        "note": "Not Bash syntax."
+      }
+    ],
+    "answer": 0,
+    "explanation": "-f regular file exists, -d directory, -e any type, -r readable, -x executable. Close the block with fi."
+  },
+  {
+    "id": 65,
+    "domain": "D3",
+    "scenario": "Which test compares two strings for equality in Bash?",
+    "options": [
+      {
+        "text": "[ \"$name\" = \"admin\" ]",
+        "note": ""
+      },
+      {
+        "text": "[ $name -eq admin ]",
+        "note": "-eq is numeric."
+      },
+      {
+        "text": "[ name == admin ]",
+        "note": "Missing $ so it compares the literal text \"name\"."
+      },
+      {
+        "text": "( $name = admin )",
+        "note": "Parentheses run a subshell."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use = or == for strings, -eq/-ne/-lt/-gt for numbers. Quote variables to handle empty values and spaces."
+  },
+  {
+    "id": 66,
+    "domain": "D3",
+    "scenario": "What does this loop print? for n in 1 2 3; do echo \"Item $n\"; done",
+    "options": [
+      {
+        "text": "Item 1, Item 2, and Item 3 on separate lines",
+        "note": ""
+      },
+      {
+        "text": "Item 123",
+        "note": "The loop runs once per word."
+      },
+      {
+        "text": "Item $n three times",
+        "note": "$n expands in double quotes."
+      },
+      {
+        "text": "Nothing",
+        "note": "It prints three lines."
+      }
+    ],
+    "answer": 0,
+    "explanation": "for loops iterate over words, file globs (for f in *.log), or command output."
+  },
+  {
+    "id": 67,
+    "domain": "D3",
+    "scenario": "How do you store the output of the date command in a variable named today?",
+    "options": [
+      {
+        "text": "today=$(date +%F)",
+        "note": ""
+      },
+      {
+        "text": "today=date",
+        "note": "Stores the word \"date\"."
+      },
+      {
+        "text": "today = $(date)",
+        "note": "Spaces break the assignment."
+      },
+      {
+        "text": "set today date",
+        "note": "Not Bash syntax."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Command substitution $(...) runs the command and inserts its output. Backticks are the older form."
+  },
+  {
+    "id": 68,
+    "domain": "D3",
+    "scenario": "Which command shows lines in file A that aren't identical to file B, line by line?",
+    "options": [
+      {
+        "text": "diff A B",
+        "note": ""
+      },
+      {
+        "text": "cmp -u A B",
+        "note": "cmp reports the first differing byte."
+      },
+      {
+        "text": "comm -x A B",
+        "note": "Not a valid option."
+      },
+      {
+        "text": "grep A B",
+        "note": "Searches B for the text A."
+      }
+    ],
+    "answer": 0,
+    "explanation": "diff -u shows a unified diff, the format used for patches."
+  },
+  {
+    "id": 69,
+    "domain": "D4",
+    "scenario": "Which command shows the running processes for all users?",
+    "options": [
+      {
+        "text": "ps aux",
+        "note": ""
+      },
+      {
+        "text": "ps -u",
+        "note": "Shows processes for a user."
+      },
+      {
+        "text": "jobs",
+        "note": "jobs lists the current shell's jobs."
+      },
+      {
+        "text": "ls /proc -a",
+        "note": "Lists /proc entries, not a process table."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ps aux lists every process for all users (a), including those without a terminal (x), with the owner (u) shown. top and htop show processes interactively, sorted by CPU usage."
+  },
+  {
+    "id": 70,
+    "domain": "D4",
+    "scenario": "A program is frozen. Which command asks process 4321 to terminate gracefully?",
+    "options": [
+      {
+        "text": "kill 4321",
+        "note": ""
+      },
+      {
+        "text": "kill -9 4321",
+        "note": "SIGKILL can't be caught; use it only if SIGTERM fails."
+      },
+      {
+        "text": "stop 4321",
+        "note": "Not a command."
+      },
+      {
+        "text": "rm 4321",
+        "note": "rm deletes files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "kill sends SIGTERM (15) by default. pkill and killall select processes by name."
+  },
+  {
+    "id": 71,
+    "domain": "D4",
+    "scenario": "Which command shows memory usage, including free memory and swap?",
+    "options": [
+      {
+        "text": "free -h",
+        "note": ""
+      },
+      {
+        "text": "df -h",
+        "note": "df shows disk space."
+      },
+      {
+        "text": "du -h",
+        "note": "du shows directory sizes."
+      },
+      {
+        "text": "mem -h",
+        "note": "Not a command."
+      }
+    ],
+    "answer": 0,
+    "explanation": "-h prints human-readable units. top and vmstat also show memory."
+  },
+  {
+    "id": 72,
+    "domain": "D4",
+    "scenario": "Which command shows how much space is free on each mounted file system?",
+    "options": [
+      {
+        "text": "df -h",
+        "note": ""
+      },
+      {
+        "text": "du -sh /",
+        "note": "du totals space used by files."
+      },
+      {
+        "text": "free -h",
+        "note": "Shows memory."
+      },
+      {
+        "text": "lsblk -f",
+        "note": "Lists block devices and filesystems, not free space usage."
+      }
+    ],
+    "answer": 0,
+    "explanation": "df reports used and free space per mounted file system; -h shows sizes in K, M and G. Use du -sh dir to find what's using space."
+  },
+  {
+    "id": 73,
+    "domain": "D4",
+    "scenario": "Which command lists block devices such as disks and partitions?",
+    "options": [
+      {
+        "text": "lsblk",
+        "note": ""
+      },
+      {
+        "text": "lsusb",
+        "note": "Lists USB devices."
+      },
+      {
+        "text": "lspci",
+        "note": "Lists PCI devices."
+      },
+      {
+        "text": "ls /etc",
+        "note": "Configuration files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "lsblk shows disks and their partitions as a tree, with sizes and mount points. Disk names include /dev/sda (SATA/SCSI/USB), /dev/nvme0n1 (NVMe), and /dev/vda (virtual)."
+  },
+  {
+    "id": 74,
+    "domain": "D4",
+    "scenario": "Which command shows kernel messages, such as a USB drive being detected?",
+    "options": [
+      {
+        "text": "dmesg (or journalctl -k)",
+        "note": ""
+      },
+      {
+        "text": "history",
+        "note": "Shell history."
+      },
+      {
+        "text": "uname -a",
+        "note": "Kernel version."
+      },
+      {
+        "text": "lsof",
+        "note": "Lists open files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "dmesg reads the kernel ring buffer. journalctl -k shows kernel messages from the systemd journal."
+  },
+  {
+    "id": 75,
+    "domain": "D4",
+    "scenario": "Which command shows the systemd journal entries for the sshd service?",
+    "options": [
+      {
+        "text": "journalctl -u sshd",
+        "note": ""
+      },
+      {
+        "text": "systemctl log sshd",
+        "note": "Not valid."
+      },
+      {
+        "text": "cat /var/log/journal/sshd",
+        "note": "The journal is binary."
+      },
+      {
+        "text": "dmesg -u sshd",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Add -f to follow, -b for this boot, --since \"1 hour ago\" to filter."
+  },
+  {
+    "id": 76,
+    "domain": "D4",
+    "scenario": "Which command checks whether the nginx service is running and shows recent log lines?",
+    "options": [
+      {
+        "text": "systemctl status nginx",
+        "note": ""
+      },
+      {
+        "text": "service list nginx",
+        "note": "Not valid."
+      },
+      {
+        "text": "ps -s nginx",
+        "note": "Not valid."
+      },
+      {
+        "text": "nginx --running",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "systemctl start/stop/restart controls services; enable/disable sets start at boot."
+  },
+  {
+    "id": 77,
+    "domain": "D4",
+    "scenario": "How do you make the cups service start automatically at boot?",
+    "options": [
+      {
+        "text": "sudo systemctl enable cups",
+        "note": ""
+      },
+      {
+        "text": "sudo systemctl start cups",
+        "note": "Starts now only."
+      },
+      {
+        "text": "sudo systemctl boot cups",
+        "note": "Not a verb."
+      },
+      {
+        "text": "echo cups >> /etc/startup",
+        "note": "Not how systemd works."
+      }
+    ],
+    "answer": 0,
+    "explanation": "systemctl enable --now does both."
+  },
+  {
+    "id": 78,
+    "domain": "D4",
+    "scenario": "Which command shows IP addresses on a modern Linux system?",
+    "options": [
+      {
+        "text": "ip addr (ip a)",
+        "note": ""
+      },
+      {
+        "text": "ipconfig",
+        "note": "That's Windows."
+      },
+      {
+        "text": "netstat -i",
+        "note": "Shows interface counters."
+      },
+      {
+        "text": "route -a",
+        "note": "Not current."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Linux Essentials 2.0 uses iproute2: ip addr, ip route for routes, ss for sockets. ifconfig, route, and netstat are older net-tools."
+  },
+  {
+    "id": 79,
+    "domain": "D4",
+    "scenario": "Which command shows the default gateway?",
+    "options": [
+      {
+        "text": "ip route",
+        "note": ""
+      },
+      {
+        "text": "ip addr",
+        "note": "Shows addresses."
+      },
+      {
+        "text": "hostname -g",
+        "note": "Not valid."
+      },
+      {
+        "text": "ss -g",
+        "note": "Not a gateway option."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Look for the line starting with default via, for example default via 192.168.1.1 dev eth0."
+  },
+  {
+    "id": 80,
+    "domain": "D4",
+    "scenario": "Which command lists listening TCP ports and the programs using them?",
+    "options": [
+      {
+        "text": "ss -tlnp",
+        "note": ""
+      },
+      {
+        "text": "ip -p",
+        "note": "Not valid."
+      },
+      {
+        "text": "ping -l",
+        "note": "ping tests reachability."
+      },
+      {
+        "text": "lsblk -p",
+        "note": "Lists disks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ss: -t TCP, -u UDP, -l listening, -n numeric, -p process. Older systems use netstat -tlnp."
+  },
+  {
+    "id": 81,
+    "domain": "D4",
+    "scenario": "Which file contains the DNS servers a system uses?",
+    "options": [
+      {
+        "text": "/etc/resolv.conf",
+        "note": ""
+      },
+      {
+        "text": "/etc/hosts",
+        "note": "Static name-to-address entries."
+      },
+      {
+        "text": "/etc/hostname",
+        "note": "The system's own name."
+      },
+      {
+        "text": "/etc/dns.conf",
+        "note": "Not standard."
+      }
+    ],
+    "answer": 0,
+    "explanation": "/etc/hosts entries are checked before DNS by default (set in /etc/nsswitch.conf)."
+  },
+  {
+    "id": 82,
+    "domain": "D4",
+    "scenario": "Which command tests DNS name resolution and shows the answer from the server?",
+    "options": [
+      {
+        "text": "dig example.com (or host example.com)",
+        "note": ""
+      },
+      {
+        "text": "ping -d example.com",
+        "note": "ping resolves the name but isn't a DNS diagnostic."
+      },
+      {
+        "text": "ip dns example.com",
+        "note": "Not valid."
+      },
+      {
+        "text": "whoami example.com",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "dig and host query DNS directly. getent hosts name uses the system's full lookup order."
+  },
+  {
+    "id": 83,
+    "domain": "D4",
+    "scenario": "Which component loads the Linux kernel when a computer starts?",
+    "options": [
+      {
+        "text": "The bootloader, such as GRUB 2",
+        "note": ""
+      },
+      {
+        "text": "The shell",
+        "note": "Starts after login."
+      },
+      {
+        "text": "systemd",
+        "note": "systemd is started by the kernel as PID 1."
+      },
+      {
+        "text": "The desktop environment",
+        "note": "Starts much later."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Boot order: firmware (BIOS/UEFI) → bootloader (GRUB) → kernel + initramfs → systemd (PID 1) → services and login."
+  },
+  {
+    "id": 84,
+    "domain": "D4",
+    "scenario": "What is the process ID of systemd on most modern distributions?",
+    "options": [
+      {
+        "text": "1",
+        "note": ""
+      },
+      {
+        "text": "0",
+        "note": "PID 0 isn't a normal process."
+      },
+      {
+        "text": "100",
+        "note": "No fixed meaning."
+      },
+      {
+        "text": "It changes every boot",
+        "note": "init is always PID 1."
+      }
+    ],
+    "answer": 0,
+    "explanation": "systemd (or another init) is the first user-space process and parent of orphaned processes."
+  },
+  {
+    "id": 85,
+    "domain": "D4",
+    "scenario": "What is the role of a device file such as /dev/sda?",
+    "options": [
+      {
+        "text": "It represents a hardware device so programs can access it like a file",
+        "note": ""
+      },
+      {
+        "text": "It stores drivers' source code",
+        "note": "Not stored there."
+      },
+      {
+        "text": "It's a log of device errors",
+        "note": "Logs are in the journal."
+      },
+      {
+        "text": "It's a backup of the disk",
+        "note": "It's a device interface."
+      }
+    ],
+    "answer": 0,
+    "explanation": "/dev holds device files. /proc and /sys are virtual file systems exposing kernel and hardware information."
+  },
+  {
+    "id": 86,
+    "domain": "D4",
+    "scenario": "Which command shows CPU details such as model and number of cores?",
+    "options": [
+      {
+        "text": "lscpu (or cat /proc/cpuinfo)",
+        "note": ""
+      },
+      {
+        "text": "lsblk",
+        "note": "Disks."
+      },
+      {
+        "text": "free",
+        "note": "Memory."
+      },
+      {
+        "text": "cpu --info",
+        "note": "Not a command."
+      }
+    ],
+    "answer": 0,
+    "explanation": "/proc/cpuinfo and /proc/meminfo come from the kernel."
+  },
+  {
+    "id": 87,
+    "domain": "D4",
+    "scenario": "Which statement about installing Linux in the cloud is true?",
+    "options": [
+      {
+        "text": "Instances usually start from a prebuilt image; you choose a size, network, and SSH key instead of running an installer",
+        "note": ""
+      },
+      {
+        "text": "You always boot an ISO installer",
+        "note": "Cloud images are preinstalled."
+      },
+      {
+        "text": "Cloud Linux can't use SSH",
+        "note": "SSH keys are the default login."
+      },
+      {
+        "text": "Each instance needs a physical disk",
+        "note": "Storage is virtual."
+      }
+    ],
+    "answer": 0,
+    "explanation": "On-premises installs use an ISO installer or automated methods; virtual machines and clouds use images and cloud-init."
+  },
+  {
+    "id": 88,
+    "domain": "D4",
+    "scenario": "Which command installs the tree package on Ubuntu?",
+    "options": [
+      {
+        "text": "sudo apt install tree",
+        "note": ""
+      },
+      {
+        "text": "sudo dnf install tree",
+        "note": "dnf is for Fedora and RHEL."
+      },
+      {
+        "text": "sudo rpm -i tree",
+        "note": "rpm needs a package file and is for RPM systems."
+      },
+      {
+        "text": "tree --install",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Debian/Ubuntu: apt. Fedora/RHEL: dnf. openSUSE: zypper. Install from repositories rather than random downloads."
+  },
+  {
+    "id": 89,
+    "domain": "D4",
+    "scenario": "What does a package manager do that downloading programs by hand doesn't?",
+    "options": [
+      {
+        "text": "Resolves dependencies, verifies signatures, and tracks installed files for updates and removal",
+        "note": ""
+      },
+      {
+        "text": "Only compresses files",
+        "note": "It does much more."
+      },
+      {
+        "text": "Prevents all software updates",
+        "note": "It provides updates."
+      },
+      {
+        "text": "Runs programs faster",
+        "note": "Doesn't affect speed."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A package manager downloads from trusted repositories, installs dependencies automatically, and records every installed file so it can update or remove it cleanly. Repositories are signed, so packages come from trusted sources."
+  },
+  {
+    "id": 90,
+    "domain": "D4",
+    "scenario": "Which command shows the hostname and kernel version?",
+    "options": [
+      {
+        "text": "uname -a",
+        "note": ""
+      },
+      {
+        "text": "hostname -k",
+        "note": "Not valid."
+      },
+      {
+        "text": "whoami -a",
+        "note": "Not valid."
+      },
+      {
+        "text": "lsb -a",
+        "note": "Not a command."
+      }
+    ],
+    "answer": 0,
+    "explanation": "uname -r shows only the kernel release. hostnamectl shows hostname and OS details on systemd systems."
+  },
+  {
+    "id": 91,
+    "domain": "D5",
+    "scenario": "A file shows -rw-r----- with owner alice and group finance. Who can read it?",
+    "options": [
+      {
+        "text": "alice and members of the finance group",
+        "note": ""
+      },
+      {
+        "text": "Everyone",
+        "note": "Others have no permissions."
+      },
+      {
+        "text": "Only alice",
+        "note": "The group has read."
+      },
+      {
+        "text": "Only root",
+        "note": "The owner and group can read it; root can too."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Permission groups: owner (rw-), group (r--), others (---)."
+  },
+  {
+    "id": 92,
+    "domain": "D5",
+    "scenario": "What octal mode gives the owner read/write/execute, the group read/execute, and others nothing?",
+    "options": [
+      {
+        "text": "750",
+        "note": ""
+      },
+      {
+        "text": "755",
+        "note": "Others would get r-x."
+      },
+      {
+        "text": "640",
+        "note": "No execute for owner."
+      },
+      {
+        "text": "777",
+        "note": "Everyone gets everything."
+      }
+    ],
+    "answer": 0,
+    "explanation": "r=4, w=2, x=1. rwx=7, r-x=5, ---=0."
+  },
+  {
+    "id": 93,
+    "domain": "D5",
+    "scenario": "Which command makes deploy.sh executable for its owner only?",
+    "options": [
+      {
+        "text": "chmod u+x deploy.sh",
+        "note": ""
+      },
+      {
+        "text": "chmod a+x deploy.sh",
+        "note": "Adds execute for everyone."
+      },
+      {
+        "text": "chown +x deploy.sh",
+        "note": "chown changes ownership."
+      },
+      {
+        "text": "chmod 444 deploy.sh",
+        "note": "Read-only for all."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Symbolic chmod: u user, g group, o others, a all; + add, - remove, = set."
+  },
+  {
+    "id": 94,
+    "domain": "D5",
+    "scenario": "Which command changes the owner of report.pdf to bob and the group to sales?",
+    "options": [
+      {
+        "text": "sudo chown bob:sales report.pdf",
+        "note": ""
+      },
+      {
+        "text": "chmod bob:sales report.pdf",
+        "note": "chmod changes permissions."
+      },
+      {
+        "text": "chgrp bob report.pdf",
+        "note": "chgrp only changes the group."
+      },
+      {
+        "text": "usermod bob report.pdf",
+        "note": "usermod changes accounts."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Only root can give a file away. chgrp changes just the group."
+  },
+  {
+    "id": 95,
+    "domain": "D5",
+    "scenario": "What does execute permission mean on a directory?",
+    "options": [
+      {
+        "text": "You can enter it and access files inside it by name",
+        "note": ""
+      },
+      {
+        "text": "You can run every file in it",
+        "note": "Files need their own x bit."
+      },
+      {
+        "text": "You can list its contents",
+        "note": "Listing needs read."
+      },
+      {
+        "text": "You can delete it",
+        "note": "Deleting needs write on the parent."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Directory r = list names, w = create/delete entries, x = enter and traverse."
+  },
+  {
+    "id": 96,
+    "domain": "D5",
+    "scenario": "Why is /tmp mode drwxrwxrwt?",
+    "options": [
+      {
+        "text": "Everyone can create files, but the sticky bit (t) lets users delete only their own files",
+        "note": ""
+      },
+      {
+        "text": "It's a security mistake",
+        "note": "It's intentional."
+      },
+      {
+        "text": "t means the directory is temporary",
+        "note": "t is the sticky bit."
+      },
+      {
+        "text": "Only root can write there",
+        "note": "Everyone can write."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Special bits: SUID (s in user execute), SGID (s in group execute), sticky (t in other execute)."
+  },
+  {
+    "id": 97,
+    "domain": "D5",
+    "scenario": "What does the SUID bit on /usr/bin/passwd do?",
+    "options": [
+      {
+        "text": "The program runs with the file owner's (root's) privileges, so users can update /etc/shadow",
+        "note": ""
+      },
+      {
+        "text": "It hides the program",
+        "note": "Not related."
+      },
+      {
+        "text": "It runs with the user's group only",
+        "note": "That's not SUID."
+      },
+      {
+        "text": "It prevents anyone from running it",
+        "note": "Everyone can run it."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SUID files show s in the owner execute position: -rwsr-xr-x. Audit SUID programs because they run with elevated rights."
+  },
+  {
+    "id": 98,
+    "domain": "D5",
+    "scenario": "What does the SGID bit do on a shared project directory?",
+    "options": [
+      {
+        "text": "New files inside inherit the directory's group",
+        "note": ""
+      },
+      {
+        "text": "Files become read-only",
+        "note": "Not SGID."
+      },
+      {
+        "text": "Only the owner can delete files",
+        "note": "That's the sticky bit."
+      },
+      {
+        "text": "Files run as root",
+        "note": "Not on directories."
+      }
+    ],
+    "answer": 0,
+    "explanation": "chmod g+s /srv/project or chmod 2770 /srv/project. Combine it with a shared group for team folders."
+  },
+  {
+    "id": 99,
+    "domain": "D5",
+    "scenario": "Where are user account names, UIDs, home directories, and shells stored?",
+    "options": [
+      {
+        "text": "/etc/passwd",
+        "note": ""
+      },
+      {
+        "text": "/etc/shadow",
+        "note": "Holds password hashes and aging."
+      },
+      {
+        "text": "/etc/group",
+        "note": "Holds groups and members."
+      },
+      {
+        "text": "/home/users",
+        "note": "Not standard."
+      }
+    ],
+    "answer": 0,
+    "explanation": "/etc/passwd is world-readable but no longer stores password hashes; those are in /etc/shadow, readable only by root."
+  },
+  {
+    "id": 100,
+    "domain": "D5",
+    "scenario": "What UID does root have?",
+    "options": [
+      {
+        "text": "0",
+        "note": ""
+      },
+      {
+        "text": "1",
+        "note": "Usually daemon."
+      },
+      {
+        "text": "1000",
+        "note": "Typically the first regular user."
+      },
+      {
+        "text": "65534",
+        "note": "nobody."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Regular users usually start at 1000; system accounts use lower UIDs and often have nologin shells."
+  },
+  {
+    "id": 101,
+    "domain": "D5",
+    "scenario": "Which command creates the user maria with a home directory?",
+    "options": [
+      {
+        "text": "sudo useradd -m maria",
+        "note": ""
+      },
+      {
+        "text": "sudo adduser -n maria",
+        "note": "Not valid."
+      },
+      {
+        "text": "sudo usermod -m maria",
+        "note": "usermod changes existing accounts."
+      },
+      {
+        "text": "sudo passwd -c maria",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Then set a password with sudo passwd maria. Debian's adduser is an interactive wrapper."
+  },
+  {
+    "id": 102,
+    "domain": "D5",
+    "scenario": "Which command adds the existing user maria to the developers group without removing her other groups?",
+    "options": [
+      {
+        "text": "sudo usermod -aG developers maria",
+        "note": ""
+      },
+      {
+        "text": "sudo usermod -G developers maria",
+        "note": "Without -a it replaces the supplementary groups."
+      },
+      {
+        "text": "sudo groupadd maria developers",
+        "note": "groupadd creates groups."
+      },
+      {
+        "text": "sudo chgrp developers maria",
+        "note": "chgrp changes file groups."
+      }
+    ],
+    "answer": 0,
+    "explanation": "She must log in again for the new group to apply. Check with id maria."
+  },
+  {
+    "id": 103,
+    "domain": "D5",
+    "scenario": "Which command creates a new group named auditors?",
+    "options": [
+      {
+        "text": "sudo groupadd auditors",
+        "note": ""
+      },
+      {
+        "text": "sudo addgroup -u auditors",
+        "note": "Not valid."
+      },
+      {
+        "text": "sudo useradd -g auditors",
+        "note": "Creates a user."
+      },
+      {
+        "text": "sudo newgrp auditors",
+        "note": "newgrp switches your current group."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Delete with groupdel; list memberships with getent group auditors."
+  },
+  {
+    "id": 104,
+    "domain": "D5",
+    "scenario": "Why use sudo instead of logging in as root?",
+    "options": [
+      {
+        "text": "It grants admin rights per command, logs who did what, and avoids sharing the root password",
+        "note": ""
+      },
+      {
+        "text": "sudo is faster",
+        "note": "Not the reason."
+      },
+      {
+        "text": "Root can't run commands",
+        "note": "Root can run anything."
+      },
+      {
+        "text": "sudo encrypts commands",
+        "note": "It doesn't."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Users get sudo rights through the sudo or wheel group or /etc/sudoers. su - switches to another user, usually root, with that user's password."
+  },
+  {
+    "id": 105,
+    "domain": "D5",
+    "scenario": "Which command shows who is currently logged in?",
+    "options": [
+      {
+        "text": "who (or w)",
+        "note": ""
+      },
+      {
+        "text": "whoami",
+        "note": "Shows only your own username."
+      },
+      {
+        "text": "last -f",
+        "note": "Not the standard form."
+      },
+      {
+        "text": "id -a",
+        "note": "Shows your IDs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "who lists users logged in now; w adds what each one is running. last shows login history; lastlog shows each user's most recent login."
+  },
+  {
+    "id": 106,
+    "domain": "D5",
+    "scenario": "Which command connects securely to server1 as user admin?",
+    "options": [
+      {
+        "text": "ssh admin@server1",
+        "note": ""
+      },
+      {
+        "text": "telnet admin@server1",
+        "note": "Telnet isn't encrypted."
+      },
+      {
+        "text": "ftp admin@server1",
+        "note": "FTP isn't encrypted."
+      },
+      {
+        "text": "rsh admin server1",
+        "note": "rsh isn't encrypted."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SSH listens on TCP 22 and encrypts the session, including the password."
+  },
+  {
+    "id": 107,
+    "domain": "D5",
+    "scenario": "Which command copies report.pdf to the /tmp directory on server1 over SSH?",
+    "options": [
+      {
+        "text": "scp report.pdf admin@server1:/tmp/",
+        "note": ""
+      },
+      {
+        "text": "cp report.pdf server1:/tmp",
+        "note": "cp works only locally."
+      },
+      {
+        "text": "ssh report.pdf server1",
+        "note": "ssh opens a shell."
+      },
+      {
+        "text": "mv report.pdf @server1",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "sftp and rsync -e ssh also transfer files securely."
+  },
+  {
+    "id": 108,
+    "domain": "D5",
+    "scenario": "How do you set up key-based SSH login to server1?",
+    "options": [
+      {
+        "text": "Run ssh-keygen, then ssh-copy-id admin@server1 to add your public key to authorized_keys",
+        "note": ""
+      },
+      {
+        "text": "Email your private key to the server admin",
+        "note": "Never share the private key."
+      },
+      {
+        "text": "Copy /etc/passwd to the server",
+        "note": "Not related."
+      },
+      {
+        "text": "Set the password to blank",
+        "note": "Insecure."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The public key goes in ~/.ssh/authorized_keys on the server; the private key stays on your computer, ideally with a passphrase."
+  },
+  {
+    "id": 109,
+    "domain": "D5",
+    "scenario": "ls -l shows a symbolic link as lrwxrwxrwx. What actually controls access through it?",
+    "options": [
+      {
+        "text": "The target file's permissions",
+        "note": ""
+      },
+      {
+        "text": "The link's own permissions",
+        "note": "They're ignored."
+      },
+      {
+        "text": "The parent directory only",
+        "note": "The target matters."
+      },
+      {
+        "text": "Nobody can access links",
+        "note": "They work normally."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Permissions on a symbolic link itself are ignored; the system checks the permissions of the file it points to. ls -l shows links as name -> target."
+  },
+  {
+    "id": 110,
+    "domain": "D5",
+    "scenario": "Which directories hold files that every user can write to but only for temporary use?",
+    "options": [
+      {
+        "text": "/tmp and /var/tmp",
+        "note": ""
+      },
+      {
+        "text": "/etc and /usr",
+        "note": "Only root writes there."
+      },
+      {
+        "text": "/home only",
+        "note": "Each user writes in their own home."
+      },
+      {
+        "text": "/boot",
+        "note": "Root only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "/tmp may be cleared at boot; /var/tmp survives reboots longer."
+  }
+]

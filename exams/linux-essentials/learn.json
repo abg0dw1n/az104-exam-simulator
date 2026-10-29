@@ -1,0 +1,1358 @@
+{
+  "intro": "Five modules follow the five Linux Essentials 2.0 topics and their weights. Each one has a study guide, exam tips, key terms, visual slides, and a narrated lesson. Practice the commands in the Labs tab, and use LPI's free official learning materials alongside these modules.",
+  "updated": "2026-10-29",
+  "sources": [
+    {
+      "title": "LPI: Linux Essentials exam objectives (version 2.0, 010-200)",
+      "url": "https://www.lpi.org/gljr"
+    },
+    {
+      "title": "LPI: Linux Essentials overview",
+      "url": "https://www.lpi.org/our-certifications/linux-essentials-overview/"
+    },
+    {
+      "title": "LPI: Releases Linux Essentials version 2.0 (October 15, 2026)",
+      "url": "https://www.lpi.org/articles/linux-professional-institute-releases-linux-essentials-version-2-0/"
+    },
+    {
+      "title": "LPI Learning Materials: Linux Essentials (version 2.0)",
+      "url": "https://learning.lpi.org/en/learning-materials/010-200/",
+      "note": "Free official study materials · version 2.0 · checked October 2026"
+    },
+    {
+      "title": "LPI wiki: Summary of changes from version 1.6 to 2.0",
+      "url": "https://wiki.lpi.org/wiki/LinuxEssentials_Summary_Version_1.6_To_2.0"
+    }
+  ],
+  "modules": [
+    {
+      "id": "D1",
+      "short": "Linux & open source",
+      "title": "The Linux operating system and open source software",
+      "summary": "Know what Linux is, how distributions differ, the major open source applications, how open source licenses work, and where Linux runs: desktops, servers, virtual machines, containers, the cloud, and WSL.",
+      "guide": [
+        {
+          "h": "What this topic covers",
+          "html": "<p>Topic 011 is <b>7 of the 40</b> exam points. It's mostly conceptual: recognizing distributions, applications, licenses, and the places Linux is used. No commands to memorize here, but the vocabulary shows up throughout the exam.</p>"
+        },
+        {
+          "h": "Linux and distributions",
+          "html": "<p><b>Linux</b> is a kernel, released by Linus Torvalds in 1991. A <b>distribution</b> combines the kernel with GNU tools, libraries, a package manager, an installer, and applications. Families matter because they share package formats and tools:</p><ul><li><b>Debian family</b>: Debian, Ubuntu, Linux Mint, Raspberry Pi OS. Packages are <code>.deb</code>, managed with <code>apt</code>/<code>dpkg</code>.</li><li><b>Red Hat family</b>: RHEL, Fedora, CentOS Stream, Rocky Linux, AlmaLinux. Packages are <code>.rpm</code>, managed with <code>dnf</code>/<code>rpm</code>.</li><li><b>SUSE</b>: openSUSE and SUSE Linux Enterprise, with <code>zypper</code> and RPM.</li></ul><p>Enterprise distributions (RHEL, SLES, Ubuntu LTS with Pro) offer long life cycles and paid support. <b>LTS</b> means long-term support. Rolling releases (Arch, openSUSE Tumbleweed) update continuously instead of in versions.</p>"
+        },
+        {
+          "h": "Open source applications",
+          "html": "<p>Know examples by category: office (<b>LibreOffice</b>), web browsing (<b>Firefox</b>, Chromium), email (<b>Thunderbird</b>), graphics (<b>GIMP</b>, Inkscape), 3D (<b>Blender</b>), media (<b>VLC</b>). On servers: web (<b>Apache httpd</b>, <b>NGINX</b>), databases (<b>MariaDB</b>, <b>PostgreSQL</b>), file sharing (<b>Samba</b> for SMB, <b>NFS</b>), mail (<b>Postfix</b>), remote access (<b>OpenSSH</b>). Programming languages common on Linux include C, Python, Bash, Perl, and JavaScript. Desktop environments such as <b>GNOME</b>, <b>KDE Plasma</b>, and <b>Xfce</b> run on a display server (Wayland or X11).</p>"
+        },
+        {
+          "h": "Licenses and the open source model",
+          "html": "<p><b>Free software</b> (FSF) is about freedom: to run, study, change, and share. <b>Open source</b> (OSI) is a closely related definition with a focus on development benefits. Licenses split into two groups:</p><ul><li><b>Copyleft</b> (GPL, AGPL, LGPL): if you distribute a modified version, it must stay under the same license with source code.</li><li><b>Permissive</b> (MIT, BSD, Apache 2.0): you can include the code in closed-source products, keeping the copyright notice.</li></ul><p>Companies earn money from open source with support subscriptions, services, training, hosting, and open-core add-ons. <b>Creative Commons</b> licenses cover content such as documentation and images.</p>"
+        },
+        {
+          "h": "Where Linux runs, and staying safe",
+          "html": "<p>Linux runs on physical machines, <b>virtual machines</b> (a full guest OS on a hypervisor), <b>containers</b> (isolated processes sharing the host kernel, run with Podman or Docker), cloud instances launched from images and configured with <b>cloud-init</b>, and on Windows through <b>WSL</b>. Version 2.0 also expects everyday security sense: unique long passwords in a <b>password manager</b>, <b>MFA</b> and passkeys where possible, encrypted connections (HTTPS, SSH), and keeping software updated.</p>"
+        }
+      ],
+      "tips": [
+        "Ubuntu and Mint are Debian-based (.deb, apt); Fedora, RHEL, Rocky, and Alma are Red Hat-based (.rpm, dnf).",
+        "GPL = copyleft; MIT, BSD, Apache = permissive.",
+        "Samba = Windows file sharing; Apache/NGINX = web; MariaDB = database; Postfix = mail.",
+        "Containers share the host kernel; VMs run their own kernel.",
+        "\"Free\" in free software means freedom, not price."
+      ],
+      "terms": [
+        [
+          "Kernel",
+          "The core of the OS that manages hardware, memory, and processes."
+        ],
+        [
+          "Distribution",
+          "A complete OS built around the Linux kernel."
+        ],
+        [
+          "LTS",
+          "Long-term support release with extended updates."
+        ],
+        [
+          "Copyleft",
+          "License rule that derivatives must keep the same license."
+        ],
+        [
+          "Permissive license",
+          "License allowing reuse in closed-source software (MIT, BSD, Apache)."
+        ],
+        [
+          "Container",
+          "Isolated processes sharing the host kernel, with their own filesystem image."
+        ],
+        [
+          "cloud-init",
+          "Tool that configures cloud instances at first boot."
+        ],
+        [
+          "WSL",
+          "Windows Subsystem for Linux: run Linux tools on Windows."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Linux and open source",
+          "bullets": [
+            "18% of Linux Essentials",
+            "Distributions and apps",
+            "Licenses and where Linux runs"
+          ],
+          "script": [
+            "Welcome to the first Linux Essentials module. Here you'll learn what Linux actually is, how distributions differ, and how open source licensing works.",
+            "This topic is vocabulary-heavy, so focus on recognizing names and categories."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Kernel",
+                "d": "Torvalds, 1991"
+              },
+              {
+                "t": "Distributions",
+                "d": "Debian · Red Hat · SUSE"
+              },
+              {
+                "t": "Applications",
+                "d": "Desktop and server"
+              },
+              {
+                "t": "Licenses",
+                "d": "Copyleft · permissive"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Distribution families",
+          "bullets": [
+            "Debian: .deb and apt",
+            "Red Hat: .rpm and dnf",
+            "SUSE: .rpm and zypper"
+          ],
+          "script": [
+            "Linux by itself is a kernel. A distribution adds tools, a package manager, and applications.",
+            "Debian, Ubuntu, and Mint use deb packages and apt. RHEL, Fedora, Rocky, and AlmaLinux use RPM and dnf. SUSE uses RPM with zypper."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Family",
+              "Examples",
+              "Packages"
+            ],
+            "rows": [
+              [
+                "Debian",
+                "Debian · Ubuntu · Mint",
+                ".deb · apt"
+              ],
+              [
+                "Red Hat",
+                "RHEL · Fedora · Rocky",
+                ".rpm · dnf"
+              ],
+              [
+                "SUSE",
+                "openSUSE · SLES",
+                ".rpm · zypper"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Open source applications",
+          "bullets": [
+            "Desktop: LibreOffice, Firefox, GIMP",
+            "Server: Apache, NGINX, MariaDB",
+            "Sharing: Samba and NFS"
+          ],
+          "script": [
+            "Know common open source applications by category. LibreOffice is the office suite, Firefox the browser, GIMP and Inkscape edit images.",
+            "On servers, Apache and NGINX serve web pages, MariaDB and PostgreSQL store data, Samba shares files with Windows, and OpenSSH provides secure remote access."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Office",
+                "d": "LibreOffice"
+              },
+              {
+                "t": "Web",
+                "d": "Apache · NGINX"
+              },
+              {
+                "t": "Database",
+                "d": "MariaDB · PostgreSQL"
+              },
+              {
+                "t": "Files",
+                "d": "Samba · NFS"
+              },
+              {
+                "t": "Mail",
+                "d": "Postfix"
+              },
+              {
+                "t": "Remote",
+                "d": "OpenSSH"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Open source licenses",
+          "bullets": [
+            "Four freedoms",
+            "Copyleft keeps code open",
+            "Permissive allows closed reuse"
+          ],
+          "script": [
+            "Free software means the freedom to run, study, change, and share a program. It isn't about price.",
+            "Copyleft licenses like the GPL require modified versions to stay open when distributed. Permissive licenses like MIT and Apache let companies reuse code in closed products."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "License",
+              "Type"
+            ],
+            "rows": [
+              [
+                "GPL / AGPL",
+                "Copyleft"
+              ],
+              [
+                "LGPL",
+                "Weak copyleft"
+              ],
+              [
+                "MIT · BSD",
+                "Permissive"
+              ],
+              [
+                "Apache 2.0",
+                "Permissive + patents"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Where Linux runs",
+          "bullets": [
+            "Servers, desktops, and devices",
+            "VMs, containers, and the cloud",
+            "WSL on Windows"
+          ],
+          "script": [
+            "Linux runs almost everywhere: on servers, desktops, phones, and embedded devices.",
+            "Virtual machines run a full guest kernel, containers share the host's kernel, cloud instances start from images configured by cloud-init, and WSL brings Linux tools to Windows."
+          ],
+          "visual": {
+            "type": "layers",
+            "items": [
+              {
+                "t": "Cloud instance",
+                "d": "Image + cloud-init"
+              },
+              {
+                "t": "Container",
+                "d": "Shares host kernel"
+              },
+              {
+                "t": "Virtual machine",
+                "d": "Own kernel on hypervisor"
+              },
+              {
+                "t": "Physical host",
+                "d": "Hardware"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: Linux and open source",
+          "bullets": [
+            "Revisit the key ideas",
+            "Try the commands yourself",
+            "Take the question set"
+          ],
+          "script": [
+            "You've finished the Linux and open source module. Go back over the key terms and try each command in a terminal or in the labs.",
+            "Then take the Linux and open source question set and read every explanation. Then try the labs for hands-on practice."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "short": "Command line",
+      "title": "Command line basics",
+      "summary": "Use the Bash shell confidently: command syntax, variables and quoting, history and completion, getting help from man pages, and navigating and managing files and directories.",
+      "guide": [
+        {
+          "h": "What this topic covers",
+          "html": "<p>Topic 012 is <b>9 of 40</b> points: command-line usage, documentation, paths, and file management. Expect to recognize the right command and option, and to fill in a command from memory.</p>"
+        },
+        {
+          "h": "Shell basics",
+          "html": "<p>A command has the form <code>command -options arguments</code>. The shell (usually <b>Bash</b>) expands variables and wildcards before running it. Variables: <code>NAME=value</code> (no spaces) creates a shell variable, <code>export NAME</code> makes it visible to programs, and <code>$NAME</code> reads it. <code>PATH</code> lists the directories searched for commands; <code>HOME</code> is your home directory. Quotes matter: double quotes expand <code>$VAR</code>, single quotes keep text literal, and a backslash escapes one character.</p><p>Time savers: <b>Tab</b> completes names, <code>history</code> lists past commands, <code>!!</code> repeats the last one, and <b>Ctrl+R</b> searches history.</p>"
+        },
+        {
+          "h": "Getting help",
+          "html": "<p><code>man command</code> opens the manual page; <code>man 5 passwd</code> picks section 5 (file formats) instead of section 1 (commands). Section 8 is administration commands. <code>man -k word</code> or <code>apropos word</code> searches descriptions. <code>command --help</code> prints a summary, <code>info</code> opens GNU info pages, and <code>help</code> covers Bash builtins such as <code>cd</code>. <code>which</code> and <code>type</code> show where a command comes from.</p>"
+        },
+        {
+          "h": "Paths and the file system",
+          "html": "<p>Paths starting with <code>/</code> are <b>absolute</b>; others are <b>relative</b> to the working directory. <code>.</code> is the current directory, <code>..</code> the parent, <code>~</code> your home. Key directories (FHS): <code>/etc</code> config, <code>/home</code> users, <code>/var</code> logs and changing data, <code>/tmp</code> temporary files, <code>/usr</code> installed software, <code>/boot</code> kernel, <code>/dev</code> devices, <code>/proc</code> and <code>/sys</code> kernel information. Hidden files start with a dot.</p>"
+        },
+        {
+          "h": "Managing files",
+          "html": "<p><code>ls -la</code> lists everything in detail. <code>cd</code>, <code>pwd</code>, <code>mkdir -p</code>, <code>touch</code>, <code>cp -r</code>, <code>mv</code>, <code>rm</code>, <code>rm -r</code>, <code>rmdir</code>. Wildcards: <code>*</code> any characters, <code>?</code> one character, <code>[a-c]</code> one from a set. Links: <code>ln file hardlink</code> creates another name for the same inode; <code>ln -s target link</code> creates a pointer that breaks if the target is removed. <code>find dir -name 'pattern'</code> searches in real time; <code>locate</code> uses a database. <code>file</code> identifies content type.</p>"
+        }
+      ],
+      "tips": [
+        "No spaces around = when assigning variables.",
+        "Double quotes expand variables; single quotes don't.",
+        "man 1 = commands, man 5 = file formats, man 8 = admin commands.",
+        "cp needs -r for directories; rmdir only removes empty directories.",
+        "* matches many characters, ? exactly one."
+      ],
+      "terms": [
+        [
+          "Absolute path",
+          "A path from the root, starting with /."
+        ],
+        [
+          "Relative path",
+          "A path from the current directory."
+        ],
+        [
+          "PATH",
+          "Directories the shell searches for commands."
+        ],
+        [
+          "export",
+          "Makes a variable available to child processes."
+        ],
+        [
+          "Glob",
+          "Wildcard pattern the shell expands: *, ?, [ ]."
+        ],
+        [
+          "Hard link",
+          "Another directory entry for the same inode."
+        ],
+        [
+          "Symbolic link",
+          "A file that points to another path."
+        ],
+        [
+          "FHS",
+          "Filesystem Hierarchy Standard: where files belong."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Command line basics",
+          "bullets": [
+            "22% of Linux Essentials",
+            "Shell syntax and help",
+            "Files and directories"
+          ],
+          "script": [
+            "This module covers the Bash shell: how commands are built, how to get help, and how to move around and manage files.",
+            "Type along in a terminal or the labs as you go."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Syntax",
+                "d": "command -o args"
+              },
+              {
+                "t": "Variables",
+                "d": "export · $VAR"
+              },
+              {
+                "t": "Help",
+                "d": "man · --help"
+              },
+              {
+                "t": "Files",
+                "d": "cp · mv · rm · ln"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Anatomy of a command",
+          "bullets": [
+            "Command, options, arguments",
+            "Variables and quoting",
+            "Tab, history, Ctrl+R"
+          ],
+          "script": [
+            "Every command follows the same pattern: the command name, then options that change its behavior, then arguments it acts on.",
+            "Variables hold values, and quoting controls expansion: double quotes expand variables, single quotes keep text literal."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "ls",
+                "d": "Command"
+              },
+              {
+                "t": "-la",
+                "d": "Options"
+              },
+              {
+                "t": "/etc",
+                "d": "Argument"
+              },
+              {
+                "t": "Output",
+                "d": "To the terminal"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Getting help",
+          "bullets": [
+            "man pages and sections",
+            "apropos searches",
+            "--help and help"
+          ],
+          "script": [
+            "When you don't remember an option, the manual pages are always installed. man ls shows the ls manual.",
+            "Sections matter: section 1 is commands, 5 is configuration file formats, and 8 is administration commands. apropos finds commands by keyword."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Need",
+              "Use"
+            ],
+            "rows": [
+              [
+                "Full manual",
+                "man cmd"
+              ],
+              [
+                "Find a command",
+                "apropos word"
+              ],
+              [
+                "Quick summary",
+                "cmd --help"
+              ],
+              [
+                "Shell builtin",
+                "help cd"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "The Linux directory tree",
+          "bullets": [
+            "/etc configuration",
+            "/var changing data and logs",
+            "/home, /tmp, /usr, /dev"
+          ],
+          "script": [
+            "Linux uses a single tree starting at the root, slash. The Filesystem Hierarchy Standard says where things go.",
+            "Configuration lives in etc, logs in var log, users' files in home, temporary files in tmp, and installed programs under usr."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Directory",
+              "Holds"
+            ],
+            "rows": [
+              [
+                "/etc",
+                "Configuration"
+              ],
+              [
+                "/var/log",
+                "Logs"
+              ],
+              [
+                "/home",
+                "User files"
+              ],
+              [
+                "/tmp",
+                "Temporary files"
+              ],
+              [
+                "/usr/bin",
+                "Programs"
+              ],
+              [
+                "/dev",
+                "Devices"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Managing files",
+          "bullets": [
+            "mkdir -p, cp -r, mv, rm",
+            "Wildcards",
+            "Hard and symbolic links"
+          ],
+          "script": [
+            "Create directories with mkdir dash p, copy with cp dash r for directories, move or rename with mv, and remove with rm.",
+            "Wildcards let one command act on many files. Links give a file another name: hard links share the inode, symbolic links point to a path."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "mkdir -p",
+                "d": "Nested dirs"
+              },
+              {
+                "t": "cp -r",
+                "d": "Copy trees"
+              },
+              {
+                "t": "mv",
+                "d": "Move · rename"
+              },
+              {
+                "t": "rm -r",
+                "d": "Delete trees"
+              },
+              {
+                "t": "ln -s",
+                "d": "Symlink"
+              },
+              {
+                "t": "find",
+                "d": "Search names"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: command line basics",
+          "bullets": [
+            "Revisit the key ideas",
+            "Try the commands yourself",
+            "Take the question set"
+          ],
+          "script": [
+            "You've finished the command line basics module. Go back over the key terms and try each command in a terminal or in the labs.",
+            "Then take the command line basics question set and read every explanation. Then try the labs for hands-on practice."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "short": "Data processing",
+      "title": "The power of the command line: data processing",
+      "summary": "Archive and compress files, redirect input and output, chain commands with pipes, search and transform text with grep, sed, cut, sort, and uniq, and write simple Bash scripts with variables, tests, and loops.",
+      "guide": [
+        {
+          "h": "What this topic covers",
+          "html": "<p>Topic 013 is <b>9 of 40</b> points: archives and compression, redirection and text processing, and basic shell scripting (the biggest single objective at 4 points).</p>"
+        },
+        {
+          "h": "Archives and compression",
+          "html": "<p><code>tar</code> bundles files; compression is separate. <code>tar -czf out.tar.gz dir</code> creates a gzip archive, <code>-j</code> uses bzip2, <code>-J</code> uses xz. <code>tar -tf</code> lists and <code>tar -xf</code> extracts (add <code>-C dir</code> to choose where). Single-file tools: <code>gzip</code>/<code>gunzip</code>, <code>bzip2</code>/<code>bunzip2</code>, <code>xz</code>/<code>unxz</code>. <code>zip</code>/<code>unzip</code> handle .zip files. xz compresses smallest but slowest; gzip is fastest.</p>"
+        },
+        {
+          "h": "Redirection and pipes",
+          "html": "<p>Every program has <b>stdin (0)</b>, <b>stdout (1)</b>, and <b>stderr (2)</b>. <code>&gt;</code> writes output to a file (overwrite), <code>&gt;&gt;</code> appends, <code>&lt;</code> reads input from a file, <code>2&gt;</code> redirects errors, and <code>2&gt;/dev/null</code> discards them. A pipe <code>|</code> feeds one command's output into the next: <code>grep sshd /var/log/auth.log | wc -l</code>. <code>tee</code> writes to a file and the screen at once.</p>"
+        },
+        {
+          "h": "Text tools and regular expressions",
+          "html": "<p><code>grep</code> finds lines (<code>-i</code> ignore case, <code>-v</code> invert, <code>-c</code> count, <code>-r</code> recursive). <code>head</code>/<code>tail</code> show the start or end (<code>tail -f</code> follows logs), <code>less</code> pages, <code>wc -l</code> counts lines, <code>sort</code> (<code>-n</code> numeric, <code>-r</code> reverse), <code>uniq -c</code> counts adjacent duplicates (so sort first), <code>cut -d: -f1</code> takes fields, <code>sed 's/old/new/g'</code> replaces text, and <code>diff</code> compares files. Regex basics: <code>^</code> start of line, <code>$</code> end, <code>.</code> any character, <code>*</code> repeat, <code>[0-9]</code> a set.</p>"
+        },
+        {
+          "h": "Shell scripting basics",
+          "html": "<p>A script starts with a <b>shebang</b> such as <code>#!/bin/bash</code> and needs execute permission (<code>chmod +x</code>). Arguments arrive as <code>$1</code>, <code>$2</code>...; <code>$#</code> is the count, <code>$0</code> the script name, <code>$?</code> the last exit status (0 = success). Use <code>$(command)</code> to capture output. Conditions use <code>if [ -f file ]; then ... fi</code>, with tests such as <code>-f</code> (file exists), <code>-d</code> (directory), <code>=</code> (strings equal), and <code>-eq</code> (numbers equal). Loops: <code>for f in *.log; do ...; done</code> and <code>while</code>. End with <code>exit 0</code> or a non-zero code on failure.</p>"
+        }
+      ],
+      "tips": [
+        "tar: c create, x extract, t list, f file; z/j/J = gzip/bzip2/xz.",
+        "> overwrites, >> appends, 2> errors.",
+        "Sort before uniq, or duplicates that aren't adjacent stay separate.",
+        "$# counts arguments; $1 is the first; $? is the last exit status.",
+        "[ -f ] tests files, [ -d ] directories; -eq compares numbers, = compares strings."
+      ],
+      "terms": [
+        [
+          "stdout / stderr",
+          "Standard output (1) and standard error (2) streams."
+        ],
+        [
+          "Pipe",
+          "| connects one command's output to another's input."
+        ],
+        [
+          "Regular expression",
+          "A pattern that matches text, such as ^error."
+        ],
+        [
+          "Shebang",
+          "#! line naming the script's interpreter."
+        ],
+        [
+          "Exit status",
+          "Number a command returns; 0 means success."
+        ],
+        [
+          "Command substitution",
+          "$(cmd) inserts a command's output."
+        ],
+        [
+          "tar",
+          "Tool that bundles files into one archive."
+        ],
+        [
+          "uniq",
+          "Removes or counts adjacent duplicate lines."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Processing data",
+          "bullets": [
+            "22% of Linux Essentials",
+            "Archives and pipes",
+            "Text tools and scripts"
+          ],
+          "script": [
+            "This module is about the real power of the command line: combining small tools to search, count, transform, and archive data, and then saving those steps as scripts.",
+            "Practice each command; the exam often asks you to complete one."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Archive",
+                "d": "tar · gzip · xz"
+              },
+              {
+                "t": "Redirect",
+                "d": "> >> 2>"
+              },
+              {
+                "t": "Pipe",
+                "d": "cmd | cmd"
+              },
+              {
+                "t": "Script",
+                "d": "#!/bin/bash"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Archives and compression",
+          "bullets": [
+            "tar bundles",
+            "gzip, bzip2, xz compress",
+            "c x t f z j J"
+          ],
+          "script": [
+            "tar bundles many files into one archive. Compression is a separate step that tar can call with z for gzip, j for bzip2, or capital J for xz.",
+            "Create with c, extract with x, list with t, and always give the file name with f."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Task",
+              "Command"
+            ],
+            "rows": [
+              [
+                "Create gzip",
+                "tar -czf a.tar.gz dir"
+              ],
+              [
+                "List",
+                "tar -tf a.tar.gz"
+              ],
+              [
+                "Extract",
+                "tar -xf a.tar.gz -C /dest"
+              ],
+              [
+                "xz",
+                "tar -cJf a.tar.xz dir"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Redirection and pipes",
+          "bullets": [
+            "stdin 0, stdout 1, stderr 2",
+            "> >> < 2>",
+            "| chains tools"
+          ],
+          "script": [
+            "Programs read standard input and write standard output and standard error. You can send any of these to files.",
+            "A pipe sends one command's output into the next, so small tools combine into powerful one-liners."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "grep Failed",
+                "d": "Find lines"
+              },
+              {
+                "t": "cut -d' ' -f11",
+                "d": "Take IP field"
+              },
+              {
+                "t": "sort | uniq -c",
+                "d": "Count each"
+              },
+              {
+                "t": "sort -n",
+                "d": "Rank"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Text tools",
+          "bullets": [
+            "grep, sort, uniq, wc",
+            "cut and sed",
+            "Regex anchors and sets"
+          ],
+          "script": [
+            "grep finds lines, sort orders them, uniq counts duplicates, and wc counts lines. cut pulls out fields and sed replaces text.",
+            "Regular expressions describe patterns: caret for the start of a line, dollar for the end, dot for any character, and brackets for sets."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "grep -i -v -c",
+                "d": "Find lines"
+              },
+              {
+                "t": "sort -n -r",
+                "d": "Order"
+              },
+              {
+                "t": "uniq -c",
+                "d": "Count dups"
+              },
+              {
+                "t": "cut -d -f",
+                "d": "Fields"
+              },
+              {
+                "t": "sed s///g",
+                "d": "Replace"
+              },
+              {
+                "t": "wc -l",
+                "d": "Count lines"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Your first script",
+          "bullets": [
+            "Shebang and chmod +x",
+            "Arguments and exit codes",
+            "if, for, while"
+          ],
+          "script": [
+            "A script is a text file of commands. Start it with a shebang so the system knows to use bash, and make it executable with chmod plus x.",
+            "Scripts read arguments as dollar one, dollar two, and so on, test conditions with if and square brackets, repeat work with for loops, and report success with an exit status of zero."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Syntax",
+              "Meaning"
+            ],
+            "rows": [
+              [
+                "$1 $2",
+                "Arguments"
+              ],
+              [
+                "$#",
+                "Argument count"
+              ],
+              [
+                "$?",
+                "Last exit status"
+              ],
+              [
+                "[ -f x ]",
+                "File exists"
+              ],
+              [
+                "$(cmd)",
+                "Command output"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Review: data processing",
+          "bullets": [
+            "Revisit the key ideas",
+            "Try the commands yourself",
+            "Take the question set"
+          ],
+          "script": [
+            "You've finished the data processing module. Go back over the key terms and try each command in a terminal or in the labs.",
+            "Then take the data processing question set and read every explanation. Then try the labs for hands-on practice."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "short": "System administration",
+      "title": "The Linux operating system: administration basics",
+      "summary": "Understand installation and provisioning, hardware and device files, the boot process, processes and services with systemd, system logs, package management, and basic network configuration and troubleshooting with iproute2 tools.",
+      "guide": [
+        {
+          "h": "What this topic covers",
+          "html": "<p>Topic 014 is <b>8 of 40</b> points: installation and provisioning, hardware and device access, processes and logs (3 points), and network configuration.</p>"
+        },
+        {
+          "h": "Installation, hardware, and boot",
+          "html": "<p>Physical and virtual machines install from an ISO; cloud instances start from <b>images</b> configured by cloud-init. The <b>boot process</b>: firmware (UEFI/BIOS) → bootloader (<b>GRUB</b>) → kernel and initramfs → <b>systemd</b> (PID 1) → services and login. Hardware: <code>lsblk</code> (disks), <code>lscpu</code>, <code>lspci</code>, <code>lsusb</code>, <code>free -h</code> (memory), <code>df -h</code> (disk space), <code>dmesg</code> (kernel messages). Devices appear as files in <code>/dev</code> (<code>/dev/sda</code>, <code>/dev/nvme0n1</code>); <code>/proc</code> and <code>/sys</code> expose kernel information.</p>"
+        },
+        {
+          "h": "Processes, services, and logs",
+          "html": "<p><code>ps aux</code> lists processes; <code>top</code> shows them live. <code>kill PID</code> sends SIGTERM (polite stop); <code>kill -9</code> forces it. <code>systemctl status|start|stop|restart|enable|disable name</code> manages services; <code>enable</code> means start at boot. Logs: <code>journalctl</code> reads the systemd journal (<code>-u sshd</code> for one service, <code>-f</code> to follow, <code>-b</code> this boot); text logs live in <code>/var/log</code>. <code>dmesg</code> shows kernel messages. Packages install from signed repositories: <code>apt install</code> on Debian/Ubuntu, <code>dnf install</code> on Fedora/RHEL.</p>"
+        },
+        {
+          "h": "Networking",
+          "html": "<p>Version 2.0 uses <b>iproute2</b>: <code>ip addr</code> (addresses), <code>ip route</code> (routes and default gateway), <code>ss -tlnp</code> (listening ports). Older equivalents are <code>ifconfig</code>, <code>route</code>, and <code>netstat</code>. DNS servers are listed in <code>/etc/resolv.conf</code>; static names in <code>/etc/hosts</code>. Test with <code>ping</code>, <code>dig</code> or <code>host</code> (DNS), and <code>traceroute</code>/<code>tracepath</code>. Know private address ranges (10/8, 172.16/12, 192.168/16) and that IPv6 addresses are 128 bits.</p>"
+        }
+      ],
+      "tips": [
+        "Boot: firmware → GRUB → kernel → systemd (PID 1).",
+        "systemctl enable = start at boot; start = start now.",
+        "journalctl -u name shows one service's logs.",
+        "ip addr, ip route, ss replace ifconfig, route, netstat.",
+        "/etc/resolv.conf = DNS servers; /etc/hosts = static names."
+      ],
+      "terms": [
+        [
+          "GRUB",
+          "Bootloader that loads the kernel."
+        ],
+        [
+          "systemd",
+          "Init system and service manager (PID 1)."
+        ],
+        [
+          "Process",
+          "A running program with a PID."
+        ],
+        [
+          "Signal",
+          "Message to a process, such as SIGTERM or SIGKILL."
+        ],
+        [
+          "Journal",
+          "systemd's log store, read with journalctl."
+        ],
+        [
+          "Package manager",
+          "Installs, updates, and removes software from repositories."
+        ],
+        [
+          "Default gateway",
+          "Router used for destinations outside the local network."
+        ],
+        [
+          "/dev",
+          "Directory of device files."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "System administration basics",
+          "bullets": [
+            "20% of Linux Essentials",
+            "Boot, hardware, processes",
+            "Logs and networking"
+          ],
+          "script": [
+            "This module introduces the system side of Linux: how it boots, how to see hardware and processes, where logs are, and how networking is configured.",
+            "These are the first skills of a junior administrator."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Boot",
+                "d": "GRUB → systemd"
+              },
+              {
+                "t": "Hardware",
+                "d": "lsblk · free"
+              },
+              {
+                "t": "Processes",
+                "d": "ps · kill"
+              },
+              {
+                "t": "Network",
+                "d": "ip · ss"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "How Linux boots",
+          "bullets": [
+            "Firmware and GRUB",
+            "Kernel and initramfs",
+            "systemd starts services"
+          ],
+          "script": [
+            "When you power on, the firmware runs first, then the GRUB bootloader loads the kernel and an initial RAM disk.",
+            "The kernel starts systemd as process 1, which brings up services and the login screen."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "UEFI/BIOS",
+                "d": "Firmware"
+              },
+              {
+                "t": "GRUB",
+                "d": "Bootloader"
+              },
+              {
+                "t": "Kernel",
+                "d": "+ initramfs"
+              },
+              {
+                "t": "systemd",
+                "d": "PID 1"
+              },
+              {
+                "t": "Login",
+                "d": "Services up"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Processes and services",
+          "bullets": [
+            "ps and top",
+            "kill and signals",
+            "systemctl and journalctl"
+          ],
+          "script": [
+            "ps aux lists every process and top shows them live. kill asks a process to stop, and kill dash nine forces it.",
+            "systemctl controls services: start and stop now, enable and disable at boot. journalctl reads their logs."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Task",
+              "Command"
+            ],
+            "rows": [
+              [
+                "List processes",
+                "ps aux"
+              ],
+              [
+                "Stop politely",
+                "kill PID"
+              ],
+              [
+                "Service status",
+                "systemctl status sshd"
+              ],
+              [
+                "Start at boot",
+                "systemctl enable sshd"
+              ],
+              [
+                "Service logs",
+                "journalctl -u sshd"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Hardware and software",
+          "bullets": [
+            "lsblk, lscpu, free, df",
+            "/dev, /proc, /sys",
+            "apt and dnf"
+          ],
+          "script": [
+            "Hardware tools show disks, CPUs, memory, and free space. Devices are files under dev, and the kernel exposes information under proc and sys.",
+            "Install software from repositories with apt on Debian and Ubuntu, or dnf on Fedora and Red Hat."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "lsblk",
+                "d": "Disks"
+              },
+              {
+                "t": "lscpu",
+                "d": "CPU"
+              },
+              {
+                "t": "free -h",
+                "d": "Memory"
+              },
+              {
+                "t": "df -h",
+                "d": "Disk space"
+              },
+              {
+                "t": "dmesg",
+                "d": "Kernel msgs"
+              },
+              {
+                "t": "apt / dnf",
+                "d": "Packages"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Networking with iproute2",
+          "bullets": [
+            "ip addr and ip route",
+            "ss for ports",
+            "resolv.conf and hosts"
+          ],
+          "script": [
+            "Use ip addr to see addresses, ip route to see the default gateway, and ss to see listening ports.",
+            "DNS servers are in resolv.conf, static names in etc hosts. Test with ping, dig, and traceroute."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Question",
+              "Command"
+            ],
+            "rows": [
+              [
+                "My IP?",
+                "ip addr"
+              ],
+              [
+                "My gateway?",
+                "ip route"
+              ],
+              [
+                "Open ports?",
+                "ss -tlnp"
+              ],
+              [
+                "DNS works?",
+                "dig name"
+              ],
+              [
+                "Path?",
+                "tracepath host"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Review: system administration basics",
+          "bullets": [
+            "Revisit the key ideas",
+            "Try the commands yourself",
+            "Take the question set"
+          ],
+          "script": [
+            "You've finished the system administration basics module. Go back over the key terms and try each command in a terminal or in the labs.",
+            "Then take the system administration basics question set and read every explanation. Then try the labs for hands-on practice."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "short": "Security & permissions",
+      "title": "Security and file system permissions",
+      "summary": "Manage users and groups, read and set permissions and ownership, understand special bits and special directories, use sudo responsibly, and log in and transfer files securely with SSH and keys.",
+      "guide": [
+        {
+          "h": "What this topic covers",
+          "html": "<p>Topic 015 is <b>7 of 40</b> points: remote logins and elevated privileges, users and groups, permissions and ownership, and special files and directories.</p>"
+        },
+        {
+          "h": "Users, groups, and privileges",
+          "html": "<p>Accounts live in <code>/etc/passwd</code> (name, UID, GID, home, shell); password hashes in <code>/etc/shadow</code> (root-only); groups in <code>/etc/group</code>. <b>root</b> is UID 0; regular users usually start at 1000; system accounts run services. Commands: <code>useradd -m</code>, <code>passwd</code>, <code>usermod -aG group user</code> (append), <code>userdel</code>, <code>groupadd</code>, <code>id</code>, <code>who</code>, <code>last</code>. Use <code>sudo</code> for single admin commands (logged, no shared password); <code>su -</code> switches user with that user's password.</p>"
+        },
+        {
+          "h": "Permissions and ownership",
+          "html": "<p><code>ls -l</code> shows <code>-rwxr-x---</code>: type, then owner, group, and others. r=4, w=2, x=1, so rwxr-x--- is <b>750</b>. <code>chmod 640 file</code> or <code>chmod u+x,o-r file</code> changes modes; <code>chown user:group file</code> changes ownership (root only); <code>chgrp</code> changes just the group. On directories, r lists names, w creates and deletes entries, and x lets you enter. Special bits: <b>SUID</b> (runs as the file's owner, like passwd), <b>SGID</b> (on directories, new files inherit the group), and the <b>sticky bit</b> (only owners can delete their files, like /tmp). <code>umask</code> sets default permissions for new files.</p>"
+        },
+        {
+          "h": "Secure remote access",
+          "html": "<p>Use <b>SSH</b> (<code>ssh user@host</code>) instead of Telnet, and <code>scp</code>/<code>sftp</code> instead of FTP. Key-based login: <code>ssh-keygen</code> creates a key pair; <code>ssh-copy-id user@host</code> installs the public key into <code>~/.ssh/authorized_keys</code> on the server. Keep the private key private, ideally with a passphrase. Special directories: <code>/tmp</code> and <code>/var/tmp</code> are world-writable with the sticky bit.</p>"
+        }
+      ],
+      "tips": [
+        "r=4 w=2 x=1: 755 = rwxr-xr-x, 640 = rw-r-----.",
+        "usermod -aG adds a group; without -a it replaces groups.",
+        "/etc/shadow holds password hashes and is root-only.",
+        "SUID = run as owner; SGID dir = inherit group; sticky = only owner deletes.",
+        "ssh-copy-id installs your public key; never share the private key."
+      ],
+      "terms": [
+        [
+          "UID",
+          "Numeric user ID; root is 0."
+        ],
+        [
+          "/etc/shadow",
+          "File with password hashes and aging, readable only by root."
+        ],
+        [
+          "chmod",
+          "Changes permission bits."
+        ],
+        [
+          "chown",
+          "Changes owner and group."
+        ],
+        [
+          "SUID",
+          "Special bit: program runs with its owner's privileges."
+        ],
+        [
+          "Sticky bit",
+          "Directory bit: only a file's owner can delete it."
+        ],
+        [
+          "sudo",
+          "Runs one command with elevated rights, with logging."
+        ],
+        [
+          "authorized_keys",
+          "Server file listing public keys allowed to log in."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Security and permissions",
+          "bullets": [
+            "18% of Linux Essentials",
+            "Users and groups",
+            "Permissions and SSH"
+          ],
+          "script": [
+            "The final module covers who can do what on a Linux system: accounts, groups, file permissions, and secure remote access.",
+            "Permissions questions often give you an ls line or an octal number, so practice converting between them."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Accounts",
+                "d": "passwd · shadow"
+              },
+              {
+                "t": "Groups",
+                "d": "usermod -aG"
+              },
+              {
+                "t": "Permissions",
+                "d": "rwx · 755"
+              },
+              {
+                "t": "SSH",
+                "d": "Keys · scp"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Users and groups",
+          "bullets": [
+            "/etc/passwd, shadow, group",
+            "useradd, usermod -aG, passwd",
+            "sudo instead of root"
+          ],
+          "script": [
+            "Account details are in etc passwd, password hashes in etc shadow, and groups in etc group. Root is user zero.",
+            "Create users with useradd dash m, add them to groups with usermod dash a capital G, and use sudo for administrative commands."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "File",
+              "Holds"
+            ],
+            "rows": [
+              [
+                "/etc/passwd",
+                "Accounts, UID, home, shell"
+              ],
+              [
+                "/etc/shadow",
+                "Password hashes, aging"
+              ],
+              [
+                "/etc/group",
+                "Groups and members"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Reading permissions",
+          "bullets": [
+            "Owner, group, others",
+            "r=4, w=2, x=1",
+            "Directories differ"
+          ],
+          "script": [
+            "Each file has permissions for its owner, its group, and everyone else. Read is four, write is two, execute is one.",
+            "So rwx r-x r-x is 755. On directories, execute means you can enter, and write means you can create or delete files inside."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Mode",
+              "Meaning"
+            ],
+            "rows": [
+              [
+                "755",
+                "rwxr-xr-x"
+              ],
+              [
+                "750",
+                "rwxr-x---"
+              ],
+              [
+                "644",
+                "rw-r--r--"
+              ],
+              [
+                "640",
+                "rw-r-----"
+              ],
+              [
+                "600",
+                "rw-------"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Special bits",
+          "bullets": [
+            "SUID: run as owner",
+            "SGID: inherit group",
+            "Sticky: protect deletes"
+          ],
+          "script": [
+            "Three special bits change behavior. SUID makes a program run with its owner's rights, which is how passwd updates the shadow file.",
+            "SGID on a directory makes new files inherit the directory's group, and the sticky bit on tmp stops users from deleting each other's files."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "SUID 4",
+                "d": "-rwsr-xr-x"
+              },
+              {
+                "t": "SGID 2",
+                "d": "drwxrws---"
+              },
+              {
+                "t": "Sticky 1",
+                "d": "drwxrwxrwt"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Secure remote access",
+          "bullets": [
+            "ssh, scp, sftp",
+            "Key pairs",
+            "Avoid Telnet and FTP"
+          ],
+          "script": [
+            "SSH encrypts remote logins and file transfers. Use scp or sftp to copy files.",
+            "For key-based logins, generate a key pair with ssh-keygen and copy the public key to the server with ssh-copy-id. The private key never leaves your computer."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "ssh-keygen",
+                "d": "Make key pair"
+              },
+              {
+                "t": "ssh-copy-id",
+                "d": "Install public key"
+              },
+              {
+                "t": "ssh user@host",
+                "d": "Log in"
+              },
+              {
+                "t": "scp",
+                "d": "Copy files"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: security and permissions",
+          "bullets": [
+            "Revisit the key ideas",
+            "Try the commands yourself",
+            "Take the question set"
+          ],
+          "script": [
+            "You've finished the security and permissions module. Go back over the key terms and try each command in a terminal or in the labs.",
+            "Then take the security and permissions question set and read every explanation. Then try the labs for hands-on practice."
+          ]
+        }
+      ]
+    }
+  ]
+}

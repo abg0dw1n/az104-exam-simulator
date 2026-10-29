@@ -1,0 +1,1972 @@
+{
+  "intro": "Nine modules follow the RHCSA (EX200) objectives for RHEL 10. Each has a study guide, exam tips, key terms, visual slides, and a narrated lesson. RHCSA is fully hands-on, so work through the Labs tab and practice on a RHEL 10 virtual machine (Red Hat's no-cost Developer Subscription lets you install one).",
+  "updated": "2026-10-29",
+  "sources": [
+    {
+      "title": "Red Hat: EX200 Red Hat Certified System Administrator exam (objectives)",
+      "url": "https://redhat.com/en/services/training/ex200-red-hat-certified-system-administrator-rhcsa"
+    },
+    {
+      "title": "Global Knowledge: EX200 exam details (RHEL 10)",
+      "url": "https://www.globalknowledge.com/en-be/products/red_hat/ex200"
+    },
+    {
+      "title": "RHCSA v10 (EX200) training playlist – Nehra Classes (YouTube)",
+      "url": "https://www.youtube.com/playlist?list=PL9LY4jTSNS21rebzsr4pkor_J7rOGLde5",
+      "note": "Free · RHCSA on RHEL 10 · 103 videos · checked October 2026"
+    }
+  ],
+  "modules": [
+    {
+      "id": "D1",
+      "short": "Essential tools",
+      "title": "Understand and use essential tools",
+      "summary": "Work fluently at the shell: redirection, grep and regular expressions, SSH and su, tar archives, text editing, file management, links, standard permissions, and finding help in local documentation.",
+      "guide": [
+        {
+          "h": "What this objective covers",
+          "html": "<p>Essential tools underpin every other task. On the exam you'll save filtered output to files, find files by owner and copy them, build archives, create links, and set permissions, often as small standalone tasks.</p>"
+        },
+        {
+          "h": "Searching and redirection",
+          "html": "<p><code>grep</code> with regular expressions (<code>^</code>, <code>$</code>, <code>.</code>, <code>*</code>, <code>[ ]</code>; <code>-E</code> for <code>+ ? | {n}</code>), <code>-i</code>, <code>-v</code>, <code>-r</code>, <code>-n</code>. Save output with <code>&gt;</code>, append with <code>&gt;&gt;</code>, redirect errors with <code>2&gt;</code> or both with <code>&amp;&gt;</code>. Pipe through <code>sort</code>, <code>uniq</code>, <code>wc</code>, <code>head</code>, <code>tail</code>. <code>find / -user harry -type f -exec cp -a {} /root/found/ \\;</code> finds and copies files; other tests include <code>-name</code>, <code>-size +30M</code>, <code>-perm -4000</code>, <code>-mmin</code>. Read the task carefully: exact output file, order, and whether to keep duplicates.</p>"
+        },
+        {
+          "h": "Files, links, archives, and permissions",
+          "html": "<p><code>tar -czf archive.tar.gz dir</code> (gzip), <code>-cjf</code> (bzip2), <code>-cJf</code> (xz); <code>-tf</code> lists; <code>-xf ... -C dir</code> extracts. <code>ln -s target link</code> makes a symlink; <code>ln target link</code> a hard link (same file system, files only). Permissions: <code>chmod 750</code> or <code>u+x,g-w</code>; <code>chown user:group</code>; special bits with a leading digit (2770 for SGID directories). Remote access: <code>ssh user@host</code>, <code>scp</code>, <code>sftp</code>; switch users with <code>su - user</code> or <code>sudo -i</code>. Editing: know <b>vim</b> (i, Esc, :wq, :q!, /search, :%s/a/b/g) because it's always there.</p>"
+        },
+        {
+          "h": "Using local documentation",
+          "html": "<p>The exam has no internet, so practice finding answers with <code>man</code> (sections 1, 5, 8), <code>man -k keyword</code>, <code>command --help</code>, <code>info</code>, and <code>/usr/share/doc</code>. Example: <code>man 5 fstab</code> for fstab fields, <code>man semanage-fcontext</code> for the regex example, <code>man nmcli-examples</code> for networking.</p>"
+        }
+      ],
+      "tips": [
+        "Create target directories before find -exec cp.",
+        "tar letters: c x t f with z (gzip), j (bzip2), J (xz).",
+        "ln -s TARGET LINKNAME (target first).",
+        "Use man -k and man nmcli-examples instead of the internet.",
+        "Read every task twice: exact paths, names, and formats are graded."
+      ],
+      "terms": [
+        [
+          "Regular expression",
+          "Pattern for matching text in grep, sed, and vim."
+        ],
+        [
+          "Redirection",
+          "Sending output or errors to files with > >> 2>."
+        ],
+        [
+          "find -exec",
+          "Runs a command on each file that matches."
+        ],
+        [
+          "Symbolic link",
+          "A file pointing to another path."
+        ],
+        [
+          "Hard link",
+          "Another directory entry for the same inode."
+        ],
+        [
+          "SGID directory",
+          "New files inherit the directory's group."
+        ],
+        [
+          "su -",
+          "Switch user with a full login environment."
+        ],
+        [
+          "man -k",
+          "Search manual page descriptions."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Essential tools",
+          "bullets": [
+            "The foundation of every task",
+            "Search, archive, link",
+            "Permissions and docs"
+          ],
+          "script": [
+            "Welcome to the RHCSA essential tools module. These commands come up in nearly every exam task, so they need to be automatic.",
+            "Work through each example in a terminal or in the labs."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "grep",
+                "d": "Search text"
+              },
+              {
+                "t": "find",
+                "d": "Search files"
+              },
+              {
+                "t": "tar",
+                "d": "Archive"
+              },
+              {
+                "t": "ln",
+                "d": "Links"
+              },
+              {
+                "t": "chmod",
+                "d": "Permissions"
+              },
+              {
+                "t": "man",
+                "d": "Local docs"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Find and filter",
+          "bullets": [
+            "grep with regex",
+            "find by owner, size, name",
+            "Save results to files"
+          ],
+          "script": [
+            "grep searches inside files, and find searches the file tree by name, owner, size, or permissions.",
+            "A classic task: find every file owned by a user and copy it into a directory, keeping attributes. Use find with dash exec and cp dash a."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "mkdir /root/found",
+                "d": "Prepare"
+              },
+              {
+                "t": "find / -user harry -type f",
+                "d": "Match"
+              },
+              {
+                "t": "-exec cp -a {} …",
+                "d": "Copy"
+              },
+              {
+                "t": "ls -l",
+                "d": "Verify"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Archives and links",
+          "bullets": [
+            "tar -czf, -cjf, -cJf",
+            "List and extract",
+            "ln and ln -s"
+          ],
+          "script": [
+            "Create compressed archives with tar and the right compression letter, then list them to check the contents.",
+            "Symbolic links point to a path and can cross file systems; hard links share an inode and must stay on one file system."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Task",
+              "Command"
+            ],
+            "rows": [
+              [
+                "gzip archive",
+                "tar -czf /root/etc.tar.gz /etc"
+              ],
+              [
+                "bzip2",
+                "tar -cjf x.tar.bz2 dir"
+              ],
+              [
+                "List",
+                "tar -tf file"
+              ],
+              [
+                "Symlink",
+                "ln -s /var/log /root/logs"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Permissions recap",
+          "bullets": [
+            "Octal and symbolic modes",
+            "Ownership",
+            "Special bits"
+          ],
+          "script": [
+            "Permissions are owner, group, and others with read four, write two, execute one.",
+            "Add a leading digit for special bits: 2 for SGID on shared directories, 1 for the sticky bit."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Mode",
+              "Result"
+            ],
+            "rows": [
+              [
+                "750",
+                "rwxr-x---"
+              ],
+              [
+                "2770",
+                "rwxrws--- (SGID)"
+              ],
+              [
+                "1777",
+                "rwxrwxrwt (sticky)"
+              ],
+              [
+                "640",
+                "rw-r-----"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Review: essential tools",
+          "bullets": [
+            "Do it without notes",
+            "Make it survive a reboot",
+            "Check your work"
+          ],
+          "script": [
+            "You've finished the essential tools module. RHCSA is fully hands-on, so repeat each task in the labs until you can do it without looking anything up.",
+            "Always ask: will this still work after a reboot? Then verify, and take the question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D2",
+      "short": "Shell scripts",
+      "title": "Create simple shell scripts",
+      "summary": "Write Bash scripts that use conditionals, loops, script arguments, and command output, with correct exit codes and permissions.",
+      "guide": [
+        {
+          "h": "What this objective covers",
+          "html": "<p>You'll be asked to write a short script that meets a precise specification, such as searching for files, processing arguments, or printing results, saved at a given path and executable.</p>"
+        },
+        {
+          "h": "Script structure",
+          "html": "<p>Start with <code>#!/bin/bash</code>, save it at the exact path requested (often <code>/usr/local/bin/name</code> so it's in PATH), and run <code>chmod +x</code>. Arguments: <code>$1</code>, <code>$2</code>, <code>\"$@\"</code> (all), <code>$#</code> (count). Exit codes: <code>exit 0</code> for success, non-zero for errors; <code>$?</code> holds the last status. Capture output with <code>var=$(command)</code>.</p>"
+        },
+        {
+          "h": "Conditionals and loops",
+          "html": "<p><code>if [ $# -eq 0 ]; then echo \"Usage: $0 dir\" &gt;&amp;2; exit 1; fi</code>. File tests: <code>-f</code>, <code>-d</code>, <code>-e</code>, <code>-r</code>, <code>-x</code>; strings <code>=</code>, <code>!=</code>, <code>-z</code> (empty); numbers <code>-eq -ne -lt -le -gt -ge</code>. Loops: <code>for f in /etc/*.conf; do ...; done</code>, <code>for i in {1..5}</code>, <code>while read -r line; do ...; done &lt; file</code>. <code>case \"$1\" in start) ...;; *) ...;; esac</code> handles options.</p>"
+        },
+        {
+          "h": "Processing command output",
+          "html": "<p>Combine scripts with the tools you already know: <code>find</code>, <code>grep</code>, <code>awk '{print $1}'</code>, <code>cut</code>, <code>sort -u</code>. Example: <code>for user in $(awk -F: '$3 &gt;= 1000 {print $1}' /etc/passwd); do echo \"$user: $(id -Gn $user)\"; done</code>. Test your script with different inputs, including none.</p>"
+        }
+      ],
+      "tips": [
+        "Put the script exactly where the task says and chmod +x it.",
+        "Quote variables: \"$1\", \"$@\".",
+        "Use -eq for numbers and = for strings.",
+        "Send errors to stderr with >&2 and exit non-zero.",
+        "Test with no arguments, one argument, and bad input."
+      ],
+      "terms": [
+        [
+          "Shebang",
+          "#! line selecting the interpreter."
+        ],
+        [
+          "$#",
+          "Number of script arguments."
+        ],
+        [
+          "\"$@\"",
+          "All arguments, each kept as a separate word."
+        ],
+        [
+          "Exit status",
+          "0 for success, non-zero for failure."
+        ],
+        [
+          "Command substitution",
+          "$(cmd) inserts command output."
+        ],
+        [
+          "case",
+          "Multi-branch pattern match ending with esac."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Shell scripting",
+          "bullets": [
+            "Conditionals and loops",
+            "Arguments",
+            "Command output"
+          ],
+          "script": [
+            "The RHCSA scripting objective is about small, practical scripts. You'll combine tests, loops, arguments, and the output of other commands.",
+            "Keep scripts simple and test them before moving on."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "#!/bin/bash",
+                "d": "Interpreter"
+              },
+              {
+                "t": "$1 $# $@",
+                "d": "Arguments"
+              },
+              {
+                "t": "if [ ]",
+                "d": "Tests"
+              },
+              {
+                "t": "for · while",
+                "d": "Loops"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Arguments and exit codes",
+          "bullets": [
+            "$1, $#, \"$@\"",
+            "Usage message",
+            "exit 0 or non-zero"
+          ],
+          "script": [
+            "Check how many arguments you received with dollar hash, and print a usage message to standard error if it's wrong.",
+            "Exit with zero on success and a non-zero code on failure so other commands can tell what happened."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Variable",
+              "Meaning"
+            ],
+            "rows": [
+              [
+                "$0",
+                "Script name"
+              ],
+              [
+                "$1",
+                "First argument"
+              ],
+              [
+                "$#",
+                "Count"
+              ],
+              [
+                "\"$@\"",
+                "All arguments"
+              ],
+              [
+                "$?",
+                "Last status"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Tests and loops",
+          "bullets": [
+            "File, string, number tests",
+            "for and while",
+            "case for options"
+          ],
+          "script": [
+            "Square bracket tests check files, strings, and numbers. Remember the spaces inside the brackets.",
+            "For loops walk a list or glob, while read loops walk lines in a file, and case picks a branch by pattern."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "Check args",
+                "d": "if [ $# -eq 0 ]"
+              },
+              {
+                "t": "Loop",
+                "d": "for f in \"$@\""
+              },
+              {
+                "t": "Test",
+                "d": "[ -f \"$f\" ]"
+              },
+              {
+                "t": "Report",
+                "d": "echo · exit"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Using command output",
+          "bullets": [
+            "$(command)",
+            "awk, cut, grep in scripts",
+            "Pipelines into while read"
+          ],
+          "script": [
+            "Command substitution puts another command's output into a variable or a loop list.",
+            "Pipe output into while read to process it line by line, for example reading users from etc passwd with awk."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Pattern",
+              "Example"
+            ],
+            "rows": [
+              [
+                "Capture",
+                "n=$(grep -c x f)"
+              ],
+              [
+                "Loop list",
+                "for u in $(cut -d: -f1 /etc/passwd)"
+              ],
+              [
+                "Line loop",
+                "… | while read -r l"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Review: shell scripting",
+          "bullets": [
+            "Do it without notes",
+            "Make it survive a reboot",
+            "Check your work"
+          ],
+          "script": [
+            "You've finished the shell scripting module. RHCSA is fully hands-on, so repeat each task in the labs until you can do it without looking anything up.",
+            "Always ask: will this still work after a reboot? Then verify, and take the question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D3",
+      "short": "Running systems",
+      "title": "Operate running systems",
+      "summary": "Boot, reboot, and shut down; boot into different targets; recover root access; manage processes, priorities, and tuning profiles; use and preserve journals; control services; and transfer files securely.",
+      "guide": [
+        {
+          "h": "What this objective covers",
+          "html": "<p>You must control the boot process, interrupt it to regain access, manage processes and services, and make logs persistent.</p>"
+        },
+        {
+          "h": "Targets and boot recovery",
+          "html": "<p><code>systemctl get-default</code> / <code>set-default multi-user.target</code> (text) or <code>graphical.target</code>. <code>systemctl isolate</code> switches now. One-time targets at the GRUB menu: press <b>e</b>, append <code>systemd.unit=rescue.target</code> (or emergency.target), press Ctrl+X. <b>Root password reset</b> (RHEL 9/10): add <code>rd.break</code> (or <code>init=/bin/bash</code>), then <code>mount -o remount,rw /sysroot</code>, <code>chroot /sysroot</code>, <code>passwd root</code>, <code>touch /.autorelabel</code>, exit, and let it reboot. Without the relabel, SELinux may block logins.</p>"
+        },
+        {
+          "h": "Processes and tuning",
+          "html": "<p>Find heavy processes with <code>top</code> (P for CPU, M for memory) or <code>ps aux --sort=-%cpu</code>. Stop them with <code>kill</code>, <code>kill -9</code>, <code>pkill</code>, <code>killall</code>. Change priority: <code>nice -n 10 cmd</code>, <code>renice -n 5 -p PID</code>. Tuning: <code>systemctl enable --now tuned</code>, <code>tuned-adm recommend</code>, <code>tuned-adm profile virtual-guest</code>, <code>tuned-adm active</code>.</p>"
+        },
+        {
+          "h": "Logs and services",
+          "html": "<p><code>journalctl</code> with <code>-u unit</code>, <code>-p err</code>, <code>-b</code>, <code>--since</code>, <code>-f</code>. Make the journal persistent: <code>Storage=persistent</code> in <code>/etc/systemd/journald.conf</code> (or <code>mkdir /var/log/journal</code>) and <code>systemctl restart systemd-journald</code>; then <code>journalctl -b -1</code> shows the previous boot. Services: <code>systemctl enable --now</code>, <code>status</code>, <code>is-enabled</code>. Secure transfers with <code>scp</code>, <code>sftp</code>, <code>rsync -av</code>.</p>"
+        }
+      ],
+      "tips": [
+        "set-default changes boots; isolate changes now.",
+        "Root reset: rd.break → remount rw → chroot → passwd → touch /.autorelabel.",
+        "Lower nice = higher priority; only root can go below 0.",
+        "Make the journal persistent before you need previous-boot logs.",
+        "enable --now both starts and enables a service."
+      ],
+      "terms": [
+        [
+          "Target",
+          "systemd group of units representing a system state."
+        ],
+        [
+          "rescue.target",
+          "Single-user maintenance target with basic services."
+        ],
+        [
+          "rd.break",
+          "Kernel argument that stops boot inside the initramfs."
+        ],
+        [
+          "/.autorelabel",
+          "Flag file that triggers an SELinux relabel at boot."
+        ],
+        [
+          "Nice value",
+          "Process scheduling priority from -20 to 19."
+        ],
+        [
+          "tuned",
+          "Service that applies performance tuning profiles."
+        ],
+        [
+          "Persistent journal",
+          "Journal stored in /var/log/journal across reboots."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Operating running systems",
+          "bullets": [
+            "Targets and recovery",
+            "Processes and tuning",
+            "Logs and services"
+          ],
+          "script": [
+            "This module covers controlling a running RHEL system: changing targets, recovering a lost root password, managing processes, tuning, and logs.",
+            "The root password reset is a classic exam task, so practice it until it's routine."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Targets",
+                "d": "set-default"
+              },
+              {
+                "t": "Recovery",
+                "d": "rd.break"
+              },
+              {
+                "t": "Processes",
+                "d": "top · renice"
+              },
+              {
+                "t": "Tuning",
+                "d": "tuned-adm"
+              },
+              {
+                "t": "Logs",
+                "d": "journalctl"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Resetting the root password",
+          "bullets": [
+            "Interrupt boot with rd.break",
+            "chroot and passwd",
+            "Relabel for SELinux"
+          ],
+          "script": [
+            "At the GRUB menu, edit the entry and add rd dot break to the kernel line. You land in a shell inside the initramfs.",
+            "Remount sysroot read-write, chroot into it, set the root password, and touch dot autorelabel so SELinux fixes the shadow file's label at the next boot."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "e at GRUB",
+                "d": "Add rd.break"
+              },
+              {
+                "t": "remount rw",
+                "d": "/sysroot"
+              },
+              {
+                "t": "chroot",
+                "d": "/sysroot"
+              },
+              {
+                "t": "passwd root",
+                "d": "New password"
+              },
+              {
+                "t": "touch /.autorelabel",
+                "d": "Then exit ×2"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Processes and priorities",
+          "bullets": [
+            "top and ps --sort",
+            "kill, pkill, killall",
+            "nice and renice"
+          ],
+          "script": [
+            "Find the busiest processes with top or ps sorted by CPU or memory.",
+            "End runaway processes with kill or pkill, and adjust priority with nice when starting or renice for running processes."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Task",
+              "Command"
+            ],
+            "rows": [
+              [
+                "Top CPU",
+                "ps aux --sort=-%cpu | head"
+              ],
+              [
+                "Kill by name",
+                "pkill name"
+              ],
+              [
+                "Start low prio",
+                "nice -n 15 cmd"
+              ],
+              [
+                "Change prio",
+                "renice -n 5 -p PID"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Tuning and journals",
+          "bullets": [
+            "tuned profiles",
+            "journalctl filters",
+            "Persistent journal"
+          ],
+          "script": [
+            "Enable tuned and apply the recommended profile with tuned adm.",
+            "Use journalctl filters to find problems, and make the journal persistent so logs from earlier boots are kept."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Task",
+              "Command"
+            ],
+            "rows": [
+              [
+                "Recommended profile",
+                "tuned-adm recommend"
+              ],
+              [
+                "Apply",
+                "tuned-adm profile NAME"
+              ],
+              [
+                "Errors this boot",
+                "journalctl -b -p err"
+              ],
+              [
+                "Persist",
+                "Storage=persistent"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Review: operating running systems",
+          "bullets": [
+            "Do it without notes",
+            "Make it survive a reboot",
+            "Check your work"
+          ],
+          "script": [
+            "You've finished the operating running systems module. RHCSA is fully hands-on, so repeat each task in the labs until you can do it without looking anything up.",
+            "Always ask: will this still work after a reboot? Then verify, and take the question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D4",
+      "short": "Local storage",
+      "title": "Configure local storage",
+      "summary": "Create and delete GPT partitions, build LVM physical volumes, volume groups, and logical volumes, mount by UUID or label, and add partitions, logical volumes, and swap without disturbing existing data.",
+      "guide": [
+        {
+          "h": "What this objective covers",
+          "html": "<p>Storage tasks are worth a lot and are easy to get wrong. Expect to create a volume group with a specific extent size, a logical volume of a given size or number of extents, and swap that activates at boot.</p>"
+        },
+        {
+          "h": "Partitions",
+          "html": "<p>Inspect with <code>lsblk</code> and <code>blkid</code>. Create GPT partitions with <code>parted</code> (<code>mklabel gpt</code>, <code>mkpart name xfs 1MiB 1GiB</code>, <code>set 1 lvm on</code>), <code>gdisk</code>, or <code>fdisk</code>. Run <code>partprobe</code> or <code>udevadm settle</code> if the kernel doesn't see the change. Never touch partitions that hold existing data unless told to.</p>"
+        },
+        {
+          "h": "LVM",
+          "html": "<p><code>pvcreate /dev/vdb1</code>, <code>vgcreate -s 16M vgdata /dev/vdb1</code> (extent size), <code>lvcreate -n lvdata -L 1G vgdata</code> or <code>-l 50</code> (extents) or <code>-l 100%FREE</code>. Grow a VG with <code>vgextend</code>. Inspect with <code>pvs</code>, <code>vgs</code>, <code>lvs</code>, <code>vgdisplay</code> (PE size and free PE). Devices appear at <code>/dev/vgdata/lvdata</code> and <code>/dev/mapper/vgdata-lvdata</code>.</p>"
+        },
+        {
+          "h": "Persistent mounts and swap",
+          "html": "<p>Mount by <b>UUID</b> or <b>LABEL</b> in <code>/etc/fstab</code> so names can't shift. Swap: <code>mkswap /dev/vgdata/lvswap</code>, add <code>UUID=... none swap defaults 0 0</code>, then <code>swapon -a</code> and verify with <code>swapon --show</code>. After editing fstab, run <code>systemctl daemon-reload</code> and <code>mount -a</code>; a broken fstab can stop the system from booting.</p>"
+        }
+      ],
+      "tips": [
+        "-L is size (1G); -l is extents (50) or percentages (100%FREE).",
+        "Set the PE size at vgcreate time with -s.",
+        "Use UUID= or LABEL= in fstab.",
+        "Swap needs mkswap, an fstab entry, and swapon -a.",
+        "Test fstab with mount -a before any reboot."
+      ],
+      "terms": [
+        [
+          "GPT",
+          "GUID Partition Table, the modern partition scheme."
+        ],
+        [
+          "Physical volume",
+          "Disk or partition initialized for LVM."
+        ],
+        [
+          "Volume group",
+          "Pool of storage from one or more PVs."
+        ],
+        [
+          "Logical volume",
+          "Usable block device carved from a VG."
+        ],
+        [
+          "Physical extent",
+          "Allocation unit of a volume group (default 4 MiB)."
+        ],
+        [
+          "UUID",
+          "Unique identifier of a file system or swap area."
+        ],
+        [
+          "Swap",
+          "Disk space used as overflow memory."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Local storage",
+          "bullets": [
+            "Partitions",
+            "LVM",
+            "Mounts and swap"
+          ],
+          "script": [
+            "This module covers building storage: partitions, LVM, and swap, all configured to survive reboots.",
+            "Storage tasks are high value, so practice them in the labs until the commands are automatic."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "lsblk · blkid",
+                "d": "Inspect"
+              },
+              {
+                "t": "parted",
+                "d": "Partition"
+              },
+              {
+                "t": "pvcreate · vgcreate",
+                "d": "Pool"
+              },
+              {
+                "t": "lvcreate",
+                "d": "Volume"
+              },
+              {
+                "t": "mkswap · swapon",
+                "d": "Swap"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Building LVM",
+          "bullets": [
+            "PV → VG → LV",
+            "Extent size with -s",
+            "Size with -L or -l"
+          ],
+          "script": [
+            "Initialize physical volumes, combine them into a volume group, and carve logical volumes from it.",
+            "If a task asks for a specific extent size, set it with dash s at vgcreate. Size logical volumes in bytes with capital L or in extents with lowercase l."
+          ],
+          "visual": {
+            "type": "layers",
+            "items": [
+              {
+                "t": "Logical volume",
+                "d": "lvcreate -n lvdata -l 50 vgdata"
+              },
+              {
+                "t": "Volume group",
+                "d": "vgcreate -s 16M vgdata /dev/vdb1"
+              },
+              {
+                "t": "Physical volume",
+                "d": "pvcreate /dev/vdb1"
+              },
+              {
+                "t": "Partition",
+                "d": "parted /dev/vdb mkpart"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Persistent mounts",
+          "bullets": [
+            "UUID or LABEL",
+            "fstab fields",
+            "daemon-reload and mount -a"
+          ],
+          "script": [
+            "Look up the UUID with blkid and add a line to fstab: device, mount point, type, options, and two zeros.",
+            "Reload systemd, run mount dash a, and check with findmnt before you reboot."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Field",
+              "Example"
+            ],
+            "rows": [
+              [
+                "Device",
+                "UUID=7c1e…"
+              ],
+              [
+                "Mount point",
+                "/data"
+              ],
+              [
+                "Type",
+                "xfs"
+              ],
+              [
+                "Options",
+                "defaults"
+              ],
+              [
+                "Dump fsck",
+                "0 0"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Adding swap",
+          "bullets": [
+            "mkswap",
+            "fstab with type swap",
+            "swapon -a and verify"
+          ],
+          "script": [
+            "Create a new partition or logical volume, format it with mkswap, and add it to fstab with mount point none and type swap.",
+            "Activate it with swapon dash a and confirm with swapon dash dash show. Existing swap and data must stay untouched."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "lvcreate",
+                "d": "Space"
+              },
+              {
+                "t": "mkswap",
+                "d": "Format"
+              },
+              {
+                "t": "fstab",
+                "d": "none swap"
+              },
+              {
+                "t": "swapon -a",
+                "d": "Activate"
+              },
+              {
+                "t": "swapon --show",
+                "d": "Verify"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: local storage",
+          "bullets": [
+            "Do it without notes",
+            "Make it survive a reboot",
+            "Check your work"
+          ],
+          "script": [
+            "You've finished the local storage module. RHCSA is fully hands-on, so repeat each task in the labs until you can do it without looking anything up.",
+            "Always ask: will this still work after a reboot? Then verify, and take the question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D5",
+      "short": "File systems",
+      "title": "Create and configure file systems",
+      "summary": "Create, mount, and use VFAT, ext4, and XFS file systems; mount NFS shares and configure autofs; extend logical volumes with their file systems; and diagnose and correct file permission problems.",
+      "guide": [
+        {
+          "h": "What this objective covers",
+          "html": "<p>You'll format and mount file systems persistently, connect to NFS (directly and through autofs), grow logical volumes online, and fix permission problems.</p>"
+        },
+        {
+          "h": "Creating and mounting",
+          "html": "<p><code>mkfs.xfs</code>, <code>mkfs.ext4</code>, <code>mkfs.vfat</code>; set labels with <code>-L</code> (or <code>xfs_admin -L</code>, <code>e2label</code>). Mount points must exist (<code>mkdir -p</code>). Add to <code>/etc/fstab</code>, then <code>mount -a</code> and <code>findmnt</code>. VFAT has no Unix ownership, so use <code>uid=</code>, <code>gid=</code>, <code>umask=</code> options. Use <code>nofail</code> for optional devices.</p>"
+        },
+        {
+          "h": "NFS and autofs",
+          "html": "<p>List exports with <code>showmount -e server</code>. Persistent NFS mount: <code>server:/export /mnt/point nfs defaults,_netdev 0 0</code>. <b>autofs</b> mounts on demand: install <code>autofs</code>, add a master map (<code>/etc/auto.master.d/name.autofs</code> containing <code>/home/guests /etc/auto.guests</code>), create the map (<code>* -rw,sync server:/home/guests/&amp;</code> for wildcard homes, or <code>user1 -rw server:/path</code>), then <code>systemctl enable --now autofs</code>. Access the path to trigger the mount.</p>"
+        },
+        {
+          "h": "Growing and fixing",
+          "html": "<p>Grow online with <code>lvextend -r -L 3G /dev/vg/lv</code> (or <code>+1G</code>); without <code>-r</code>, run <code>xfs_growfs /mountpoint</code> or <code>resize2fs /dev/vg/lv</code>. If the VG is full, add a PV with <code>vgextend</code>. Aim for the middle of any allowed size range. Permission problems: check each directory on the path (x bit), ownership, group membership, SGID for shared folders, and ACLs (<code>getfacl</code>, <code>setfacl -m</code>).</p>"
+        }
+      ],
+      "tips": [
+        "XFS grows online but never shrinks.",
+        "lvextend -r grows the file system in the same step.",
+        "autofs: master map + map file + enable --now autofs.",
+        "Use _netdev for network mounts in fstab.",
+        "Pick sizes in the middle of a requested range."
+      ],
+      "terms": [
+        [
+          "XFS",
+          "Default RHEL file system; grow with xfs_growfs."
+        ],
+        [
+          "ext4",
+          "Linux file system that can grow and shrink."
+        ],
+        [
+          "VFAT",
+          "FAT file system for USB drives and EFI partitions."
+        ],
+        [
+          "NFS",
+          "Network File System for sharing directories."
+        ],
+        [
+          "autofs",
+          "Service that mounts file systems on demand."
+        ],
+        [
+          "_netdev",
+          "fstab option that waits for networking."
+        ],
+        [
+          "ACL",
+          "Extra per-user or per-group permissions."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "File systems",
+          "bullets": [
+            "XFS, ext4, VFAT",
+            "NFS and autofs",
+            "Grow and fix"
+          ],
+          "script": [
+            "This module covers creating file systems, mounting network shares, growing volumes, and fixing permission problems.",
+            "Each task must keep working after a reboot."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "mkfs.xfs",
+                "d": "Create"
+              },
+              {
+                "t": "fstab",
+                "d": "Persist"
+              },
+              {
+                "t": "NFS",
+                "d": "Network share"
+              },
+              {
+                "t": "autofs",
+                "d": "On demand"
+              },
+              {
+                "t": "lvextend -r",
+                "d": "Grow"
+              },
+              {
+                "t": "setfacl",
+                "d": "Fix access"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Create and mount",
+          "bullets": [
+            "mkfs and labels",
+            "fstab and mount -a",
+            "VFAT options"
+          ],
+          "script": [
+            "Format with the requested type, create the mount point, and add an fstab line by UUID or label.",
+            "VFAT doesn't store Unix owners, so set uid, gid, and umask options if users need access."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Type",
+              "Create",
+              "Grow"
+            ],
+            "rows": [
+              [
+                "XFS",
+                "mkfs.xfs",
+                "xfs_growfs /mnt"
+              ],
+              [
+                "ext4",
+                "mkfs.ext4",
+                "resize2fs /dev/…"
+              ],
+              [
+                "VFAT",
+                "mkfs.vfat",
+                "Not usually"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "autofs for NFS homes",
+          "bullets": [
+            "Master map",
+            "Wildcard map",
+            "Enable the service"
+          ],
+          "script": [
+            "autofs mounts NFS shares only when someone accesses them. The master map names the parent directory and the map file.",
+            "A wildcard map with star and ampersand mounts each user's directory from the server automatically."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "auto.master.d",
+                "d": "/home/guests /etc/auto.guests"
+              },
+              {
+                "t": "auto.guests",
+                "d": "* -rw server:/home/guests/&"
+              },
+              {
+                "t": "enable --now autofs",
+                "d": "Start"
+              },
+              {
+                "t": "cd /home/guests/user",
+                "d": "Mounts"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Growing logical volumes",
+          "bullets": [
+            "lvextend -r",
+            "+size vs absolute size",
+            "vgextend when full"
+          ],
+          "script": [
+            "Grow a logical volume and its file system together with lvextend dash r. Plus adds to the size; without plus it sets the total.",
+            "If the volume group has no free space, add a new physical volume with vgextend first."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Goal",
+              "Command"
+            ],
+            "rows": [
+              [
+                "Total 3 GiB",
+                "lvextend -r -L 3G /dev/vg/lv"
+              ],
+              [
+                "Add 500 MiB",
+                "lvextend -r -L +500M …"
+              ],
+              [
+                "Add PV",
+                "vgextend vg /dev/vdc1"
+              ],
+              [
+                "Check",
+                "lvs · df -h"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Review: file systems",
+          "bullets": [
+            "Do it without notes",
+            "Make it survive a reboot",
+            "Check your work"
+          ],
+          "script": [
+            "You've finished the file systems module. RHCSA is fully hands-on, so repeat each task in the labs until you can do it without looking anything up.",
+            "Always ask: will this still work after a reboot? Then verify, and take the question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D6",
+      "short": "Deploy & maintain",
+      "title": "Deploy, configure, and maintain systems",
+      "summary": "Schedule tasks with at, cron, and systemd timers; manage services at boot; set the default target; configure time synchronization; install and update software from RPM and Flatpak repositories; and modify the bootloader.",
+      "guide": [
+        {
+          "h": "What this objective covers",
+          "html": "<p>These tasks keep a system running long term: repositories and packages, scheduled jobs, time sync, boot defaults, and kernel arguments.</p>"
+        },
+        {
+          "h": "Software",
+          "html": "<p>Repositories: create <code>/etc/yum.repos.d/name.repo</code> with <code>[id]</code>, <code>name=</code>, <code>baseurl=</code>, <code>enabled=1</code>, <code>gpgcheck=</code> (and <code>gpgkey=</code>), or use <code>dnf config-manager --add-repo URL</code>. Verify with <code>dnf repolist</code>. Packages: <code>dnf install/remove/upgrade/info/search/provides</code>, <code>rpm -q</code>, <code>rpm -qf</code>. Flatpak: <code>flatpak remote-add --if-not-exists name URL</code>, <code>flatpak install name app-id</code>, <code>flatpak list</code>.</p>"
+        },
+        {
+          "h": "Scheduling",
+          "html": "<p>cron: <code>crontab -e -u user</code> with <code>min hour dom mon dow command</code> (<code>*/5 * * * *</code> is every 5 minutes); verify with <code>crontab -l -u user</code>. One-time: <code>echo cmd | at now + 10 minutes</code> (atd must run). systemd timers: a <code>.timer</code> with <code>OnCalendar=</code> and <code>Persistent=true</code> paired with a <code>.service</code>; enable the timer.</p>"
+        },
+        {
+          "h": "Time, targets, and the bootloader",
+          "html": "<p>Time: <code>timedatectl set-timezone</code>, <code>/etc/chrony.conf</code> <code>server host iburst</code>, <code>systemctl restart chronyd</code>, <code>chronyc sources</code>. Boot: <code>systemctl set-default</code>; services enabled at boot. Bootloader: <code>grubby --default-kernel</code>, <code>grubby --set-default</code>, <code>grubby --update-kernel=ALL --args=\"...\"</code> or edit <code>/etc/default/grub</code> and run <code>grub2-mkconfig -o /boot/grub2/grub.cfg</code>.</p>"
+        }
+      ],
+      "tips": [
+        "Check repos with dnf repolist before installing.",
+        "*/5 in the minute field = every 5 minutes.",
+        "Enable the .timer, not the .service.",
+        "chrony: server NAME iburst, restart chronyd, chronyc sources.",
+        "grubby changes kernel args and default kernel."
+      ],
+      "terms": [
+        [
+          "Repository",
+          "Source of RPM packages defined in a .repo file."
+        ],
+        [
+          "dnf",
+          "RHEL package manager."
+        ],
+        [
+          "Flatpak",
+          "Sandboxed desktop application packaging with remotes."
+        ],
+        [
+          "crontab",
+          "Per-user schedule of recurring jobs."
+        ],
+        [
+          "at",
+          "One-time job scheduler."
+        ],
+        [
+          "chronyd",
+          "NTP client and server daemon."
+        ],
+        [
+          "grubby",
+          "Tool for editing boot entries and kernel arguments."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Deploy and maintain",
+          "bullets": [
+            "Repos and packages",
+            "Scheduling",
+            "Time and boot"
+          ],
+          "script": [
+            "This module covers keeping a system maintained: software sources, scheduled work, accurate time, and the boot configuration.",
+            "These tasks are quick points if you know the exact files and commands."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "Repos",
+                "d": "/etc/yum.repos.d"
+              },
+              {
+                "t": "dnf · flatpak",
+                "d": "Install"
+              },
+              {
+                "t": "cron · at",
+                "d": "Schedule"
+              },
+              {
+                "t": "Timers",
+                "d": "systemd"
+              },
+              {
+                "t": "chrony",
+                "d": "Time"
+              },
+              {
+                "t": "grubby",
+                "d": "Boot"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Repositories",
+          "bullets": [
+            ".repo file keys",
+            "dnf config-manager",
+            "dnf repolist"
+          ],
+          "script": [
+            "Point the system at the provided repositories by writing a repo file with an id, a name, the base URL, enabled, and the GPG settings.",
+            "Check with dnf repolist, then install packages."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Key",
+              "Value"
+            ],
+            "rows": [
+              [
+                "[BaseOS]",
+                "Repo id"
+              ],
+              [
+                "baseurl=",
+                "http://…/BaseOS"
+              ],
+              [
+                "enabled=",
+                "1"
+              ],
+              [
+                "gpgcheck=",
+                "1 + gpgkey= or 0"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Scheduling work",
+          "bullets": [
+            "cron fields",
+            "at for once",
+            "systemd timers"
+          ],
+          "script": [
+            "Recurring jobs go in a user's crontab: minute, hour, day of month, month, and day of week.",
+            "Use at for one-time jobs and systemd timers when you want persistence and logging."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Schedule",
+              "Cron"
+            ],
+            "rows": [
+              [
+                "Every 5 min",
+                "*/5 * * * *"
+              ],
+              [
+                "2:30 daily",
+                "30 2 * * *"
+              ],
+              [
+                "Weekdays 14:23",
+                "23 14 * * 1-5"
+              ],
+              [
+                "Hourly",
+                "0 * * * *"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Time and the bootloader",
+          "bullets": [
+            "timedatectl and chrony",
+            "Default target",
+            "grubby"
+          ],
+          "script": [
+            "Set the time zone with timedatectl and sync time with chrony using a server line and a restart.",
+            "Set the default target with systemctl, and change kernel arguments or the default kernel with grubby."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "chrony.conf",
+                "d": "server … iburst"
+              },
+              {
+                "t": "restart chronyd",
+                "d": "Apply"
+              },
+              {
+                "t": "chronyc sources",
+                "d": "Verify"
+              },
+              {
+                "t": "grubby --args",
+                "d": "Kernel args"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: deploying and maintaining systems",
+          "bullets": [
+            "Do it without notes",
+            "Make it survive a reboot",
+            "Check your work"
+          ],
+          "script": [
+            "You've finished the deploying and maintaining systems module. RHCSA is fully hands-on, so repeat each task in the labs until you can do it without looking anything up.",
+            "Always ask: will this still work after a reboot? Then verify, and take the question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D7",
+      "short": "Networking",
+      "title": "Manage basic networking",
+      "summary": "Configure IPv4 and IPv6 addresses, gateways, and DNS with NetworkManager, set the hostname, configure name resolution, and make network services start at boot.",
+      "guide": [
+        {
+          "h": "What this objective covers",
+          "html": "<p>You'll set static addressing persistently, configure hostname and name resolution, and verify connectivity. A mistake here can cut you off from the grader, so check your work.</p>"
+        },
+        {
+          "h": "NetworkManager",
+          "html": "<p>List connections with <code>nmcli con show</code> and devices with <code>nmcli dev status</code>. Modify: <code>nmcli con mod NAME ipv4.addresses 172.25.250.11/24 ipv4.gateway 172.25.250.254 ipv4.dns 172.25.250.254 ipv4.method manual connection.autoconnect yes</code>, then <code>nmcli con up NAME</code>. IPv6: <code>ipv6.addresses fd00::11/64 ipv6.method manual</code>. Profiles are stored as keyfiles in <code>/etc/NetworkManager/system-connections/</code>. <code>nmtui</code> is a menu alternative. See <code>man nmcli-examples</code>.</p>"
+        },
+        {
+          "h": "Names and verification",
+          "html": "<p><code>hostnamectl set-hostname servera.lab.example.com</code> (writes <code>/etc/hostname</code>). Static entries in <code>/etc/hosts</code>. Verify with <code>ip addr</code>, <code>ip route</code>, <code>ping</code>, <code>host</code>/<code>dig</code>/<code>getent hosts</code>, and <code>ss -tlnp</code> for services.</p>"
+        }
+      ],
+      "tips": [
+        "Set ipv4.method manual when you add a static address.",
+        "nmcli con up NAME applies changes.",
+        "Use +ipv4.addresses to add rather than replace.",
+        "hostnamectl set-hostname is persistent.",
+        "man nmcli-examples has ready-to-adapt commands."
+      ],
+      "terms": [
+        [
+          "Connection profile",
+          "NetworkManager settings for an interface."
+        ],
+        [
+          "nmcli",
+          "NetworkManager command-line tool."
+        ],
+        [
+          "Keyfile",
+          "NetworkManager's profile file format in RHEL 10."
+        ],
+        [
+          "Default gateway",
+          "Router for traffic leaving the local subnet."
+        ],
+        [
+          "/etc/hosts",
+          "Static hostname-to-address mappings."
+        ],
+        [
+          "hostnamectl",
+          "Tool that sets the system hostname."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Basic networking",
+          "bullets": [
+            "Static IPv4 and IPv6",
+            "Hostname and DNS",
+            "Verify"
+          ],
+          "script": [
+            "This module covers network configuration with NetworkManager, which is what RHEL uses on every system.",
+            "Changes must persist, so always configure the connection profile rather than the live interface."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "nmcli con mod",
+                "d": "Configure"
+              },
+              {
+                "t": "nmcli con up",
+                "d": "Apply"
+              },
+              {
+                "t": "hostnamectl",
+                "d": "Name"
+              },
+              {
+                "t": "/etc/hosts",
+                "d": "Static names"
+              },
+              {
+                "t": "ip · ss",
+                "d": "Verify"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Static addressing",
+          "bullets": [
+            "addresses, gateway, dns",
+            "method manual",
+            "con up to apply"
+          ],
+          "script": [
+            "Modify the connection profile with the address and prefix, gateway, and DNS server, and set the method to manual.",
+            "Then bring the connection up. Add IPv6 with the ipv6 dot properties in the same way."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Property",
+              "Example"
+            ],
+            "rows": [
+              [
+                "ipv4.addresses",
+                "172.25.250.11/24"
+              ],
+              [
+                "ipv4.gateway",
+                "172.25.250.254"
+              ],
+              [
+                "ipv4.dns",
+                "172.25.250.254"
+              ],
+              [
+                "ipv4.method",
+                "manual"
+              ],
+              [
+                "ipv6.addresses",
+                "fd00::11/64"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Names and checks",
+          "bullets": [
+            "hostnamectl",
+            "/etc/hosts",
+            "ip, ping, host"
+          ],
+          "script": [
+            "Set the hostname with hostnamectl and add static names to etc hosts if a task asks.",
+            "Verify the address, route, and name resolution before moving on."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "nmcli con up",
+                "d": "Apply"
+              },
+              {
+                "t": "ip addr",
+                "d": "Address"
+              },
+              {
+                "t": "ip route",
+                "d": "Gateway"
+              },
+              {
+                "t": "host name",
+                "d": "DNS"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Review: basic networking",
+          "bullets": [
+            "Do it without notes",
+            "Make it survive a reboot",
+            "Check your work"
+          ],
+          "script": [
+            "You've finished the basic networking module. RHCSA is fully hands-on, so repeat each task in the labs until you can do it without looking anything up.",
+            "Always ask: will this still work after a reboot? Then verify, and take the question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D8",
+      "short": "Users & groups",
+      "title": "Manage users and groups",
+      "summary": "Create, delete, and modify local users and groups, set passwords and password aging, manage group membership, and configure superuser access.",
+      "guide": [
+        {
+          "h": "What this objective covers",
+          "html": "<p>User tasks are quick but precise: exact UIDs, shells, supplementary groups, aging rules, and sudo access.</p>"
+        },
+        {
+          "h": "Accounts and groups",
+          "html": "<p><code>groupadd [-g GID] name</code>; <code>useradd -u UID -G group1,group2 -s /bin/bash name</code>; <code>-s /sbin/nologin</code> for no interactive login. Set passwords non-interactively: <code>echo 'Passw0rd' | passwd --stdin name</code>. Modify with <code>usermod -aG</code> (append), <code>-s</code>, <code>-L</code>/<code>-U</code>; delete with <code>userdel -r</code>. Verify with <code>id</code> and <code>getent passwd</code>.</p>"
+        },
+        {
+          "h": "Aging and sudo",
+          "html": "<p>Per user: <code>chage -M 30 name</code> (max days), <code>-m</code> min, <code>-W</code> warning, <code>-E YYYY-MM-DD</code> expiry, <code>-d 0</code> force change, <code>-l</code> list. Defaults for new users: <code>PASS_MAX_DAYS</code> etc. in <code>/etc/login.defs</code>. Superuser access: members of <b>wheel</b> have full sudo; or create <code>/etc/sudoers.d/name</code> with <code>%group ALL=(ALL) ALL</code> (add <code>NOPASSWD:</code> only if required) using <code>visudo -f</code>.</p>"
+        }
+      ],
+      "tips": [
+        "-G sets supplementary groups; -g sets the primary group.",
+        "usermod -aG appends; forgetting -a removes other groups.",
+        "passwd --stdin is the quick non-interactive way on RHEL.",
+        "login.defs affects only users created afterward.",
+        "Validate sudoers drop-ins with visudo."
+      ],
+      "terms": [
+        [
+          "UID",
+          "Numeric user ID."
+        ],
+        [
+          "Supplementary group",
+          "Additional group a user belongs to."
+        ],
+        [
+          "nologin",
+          "Shell that refuses interactive logins."
+        ],
+        [
+          "chage",
+          "Sets password aging per user."
+        ],
+        [
+          "login.defs",
+          "Defaults for new accounts, such as PASS_MAX_DAYS."
+        ],
+        [
+          "wheel",
+          "Group with full sudo access on RHEL."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Users and groups",
+          "bullets": [
+            "Accounts",
+            "Aging",
+            "sudo"
+          ],
+          "script": [
+            "This module covers local accounts, which are some of the quickest points on the exam if you're precise.",
+            "Double-check UIDs, group names, shells, and passwords after every task."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "useradd",
+                "d": "Create"
+              },
+              {
+                "t": "usermod -aG",
+                "d": "Groups"
+              },
+              {
+                "t": "passwd --stdin",
+                "d": "Password"
+              },
+              {
+                "t": "chage",
+                "d": "Aging"
+              },
+              {
+                "t": "sudoers.d",
+                "d": "Admin rights"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Creating accounts",
+          "bullets": [
+            "groupadd and useradd",
+            "UID, groups, shell",
+            "Set the password"
+          ],
+          "script": [
+            "Create groups first, then users with the requested UID, supplementary groups, and shell.",
+            "Set the password with passwd dash dash stdin, and verify with id."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Requirement",
+              "Option"
+            ],
+            "rows": [
+              [
+                "UID 3533",
+                "useradd -u 3533"
+              ],
+              [
+                "Extra group",
+                "-G sysadms"
+              ],
+              [
+                "No login",
+                "-s /sbin/nologin"
+              ],
+              [
+                "Password",
+                "passwd --stdin"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Aging and superuser access",
+          "bullets": [
+            "chage per user",
+            "login.defs for new users",
+            "%group in sudoers.d"
+          ],
+          "script": [
+            "Use chage to set aging on existing users and login dot defs for the defaults that new users get.",
+            "Grant admin rights by adding users to wheel or by writing a sudoers drop-in for a group."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Goal",
+              "Command"
+            ],
+            "rows": [
+              [
+                "Expire every 30 days",
+                "chage -M 30 user"
+              ],
+              [
+                "Change at next login",
+                "chage -d 0 user"
+              ],
+              [
+                "Default 90 days",
+                "PASS_MAX_DAYS 90"
+              ],
+              [
+                "Group sudo",
+                "%admins ALL=(ALL) ALL"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Review: users and groups",
+          "bullets": [
+            "Do it without notes",
+            "Make it survive a reboot",
+            "Check your work"
+          ],
+          "script": [
+            "You've finished the users and groups module. RHCSA is fully hands-on, so repeat each task in the labs until you can do it without looking anything up.",
+            "Always ask: will this still work after a reboot? Then verify, and take the question set."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D9",
+      "short": "Security",
+      "title": "Manage security",
+      "summary": "Configure firewalld, set default file permissions, configure key-based SSH, and manage SELinux: modes, file and process contexts, restoring contexts, port labels, and booleans.",
+      "guide": [
+        {
+          "h": "What this objective covers",
+          "html": "<p>Security tasks often combine: for example, make Apache serve content from a nonstandard directory on a nonstandard port with SELinux enforcing and the firewall open.</p>"
+        },
+        {
+          "h": "firewalld",
+          "html": "<p><code>firewall-cmd --get-default-zone</code>, <code>--list-all</code>. Add permanently and apply: <code>firewall-cmd --permanent --add-service=http</code> or <code>--add-port=82/tcp</code>, then <code>firewall-cmd --reload</code>. Remove with <code>--remove-service</code>. Rich rules restrict by source. Without <code>--permanent</code> changes vanish at reload or reboot.</p>"
+        },
+        {
+          "h": "SELinux",
+          "html": "<p>Modes: <code>getenforce</code>, <code>setenforce 0|1</code> (runtime), <code>SELINUX=enforcing</code> in <code>/etc/selinux/config</code> (boot). Contexts: <code>ls -Z</code>, <code>ps -eZ</code>. Persistent file labels: <code>semanage fcontext -a -t httpd_sys_content_t \"/srv/web(/.*)?\"</code> then <code>restorecon -Rv /srv/web</code>; <code>chcon</code> is temporary. Port labels: <code>semanage port -a -t http_port_t -p tcp 82</code>; list with <code>semanage port -l</code>. Booleans: <code>getsebool -a</code>, <code>setsebool -P name on</code>. Diagnose with <code>ausearch -m AVC -ts recent</code> or <code>sealert</code>.</p>"
+        },
+        {
+          "h": "SSH keys and default permissions",
+          "html": "<p>Key-based SSH: <code>ssh-keygen</code>, then <code>ssh-copy-id user@host</code>; keep <code>~/.ssh</code> at 700 and <code>authorized_keys</code> at 600. Default permissions come from <b>umask</b>: 022 → 644/755, 027 → 640/750, 077 → 600/700; set it per user in <code>~/.bashrc</code> or globally in <code>/etc/profile.d/</code>.</p>"
+        }
+      ],
+      "tips": [
+        "firewall-cmd: --permanent then --reload.",
+        "semanage fcontext + restorecon = permanent labels; chcon = temporary.",
+        "Nonstandard web port needs semanage port and a firewall rule.",
+        "setsebool -P makes booleans survive reboots.",
+        "Never finish with SELinux permissive or disabled."
+      ],
+      "terms": [
+        [
+          "Zone",
+          "firewalld trust level holding rules for interfaces and sources."
+        ],
+        [
+          "SELinux context",
+          "Label of user:role:type:level on files and processes."
+        ],
+        [
+          "Type enforcement",
+          "SELinux rules based on types such as httpd_t and httpd_sys_content_t."
+        ],
+        [
+          "restorecon",
+          "Resets files to their default SELinux labels."
+        ],
+        [
+          "Port label",
+          "SELinux type assigned to a network port."
+        ],
+        [
+          "Boolean",
+          "On/off switch for optional SELinux policy."
+        ],
+        [
+          "umask",
+          "Mask that removes permissions from new files."
+        ]
+      ],
+      "slides": [
+        {
+          "title": "Managing security",
+          "bullets": [
+            "firewalld",
+            "SELinux",
+            "SSH keys and umask"
+          ],
+          "script": [
+            "The security module covers the controls RHEL enables by default: the firewall and SELinux, plus SSH keys and default permissions.",
+            "The exam expects SELinux to stay enforcing, so learn to fix labels instead of turning it off."
+          ],
+          "visual": {
+            "type": "cards",
+            "items": [
+              {
+                "t": "firewall-cmd",
+                "d": "Open ports"
+              },
+              {
+                "t": "semanage fcontext",
+                "d": "File labels"
+              },
+              {
+                "t": "restorecon",
+                "d": "Apply labels"
+              },
+              {
+                "t": "semanage port",
+                "d": "Port labels"
+              },
+              {
+                "t": "setsebool -P",
+                "d": "Booleans"
+              },
+              {
+                "t": "ssh-copy-id",
+                "d": "Keys"
+              }
+            ]
+          },
+          "layout": "title"
+        },
+        {
+          "title": "Firewall rules",
+          "bullets": [
+            "Services and ports",
+            "--permanent and --reload",
+            "--list-all"
+          ],
+          "script": [
+            "firewalld rules are runtime unless you add dash dash permanent. Add the service or port permanently, then reload to apply it.",
+            "List the zone to check your work."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Goal",
+              "Command"
+            ],
+            "rows": [
+              [
+                "Allow HTTP",
+                "--permanent --add-service=http"
+              ],
+              [
+                "Allow 82/tcp",
+                "--permanent --add-port=82/tcp"
+              ],
+              [
+                "Apply",
+                "--reload"
+              ],
+              [
+                "Check",
+                "--list-all"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "SELinux labels",
+          "bullets": [
+            "Contexts on files and processes",
+            "semanage fcontext + restorecon",
+            "chcon is temporary"
+          ],
+          "script": [
+            "Every file and process has a context. Apache, running as httpd t, can only read files labeled for web content.",
+            "Record the rule with semanage fcontext, then apply it with restorecon. chcon changes are lost on relabel."
+          ],
+          "visual": {
+            "type": "flow",
+            "steps": [
+              {
+                "t": "ls -Z",
+                "d": "See label"
+              },
+              {
+                "t": "semanage fcontext -a",
+                "d": "Record rule"
+              },
+              {
+                "t": "restorecon -Rv",
+                "d": "Apply"
+              },
+              {
+                "t": "curl",
+                "d": "Test"
+              }
+            ]
+          }
+        },
+        {
+          "title": "Ports and booleans",
+          "bullets": [
+            "semanage port",
+            "setsebool -P",
+            "Read denials"
+          ],
+          "script": [
+            "To run a service on a nonstandard port, label the port with semanage port, open the firewall, and restart the service.",
+            "Booleans switch optional policy on or off; dash capital P makes them persistent. Read denials with ausearch or sealert."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "Need",
+              "Command"
+            ],
+            "rows": [
+              [
+                "httpd on 82",
+                "semanage port -a -t http_port_t -p tcp 82"
+              ],
+              [
+                "httpd → DB",
+                "setsebool -P httpd_can_network_connect_db on"
+              ],
+              [
+                "Denials",
+                "ausearch -m AVC -ts recent"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "SSH keys and umask",
+          "bullets": [
+            "ssh-keygen and ssh-copy-id",
+            "Permissions on .ssh",
+            "umask defaults"
+          ],
+          "script": [
+            "Generate a key pair and copy the public key to the other server for passwordless login.",
+            "Control default permissions for new files with umask in the user's bashrc."
+          ],
+          "visual": {
+            "type": "table",
+            "head": [
+              "umask",
+              "Files",
+              "Dirs"
+            ],
+            "rows": [
+              [
+                "022",
+                "644",
+                "755"
+              ],
+              [
+                "027",
+                "640",
+                "750"
+              ],
+              [
+                "077",
+                "600",
+                "700"
+              ]
+            ]
+          }
+        },
+        {
+          "title": "Review: security",
+          "bullets": [
+            "Do it without notes",
+            "Make it survive a reboot",
+            "Check your work"
+          ],
+          "script": [
+            "You've finished the security module. RHCSA is fully hands-on, so repeat each task in the labs until you can do it without looking anything up.",
+            "Always ask: will this still work after a reboot? Then verify, and take the question set."
+          ]
+        }
+      ]
+    }
+  ]
+}

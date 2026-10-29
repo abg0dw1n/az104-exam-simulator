@@ -6,7 +6,7 @@
     "vendor": "Microsoft",
     "legacyStorageKey": "az104-sim:v2",
     "level": "advanced",
-    "updated": "2026-10-28",
+    "updated": "2026-10-29",
     "learning": true,
     "learningDescription": "Configure Azure identities and governance, manage storage, deploy compute, build virtual networks, and monitor and maintain Azure resources.",
     "questions": 198,
@@ -29,7 +29,7 @@
     "name": "CompTIA Security+",
     "vendor": "CompTIA",
     "level": "intermediate",
-    "updated": "2026-10-27",
+    "updated": "2026-10-29",
     "questions": 195,
     "labs": 6
   },
@@ -112,7 +112,7 @@
     "name": "CompTIA A+ Core 1",
     "vendor": "CompTIA",
     "level": "beginner",
-    "updated": "2026-10-28",
+    "updated": "2026-10-29",
     "learning": true,
     "learningDescription": "Study mobile devices, networking, hardware, virtualization and cloud, plus practical troubleshooting for common hardware and network problems.",
     "questions": 128,
@@ -125,7 +125,7 @@
     "name": "CompTIA A+ Core 2",
     "vendor": "CompTIA",
     "level": "beginner",
-    "updated": "2026-10-28",
+    "updated": "2026-10-29",
     "learning": true,
     "learningDescription": "Prepare for Windows, macOS, and Linux support; endpoint and network security; software troubleshooting; and safe, professional IT operations.",
     "questions": 127,
@@ -302,5 +302,38 @@
     "learningDescription": "Run the front office: communicate professionally, protect patient privacy, schedule and register patients, support billing, and manage records and daily operations.",
     "learningModules": 7,
     "questions": 109
+  },
+  {
+    "slug": "linux-essentials",
+    "code": "010-200",
+    "name": "LPI Linux Essentials",
+    "vendor": "Linux Professional Institute",
+    "level": "beginner",
+    "learning": true,
+    "learningDescription": "Start with Linux: distributions and open source licensing, the command line, files and text processing, simple scripts, processes and networking, users, and permissions.",
+    "learningModules": 5,
+    "questions": 110
+  },
+  {
+    "slug": "linux-plus",
+    "code": "XK0-006",
+    "name": "CompTIA Linux+",
+    "vendor": "CompTIA",
+    "level": "intermediate",
+    "learning": true,
+    "learningDescription": "Administer Linux servers: boot, storage and LVM, networking, systemd, containers, security hardening, automation with scripts, Ansible and Git, and troubleshooting.",
+    "learningModules": 5,
+    "questions": 148
+  },
+  {
+    "slug": "rhcsa",
+    "code": "EX200",
+    "name": "Red Hat Certified System Administrator (RHCSA)",
+    "vendor": "Red Hat",
+    "level": "advanced",
+    "learning": true,
+    "learningDescription": "Prepare for the hands-on RHEL 10 exam: essential tools, scripting, boot and processes, LVM and file systems, software, networking, users, firewalld and SELinux.",
+    "learningModules": 9,
+    "questions": 106
   }
 ]

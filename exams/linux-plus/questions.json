@@ -1,0 +1,3702 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "Put the Linux boot sequence in order after power-on.",
+    "options": [
+      {
+        "text": "Firmware (UEFI/BIOS) → bootloader (GRUB 2) → kernel + initramfs → systemd → targets and services",
+        "note": ""
+      },
+      {
+        "text": "GRUB 2 → firmware → systemd → kernel",
+        "note": "Firmware always runs first, and the kernel starts systemd."
+      },
+      {
+        "text": "Kernel → firmware → GRUB 2 → systemd",
+        "note": "The bootloader loads the kernel."
+      },
+      {
+        "text": "systemd → kernel → GRUB 2 → services",
+        "note": "systemd is PID 1, started by the kernel."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The initramfs (initrd) provides drivers needed to mount the real root file system before handing off to systemd."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "Where do you change kernel command-line defaults on a GRUB 2 system before regenerating the configuration?",
+    "options": [
+      {
+        "text": "/etc/default/grub (GRUB_CMDLINE_LINUX), then run grub2-mkconfig or update-grub",
+        "note": ""
+      },
+      {
+        "text": "Edit /boot/grub2/grub.cfg directly and leave it",
+        "note": "grub.cfg is generated and gets overwritten."
+      },
+      {
+        "text": "/etc/fstab",
+        "note": "fstab defines mounts."
+      },
+      {
+        "text": "/etc/inittab",
+        "note": "Not used by systemd for this."
+      }
+    ],
+    "answer": 0,
+    "explanation": "RHEL: grub2-mkconfig -o /boot/grub2/grub.cfg (or grubby --update-kernel ALL --args ...). Debian/Ubuntu: update-grub."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "Which tool rebuilds the initramfs on a RHEL-family system after adding a storage driver?",
+    "options": [
+      {
+        "text": "dracut",
+        "note": ""
+      },
+      {
+        "text": "mkfs",
+        "note": "Creates file systems."
+      },
+      {
+        "text": "modinfo",
+        "note": "Shows module information."
+      },
+      {
+        "text": "depmod -a",
+        "note": "Updates module dependencies but doesn't build the initramfs."
+      }
+    ],
+    "answer": 0,
+    "explanation": "dracut -f regenerates the initramfs for the running kernel. Debian uses update-initramfs, and older systems mkinitrd."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "Which command loads the kernel module vfio along with any modules it depends on?",
+    "options": [
+      {
+        "text": "modprobe vfio",
+        "note": ""
+      },
+      {
+        "text": "insmod vfio",
+        "note": "insmod needs a full path and doesn't resolve dependencies."
+      },
+      {
+        "text": "lsmod vfio",
+        "note": "lsmod lists loaded modules."
+      },
+      {
+        "text": "rmmod vfio",
+        "note": "Removes a module."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use modprobe -r to unload. Blacklist modules in /etc/modprobe.d/*.conf; load at boot via /etc/modules-load.d/."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "Which command lists PCI devices such as network and graphics cards, with the kernel driver in use?",
+    "options": [
+      {
+        "text": "lspci -k",
+        "note": ""
+      },
+      {
+        "text": "lsusb -v",
+        "note": "USB devices."
+      },
+      {
+        "text": "lsblk -k",
+        "note": "Block devices."
+      },
+      {
+        "text": "lscpu -k",
+        "note": "CPU details."
+      }
+    ],
+    "answer": 0,
+    "explanation": "lspci lists PCI devices, and -k adds the kernel driver in use and the available modules. Other hardware tools: lsusb, lshw, dmidecode (firmware/DMI tables), lscpu, dmesg."
+  },
+  {
+    "id": 6,
+    "domain": "D1",
+    "scenario": "You add a new 20 GiB disk /dev/sdb for a database. Which order creates an LVM volume ready to mount?",
+    "options": [
+      {
+        "text": "pvcreate /dev/sdb → vgcreate vgdata /dev/sdb → lvcreate -n lvdb -L 15G vgdata → mkfs.xfs /dev/vgdata/lvdb",
+        "note": ""
+      },
+      {
+        "text": "mkfs.xfs /dev/sdb → pvcreate → vgcreate",
+        "note": "Formatting first would be overwritten by pvcreate."
+      },
+      {
+        "text": "lvcreate → vgcreate → pvcreate",
+        "note": "Physical volumes come first."
+      },
+      {
+        "text": "vgcreate → mount → pvcreate",
+        "note": "Wrong order."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PV → VG → LV → file system → mount. Check with pvs, vgs, lvs."
+  },
+  {
+    "id": 7,
+    "domain": "D1",
+    "scenario": "Which command grows logical volume lvweb by 5 GiB and resizes its file system in one step?",
+    "options": [
+      {
+        "text": "lvextend -r -L +5G /dev/vgweb/lvweb",
+        "note": ""
+      },
+      {
+        "text": "lvextend -L 5G /dev/vgweb/lvweb",
+        "note": "Sets an absolute size of 5G instead of adding 5G, and doesn't resize the file system."
+      },
+      {
+        "text": "lvresize -s 5G lvweb",
+        "note": "Not valid."
+      },
+      {
+        "text": "resize2fs -L +5G /dev/vgweb/lvweb",
+        "note": "resize2fs doesn't grow the LV."
+      }
+    ],
+    "answer": 0,
+    "explanation": "-r calls the right resizer (xfs_growfs for XFS, resize2fs for ext4). +5G adds; 5G sets an absolute size."
+  },
+  {
+    "id": 8,
+    "domain": "D1",
+    "scenario": "Which file system can be grown but not shrunk?",
+    "options": [
+      {
+        "text": "XFS",
+        "note": ""
+      },
+      {
+        "text": "ext4",
+        "note": "ext4 can be shrunk offline."
+      },
+      {
+        "text": "Btrfs",
+        "note": "Btrfs can shrink."
+      },
+      {
+        "text": "tmpfs",
+        "note": "tmpfs is memory-based and resizable with remount."
+      }
+    ],
+    "answer": 0,
+    "explanation": "XFS is the RHEL default. Grow it while mounted with xfs_growfs /mountpoint."
+  },
+  {
+    "id": 9,
+    "domain": "D1",
+    "scenario": "Which /etc/fstab entry mounts an XFS volume by UUID at /data at boot?",
+    "options": [
+      {
+        "text": "UUID=3f2a...c9 /data xfs defaults 0 0",
+        "note": ""
+      },
+      {
+        "text": "/data UUID=3f2a...c9 xfs defaults",
+        "note": "Device comes first, then mount point."
+      },
+      {
+        "text": "UUID=3f2a...c9 xfs /data defaults 0 0",
+        "note": "Mount point comes before type."
+      },
+      {
+        "text": "mount UUID=3f2a...c9 /data",
+        "note": "That's a command, not an fstab line."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fields: device, mount point, type, options, dump, fsck order. Find UUIDs with blkid or lsblk -f. Test with mount -a or findmnt --verify."
+  },
+  {
+    "id": 10,
+    "domain": "D1",
+    "scenario": "Which mount option prevents programs on a mounted file system from being executed?",
+    "options": [
+      {
+        "text": "noexec",
+        "note": ""
+      },
+      {
+        "text": "nosuid",
+        "note": "nosuid ignores SUID/SGID bits but still allows execution."
+      },
+      {
+        "text": "ro",
+        "note": "Read-only, but binaries can still run."
+      },
+      {
+        "text": "nodev",
+        "note": "Ignores device files."
+      }
+    ],
+    "answer": 0,
+    "explanation": "noexec stops binaries on that file system from being run directly. Hardening /tmp often uses nodev,nosuid,noexec."
+  },
+  {
+    "id": 11,
+    "domain": "D1",
+    "scenario": "A disk reports free space, but writes fail with \"No space left on device.\" Which command confirms inode exhaustion?",
+    "options": [
+      {
+        "text": "df -i",
+        "note": ""
+      },
+      {
+        "text": "df -h",
+        "note": "Shows blocks, not inodes."
+      },
+      {
+        "text": "du -sh",
+        "note": "Shows space used."
+      },
+      {
+        "text": "free -m",
+        "note": "Shows memory."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Millions of tiny files (such as session or cache files) can use all inodes. Delete them or rebuild the file system with more inodes."
+  },
+  {
+    "id": 12,
+    "domain": "D1",
+    "scenario": "Which command creates a RAID 1 array from /dev/sdb1 and /dev/sdc1?",
+    "options": [
+      {
+        "text": "mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1",
+        "note": ""
+      },
+      {
+        "text": "mdadm --assemble --level=0 /dev/sdb1 /dev/sdc1",
+        "note": "--assemble starts existing arrays, and level 0 is striping."
+      },
+      {
+        "text": "lvcreate --raid1 /dev/sdb1",
+        "note": "Not valid syntax."
+      },
+      {
+        "text": "mkfs.raid1 /dev/sdb1 /dev/sdc1",
+        "note": "Not a command."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check status in /proc/mdstat or mdadm --detail /dev/md0. RAID 1 mirrors; RAID 5 stripes with parity; RAID 10 mirrors and stripes."
+  },
+  {
+    "id": 13,
+    "domain": "D1",
+    "scenario": "Which /etc/fstab entry mounts an NFS export from nas01?",
+    "options": [
+      {
+        "text": "nas01:/exports/share /mnt/share nfs defaults,_netdev 0 0",
+        "note": ""
+      },
+      {
+        "text": "//nas01/share /mnt/share nfs defaults 0 0",
+        "note": "//server/share is SMB/CIFS syntax."
+      },
+      {
+        "text": "/mnt/share nas01:/exports/share nfs",
+        "note": "Fields are reversed."
+      },
+      {
+        "text": "nfs://nas01/share /mnt/share auto",
+        "note": "Not fstab syntax."
+      }
+    ],
+    "answer": 0,
+    "explanation": "_netdev waits for the network. SMB shares use //server/share with type cifs and a credentials file."
+  },
+  {
+    "id": 14,
+    "domain": "D1",
+    "scenario": "Which tmpfs property matters when you mount /tmp as tmpfs?",
+    "options": [
+      {
+        "text": "Contents live in RAM (and swap) and disappear at reboot",
+        "note": ""
+      },
+      {
+        "text": "It's slower than disk",
+        "note": "It's usually faster."
+      },
+      {
+        "text": "It requires a dedicated partition",
+        "note": "No partition needed."
+      },
+      {
+        "text": "It can't have a size limit",
+        "note": "Use size= to limit it."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Example: tmpfs /tmp tmpfs size=2G,nodev,nosuid 0 0."
+  },
+  {
+    "id": 15,
+    "domain": "D1",
+    "scenario": "Which command shows NetworkManager connection profiles and their devices?",
+    "options": [
+      {
+        "text": "nmcli connection show",
+        "note": ""
+      },
+      {
+        "text": "ip link show --profiles",
+        "note": "ip doesn't manage profiles."
+      },
+      {
+        "text": "netplan list",
+        "note": "Not a valid command."
+      },
+      {
+        "text": "ifconfig -p",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Modify a profile with nmcli con mod <name> ipv4.addresses ... ipv4.method manual, then nmcli con up <name>."
+  },
+  {
+    "id": 16,
+    "domain": "D1",
+    "scenario": "On Ubuntu Server, where is the network configuration usually defined?",
+    "options": [
+      {
+        "text": "YAML files in /etc/netplan, applied with netplan apply",
+        "note": ""
+      },
+      {
+        "text": "/etc/sysconfig/network-scripts",
+        "note": "Legacy RHEL location."
+      },
+      {
+        "text": "/etc/network.conf",
+        "note": "Not standard."
+      },
+      {
+        "text": "/etc/resolv.conf only",
+        "note": "That only lists resolvers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Netplan renders configuration for systemd-networkd or NetworkManager. netplan try rolls back automatically if you lose connectivity."
+  },
+  {
+    "id": 17,
+    "domain": "D1",
+    "scenario": "Which file controls whether the system checks /etc/hosts before DNS?",
+    "options": [
+      {
+        "text": "/etc/nsswitch.conf (hosts: files dns)",
+        "note": ""
+      },
+      {
+        "text": "/etc/resolv.conf",
+        "note": "Lists DNS servers and search domains."
+      },
+      {
+        "text": "/etc/host.conf only",
+        "note": "Legacy; nsswitch.conf takes priority."
+      },
+      {
+        "text": "/etc/hostname",
+        "note": "Holds the host name."
+      }
+    ],
+    "answer": 0,
+    "explanation": "With hosts: files dns, a matching /etc/hosts entry wins."
+  },
+  {
+    "id": 18,
+    "domain": "D1",
+    "scenario": "Which shell startup file is the right place for a user's personal aliases in Bash interactive shells?",
+    "options": [
+      {
+        "text": "~/.bashrc",
+        "note": ""
+      },
+      {
+        "text": "/etc/fstab",
+        "note": "Mounts."
+      },
+      {
+        "text": "~/.ssh/config",
+        "note": "SSH client settings."
+      },
+      {
+        "text": "/etc/hosts",
+        "note": "Name resolution."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Login shells read /etc/profile and ~/.bash_profile (which usually sources ~/.bashrc). System-wide snippets go in /etc/profile.d/."
+  },
+  {
+    "id": 19,
+    "domain": "D1",
+    "scenario": "In vim, how do you save changes and quit?",
+    "options": [
+      {
+        "text": "Press Esc, then type :wq and press Enter",
+        "note": ""
+      },
+      {
+        "text": "Ctrl+S then Ctrl+Q",
+        "note": "Not vim keys; Ctrl+S can freeze terminal output."
+      },
+      {
+        "text": ":q! and Enter",
+        "note": "Quits without saving."
+      },
+      {
+        "text": "Ctrl+X then Y",
+        "note": "That's nano."
+      }
+    ],
+    "answer": 0,
+    "explanation": "i enters insert mode, Esc returns to normal mode, /text searches, dd deletes a line, u undoes."
+  },
+  {
+    "id": 20,
+    "domain": "D1",
+    "scenario": "Which command makes a compressed, permission-preserving archive of /etc?",
+    "options": [
+      {
+        "text": "tar -czpf etc-backup.tar.gz /etc",
+        "note": ""
+      },
+      {
+        "text": "cp -r /etc /backup.tgz",
+        "note": "cp doesn't create an archive."
+      },
+      {
+        "text": "gzip -r /etc",
+        "note": "Compresses each file in place."
+      },
+      {
+        "text": "dd if=/etc of=etc.img",
+        "note": "dd copies devices or files byte by byte."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use -J for xz and -j for bzip2. cpio is an older archive format used inside initramfs and RPMs."
+  },
+  {
+    "id": 21,
+    "domain": "D1",
+    "scenario": "Which command copies only changed files from /srv/www to a backup server and preserves attributes?",
+    "options": [
+      {
+        "text": "rsync -a --delete /srv/www/ backup01:/backups/www/",
+        "note": ""
+      },
+      {
+        "text": "scp -r /srv/www backup01:",
+        "note": "Copies everything every time."
+      },
+      {
+        "text": "dd if=/srv/www of=backup01",
+        "note": "Not for directory sync."
+      },
+      {
+        "text": "tar -x /srv/www",
+        "note": "Extracts, doesn't copy."
+      }
+    ],
+    "answer": 0,
+    "explanation": "-a is archive mode (recursive, permissions, times, links). --delete removes files deleted at the source. The trailing slash copies the contents."
+  },
+  {
+    "id": 22,
+    "domain": "D1",
+    "scenario": "Which tool makes an exact block-level image of a disk, including empty space?",
+    "options": [
+      {
+        "text": "dd",
+        "note": ""
+      },
+      {
+        "text": "rsync",
+        "note": "File-level."
+      },
+      {
+        "text": "tar",
+        "note": "File-level."
+      },
+      {
+        "text": "cpio",
+        "note": "File-level."
+      }
+    ],
+    "answer": 0,
+    "explanation": "dd copies raw blocks from one device or file to another, so the image includes partitions, boot data and unused space. Example: dd if=/dev/sdb of=/backup/sdb.img bs=4M status=progress. ddrescue is better for failing disks."
+  },
+  {
+    "id": 23,
+    "domain": "D1",
+    "scenario": "Which pair describes KVM and QEMU?",
+    "options": [
+      {
+        "text": "KVM is the kernel's hardware virtualization module; QEMU emulates the devices and runs the VM",
+        "note": ""
+      },
+      {
+        "text": "KVM is a container runtime; QEMU is a firewall",
+        "note": "Neither."
+      },
+      {
+        "text": "Both are cloud providers",
+        "note": "They're open source virtualization software."
+      },
+      {
+        "text": "QEMU is the kernel module; KVM is a GUI",
+        "note": "Reversed and wrong."
+      }
+    ],
+    "answer": 0,
+    "explanation": "libvirt manages them, using virsh at the command line and virt-manager in a GUI."
+  },
+  {
+    "id": 24,
+    "domain": "D1",
+    "scenario": "Which command lists all virtual machines managed by libvirt, including stopped ones?",
+    "options": [
+      {
+        "text": "virsh list --all",
+        "note": ""
+      },
+      {
+        "text": "virsh show",
+        "note": "Not valid."
+      },
+      {
+        "text": "qemu-img list",
+        "note": "qemu-img works with disk images."
+      },
+      {
+        "text": "kvm --vms",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Other verbs: start, shutdown, destroy (force off), autostart, snapshot-create-as, dumpxml."
+  },
+  {
+    "id": 25,
+    "domain": "D1",
+    "scenario": "Which VM disk format supports thin provisioning and snapshots in QEMU?",
+    "options": [
+      {
+        "text": "qcow2",
+        "note": ""
+      },
+      {
+        "text": "raw",
+        "note": "Raw is simple and fast but has no built-in snapshots."
+      },
+      {
+        "text": "ext4",
+        "note": "A file system, not an image format."
+      },
+      {
+        "text": "iso9660",
+        "note": "CD/DVD image format."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Create one with qemu-img create -f qcow2 disk.qcow2 40G; convert with qemu-img convert."
+  },
+  {
+    "id": 26,
+    "domain": "D1",
+    "scenario": "What does nested virtualization allow?",
+    "options": [
+      {
+        "text": "Running a hypervisor inside a virtual machine",
+        "note": ""
+      },
+      {
+        "text": "Running two OSes on one disk partition",
+        "note": "That's dual-boot."
+      },
+      {
+        "text": "Containers inside containers",
+        "note": "Not the term."
+      },
+      {
+        "text": "Sharing one VM between two hosts",
+        "note": "That's migration or clustering."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It's useful for labs and CI but needs CPU support enabled on the host."
+  },
+  {
+    "id": 27,
+    "domain": "D1",
+    "scenario": "Which statement describes RPM-based versus dpkg-based distributions?",
+    "options": [
+      {
+        "text": "RHEL, Fedora, and SUSE use RPM packages; Debian and Ubuntu use .deb packages managed by dpkg/apt",
+        "note": ""
+      },
+      {
+        "text": "Both families use the same package format",
+        "note": "They use different formats."
+      },
+      {
+        "text": "dpkg is used by RHEL",
+        "note": "RHEL uses rpm/dnf."
+      },
+      {
+        "text": "RPM is only for desktops",
+        "note": "RPM is used on servers widely."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Front ends: dnf/yum and zypper for RPM, apt for Debian."
+  },
+  {
+    "id": 28,
+    "domain": "D1",
+    "scenario": "Which directory in the FHS contains kernel and process information as virtual files?",
+    "options": [
+      {
+        "text": "/proc",
+        "note": ""
+      },
+      {
+        "text": "/srv",
+        "note": "Data served by the system."
+      },
+      {
+        "text": "/opt",
+        "note": "Add-on software."
+      },
+      {
+        "text": "/var",
+        "note": "Variable data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "/sys exposes devices and drivers; /dev holds device nodes; /run holds runtime data."
+  },
+  {
+    "id": 29,
+    "domain": "D1",
+    "scenario": "Which display server protocol is the modern replacement for X11 on most desktop distributions?",
+    "options": [
+      {
+        "text": "Wayland",
+        "note": ""
+      },
+      {
+        "text": "VNC",
+        "note": "Remote desktop protocol."
+      },
+      {
+        "text": "GNOME",
+        "note": "A desktop environment."
+      },
+      {
+        "text": "SDDM",
+        "note": "A display manager (login screen)."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Wayland replaces the X11 protocol; most major desktops now default to a Wayland session. Display managers (GDM, SDDM, LightDM) handle graphical login; window managers and compositors draw windows."
+  },
+  {
+    "id": 30,
+    "domain": "D1",
+    "scenario": "Which CPU architecture name refers to 64-bit ARM?",
+    "options": [
+      {
+        "text": "AArch64",
+        "note": ""
+      },
+      {
+        "text": "x86_64",
+        "note": "64-bit Intel/AMD."
+      },
+      {
+        "text": "i686",
+        "note": "32-bit x86."
+      },
+      {
+        "text": "RISC-V",
+        "note": "An open ISA, not ARM."
+      }
+    ],
+    "answer": 0,
+    "explanation": "AArch64 (also shown as arm64) is the 64-bit ARM architecture. Check with uname -m or lscpu."
+  },
+  {
+    "id": 31,
+    "domain": "D1",
+    "scenario": "What does PXE boot do?",
+    "options": [
+      {
+        "text": "Boots a computer over the network from a server, often to start an automated installation",
+        "note": ""
+      },
+      {
+        "text": "Boots from a USB stick",
+        "note": "Local media."
+      },
+      {
+        "text": "Encrypts the boot disk",
+        "note": "That's LUKS."
+      },
+      {
+        "text": "Repairs GRUB automatically",
+        "note": "Not PXE."
+      }
+    ],
+    "answer": 0,
+    "explanation": "PXE uses DHCP and TFTP/HTTP to load a bootloader, often combined with Kickstart or cloud-init for unattended installs."
+  },
+  {
+    "id": 32,
+    "domain": "D1",
+    "scenario": "Which command shows how much disk space each subdirectory of /var uses?",
+    "options": [
+      {
+        "text": "du -sh /var/*",
+        "note": ""
+      },
+      {
+        "text": "df -h /var/*",
+        "note": "df reports file systems."
+      },
+      {
+        "text": "ls -s /var",
+        "note": "Shows only top-level file block counts."
+      },
+      {
+        "text": "lsblk /var",
+        "note": "Lists devices."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Combine with sort: du -sh /var/* | sort -h."
+  },
+  {
+    "id": 33,
+    "domain": "D1",
+    "scenario": "Which command checks and repairs an unmounted ext4 file system?",
+    "options": [
+      {
+        "text": "fsck.ext4 /dev/sdb1 (or e2fsck)",
+        "note": ""
+      },
+      {
+        "text": "xfs_repair /dev/sdb1",
+        "note": "That's for XFS."
+      },
+      {
+        "text": "mkfs.ext4 /dev/sdb1",
+        "note": "Reformats and erases data."
+      },
+      {
+        "text": "mount -o repair /dev/sdb1",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Never run fsck on a mounted file system. Use xfs_repair for XFS."
+  },
+  {
+    "id": 34,
+    "domain": "D1",
+    "scenario": "Which environment variable sets the default editor that tools like crontab -e and visudo use?",
+    "options": [
+      {
+        "text": "EDITOR (or VISUAL)",
+        "note": ""
+      },
+      {
+        "text": "PATH",
+        "note": "Command search path."
+      },
+      {
+        "text": "SHELL",
+        "note": "Your login shell."
+      },
+      {
+        "text": "TERM",
+        "note": "Terminal type."
+      }
+    ],
+    "answer": 0,
+    "explanation": "export EDITOR=vim in ~/.bashrc."
+  },
+  {
+    "id": 35,
+    "domain": "D2",
+    "scenario": "Which command creates the service account svcbackup with no login shell and no home directory?",
+    "options": [
+      {
+        "text": "useradd -r -s /sbin/nologin -M svcbackup",
+        "note": ""
+      },
+      {
+        "text": "useradd -m svcbackup",
+        "note": "Creates a regular user with a home."
+      },
+      {
+        "text": "adduser --login svcbackup",
+        "note": "Not valid."
+      },
+      {
+        "text": "groupadd -r svcbackup",
+        "note": "Creates a group, not a user."
+      }
+    ],
+    "answer": 0,
+    "explanation": "-r creates a system account with a low UID. Service accounts shouldn't have interactive shells."
+  },
+  {
+    "id": 36,
+    "domain": "D2",
+    "scenario": "Which command forces user dana to change her password at next login?",
+    "options": [
+      {
+        "text": "chage -d 0 dana",
+        "note": ""
+      },
+      {
+        "text": "chage -E 0 dana",
+        "note": "-E sets the account expiry date; 0 expires the account."
+      },
+      {
+        "text": "passwd -l dana",
+        "note": "Locks the account."
+      },
+      {
+        "text": "usermod -p 0 dana",
+        "note": "Sets a raw (invalid) password hash."
+      }
+    ],
+    "answer": 0,
+    "explanation": "chage -M max days, -m min days, -W warning days, -E expiry date, -l lists settings. Defaults live in /etc/login.defs."
+  },
+  {
+    "id": 37,
+    "domain": "D2",
+    "scenario": "Which command locks the account of a user who left the company without deleting files?",
+    "options": [
+      {
+        "text": "usermod -L jlee (or passwd -l jlee)",
+        "note": ""
+      },
+      {
+        "text": "userdel -r jlee",
+        "note": "Deletes the account and home."
+      },
+      {
+        "text": "chmod 000 /home/jlee",
+        "note": "Doesn't disable login."
+      },
+      {
+        "text": "groupdel jlee",
+        "note": "Deletes a group."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Also expire the account (chage -E 0) to block key-based logins, since -L only locks the password."
+  },
+  {
+    "id": 38,
+    "domain": "D2",
+    "scenario": "Which directory provides template files copied into each new user's home directory?",
+    "options": [
+      {
+        "text": "/etc/skel",
+        "note": ""
+      },
+      {
+        "text": "/etc/default",
+        "note": "Default settings files."
+      },
+      {
+        "text": "/usr/share/home",
+        "note": "Not standard."
+      },
+      {
+        "text": "/var/lib/users",
+        "note": "Not standard."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Add a standard .bashrc or README to /etc/skel; useradd -m copies it."
+  },
+  {
+    "id": 39,
+    "domain": "D2",
+    "scenario": "Which file stores password hashes and aging information?",
+    "options": [
+      {
+        "text": "/etc/shadow",
+        "note": ""
+      },
+      {
+        "text": "/etc/passwd",
+        "note": "Account fields only; x placeholder for password."
+      },
+      {
+        "text": "/etc/gshadow",
+        "note": "Group passwords and admins."
+      },
+      {
+        "text": "/etc/login.defs",
+        "note": "Defaults."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Only root can read /etc/shadow."
+  },
+  {
+    "id": 40,
+    "domain": "D2",
+    "scenario": "What is a process's PPID?",
+    "options": [
+      {
+        "text": "The process ID of its parent process",
+        "note": ""
+      },
+      {
+        "text": "Its priority",
+        "note": "That's the nice value."
+      },
+      {
+        "text": "Its port number",
+        "note": "Not related."
+      },
+      {
+        "text": "The user who started it",
+        "note": "That's the UID."
+      }
+    ],
+    "answer": 0,
+    "explanation": "ps -ef shows PID and PPID. pstree shows the hierarchy."
+  },
+  {
+    "id": 41,
+    "domain": "D2",
+    "scenario": "In ps output, what does process state Z mean?",
+    "options": [
+      {
+        "text": "Zombie: it has exited but its parent hasn't collected its exit status",
+        "note": ""
+      },
+      {
+        "text": "Sleeping",
+        "note": "S."
+      },
+      {
+        "text": "Running",
+        "note": "R."
+      },
+      {
+        "text": "Uninterruptible I/O wait",
+        "note": "D."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Zombies use no CPU or memory but take a PID. Fix the parent or restart it."
+  },
+  {
+    "id": 42,
+    "domain": "D2",
+    "scenario": "Which command lowers the priority of the running process 2211 to nice value 10?",
+    "options": [
+      {
+        "text": "renice -n 10 -p 2211",
+        "note": ""
+      },
+      {
+        "text": "nice -n 10 2211",
+        "note": "nice starts new commands."
+      },
+      {
+        "text": "kill -10 2211",
+        "note": "Sends signal 10."
+      },
+      {
+        "text": "chrt 10 2211",
+        "note": "chrt sets real-time policies."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Nice values range from -20 (highest priority) to 19 (lowest). Only root can lower a nice value (raise priority)."
+  },
+  {
+    "id": 43,
+    "domain": "D2",
+    "scenario": "You started a long command in the foreground. How do you move it to the background?",
+    "options": [
+      {
+        "text": "Press Ctrl+Z to suspend it, then run bg",
+        "note": ""
+      },
+      {
+        "text": "Press Ctrl+C, then bg",
+        "note": "Ctrl+C kills it."
+      },
+      {
+        "text": "Type & now",
+        "note": "& works only when starting the command."
+      },
+      {
+        "text": "Run fg",
+        "note": "fg brings jobs to the foreground."
+      }
+    ],
+    "answer": 0,
+    "explanation": "jobs lists jobs; fg %1 resumes job 1 in the foreground. nohup keeps a command running after logout."
+  },
+  {
+    "id": 44,
+    "domain": "D2",
+    "scenario": "Which signal does kill send by default?",
+    "options": [
+      {
+        "text": "SIGTERM (15)",
+        "note": ""
+      },
+      {
+        "text": "SIGKILL (9)",
+        "note": "Must be requested with -9."
+      },
+      {
+        "text": "SIGHUP (1)",
+        "note": "Often used to reload configuration."
+      },
+      {
+        "text": "SIGINT (2)",
+        "note": "Sent by Ctrl+C."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SIGTERM lets a program clean up. SIGKILL can't be caught. SIGHUP often tells daemons to reread their config."
+  },
+  {
+    "id": 45,
+    "domain": "D2",
+    "scenario": "Which crontab line runs /usr/local/bin/report.sh at 2:30 AM every weekday?",
+    "options": [
+      {
+        "text": "30 2 * * 1-5 /usr/local/bin/report.sh",
+        "note": ""
+      },
+      {
+        "text": "2 30 * * 1-5 /usr/local/bin/report.sh",
+        "note": "Minute comes first."
+      },
+      {
+        "text": "30 2 1-5 * * /usr/local/bin/report.sh",
+        "note": "1-5 there means days of the month."
+      },
+      {
+        "text": "* 2:30 * * weekdays ...",
+        "note": "Not cron syntax."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fields: minute hour day-of-month month day-of-week. Edit with crontab -e; list with crontab -l."
+  },
+  {
+    "id": 46,
+    "domain": "D2",
+    "scenario": "A laptop is often off at night. Which tool ensures daily maintenance jobs still run after it boots?",
+    "options": [
+      {
+        "text": "anacron",
+        "note": ""
+      },
+      {
+        "text": "at",
+        "note": "Runs one-time jobs."
+      },
+      {
+        "text": "cron",
+        "note": "Skips jobs missed while powered off."
+      },
+      {
+        "text": "sleep",
+        "note": "Pauses a shell."
+      }
+    ],
+    "answer": 0,
+    "explanation": "anacron tracks the last run of daily, weekly, and monthly jobs. systemd timers can do the same with Persistent=true."
+  },
+  {
+    "id": 47,
+    "domain": "D2",
+    "scenario": "Which command schedules a one-time job to run at 11 PM tonight?",
+    "options": [
+      {
+        "text": "echo \"/usr/local/bin/cleanup.sh\" | at 23:00",
+        "note": ""
+      },
+      {
+        "text": "cron 23:00 cleanup.sh",
+        "note": "Not valid."
+      },
+      {
+        "text": "crontab -t 23:00",
+        "note": "Not valid."
+      },
+      {
+        "text": "sleep 23:00; cleanup.sh",
+        "note": "sleep takes seconds."
+      }
+    ],
+    "answer": 0,
+    "explanation": "atq lists pending jobs; atrm removes them."
+  },
+  {
+    "id": 48,
+    "domain": "D2",
+    "scenario": "Which command imports a repository's GPG key on a RHEL-family system?",
+    "options": [
+      {
+        "text": "rpm --import https://repo.example.com/RPM-GPG-KEY-example",
+        "note": ""
+      },
+      {
+        "text": "dnf trust key",
+        "note": "Not valid."
+      },
+      {
+        "text": "gpg --sign repo",
+        "note": "Signs data."
+      },
+      {
+        "text": "apt-key add",
+        "note": "Debian's deprecated method."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Repos set gpgcheck=1 and gpgkey= in /etc/yum.repos.d/*.repo. Debian/Ubuntu use signed-by keyrings in /etc/apt/keyrings."
+  },
+  {
+    "id": 49,
+    "domain": "D2",
+    "scenario": "Which command shows which package provides /usr/bin/dig on a RHEL system?",
+    "options": [
+      {
+        "text": "dnf provides /usr/bin/dig",
+        "note": ""
+      },
+      {
+        "text": "rpm -e dig",
+        "note": "Erases a package."
+      },
+      {
+        "text": "dnf remove dig",
+        "note": "Removes."
+      },
+      {
+        "text": "which -p dig",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "rpm -qf /path shows the owning package of an installed file. On Debian, use dpkg -S /path or apt-file search."
+  },
+  {
+    "id": 50,
+    "domain": "D2",
+    "scenario": "Several versions of Java are installed. Which tool switches the system default java command?",
+    "options": [
+      {
+        "text": "update-alternatives (alternatives on RHEL)",
+        "note": ""
+      },
+      {
+        "text": "ln -sf by hand in /bin",
+        "note": "Works but bypasses the managed system."
+      },
+      {
+        "text": "systemctl set-default java",
+        "note": "Targets only."
+      },
+      {
+        "text": "modprobe java",
+        "note": "Kernel modules only."
+      }
+    ],
+    "answer": 0,
+    "explanation": "update-alternatives --config java presents a menu of installed options."
+  },
+  {
+    "id": 51,
+    "domain": "D2",
+    "scenario": "Which systemd unit type runs a service on a schedule, similar to cron?",
+    "options": [
+      {
+        "text": ".timer",
+        "note": ""
+      },
+      {
+        "text": ".target",
+        "note": "Groups units."
+      },
+      {
+        "text": ".mount",
+        "note": "Defines mounts."
+      },
+      {
+        "text": ".socket",
+        "note": "Socket activation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pair backup.timer with backup.service. OnCalendar=daily; Persistent=true runs missed jobs. List with systemctl list-timers."
+  },
+  {
+    "id": 52,
+    "domain": "D2",
+    "scenario": "You edited a unit file in /etc/systemd/system. What must you run before restarting the service?",
+    "options": [
+      {
+        "text": "systemctl daemon-reload",
+        "note": ""
+      },
+      {
+        "text": "systemctl reboot",
+        "note": "Too drastic."
+      },
+      {
+        "text": "systemctl reset-failed",
+        "note": "Clears failure state only."
+      },
+      {
+        "text": "systemctl mask",
+        "note": "Prevents starting."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use systemctl edit name to create a drop-in override; it reloads automatically."
+  },
+  {
+    "id": 53,
+    "domain": "D2",
+    "scenario": "What does systemctl mask httpd do?",
+    "options": [
+      {
+        "text": "Links the unit to /dev/null so it can't be started, even manually or as a dependency",
+        "note": ""
+      },
+      {
+        "text": "Stops it temporarily",
+        "note": "That's stop."
+      },
+      {
+        "text": "Hides it from list-units",
+        "note": "Not the purpose."
+      },
+      {
+        "text": "Encrypts its config",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Undo with systemctl unmask. Use it when two services conflict."
+  },
+  {
+    "id": 54,
+    "domain": "D2",
+    "scenario": "Which command shows how long each unit took during the last boot?",
+    "options": [
+      {
+        "text": "systemd-analyze blame",
+        "note": ""
+      },
+      {
+        "text": "journalctl --boot-time",
+        "note": "Not valid."
+      },
+      {
+        "text": "uptime -b",
+        "note": "Not valid."
+      },
+      {
+        "text": "systemctl timings",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "systemd-analyze critical-chain shows the slowest dependency chain."
+  },
+  {
+    "id": 55,
+    "domain": "D2",
+    "scenario": "Which command sets the system time zone to America/New_York?",
+    "options": [
+      {
+        "text": "timedatectl set-timezone America/New_York",
+        "note": ""
+      },
+      {
+        "text": "hostnamectl set-timezone",
+        "note": "hostnamectl manages the hostname."
+      },
+      {
+        "text": "date --tz",
+        "note": "Not persistent."
+      },
+      {
+        "text": "export TZ=EST in /etc/fstab",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "timedatectl also shows whether NTP sync is active. Time sync clients: chronyd or systemd-timesyncd."
+  },
+  {
+    "id": 56,
+    "domain": "D2",
+    "scenario": "Which command permanently sets the hostname to web01.example.com?",
+    "options": [
+      {
+        "text": "hostnamectl set-hostname web01.example.com",
+        "note": ""
+      },
+      {
+        "text": "hostname web01.example.com",
+        "note": "Temporary until reboot."
+      },
+      {
+        "text": "echo web01 > /etc/hosts",
+        "note": "Overwrites hosts."
+      },
+      {
+        "text": "nmcli hostname --temp",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It updates /etc/hostname. Update /etc/hosts if local resolution of the name is needed."
+  },
+  {
+    "id": 57,
+    "domain": "D2",
+    "scenario": "Which command lists DNS servers in use per interface on a system running systemd-resolved?",
+    "options": [
+      {
+        "text": "resolvectl status",
+        "note": ""
+      },
+      {
+        "text": "cat /etc/hostname",
+        "note": "Hostname only."
+      },
+      {
+        "text": "dig -status",
+        "note": "Not valid."
+      },
+      {
+        "text": "ip dns",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "On these systems /etc/resolv.conf points to the local stub resolver 127.0.0.53."
+  },
+  {
+    "id": 58,
+    "domain": "D2",
+    "scenario": "Which command runs an NGINX container in the background, maps host port 8080 to container port 80, and names it web?",
+    "options": [
+      {
+        "text": "podman run -d --name web -p 8080:80 docker.io/library/nginx",
+        "note": ""
+      },
+      {
+        "text": "podman run --name web -p 80:8080 nginx",
+        "note": "Ports are host:container, so this maps host 80 to container 8080."
+      },
+      {
+        "text": "podman build -p 8080:80 nginx",
+        "note": "build creates images."
+      },
+      {
+        "text": "podman exec web -p 8080",
+        "note": "exec runs a command in a running container."
+      }
+    ],
+    "answer": 0,
+    "explanation": "The same syntax works with docker. -d detaches; podman ps lists running containers."
+  },
+  {
+    "id": 59,
+    "domain": "D2",
+    "scenario": "How do you keep a container's data after the container is removed?",
+    "options": [
+      {
+        "text": "Store it in a volume or bind mount, such as -v webdata:/usr/share/nginx/html",
+        "note": ""
+      },
+      {
+        "text": "Use podman commit every minute",
+        "note": "Not a data strategy."
+      },
+      {
+        "text": "Write to /tmp inside the container",
+        "note": "Lost with the container."
+      },
+      {
+        "text": "Run the container as root",
+        "note": "Doesn't persist data."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Named volumes are managed by the runtime; bind mounts map a host directory. On SELinux hosts add :Z to relabel bind mounts."
+  },
+  {
+    "id": 60,
+    "domain": "D2",
+    "scenario": "In a Dockerfile/Containerfile, which instruction sets the base image?",
+    "options": [
+      {
+        "text": "FROM",
+        "note": ""
+      },
+      {
+        "text": "RUN",
+        "note": "Runs a command during build."
+      },
+      {
+        "text": "CMD",
+        "note": "Default command at run time."
+      },
+      {
+        "text": "COPY",
+        "note": "Copies files into the image."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Build with podman build -t myapp:1.0 . Each instruction creates a layer."
+  },
+  {
+    "id": 61,
+    "domain": "D2",
+    "scenario": "What is a rootless container?",
+    "options": [
+      {
+        "text": "A container started by an unprivileged user, so a breakout doesn't grant root on the host",
+        "note": ""
+      },
+      {
+        "text": "A container with no file system",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "A container without network access",
+        "note": "That's --network none."
+      },
+      {
+        "text": "A container that runs only as root",
+        "note": "The opposite."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Podman runs rootless by default for regular users, using user namespaces."
+  },
+  {
+    "id": 62,
+    "domain": "D2",
+    "scenario": "Which command shows the logs of the container named api?",
+    "options": [
+      {
+        "text": "podman logs api",
+        "note": ""
+      },
+      {
+        "text": "journalctl -c api",
+        "note": "Not valid."
+      },
+      {
+        "text": "podman inspect --logs",
+        "note": "Not valid."
+      },
+      {
+        "text": "cat /var/log/api",
+        "note": "Container logs are managed by the runtime."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Add -f to follow. podman inspect shows configuration such as mounts, ports, and IP."
+  },
+  {
+    "id": 63,
+    "domain": "D2",
+    "scenario": "Which configuration file defines virtual hosts for the Apache web server on RHEL?",
+    "options": [
+      {
+        "text": "Files in /etc/httpd/conf.d/*.conf",
+        "note": ""
+      },
+      {
+        "text": "/etc/nginx/sites-enabled",
+        "note": "NGINX on Debian."
+      },
+      {
+        "text": "/var/www/html/index.conf",
+        "note": "Not Apache config."
+      },
+      {
+        "text": "/etc/apache.ini",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "On RHEL, Apache (httpd) reads every *.conf file in /etc/httpd/conf.d/, so virtual hosts usually go there. Debian/Ubuntu Apache uses /etc/apache2/sites-available with a2ensite. Test syntax with apachectl configtest or nginx -t."
+  },
+  {
+    "id": 64,
+    "domain": "D2",
+    "scenario": "Which service hands out IP addresses to clients on a network?",
+    "options": [
+      {
+        "text": "A DHCP server (such as Kea or ISC dhcpd)",
+        "note": ""
+      },
+      {
+        "text": "An SMTP server",
+        "note": "Sends mail."
+      },
+      {
+        "text": "An NTP server",
+        "note": "Provides time."
+      },
+      {
+        "text": "An IMAP server",
+        "note": "Mail retrieval."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A DHCP server leases IP addresses, gateways and DNS settings to clients automatically. SMTP sends mail between servers (Postfix); IMAP lets clients read mail (Dovecot); NTP/PTP sync time; DNS (BIND, Unbound) resolves names."
+  },
+  {
+    "id": 65,
+    "domain": "D2",
+    "scenario": "Which statement describes PTP compared with NTP?",
+    "options": [
+      {
+        "text": "PTP provides much more precise (sub-microsecond) synchronization, often with hardware timestamping",
+        "note": ""
+      },
+      {
+        "text": "PTP is an older, less accurate NTP",
+        "note": "Reversed."
+      },
+      {
+        "text": "PTP only works over the internet",
+        "note": "Usually LAN."
+      },
+      {
+        "text": "PTP is a web protocol",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Linux uses linuxptp (ptp4l) for PTP and chrony for NTP."
+  },
+  {
+    "id": 66,
+    "domain": "D3",
+    "scenario": "What is the safest way to give the ops group permission to restart nginx with sudo?",
+    "options": [
+      {
+        "text": "Add a file in /etc/sudoers.d edited with visudo -f, such as %ops ALL=(root) /usr/bin/systemctl restart nginx",
+        "note": ""
+      },
+      {
+        "text": "Add ops to the wheel group",
+        "note": "Grants full root access."
+      },
+      {
+        "text": "Edit /etc/sudoers with a plain editor",
+        "note": "A syntax error can lock out sudo."
+      },
+      {
+        "text": "Share the root password with ops",
+        "note": "No accountability."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Grant only needed commands (least privilege). visudo checks syntax before saving."
+  },
+  {
+    "id": 67,
+    "domain": "D3",
+    "scenario": "Which command makes a log file append-only, even for root, until the attribute is removed?",
+    "options": [
+      {
+        "text": "chattr +a /var/log/app.log",
+        "note": ""
+      },
+      {
+        "text": "chmod a+a /var/log/app.log",
+        "note": "Not a valid mode."
+      },
+      {
+        "text": "chown root:root",
+        "note": "Ownership doesn't prevent edits by root."
+      },
+      {
+        "text": "lsattr +a",
+        "note": "lsattr lists attributes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "+i makes a file immutable. View attributes with lsattr."
+  },
+  {
+    "id": 68,
+    "domain": "D3",
+    "scenario": "With umask 027, what permissions does a newly created file get?",
+    "options": [
+      {
+        "text": "640 (rw-r-----)",
+        "note": ""
+      },
+      {
+        "text": "750",
+        "note": "Files don't get execute by default."
+      },
+      {
+        "text": "644",
+        "note": "That's umask 022."
+      },
+      {
+        "text": "600",
+        "note": "That's umask 077."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Files start at 666 and directories at 777, minus the umask: 666-027 → 640, 777-027 → 750."
+  },
+  {
+    "id": 69,
+    "domain": "D3",
+    "scenario": "Which command gives user maria read access to report.csv without changing its owner, group, or mode?",
+    "options": [
+      {
+        "text": "setfacl -m u:maria:r report.csv",
+        "note": ""
+      },
+      {
+        "text": "chmod o+r report.csv",
+        "note": "Gives everyone read."
+      },
+      {
+        "text": "chown maria report.csv",
+        "note": "Changes the owner."
+      },
+      {
+        "text": "usermod -aG report maria",
+        "note": "Not a file permission."
+      }
+    ],
+    "answer": 0,
+    "explanation": "getfacl shows ACLs. A + after the mode in ls -l means an ACL exists. Default ACLs (-d) apply to new files in a directory."
+  },
+  {
+    "id": 70,
+    "domain": "D3",
+    "scenario": "Which SSH server settings reduce risk on an internet-facing server?",
+    "options": [
+      {
+        "text": "PermitRootLogin no and PasswordAuthentication no (keys only)",
+        "note": ""
+      },
+      {
+        "text": "PermitEmptyPasswords yes",
+        "note": "Insecure."
+      },
+      {
+        "text": "Port 23",
+        "note": "Telnet's port; changing ports isn't real security."
+      },
+      {
+        "text": "Protocol 1",
+        "note": "SSHv1 is broken."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Edit /etc/ssh/sshd_config or a drop-in in sshd_config.d, validate with sshd -t, then restart sshd. Add AllowUsers or AllowGroups to limit access."
+  },
+  {
+    "id": 71,
+    "domain": "D3",
+    "scenario": "Which protocols should be replaced because they send credentials in clear text?",
+    "options": [
+      {
+        "text": "Telnet, FTP, and HTTP for logins",
+        "note": ""
+      },
+      {
+        "text": "SSH and SFTP",
+        "note": "Encrypted."
+      },
+      {
+        "text": "HTTPS and IMAPS",
+        "note": "Encrypted."
+      },
+      {
+        "text": "WireGuard",
+        "note": "Encrypted VPN."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use SSH, SFTP/SCP, HTTPS, and STARTTLS/implicit TLS for mail."
+  },
+  {
+    "id": 72,
+    "domain": "D3",
+    "scenario": "What does Secure Boot do?",
+    "options": [
+      {
+        "text": "Verifies that the bootloader and kernel are signed by trusted keys before running them",
+        "note": ""
+      },
+      {
+        "text": "Encrypts the root file system",
+        "note": "That's LUKS."
+      },
+      {
+        "text": "Speeds up boot",
+        "note": "Not the goal."
+      },
+      {
+        "text": "Locks the BIOS password",
+        "note": "Not the feature."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Shim and GRUB are signed; unsigned kernel modules may be blocked. Manage keys with mokutil."
+  },
+  {
+    "id": 73,
+    "domain": "D3",
+    "scenario": "Which framework lets you require MFA or enforce password complexity for Linux logins?",
+    "options": [
+      {
+        "text": "PAM (Pluggable Authentication Modules)",
+        "note": ""
+      },
+      {
+        "text": "SELinux",
+        "note": "Mandatory access control, not authentication."
+      },
+      {
+        "text": "polkit",
+        "note": "Authorizes privileged actions for apps."
+      },
+      {
+        "text": "auditd",
+        "note": "Records events."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Configuration lives in /etc/pam.d. pam_pwquality enforces password rules; pam_faillock locks accounts after failed attempts."
+  },
+  {
+    "id": 74,
+    "domain": "D3",
+    "scenario": "Which service lets Linux hosts authenticate users against Active Directory or LDAP and cache credentials?",
+    "options": [
+      {
+        "text": "SSSD",
+        "note": ""
+      },
+      {
+        "text": "chronyd",
+        "note": "Time sync."
+      },
+      {
+        "text": "rsyslog",
+        "note": "Logging."
+      },
+      {
+        "text": "firewalld",
+        "note": "Firewall."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Join a domain with realm join. Kerberos provides ticket-based authentication; Winbind is the Samba alternative."
+  },
+  {
+    "id": 75,
+    "domain": "D3",
+    "scenario": "What does polkit control?",
+    "options": [
+      {
+        "text": "Whether unprivileged processes may perform system actions, such as a desktop user mounting a disk",
+        "note": ""
+      },
+      {
+        "text": "Packet filtering",
+        "note": "That's the firewall."
+      },
+      {
+        "text": "Password hashing",
+        "note": "That's PAM and the crypto library."
+      },
+      {
+        "text": "Disk quotas",
+        "note": "Not polkit."
+      }
+    ],
+    "answer": 0,
+    "explanation": "pkexec runs a command as another user based on polkit rules."
+  },
+  {
+    "id": 76,
+    "domain": "D3",
+    "scenario": "Which tool records security-relevant events such as changes to /etc/passwd, using rules like -w /etc/passwd -p wa?",
+    "options": [
+      {
+        "text": "auditd (with auditctl and ausearch)",
+        "note": ""
+      },
+      {
+        "text": "logrotate",
+        "note": "Rotates logs."
+      },
+      {
+        "text": "cron",
+        "note": "Schedules jobs."
+      },
+      {
+        "text": "tcpdump",
+        "note": "Captures packets."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Search with ausearch -f /etc/passwd; summarize with aureport."
+  },
+  {
+    "id": 77,
+    "domain": "D3",
+    "scenario": "Which tool rotates, compresses, and deletes old log files on a schedule?",
+    "options": [
+      {
+        "text": "logrotate",
+        "note": ""
+      },
+      {
+        "text": "rsyslog",
+        "note": "Writes logs."
+      },
+      {
+        "text": "journalctl --rotate",
+        "note": "Rotates only the journal."
+      },
+      {
+        "text": "tar -rotate",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Configure in /etc/logrotate.conf and /etc/logrotate.d/. The journal size is limited in /etc/systemd/journald.conf (SystemMaxUse)."
+  },
+  {
+    "id": 78,
+    "domain": "D3",
+    "scenario": "Which command permanently allows HTTPS through firewalld and applies it immediately?",
+    "options": [
+      {
+        "text": "firewall-cmd --permanent --add-service=https && firewall-cmd --reload",
+        "note": ""
+      },
+      {
+        "text": "firewall-cmd --add-service=https",
+        "note": "Runtime only; lost at reload or reboot."
+      },
+      {
+        "text": "ufw allow https --permanent",
+        "note": "ufw rules are already persistent, and it's a different tool."
+      },
+      {
+        "text": "iptables -A https",
+        "note": "Not valid syntax."
+      }
+    ],
+    "answer": 0,
+    "explanation": "List with firewall-cmd --list-all. Zones group rules by trust level."
+  },
+  {
+    "id": 79,
+    "domain": "D3",
+    "scenario": "On Ubuntu with ufw, which commands deny all inbound traffic except SSH?",
+    "options": [
+      {
+        "text": "ufw default deny incoming, ufw allow OpenSSH, then ufw enable",
+        "note": ""
+      },
+      {
+        "text": "ufw enable, then ufw allow all",
+        "note": "Allows everything."
+      },
+      {
+        "text": "ufw deny 22",
+        "note": "Blocks SSH."
+      },
+      {
+        "text": "iptables -F",
+        "note": "Flushes rules, often allowing everything."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Allow SSH before enabling, or you'll lock yourself out of a remote server."
+  },
+  {
+    "id": 80,
+    "domain": "D3",
+    "scenario": "Which tool is the modern kernel packet-filtering framework that replaces iptables?",
+    "options": [
+      {
+        "text": "nftables (nft)",
+        "note": ""
+      },
+      {
+        "text": "ipset",
+        "note": "Stores sets of addresses for iptables/nftables."
+      },
+      {
+        "text": "netplan",
+        "note": "Network config."
+      },
+      {
+        "text": "tcpdump",
+        "note": "Packet capture."
+      }
+    ],
+    "answer": 0,
+    "explanation": "firewalld uses nftables as its back end on current distributions."
+  },
+  {
+    "id": 81,
+    "domain": "D3",
+    "scenario": "What is the difference between stateful and stateless filtering?",
+    "options": [
+      {
+        "text": "Stateful firewalls track connections and allow return traffic automatically; stateless rules check each packet alone",
+        "note": ""
+      },
+      {
+        "text": "Stateless firewalls are always more secure",
+        "note": "Not necessarily."
+      },
+      {
+        "text": "Stateful firewalls don't use rules",
+        "note": "They do."
+      },
+      {
+        "text": "There's no difference on Linux",
+        "note": "There is."
+      }
+    ],
+    "answer": 0,
+    "explanation": "nftables/iptables use conntrack: ct state established,related accept."
+  },
+  {
+    "id": 82,
+    "domain": "D3",
+    "scenario": "A Linux host must route traffic between two networks. Which setting must be enabled?",
+    "options": [
+      {
+        "text": "net.ipv4.ip_forward=1 (sysctl, persisted in /etc/sysctl.d)",
+        "note": ""
+      },
+      {
+        "text": "PermitTunnel yes",
+        "note": "SSH setting."
+      },
+      {
+        "text": "noexec",
+        "note": "Mount option."
+      },
+      {
+        "text": "SELINUX=disabled",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Masquerade (source NAT) lets private hosts reach the internet through the Linux router."
+  },
+  {
+    "id": 83,
+    "domain": "D3",
+    "scenario": "Which command encrypts a whole partition with LUKS2?",
+    "options": [
+      {
+        "text": "cryptsetup luksFormat /dev/sdb1",
+        "note": ""
+      },
+      {
+        "text": "gpg -c /dev/sdb1",
+        "note": "Encrypts a file, not a block device for use."
+      },
+      {
+        "text": "mkfs.luks /dev/sdb1",
+        "note": "Not a command."
+      },
+      {
+        "text": "openssl enc /dev/sdb1",
+        "note": "Not for block devices."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Then cryptsetup open /dev/sdb1 secure, mkfs on /dev/mapper/secure, and add it to /etc/crypttab."
+  },
+  {
+    "id": 84,
+    "domain": "D3",
+    "scenario": "Which command checks the expiry date of a server certificate file?",
+    "options": [
+      {
+        "text": "openssl x509 -in server.crt -noout -enddate",
+        "note": ""
+      },
+      {
+        "text": "ssh-keygen -l server.crt",
+        "note": "For SSH keys."
+      },
+      {
+        "text": "gpg --verify server.crt",
+        "note": "Not for X.509."
+      },
+      {
+        "text": "sha256sum server.crt",
+        "note": "Shows a hash."
+      }
+    ],
+    "answer": 0,
+    "explanation": "openssl s_client -connect host:443 tests a live TLS connection and shows the chain."
+  },
+  {
+    "id": 85,
+    "domain": "D3",
+    "scenario": "Which TLS versions should a hardened Linux server allow?",
+    "options": [
+      {
+        "text": "TLS 1.2 and TLS 1.3 only",
+        "note": ""
+      },
+      {
+        "text": "SSLv3 and TLS 1.0",
+        "note": "Insecure."
+      },
+      {
+        "text": "TLS 1.0 and 1.1",
+        "note": "Deprecated."
+      },
+      {
+        "text": "All versions for compatibility",
+        "note": "Weak versions expose users."
+      }
+    ],
+    "answer": 0,
+    "explanation": "On RHEL, update-crypto-policies --set DEFAULT or FUTURE removes weak algorithms system-wide."
+  },
+  {
+    "id": 86,
+    "domain": "D3",
+    "scenario": "Which hash function is appropriate for verifying a downloaded ISO's integrity?",
+    "options": [
+      {
+        "text": "SHA-256 (sha256sum)",
+        "note": ""
+      },
+      {
+        "text": "MD5 for security-sensitive checks",
+        "note": "MD5 has practical collisions."
+      },
+      {
+        "text": "Base64",
+        "note": "An encoding, not a hash."
+      },
+      {
+        "text": "ROT13",
+        "note": "A trivial cipher."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SHA-256 is a current, collision-resistant hash; MD5 and SHA-1 are no longer considered safe. Compare against the publisher's signed checksum file."
+  },
+  {
+    "id": 87,
+    "domain": "D3",
+    "scenario": "WireGuard is best described as what?",
+    "options": [
+      {
+        "text": "A simple, modern VPN built into the Linux kernel",
+        "note": ""
+      },
+      {
+        "text": "A web application firewall",
+        "note": "Not WireGuard."
+      },
+      {
+        "text": "A password manager",
+        "note": "No."
+      },
+      {
+        "text": "An intrusion detection system",
+        "note": "No."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Configure with wg and wg-quick; peers exchange public keys."
+  },
+  {
+    "id": 88,
+    "domain": "D3",
+    "scenario": "Which control blocks a user after five failed login attempts on modern RHEL and Ubuntu?",
+    "options": [
+      {
+        "text": "pam_faillock",
+        "note": ""
+      },
+      {
+        "text": "pam_tally2 only",
+        "note": "pam_tally2 is deprecated/removed on current distributions."
+      },
+      {
+        "text": "umask",
+        "note": "File permissions."
+      },
+      {
+        "text": "chattr",
+        "note": "File attributes."
+      }
+    ],
+    "answer": 0,
+    "explanation": "faillock --user name shows and resets failures. Configure /etc/security/faillock.conf."
+  },
+  {
+    "id": 89,
+    "domain": "D3",
+    "scenario": "Which tool scans a system against a security profile such as a CIS Benchmark and produces a report?",
+    "options": [
+      {
+        "text": "OpenSCAP (oscap)",
+        "note": ""
+      },
+      {
+        "text": "rkhunter",
+        "note": "Checks for rootkits."
+      },
+      {
+        "text": "AIDE",
+        "note": "File integrity monitoring."
+      },
+      {
+        "text": "nmap",
+        "note": "Network scanning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "oscap xccdf eval --profile ... applies SCAP content. AIDE detects changed files by comparing hashes to a baseline database."
+  },
+  {
+    "id": 90,
+    "domain": "D3",
+    "scenario": "Which value in a vulnerability report rates its severity on a 0–10 scale?",
+    "options": [
+      {
+        "text": "CVSS score",
+        "note": ""
+      },
+      {
+        "text": "CVE ID",
+        "note": "Identifies the vulnerability."
+      },
+      {
+        "text": "CWE",
+        "note": "Classifies the weakness type."
+      },
+      {
+        "text": "SLA",
+        "note": "Service-level agreement."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Patch high and critical CVEs first, and track them with dnf updateinfo or the distro's security advisories."
+  },
+  {
+    "id": 91,
+    "domain": "D3",
+    "scenario": "How should you securely wipe a decommissioned hard disk?",
+    "options": [
+      {
+        "text": "Use a verified method such as shred or the drive's secure-erase command, or physically destroy it",
+        "note": ""
+      },
+      {
+        "text": "Delete the partitions",
+        "note": "Data stays on disk."
+      },
+      {
+        "text": "Run rm -rf /",
+        "note": "Data can be recovered."
+      },
+      {
+        "text": "Reformat quickly",
+        "note": "Data remains."
+      }
+    ],
+    "answer": 0,
+    "explanation": "For SSDs use the manufacturer's secure erase or crypto-erase, since overwriting may miss remapped blocks."
+  },
+  {
+    "id": 92,
+    "domain": "D3",
+    "scenario": "What does SELinux in enforcing mode do?",
+    "options": [
+      {
+        "text": "Applies mandatory access control policy and blocks actions the policy doesn't allow, even for root-owned processes",
+        "note": ""
+      },
+      {
+        "text": "Only logs actions",
+        "note": "That's permissive."
+      },
+      {
+        "text": "Replaces file permissions",
+        "note": "Both apply."
+      },
+      {
+        "text": "Encrypts files",
+        "note": "Not encryption."
+      }
+    ],
+    "answer": 0,
+    "explanation": "getenforce shows the mode. AppArmor is the path-based alternative used by Ubuntu and SUSE."
+  },
+  {
+    "id": 93,
+    "domain": "D3",
+    "scenario": "What is the purpose of a login banner in /etc/issue.net and sshd's Banner setting?",
+    "options": [
+      {
+        "text": "To display an authorized-use warning before login, supporting legal and compliance requirements",
+        "note": ""
+      },
+      {
+        "text": "To show the root password",
+        "note": "Never."
+      },
+      {
+        "text": "To encrypt sessions",
+        "note": "No."
+      },
+      {
+        "text": "To speed up logins",
+        "note": "No."
+      }
+    ],
+    "answer": 0,
+    "explanation": "/etc/motd shows a message after login."
+  },
+  {
+    "id": 94,
+    "domain": "D4",
+    "scenario": "What does idempotent mean in configuration management tools such as Ansible?",
+    "options": [
+      {
+        "text": "Running the same task again leaves the system in the same state without making extra changes",
+        "note": ""
+      },
+      {
+        "text": "A task runs only once ever",
+        "note": "It can run many times safely."
+      },
+      {
+        "text": "Tasks run in parallel",
+        "note": "Not the meaning."
+      },
+      {
+        "text": "Tasks require root",
+        "note": "Not the meaning."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Modules such as ansible.builtin.package check state first and report changed only when they act."
+  },
+  {
+    "id": 95,
+    "domain": "D4",
+    "scenario": "Which statement contrasts Ansible and Puppet?",
+    "options": [
+      {
+        "text": "Ansible pushes changes over SSH without an agent; Puppet agents pull configuration from a server",
+        "note": ""
+      },
+      {
+        "text": "Both require agents",
+        "note": "Ansible is agentless."
+      },
+      {
+        "text": "Puppet is agentless; Ansible pulls",
+        "note": "Reversed."
+      },
+      {
+        "text": "Neither manages configuration",
+        "note": "Both do."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Ansible playbooks are YAML; Puppet manifests use its own declarative language."
+  },
+  {
+    "id": 96,
+    "domain": "D4",
+    "scenario": "In an Ansible playbook, what defines which machines a play runs against?",
+    "options": [
+      {
+        "text": "The hosts line, matching groups or hosts in the inventory",
+        "note": ""
+      },
+      {
+        "text": "The tasks list",
+        "note": "Defines actions."
+      },
+      {
+        "text": "A handler",
+        "note": "Runs on notification."
+      },
+      {
+        "text": "A role's defaults",
+        "note": "Holds variables."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Run with ansible-playbook -i inventory site.yml. Handlers run once at the end when notified, for example to restart a service."
+  },
+  {
+    "id": 97,
+    "domain": "D4",
+    "scenario": "What is infrastructure as code (IaC)?",
+    "options": [
+      {
+        "text": "Defining servers, networks, and settings in version-controlled files that tools apply automatically",
+        "note": ""
+      },
+      {
+        "text": "Writing code on servers by hand",
+        "note": "The opposite."
+      },
+      {
+        "text": "Only for cloud billing",
+        "note": "Not limited."
+      },
+      {
+        "text": "A programming language",
+        "note": "A practice, not a language."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Examples: OpenTofu/Terraform for provisioning, Ansible for configuration. Changes are reviewed and repeatable."
+  },
+  {
+    "id": 98,
+    "domain": "D4",
+    "scenario": "Which file automates an unattended RHEL installation?",
+    "options": [
+      {
+        "text": "A Kickstart file (ks.cfg)",
+        "note": ""
+      },
+      {
+        "text": "cloud-init user-data",
+        "note": "Configures cloud instances at first boot, not the installer."
+      },
+      {
+        "text": "/etc/fstab",
+        "note": "Mounts."
+      },
+      {
+        "text": "Dockerfile",
+        "note": "Builds container images."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Pass it with inst.ks= on the boot line or embed it in the ISO."
+  },
+  {
+    "id": 99,
+    "domain": "D4",
+    "scenario": "What does cloud-init do?",
+    "options": [
+      {
+        "text": "Configures a cloud instance at first boot: hostname, users, SSH keys, packages, and scripts from user-data",
+        "note": ""
+      },
+      {
+        "text": "Creates cloud accounts",
+        "note": "Not that."
+      },
+      {
+        "text": "Monitors CPU",
+        "note": "Not that."
+      },
+      {
+        "text": "Replaces systemd",
+        "note": "Not that."
+      }
+    ],
+    "answer": 0,
+    "explanation": "user-data is often YAML starting with #cloud-config."
+  },
+  {
+    "id": 100,
+    "domain": "D4",
+    "scenario": "Which tool runs multiple related containers from a YAML file, such as a web app with its database?",
+    "options": [
+      {
+        "text": "Docker Compose or Podman Compose",
+        "note": ""
+      },
+      {
+        "text": "Kickstart",
+        "note": "OS installation."
+      },
+      {
+        "text": "cron",
+        "note": "Scheduling."
+      },
+      {
+        "text": "Puppet only",
+        "note": "Configuration management, not container stacks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Kubernetes and Docker Swarm orchestrate containers across many hosts with scaling and self-healing."
+  },
+  {
+    "id": 101,
+    "domain": "D4",
+    "scenario": "In a CI/CD pipeline, what does continuous integration mean?",
+    "options": [
+      {
+        "text": "Every code change is automatically built and tested when it's merged",
+        "note": ""
+      },
+      {
+        "text": "Deploying only once a year",
+        "note": "The opposite."
+      },
+      {
+        "text": "Manual testing on production",
+        "note": "Not CI."
+      },
+      {
+        "text": "Writing code without version control",
+        "note": "CI depends on version control."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Continuous delivery/deployment then releases tested builds automatically."
+  },
+  {
+    "id": 102,
+    "domain": "D4",
+    "scenario": "In Bash, what does \"${name:-guest}\" expand to when name is unset or empty?",
+    "options": [
+      {
+        "text": "guest",
+        "note": ""
+      },
+      {
+        "text": "An empty string",
+        "note": "The default applies."
+      },
+      {
+        "text": "An error",
+        "note": ":? would raise an error."
+      },
+      {
+        "text": "name",
+        "note": "The variable's value would be used if set."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Parameter expansion also includes ${#var} (length) and ${var%.txt} (strip suffix)."
+  },
+  {
+    "id": 103,
+    "domain": "D4",
+    "scenario": "Which line is a correct Bash function definition?",
+    "options": [
+      {
+        "text": "backup() { tar -czf \"$1.tgz\" \"$1\"; }",
+        "note": ""
+      },
+      {
+        "text": "function backup( ) => tar",
+        "note": "Not Bash syntax."
+      },
+      {
+        "text": "def backup(): tar",
+        "note": "That's Python style."
+      },
+      {
+        "text": "backup = { tar }",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Call it with backup /etc. Inside, $1 is the function's first argument; return sets its status."
+  },
+  {
+    "id": 104,
+    "domain": "D4",
+    "scenario": "Which loop reads a file line by line safely?",
+    "options": [
+      {
+        "text": "while IFS= read -r line; do echo \"$line\"; done < hosts.txt",
+        "note": ""
+      },
+      {
+        "text": "for line in hosts.txt; do",
+        "note": "Loops over the single word hosts.txt."
+      },
+      {
+        "text": "cat hosts.txt | for line",
+        "note": "Not valid."
+      },
+      {
+        "text": "until read hosts.txt",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "IFS= keeps leading spaces; -r keeps backslashes."
+  },
+  {
+    "id": 105,
+    "domain": "D4",
+    "scenario": "Which test checks if the number in $count is greater than 10?",
+    "options": [
+      {
+        "text": "[ \"$count\" -gt 10 ]",
+        "note": ""
+      },
+      {
+        "text": "[ $count > 10 ]",
+        "note": "> inside [ ] is a redirection."
+      },
+      {
+        "text": "[ $count gt 10 ]",
+        "note": "Missing the dash."
+      },
+      {
+        "text": "( count > 10 )",
+        "note": "Runs a subshell."
+      }
+    ],
+    "answer": 0,
+    "explanation": "In [[ ]] you can also use (( count > 10 )) for arithmetic."
+  },
+  {
+    "id": 106,
+    "domain": "D4",
+    "scenario": "What does a case statement do in a Bash script?",
+    "options": [
+      {
+        "text": "Matches a value against patterns and runs the commands for the first match",
+        "note": ""
+      },
+      {
+        "text": "Loops a fixed number of times",
+        "note": "That's for."
+      },
+      {
+        "text": "Defines a function",
+        "note": "Not case."
+      },
+      {
+        "text": "Changes text to uppercase",
+        "note": "That's ${var^^} or tr."
+      }
+    ],
+    "answer": 0,
+    "explanation": "case \"$1\" in start) ...;; stop) ...;; *) echo usage;; esac"
+  },
+  {
+    "id": 107,
+    "domain": "D4",
+    "scenario": "Which command prints the third field of each line in a comma-separated file?",
+    "options": [
+      {
+        "text": "awk -F, '{print $3}' data.csv",
+        "note": ""
+      },
+      {
+        "text": "cut -f3 data.csv",
+        "note": "Uses tab as the delimiter."
+      },
+      {
+        "text": "grep -3 data.csv",
+        "note": "Shows context lines."
+      },
+      {
+        "text": "sed -3 data.csv",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "awk's OFS sets the output separator, for example awk -F, -v OFS='\\t' '{print $1,$3}'."
+  },
+  {
+    "id": 108,
+    "domain": "D4",
+    "scenario": "Which Python practice keeps a project's dependencies isolated from the system Python?",
+    "options": [
+      {
+        "text": "Create a virtual environment with python3 -m venv .venv and install packages into it",
+        "note": ""
+      },
+      {
+        "text": "Install everything with sudo pip",
+        "note": "Can break system packages."
+      },
+      {
+        "text": "Copy site-packages by hand",
+        "note": "Not maintainable."
+      },
+      {
+        "text": "Use Python 2",
+        "note": "End of life."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Record dependencies in requirements.txt (pip freeze). Follow PEP 8 for style."
+  },
+  {
+    "id": 109,
+    "domain": "D4",
+    "scenario": "Which Python data type is an ordered, changeable collection like [\"web01\", \"web02\"]?",
+    "options": [
+      {
+        "text": "list",
+        "note": ""
+      },
+      {
+        "text": "tuple",
+        "note": "Ordered but immutable, written with ()."
+      },
+      {
+        "text": "dict",
+        "note": "Key-value pairs."
+      },
+      {
+        "text": "set",
+        "note": "Unordered unique items."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A list is ordered and mutable; a tuple is ordered but immutable, and a set is unordered. Common built-in modules for admin scripts: os, subprocess, pathlib, json, argparse, logging."
+  },
+  {
+    "id": 110,
+    "domain": "D4",
+    "scenario": "Which git command creates a new branch named fix-login and switches to it?",
+    "options": [
+      {
+        "text": "git switch -c fix-login (or git checkout -b fix-login)",
+        "note": ""
+      },
+      {
+        "text": "git branch -d fix-login",
+        "note": "Deletes a branch."
+      },
+      {
+        "text": "git merge fix-login",
+        "note": "Merges it."
+      },
+      {
+        "text": "git commit -b fix-login",
+        "note": "Not valid."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Then git add, git commit -m \"...\", and git push -u origin fix-login."
+  },
+  {
+    "id": 111,
+    "domain": "D4",
+    "scenario": "What is the difference between git merge and git rebase?",
+    "options": [
+      {
+        "text": "Merge combines histories with a merge commit; rebase replays your commits on top of another branch for a linear history",
+        "note": ""
+      },
+      {
+        "text": "They're identical",
+        "note": "History differs."
+      },
+      {
+        "text": "Rebase deletes the branch",
+        "note": "No."
+      },
+      {
+        "text": "Merge only works locally",
+        "note": "No."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Avoid rebasing commits others have already pulled."
+  },
+  {
+    "id": 112,
+    "domain": "D4",
+    "scenario": "What does git stash do?",
+    "options": [
+      {
+        "text": "Saves uncommitted changes temporarily and cleans the working tree",
+        "note": ""
+      },
+      {
+        "text": "Deletes the repository",
+        "note": "No."
+      },
+      {
+        "text": "Pushes to the remote",
+        "note": "No."
+      },
+      {
+        "text": "Tags a release",
+        "note": "That's git tag."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Restore with git stash pop."
+  },
+  {
+    "id": 113,
+    "domain": "D4",
+    "scenario": "Which file tells git not to track build output and secrets such as .env?",
+    "options": [
+      {
+        "text": ".gitignore",
+        "note": ""
+      },
+      {
+        "text": ".gitconfig",
+        "note": "User settings."
+      },
+      {
+        "text": ".git/HEAD",
+        "note": "Points to the current branch."
+      },
+      {
+        "text": "README.md",
+        "note": "Documentation."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Never commit credentials; if you do, rotate them."
+  },
+  {
+    "id": 114,
+    "domain": "D4",
+    "scenario": "Which is a responsible practice when using an AI assistant to write a shell script for production?",
+    "options": [
+      {
+        "text": "Review and test the output in a non-production environment, and never paste secrets or confidential data into the prompt",
+        "note": ""
+      },
+      {
+        "text": "Run it immediately as root",
+        "note": "Risky."
+      },
+      {
+        "text": "Assume it's correct because it's well formatted",
+        "note": "AI output can be wrong."
+      },
+      {
+        "text": "Include real passwords so it works",
+        "note": "Leaks secrets."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Follow company AI policies and data governance. Give clear, specific prompts with context and constraints."
+  },
+  {
+    "id": 115,
+    "domain": "D4",
+    "scenario": "In monitoring, what is an SLO?",
+    "options": [
+      {
+        "text": "A target value for a service-level indicator, such as 99.9% of requests succeeding each month",
+        "note": ""
+      },
+      {
+        "text": "A contract with penalties",
+        "note": "That's an SLA."
+      },
+      {
+        "text": "A measured metric",
+        "note": "That's an SLI."
+      },
+      {
+        "text": "A log file format",
+        "note": "No."
+      }
+    ],
+    "answer": 0,
+    "explanation": "SLIs measure, SLOs set targets, SLAs are agreements with customers."
+  },
+  {
+    "id": 116,
+    "domain": "D4",
+    "scenario": "Which statement describes agentless monitoring?",
+    "options": [
+      {
+        "text": "The monitoring server polls hosts with existing protocols such as SNMP or SSH instead of installing software on them",
+        "note": ""
+      },
+      {
+        "text": "No data is collected",
+        "note": "Data is collected."
+      },
+      {
+        "text": "Each host runs a monitoring agent",
+        "note": "That's agent-based."
+      },
+      {
+        "text": "Only logs are checked",
+        "note": "Not limited."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Agents give richer metrics; agentless is simpler to deploy. Webhooks send alerts to chat or ticketing tools."
+  },
+  {
+    "id": 117,
+    "domain": "D4",
+    "scenario": "What does this script line do? set -euo pipefail",
+    "options": [
+      {
+        "text": "Exits on errors and unset variables, and fails a pipeline if any command in it fails",
+        "note": ""
+      },
+      {
+        "text": "Enables debugging output",
+        "note": "That's set -x."
+      },
+      {
+        "text": "Runs the script as root",
+        "note": "No."
+      },
+      {
+        "text": "Disables all errors",
+        "note": "The opposite."
+      }
+    ],
+    "answer": 0,
+    "explanation": "-e exits on any error, -u treats unset variables as errors, and -o pipefail makes a pipeline fail if any command in it fails. A common safe default at the top of Bash scripts."
+  },
+  {
+    "id": 118,
+    "domain": "D4",
+    "scenario": "Which regular expression matches an IPv4-like pattern of four groups of 1–3 digits separated by dots (grep -E)?",
+    "options": [
+      {
+        "text": "([0-9]{1,3}\\.){3}[0-9]{1,3}",
+        "note": ""
+      },
+      {
+        "text": "[0-9]+.[0-9]+",
+        "note": "Matches only two groups, and . is unescaped."
+      },
+      {
+        "text": "\\d\\d\\d",
+        "note": "Three digits only; \\d isn't supported by grep -E."
+      },
+      {
+        "text": "^IP$",
+        "note": "Literal text."
+      }
+    ],
+    "answer": 0,
+    "explanation": "It doesn't validate ranges (999 would match), but it's fine for extracting addresses from logs."
+  },
+  {
+    "id": 119,
+    "domain": "D5",
+    "scenario": "After adding a line to /etc/fstab, a server drops to emergency mode at boot. What is the most likely cause?",
+    "options": [
+      {
+        "text": "The fstab entry has a typo, wrong UUID, or a device that isn't present",
+        "note": ""
+      },
+      {
+        "text": "The root password expired",
+        "note": "Doesn't affect boot."
+      },
+      {
+        "text": "Too much free memory",
+        "note": "Not a cause."
+      },
+      {
+        "text": "The hostname changed",
+        "note": "Not a cause."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Log in to emergency mode, fix the entry (or add nofail for optional devices), then systemctl daemon-reload and mount -a. Always test with mount -a before rebooting."
+  },
+  {
+    "id": 120,
+    "domain": "D5",
+    "scenario": "The root file system is 100% full. Which command finds the largest directories under /var?",
+    "options": [
+      {
+        "text": "du -xh /var | sort -h | tail",
+        "note": ""
+      },
+      {
+        "text": "df -h /var | sort",
+        "note": "df shows totals per file system."
+      },
+      {
+        "text": "ls -lS /",
+        "note": "Only top level."
+      },
+      {
+        "text": "free -h",
+        "note": "Memory."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Common culprits: logs in /var/log, the journal, package caches, and core dumps. A deleted file still held open by a process keeps using space; find it with lsof +L1."
+  },
+  {
+    "id": 121,
+    "domain": "D5",
+    "scenario": "df shows a full disk, but du can't find the files. What is a likely explanation?",
+    "options": [
+      {
+        "text": "A process still holds a deleted file open, so its space isn't freed",
+        "note": ""
+      },
+      {
+        "text": "du is broken",
+        "note": "Unlikely."
+      },
+      {
+        "text": "The disk is encrypted",
+        "note": "Not related."
+      },
+      {
+        "text": "The inode table is empty",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Restart the process or truncate the file through /proc/<pid>/fd."
+  },
+  {
+    "id": 122,
+    "domain": "D5",
+    "scenario": "A service fails to start. Which commands show why?",
+    "options": [
+      {
+        "text": "systemctl status app and journalctl -u app -b",
+        "note": ""
+      },
+      {
+        "text": "systemctl enable app",
+        "note": "Doesn't diagnose."
+      },
+      {
+        "text": "dmesg -c",
+        "note": "Clears the kernel buffer."
+      },
+      {
+        "text": "ls /etc/systemd",
+        "note": "Doesn't show the error."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Look for exit codes, missing files, permission errors, and SELinux denials."
+  },
+  {
+    "id": 123,
+    "domain": "D5",
+    "scenario": "The kernel panics during boot after an update. What is the quickest recovery?",
+    "options": [
+      {
+        "text": "Select the previous kernel from the GRUB menu, then investigate or remove the faulty one",
+        "note": ""
+      },
+      {
+        "text": "Reinstall the OS",
+        "note": "Too drastic first."
+      },
+      {
+        "text": "Run fsck on every disk",
+        "note": "Not the likely cause."
+      },
+      {
+        "text": "Reset the BIOS",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Set the default kernel with grubby --set-default. Check dmesg/journal logs from the failed boot afterward."
+  },
+  {
+    "id": 124,
+    "domain": "D5",
+    "scenario": "A user's quota is exceeded. Which command reports their usage and limits?",
+    "options": [
+      {
+        "text": "quota -u username (or repquota for all users)",
+        "note": ""
+      },
+      {
+        "text": "df -u username",
+        "note": "Not valid."
+      },
+      {
+        "text": "du -q",
+        "note": "Not valid."
+      },
+      {
+        "text": "ulimit -a",
+        "note": "Shows process limits."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Quotas are enabled with mount options such as usrquota and managed with edquota or xfs_quota on XFS."
+  },
+  {
+    "id": 125,
+    "domain": "D5",
+    "scenario": "A process keeps using more memory until the system kills it. What is this called and which component killed it?",
+    "options": [
+      {
+        "text": "A memory leak; the kernel's OOM killer ended it",
+        "note": ""
+      },
+      {
+        "text": "A zombie process; systemd killed it",
+        "note": "Zombies don't use memory."
+      },
+      {
+        "text": "Swapping; cron killed it",
+        "note": "cron doesn't kill processes."
+      },
+      {
+        "text": "A race condition; SELinux killed it",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Look for \"Out of memory: Killed process\" in dmesg or journalctl -k."
+  },
+  {
+    "id": 126,
+    "domain": "D5",
+    "scenario": "A host can reach other hosts by IP address but not by name. What should you check first?",
+    "options": [
+      {
+        "text": "DNS settings: /etc/resolv.conf or resolvectl, and test with dig or getent hosts",
+        "note": ""
+      },
+      {
+        "text": "The network cable",
+        "note": "IP connectivity works."
+      },
+      {
+        "text": "The default gateway",
+        "note": "IP reaches remote hosts already."
+      },
+      {
+        "text": "The MTU",
+        "note": "Unlikely for this symptom."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Also check /etc/hosts for wrong static entries and /etc/nsswitch.conf order."
+  },
+  {
+    "id": 127,
+    "domain": "D5",
+    "scenario": "A server can reach hosts on its own subnet but nothing beyond it. What is the most likely issue?",
+    "options": [
+      {
+        "text": "A missing or wrong default gateway (check ip route)",
+        "note": ""
+      },
+      {
+        "text": "A wrong DNS server",
+        "note": "Names fail, but IP to remote hosts would work."
+      },
+      {
+        "text": "A full disk",
+        "note": "Not networking."
+      },
+      {
+        "text": "A wrong hostname",
+        "note": "Not routing."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fix with nmcli con mod <con> ipv4.gateway x.x.x.x and bring the connection up again."
+  },
+  {
+    "id": 128,
+    "domain": "D5",
+    "scenario": "Small packets work, but large transfers over a VPN stall. What should you suspect?",
+    "options": [
+      {
+        "text": "An MTU mismatch; test with ping -M do -s 1400 and lower the MTU if needed",
+        "note": ""
+      },
+      {
+        "text": "Wrong DNS",
+        "note": "Names already resolve."
+      },
+      {
+        "text": "A bad SSH key",
+        "note": "Not related."
+      },
+      {
+        "text": "SELinux enforcing",
+        "note": "Not this symptom."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Tunnels add headers, reducing the usable MTU."
+  },
+  {
+    "id": 129,
+    "domain": "D5",
+    "scenario": "Two hosts report \"duplicate address detected\" or intermittent connectivity. What tool helps confirm an IP conflict?",
+    "options": [
+      {
+        "text": "arping -D (or check ip neigh for changing MAC addresses)",
+        "note": ""
+      },
+      {
+        "text": "traceroute",
+        "note": "Shows path hops."
+      },
+      {
+        "text": "ss -tlnp",
+        "note": "Shows listening ports."
+      },
+      {
+        "text": "lsblk",
+        "note": "Disks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Find the MAC owner in the switch or DHCP leases."
+  },
+  {
+    "id": 130,
+    "domain": "D5",
+    "scenario": "A web server works locally (curl localhost), but clients can't connect. Which two causes are most likely on RHEL?",
+    "options": [
+      {
+        "text": "firewalld isn't allowing the port, or the service is listening only on 127.0.0.1",
+        "note": ""
+      },
+      {
+        "text": "The disk is full",
+        "note": "Local curl works."
+      },
+      {
+        "text": "DNS on the server",
+        "note": "Clients connect by IP or name; local works."
+      },
+      {
+        "text": "The CPU is too slow",
+        "note": "Not likely."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check ss -tlnp for the listening address and firewall-cmd --list-all for allowed services."
+  },
+  {
+    "id": 131,
+    "domain": "D5",
+    "scenario": "Which command shows the path packets take to a remote host and where they stop?",
+    "options": [
+      {
+        "text": "traceroute (or tracepath / mtr)",
+        "note": ""
+      },
+      {
+        "text": "ping -a",
+        "note": "Only tests reachability."
+      },
+      {
+        "text": "dig +trace",
+        "note": "Traces DNS delegation."
+      },
+      {
+        "text": "ip link",
+        "note": "Shows interfaces."
+      }
+    ],
+    "answer": 0,
+    "explanation": "mtr combines ping and traceroute to show loss per hop."
+  },
+  {
+    "id": 132,
+    "domain": "D5",
+    "scenario": "Which tool captures packets on eth0 to analyze a network problem?",
+    "options": [
+      {
+        "text": "tcpdump -i eth0",
+        "note": ""
+      },
+      {
+        "text": "nmcli -i eth0",
+        "note": "Configures networking."
+      },
+      {
+        "text": "ethtool -c",
+        "note": "Shows coalescing settings."
+      },
+      {
+        "text": "ss -c",
+        "note": "Not packet capture."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Save to a file with -w capture.pcap and open it in Wireshark."
+  },
+  {
+    "id": 133,
+    "domain": "D5",
+    "scenario": "Apache can't read files in /srv/web, although the Unix permissions are correct and SELinux is enforcing. What fixes it?",
+    "options": [
+      {
+        "text": "Label the content: semanage fcontext -a -t httpd_sys_content_t \"/srv/web(/.*)?\" then restorecon -Rv /srv/web",
+        "note": ""
+      },
+      {
+        "text": "chmod 777 /srv/web",
+        "note": "Permissions aren't the problem and 777 is unsafe."
+      },
+      {
+        "text": "setenforce 0 permanently",
+        "note": "Disables protection."
+      },
+      {
+        "text": "chown apache:apache /",
+        "note": "Wrong and unsafe."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Find denials with ausearch -m avc -ts recent or sealert. Booleans (getsebool -a) toggle common policy options."
+  },
+  {
+    "id": 134,
+    "domain": "D5",
+    "scenario": "A user gets \"Permission denied\" on /srv/share/plan.txt, which is mode 660, group projects. The user was just added to projects. Why?",
+    "options": [
+      {
+        "text": "Group membership applies at login; the user must log out and back in (or use newgrp)",
+        "note": ""
+      },
+      {
+        "text": "660 never allows group access",
+        "note": "It does."
+      },
+      {
+        "text": "The file needs SUID",
+        "note": "Not related."
+      },
+      {
+        "text": "The user must be root",
+        "note": "No."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check with id; also check parent directory execute permission and ACLs."
+  },
+  {
+    "id": 135,
+    "domain": "D5",
+    "scenario": "A user can't log in, and passwd -S shows L. What does it mean?",
+    "options": [
+      {
+        "text": "The account's password is locked",
+        "note": ""
+      },
+      {
+        "text": "The password is very strong",
+        "note": "No."
+      },
+      {
+        "text": "The account is new",
+        "note": "No."
+      },
+      {
+        "text": "Login is allowed only by key",
+        "note": "Not what L means."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Unlock with usermod -U or passwd -u. Also check chage -l for expiry, faillock, and the shell (nologin)."
+  },
+  {
+    "id": 136,
+    "domain": "D5",
+    "scenario": "Browsers show a certificate error for an internal site. The certificate is valid. What is a common cause?",
+    "options": [
+      {
+        "text": "The server isn't sending the intermediate certificate chain, or the name doesn't match the certificate",
+        "note": ""
+      },
+      {
+        "text": "The site uses TLS 1.3",
+        "note": "Supported."
+      },
+      {
+        "text": "The disk is full",
+        "note": "Not this symptom."
+      },
+      {
+        "text": "SELinux is permissive",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "openssl s_client -connect site:443 -showcerts shows the chain."
+  },
+  {
+    "id": 137,
+    "domain": "D5",
+    "scenario": "A scan reports an SSH server offering weak ciphers. Where do you fix it on RHEL?",
+    "options": [
+      {
+        "text": "Apply a stricter system crypto policy (update-crypto-policies) or set Ciphers/KexAlgorithms in sshd configuration",
+        "note": ""
+      },
+      {
+        "text": "Disable SELinux",
+        "note": "Not related."
+      },
+      {
+        "text": "Open port 22 wider",
+        "note": "Not related."
+      },
+      {
+        "text": "Remove the host keys and restart",
+        "note": "Doesn't change ciphers."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Restart sshd and rescan to confirm."
+  },
+  {
+    "id": 138,
+    "domain": "D5",
+    "scenario": "The load average is high but CPU usage is low, and top shows high wa. What is the bottleneck?",
+    "options": [
+      {
+        "text": "Disk or storage I/O (processes waiting on I/O)",
+        "note": ""
+      },
+      {
+        "text": "CPU",
+        "note": "CPU isn't busy."
+      },
+      {
+        "text": "DNS",
+        "note": "Not this metric."
+      },
+      {
+        "text": "The GUI",
+        "note": "Not likely."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Use iostat -x, iotop, or pidstat -d to find the busy device and process."
+  },
+  {
+    "id": 139,
+    "domain": "D5",
+    "scenario": "free shows almost no free memory but plenty \"available.\" Is this a problem?",
+    "options": [
+      {
+        "text": "No; Linux uses spare RAM for cache and releases it when programs need it",
+        "note": ""
+      },
+      {
+        "text": "Yes, add RAM immediately",
+        "note": "Not based on this alone."
+      },
+      {
+        "text": "Yes, reboot to clear it",
+        "note": "Unnecessary."
+      },
+      {
+        "text": "Yes, the kernel is leaking",
+        "note": "Not indicated."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Watch swap activity (si/so in vmstat) and the available column instead."
+  },
+  {
+    "id": 140,
+    "domain": "D5",
+    "scenario": "A server swaps heavily and is slow. What should you check first?",
+    "options": [
+      {
+        "text": "Which processes use the most memory (top sorted by %MEM, or ps --sort=-rss)",
+        "note": ""
+      },
+      {
+        "text": "The firewall",
+        "note": "Not related."
+      },
+      {
+        "text": "DNS",
+        "note": "Not related."
+      },
+      {
+        "text": "Disk quotas",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Reduce memory use, add RAM, or tune vm.swappiness."
+  },
+  {
+    "id": 141,
+    "domain": "D5",
+    "scenario": "Which command shows the processes using the most CPU?",
+    "options": [
+      {
+        "text": "ps aux --sort=-%cpu | head (or top)",
+        "note": ""
+      },
+      {
+        "text": "df -h",
+        "note": "Disk space."
+      },
+      {
+        "text": "ss -s",
+        "note": "Socket summary."
+      },
+      {
+        "text": "lsblk",
+        "note": "Disks."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Then renice, limit with systemd (CPUQuota=), or stop the runaway process."
+  },
+  {
+    "id": 142,
+    "domain": "D5",
+    "scenario": "Which command collects performance data over time so you can compare with a baseline?",
+    "options": [
+      {
+        "text": "sar (from sysstat)",
+        "note": ""
+      },
+      {
+        "text": "uptime once",
+        "note": "A single snapshot."
+      },
+      {
+        "text": "ls -l",
+        "note": "Files."
+      },
+      {
+        "text": "history",
+        "note": "Shell history."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Baselines make it easier to spot deviations such as rising load or memory."
+  },
+  {
+    "id": 143,
+    "domain": "D5",
+    "scenario": "An NFS mount is slow and processes hang in state D. What does D mean?",
+    "options": [
+      {
+        "text": "Uninterruptible sleep, usually waiting on I/O such as a storage or network file system",
+        "note": ""
+      },
+      {
+        "text": "Dead",
+        "note": "Not D."
+      },
+      {
+        "text": "Daemon",
+        "note": "Not D."
+      },
+      {
+        "text": "Debugging",
+        "note": "Not D."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Check network latency to the NFS server and the server's health."
+  },
+  {
+    "id": 144,
+    "domain": "D5",
+    "scenario": "After a GRUB configuration change, the system boots to a grub> prompt. What happened?",
+    "options": [
+      {
+        "text": "GRUB couldn't load its configuration or find the kernel; boot manually or rebuild grub.cfg from a rescue environment",
+        "note": ""
+      },
+      {
+        "text": "The root password was reset",
+        "note": "Not related."
+      },
+      {
+        "text": "The firewall blocked boot",
+        "note": "Not related."
+      },
+      {
+        "text": "The network is down",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "From rescue media: chroot into the system and run grub2-mkconfig (and grub2-install for BIOS if needed)."
+  },
+  {
+    "id": 145,
+    "domain": "D5",
+    "scenario": "A new network card doesn't appear in ip link. What should you check?",
+    "options": [
+      {
+        "text": "Whether a driver is loaded: lspci -k and dmesg for errors, then load the module or install firmware",
+        "note": ""
+      },
+      {
+        "text": "The DNS servers",
+        "note": "Not related."
+      },
+      {
+        "text": "The crontab",
+        "note": "Not related."
+      },
+      {
+        "text": "/etc/hosts",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Some devices need non-free firmware packages."
+  },
+  {
+    "id": 146,
+    "domain": "D5",
+    "scenario": "Users report SSH connections take 30 seconds before the password prompt. What is a common cause?",
+    "options": [
+      {
+        "text": "The SSH server is doing slow reverse-DNS lookups (UseDNS) or GSSAPI attempts",
+        "note": ""
+      },
+      {
+        "text": "The CPU is too fast",
+        "note": "No."
+      },
+      {
+        "text": "The disk is encrypted",
+        "note": "Not related."
+      },
+      {
+        "text": "The client's keyboard layout",
+        "note": "No."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Fix DNS or set UseDNS no; check verbose output with ssh -v."
+  },
+  {
+    "id": 147,
+    "domain": "D5",
+    "scenario": "A host on a dual-stack network can't reach a site that has both A and AAAA records. IPv4 works. What should you check?",
+    "options": [
+      {
+        "text": "IPv6 routing and firewall rules (ip -6 route, ping -6)",
+        "note": ""
+      },
+      {
+        "text": "Only the IPv4 gateway",
+        "note": "IPv4 already works."
+      },
+      {
+        "text": "The swap size",
+        "note": "Not related."
+      },
+      {
+        "text": "The umask",
+        "note": "Not related."
+      }
+    ],
+    "answer": 0,
+    "explanation": "Clients prefer IPv6 when available, so a broken IPv6 path causes delays or failures."
+  },
+  {
+    "id": 148,
+    "domain": "D5",
+    "scenario": "A cloud VM is unreachable after a reboot. What should you check first in the cloud console?",
+    "options": [
+      {
+        "text": "The serial console or boot logs and the security group or network ACL rules",
+        "note": ""
+      },
+      {
+        "text": "The VM's wallpaper",
+        "note": "No."
+      },
+      {
+        "text": "The local printer",
+        "note": "No."
+      },
+      {
+        "text": "The hypervisor's BIOS settings",
+        "note": "You don't control them in public cloud."
+      }
+    ],
+    "answer": 0,
+    "explanation": "A bad fstab entry or firewall change is a common cause; fix it from the serial console or by attaching the disk to another VM."
+  }
+]

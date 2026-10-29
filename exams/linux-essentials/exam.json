@@ -1,0 +1,46 @@
+{
+  "slug": "linux-essentials",
+  "code": "010-200",
+  "name": "LPI Linux Essentials",
+  "vendor": "Linux Professional Institute",
+  "domains": {
+    "D1": {
+      "name": "The Linux operating system and open source software",
+      "weight": "7 of 40 (18%)",
+      "pct": 18
+    },
+    "D2": {
+      "name": "Command line basics",
+      "weight": "9 of 40 (22%)",
+      "pct": 22
+    },
+    "D3": {
+      "name": "Data processing",
+      "weight": "9 of 40 (22%)",
+      "pct": 22
+    },
+    "D4": {
+      "name": "Linux system administration basics",
+      "weight": "8 of 40 (20%)",
+      "pct": 20
+    },
+    "D5": {
+      "name": "Security and file system permissions",
+      "weight": "7 of 40 (18%)",
+      "pct": 18
+    }
+  },
+  "scoring": {
+    "min": 200,
+    "max": 800,
+    "pass": 500
+  },
+  "minutesPerQuestion": 1.5,
+  "defaultSize": 40,
+  "sizeOptions": [
+    20,
+    40
+  ],
+  "realExamNote": "The real exam has 40 multiple-choice and fill-in-the-blank questions in 60 minutes. This course follows the version 2.0 objectives (exam 010-200), released October 15, 2026. Version 1.6 (010-160) stays available for six months after that, and most topics overlap.",
+  "scoreNote": "LPI reports a scaled score from 200 to 800 with 500 to pass; this simulator maps percent correct onto that scale, so treat 500+ as a readiness signal, not a guarantee."
+}

@@ -1,0 +1,47 @@
+{
+  "slug": "linux-plus",
+  "code": "XK0-006",
+  "name": "CompTIA Linux+",
+  "vendor": "CompTIA",
+  "domains": {
+    "D1": {
+      "name": "System management",
+      "weight": "23%",
+      "pct": 23
+    },
+    "D2": {
+      "name": "Services and user management",
+      "weight": "20%",
+      "pct": 20
+    },
+    "D3": {
+      "name": "Security",
+      "weight": "18%",
+      "pct": 18
+    },
+    "D4": {
+      "name": "Automation, orchestration, and scripting",
+      "weight": "17%",
+      "pct": 17
+    },
+    "D5": {
+      "name": "Troubleshooting",
+      "weight": "22%",
+      "pct": 22
+    }
+  },
+  "scoring": {
+    "min": 100,
+    "max": 900,
+    "pass": 720
+  },
+  "minutesPerQuestion": 1,
+  "defaultSize": 90,
+  "sizeOptions": [
+    30,
+    60,
+    90
+  ],
+  "realExamNote": "The real exam has up to 90 questions in 90 minutes, including performance-based questions; this simulator is multiple choice only (use the Labs tab for hands-on practice). XK0-006 (Linux+ V8) launched July 15, 2025, replacing XK0-005.",
+  "scoreNote": "CompTIA's real scoring is scaled differently, so treat 720+ as a readiness signal, not a guarantee."
+}

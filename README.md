@@ -1,6 +1,6 @@
 # The IT Study Hall
 
-Learning paths, practice questions and timed exams for IT and healthcare administration certifications, live at **The IT Study Hall**, https://it-study-hall.vercel.app
+Learning paths, practice questions and timed exams for IT, Linux and healthcare administration certifications, live at **The IT Study Hall**, https://it-study-hall.vercel.app
 (the older it-learn-and-practice, it-exam-simulator and az104-exam-simulator-drab `.vercel.app` addresses forward there; see `redirects` in `vercel.json`). Currently includes:
 
 | Exam | Folder | Questions | Scoring |
@@ -35,8 +35,11 @@ Learning paths, practice questions and timed exams for IT and healthcare adminis
 | AAPC Certified Professional Coder (CPC) | `exams/cpc` | 152 | 70% to pass (real exam is open-book) |
 | NHA Certified Billing and Coding Specialist (CBCS) · beginner | `exams/cbcs` | 106 | 390 on 200–500 to pass |
 | NHA Certified Medical Administrative Assistant (CMAA) · beginner | `exams/cmaa` | 109 | 390 on 200–500 to pass |
+| LPI Linux Essentials (010-200) · beginner | `exams/linux-essentials` | 110 | 500 on 200–800 to pass |
+| CompTIA Linux+ (XK0-006) · intermediate | `exams/linux-plus` | 148 | 720 on 100–900 to pass |
+| Red Hat RHCSA (EX200, RHEL 10) · advanced | `exams/rhcsa` | 106 | 210 of 300 to pass (real exam is hands-on) |
 
-Open the site to pick an exam, or go straight to one at `/<folder>` (e.g. `/az-104`, `/network-plus`, `/security-plus`, `/ccna`, `/aws-saa`, `/ai-901`, `/aws-aif`, `/google-gail`, `/cpc`, `/cbcs`, `/cmaa`). Each exam keeps its own progress and history.
+Open the site to pick an exam, or go straight to one at `/<folder>` (e.g. `/az-104`, `/network-plus`, `/security-plus`, `/ccna`, `/aws-saa`, `/ai-901`, `/aws-aif`, `/google-gail`, `/cpc`, `/cbcs`, `/cmaa`, `/linux-essentials`, `/linux-plus`, `/rhcsa`). Each exam keeps its own progress and history.
 
 ## Modes
 

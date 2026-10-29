@@ -1,0 +1,67 @@
+{
+  "slug": "rhcsa",
+  "code": "EX200",
+  "name": "Red Hat Certified System Administrator (RHCSA)",
+  "vendor": "Red Hat",
+  "domains": {
+    "D1": {
+      "name": "Understand and use essential tools",
+      "weight": "14%",
+      "pct": 14
+    },
+    "D2": {
+      "name": "Create simple shell scripts",
+      "weight": "7%",
+      "pct": 7
+    },
+    "D3": {
+      "name": "Operate running systems",
+      "weight": "13%",
+      "pct": 13
+    },
+    "D4": {
+      "name": "Configure local storage",
+      "weight": "12%",
+      "pct": 12
+    },
+    "D5": {
+      "name": "Create and configure file systems",
+      "weight": "11%",
+      "pct": 11
+    },
+    "D6": {
+      "name": "Deploy, configure, and maintain systems",
+      "weight": "13%",
+      "pct": 13
+    },
+    "D7": {
+      "name": "Manage basic networking",
+      "weight": "8%",
+      "pct": 8
+    },
+    "D8": {
+      "name": "Manage users and groups",
+      "weight": "9%",
+      "pct": 9
+    },
+    "D9": {
+      "name": "Manage security",
+      "weight": "13%",
+      "pct": 13
+    }
+  },
+  "scoring": {
+    "min": 0,
+    "max": 300,
+    "pass": 210
+  },
+  "minutesPerQuestion": 1,
+  "defaultSize": 60,
+  "sizeOptions": [
+    30,
+    60,
+    100
+  ],
+  "realExamNote": "The real RHCSA (EX200, RHEL 10) is entirely hands-on: you configure live systems in about 3 hours, and everything must survive a reboot. These questions check the knowledge behind each task; the Labs tab gives you terminal practice. Red Hat doesn't publish domain weights, so the weights here are estimates used to balance practice exams.",
+  "scoreNote": "Red Hat scores out of 300 with 210 to pass; this simulator maps percent correct onto that scale. Passing questions isn't the same as doing the tasks under time pressure, so practice the labs too."
+}
