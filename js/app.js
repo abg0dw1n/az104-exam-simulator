@@ -1034,31 +1034,33 @@ function lastStudied(at) {
   return days < 7 ? `${days} days ago` : new Date(at).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
 }
 
-// Every Recents card shows the same four rows in the same order (learning, practice, labs,
-// timed exam), each with a plain-language status, so cards are comparable at a glance.
+// Every Recents card shows the same four stats in the same places (learn, practice, labs,
+// timed exam), so cards are comparable at a glance; details are in each stat's tooltip.
 function recentCard({ e, saved, activity: a }) {
   const pct = (n, total) => (total ? Math.min(100, Math.round((n / total) * 100)) : 0);
-  const row = (label, value, cls = '', bar = null) => `<span class="recent-row"><span>${label}</span><b class="${cls}">${value}</b></span>
-      ${bar === null ? '<span class="recent-bar recent-bar-none"></span>' : `<span class="recent-bar"><i style="width:${bar}%"></i></span>`}`;
+  // Four compact stats in a 2x2 grid: a short value, and a thin bar only once there's progress.
+  const stat = (label, value, { cls = '', bar = null, title = '' } = {}) => `<span class="recent-stat${cls ? ` ${cls}` : ''}"${title ? ` title="${escapeHtml(title)}"` : ''}>
+      <span class="recent-stat-label">${label}</span><b>${value}</b>${bar ? `<span class="recent-bar"><i style="width:${Math.max(bar, 3)}%"></i></span>` : ''}</span>`;
+  const none = (label, title) => stat(label, '—', { cls: 'none', title });
   const learnPct = pct(a.parts, a.totalParts);
-  const learning = !e.learning ? row('Learning path', 'Not available', 'none')
-    : row('Learning path', a.parts ? `${learnPct}% complete` : a.openedModule || a.mode === 'learn' ? 'Started' : 'Not started',
-      a.parts ? '' : 'none', learnPct);
-  const practice = row('Practice questions', a.answered ? `${a.answered} of ${e.questions || '?'} answered` : 'Not started',
-    a.answered ? '' : 'none', pct(a.answered, e.questions));
-  const labs = !e.labs ? row('Labs', 'Not available', 'none')
-    : row('Labs', a.labsDone ? `${a.labsDone} of ${e.labs} completed` : a.labsStarted ? 'Started' : 'Not started', a.labsDone ? '' : 'none', pct(a.labsDone, e.labs));
-  const exam = a.examRunning ? row('Timed exam', 'In progress', 'running')
-    : a.last ? row('Last timed exam', `${a.last.score} · ${a.last.passed ? 'Passed' : 'Not passed'}`, a.last.passed ? 'good' : 'weak')
-      : row('Timed exam', 'Not taken', 'none');
+  const learning = !e.learning ? none('Learn', 'No learning path for this exam yet')
+    : a.parts ? stat('Learn', `${learnPct}%`, { bar: learnPct, title: `Learning path ${learnPct}% complete` })
+      : a.openedModule || a.mode === 'learn' ? stat('Learn', 'Started', { cls: 'soft' }) : none('Learn', 'Learning path not started');
+  const practice = a.answered ? stat('Practice', `${a.answered}<small>/${e.questions || '?'}</small>`, { bar: pct(a.answered, e.questions), title: `${a.answered} of ${e.questions} questions answered` })
+    : none('Practice', 'No questions answered yet');
+  const labs = !e.labs ? none('Labs', 'No labs for this exam yet')
+    : a.labsDone ? stat('Labs', `${a.labsDone}<small>/${e.labs}</small>`, { bar: pct(a.labsDone, e.labs), title: `${a.labsDone} of ${e.labs} labs completed` })
+      : a.labsStarted ? stat('Labs', 'Started', { cls: 'soft' }) : none('Labs', 'No labs started');
+  const exam = a.examRunning ? stat('Exam', 'In progress', { cls: 'running' })
+    : a.last ? stat('Exam', `${a.last.score}<small>${a.last.passed ? ' passed' : ''}</small>`, { cls: a.last.passed ? 'good' : 'weak', title: `Last timed exam: ${a.last.score}, ${a.last.passed ? 'passed' : 'not passed'}` })
+      : none('Exam', 'No timed exam taken');
   const mode = a.examRunning ? 'exam' : a.mode === 'learn' && e.learning ? 'learn' : a.mode === 'labs' && e.labs ? 'labs' : 'practice';
   const action = { exam: 'Resume timed exam', learn: 'Resume learning path', labs: 'Resume labs', practice: 'Resume practice' }[mode];
   const when = lastStudied(saved?.updatedAt);
-  return `<a class="panel learning-path-card recent-card" href="/${e.slug}${mode === 'learn' || mode === 'labs' ? `?mode=${mode}` : ''}" data-vendor="${vendorKey(e.vendor)}">
-      <span class="learning-path-eyebrow">${escapeHtml(e.vendor.toUpperCase())} · ${escapeHtml(e.code)}</span>
+  return `<a class="panel learning-path-card recent-card" href="/${e.slug}${mode === 'learn' || mode === 'labs' ? `?mode=${mode}` : ''}" data-vendor="${vendorKey(e.vendor)}" title="${escapeHtml(`${e.vendor} · ${e.code}`)}">
+      <span class="recent-head"><span class="learning-path-eyebrow">${escapeHtml(e.code)}</span>${when ? `<span class="recent-when">${when[0].toUpperCase()}${when.slice(1)}</span>` : ''}</span>
       <h3>${escapeHtml(e.name)}</h3>
-      ${when ? `<span class="recent-when">Last studied ${when}</span>` : ''}
-      <span class="recent-rows">${learning}${practice}${labs}${exam}</span>
+      <span class="recent-stats">${learning}${practice}${labs}${exam}</span>
       <span class="learning-path-action">${action} ${icon('right', 'icon')}</span>
     </a>`;
 }
