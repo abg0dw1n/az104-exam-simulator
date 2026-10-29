@@ -54,10 +54,11 @@
     "name": "Microsoft Azure AI Fundamentals",
     "vendor": "Microsoft",
     "level": "beginner",
-    "updated": "2026-10-27",
+    "updated": "2026-10-29",
     "questions": 100,
     "learning": true,
-    "learningDescription": "Learn AI concepts and responsible AI, then build generative apps, agents, speech, vision, and information extraction with Microsoft Foundry."
+    "learningDescription": "Learn AI concepts and responsible AI, then build generative apps, agents, speech, vision, and information extraction with Microsoft Foundry.",
+    "learningModules": 2
   },
   {
     "slug": "aws-aif",
@@ -65,10 +66,11 @@
     "name": "AWS Certified AI Practitioner",
     "vendor": "Amazon Web Services",
     "level": "beginner",
-    "updated": "2026-10-27",
+    "updated": "2026-10-29",
     "questions": 132,
     "learning": true,
-    "learningDescription": "Understand AI, ML, and generative AI on AWS: foundation model apps with Amazon Bedrock, prompt engineering, responsible AI, and security and governance."
+    "learningDescription": "Understand AI, ML, and generative AI on AWS: foundation model apps with Amazon Bedrock, prompt engineering, responsible AI, and security and governance.",
+    "learningModules": 5
   },
   {
     "slug": "google-gail",
@@ -76,10 +78,11 @@
     "name": "Google Cloud Generative AI Leader",
     "vendor": "Google Cloud",
     "level": "beginner",
-    "updated": "2026-10-27",
+    "updated": "2026-10-29",
     "questions": 110,
     "learning": true,
-    "learningDescription": "Lead with generative AI on Google Cloud: core concepts, Gemini and Agent Platform offerings, techniques to improve output, and secure, responsible business strategy."
+    "learningDescription": "Lead with generative AI on Google Cloud: core concepts, Gemini and Agent Platform offerings, techniques to improve output, and secure, responsible business strategy.",
+    "learningModules": 4
   },
   {
     "slug": "az-900",
