@@ -939,6 +939,13 @@ async function loadBank(slug, files = fetchBank(slug)) {
   if (state.exam && !state.exam.order.length) state.exam = null;
   if (state.review) state.review.ids = state.review.ids.filter(valid);
   if (state.practice.list) state.practice.list = state.practice.list.filter(valid);
+  // Questions added to the bank since this round was built join the end of the round.
+  if (state.practice.list) {
+    const inList = new Set(state.practice.list); const p = state.practice;
+    const fresh = QUESTIONS.filter((q) => !inList.has(q.id) && p.answers[q.id] === undefined && (p.domain === 'ALL' || q.domain === p.domain)
+      && !['incorrect', 'flagged'].includes(p.status)).map((q) => q.id);
+    if (fresh.length) p.list.push(...(p.order === 'ordered' ? fresh : shuffle(fresh)));
+  }
   if (state.practice.list && !state.practice.list.length) state.practice.list = null;
   if (state.mode === 'review' && !state.review?.ids.length) state.mode = 'exam';
 }
