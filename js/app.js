@@ -1,5 +1,6 @@
 import * as Auth from './auth.js';
 import * as Learn from './learn.js';
+import * as Labs from './labs.js';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Config
@@ -24,7 +25,7 @@ const KEYS_NUMBER = '123456';
 // sessionStorage, which is cleared when the tab closes)
 // ─────────────────────────────────────────────────────────────────────────────
 const defaultState = () => ({
-  mode: 'practice',          // 'practice' | 'exam' | 'review' | 'learn'
+  mode: 'practice',          // 'practice' | 'exam' | 'review' | 'learn' | 'labs'
   practice: {
     answers: {}, flagged: [], optionOrder: {}, index: 0,
     domain: 'ALL', status: 'all', shuffle: true,
@@ -43,6 +44,7 @@ const defaultState = () => ({
 let state = null;
 let timerHandle = null;
 let LEARN = null;           // learn.json for this exam, if it has training content
+let LABS = null;            // labs.json for this exam, if it has hands-on labs
 
 const progressStore = () => (Auth.isGuest() ? sessionStorage : localStorage);
 
@@ -238,15 +240,22 @@ function currentHolder(s) { return s.holder || s.store; }
 // ─────────────────────────────────────────────────────────────────────────────
 function render() {
   if (state.mode === 'learn' && !LEARN) state.mode = 'practice';
+  if (state.mode === 'labs' && !LABS) state.mode = 'practice';
   renderModeTabs();
   renderTimer();
 
   const main = $('main');
   if (state.mode === 'learn') {
     $('navigator').hidden = true;
+    Labs.stopLabs();
     return Learn.renderLearn(main, { exam: EXAM, state, save, practiceDomain, guest: Auth.isGuest(), guestCta });
   }
   Learn.stopLearn();
+  if (state.mode === 'labs') {
+    $('navigator').hidden = true;
+    return Labs.renderLabs(main, { exam: EXAM, state, save, guest: Auth.isGuest(), guestCta });
+  }
+  Labs.stopLabs();
   $('practice-filters').hidden = state.mode !== 'practice';
   $('practice-stats').hidden = state.mode !== 'practice';
   $('btn-reset-practice').hidden = state.mode !== 'practice';
@@ -281,6 +290,7 @@ function renderModeTabs() {
   $('btn-mode-practice').setAttribute('aria-selected', String(state.mode === 'practice'));
   $('btn-mode-exam').setAttribute('aria-selected', String(examTab));
   $('btn-mode-learn').setAttribute('aria-selected', String(state.mode === 'learn'));
+  $('btn-mode-labs').setAttribute('aria-selected', String(state.mode === 'labs'));
 }
 
 let gridKey = '';
@@ -613,6 +623,9 @@ function toggleFlag() {
 function setMode(mode) {
   if (mode === 'learn' && state.mode === 'learn' && state.learn?.view?.module) {
     state.learn.view.module = null; save(); return render(); // clicking Learn again returns to the module list
+  }
+  if (mode === 'labs' && state.mode === 'labs' && state.labs?.view?.lab) {
+    state.labs.view.lab = null; save(); return render(); // clicking Labs again returns to the lab list
   }
   if (mode !== 'exam' && state.mode === 'exam' && state.exam && !state.exam.result) {
     // The exam keeps running in the background; just switch the view.
@@ -1005,8 +1018,10 @@ function recentActivity(e, saved) {
   const examRunning = !!(saved.exam && !saved.exam.result);
   const last = saved.history?.[0];
   const openedModule = !!saved.learn?.view?.module; // reading a module counts as started
-  if (!answered && !parts && !examRunning && !last && !openedModule) return null;
-  return { answered, parts, totalParts: (e.learningModules || 0) * 3, examRunning, last, openedModule, mode: saved.mode };
+  const labsDone = Object.values(saved.labs?.results || {}).filter((r) => r.done).length;
+  const labsStarted = Object.keys(saved.labs?.work || {}).length + Object.keys(saved.labs?.results || {}).length;
+  if (!answered && !parts && !examRunning && !last && !openedModule && !labsStarted) return null;
+  return { answered, parts, totalParts: (e.learningModules || 0) * 3, examRunning, last, openedModule, labsDone, labsStarted, mode: saved.mode };
 }
 
 // "today", "yesterday", "3 days ago", or a short date like "Oct 2".
@@ -1019,7 +1034,7 @@ function lastStudied(at) {
   return days < 7 ? `${days} days ago` : new Date(at).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
 }
 
-// Every Recents card shows the same three rows in the same order (learning, practice,
+// Every Recents card shows the same four rows in the same order (learning, practice, labs,
 // timed exam), each with a plain-language status, so cards are comparable at a glance.
 function recentCard({ e, saved, activity: a }) {
   const pct = (n, total) => (total ? Math.min(100, Math.round((n / total) * 100)) : 0);
@@ -1031,17 +1046,19 @@ function recentCard({ e, saved, activity: a }) {
       a.parts ? '' : 'none', learnPct);
   const practice = row('Practice questions', a.answered ? `${a.answered} of ${e.questions || '?'} answered` : 'Not started',
     a.answered ? '' : 'none', pct(a.answered, e.questions));
+  const labs = !e.labs ? row('Labs', 'Not available', 'none')
+    : row('Labs', a.labsDone ? `${a.labsDone} of ${e.labs} completed` : a.labsStarted ? 'Started' : 'Not started', a.labsDone ? '' : 'none', pct(a.labsDone, e.labs));
   const exam = a.examRunning ? row('Timed exam', 'In progress', 'running')
     : a.last ? row('Last timed exam', `${a.last.score} · ${a.last.passed ? 'Passed' : 'Not passed'}`, a.last.passed ? 'good' : 'weak')
       : row('Timed exam', 'Not taken', 'none');
-  const mode = a.examRunning ? 'exam' : a.mode === 'learn' && e.learning ? 'learn' : 'practice';
-  const action = { exam: 'Resume timed exam', learn: 'Resume learning path', practice: 'Resume practice' }[mode];
+  const mode = a.examRunning ? 'exam' : a.mode === 'learn' && e.learning ? 'learn' : a.mode === 'labs' && e.labs ? 'labs' : 'practice';
+  const action = { exam: 'Resume timed exam', learn: 'Resume learning path', labs: 'Resume labs', practice: 'Resume practice' }[mode];
   const when = lastStudied(saved?.updatedAt);
-  return `<a class="panel learning-path-card recent-card" href="/${e.slug}${mode === 'learn' ? '?mode=learn' : ''}" data-vendor="${vendorKey(e.vendor)}">
+  return `<a class="panel learning-path-card recent-card" href="/${e.slug}${mode === 'learn' || mode === 'labs' ? `?mode=${mode}` : ''}" data-vendor="${vendorKey(e.vendor)}">
       <span class="learning-path-eyebrow">${escapeHtml(e.vendor.toUpperCase())} · ${escapeHtml(e.code)}</span>
       <h3>${escapeHtml(e.name)}</h3>
       ${when ? `<span class="recent-when">Last studied ${when}</span>` : ''}
-      <span class="recent-rows">${learning}${practice}${exam}</span>
+      <span class="recent-rows">${learning}${practice}${labs}${exam}</span>
       <span class="learning-path-action">${action} ${icon('right', 'icon')}</span>
     </a>`;
 }
@@ -1081,6 +1098,7 @@ async function renderHome() {
       <span class="exam-card-actions">
         ${e.learning ? `<a class="card-btn" href="/${e.slug}?mode=learn" aria-label="Learn ${escapeHtml(e.code)}">${icon('learn')}Learn</a>` : ''}
         <a class="card-btn card-btn-primary" href="/${e.slug}?mode=practice" aria-label="Practice ${escapeHtml(e.code)}">${icon('book')}Practice</a>
+        ${e.labs ? `<a class="card-btn" href="/${e.slug}?mode=labs" aria-label="Labs for ${escapeHtml(e.code)}">${icon('terminal')}Labs</a>` : ''}
       </span>
     </div>`;
   }));
@@ -1163,7 +1181,7 @@ async function renderHome() {
     <section class="learning-section" id="recents" aria-labelledby="recents-title">
       <div class="section-heading">
         <div><span class="eyebrow">RECENTS</span><h2 id="recents-title">${recents.length ? 'Pick up where you left off' : 'Start learning'}</h2>
-          <p class="muted">${recents.length ? 'Courses you have opened, most recent first, with your learning, practice and timed-exam progress.' : 'Courses and exams you start will appear here.'}</p></div>
+          <p class="muted">${recents.length ? 'Courses you have opened, most recent first, with your learning, practice, lab and timed-exam progress.' : 'Courses and exams you start will appear here.'}</p></div>
         ${recents.length ? `<span class="learning-count">${recents.length} in progress</span>` : ''}
       </div>
       ${recentsBody}
@@ -1221,7 +1239,9 @@ async function renderHome() {
       if (isPopular) return;
       // Vendor folders start collapsed; open the ones with matches while searching or filtering.
       group.open = filtering && !group.hidden;
-      group.querySelector('.folder-count').textContent = `${groupVisible} exam${groupVisible === 1 ? '' : 's'}`;
+      // Rows showing personal progress have no count element; only plain-count rows are updated.
+      const count = group.querySelector('.folder-count');
+      if (count) count.textContent = `${groupVisible} exam${groupVisible === 1 ? '' : 's'}`;
       visible += groupVisible;
     });
     $('exam-result-count').textContent = `${visible} exam${visible === 1 ? '' : 's'}`;
@@ -1644,6 +1664,7 @@ async function init() {
   const bankFiles = examPage ? fetchBank(initialSlug) : null;
   bankFiles?.catch(() => { /* reported by loadBank below */ });
   const learnFiles = examPage ? Learn.loadLearn(initialSlug) : null;
+  const labFiles = examPage ? Labs.loadLabs(initialSlug) : null;
   if (!examPage) fetchIndex().catch(() => {});
   if (Auth.AUTH_ENABLED) {
     const auth = await Auth.initAuth();
@@ -1675,10 +1696,13 @@ async function init() {
   $('brand-title').textContent = 'The IT Study Hall';
   $('brand-sub').textContent = `${EXAM.code} · ${EXAM.name}`;
   LEARN = await (slug === initialSlug ? learnFiles : Learn.loadLearn(slug));
+  LABS = await (slug === initialSlug ? labFiles : Labs.loadLabs(slug));
   if (initialMode === 'learn' && LEARN) state.mode = 'learn';
+  if (initialMode === 'labs' && LABS) state.mode = 'labs';
   if (initialMode === 'practice') state.mode = 'practice';
   if (initialMode) history.replaceState(null, '', location.pathname); // keep the address tidy after honoring ?mode
   $('btn-mode-learn').hidden = !LEARN;
+  $('btn-mode-labs').hidden = !LABS;
   $('mode-tabs').hidden = false;
   $('btn-drawer').hidden = false;
   const perDomain = {};

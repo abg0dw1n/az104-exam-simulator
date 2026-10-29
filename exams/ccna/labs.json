@@ -1,0 +1,1620 @@
+{
+  "intro": "Hands-on CCNA labs graded in your browser: Cisco IOS-style routers and switches on a simulated network (VLANs, trunks, inter-VLAN routing, static routes, OSPF, SSH and ACLs), plus IPv6/automation drills and a wireless controller console. These are simulations, so some commands and outputs are simplified.",
+  "labs": [
+    {
+      "id": "rtr-basics",
+      "title": "Bring up a router and address its interfaces",
+      "domain": "D1",
+      "kind": "cli",
+      "level": "beginner",
+      "minutes": 12,
+      "summary": "Name a new router, address two LAN interfaces, enable them, verify with show commands and ping, and save.",
+      "scenario": "<p>A new branch router, <b>R1</b>, connects two LANs. Configure it:</p><ul><li>Hostname <code>BR1-RTR</code></li><li>G0/0 → LAN A <code>192.168.1.1/24</code> (PC-A is 192.168.1.10)</li><li>G0/1 → LAN B <code>192.168.2.1/24</code> (PC-B is 192.168.2.10)</li></ul><p>Router interfaces are shut down by default.</p>",
+      "topology": {
+        "nodes": [
+          {
+            "name": "PC-A",
+            "x": 0,
+            "y": 0
+          },
+          {
+            "name": "R1",
+            "x": 1,
+            "y": 0,
+            "type": "router"
+          },
+          {
+            "name": "PC-B",
+            "x": 2,
+            "y": 0
+          }
+        ]
+      },
+      "devices": [
+        {
+          "name": "R1",
+          "platform": "ios",
+          "kind": "router",
+          "interfaces": [
+            "GigabitEthernet0/0",
+            "GigabitEthernet0/1",
+            "GigabitEthernet0/2"
+          ],
+          "hostname": "Router"
+        },
+        {
+          "name": "PC-A",
+          "platform": "host",
+          "ip": "192.168.1.10",
+          "mask": "255.255.255.0",
+          "gw": "192.168.1.1"
+        },
+        {
+          "name": "PC-B",
+          "platform": "host",
+          "ip": "192.168.2.10",
+          "mask": "255.255.255.0",
+          "gw": "192.168.2.1"
+        }
+      ],
+      "links": [
+        [
+          "PC-A",
+          "R1 g0/0"
+        ],
+        [
+          "R1 g0/1",
+          "PC-B"
+        ]
+      ],
+      "tasks": [
+        {
+          "text": "Set the hostname to <code>BR1-RTR</code>",
+          "check": {
+            "dev": "R1",
+            "path": "hostname",
+            "eq": "BR1-RTR"
+          }
+        },
+        {
+          "text": "Address G0/0 as 192.168.1.1/24 and enable it",
+          "check": {
+            "iface": "R1 g0/0",
+            "is": {
+              "ip": "192.168.1.1",
+              "mask": "255.255.255.0",
+              "up": true
+            }
+          }
+        },
+        {
+          "text": "Address G0/1 as 192.168.2.1/24 and enable it",
+          "check": {
+            "iface": "R1 g0/1",
+            "is": {
+              "ip": "192.168.2.1",
+              "mask": "255.255.255.0",
+              "up": true
+            }
+          }
+        },
+        {
+          "text": "Check interface status with <code>show ip interface brief</code>",
+          "check": {
+            "ran": [
+              "R1",
+              "^(do\\s+)?sh(o(w)?)?\\s+ip\\s+int"
+            ]
+          }
+        },
+        {
+          "text": "PC-A can ping PC-B through the router",
+          "check": {
+            "ping": [
+              "PC-A",
+              "192.168.2.10"
+            ]
+          }
+        },
+        {
+          "text": "Save the configuration",
+          "check": {
+            "saved": "R1"
+          }
+        }
+      ],
+      "hints": [
+        "<code>interface g0/0</code>, <code>ip address 192.168.1.1 255.255.255.0</code>, <code>no shutdown</code>.",
+        "From the router, <code>ping 192.168.2.10</code> tests the far LAN.",
+        "Save with <code>copy running-config startup-config</code> or <code>write memory</code>."
+      ],
+      "solution": "<pre>enable\nconfigure terminal\nhostname BR1-RTR\ninterface g0/0\n ip address 192.168.1.1 255.255.255.0\n no shutdown\ninterface g0/1\n ip address 192.168.2.1 255.255.255.0\n no shutdown\n end\nshow ip interface brief\nping 192.168.2.10\ncopy running-config startup-config</pre>",
+      "review": "<p>A router routes between its directly connected networks as soon as interfaces are addressed and up; the hosts just need the router as their default gateway.</p>"
+    },
+    {
+      "id": "trunk",
+      "title": "VLANs across an 802.1Q trunk",
+      "domain": "D2",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 20,
+      "summary": "Create matching VLANs on two switches, assign access ports, build a trunk with a dedicated native VLAN, and verify end-to-end reachability.",
+      "scenario": "<p>Users in the same department sit on both floors. Configure <b>SW1</b> and <b>SW2</b> (link G0/1 ↔ G0/1):</p><ul><li>VLAN 10 <code>USERS</code>, VLAN 20 <code>VOICE</code>, VLAN 99 <code>NATIVE</code> on both switches</li><li>Fa0/1 on each switch: access VLAN 10 (PC1, PC3); Fa0/2 on each switch: access VLAN 20 (PC2, PC4)</li><li>G0/1 on both: trunk, native VLAN 99, allowed VLANs 10,20,99 only</li></ul>",
+      "topology": {
+        "nodes": [
+          {
+            "name": "SW1",
+            "x": 0.5,
+            "y": 0,
+            "type": "switch"
+          },
+          {
+            "name": "SW2",
+            "x": 2.5,
+            "y": 0,
+            "type": "switch"
+          },
+          {
+            "name": "PC1",
+            "x": 0,
+            "y": 1
+          },
+          {
+            "name": "PC2",
+            "x": 1,
+            "y": 1
+          },
+          {
+            "name": "PC3",
+            "x": 2,
+            "y": 1
+          },
+          {
+            "name": "PC4",
+            "x": 3,
+            "y": 1
+          }
+        ]
+      },
+      "devices": [
+        {
+          "name": "SW1",
+          "platform": "ios",
+          "kind": "switch",
+          "interfaces": [
+            "FastEthernet0/1",
+            "FastEthernet0/2",
+            "FastEthernet0/3",
+            "FastEthernet0/4",
+            "FastEthernet0/5",
+            "FastEthernet0/6",
+            "FastEthernet0/7",
+            "FastEthernet0/8",
+            "GigabitEthernet0/1",
+            "GigabitEthernet0/2"
+          ]
+        },
+        {
+          "name": "SW2",
+          "platform": "ios",
+          "kind": "switch",
+          "interfaces": [
+            "FastEthernet0/1",
+            "FastEthernet0/2",
+            "FastEthernet0/3",
+            "FastEthernet0/4",
+            "FastEthernet0/5",
+            "FastEthernet0/6",
+            "FastEthernet0/7",
+            "FastEthernet0/8",
+            "GigabitEthernet0/1",
+            "GigabitEthernet0/2"
+          ]
+        },
+        {
+          "name": "PC1",
+          "platform": "host",
+          "ip": "10.10.10.11",
+          "mask": "255.255.255.0"
+        },
+        {
+          "name": "PC2",
+          "platform": "host",
+          "ip": "10.10.20.11",
+          "mask": "255.255.255.0"
+        },
+        {
+          "name": "PC3",
+          "platform": "host",
+          "ip": "10.10.10.12",
+          "mask": "255.255.255.0"
+        },
+        {
+          "name": "PC4",
+          "platform": "host",
+          "ip": "10.10.20.12",
+          "mask": "255.255.255.0"
+        }
+      ],
+      "links": [
+        [
+          "SW1 g0/1",
+          "SW2 g0/1"
+        ],
+        [
+          "SW1 f0/1",
+          "PC1"
+        ],
+        [
+          "SW1 f0/2",
+          "PC2"
+        ],
+        [
+          "SW2 f0/1",
+          "PC3"
+        ],
+        [
+          "SW2 f0/2",
+          "PC4"
+        ]
+      ],
+      "tasks": [
+        {
+          "text": "VLANs 10 <code>USERS</code>, 20 <code>VOICE</code> and 99 <code>NATIVE</code> exist on both switches",
+          "check": {
+            "all": [
+              {
+                "dev": "SW1",
+                "path": "vlans.10",
+                "eq": "USERS"
+              },
+              {
+                "dev": "SW1",
+                "path": "vlans.20",
+                "eq": "VOICE"
+              },
+              {
+                "dev": "SW1",
+                "path": "vlans.99",
+                "eq": "NATIVE"
+              },
+              {
+                "dev": "SW2",
+                "path": "vlans.10",
+                "eq": "USERS"
+              },
+              {
+                "dev": "SW2",
+                "path": "vlans.20",
+                "eq": "VOICE"
+              },
+              {
+                "dev": "SW2",
+                "path": "vlans.99",
+                "eq": "NATIVE"
+              }
+            ]
+          }
+        },
+        {
+          "text": "Fa0/1 is access VLAN 10 and Fa0/2 is access VLAN 20 on both switches",
+          "check": {
+            "all": [
+              {
+                "iface": "SW1 f0/1",
+                "is": {
+                  "mode": "access",
+                  "accessVlan": 10
+                }
+              },
+              {
+                "iface": "SW1 f0/2",
+                "is": {
+                  "mode": "access",
+                  "accessVlan": 20
+                }
+              },
+              {
+                "iface": "SW2 f0/1",
+                "is": {
+                  "mode": "access",
+                  "accessVlan": 10
+                }
+              },
+              {
+                "iface": "SW2 f0/2",
+                "is": {
+                  "mode": "access",
+                  "accessVlan": 20
+                }
+              }
+            ]
+          }
+        },
+        {
+          "text": "G0/1 is a trunk on both switches with native VLAN 99",
+          "check": {
+            "all": [
+              {
+                "iface": "SW1 g0/1",
+                "is": {
+                  "mode": "trunk",
+                  "nativeVlan": 99
+                }
+              },
+              {
+                "iface": "SW2 g0/1",
+                "is": {
+                  "mode": "trunk",
+                  "nativeVlan": 99
+                }
+              }
+            ]
+          }
+        },
+        {
+          "text": "The trunks allow only VLANs 10, 20 and 99",
+          "check": {
+            "all": [
+              {
+                "iface": "SW1 g0/1",
+                "is": {
+                  "allowed": "10,20,99"
+                }
+              },
+              {
+                "iface": "SW2 g0/1",
+                "is": {
+                  "allowed": "10,20,99"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "text": "Verify with <code>show interfaces trunk</code> on either switch",
+          "check": {
+            "any": [
+              {
+                "ran": [
+                  "SW1",
+                  "^(do\\s+)?sh(o(w)?)?\\s+int(e(r(f(a(c(e(s)?)?)?)?)?)?)?\\s+tr"
+                ]
+              },
+              {
+                "ran": [
+                  "SW2",
+                  "^(do\\s+)?sh(o(w)?)?\\s+int(e(r(f(a(c(e(s)?)?)?)?)?)?)?\\s+tr"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "text": "PC1 reaches PC3 (VLAN 10) and PC2 reaches PC4 (VLAN 20) across the trunk",
+          "check": {
+            "all": [
+              {
+                "ping": [
+                  "PC1",
+                  "10.10.10.12"
+                ]
+              },
+              {
+                "ping": [
+                  "PC2",
+                  "10.10.20.12"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "Configure both switches: use the device tabs above the console.",
+        "<code>interface g0/1</code>, <code>switchport mode trunk</code>, <code>switchport trunk native vlan 99</code>, <code>switchport trunk allowed vlan 10,20,99</code>.",
+        "A native VLAN mismatch between the two ends is a classic trunk problem; keep both at 99."
+      ],
+      "solution": "<pre>! On SW1, then repeat on SW2\nenable\nconfigure terminal\nvlan 10\n name USERS\nvlan 20\n name VOICE\nvlan 99\n name NATIVE\ninterface f0/1\n switchport mode access\n switchport access vlan 10\ninterface f0/2\n switchport mode access\n switchport access vlan 20\ninterface g0/1\n switchport mode trunk\n switchport trunk native vlan 99\n switchport trunk allowed vlan 10,20,99\n end\nshow interfaces trunk</pre>",
+      "review": "<p>Trunks carry many VLANs over one link using 802.1Q tags. Pruning the allowed list and moving the native VLAN off VLAN 1 are standard hardening steps.</p>"
+    },
+    {
+      "id": "roas",
+      "title": "Inter-VLAN routing with router-on-a-stick",
+      "domain": "D3",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 20,
+      "summary": "Route between two VLANs using 802.1Q subinterfaces on one router port and a trunk on the switch.",
+      "scenario": "<p><b>SW1</b> already has VLAN 10 (PC1, Fa0/1) and VLAN 20 (PC2, Fa0/2). Hosts can't talk across VLANs. Use router <b>R1</b>:</p><ul><li>SW1 G0/1 (to R1) as an 802.1Q trunk</li><li>R1 G0/0.10: VLAN 10, <code>192.168.10.1/24</code>; R1 G0/0.20: VLAN 20, <code>192.168.20.1/24</code></li><li>Enable the physical G0/0</li></ul>",
+      "topology": {
+        "nodes": [
+          {
+            "name": "R1",
+            "x": 1,
+            "y": 0,
+            "type": "router"
+          },
+          {
+            "name": "SW1",
+            "x": 1,
+            "y": 1,
+            "type": "switch"
+          },
+          {
+            "name": "PC1",
+            "x": 0,
+            "y": 2
+          },
+          {
+            "name": "PC2",
+            "x": 2,
+            "y": 2
+          }
+        ]
+      },
+      "devices": [
+        {
+          "name": "R1",
+          "platform": "ios",
+          "kind": "router",
+          "interfaces": [
+            "GigabitEthernet0/0",
+            "GigabitEthernet0/1",
+            "GigabitEthernet0/2"
+          ]
+        },
+        {
+          "name": "SW1",
+          "platform": "ios",
+          "kind": "switch",
+          "interfaces": [
+            "FastEthernet0/1",
+            "FastEthernet0/2",
+            "FastEthernet0/3",
+            "FastEthernet0/4",
+            "FastEthernet0/5",
+            "FastEthernet0/6",
+            "FastEthernet0/7",
+            "FastEthernet0/8",
+            "GigabitEthernet0/1",
+            "GigabitEthernet0/2"
+          ],
+          "state": {
+            "vlans": {
+              "10": "STAFF",
+              "20": "LAB"
+            },
+            "interfaces": {
+              "FastEthernet0/1": {
+                "accessVlan": 10
+              },
+              "FastEthernet0/2": {
+                "accessVlan": 20
+              }
+            }
+          }
+        },
+        {
+          "name": "PC1",
+          "platform": "host",
+          "ip": "192.168.10.10",
+          "mask": "255.255.255.0",
+          "gw": "192.168.10.1"
+        },
+        {
+          "name": "PC2",
+          "platform": "host",
+          "ip": "192.168.20.10",
+          "mask": "255.255.255.0",
+          "gw": "192.168.20.1"
+        }
+      ],
+      "links": [
+        [
+          "R1 g0/0",
+          "SW1 g0/1"
+        ],
+        [
+          "SW1 f0/1",
+          "PC1"
+        ],
+        [
+          "SW1 f0/2",
+          "PC2"
+        ]
+      ],
+      "tasks": [
+        {
+          "text": "SW1 G0/1 is an 802.1Q trunk",
+          "check": {
+            "iface": "SW1 g0/1",
+            "is": {
+              "mode": "trunk"
+            }
+          }
+        },
+        {
+          "text": "R1 G0/0.10 uses VLAN 10 with 192.168.10.1/24",
+          "check": {
+            "iface": "R1 g0/0.10",
+            "is": {
+              "encap": 10,
+              "ip": "192.168.10.1",
+              "mask": "255.255.255.0"
+            }
+          }
+        },
+        {
+          "text": "R1 G0/0.20 uses VLAN 20 with 192.168.20.1/24",
+          "check": {
+            "iface": "R1 g0/0.20",
+            "is": {
+              "encap": 20,
+              "ip": "192.168.20.1",
+              "mask": "255.255.255.0"
+            }
+          }
+        },
+        {
+          "text": "R1 G0/0 is enabled",
+          "check": {
+            "iface": "R1 g0/0",
+            "is": {
+              "up": true
+            }
+          }
+        },
+        {
+          "text": "PC1 (VLAN 10) can ping PC2 (VLAN 20)",
+          "check": {
+            "ping": [
+              "PC1",
+              "192.168.20.10"
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "Subinterfaces: <code>interface g0/0.10</code>, then <code>encapsulation dot1Q 10</code> before the IP address.",
+        "The physical port needs <code>no shutdown</code>; subinterfaces follow it.",
+        "The switch side is <code>switchport mode trunk</code> on G0/1."
+      ],
+      "solution": "<pre>! SW1\nenable\nconfigure terminal\ninterface g0/1\n switchport mode trunk\n end\n! R1\nenable\nconfigure terminal\ninterface g0/0\n no shutdown\ninterface g0/0.10\n encapsulation dot1Q 10\n ip address 192.168.10.1 255.255.255.0\ninterface g0/0.20\n encapsulation dot1Q 20\n ip address 192.168.20.1 255.255.255.0\n end\nshow ip route</pre>",
+      "review": "<p>Each subinterface is the default gateway for one VLAN. Frames arrive tagged on the trunk, the router routes between subnets, and tags them again for the destination VLAN.</p>"
+    },
+    {
+      "id": "static-routes",
+      "title": "Static and default routes",
+      "domain": "D3",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 15,
+      "summary": "Add static routes between two routers and a default route toward the internet edge, then verify the routing tables and connectivity.",
+      "scenario": "<p>The interfaces are already addressed. <b>R1</b> (branch, LAN <code>192.168.1.0/24</code>) connects to <b>R2</b> (HQ edge, LAN <code>192.168.2.0/24</code>) over <code>10.0.12.0/30</code>. R2's Loopback0 <code>203.0.113.1</code> stands in for the internet.</p><ul><li>R1: a default route toward R2 (everything not local goes to HQ)</li><li>R2: a static route back to the branch LAN</li></ul>",
+      "topology": {
+        "nodes": [
+          {
+            "name": "PC1",
+            "x": 0,
+            "y": 0
+          },
+          {
+            "name": "R1",
+            "x": 1,
+            "y": 0,
+            "type": "router"
+          },
+          {
+            "name": "R2",
+            "x": 2,
+            "y": 0,
+            "type": "router"
+          },
+          {
+            "name": "PC2",
+            "x": 3,
+            "y": 0
+          },
+          {
+            "name": "NET",
+            "label": "Internet (Lo0)",
+            "x": 2,
+            "y": 1,
+            "type": "cloud"
+          }
+        ]
+      },
+      "devices": [
+        {
+          "name": "R1",
+          "platform": "ios",
+          "kind": "router",
+          "interfaces": [
+            "GigabitEthernet0/0",
+            "GigabitEthernet0/1",
+            "GigabitEthernet0/2"
+          ],
+          "state": {
+            "interfaces": {
+              "GigabitEthernet0/0": {
+                "ip": "192.168.1.1",
+                "mask": "255.255.255.0",
+                "shutdown": false
+              },
+              "GigabitEthernet0/1": {
+                "ip": "10.0.12.1",
+                "mask": "255.255.255.252",
+                "shutdown": false
+              }
+            }
+          }
+        },
+        {
+          "name": "R2",
+          "platform": "ios",
+          "kind": "router",
+          "interfaces": [
+            "GigabitEthernet0/0",
+            "GigabitEthernet0/1",
+            "GigabitEthernet0/2"
+          ],
+          "state": {
+            "interfaces": {
+              "GigabitEthernet0/0": {
+                "ip": "192.168.2.1",
+                "mask": "255.255.255.0",
+                "shutdown": false
+              },
+              "GigabitEthernet0/1": {
+                "ip": "10.0.12.2",
+                "mask": "255.255.255.252",
+                "shutdown": false
+              },
+              "Loopback0": {
+                "ip": "203.0.113.1",
+                "mask": "255.255.255.255",
+                "shutdown": false
+              }
+            }
+          }
+        },
+        {
+          "name": "PC1",
+          "platform": "host",
+          "ip": "192.168.1.10",
+          "mask": "255.255.255.0",
+          "gw": "192.168.1.1"
+        },
+        {
+          "name": "PC2",
+          "platform": "host",
+          "ip": "192.168.2.10",
+          "mask": "255.255.255.0",
+          "gw": "192.168.2.1"
+        }
+      ],
+      "links": [
+        [
+          "PC1",
+          "R1 g0/0"
+        ],
+        [
+          "R1 g0/1",
+          "R2 g0/1"
+        ],
+        [
+          "R2 g0/0",
+          "PC2"
+        ]
+      ],
+      "tasks": [
+        {
+          "text": "R1 has a default route (0.0.0.0/0) via 10.0.12.2",
+          "check": {
+            "route": [
+              "R1",
+              "0.0.0.0/0"
+            ],
+            "code": "S"
+          }
+        },
+        {
+          "text": "R2 has a static route to 192.168.1.0/24",
+          "check": {
+            "route": [
+              "R2",
+              "192.168.1.0/24"
+            ],
+            "code": "S"
+          }
+        },
+        {
+          "text": "Check R1's table with <code>show ip route</code>",
+          "check": {
+            "ran": [
+              "R1",
+              "^(do\\s+)?sh(o(w)?)?\\s+ip\\s+ro"
+            ]
+          }
+        },
+        {
+          "text": "PC1 can reach PC2",
+          "check": {
+            "ping": [
+              "PC1",
+              "192.168.2.10"
+            ]
+          }
+        },
+        {
+          "text": "PC1 can reach the internet stand-in 203.0.113.1",
+          "check": {
+            "ping": [
+              "PC1",
+              "203.0.113.1"
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "<code>ip route 0.0.0.0 0.0.0.0 10.0.12.2</code> on R1.",
+        "<code>ip route 192.168.1.0 255.255.255.0 10.0.12.1</code> on R2.",
+        "Routing must work in both directions; a ping needs the reply to find its way back."
+      ],
+      "solution": "<pre>! R1\nenable\nconfigure terminal\nip route 0.0.0.0 0.0.0.0 10.0.12.2\n end\nshow ip route\n! R2\nenable\nconfigure terminal\nip route 192.168.1.0 255.255.255.0 10.0.12.1\n end</pre>",
+      "review": "<p>A default route (the \"gateway of last resort\") is perfect for a stub branch with one way out. The HQ side still needs a specific route back, or replies never return.</p>"
+    },
+    {
+      "id": "ospf",
+      "title": "Single-area OSPFv2",
+      "domain": "D3",
+      "kind": "cli",
+      "level": "advanced",
+      "minutes": 25,
+      "summary": "Enable OSPF area 0 on three routers with fixed router IDs, make the LAN ports passive, and verify neighbors and learned routes.",
+      "scenario": "<p>Interfaces are addressed. Configure OSPF process 1, area 0:</p><ul><li>R1: router ID 1.1.1.1, LAN 192.168.1.0/24 (G0/1), link to R2 10.0.12.0/30 (G0/0)</li><li>R2: router ID 2.2.2.2, links 10.0.12.0/30 (G0/0) and 10.0.23.0/30 (G0/2)</li><li>R3: router ID 3.3.3.3, LAN 192.168.3.0/24 (G0/1), link to R2 10.0.23.0/30 (G0/0)</li><li>LAN interfaces on R1 and R3 should be passive</li></ul>",
+      "topology": {
+        "nodes": [
+          {
+            "name": "PC1",
+            "x": 0,
+            "y": 0
+          },
+          {
+            "name": "R1",
+            "x": 1,
+            "y": 0,
+            "type": "router"
+          },
+          {
+            "name": "R2",
+            "x": 2,
+            "y": 0,
+            "type": "router"
+          },
+          {
+            "name": "R3",
+            "x": 3,
+            "y": 0,
+            "type": "router"
+          },
+          {
+            "name": "PC3",
+            "x": 4,
+            "y": 0
+          }
+        ]
+      },
+      "devices": [
+        {
+          "name": "R1",
+          "platform": "ios",
+          "kind": "router",
+          "interfaces": [
+            "GigabitEthernet0/0",
+            "GigabitEthernet0/1",
+            "GigabitEthernet0/2"
+          ],
+          "state": {
+            "interfaces": {
+              "GigabitEthernet0/0": {
+                "ip": "10.0.12.1",
+                "mask": "255.255.255.252",
+                "shutdown": false
+              },
+              "GigabitEthernet0/1": {
+                "ip": "192.168.1.1",
+                "mask": "255.255.255.0",
+                "shutdown": false
+              }
+            }
+          }
+        },
+        {
+          "name": "R2",
+          "platform": "ios",
+          "kind": "router",
+          "interfaces": [
+            "GigabitEthernet0/0",
+            "GigabitEthernet0/1",
+            "GigabitEthernet0/2"
+          ],
+          "state": {
+            "interfaces": {
+              "GigabitEthernet0/0": {
+                "ip": "10.0.12.2",
+                "mask": "255.255.255.252",
+                "shutdown": false
+              },
+              "GigabitEthernet0/2": {
+                "ip": "10.0.23.1",
+                "mask": "255.255.255.252",
+                "shutdown": false
+              }
+            }
+          }
+        },
+        {
+          "name": "R3",
+          "platform": "ios",
+          "kind": "router",
+          "interfaces": [
+            "GigabitEthernet0/0",
+            "GigabitEthernet0/1",
+            "GigabitEthernet0/2"
+          ],
+          "state": {
+            "interfaces": {
+              "GigabitEthernet0/0": {
+                "ip": "10.0.23.2",
+                "mask": "255.255.255.252",
+                "shutdown": false
+              },
+              "GigabitEthernet0/1": {
+                "ip": "192.168.3.1",
+                "mask": "255.255.255.0",
+                "shutdown": false
+              }
+            }
+          }
+        },
+        {
+          "name": "PC1",
+          "platform": "host",
+          "ip": "192.168.1.10",
+          "mask": "255.255.255.0",
+          "gw": "192.168.1.1"
+        },
+        {
+          "name": "PC3",
+          "platform": "host",
+          "ip": "192.168.3.10",
+          "mask": "255.255.255.0",
+          "gw": "192.168.3.1"
+        }
+      ],
+      "links": [
+        [
+          "PC1",
+          "R1 g0/1"
+        ],
+        [
+          "R1 g0/0",
+          "R2 g0/0"
+        ],
+        [
+          "R2 g0/2",
+          "R3 g0/0"
+        ],
+        [
+          "R3 g0/1",
+          "PC3"
+        ]
+      ],
+      "tasks": [
+        {
+          "text": "Router IDs are 1.1.1.1, 2.2.2.2 and 3.3.3.3",
+          "check": {
+            "all": [
+              {
+                "dev": "R1",
+                "path": "ospf.rid",
+                "eq": "1.1.1.1"
+              },
+              {
+                "dev": "R2",
+                "path": "ospf.rid",
+                "eq": "2.2.2.2"
+              },
+              {
+                "dev": "R3",
+                "path": "ospf.rid",
+                "eq": "3.3.3.3"
+              }
+            ]
+          }
+        },
+        {
+          "text": "R1–R2 and R2–R3 form OSPF neighbors",
+          "check": {
+            "all": [
+              {
+                "ospfNbr": [
+                  "R1",
+                  "R2"
+                ]
+              },
+              {
+                "ospfNbr": [
+                  "R2",
+                  "R3"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "text": "The LAN interfaces on R1 and R3 are passive",
+          "check": {
+            "all": [
+              {
+                "dev": "R1",
+                "path": "ospf.passive",
+                "re": "GigabitEthernet0/1"
+              },
+              {
+                "dev": "R3",
+                "path": "ospf.passive",
+                "re": "GigabitEthernet0/1"
+              }
+            ]
+          }
+        },
+        {
+          "text": "R1 learns 192.168.3.0/24 through OSPF",
+          "check": {
+            "route": [
+              "R1",
+              "192.168.3.0/24"
+            ],
+            "code": "O"
+          }
+        },
+        {
+          "text": "Check neighbors with <code>show ip ospf neighbor</code>",
+          "check": {
+            "any": [
+              {
+                "ran": [
+                  "R1",
+                  "^(do\\s+)?sh(o(w)?)?\\s+ip\\s+ospf\\s+n"
+                ]
+              },
+              {
+                "ran": [
+                  "R2",
+                  "^(do\\s+)?sh(o(w)?)?\\s+ip\\s+ospf\\s+n"
+                ]
+              },
+              {
+                "ran": [
+                  "R3",
+                  "^(do\\s+)?sh(o(w)?)?\\s+ip\\s+ospf\\s+n"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "text": "PC1 can ping PC3",
+          "check": {
+            "ping": [
+              "PC1",
+              "192.168.3.10"
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "<code>router ospf 1</code>, <code>router-id 1.1.1.1</code>, then <code>network 10.0.12.0 0.0.0.3 area 0</code> and <code>network 192.168.1.0 0.0.0.255 area 0</code>.",
+        "Wildcard = inverse of the mask: /30 → 0.0.0.3, /24 → 0.0.0.255.",
+        "<code>passive-interface g0/1</code> keeps advertising the LAN but stops sending hellos there."
+      ],
+      "solution": "<pre>! R1\nrouter ospf 1\n router-id 1.1.1.1\n network 192.168.1.0 0.0.0.255 area 0\n network 10.0.12.0 0.0.0.3 area 0\n passive-interface g0/1\n! R2\nrouter ospf 1\n router-id 2.2.2.2\n network 10.0.12.0 0.0.0.3 area 0\n network 10.0.23.0 0.0.0.3 area 0\n! R3\nrouter ospf 1\n router-id 3.3.3.3\n network 192.168.3.0 0.0.0.255 area 0\n network 10.0.23.0 0.0.0.3 area 0\n passive-interface g0/1</pre>",
+      "review": "<p>OSPF neighbors need matching area, subnet and mask on the shared link. Passive interfaces advertise the LAN without forming adjacencies on it. Routes learned from neighbors appear with code O.</p>"
+    },
+    {
+      "id": "ssh-acl",
+      "title": "Secure device access: SSH and a VTY ACL",
+      "domain": "D4",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 18,
+      "summary": "Enable SSHv2 with local authentication and restrict remote management to the admin subnet with a standard ACL on the VTY lines.",
+      "scenario": "<p>Router <b>R1</b> connects the admin LAN <code>192.168.10.0/24</code> (G0/0) and the user LAN <code>192.168.20.0/24</code> (G0/1); interfaces are configured. Requirements:</p><ul><li>Domain <code>corp.local</code>, 2048-bit RSA keys, SSH version 2</li><li>Local user <code>netadmin</code> with a secret, and an enable secret</li><li>VTY lines: local login, SSH only</li><li>Standard ACL 10 permitting only 192.168.10.0/24, applied to the VTY lines</li></ul>",
+      "topology": {
+        "nodes": [
+          {
+            "name": "ADMIN",
+            "label": "Admin PC",
+            "x": 0,
+            "y": 0
+          },
+          {
+            "name": "R1",
+            "x": 1,
+            "y": 0,
+            "type": "router"
+          },
+          {
+            "name": "USER",
+            "label": "User PC",
+            "x": 2,
+            "y": 0
+          }
+        ]
+      },
+      "devices": [
+        {
+          "name": "R1",
+          "platform": "ios",
+          "kind": "router",
+          "interfaces": [
+            "GigabitEthernet0/0",
+            "GigabitEthernet0/1",
+            "GigabitEthernet0/2"
+          ],
+          "state": {
+            "interfaces": {
+              "GigabitEthernet0/0": {
+                "ip": "192.168.10.1",
+                "mask": "255.255.255.0",
+                "shutdown": false
+              },
+              "GigabitEthernet0/1": {
+                "ip": "192.168.20.1",
+                "mask": "255.255.255.0",
+                "shutdown": false
+              }
+            }
+          }
+        },
+        {
+          "name": "ADMIN",
+          "platform": "host",
+          "ip": "192.168.10.50",
+          "mask": "255.255.255.0",
+          "gw": "192.168.10.1"
+        },
+        {
+          "name": "USER",
+          "platform": "host",
+          "ip": "192.168.20.50",
+          "mask": "255.255.255.0",
+          "gw": "192.168.20.1"
+        }
+      ],
+      "links": [
+        [
+          "ADMIN",
+          "R1 g0/0"
+        ],
+        [
+          "R1 g0/1",
+          "USER"
+        ]
+      ],
+      "tasks": [
+        {
+          "text": "SSH version 2 with 2048-bit keys under domain <code>corp.local</code>",
+          "check": {
+            "all": [
+              {
+                "dev": "R1",
+                "path": "domainName",
+                "eq": "corp.local"
+              },
+              {
+                "dev": "R1",
+                "path": "rsa",
+                "eq": 2048
+              },
+              {
+                "dev": "R1",
+                "path": "sshVersion",
+                "eq": 2
+              }
+            ]
+          }
+        },
+        {
+          "text": "Local user <code>netadmin</code> (using <code>secret</code>) and an enable secret",
+          "check": {
+            "all": [
+              {
+                "dev": "R1",
+                "path": "users.netadmin.type",
+                "eq": "secret"
+              },
+              {
+                "dev": "R1",
+                "path": "enableSecret",
+                "exists": true
+              }
+            ]
+          }
+        },
+        {
+          "text": "VTY lines use local login and SSH only",
+          "check": {
+            "sshReady": "R1"
+          }
+        },
+        {
+          "text": "ACL 10 permits 192.168.10.0/24",
+          "check": {
+            "all": [
+              {
+                "dev": "R1",
+                "path": "acls.10.0.action",
+                "eq": "permit"
+              },
+              {
+                "dev": "R1",
+                "path": "acls.10.0.net",
+                "eq": "192.168.10.0"
+              },
+              {
+                "dev": "R1",
+                "path": "acls.10.0.wild",
+                "eq": "0.0.0.255"
+              }
+            ]
+          }
+        },
+        {
+          "text": "ACL 10 is applied inbound on the VTY lines",
+          "check": {
+            "dev": "R1",
+            "path": "vty.accessClass",
+            "eq": 10
+          }
+        },
+        {
+          "text": "Confirm with <code>show ip ssh</code> and save",
+          "check": {
+            "all": [
+              {
+                "ran": [
+                  "R1",
+                  "^(do\\s+)?sh(o(w)?)?\\s+ip\\s+ssh"
+                ]
+              },
+              {
+                "saved": "R1"
+              }
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "Order matters for keys: hostname and <code>ip domain-name</code> first, then <code>crypto key generate rsa modulus 2048</code>.",
+        "<code>access-list 10 permit 192.168.10.0 0.0.0.255</code> (the implicit deny blocks everything else).",
+        "In <code>line vty 0 4</code>: <code>login local</code>, <code>transport input ssh</code>, <code>access-class 10 in</code>."
+      ],
+      "solution": "<pre>enable\nconfigure terminal\nip domain-name corp.local\ncrypto key generate rsa modulus 2048\nip ssh version 2\nusername netadmin secret Adm1n!Pass\nenable secret Str0ng!Enable\naccess-list 10 permit 192.168.10.0 0.0.0.255\nline vty 0 4\n login local\n transport input ssh\n access-class 10 in\n end\nshow ip ssh\ncopy running-config startup-config</pre>",
+      "review": "<p><code>access-class</code> filters who can open a VTY session, independent of interface ACLs. Combined with SSH-only transport and local accounts, it's the standard way to lock down device management.</p>"
+    },
+    {
+      "id": "ipv6-rest",
+      "title": "IPv6 addressing and REST API basics",
+      "domain": "D5",
+      "kind": "tasks",
+      "level": "intermediate",
+      "minutes": 12,
+      "summary": "Compress IPv6 addresses, identify address types, and match REST methods and JSON data types used in network automation.",
+      "scenario": "<p>You're documenting a dual-stack rollout and an automation script that talks to a controller's REST API.</p>",
+      "activities": [
+        {
+          "type": "fill",
+          "title": "Compress IPv6 addresses",
+          "prompt": "Write the shortest valid form of each address (lowercase).",
+          "rows": [
+            {
+              "label": "2001:0db8:0000:0000:0000:ff00:0042:8329",
+              "answer": [
+                "2001:db8::ff00:42:8329"
+              ]
+            },
+            {
+              "label": "fe80:0000:0000:0000:0202:b3ff:fe1e:8329",
+              "answer": [
+                "fe80::202:b3ff:fe1e:8329"
+              ]
+            },
+            {
+              "label": "2001:0db8:0001:0000:0000:0000:0000:0001",
+              "answer": [
+                "2001:db8:1::1"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "match",
+          "title": "Identify IPv6 address types",
+          "prompt": "Match each address to its type.",
+          "categories": [
+            "Global unicast",
+            "Link-local",
+            "Unique local",
+            "Multicast",
+            "Loopback"
+          ],
+          "items": [
+            {
+              "text": "2001:db8:acad:1::10",
+              "cat": 0
+            },
+            {
+              "text": "fe80::1",
+              "cat": 1
+            },
+            {
+              "text": "fd12:3456:789a::1",
+              "cat": 2
+            },
+            {
+              "text": "ff02::1",
+              "cat": 3
+            },
+            {
+              "text": "::1",
+              "cat": 4
+            }
+          ]
+        },
+        {
+          "type": "match",
+          "title": "REST methods and JSON",
+          "prompt": "Match each item to what it does or represents.",
+          "categories": [
+            "Read data",
+            "Create a resource",
+            "Replace or update a resource",
+            "Remove a resource",
+            "JSON object",
+            "JSON array"
+          ],
+          "items": [
+            {
+              "text": "GET",
+              "cat": 0
+            },
+            {
+              "text": "POST",
+              "cat": 1
+            },
+            {
+              "text": "PUT",
+              "cat": 2
+            },
+            {
+              "text": "DELETE",
+              "cat": 3
+            },
+            {
+              "text": "{\"hostname\": \"R1\"}",
+              "cat": 4
+            },
+            {
+              "text": "[\"Gi0/0\", \"Gi0/1\"]",
+              "cat": 5
+            }
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Compress all three IPv6 addresses",
+          "check": {
+            "activity": 0
+          }
+        },
+        {
+          "text": "Identify every IPv6 address type",
+          "check": {
+            "activity": 1
+          }
+        },
+        {
+          "text": "Match the REST methods and JSON types",
+          "check": {
+            "activity": 2
+          }
+        }
+      ],
+      "hints": [
+        "Drop leading zeros in each hextet, then replace the longest run of all-zero hextets with <code>::</code> (only once).",
+        "fe80::/10 is link-local, fc00::/7 (in practice fd00::/8) is unique local, ff00::/8 is multicast.",
+        "CRUD maps to REST: Create = POST, Read = GET, Update = PUT/PATCH, Delete = DELETE."
+      ],
+      "review": "<p>IPv6 compression, address types and REST/JSON basics are all quick CCNA points once the rules are automatic.</p>"
+    },
+    {
+      "id": "wlc",
+      "title": "Create a secure WLAN on a wireless LAN controller",
+      "domain": "D2",
+      "kind": "portal",
+      "level": "intermediate",
+      "minutes": 15,
+      "summary": "Use a controller's web console to create a WPA2/WPA3 WLAN, map it to the right VLAN interface, set QoS, and tighten management access.",
+      "scenario": "<p>Create the corporate WLAN on the wireless LAN controller:</p><ul><li>Profile <code>CORP</code>, SSID <code>Corp-WiFi</code>, WLAN ID 2, enabled</li><li>Security: WPA2 + WPA3 personal with a strong pre-shared key (12+ characters), AES</li><li>Clients go to the <code>staff-vlan20</code> interface</li><li>QoS: <b>Gold</b> (video); the WLAN isn't for voice</li><li>Management: HTTPS on, HTTP and Telnet off</li></ul><p>Save each page with <b>Save changes</b>.</p>",
+      "portal": {
+        "app": "Wireless LAN Controller",
+        "address": "https://10.0.99.10",
+        "pages": [
+          {
+            "id": "wlan",
+            "title": "WLANs",
+            "desc": "WLAN ID 2 (new)",
+            "sections": [
+              {
+                "title": "General",
+                "fields": [
+                  {
+                    "id": "profile",
+                    "label": "Profile name",
+                    "type": "text",
+                    "value": ""
+                  },
+                  {
+                    "id": "ssid",
+                    "label": "SSID",
+                    "type": "text",
+                    "value": ""
+                  },
+                  {
+                    "id": "id",
+                    "label": "WLAN ID",
+                    "type": "select",
+                    "options": [
+                      "1",
+                      "2",
+                      "3",
+                      "4"
+                    ],
+                    "value": "1"
+                  },
+                  {
+                    "id": "enabled",
+                    "label": "Status: enabled",
+                    "type": "toggle",
+                    "value": false
+                  },
+                  {
+                    "id": "iface",
+                    "label": "Interface / interface group",
+                    "type": "select",
+                    "options": [
+                      "management",
+                      "guest-vlan30",
+                      "staff-vlan20",
+                      "voice-vlan40"
+                    ],
+                    "value": "management"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "sec",
+            "title": "Security",
+            "sections": [
+              {
+                "title": "Layer 2",
+                "fields": [
+                  {
+                    "id": "l2",
+                    "label": "Layer 2 security",
+                    "type": "select",
+                    "options": [
+                      "None",
+                      "Static WEP",
+                      "WPA + WPA2",
+                      "WPA2 + WPA3"
+                    ],
+                    "value": "None"
+                  },
+                  {
+                    "id": "akm",
+                    "label": "Authentication key management",
+                    "type": "select",
+                    "options": [
+                      "802.1X",
+                      "PSK",
+                      "SAE",
+                      "PSK + SAE"
+                    ],
+                    "value": "802.1X"
+                  },
+                  {
+                    "id": "cipher",
+                    "label": "Encryption",
+                    "type": "select",
+                    "options": [
+                      "TKIP",
+                      "AES (CCMP128)"
+                    ],
+                    "value": "TKIP"
+                  },
+                  {
+                    "id": "psk",
+                    "label": "Pre-shared key (ASCII)",
+                    "type": "password",
+                    "value": ""
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "qos",
+            "title": "QoS",
+            "sections": [
+              {
+                "title": "Quality of service",
+                "fields": [
+                  {
+                    "id": "level",
+                    "label": "QoS profile",
+                    "type": "select",
+                    "options": [
+                      "Platinum (voice)",
+                      "Gold (video)",
+                      "Silver (best effort)",
+                      "Bronze (background)"
+                    ],
+                    "value": "Silver (best effort)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "mgmt",
+            "title": "Management",
+            "sections": [
+              {
+                "title": "Controller access",
+                "fields": [
+                  {
+                    "id": "https",
+                    "label": "HTTPS access",
+                    "type": "toggle",
+                    "value": true
+                  },
+                  {
+                    "id": "http",
+                    "label": "HTTP access",
+                    "type": "toggle",
+                    "value": true
+                  },
+                  {
+                    "id": "telnet",
+                    "label": "Telnet",
+                    "type": "toggle",
+                    "value": true
+                  },
+                  {
+                    "id": "ssh",
+                    "label": "SSH",
+                    "type": "toggle",
+                    "value": true
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tasks": [
+        {
+          "text": "WLAN 2 with profile <code>CORP</code> and SSID <code>Corp-WiFi</code> is enabled",
+          "check": {
+            "all": [
+              {
+                "field": "wlan.profile",
+                "eq": "CORP"
+              },
+              {
+                "field": "wlan.ssid",
+                "re": "^Corp-WiFi$"
+              },
+              {
+                "field": "wlan.id",
+                "eq": "2"
+              },
+              {
+                "field": "wlan.enabled",
+                "eq": true
+              }
+            ]
+          }
+        },
+        {
+          "text": "Clients are placed on <code>staff-vlan20</code>",
+          "check": {
+            "field": "wlan.iface",
+            "eq": "staff-vlan20"
+          }
+        },
+        {
+          "text": "WPA2 + WPA3 with PSK + SAE and AES",
+          "check": {
+            "all": [
+              {
+                "field": "sec.l2",
+                "eq": "WPA2 + WPA3"
+              },
+              {
+                "field": "sec.akm",
+                "eq": "PSK + SAE"
+              },
+              {
+                "field": "sec.cipher",
+                "eq": "AES (CCMP128)"
+              }
+            ]
+          }
+        },
+        {
+          "text": "A pre-shared key of at least 12 characters",
+          "check": {
+            "field": "sec.psk",
+            "minLen": 12
+          }
+        },
+        {
+          "text": "QoS profile Gold",
+          "check": {
+            "field": "qos.level",
+            "eq": "Gold (video)"
+          }
+        },
+        {
+          "text": "Management: HTTPS and SSH on; HTTP and Telnet off",
+          "check": {
+            "all": [
+              {
+                "field": "mgmt.https",
+                "eq": true
+              },
+              {
+                "field": "mgmt.ssh",
+                "eq": true
+              },
+              {
+                "field": "mgmt.http",
+                "eq": false
+              },
+              {
+                "field": "mgmt.telnet",
+                "eq": false
+              }
+            ]
+          }
+        }
+      ],
+      "hints": [
+        "WPA3-Personal uses SAE; PSK + SAE lets older WPA2 clients join alongside WPA3 clients.",
+        "Platinum is for voice, Gold for video, Silver for best effort, Bronze for background.",
+        "Every page has its own Save button."
+      ],
+      "solution": "<p>WLANs: CORP / Corp-WiFi / ID 2 / enabled / staff-vlan20. Security: WPA2 + WPA3, PSK + SAE, AES, a long key. QoS: Gold. Management: HTTPS on, HTTP off, Telnet off, SSH on.</p>",
+      "review": "<p>The CCNA expects you to configure a WLAN in a controller GUI: name and SSID, security (WPA2/WPA3 PSK), the client VLAN interface, and QoS, then lock down management protocols.</p>"
+    }
+  ]
+}

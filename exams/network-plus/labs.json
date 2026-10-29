@@ -1,0 +1,1333 @@
+{
+  "intro": "Hands-on labs graded in your browser: Windows troubleshooting and Cisco-style switch configuration on a simulated network, subnetting and protocol drills, firewall rules, and a router admin console. These are practice simulations, not real devices, so a few commands and outputs are simplified.",
+  "labs": [
+    {
+      "id": "ports-osi",
+      "title": "Ports, protocols and the OSI model",
+      "domain": "D1",
+      "kind": "tasks",
+      "level": "beginner",
+      "minutes": 10,
+      "summary": "Match common services to their ports, place protocols and devices on the OSI model, and put the DHCP process in order.",
+      "scenario": "<p>You're onboarding as a junior network technician. Your lead wants to be sure you know the basics cold before you touch production gear.</p>",
+      "activities": [
+        {
+          "type": "match",
+          "title": "Match each port to its service",
+          "prompt": "Drag each well-known port number to the service that uses it by default.",
+          "categories": [
+            "SSH",
+            "DNS",
+            "HTTPS",
+            "RDP",
+            "SMTP",
+            "LDAPS"
+          ],
+          "items": [
+            {
+              "text": "22",
+              "cat": 0
+            },
+            {
+              "text": "53",
+              "cat": 1
+            },
+            {
+              "text": "443",
+              "cat": 2
+            },
+            {
+              "text": "3389",
+              "cat": 3
+            },
+            {
+              "text": "25",
+              "cat": 4
+            },
+            {
+              "text": "636",
+              "cat": 5
+            }
+          ]
+        },
+        {
+          "type": "match",
+          "title": "Place each item on the OSI model",
+          "prompt": "Sort these protocols and devices into the OSI layer where they primarily operate.",
+          "categories": [
+            "Layer 1 – Physical",
+            "Layer 2 – Data link",
+            "Layer 3 – Network",
+            "Layer 4 – Transport",
+            "Layer 7 – Application"
+          ],
+          "items": [
+            {
+              "text": "Hub",
+              "cat": 0
+            },
+            {
+              "text": "Switch (MAC table)",
+              "cat": 1
+            },
+            {
+              "text": "Router",
+              "cat": 2
+            },
+            {
+              "text": "TCP",
+              "cat": 3
+            },
+            {
+              "text": "IP",
+              "cat": 2
+            },
+            {
+              "text": "HTTP",
+              "cat": 4
+            },
+            {
+              "text": "802.1Q VLAN tag",
+              "cat": 1
+            },
+            {
+              "text": "UDP",
+              "cat": 3
+            },
+            {
+              "text": "Fiber transceiver",
+              "cat": 0
+            }
+          ]
+        },
+        {
+          "type": "order",
+          "title": "Put DHCP in order",
+          "prompt": "Arrange the four DHCP messages in the order they happen when a client gets an address.",
+          "items": [
+            "Discover (client broadcasts looking for a server)",
+            "Offer (server proposes an address)",
+            "Request (client asks for the offered address)",
+            "Acknowledge (server confirms the lease)"
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Match every port to its service",
+          "check": {
+            "activity": 0
+          }
+        },
+        {
+          "text": "Place every protocol and device on the correct OSI layer",
+          "check": {
+            "activity": 1
+          }
+        },
+        {
+          "text": "Order the DHCP DORA process",
+          "check": {
+            "activity": 2
+          }
+        }
+      ],
+      "hints": [
+        "Secure versions often have their own ports: LDAP is 389, LDAPS is 636; HTTP is 80, HTTPS is 443.",
+        "Switches forward by MAC address (Layer 2); routers forward by IP address (Layer 3).",
+        "DHCP is remembered as DORA."
+      ],
+      "review": "<p>Port numbers and OSI layers show up in many Network+ questions, often inside troubleshooting scenarios. DORA explains why a client with no DHCP server falls back to APIPA.</p>"
+    },
+    {
+      "id": "subnet-26",
+      "title": "Subnet a /26 network",
+      "domain": "D1",
+      "kind": "tasks",
+      "level": "intermediate",
+      "minutes": 10,
+      "summary": "Work out the network, broadcast, usable range and host count for an address in a /26, then size subnets for a branch office.",
+      "scenario": "<p>A printer at a branch has the address <code>192.168.50.77/26</code>. You need to document its subnet and plan addressing for a new branch.</p>",
+      "activities": [
+        {
+          "type": "fill",
+          "title": "Document the printer's subnet",
+          "prompt": "Fill in each value for <code>192.168.50.77/26</code>.",
+          "rows": [
+            {
+              "label": "Subnet mask",
+              "answer": [
+                "255.255.255.192"
+              ]
+            },
+            {
+              "label": "Network address",
+              "answer": [
+                "192.168.50.64"
+              ]
+            },
+            {
+              "label": "Broadcast address",
+              "answer": [
+                "192.168.50.127"
+              ]
+            },
+            {
+              "label": "First usable host",
+              "answer": [
+                "192.168.50.65"
+              ]
+            },
+            {
+              "label": "Last usable host",
+              "answer": [
+                "192.168.50.126"
+              ]
+            },
+            {
+              "label": "Usable hosts per subnet",
+              "answer": [
+                "62"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "fill",
+          "title": "Size subnets for a branch",
+          "prompt": "Pick the smallest prefix length (CIDR) that fits each requirement.",
+          "rows": [
+            {
+              "label": "Point-to-point WAN link (2 hosts)",
+              "answer": [
+                "/30",
+                "30",
+                "/31",
+                "31"
+              ],
+              "placeholder": "/__"
+            },
+            {
+              "label": "Office LAN with 50 hosts",
+              "answer": [
+                "/26",
+                "26"
+              ],
+              "placeholder": "/__"
+            },
+            {
+              "label": "Guest Wi-Fi with 200 hosts",
+              "answer": [
+                "/24",
+                "24"
+              ],
+              "placeholder": "/__"
+            },
+            {
+              "label": "Server VLAN with 12 hosts",
+              "answer": [
+                "/28",
+                "28"
+              ],
+              "placeholder": "/__"
+            }
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Correctly document the /26 subnet",
+          "check": {
+            "activity": 0
+          }
+        },
+        {
+          "text": "Choose the right prefix for each branch subnet",
+          "check": {
+            "activity": 1
+          }
+        }
+      ],
+      "hints": [
+        "A /26 borrows 2 bits from the last octet: block size is 64 (0, 64, 128, 192).",
+        "Usable hosts = 2^(host bits) − 2. A /26 has 6 host bits: 64 − 2 = 62.",
+        "A /31 is valid for point-to-point links (RFC 3021), and /30 is the classic answer; both are accepted."
+      ],
+      "review": "<p>Find the block size (256 − last mask octet), locate the block the address falls in, then the network is the block start and the broadcast is one less than the next block.</p>"
+    },
+    {
+      "id": "win-cant-browse",
+      "title": "Troubleshoot a PC that can't reach the web",
+      "domain": "D5",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 15,
+      "summary": "Use ipconfig, ping and nslookup to find two misconfigurations on a Windows PC, fix them with netsh, and verify.",
+      "scenario": "<p>A user in accounting says nothing loads in their browser, but coworkers are fine. Someone \"fixed\" the PC's network settings last week. The office uses <code>192.168.1.0/24</code>; the router at <code>192.168.1.1</code> is the default gateway and also answers DNS. The file server is <code>192.168.1.20</code>.</p><p>Follow the troubleshooting method: gather information, test a theory, fix, then verify.</p>",
+      "devices": [
+        {
+          "name": "ACCT-PC07",
+          "platform": "windows",
+          "adapter": {
+            "name": "Ethernet",
+            "dhcp": false,
+            "ip": "192.168.1.57",
+            "mask": "255.255.255.0",
+            "gw": "192.168.1.254",
+            "dns": [
+              "10.0.0.53"
+            ],
+            "mac": "00-1A-2B-3C-4D-5E"
+          },
+          "network": {
+            "subnet": "192.168.1.0",
+            "mask": "255.255.255.0",
+            "gateway": "192.168.1.1",
+            "internet": true,
+            "dhcp": {
+              "available": true,
+              "server": "192.168.1.1",
+              "ip": "192.168.1.118",
+              "mask": "255.255.255.0",
+              "gw": "192.168.1.1",
+              "dns": [
+                "192.168.1.1"
+              ]
+            },
+            "dnsServers": {
+              "192.168.1.1": true,
+              "8.8.8.8": true,
+              "1.1.1.1": true,
+              "192.168.1.20": false
+            },
+            "records": {
+              "www.example.com": "93.184.216.34",
+              "intranet.corp.local": "192.168.1.20"
+            },
+            "hosts": {
+              "192.168.1.20": "FILES01"
+            },
+            "remote": {
+              "93.184.216.34": true,
+              "8.8.8.8": true,
+              "1.1.1.1": true
+            },
+            "netstat": [
+              {
+                "proto": "TCP",
+                "local": "192.168.1.57:49712",
+                "remote": "192.168.1.20:445",
+                "state": "ESTABLISHED"
+              }
+            ]
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Gather the PC's full IP configuration (<code>ipconfig /all</code>)",
+          "check": {
+            "ran": [
+              "ACCT-PC07",
+              "^ipconfig\\s+/all"
+            ]
+          }
+        },
+        {
+          "text": "Test local connectivity to the file server or gateway with <code>ping</code>",
+          "check": {
+            "ran": [
+              "ACCT-PC07",
+              "^ping\\s+192\\.168\\.1\\.(1|20)$"
+            ]
+          }
+        },
+        {
+          "text": "Fix the default gateway so traffic can leave the subnet",
+          "check": {
+            "dev": "ACCT-PC07",
+            "path": "adapter.gw",
+            "eq": "192.168.1.1"
+          }
+        },
+        {
+          "text": "Fix DNS so names resolve (check with <code>nslookup</code>)",
+          "check": {
+            "all": [
+              {
+                "lookup": [
+                  "ACCT-PC07",
+                  "www.example.com"
+                ]
+              },
+              {
+                "ran": [
+                  "ACCT-PC07",
+                  "^nslookup\\s"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "text": "Verify: <code>ping www.example.com</code> succeeds",
+          "check": {
+            "all": [
+              {
+                "ping": [
+                  "ACCT-PC07",
+                  "www.example.com"
+                ]
+              },
+              {
+                "ran": [
+                  "ACCT-PC07",
+                  "^ping\\s+www\\.example\\.com"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "text": "Identify the root cause",
+          "check": {
+            "q": "cause",
+            "eq": 2
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "cause",
+          "prompt": "What caused the outage?",
+          "options": [
+            "The network cable is unplugged",
+            "DHCP handed out a duplicate IP address",
+            "Wrong static default gateway and an unreachable DNS server",
+            "The file server is down"
+          ]
+        }
+      ],
+      "hints": [
+        "Compare the PC's default gateway and DNS servers with the network facts in the scenario.",
+        "Pinging <code>8.8.8.8</code> tests routing without DNS; pinging a name tests both.",
+        "You can switch the adapter back to DHCP: <code>netsh interface ip set address name=\"Ethernet\" dhcp</code> and <code>netsh interface ip set dns name=\"Ethernet\" dhcp</code>. Or fix the static values instead."
+      ],
+      "solution": "<pre>ipconfig /all\nping 192.168.1.1\nping 8.8.8.8\nnslookup www.example.com\nnetsh interface ip set address name=\"Ethernet\" dhcp\nnetsh interface ip set dns name=\"Ethernet\" dhcp\nipconfig /all\nping www.example.com</pre><p>Or keep it static: <code>netsh interface ip set address name=\"Ethernet\" static 192.168.1.57 255.255.255.0 192.168.1.1</code> and <code>netsh interface ip set dns name=\"Ethernet\" static 192.168.1.1</code>.</p>",
+      "review": "<p>Local pings worked (same subnet, no gateway needed) while internet pings failed: classic wrong-gateway symptom. Name lookups timing out pointed to a dead DNS server. Fixing one without the other still leaves the browser broken, which is why you verify end to end.</p>"
+    },
+    {
+      "id": "win-apipa",
+      "title": "Recover from an APIPA address",
+      "domain": "D5",
+      "kind": "cli",
+      "level": "beginner",
+      "minutes": 8,
+      "summary": "Recognize a 169.254.x.x address, renew the DHCP lease once the server is back, and confirm connectivity.",
+      "scenario": "<p>The DHCP server had an outage this morning and has just been restored. A front-desk PC still can't reach anything. The network is <code>10.20.0.0/24</code> with the gateway at <code>10.20.0.1</code>; the shared printer is <code>10.20.0.30</code>.</p>",
+      "devices": [
+        {
+          "name": "FRONT-PC01",
+          "platform": "windows",
+          "adapter": {
+            "name": "Ethernet",
+            "dhcp": true,
+            "ip": "169.254.37.112",
+            "mask": "255.255.0.0",
+            "gw": null,
+            "dns": [],
+            "mac": "00-50-56-A1-0B-7C"
+          },
+          "network": {
+            "subnet": "10.20.0.0",
+            "mask": "255.255.255.0",
+            "gateway": "10.20.0.1",
+            "internet": true,
+            "dhcp": {
+              "available": true,
+              "server": "10.20.0.5",
+              "ip": "10.20.0.144",
+              "mask": "255.255.255.0",
+              "gw": "10.20.0.1",
+              "dns": [
+                "10.20.0.5"
+              ]
+            },
+            "dnsServers": {
+              "10.20.0.5": true
+            },
+            "records": {
+              "www.example.com": "93.184.216.34"
+            },
+            "hosts": {
+              "10.20.0.30": "PRN-LOBBY",
+              "10.20.0.5": "DC01"
+            },
+            "remote": {
+              "93.184.216.34": true
+            }
+          }
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Check the current address with <code>ipconfig</code>",
+          "check": {
+            "ran": [
+              "FRONT-PC01",
+              "^ipconfig(\\s+/all)?$"
+            ]
+          }
+        },
+        {
+          "text": "Identify what the address tells you",
+          "check": {
+            "q": "apipa",
+            "eq": 1
+          }
+        },
+        {
+          "text": "Get a new DHCP lease",
+          "check": {
+            "all": [
+              {
+                "ran": [
+                  "FRONT-PC01",
+                  "^ipconfig\\s+/renew"
+                ]
+              },
+              {
+                "dev": "FRONT-PC01",
+                "path": "adapter.ip",
+                "re": "^10\\.20\\.0\\."
+              }
+            ]
+          }
+        },
+        {
+          "text": "Verify you can reach the lobby printer",
+          "check": {
+            "all": [
+              {
+                "ping": [
+                  "FRONT-PC01",
+                  "10.20.0.30"
+                ]
+              },
+              {
+                "ran": [
+                  "FRONT-PC01",
+                  "^ping\\s+10\\.20\\.0\\.30"
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "apipa",
+          "prompt": "The PC has 169.254.37.112. What does that mean?",
+          "options": [
+            "The PC has a static address from another site",
+            "The PC couldn't reach a DHCP server and self-assigned an APIPA address",
+            "The DHCP server is handing out the wrong scope",
+            "The PC is using IPv6 only"
+          ]
+        }
+      ],
+      "hints": [
+        "169.254.0.0/16 is the APIPA (link-local) range Windows uses when DHCP fails.",
+        "<code>ipconfig /release</code> then <code>ipconfig /renew</code> requests a new lease."
+      ],
+      "solution": "<pre>ipconfig\nipconfig /release\nipconfig /renew\nping 10.20.0.30</pre>",
+      "review": "<p>APIPA addresses only talk to other APIPA hosts on the same link. Once DHCP is reachable again, renewing the lease restores a proper address, gateway and DNS.</p>"
+    },
+    {
+      "id": "sw-vlans",
+      "title": "Configure VLANs and access ports",
+      "domain": "D2",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 15,
+      "summary": "Create VLANs on a switch, assign access ports for two departments, verify, and save the configuration.",
+      "scenario": "<p>Sales and Engineering share switch <b>SW1</b> and are currently all in VLAN 1. Separate them:</p><ul><li>VLAN 10 named <code>SALES</code>: ports Fa0/1–Fa0/2 (PC1, PC2)</li><li>VLAN 20 named <code>ENGINEERING</code>: ports Fa0/5–Fa0/6 (PC3, PC4)</li></ul><p>The PCs already have addresses: Sales <code>192.168.10.0/24</code>, Engineering <code>192.168.20.0/24</code>.</p>",
+      "topology": {
+        "nodes": [
+          {
+            "name": "SW1",
+            "x": 1.5,
+            "y": 0,
+            "type": "switch"
+          },
+          {
+            "name": "PC1",
+            "x": 0,
+            "y": 1
+          },
+          {
+            "name": "PC2",
+            "x": 1,
+            "y": 1
+          },
+          {
+            "name": "PC3",
+            "x": 2,
+            "y": 1
+          },
+          {
+            "name": "PC4",
+            "x": 3,
+            "y": 1
+          }
+        ]
+      },
+      "devices": [
+        {
+          "name": "SW1",
+          "platform": "ios",
+          "kind": "switch",
+          "interfaces": [
+            "FastEthernet0/1",
+            "FastEthernet0/2",
+            "FastEthernet0/3",
+            "FastEthernet0/4",
+            "FastEthernet0/5",
+            "FastEthernet0/6",
+            "FastEthernet0/7",
+            "FastEthernet0/8",
+            "GigabitEthernet0/1",
+            "GigabitEthernet0/2"
+          ]
+        },
+        {
+          "name": "PC1",
+          "platform": "host",
+          "ip": "192.168.10.11",
+          "mask": "255.255.255.0"
+        },
+        {
+          "name": "PC2",
+          "platform": "host",
+          "ip": "192.168.10.12",
+          "mask": "255.255.255.0"
+        },
+        {
+          "name": "PC3",
+          "platform": "host",
+          "ip": "192.168.20.11",
+          "mask": "255.255.255.0"
+        },
+        {
+          "name": "PC4",
+          "platform": "host",
+          "ip": "192.168.20.12",
+          "mask": "255.255.255.0"
+        }
+      ],
+      "links": [
+        [
+          "SW1 f0/1",
+          "PC1"
+        ],
+        [
+          "SW1 f0/2",
+          "PC2"
+        ],
+        [
+          "SW1 f0/5",
+          "PC3"
+        ],
+        [
+          "SW1 f0/6",
+          "PC4"
+        ]
+      ],
+      "tasks": [
+        {
+          "text": "Create VLAN 10 named <code>SALES</code>",
+          "check": {
+            "dev": "SW1",
+            "path": "vlans.10",
+            "eq": "SALES"
+          }
+        },
+        {
+          "text": "Create VLAN 20 named <code>ENGINEERING</code>",
+          "check": {
+            "dev": "SW1",
+            "path": "vlans.20",
+            "eq": "ENGINEERING"
+          }
+        },
+        {
+          "text": "Make Fa0/1 and Fa0/2 access ports in VLAN 10",
+          "check": {
+            "all": [
+              {
+                "iface": "SW1 f0/1",
+                "is": {
+                  "mode": "access",
+                  "accessVlan": 10
+                }
+              },
+              {
+                "iface": "SW1 f0/2",
+                "is": {
+                  "mode": "access",
+                  "accessVlan": 10
+                }
+              }
+            ]
+          }
+        },
+        {
+          "text": "Make Fa0/5 and Fa0/6 access ports in VLAN 20",
+          "check": {
+            "all": [
+              {
+                "iface": "SW1 f0/5",
+                "is": {
+                  "mode": "access",
+                  "accessVlan": 20
+                }
+              },
+              {
+                "iface": "SW1 f0/6",
+                "is": {
+                  "mode": "access",
+                  "accessVlan": 20
+                }
+              }
+            ]
+          }
+        },
+        {
+          "text": "Verify with <code>show vlan brief</code>",
+          "check": {
+            "ran": [
+              "SW1",
+              "^(do\\s+)?sh(o(w)?)?\\s+vl(a(n)?)?(\\s+br(i(e(f)?)?)?)?$"
+            ]
+          }
+        },
+        {
+          "text": "PC1 can still reach PC2 in the same VLAN",
+          "check": {
+            "ping": [
+              "PC1",
+              "192.168.10.12"
+            ]
+          }
+        },
+        {
+          "text": "Save the running configuration",
+          "check": {
+            "saved": "SW1"
+          }
+        }
+      ],
+      "hints": [
+        "Start with <code>enable</code>, then <code>configure terminal</code>.",
+        "<code>vlan 10</code> then <code>name SALES</code> creates and names a VLAN.",
+        "<code>interface range f0/1 - 2</code> configures both ports at once; use <code>switchport mode access</code> and <code>switchport access vlan 10</code>.",
+        "Save with <code>copy running-config startup-config</code> (or <code>write memory</code>)."
+      ],
+      "solution": "<pre>enable\nconfigure terminal\nvlan 10\n name SALES\nvlan 20\n name ENGINEERING\ninterface range f0/1 - 2\n switchport mode access\n switchport access vlan 10\ninterface range f0/5 - 6\n switchport mode access\n switchport access vlan 20\nend\nshow vlan brief\ncopy running-config startup-config</pre>",
+      "review": "<p>VLANs split one switch into separate broadcast domains. Hosts in VLAN 10 can't reach VLAN 20 without a router or Layer 3 switch, which is the point of segmentation.</p>"
+    },
+    {
+      "id": "sw-ssh",
+      "title": "Harden switch management with SSH",
+      "domain": "D4",
+      "kind": "cli",
+      "level": "intermediate",
+      "minutes": 15,
+      "summary": "Give a switch a management IP, then replace Telnet with SSH using local accounts, an enable secret and RSA keys.",
+      "scenario": "<p>An audit found that <b>SW-ACCESS1</b> is managed over Telnet with no login. Secure it:</p><ul><li>Management address <code>192.168.1.2/24</code> on VLAN 1, default gateway <code>192.168.1.1</code></li><li>Hostname <code>SW-ACCESS1</code>, domain <code>corp.local</code></li><li>Local admin account and an enable secret</li><li>SSH version 2 only on the VTY lines, with 2048-bit RSA keys</li></ul>",
+      "topology": {
+        "nodes": [
+          {
+            "name": "SW1",
+            "label": "Switch",
+            "x": 0,
+            "y": 0,
+            "type": "switch"
+          },
+          {
+            "name": "ADMIN-PC",
+            "x": 1,
+            "y": 0
+          }
+        ]
+      },
+      "devices": [
+        {
+          "name": "SW1",
+          "platform": "ios",
+          "kind": "switch",
+          "interfaces": [
+            "FastEthernet0/1",
+            "FastEthernet0/2",
+            "FastEthernet0/3",
+            "FastEthernet0/4",
+            "FastEthernet0/5",
+            "FastEthernet0/6",
+            "FastEthernet0/7",
+            "FastEthernet0/8",
+            "GigabitEthernet0/1",
+            "GigabitEthernet0/2",
+            "Vlan1"
+          ],
+          "hostname": "Switch"
+        },
+        {
+          "name": "ADMIN-PC",
+          "platform": "host",
+          "ip": "192.168.1.50",
+          "mask": "255.255.255.0",
+          "gw": "192.168.1.1"
+        }
+      ],
+      "links": [
+        [
+          "SW1 f0/1",
+          "ADMIN-PC"
+        ]
+      ],
+      "tasks": [
+        {
+          "text": "Set the hostname to <code>SW-ACCESS1</code>",
+          "check": {
+            "dev": "SW1",
+            "path": "hostname",
+            "eq": "SW-ACCESS1"
+          }
+        },
+        {
+          "text": "Configure <code>interface vlan 1</code> with 192.168.1.2/24 and bring it up",
+          "check": {
+            "iface": "SW1 vlan1",
+            "is": {
+              "ip": "192.168.1.2",
+              "mask": "255.255.255.0",
+              "up": true
+            }
+          }
+        },
+        {
+          "text": "Set the default gateway to 192.168.1.1",
+          "check": {
+            "dev": "SW1",
+            "path": "defaultGateway",
+            "eq": "192.168.1.1"
+          }
+        },
+        {
+          "text": "Set an enable secret",
+          "check": {
+            "dev": "SW1",
+            "path": "enableSecret",
+            "exists": true
+          }
+        },
+        {
+          "text": "Create a local user with a secret",
+          "check": {
+            "dev": "SW1",
+            "path": "users",
+            "nonEmpty": true
+          }
+        },
+        {
+          "text": "Enable SSH version 2 with 2048-bit RSA keys",
+          "check": {
+            "all": [
+              {
+                "dev": "SW1",
+                "path": "rsa",
+                "eq": 2048
+              },
+              {
+                "dev": "SW1",
+                "path": "sshVersion",
+                "eq": 2
+              },
+              {
+                "dev": "SW1",
+                "path": "domainName",
+                "eq": "corp.local"
+              }
+            ]
+          }
+        },
+        {
+          "text": "Allow only SSH on the VTY lines, with local login",
+          "check": {
+            "sshReady": "SW1"
+          }
+        },
+        {
+          "text": "The admin PC can ping the switch",
+          "check": {
+            "ping": [
+              "ADMIN-PC",
+              "192.168.1.2"
+            ]
+          }
+        },
+        {
+          "text": "Save the configuration",
+          "check": {
+            "saved": "SW1"
+          }
+        }
+      ],
+      "hints": [
+        "A switch's management IP lives on an SVI: <code>interface vlan 1</code>, <code>ip address …</code>, <code>no shutdown</code>.",
+        "RSA keys need a hostname and a domain name first: <code>ip domain-name corp.local</code>, then <code>crypto key generate rsa</code> and answer 2048.",
+        "<code>line vty 0 15</code>, <code>login local</code>, <code>transport input ssh</code>."
+      ],
+      "solution": "<pre>enable\nconfigure terminal\nhostname SW-ACCESS1\ninterface vlan 1\n ip address 192.168.1.2 255.255.255.0\n no shutdown\n exit\nip default-gateway 192.168.1.1\nenable secret Str0ng!Enable\nusername netadmin secret Adm1n!Pass\nip domain-name corp.local\ncrypto key generate rsa modulus 2048\nip ssh version 2\nline vty 0 15\n login local\n transport input ssh\n end\ncopy running-config startup-config</pre>",
+      "review": "<p>Telnet sends credentials in clear text; SSH encrypts the session. Local accounts plus an enable secret, SSH v2 only, and a management IP on an SVI are standard device-hardening steps.</p>"
+    },
+    {
+      "id": "fw-rules",
+      "title": "Build firewall rules for a web server",
+      "domain": "D4",
+      "kind": "tasks",
+      "level": "intermediate",
+      "minutes": 12,
+      "summary": "Replace an allow-everything rule with least-privilege rules for a DMZ web server, then prove them with test traffic.",
+      "scenario": "<p>A web server in the DMZ at <code>172.16.0.10</code> must be reachable from the internet over HTTP and HTTPS. Administrators on <code>10.1.1.0/24</code> manage it with SSH. Nothing else should get in. The current policy has a single rule that allows everything.</p>",
+      "activities": [
+        {
+          "type": "rules",
+          "title": "Edit the inbound rule set",
+          "prompt": "Edit, add, delete and reorder rules. Use <b>Any</b>, a single IP like <code>172.16.0.10</code>, or CIDR like <code>10.1.1.0/24</code>. Ports can be a number, a range (<code>8000-8080</code>) or a list (<code>80,443</code>).",
+          "start": [
+            {
+              "action": "Allow",
+              "proto": "Any",
+              "src": "Any",
+              "dst": "Any",
+              "port": "Any"
+            }
+          ],
+          "tests": [
+            {
+              "label": "Internet → 172.16.0.10 TCP 443",
+              "packet": {
+                "proto": "TCP",
+                "src": "198.51.100.23",
+                "dst": "172.16.0.10",
+                "port": 443
+              },
+              "expect": "allow"
+            },
+            {
+              "label": "Internet → 172.16.0.10 TCP 80",
+              "packet": {
+                "proto": "TCP",
+                "src": "203.0.113.77",
+                "dst": "172.16.0.10",
+                "port": 80
+              },
+              "expect": "allow"
+            },
+            {
+              "label": "Admin 10.1.1.25 → 172.16.0.10 TCP 22",
+              "packet": {
+                "proto": "TCP",
+                "src": "10.1.1.25",
+                "dst": "172.16.0.10",
+                "port": 22
+              },
+              "expect": "allow"
+            },
+            {
+              "label": "Internet → 172.16.0.10 TCP 22",
+              "packet": {
+                "proto": "TCP",
+                "src": "198.51.100.23",
+                "dst": "172.16.0.10",
+                "port": 22
+              },
+              "expect": "deny"
+            },
+            {
+              "label": "Internet → 172.16.0.10 TCP 3389",
+              "packet": {
+                "proto": "TCP",
+                "src": "198.51.100.23",
+                "dst": "172.16.0.10",
+                "port": 3389
+              },
+              "expect": "deny"
+            },
+            {
+              "label": "Internet → 172.16.0.20 TCP 443 (other host)",
+              "packet": {
+                "proto": "TCP",
+                "src": "198.51.100.23",
+                "dst": "172.16.0.20",
+                "port": 443
+              },
+              "expect": "deny"
+            },
+            {
+              "label": "Internet → 172.16.0.10 UDP 53",
+              "packet": {
+                "proto": "UDP",
+                "src": "198.51.100.23",
+                "dst": "172.16.0.10",
+                "port": 53
+              },
+              "expect": "deny"
+            }
+          ]
+        }
+      ],
+      "tasks": [
+        {
+          "text": "Every test packet gets the expected result (allow or deny)",
+          "check": {
+            "activity": 0
+          }
+        },
+        {
+          "text": "Identify the principle you applied",
+          "check": {
+            "q": "principle",
+            "eq": 0
+          }
+        }
+      ],
+      "questions": [
+        {
+          "id": "principle",
+          "prompt": "Which principle does the final rule set follow?",
+          "options": [
+            "Least privilege: allow only what's required, deny the rest",
+            "Defense in depth: use several firewalls",
+            "Separation of duties",
+            "Fail open"
+          ]
+        }
+      ],
+      "hints": [
+        "Rules are evaluated top to bottom, and the first match wins, so the old allow-everything rule must go.",
+        "One rule can cover both web ports: TCP to 172.16.0.10, ports <code>80,443</code>.",
+        "Scope SSH by source: 10.1.1.0/24 → 172.16.0.10 TCP 22."
+      ],
+      "solution": "<pre>1  Allow  TCP  Any          172.16.0.10  80,443\n2  Allow  TCP  10.1.1.0/24  172.16.0.10  22\n   (delete the Allow Any rule; the implicit deny handles the rest)</pre>",
+      "review": "<p>Firewall rules are ordered: put specific allows first and rely on the implicit (or explicit) deny at the end. A broad allow rule above them would make every later rule irrelevant.</p>"
+    },
+    {
+      "id": "soho-router",
+      "title": "Secure a small-office wireless router",
+      "domain": "D4",
+      "kind": "portal",
+      "level": "beginner",
+      "minutes": 12,
+      "summary": "Use a router's admin console to fix weak Wi-Fi security, default credentials and risky remote-access settings, and add a guest network.",
+      "scenario": "<p>A small dental office set up its own wireless router. A security review lists these findings: open or weak Wi-Fi, WPS enabled, default admin password, remote management and UPnP on, and a Telnet port forward someone added for \"support.\" Patients also need Wi-Fi that can't see office PCs. The NAS at <code>192.168.0.40</code> should be reachable from outside over HTTPS only.</p><p>Change settings on each page, then <b>Save changes</b>; only saved settings count.</p>",
+      "portal": {
+        "app": "Office Router Admin",
+        "address": "https://192.168.0.1",
+        "pages": [
+          {
+            "id": "wifi",
+            "title": "Wireless",
+            "desc": "Main office network",
+            "sections": [
+              {
+                "title": "Office Wi-Fi",
+                "fields": [
+                  {
+                    "id": "ssid",
+                    "label": "Network name (SSID)",
+                    "type": "text",
+                    "value": "SmileDental"
+                  },
+                  {
+                    "id": "security",
+                    "label": "Security mode",
+                    "type": "select",
+                    "options": [
+                      "None (open)",
+                      "WEP",
+                      "WPA-Personal (TKIP)",
+                      "WPA2-Personal (AES)",
+                      "WPA2/WPA3-Personal (transition)",
+                      "WPA3-Personal (SAE)"
+                    ],
+                    "value": "WEP"
+                  },
+                  {
+                    "id": "pass",
+                    "label": "Wi-Fi password",
+                    "type": "password",
+                    "value": "smile123",
+                    "help": "Use at least 12 characters."
+                  },
+                  {
+                    "id": "wps",
+                    "label": "Wi-Fi Protected Setup (WPS)",
+                    "type": "toggle",
+                    "value": true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "guest",
+            "title": "Guest network",
+            "sections": [
+              {
+                "title": "Guest Wi-Fi",
+                "fields": [
+                  {
+                    "id": "enabled",
+                    "label": "Guest network",
+                    "type": "toggle",
+                    "value": false
+                  },
+                  {
+                    "id": "ssid",
+                    "label": "Guest SSID",
+                    "type": "text",
+                    "value": "SmileDental-Guest"
+                  },
+                  {
+                    "id": "isolation",
+                    "label": "Client isolation (guests can't reach the office LAN or each other)",
+                    "type": "toggle",
+                    "value": false
+                  },
+                  {
+                    "id": "security",
+                    "label": "Guest security",
+                    "type": "select",
+                    "options": [
+                      "None (open)",
+                      "WPA2-Personal (AES)",
+                      "WPA2/WPA3-Personal (transition)",
+                      "WPA3-Personal (SAE)"
+                    ],
+                    "value": "None (open)"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "admin",
+            "title": "Administration",
+            "sections": [
+              {
+                "title": "Router login",
+                "fields": [
+                  {
+                    "id": "user",
+                    "label": "Admin username",
+                    "type": "text",
+                    "value": "admin"
+                  },
+                  {
+                    "id": "pass",
+                    "label": "Admin password",
+                    "type": "password",
+                    "value": "admin"
+                  }
+                ]
+              },
+              {
+                "title": "Access",
+                "fields": [
+                  {
+                    "id": "remote",
+                    "label": "Remote management from the internet",
+                    "type": "toggle",
+                    "value": true
+                  },
+                  {
+                    "id": "upnp",
+                    "label": "UPnP",
+                    "type": "toggle",
+                    "value": true
+                  },
+                  {
+                    "id": "autoupdate",
+                    "label": "Automatic firmware updates",
+                    "type": "toggle",
+                    "value": false
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "nat",
+            "title": "Port forwarding",
+            "desc": "Forward inbound connections to a device on the LAN.",
+            "tables": [
+              {
+                "id": "rules",
+                "title": "Port forwarding rules",
+                "columns": [
+                  {
+                    "id": "name",
+                    "label": "Name"
+                  },
+                  {
+                    "id": "proto",
+                    "label": "Protocol",
+                    "type": "select",
+                    "options": [
+                      "TCP",
+                      "UDP",
+                      "TCP/UDP"
+                    ]
+                  },
+                  {
+                    "id": "ext",
+                    "label": "External port"
+                  },
+                  {
+                    "id": "ip",
+                    "label": "Internal IP"
+                  },
+                  {
+                    "id": "int",
+                    "label": "Internal port"
+                  }
+                ],
+                "rows": [
+                  {
+                    "name": "support",
+                    "proto": "TCP",
+                    "ext": "23",
+                    "ip": "192.168.0.10",
+                    "int": "23"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tasks": [
+        {
+          "text": "Use WPA3 (or WPA2/WPA3 transition) on the office Wi-Fi",
+          "check": {
+            "field": "wifi.security",
+            "in": [
+              "WPA3-Personal (SAE)",
+              "WPA2/WPA3-Personal (transition)"
+            ]
+          }
+        },
+        {
+          "text": "Set a Wi-Fi password of at least 12 characters",
+          "check": {
+            "field": "wifi.pass",
+            "minLen": 12
+          }
+        },
+        {
+          "text": "Turn off WPS",
+          "check": {
+            "field": "wifi.wps",
+            "eq": false
+          }
+        },
+        {
+          "text": "Replace the default admin password (12+ characters)",
+          "check": {
+            "all": [
+              {
+                "field": "admin.pass",
+                "minLen": 12
+              },
+              {
+                "field": "admin.pass",
+                "ne": "admin"
+              }
+            ]
+          }
+        },
+        {
+          "text": "Disable remote management and UPnP; enable automatic firmware updates",
+          "check": {
+            "all": [
+              {
+                "field": "admin.remote",
+                "eq": false
+              },
+              {
+                "field": "admin.upnp",
+                "eq": false
+              },
+              {
+                "field": "admin.autoupdate",
+                "eq": true
+              }
+            ]
+          }
+        },
+        {
+          "text": "Enable an encrypted guest network with client isolation",
+          "check": {
+            "all": [
+              {
+                "field": "guest.enabled",
+                "eq": true
+              },
+              {
+                "field": "guest.isolation",
+                "eq": true
+              },
+              {
+                "field": "guest.security",
+                "ne": "None (open)"
+              }
+            ]
+          }
+        },
+        {
+          "text": "Remove the Telnet (port 23) forward",
+          "check": {
+            "rows": "nat.rules",
+            "none": {
+              "ext": "23"
+            }
+          }
+        },
+        {
+          "text": "Forward TCP 443 to the NAS at 192.168.0.40",
+          "check": {
+            "rows": "nat.rules",
+            "has": {
+              "proto": [
+                "TCP",
+                "TCP/UDP"
+              ],
+              "ext": "443",
+              "ip": "192.168.0.40",
+              "int": "443"
+            }
+          }
+        }
+      ],
+      "hints": [
+        "Each page has its own <b>Save changes</b> button.",
+        "WEP and WPA/TKIP are broken; WPA3 (SAE) is the current standard.",
+        "WPS PINs can be brute-forced, and UPnP lets devices open ports without you knowing."
+      ],
+      "solution": "<p>Wireless: WPA3-Personal, a long passphrase, WPS off. Guest: on, isolation on, WPA2/WPA3. Administration: a new 12+ character password, remote management off, UPnP off, auto-update on. Port forwarding: delete the port 23 rule; add TCP 443 → 192.168.0.40:443.</p>",
+      "review": "<p>These are the SOHO hardening steps Network+ expects: strong wireless encryption, no WPS, changed default credentials, minimal exposed services, updated firmware, and guest isolation.</p>"
+    }
+  ]
+}
