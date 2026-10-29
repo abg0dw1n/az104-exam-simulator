@@ -189,7 +189,8 @@ select {
 .dot-wrong { background: var(--bad); }
 .dot-flag { background: var(--warn); }
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; text-align: center; }
-.stats div { background: var(--panel-2); border: 1px solid var(--border); border-radius: 8px; padding: 6px 4px; }
+.stats div { padding: 2px 4px; }
+.stats > div + div:not(.stats-wide) { border-left: 1px solid var(--border); }
 .stats b { display: block; font-size: 16px; font-variant-numeric: tabular-nums; }
 
 /* ── Buttons ─────────────────────────────────────────── */
@@ -213,10 +214,12 @@ select {
 /* ── Question card ───────────────────────────────────── */
 .qcard { display: flex; flex-direction: column; overflow: hidden; }
 .qhead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; padding: 14px 20px; border-bottom: 1px solid var(--border); }
-.chips { display: flex; flex-wrap: wrap; gap: 8px; }
-.chip { font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: var(--panel-2); border: 1px solid var(--border); color: var(--muted); }
-.chip-azure { background: var(--azure-soft); border-color: transparent; color: var(--azure-text); }
-.chip-review { background: var(--warn-soft); border-color: transparent; color: var(--warn-text); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+/* Info labels, not controls: plain text with a status dot (no pill, border or fill). */
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--muted); }
+.chip::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; opacity: .75; flex: none; }
+.chip-azure { color: var(--azure-text); font-family: var(--mono); }
+.chip-review { color: var(--warn-text); }
 
 .qbody { padding: 24px 20px 28px; }
 .scenario { font-size: 16.5px; line-height: 1.65; margin-bottom: 20px; max-width: 72ch; }
@@ -273,7 +276,7 @@ kbd { font: 11px var(--mono); padding: 1px 5px; border-radius: 4px; border: 1px 
 .stack { display: grid; gap: 22px; }
 .intro h2 { font-size: 24px; font-weight: 700; }
 .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
-.fact { padding: 14px; border-radius: 10px; background: var(--panel-2); border: 1px solid var(--border); }
+.fact { padding: 2px 0 2px 14px; border-left: 3px solid var(--border-strong); }
 .fact b { display: block; font-size: 20px; }
 .rules { margin: 0; padding-left: 20px; color: var(--text-2); display: grid; gap: 4px; }
 
@@ -286,7 +289,7 @@ kbd { font: 11px var(--mono); padding: 1px 5px; border-radius: 4px; border: 1px 
 .score-banner h2 { font-size: 34px; font-weight: 800; font-variant-numeric: tabular-nums; }
 .section-title { font-size: 16px; font-weight: 650; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
 
-.domain-row { padding: 12px 14px; border-radius: 10px; background: var(--panel-2); border: 1px solid var(--border); display: grid; gap: 8px; }
+.domain-row { padding: 12px 2px; border-bottom: 1px solid var(--border); display: grid; gap: 8px; }
 .domain-row .top { display: flex; justify-content: space-between; gap: 10px; font-size: 14px; }
 .domain-row .pct { font: 600 13px var(--mono); white-space: nowrap; }
 .bar { height: 8px; border-radius: 4px; background: var(--border); overflow: hidden; }
@@ -557,7 +560,7 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 .slide-foot { position: absolute; left: 5cqw; right: 5cqw; bottom: 2cqw; display: flex; justify-content: space-between; font-size: 1.2cqw; color: var(--muted); }
 
 .vis { font-size: 1.6cqw; line-height: 1.35; }
-.vis-box { border: 1px solid var(--border-strong); background: var(--panel-2); border-radius: 1.1cqw; padding: 1.1cqw 1.4cqw; display: grid; gap: .3cqw; }
+.vis-box { border: 0; border-left: .35cqw solid var(--v, var(--azure)); background: none; border-radius: 0; padding: .6cqw 1.2cqw; display: grid; gap: .3cqw; }
 .vis-box b { color: var(--text); font-weight: 650; }
 .vis-box span { color: var(--muted); font-size: .9em; }
 .vis-flow { display: flex; align-items: center; gap: 1cqw; flex-wrap: wrap; }
@@ -570,7 +573,8 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 .vis-link { width: 2px; height: 1.6cqw; background: var(--border-strong); }
 .vis-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1cqw; }
 .vis-layers { display: grid; gap: .8cqw; }
-.vis-layers .vis-box:first-child { border-color: var(--v, var(--azure)); background: var(--v-soft, var(--azure-soft)); }
+.vis-layers .vis-box { border-left-color: var(--border-strong); }
+.vis-layers .vis-box:first-child { border-left-color: var(--v, var(--azure)); }
 .vis-table table { width: 100%; border-collapse: collapse; font-size: 1.5cqw; }
 .vis-table th, .vis-table td { padding: .8cqw 1cqw; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
 .vis-table thead th { color: var(--v-text, var(--azure-text)); font-weight: 700; }
@@ -626,7 +630,7 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 .catalog-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
 .catalog-heading .home-title { font-size: clamp(25px, 3vw, 34px); letter-spacing: -.025em; }
 .eyebrow { color: var(--azure-text); font-size: 11px; font-weight: 700; letter-spacing: .08em; }
-.catalog-summary { display: inline-flex; align-items: center; gap: 6px; flex: none; padding: 10px 14px; border-radius: 999px; background: var(--azure-soft); color: var(--azure-text); font-size: 12px; font-weight: 600; }
+.catalog-summary { display: inline-flex; align-items: center; gap: 6px; flex: none; color: var(--muted); font-size: 12.5px; font-weight: 600; }
 .catalog-summary strong { color: var(--text); }
 .catalog-tools { display: grid; grid-template-columns: minmax(220px, .8fr) minmax(0, 1.5fr); gap: 12px; align-items: center; padding: 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--panel); }
 .catalog-search input { width: 100%; height: 42px; padding: 0 14px; border-radius: 9px; border: 1px solid var(--border); background: var(--panel-2); color: var(--text); font: inherit; }
@@ -669,10 +673,13 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 .home-hero-copy h2 span { color: var(--azure-text); }
 .home-hero-copy > p { max-width: 56ch; color: var(--text-2); font-size: 16px; line-height: 1.65; }
 .home-hero-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
-.home-hero-steps { display: grid; gap: 10px; }
-.home-hero-steps > div { display: flex; gap: 13px; align-items: center; padding: 13px; border: 1px solid var(--border); border-radius: 12px; background: color-mix(in srgb, var(--panel-2) 70%, transparent); }
-.hero-step-icon { width: 38px; height: 38px; display: grid; place-items: center; flex: none; border-radius: 11px; background: var(--azure-soft); color: var(--azure-text); font: 700 12px var(--mono); }
-.home-hero-steps > div > span:last-child { display: grid; gap: 3px; }
+.home-hero-steps { display: grid; gap: 0; }
+.home-hero-steps > div { position: relative; display: flex; gap: 14px; align-items: flex-start; padding: 0 0 22px; }
+.home-hero-steps > div:last-child { padding-bottom: 0; }
+/* Connector line between the numbers: reads as a sequence, not as buttons. */
+.home-hero-steps > div:not(:last-child)::after { content: ""; position: absolute; left: 15px; top: 34px; bottom: 4px; width: 2px; background: var(--border); }
+.hero-step-icon { width: 32px; height: 32px; display: grid; place-items: center; flex: none; border-radius: 50%; border: 2px solid var(--azure); color: var(--azure-text); font: 700 11px var(--mono); }
+.home-hero-steps > div > span:last-child { display: grid; gap: 3px; padding-top: 5px; }
 .home-hero-steps b { font-size: 14px; }
 .home-hero-steps small { color: var(--muted); font-size: 12px; }
 .learning-section, .practice-section { display: grid; gap: 16px; scroll-margin-top: 90px; }
@@ -769,8 +776,8 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 .feature-details { color: var(--text-2); white-space: pre-line; }
 .feature-note { padding: 6px 9px; border-radius: 8px; background: var(--azure-soft); color: var(--text-2); margin-top: 2px; }
 .feature-status { white-space: nowrap; }
-.feature-status[data-status="planned"], .feature-status[data-status="in-progress"] { background: var(--azure-soft); color: var(--azure-text); border-color: transparent; }
-.feature-status[data-status="done"] { background: var(--ok-soft); color: var(--ok-text); border-color: transparent; }
+.feature-status[data-status="planned"], .feature-status[data-status="in-progress"] { color: var(--azure-text); }
+.feature-status[data-status="done"] { color: var(--ok-text); }
 .feature-status[data-status="declined"] { color: var(--muted); }
 .report-form input[type="text"] { width: 100%; padding: 10px 12px; border-radius: 9px; border: 1px solid var(--border); background: var(--panel-2); color: var(--text); font: inherit; }
 #features { scroll-margin-top: 90px; }
@@ -836,6 +843,8 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 .admin-badge { display: inline-flex; align-items: center; padding: 1px 7px; border-radius: 999px; background: var(--azure); color: var(--on-accent); font-size: 10.5px; font-weight: 750; letter-spacing: .03em; text-transform: uppercase; vertical-align: middle; text-decoration: none; }
 .account-link { position: relative; }
 .account-link .admin-badge { margin-left: 2px; }
+/* Outside the header button the badge is just a label. */
+.admin-badge:not(.account-link .admin-badge) { padding: 0; background: none; color: var(--azure-text); border-radius: 0; }
 .invite-actions { display: inline-flex; gap: 6px; flex: none; flex-wrap: wrap; justify-content: flex-end; }
 @media (max-width: 600px) {
   /* Phones: the header badge becomes a small dot on the Account icon */
