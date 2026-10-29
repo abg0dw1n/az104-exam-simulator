@@ -467,18 +467,10 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 .folder-count { margin-left: auto; font-size: 12.5px; font-weight: 500; color: var(--muted); white-space: nowrap; }
 .vendor-folder > summary { min-height: 56px; }
 .folder-name { white-space: nowrap; }
-.folder-preview { display: flex; flex-wrap: wrap; gap: 6px; margin-left: 6px; min-width: 0; }
-.vendor-folder[open] .folder-preview { display: none; }
-.folder-code { display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 600; color: var(--v-text, var(--muted)); background: var(--v-soft, transparent); padding: 3px 8px; border-radius: 999px; }
-.folder-code::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--border-strong); }
-.folder-code[data-level="beginner"]::before { background: #2e9e5b; }
-.folder-code[data-level="intermediate"]::before { background: #d4920f; }
-.folder-code[data-level="advanced"]::before { background: #d64545; }
 .vendor-folder:not([open]) > summary:hover { background: var(--v-soft, var(--panel)); border-radius: 0 10px 10px 0; }
 @media (max-width: 640px) {
   .vendor-folder > summary { flex-wrap: wrap; row-gap: 8px; }
-  .folder-preview { order: 3; flex-basis: 100%; margin-left: 50px; }
-}
+  }
 .vendor-folder > .exam-grid { padding: 0 16px 16px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
@@ -856,3 +848,14 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 
 /* Recents: reserve two title lines so the progress rows line up across cards. */
 .recent-card h3 { line-height: 1.3; min-height: 2.6em; }
+
+/* Vendor folders: description under the name, personal progress (or exam count) on the right. */
+.folder-title { display: grid; gap: 2px; min-width: 0; }
+.folder-blurb { font-size: 12.5px; font-weight: 500; color: var(--muted); }
+.folder-progress { margin-left: auto; display: grid; gap: 5px; justify-items: end; font-size: 12.5px; font-weight: 600; color: var(--text-2); white-space: nowrap; }
+.folder-bar { display: block; width: 120px; height: 4px; border-radius: 99px; background: var(--border); overflow: hidden; }
+.folder-bar i { display: block; height: 100%; background: var(--v, var(--azure)); border-radius: inherit; }
+@media (max-width: 640px) {
+  .folder-title { flex: 1 1 0; }
+  .folder-progress, .folder-count { order: 3; flex-basis: 100%; margin-left: 28px; justify-items: start; }
+}

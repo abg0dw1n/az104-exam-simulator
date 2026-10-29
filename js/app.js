@@ -1046,6 +1046,18 @@ function recentCard({ e, saved, activity: a }) {
     </a>`;
 }
 
+// One line under each vendor name on the home page. Vendors not listed get a generated summary.
+const VENDOR_BLURBS = {
+  Microsoft: 'Azure, AI, data and security, from fundamentals to administrator',
+  CompTIA: 'Vendor-neutral IT support, networking, security and data',
+  Cisco: 'Networking and cybersecurity, from entry-level CCST to CCNA',
+  'Amazon Web Services': 'AWS cloud, AI, development and operations',
+  'Google Cloud': 'Cloud, data and generative AI, from Digital Leader to Cloud Architect',
+  Salesforce: 'Data visualization and analytics with Tableau',
+  AAPC: 'Professional medical coding',
+  NHA: 'Healthcare billing, coding and front-office administration',
+};
+
 async function renderHome() {
   document.body.classList.add('home');
   $('navigator').hidden = true;
@@ -1106,14 +1118,22 @@ async function renderHome() {
       .filter(({ exam }) => exam.vendor === provider)
       .sort((a, b) => levelRank(a.exam.level) - levelRank(b.exam.level)
         || a.exam.code.localeCompare(b.exam.code, undefined, { numeric: true }));
-    const preview = entries.slice(0, 5).map(({ exam }) =>
-      `<span class="folder-code" data-level="${exam.level || ''}">${escapeHtml(exam.code)}</span>`).join('');
+    // Right side: this person's progress in the vendor, or just the exam count if they haven't started.
+    const started = entries.filter(({ exam }) => recentActivity(exam, readSaved(exam.slug, exam.legacyStorageKey))).length;
+    const passed = entries.filter(({ exam }) => readSaved(exam.slug, exam.legacyStorageKey)?.history?.some((h) => h.passed)).length;
+    const total = `${entries.length} exam${entries.length === 1 ? '' : 's'}`;
+    const progress = started
+      ? `<span class="folder-progress" title="Exams you've opened in ${escapeHtml(provider)}">
+          <span>${started} of ${total} started${passed ? ` · ${passed} passed` : ''}</span>
+          <span class="folder-bar"><i style="width:${Math.round((started / entries.length) * 100)}%"></i></span></span>`
+      : `<span class="folder-count">${total}</span>`;
+    const blurb = VENDOR_BLURBS[provider] || `${total} · ${[...new Set(entries.map(({ exam }) => exam.level).filter(Boolean))].join(', ')}`;
     return `<details class="vendor-folder" data-provider-group="${key}" data-vendor="${key}">
       <summary>
         ${icon('folder', 'icon folder-icon')}
-        <span class="folder-name">${escapeHtml(provider)}</span>
-        <span class="folder-preview">${preview}</span>
-        <span class="folder-count">${entries.length} exam${entries.length === 1 ? '' : 's'}</span>
+        <span class="folder-title"><span class="folder-name">${escapeHtml(provider)}</span>
+          <span class="folder-blurb">${escapeHtml(blurb)}</span></span>
+        ${progress}
       </summary>
       <div class="exam-grid">${entries.map(({ card }) => card).join('')}</div>
     </details>`;
