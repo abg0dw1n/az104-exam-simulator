@@ -47,6 +47,19 @@ let LEARN = null;           // learn.json for this exam, if it has training cont
 let LABS = null;            // labs.json for this exam, if it has hands-on labs
 
 const progressStore = () => (Auth.isGuest() ? sessionStorage : localStorage);
+const HIDDEN_RECENTS_KEY = 'examsim:hidden-recents';
+
+// Get/set the list of hidden (dismissed) exam slugs from Recents.
+function getHiddenRecents() {
+  try { return JSON.parse(progressStore().getItem(HIDDEN_RECENTS_KEY)) || []; } catch { return []; }
+}
+function addHiddenRecent(slug) {
+  const hidden = getHiddenRecents();
+  if (!hidden.includes(slug)) {
+    hidden.push(slug);
+    try { progressStore().setItem(HIDDEN_RECENTS_KEY, JSON.stringify(hidden)); } catch { /* ignore */ }
+  }
+}
 
 // Reads an exam's saved progress; legacyKey covers data saved before multi-exam support.
 function readSaved(slug, legacyKey) {
@@ -95,6 +108,25 @@ async function removeRecent(slug) {
   if (ok !== true) return;
   clearSaved(slug);
   toast(`${name} removed from Recents`);
+}
+
+// Hide a course from Recents without deleting progress.
+async function hideRecent(slug) {
+  let name = slug;
+  try {
+    const exam = (await fetchIndex()).find((e) => e.slug === slug);
+    if (exam) name = `${exam.name} (${exam.code})`;
+  } catch { /* offline: still allow hiding with the slug as the name */ }
+  const ok = await confirmModal(
+    `Hide ${name} from Recents?`,
+    `Your progress is kept. The course will no longer appear in Recents, but you can open it anytime from the full exam list.`,
+    'Hide',
+    'Keep'
+  );
+  if (ok !== true) return;
+  addHiddenRecent(slug);
+  renderHome();
+  toast(`${name} hidden from Recents`);
 }
 
 let saveQueued = false;
@@ -1095,7 +1127,7 @@ function recentCard({ e, saved, activity: a }) {
         <span class="recent-stats">${learning}${practice}${labs}${exam}</span>
         <span class="learning-path-action">${action} ${icon('right', 'icon')}</span>
       </a>
-      <button class="recent-remove" data-action="remove-recent" data-slug="${escapeHtml(e.slug)}" title="Remove ${escapeHtml(e.name)} from Recents" aria-label="Remove ${escapeHtml(e.name)} from Recents">${icon('x', 'icon')}</button>
+      <button class="recent-remove" data-action="remove-recent" data-slug="${escapeHtml(e.slug)}" title="Hide ${escapeHtml(e.name)} from Recents" aria-label="Hide ${escapeHtml(e.name)} from Recents">${icon('x', 'icon')}</button>
     </div>`;
 }
 
@@ -1146,6 +1178,7 @@ async function renderHome() {
   const recents = exams.map((e) => ({ e, saved: readSaved(e.slug, e.legacyStorageKey) }))
     .map(({ e, saved }) => ({ e, saved, activity: recentActivity(e, saved) }))
     .filter((r) => r.activity)
+    .filter((r) => !getHiddenRecents().includes(r.e.slug))
     .sort((a, b) => (b.saved.updatedAt || 0) - (a.saved.updatedAt || 0))
     .slice(0, 6);
   const learningCards = exams.filter((e) => e.learning).map(learningPathCard).join('');
@@ -1261,7 +1294,7 @@ async function renderHome() {
     if (!act) return;
     e.stopPropagation();
     e.preventDefault();
-    return removeRecent(act.dataset.slug);
+    return hideRecent(act.dataset.slug);
   });
   const grid = $('exam-grid');
   const search = $('exam-search');
@@ -1806,7 +1839,7 @@ async function init() {
       case 'remove-recent': {
         e.stopPropagation();
         e.preventDefault();
-        return removeRecent(act.dataset.slug);
+        return hideRecent(act.dataset.slug);
       }
     }
   });
