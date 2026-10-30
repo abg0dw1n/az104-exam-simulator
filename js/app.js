@@ -1088,13 +1088,15 @@ function recentCard({ e, saved, activity: a }) {
   const mode = a.examRunning ? 'exam' : a.mode === 'learn' && e.learning ? 'learn' : a.mode === 'labs' && e.labs ? 'labs' : 'practice';
   const action = { exam: 'Resume timed exam', learn: 'Resume learning path', labs: 'Resume labs', practice: 'Resume practice' }[mode];
   const when = lastStudied(saved?.updatedAt);
-  return `<a class="panel learning-path-card recent-card" href="/${e.slug}${mode === 'learn' || mode === 'labs' ? `?mode=${mode}` : ''}" data-vendor="${vendorKey(e.vendor)}" title="${escapeHtml(`${e.vendor} · ${e.code}`)}">
-      <span class="recent-head"><span class="learning-path-eyebrow">${escapeHtml(e.code)}</span>${when ? `<span class="recent-when">${when[0].toUpperCase()}${when.slice(1)}</span>` : ''}</span>
-      <h3>${escapeHtml(e.name)}</h3>
-      <span class="recent-stats">${learning}${practice}${labs}${exam}</span>
-      <span class="learning-path-action">${action} ${icon('right', 'icon')}</span>
-    </a>
-    <button class="recent-remove absolute" data-action="remove-recent" data-slug="${escapeHtml(e.slug)}" title="Remove ${escapeHtml(e.name)} from Recents" aria-label="Remove ${escapeHtml(e.name)} from Recents">${icon('x', 'icon')}</button>`;
+  return `<div class="panel learning-path-card recent-card" data-vendor="${vendorKey(e.vendor)}" title="${escapeHtml(`${e.vendor} · ${e.code}`)}">
+      <a class="recent-link" href="/${e.slug}${mode === 'learn' || mode === 'labs' ? `?mode=${mode}` : ''}">
+        <span class="recent-head"><span class="learning-path-eyebrow">${escapeHtml(e.code)}</span>${when ? `<span class="recent-when">${when[0].toUpperCase()}${when.slice(1)}</span>` : ''}</span>
+        <h3>${escapeHtml(e.name)}</h3>
+        <span class="recent-stats">${learning}${practice}${labs}${exam}</span>
+        <span class="learning-path-action">${action} ${icon('right', 'icon')}</span>
+      </a>
+      <button class="recent-remove" data-action="remove-recent" data-slug="${escapeHtml(e.slug)}" title="Remove ${escapeHtml(e.name)} from Recents" aria-label="Remove ${escapeHtml(e.name)} from Recents">${icon('x', 'icon')}</button>
+    </div>`;
 }
 
 // One line under each vendor name on the home page. Vendors not listed get a generated summary.
