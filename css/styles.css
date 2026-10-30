@@ -150,6 +150,7 @@ code {
 
 /* ── Layout ──────────────────────────────────────────── */
 .layout { flex: 1; width: 100%; max-width: var(--page-max); margin: 0 auto; padding: 20px var(--page-pad) 40px; display: flex; gap: 20px; align-items: flex-start; }
+body.signed-out .layout { align-items: center; justify-content: center; }
 .panel { background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
 .main { flex: 1; min-width: 0; }
 
