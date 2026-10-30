@@ -73,6 +73,30 @@ const writeSaved = (slug, data) => {
   try { progressStore().setItem(storageKey(slug), JSON.stringify(data)); } catch { /* ignore quota/private mode */ }
 };
 
+// Remove a course from Recents. Progress is deleted, not hidden — this is a hard reset.
+function clearSaved(slug) {
+  try { progressStore().removeItem(storageKey(slug)); } catch { /* ignore quota/private mode */ }
+  if (EXAM && EXAM.slug === slug) location.hash = '';
+  renderHome();
+}
+
+async function removeRecent(slug) {
+  let name = slug;
+  try {
+    const exam = (await fetchIndex()).find((e) => e.slug === slug);
+    if (exam) name = `${exam.name} (${exam.code})`;
+  } catch { /* offline: still allow removal with the slug as the name */ }
+  const ok = await confirmModal(
+    `Remove ${name} from Recents?`,
+    `Your progress — practice answers, learning modules, labs and timed-exam history — will be deleted. You can start over again anytime. This cannot be undone.`,
+    'Remove',
+    'Keep'
+  );
+  if (ok !== true) return;
+  clearSaved(slug);
+  toast(`${name} removed from Recents`);
+}
+
 let saveQueued = false;
 function save() {
   if (saveQueued) return;
@@ -1065,7 +1089,7 @@ function recentCard({ e, saved, activity: a }) {
   const action = { exam: 'Resume timed exam', learn: 'Resume learning path', labs: 'Resume labs', practice: 'Resume practice' }[mode];
   const when = lastStudied(saved?.updatedAt);
   return `<a class="panel learning-path-card recent-card" href="/${e.slug}${mode === 'learn' || mode === 'labs' ? `?mode=${mode}` : ''}" data-vendor="${vendorKey(e.vendor)}" title="${escapeHtml(`${e.vendor} · ${e.code}`)}">
-      <span class="recent-head"><span class="learning-path-eyebrow">${escapeHtml(e.code)}</span>${when ? `<span class="recent-when">${when[0].toUpperCase()}${when.slice(1)}</span>` : ''}</span>
+      <span class="recent-head"><span class="learning-path-eyebrow">${escapeHtml(e.code)}</span>${when ? `<span class="recent-when">${when[0].toUpperCase()}${when.slice(1)}</span>` : ''}<button class="recent-remove" data-action="remove-recent" data-slug="${escapeHtml(e.slug)}" title="Remove ${escapeHtml(e.name)} from Recents" aria-label="Remove ${escapeHtml(e.name)} from Recents">${icon('x', 'icon')}</button></span>
       <h3>${escapeHtml(e.name)}</h3>
       <span class="recent-stats">${learning}${practice}${labs}${exam}</span>
       <span class="learning-path-action">${action} ${icon('right', 'icon')}</span>
@@ -1769,6 +1793,7 @@ async function init() {
       case 'clear-filters':
         state.practice.domain = 'ALL'; state.practice.status = 'all';
         syncFilterControls(); buildPracticeList(); save(); return render();
+      case 'remove-recent': e.preventDefault(); return removeRecent(act.dataset.slug);
     }
   });
 

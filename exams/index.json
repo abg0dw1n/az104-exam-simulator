@@ -65,6 +65,15 @@
     "learningModules": 2
   },
   {
+    "slug": "ai-102",
+    "code": "AI-102",
+    "name": "Microsoft Azure AI Fundamentals",
+    "vendor": "Microsoft",
+    "level": "advanced",
+    "updated": "2026-10-30",
+    "questions": 5
+  },
+  {
     "slug": "aws-aif",
     "code": "AIF-C01",
     "name": "AWS Certified AI Practitioner",
@@ -147,8 +156,8 @@
     "name": "Microsoft Azure Data Fundamentals",
     "vendor": "Microsoft",
     "level": "beginner",
-    "updated": "2026-10-28",
-    "questions": 87
+    "updated": "2026-10-30",
+    "questions": 92
   },
   {
     "slug": "tech-plus",

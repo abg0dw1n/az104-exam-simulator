@@ -745,6 +745,10 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 .recent-bar-none { visibility: hidden; }
 .recent-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
 .recent-when { font-size: 11.5px; color: var(--muted); white-space: nowrap; }
+.recent-remove { background: none; border: none; color: var(--muted); cursor: pointer; padding: 2px 4px; border-radius: 6px; line-height: 1; opacity: 0; transition: opacity .15s, color .15s, background .15s; }
+.recent-card:hover .recent-remove { opacity: 1; }
+.recent-remove:hover { color: var(--bad-text); background: color-mix(in srgb, var(--bad) 14%, transparent); }
+.recent-remove svg { width: 14px; height: 14px; }
 .recent-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
 .recent-stat { display: grid; gap: 3px; align-content: start; padding: 9px 10px; border-radius: 10px; background: color-mix(in srgb, var(--text) 4%, transparent); min-width: 0; }
 .recent-stat-label { font-size: 11px; color: var(--muted); letter-spacing: .02em; }

@@ -1,0 +1,19 @@
+{
+  "slug": "ai-102",
+  "code": "AI-102",
+  "name": "Microsoft Azure AI Fundamentals",
+  "vendor": "Microsoft",
+  "domains": {
+    "D1": { "name": "Plan and manage an Azure AI solution", "weight": "25–30%", "pct": 27 },
+    "D2": { "name": "Implement content moderation solutions", "weight": "15–20%", "pct": 18 },
+    "D3": { "name": "Implement Azure AI Vision solutions", "weight": "15–20%", "pct": 18 },
+    "D4": { "name": "Implement Azure AI Language solutions", "weight": "25–30%", "pct": 27 },
+    "D5": { "name": "Implement Azure AI Document Intelligence solutions", "weight": "5–10%", "pct": 8 }
+  },
+  "scoring": { "min": 0, "max": 1000, "pass": 700 },
+  "minutesPerQuestion": 1,
+  "defaultSize": 45,
+  "sizeOptions": [15, 30, 45],
+  "realExamNote": "Based on the AI-102 skills measured. The real exam is 45 minutes with roughly 40–60 questions.",
+  "scoreNote": "Microsoft uses scaled scoring, so treat 700+ as a readiness signal, not a guarantee."
+}

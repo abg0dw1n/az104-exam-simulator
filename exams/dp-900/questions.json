@@ -2173,5 +2173,70 @@
     ],
     "answer": 0,
     "explanation": "The medallion architecture uses bronze (raw), silver (cleaned) and gold (business-ready) layers."
+  },
+  {
+    "id": 88,
+    "domain": "D1",
+    "scenario": "Which type of data workload is characterized by many small transactions that are processed quickly?",
+    "options": [
+      { "text": "OLTP", "note": "" },
+      { "text": "OLAP", "note": "" },
+      { "text": "Batch processing", "note": "" },
+      { "text": "Streaming", "note": "" }
+    ],
+    "answer": 0,
+    "explanation": "Online Transactional Processing (OLTP) is optimized for high-volume, low-latency transaction processing."
+  },
+  {
+    "id": 89,
+    "domain": "D1",
+    "scenario": "In a relational database, what is used to uniquely identify each row in a table?",
+    "options": [
+      { "text": "Foreign key", "note": "" },
+      { "text": "Primary key", "note": "" },
+      { "text": "Index", "note": "" },
+      { "text": "Constraint", "note": "" }
+    ],
+    "answer": 1,
+    "explanation": "A primary key is a column or set of columns that uniquely identifies each row in a relational table."
+  },
+  {
+    "id": 90,
+    "domain": "D3",
+    "scenario": "Which Azure service is a globally distributed, multi-model database?",
+    "options": [
+      { "text": "Azure SQL Database", "note": "" },
+      { "text": "Azure Cosmos DB", "note": "" },
+      { "text": "Azure Database for MySQL", "note": "" },
+      { "text": "Azure Database for PostgreSQL", "note": "" }
+    ],
+    "answer": 1,
+    "explanation": "Azure Cosmos DB is a fully managed, globally distributed NoSQL database service."
+  },
+  {
+    "id": 91,
+    "domain": "D4",
+    "scenario": "Which type of visualization is best for showing trends over time?",
+    "options": [
+      { "text": "Pie chart", "note": "" },
+      { "text": "Line chart", "note": "" },
+      { "text": "Bar chart", "note": "" },
+      { "text": "Scatter plot", "note": "" }
+    ],
+    "answer": 1,
+    "explanation": "Line charts are ideal for displaying continuous data and identifying trends over time."
+  },
+  {
+    "id": 92,
+    "domain": "D4",
+    "scenario": "What is the process of extracting, transforming, and loading data called?",
+    "options": [
+      { "text": "ELT", "note": "" },
+      { "text": "ETL", "note": "" },
+      { "text": "EQL", "note": "" },
+      { "text": "ERD", "note": "" }
+    ],
+    "answer": 1,
+    "explanation": "ETL (Extract, Transform, Load) is the standard process for moving data from source systems to a data warehouse."
   }
 ]

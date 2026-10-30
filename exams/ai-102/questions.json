@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "domain": "D1",
+    "scenario": "You are developing a solution that will use the Azure AI Vision service. You need to ensure that the solution can detect the location of objects in an image. Which feature should you use?",
+    "options": [
+      { "text": "Image classification", "note": "" },
+      { "text": "Object detection", "note": "" },
+      { "text": "Optical Character Recognition (OCR)", "note": "" },
+      { "text": "Spatial analysis", "note": "" }
+    ],
+    "answer": 1,
+    "explanation": "Object detection is a feature of Azure AI Vision that detects and extracts the location of objects in an image, including the bounding box coordinates."
+  },
+  {
+    "id": 2,
+    "domain": "D1",
+    "scenario": "You are building a chatbot using the Azure AI Bot Service. You need to store the user's preferences across multiple sessions. Which component should you use?",
+    "options": [
+      { "text": "Dialog state", "note": "" },
+      { "text": "User state", "note": "" },
+      { "text": "Conversation state", "note": "" },
+      { "text": "Private software state", "note": "" }
+    ],
+    "answer": 1,
+    "explanation": "User state is used to store information about a user across multiple conversations and sessions."
+  },
+  {
+    "id": 3,
+    "domain": "D1",
+    "scenario": "Which Azure AI service should you use to convert speech in one language into text in another language?",
+    "options": [
+      { "text": "Azure AI Vision", "note": "" },
+      { "text": "Azure AI Language", "note": "" },
+      { "text": "Azure AI Speech", "note": "" },
+      { "text": "Azure AI Translator", "note": "" }
+    ],
+    "answer": 2,
+    "explanation": "Azure AI Speech includes a speech translation feature that can convert spoken language into text or speech in another language."
+  },
+  {
+    "id": 4,
+    "domain": "D1",
+    "scenario": "You are creating a custom named entity recognition (NER) model. What is the minimum number of documents you should use to train the model?",
+    "options": [
+      { "text": "1", "note": "" },
+      { "text": "5", "note": "" },
+      { "text": "10", "note": "" },
+      { "text": "50", "note": "" }
+    ],
+    "answer": 2,
+    "explanation": "For custom NER, it's generally recommended to have at least 10 documents, though the absolute minimum for training to proceed is often lower, 10 is a common threshold for starting to get meaningful results."
+  },
+  {
+    "id": 5,
+    "domain": "D1",
+    "scenario": "You need to extract information from invoices, including the vendor name, date, and total amount. Which Azure AI service should you use?",
+    "options": [
+      { "text": "Azure AI Search", "note": "" },
+      { "text": "Azure AI Language", "note": "" },
+      { "text": "Azure AI Document Intelligence", "note": "" },
+      { "text": "Azure AI Vision", "note": "" }
+    ],
+    "answer": 2,
+    "explanation": "Azure AI Document Intelligence (formerly Form Recognizer) is designed to extract structured information from documents like invoices, receipts, and IDs."
+  }
+]
