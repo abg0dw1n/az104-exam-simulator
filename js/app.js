@@ -60,6 +60,10 @@ function addHiddenRecent(slug) {
     try { progressStore().setItem(HIDDEN_RECENTS_KEY, JSON.stringify(hidden)); } catch { /* ignore */ }
   }
 }
+function removeHiddenRecent(slug) {
+  const hidden = getHiddenRecents().filter((s) => s !== slug);
+  try { progressStore().setItem(HIDDEN_RECENTS_KEY, JSON.stringify(hidden)); } catch { /* ignore */ }
+}
 
 // Reads an exam's saved progress; legacyKey covers data saved before multi-exam support.
 function readSaved(slug, legacyKey) {
@@ -983,6 +987,8 @@ async function loadBank(slug, files = fetchBank(slug)) {
   DOMAINS = EXAM.domains;
   FULL_COUNT = QUESTIONS.length;
   if (Auth.isGuest()) QUESTIONS = guestSample(QUESTIONS);
+  // Opening a course brings it back into Recents.
+  removeHiddenRecent(slug);
   state = load();
   BY_ID = new Map(QUESTIONS.map((q) => [q.id, q]));
   // Drop saved references to questions that no longer exist in the bank.
