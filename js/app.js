@@ -1108,21 +1108,24 @@ function lastStudied(at) {
 function recentCard({ e, saved, activity: a }) {
   const pct = (n, total) => (total ? Math.min(100, Math.round((n / total) * 100)) : 0);
   // Four compact stats in a 2x2 grid: a short value, and a thin bar only once there's progress.
-  const stat = (label, value, { cls = '', bar = null, title = '' } = {}) => `<span class="recent-stat${cls ? ` ${cls}` : ''}"${title ? ` title="${escapeHtml(title)}"` : ''}>
-      <span class="recent-stat-label">${label}</span><b>${value}</b>${bar ? `<span class="recent-bar"><i style="width:${Math.max(bar, 3)}%"></i></span>` : ''}</span>`;
-  const none = (label, title) => stat(label, '—', { cls: 'none', title });
+  const stat = (label, value, { cls = '', bar = null, title = '', href = null } = {}) => {
+    const attrs = `${title ? ` title="${escapeHtml(title)}"` : ''}${href ? ` data-stat-href="/${e.slug}${href}"` : ''}`;
+    const inner = `<span class="recent-stat-label">${label}</span><b>${value}</b>${bar ? `<span class="recent-bar"><i style="width:${Math.max(bar, 3)}%"></i></span>` : ''}`;
+    return href ? `<a class="recent-stat${cls ? ` ${cls}` : ''}"${attrs}>${inner}</a>` : `<span class="recent-stat${cls ? ` ${cls}` : ''}"${attrs}>${inner}</span>`;
+  };
+  const none = (label, title, href) => stat(label, '—', { cls: 'none', title, href });
   const learnPct = pct(a.parts, a.totalParts);
   const learning = !e.learning ? none('Learn', 'No learning path for this exam yet')
-    : a.parts ? stat('Learn', `${learnPct}%`, { bar: learnPct, title: `Learning path ${learnPct}% complete` })
-      : a.openedModule || a.mode === 'learn' ? stat('Learn', 'Started', { cls: 'soft' }) : none('Learn', 'Learning path not started');
-  const practice = a.answered ? stat('Practice', `${a.answered}<small>/${e.questions || '?'}</small>`, { bar: pct(a.answered, e.questions), title: `${a.answered} of ${e.questions} questions answered` })
-    : none('Practice', 'No questions answered yet');
+    : a.parts ? stat('Learn', `${learnPct}%`, { bar: learnPct, title: `Learning path ${learnPct}% complete`, href: '?mode=learn' })
+      : a.openedModule || a.mode === 'learn' ? stat('Learn', 'Started', { cls: 'soft', href: '?mode=learn' }) : none('Learn', 'Learning path not started', '?mode=learn');
+  const practice = a.answered ? stat('Practice', `${a.answered}<small>/${e.questions || '?'}</small>`, { bar: pct(a.answered, e.questions), title: `${a.answered} of ${e.questions} questions answered`, href: '?mode=practice' })
+    : none('Practice', 'No questions answered yet', '?mode=practice');
   const labs = !e.labs ? none('Labs', 'No labs for this exam yet')
-    : a.labsDone ? stat('Labs', `${a.labsDone}<small>/${e.labs}</small>`, { bar: pct(a.labsDone, e.labs), title: `${a.labsDone} of ${e.labs} labs completed` })
-      : a.labsStarted ? stat('Labs', 'Started', { cls: 'soft' }) : none('Labs', 'No labs started');
-  const exam = a.examRunning ? stat('Exam', 'In progress', { cls: 'running' })
-    : a.last ? stat('Exam', `${a.last.score}<small>${a.last.passed ? ' passed' : ''}</small>`, { cls: a.last.passed ? 'good' : 'weak', title: `Last timed exam: ${a.last.score}, ${a.last.passed ? 'passed' : 'not passed'}` })
-      : none('Exam', 'No timed exam taken');
+    : a.labsDone ? stat('Labs', `${a.labsDone}<small>/${e.labs}</small>`, { bar: pct(a.labsDone, e.labs), title: `${a.labsDone} of ${e.labs} labs completed`, href: '?mode=labs' })
+      : a.labsStarted ? stat('Labs', 'Started', { cls: 'soft', href: '?mode=labs' }) : none('Labs', 'No labs started', '?mode=labs');
+  const exam = a.examRunning ? stat('Exam', 'In progress', { cls: 'running', href: '?mode=exam' })
+    : a.last ? stat('Exam', `${a.last.score}<small>${a.last.passed ? ' passed' : ''}</small>`, { cls: a.last.passed ? 'good' : 'weak', title: `Last timed exam: ${a.last.score}, ${a.last.passed ? 'passed' : 'not passed'}`, href: '?mode=exam' })
+      : none('Exam', 'No timed exam taken', '?mode=exam');
   const mode = a.examRunning ? 'exam' : a.mode === 'learn' && e.learning ? 'learn' : a.mode === 'labs' && e.labs ? 'labs' : 'practice';
   const action = { exam: 'Resume timed exam', learn: 'Resume learning path', labs: 'Resume labs', practice: 'Resume practice' }[mode];
   const when = lastStudied(saved?.updatedAt);
@@ -1296,6 +1299,13 @@ async function renderHome() {
   </section>`;
   $('main').querySelector('[data-feature-new]')?.addEventListener('click', () => openFeatureForm());
   $('main').addEventListener('click', (e) => {
+    const stat = e.target.closest('[data-stat-href]');
+    if (stat) {
+      e.stopPropagation();
+      e.preventDefault();
+      location.href = stat.dataset.statHref;
+      return;
+    }
     const act = e.target.closest('[data-action="remove-recent"]');
     if (!act) return;
     e.stopPropagation();
