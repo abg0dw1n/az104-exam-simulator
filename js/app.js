@@ -1256,6 +1256,13 @@ async function renderHome() {
     </section>` : ''}
   </section>`;
   $('main').querySelector('[data-feature-new]')?.addEventListener('click', () => openFeatureForm());
+  $('main').addEventListener('click', (e) => {
+    const act = e.target.closest('[data-action="remove-recent"]');
+    if (!act) return;
+    e.stopPropagation();
+    e.preventDefault();
+    return removeRecent(act.dataset.slug);
+  });
   const grid = $('exam-grid');
   const search = $('exam-search');
   let activeProvider = 'all';
@@ -1797,11 +1804,8 @@ async function init() {
         state.practice.domain = 'ALL'; state.practice.status = 'all';
         syncFilterControls(); buildPracticeList(); save(); return render();
       case 'remove-recent': {
-        const btn = e.target.closest('.recent-remove');
-        if (btn) {
-          e.stopPropagation();
-          e.preventDefault();
-        }
+        e.stopPropagation();
+        e.preventDefault();
         return removeRecent(act.dataset.slug);
       }
     }
