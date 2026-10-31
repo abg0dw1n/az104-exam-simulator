@@ -1,0 +1,361 @@
+/* The IT Study Hall — Labs page styles */
+
+@import "./exam.css";
+
+/* ── Labs catalog ─────────────────────────────────────── */
+.lab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+  gap: 14px;
+}
+.lab-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+}
+.lab-card-head {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.lab-card h3 { font-size: 16px; line-height: 1.3; }
+.lab-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.lab-meta .icon { width: 14px; height: 14px; }
+.lab-card-foot {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.lab-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+.lab-status.good { color: var(--ok-text); }
+.lab-status .icon { width: 14px; height: 14px; }
+.labs-locked {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.labs-locked > .icon { width: 28px; height: 28px; color: var(--azure-text); }
+.labs-locked > div { flex: 1 1 260px; }
+
+.labs-preview {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+}
+.labs-preview li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 6px 2px;
+}
+.labs-preview li > span { display: grid; }
+.labs-preview .icon { color: var(--muted); }
+
+/* ── Lab scenario styling ─────────────────────────────── */
+.lab-scenario h3 { font-size: 15px; margin-bottom: 6px; }
+.lab-scenario p { margin: 0 0 8px; color: var(--text-2); }
+.lab-scenario ul { margin: 0 0 8px; padding-left: 20px; color: var(--text-2); }
+.lab-scenario code, .lab-tasks code, .lab-hints code {
+  font-family: var(--mono);
+  font-size: .9em;
+  color: var(--azure-text);
+}
+
+/* ── Topology diagram ───────────────────────────────── */
+.lab-topology {
+  margin: 8px 0 0;
+  max-width: 680px;
+}
+.lab-topology svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.lab-topology .links line {
+  stroke: var(--border-strong);
+  stroke-width: 2;
+}
+.lab-topology text {
+  font: 600 11px var(--font);
+  fill: var(--text);
+  text-anchor: middle;
+}
+.lab-topology text.if {
+  font: 500 9.5px var(--mono);
+  fill: var(--muted);
+}
+.lab-topology .node > :is(circle, rect, ellipse) {
+  fill: var(--panel-2);
+  stroke: var(--v, var(--azure));
+  stroke-width: 2;
+}
+.lab-topology .glyph {
+  stroke: var(--v-text, var(--azure-text));
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+}
+
+/* ── Lab detail layout ───────────────────────────────── */
+.lab-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 16px;
+  align-items: start;
+}
+.lab-work {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+.lab-side {
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+  position: sticky;
+  top: 90px;
+}
+.lab-side h3 { font-size: 15px; }
+.lab-tasks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--text-2);
+}
+.lab-tasks li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.task-mark {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+}
+.task-n {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border-strong);
+  display: grid;
+  place-items: center;
+  font: 700 10.5px var(--mono);
+  color: var(--muted);
+}
+.lab-tasks li.pass .task-mark { color: var(--ok-text); }
+.lab-tasks li.fail .task-mark { color: var(--bad-text); }
+.lab-tasks .icon { width: 16px; height: 16px; }
+.lab-q {
+  display: grid;
+  gap: 6px;
+  font-size: 13.5px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+.lab-q label {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  color: var(--text-2);
+  cursor: pointer;
+}
+.lab-q input {
+  margin-top: 3px;
+  accent-color: var(--azure);
+}
+.lab-result {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--warn-text);
+  margin: 0;
+}
+.lab-result.good { color: var(--ok-text); }
+.lab-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.lab-hints {
+  font-size: 13px;
+  color: var(--text-2);
+}
+.lab-hints summary {
+  cursor: pointer;
+  font-weight: 650;
+  color: var(--text);
+}
+.lab-hints ul { padding-left: 18px; margin: 8px 0 0; }
+.lab-hints pre {
+  font: 12px/1.5 var(--mono);
+  background: var(--code-bg);
+  color: #e6e6e6;
+  padding: 10px 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+.lab-review {
+  font-size: 13px;
+  color: var(--text-2);
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+.lab-review h4 { font-size: 13.5px; color: var(--text); margin: 0 0 4px; }
+
+/* ── Terminal console ─────────────────────────────────── */
+.terminal-wrap {
+  display: grid;
+  gap: 8px;
+}
+.term-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.term-tabs button {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 8px 8px 0 0;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--muted);
+  font: 600 13px var(--mono);
+  cursor: pointer;
+}
+.term-tabs button[aria-selected="true"] {
+  background: #19181a;
+  color: #fcfcfa;
+  border-color: #19181a;
+}
+.term-tabs .icon { width: 14px; height: 14px; }
+.terminal {
+  background: #19181a;
+  color: #e6e6e3;
+  border-radius: 10px;
+  border: 1px solid #2d2a2e;
+  padding: 12px 14px;
+  font: 13px/1.45 var(--mono);
+  cursor: text;
+}
+.term-out {
+  height: 360px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.term-out .cmd { color: #ffd866; }
+.term-out .muted { color: #939293; }
+.term-line {
+  display: flex;
+  gap: 0;
+  align-items: center;
+  border-top: 1px solid #2d2a2e;
+  padding-top: 6px;
+  margin-top: 6px;
+}
+.term-prompt { color: #a9dc76; white-space: pre; }
+.term-line input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: #fcfcfa;
+  font: inherit;
+  padding: 2px 0;
+  caret-color: #ffd866;
+}
+.term-help { margin: 0; }
+.term-editor {
+  display: grid;
+  gap: 8px;
+  background: #19181a;
+  color: #e6e6e3;
+  border: 1px solid #2d2a2e;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+.term-editor-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  font: 12.5px/1.4 var(--mono);
+}
+.term-editor-bar .small { color: #a9a6a0; }
+.term-editor textarea {
+  width: 100%;
+  min-height: 260px;
+  resize: vertical;
+  background: #121113;
+  color: #e6e6e3;
+  border: 1px solid #3a363b;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font: 13px/1.5 var(--mono);
+  tab-size: 8;
+  white-space: pre;
+  overflow: auto;
+}
+.term-editor textarea:focus {
+  outline: 2px solid var(--azure);
+  outline-offset: 1px;
+}
+.term-editor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.term-editor .btn-ghost {
+  color: #e6e6e3;
+  background: transparent;
+  border: 1px solid #4a464b;
+}
+.term-editor .btn-ghost:hover { background: #2d2a2e; }
+.lab-layout > *, .terminal-wrap, .terminal, .term-out, .term-editor, .term-editor textarea { min-width: 0; }
+
+@media (max-width: 980px) {
+  .lab-layout { grid-template-columns: minmax(0, 1fr); }
+  .lab-side { position: static; order: -1; }
+}
+@media (max-width: 640px) {
+  .term-out { height: 300px; }
+  .terminal { font-size: 12.5px; padding: 10px; }
+  .term-line input { font-size: 16px; }
+  .portal-body { grid-template-columns: minmax(0, 1fr); }
+  .portal-nav { display: flex; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--border); }
+  .portal-nav button { white-space: nowrap; }
+}
+@media (max-width: 600px) { .recent-card h3 { min-height: 0; } }

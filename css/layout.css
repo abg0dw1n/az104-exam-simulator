@@ -1,0 +1,248 @@
+/* The IT Study Hall — Layout styles */
+
+@import "./components.css";
+
+/* ── Top bar ─────────────────────────────────────────── */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  isolation: isolate;
+  background:
+    radial-gradient(38rem 9rem at 18% 0%, color-mix(in srgb, var(--azure) 12%, transparent), transparent 74%),
+    linear-gradient(180deg, color-mix(in srgb, var(--panel) 96%, var(--azure) 4%), var(--panel));
+  border-bottom: 1px solid color-mix(in srgb, var(--azure) 24%, var(--border));
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .18);
+}
+.topbar::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset-inline: 0;
+  bottom: -1px;
+  height: 2px;
+  opacity: .72;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent 4%, color-mix(in srgb, var(--azure) 42%, transparent) 20%, var(--azure) 50%, color-mix(in srgb, var(--azure) 42%, transparent) 80%, transparent 96%);
+}
+.topbar-inner {
+  max-width: var(--page-max);
+  min-height: 76px;
+  margin: 0 auto;
+  padding: 12px var(--page-pad);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+.brand > div { display: grid; gap: 3px; }
+.brand h1 { font-size: 17px; font-weight: 650; letter-spacing: -.015em; white-space: nowrap; }
+.brand p { color: color-mix(in srgb, var(--muted) 88%, white 12%); font-size: 12px; }
+.brand-mark {
+  width: 36px;
+  height: 36px;
+  flex: none;
+  filter: drop-shadow(0 4px 12px color-mix(in srgb, var(--azure) 30%, transparent));
+}
+.topbar-actions { display: flex; align-items: center; gap: 8px; }
+.topbar .account-link {
+  border-color: color-mix(in srgb, var(--azure) 24%, var(--border));
+  background: color-mix(in srgb, var(--panel-2) 78%, transparent);
+  transition: background .15s, border-color .15s, color .15s;
+}
+.topbar .account-link:hover {
+  border-color: transparent;
+  background: var(--azure-soft);
+  color: var(--azure-text);
+}
+.brand-link:focus-visible, .topbar-actions a:focus-visible, .topbar-actions button:focus-visible {
+  outline: 2px solid var(--azure);
+  outline-offset: 3px;
+}
+
+/* ── Main layout ─────────────────────────────────────── */
+.layout {
+  flex: 1;
+  width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 20px var(--page-pad) 40px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+body.signed-out .layout { align-items: center; justify-content: center; }
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.main { flex: 1; min-width: 0; }
+
+/* ── Navigator sidebar ───────────────────────────────── */
+.navigator {
+  width: 300px;
+  flex: none;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: sticky;
+  top: 78px;
+  max-height: calc(100vh - 98px);
+}
+.navigator.collapsed { display: none; }
+.nav-head { display: flex; justify-content: space-between; align-items: center; }
+.nav-head h2 { font-size: 14px; font-weight: 600; }
+.filters { display: grid; gap: 10px; }
+.filters label {
+  display: grid;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 550;
+}
+
+/* ── Question grid ──────────────────────────────────── */
+.qgrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 6px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 3px;
+  min-height: 0;
+}
+.qbtn {
+  position: relative;
+  height: 34px;
+  min-width: 0;
+  padding: 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text-2);
+  font-size: 12.5px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.qbtn:hover { border-color: var(--border-strong); }
+.qbtn.answered {
+  background: var(--azure);
+  border-color: var(--azure);
+  color: var(--on-accent);
+}
+.qbtn.correct {
+  background: var(--ok-soft);
+  border-color: var(--ok);
+  color: var(--ok-text);
+}
+.qbtn.wrong {
+  background: var(--bad-soft);
+  border-color: var(--bad);
+  color: var(--bad-text);
+}
+.qbtn.flagged::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--warn);
+}
+.qbtn.current {
+  box-shadow: 0 0 0 2px var(--panel), 0 0 0 4px var(--azure-text);
+}
+
+/* ── Stats display ───────────────────────────────────── */
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; text-align: center; }
+.stats div { padding: 2px 4px; }
+.stats > div + div:not(.stats-wide) { border-left: 1px solid var(--border); }
+.stats b { display: block; font-size: 16px; font-variant-numeric: tabular-nums; }
+
+/* ── Legend / status indicators ─────────────────────────── */
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.legend span { display: inline-flex; align-items: center; gap: 5px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; border: 1px solid transparent; }
+.dot-empty { background: var(--panel-2); border-color: var(--border-strong); }
+.dot-answered { background: var(--azure); }
+.dot-correct { background: var(--ok); }
+.dot-wrong { background: var(--bad); }
+.dot-flag { background: var(--warn); }
+
+/* ── Brand link styling ──────────────────────────────── */
+.brand-link {
+  color: inherit;
+  text-decoration: none;
+}
+.brand-link:hover {
+  color: var(--azure-text);
+  text-decoration: none;
+}
+body.home .exams-link { display: none; }
+
+/* ── Responsive breakpoints ──────────────────────────── */
+@media (max-width: 900px) {
+  .layout { flex-direction: column; padding-top: 14px; }
+  .navigator { width: 100%; position: static; max-height: none; }
+  .qgrid { grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); max-height: 210px; }
+  .navigator:not(.open) { display: none; }
+  .navigator.collapsed.open { display: flex; }
+}
+@media (max-width: 600px) {
+  .brand p, .segmented span, .kbd-hint { display: none; }
+  .topbar-inner { min-height: 64px; padding: 9px 14px; }
+  .brand { gap: 10px; }
+  .brand-mark { width: 32px; height: 32px; }
+  .brand h1 { font-size: 14.5px; }
+  .qgrid { grid-template-columns: repeat(auto-fill, minmax(38px, 1fr)); }
+  .qhead, .qbody, .qfoot { padding-left: 14px; padding-right: 14px; }
+  .card-pad { padding: 18px; }
+  .scenario { font-size: 15.5px; }
+  .btn { padding: 9px 12px; }
+  .score-banner h2 { font-size: 26px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* ── Exam size picker ───────────────────────────────── */
+.exam-size { display: grid; gap: 8px; }
+.exam-size > label { font-weight: 600; font-size: 14px; }
+.size-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.size-row input {
+  width: 84px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  font: 600 13px var(--mono);
+}
+.btn-ghost.active-size { border-color: var(--azure); color: var(--azure-text); background: var(--azure-soft); }
+
+/* ── Practice controls ───────────────────────────────── */
+.filter-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: end;
+}
+.navigator > *, .filters, .filters label, .filters select { min-width: 0; }
+.filter-row .btn { height: 36px; }
+.stats-wide { grid-column: 1 / -1; }
+.domain-row > .btn { justify-self: start; }
+@media (max-width: 600px) { .hide-sm { display: none; } }

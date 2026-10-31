@@ -1,0 +1,330 @@
+/* The IT Study Hall — Learning path styles */
+
+@import "./labs.css";
+
+/* ── Learn tab grid ───────────────────────────────────── */
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+.learn-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-self: stretch;
+  border-top: 4px solid var(--v, var(--azure));
+}
+.learn-card-head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.learn-card-head h3 { font-size: 16.5px; font-weight: 650; }
+.learn-num {
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  background: var(--v-soft, var(--azure-soft));
+  color: var(--v-text, var(--azure-text));
+}
+.learn-parts {
+  display: grid;
+  gap: 8px;
+  margin-top: auto;
+}
+.learn-part {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  text-align: left;
+}
+.learn-part:hover { border-color: var(--border-strong); }
+.learn-part > span { display: grid; gap: 1px; }
+.learn-part b { font-size: 14px; font-weight: 600; }
+.learn-part.done .icon { color: var(--ok-text); }
+.learn-meter {
+  height: 5px;
+  border-radius: 99px;
+  background: var(--panel-2);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.learn-meter i {
+  display: block;
+  height: 100%;
+  background: var(--ok-text);
+  border-radius: 99px;
+  transition: width .3s;
+}
+.learn-crumbs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.learn-tabs {
+  display: flex;
+  gap: 6px;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+.learn-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 14px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.learn-tabs button[aria-selected="true"] {
+  color: var(--text);
+  border-bottom-color: var(--v, var(--azure));
+}
+.learn-tabs button:hover { color: var(--text); }
+.learn-next {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ── Guide layout ───────────────────────────────────── */
+.guide-layout {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+.guide-toc {
+  padding: 14px 16px;
+  position: sticky;
+  top: 80px;
+}
+.guide-toc ol {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+  font-size: 13.5px;
+}
+.guide-toc a {
+  color: var(--text-2);
+  text-decoration: none;
+}
+.guide-toc a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+.guide {
+  line-height: 1.7;
+  max-width: 860px;
+  display: grid;
+  gap: 26px;
+}
+.guide section { scroll-margin-top: 80px; }
+.guide h3 {
+  font-size: 18px;
+  font-weight: 650;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.guide p { margin: 0 0 10px; color: var(--text-2); }
+.guide ul, .guide ol {
+  margin: 0 0 10px;
+  padding-left: 22px;
+  color: var(--text-2);
+}
+.guide li { margin: 3px 0; }
+.guide table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 6px 0 12px;
+}
+.guide th, .guide td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.guide thead th {
+  background: var(--panel-2);
+  font-weight: 600;
+}
+.guide pre {
+  background: var(--code-bg);
+  color: #e2e8f0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.guide pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+.guide .note {
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--azure-soft);
+  color: var(--text);
+  border-left: 3px solid var(--azure);
+  margin: 6px 0 12px;
+}
+.guide-tips {
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: var(--warn-soft);
+}
+.guide-tips ul { margin: 0; }
+.guide-terms {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 16px;
+  margin: 0;
+  font-size: 14.5px;
+}
+.guide-terms dt { font-weight: 650; }
+.guide-terms dd { margin: 0; color: var(--text-2); }
+.guide-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+}
+@media (max-width: 900px) {
+  .guide-layout { grid-template-columns: 1fr; }
+  .guide-toc { position: static; }
+  .guide-terms { grid-template-columns: 1fr; }
+  .guide-terms dd { margin-bottom: 8px; }
+}
+
+/* ── Home page ──────────────────────────────────────── */
+.body.home { --page-max: 1600px; }
+
+.home-title { font-size: 24px; font-weight: 700; }
+.exam-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 236px), 1fr));
+  gap: 12px;
+}
+.exam-card {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+  text-decoration: none;
+  color: inherit;
+  justify-items: start;
+  align-content: start;
+  transition: border-color .15s, transform .15s;
+}
+.exam-card:hover { border-color: var(--azure); transform: translateY(-1px); }
+.exam-card h2 { font-size: 17px; font-weight: 650; line-height: 1.35; }
+
+/* Exam card with vendor accent */
+.exam-card[data-vendor] {
+  min-height: 184px;
+  grid-template-rows: auto auto auto auto 1fr auto;
+  gap: 6px;
+  padding: 14px 15px 12px;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--v);
+  border-top: 1px solid var(--border);
+}
+.exam-card[data-vendor]:hover {
+  border-color: var(--v);
+  border-left-color: var(--v);
+}
+.exam-card-code { color: var(--v-text); font-size: 13px; font-weight: 700; }
+.exam-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.exam-card-meta .level-meter { padding: 0; font-size: 11.5px; }
+.exam-card-progress { color: var(--muted); font-size: 11.5px; }
+.catalog-empty { padding: 22px; text-align: center; color: var(--muted); }
+@media (max-width: 760px) {
+  .catalog-tools { grid-template-columns: 1fr; }
+  .catalog-heading { align-items: flex-start; flex-direction: column; }
+}
+@media (max-width: 600px) {
+  .catalog-summary { align-self: flex-start; }
+  .provider-filters { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 3px; }
+  .provider-filter { flex: none; }
+  .catalog-results-head { align-items: flex-start; }
+  .catalog-results-head p { max-width: 42ch; }
+  .exam-grid { grid-template-columns: 1fr; }
+  .exam-card[data-vendor] { min-height: 176px; }
+}
+
+/* ── Catalog tools ───────────────────────────────────── */
+.catalog-tools {
+  display: grid;
+  grid-template-columns: minmax(220px, .8fr) minmax(0, 1.5fr);
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+}
+.catalog-search input {
+  width: 100%;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  font: inherit;
+}
+.catalog-search input::placeholder { color: var(--muted); }
+.provider-filters { display: flex; flex-wrap: wrap; gap: 7px; }
+.provider-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 7px 11px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--panel);
+  color: var(--text-2);
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+.provider-filter span { color: var(--muted); font-size: 11px; }
+.provider-filter:hover { border-color: var(--border-strong); }
+.provider-filter.active {
+  border-color: transparent;
+  background: var(--azure-soft);
+  color: var(--azure-text);
+  font-weight: 650;
+}
+.provider-filter.active span { color: var(--azure-text); }

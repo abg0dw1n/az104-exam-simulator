@@ -1,0 +1,224 @@
+/* The IT Study Hall — Component styles */
+
+@import "./base.css";
+
+/* ── Buttons ─────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 9px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background .15s, border-color .15s;
+}
+.btn:disabled { opacity: .4; cursor: not-allowed; }
+.btn-sm { padding: 7px 12px; font-size: 13px; }
+
+.btn-primary {
+  background: var(--azure);
+  color: var(--on-accent);
+}
+.btn-primary:hover:not(:disabled) { background: var(--azure-hover); }
+
+.btn-success {
+  background: var(--ok);
+  color: var(--on-accent);
+}
+.btn-success:hover:not(:disabled) { background: #10a374; }
+
+.btn-warn {
+  background: var(--warn);
+  color: var(--on-accent);
+}
+.btn-warn:hover:not(:disabled) { background: #e88a12; }
+
+.btn-ghost {
+  background: var(--panel-2);
+  border-color: var(--border);
+  color: var(--text-2);
+}
+.btn-ghost:hover:not(:disabled) { border-color: var(--border-strong); color: var(--text); }
+.btn-ghost.active { border-color: var(--warn); color: var(--warn-text); background: var(--warn-soft); }
+
+/* ── Segmented buttons (tabs) ───────────────────────── */
+.segmented {
+  display: flex;
+  padding: 3px;
+  gap: 2px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.segmented button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 550;
+}
+.segmented button:hover { color: var(--text); }
+.segmented button[aria-selected="true"] {
+  background: var(--azure);
+  color: var(--on-accent);
+}
+
+/* ── Icon buttons ──────────────────────────────────── */
+.icon-btn {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+}
+.icon-btn:hover { border-color: var(--border-strong); }
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: var(--warn);
+  color: #1a1205;
+  font-size: 11px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+}
+
+/* ── Timer display ────────────────────────────────── */
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font: 600 14px var(--mono);
+  font-variant-numeric: tabular-nums;
+  background: var(--azure-soft);
+  color: var(--azure-text);
+  border: 1px solid transparent;
+}
+.timer.low {
+  background: var(--warn-soft);
+  color: var(--warn-text);
+  border-color: var(--warn);
+}
+.timer.critical {
+  background: var(--bad-soft);
+  color: var(--bad-text);
+  border-color: var(--bad);
+}
+
+/* ── Cards ─────────────────────────────────────────── */
+.card-pad { padding: 28px; }
+.qcard { display: flex; flex-direction: column; overflow: hidden; }
+.qhead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.qbody { padding: 24px 20px 28px; }
+.qfoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  background: var(--panel-2);
+}
+
+/* ── Modal & toast ─────────────────────────────────── */
+.modal {
+  width: min(440px, calc(100vw - 32px));
+  padding: 0;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: 0 20px 60px rgba(0,0,0,.45);
+}
+.modal::backdrop {
+  background: rgba(5, 10, 20, .7);
+  backdrop-filter: blur(3px);
+}
+.modal form {
+  padding: 22px;
+  display: grid;
+  gap: 12px;
+}
+.modal h3 { font-size: 17px; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; padding-top: 6px; }
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 60;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 14px;
+  font-weight: 550;
+  box-shadow: var(--shadow);
+}
+
+/* ── Inputs ────────────────────────────────────────── */
+.signin input, .invite-row input {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  font: inherit;
+}
+select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  font-size: 13px;
+}
+.report-form input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  font: inherit;
+}
+.fill-input, .portal-field input, .portal-field select, .rules-row input, .rules-row select, .pt-row input, .pt-row select {
+  width: 100%;
+  min-width: 0;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  font: 13px var(--font);
+}
+.fill-input { font-family: var(--mono); }

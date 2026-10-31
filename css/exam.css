@@ -1,0 +1,226 @@
+/* The IT Study Hall — Exam page styles */
+
+@import "./layout.css";
+
+/* ── Question card ───────────────────────────────────── */
+.qhead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+}
+.chips { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.chip::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: .75;
+  flex: none;
+}
+.chip-azure { color: var(--azure-text); font-family: var(--mono); }
+.chip-review { color: var(--warn-text); }
+
+.qbody { padding: 24px 20px 28px; }
+.scenario {
+  font-size: 16.5px;
+  line-height: 1.65;
+  margin-bottom: 20px;
+  max-width: 72ch;
+}
+.qcard .scenario { max-width: 80ch; }
+
+.codeblock {
+  margin: 0 0 22px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  overflow-x: auto;
+  background: var(--code-bg);
+  color: #9fd2ff;
+  border: 1px solid var(--border);
+  font: 13px/1.6 var(--mono);
+  white-space: pre;
+}
+.prompt-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  font-weight: 650;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+/* ── Options list ────────────────────────────────────── */
+.options { display: grid; gap: 10px; }
+.option {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  border-radius: 11px;
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  transition: border-color .15s, background .15s;
+}
+.option:not(:disabled):hover { border-color: var(--border-strong); }
+.option:disabled { cursor: default; }
+.option .letter {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border-strong);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  margin-top: 1px;
+}
+.option .otext { flex: 1; }
+.option .onote {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--text-2);
+}
+.option .ostatus { flex: none; margin-top: 3px; }
+.option.selected {
+  border-color: var(--azure);
+  background: var(--azure-soft);
+}
+.option.selected .letter {
+  background: var(--azure);
+  border-color: var(--azure);
+  color: var(--on-accent);
+}
+.option.is-correct {
+  border-color: var(--ok);
+  background: var(--ok-soft);
+}
+.option.is-correct .letter {
+  background: var(--ok);
+  border-color: var(--ok);
+  color: var(--on-accent);
+}
+.option.is-correct .ostatus { color: var(--ok-text); }
+.option.is-wrong {
+  border-color: var(--bad);
+  background: var(--bad-soft);
+}
+.option.is-wrong .letter {
+  background: var(--bad);
+  border-color: var(--bad);
+  color: var(--on-accent);
+}
+.option.is-wrong .ostatus { color: var(--bad-text); }
+.option.dim { opacity: .75; }
+
+/* ── Explanation panel ───────────────────────────────── */
+.explain {
+  margin-top: 22px;
+  padding: 16px 18px;
+  border-radius: 10px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--azure);
+}
+.explain h4 {
+  margin: 0 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--azure-text);
+}
+.explain.ok { border-left-color: var(--ok); }
+.explain.ok h4 { color: var(--ok-text); }
+.explain.bad { border-left-color: var(--bad); }
+.explain.bad h4 { color: var(--bad-text); }
+.explain p { color: var(--text-2); font-size: 14.5px; }
+
+/* ── Exam footer ──────────────────────────────────────── */
+.qfoot .right { display: flex; gap: 10px; }
+.kbd-hint {
+  padding: 8px 20px 12px;
+  background: var(--panel-2);
+  font-size: 12px;
+  color: var(--muted);
+}
+kbd {
+  font: 11px var(--mono);
+  padding: 1px 5px;
+  border-radius: 4px;
+  border: 1px solid var(--border-strong);
+  background: var(--panel);
+}
+
+/* ── Intro / results page ─────────────────────────────── */
+.stack { display: grid; gap: 22px; }
+.intro h2 { font-size: 24px; font-weight: 700; }
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+.fact { padding: 2px 0 2px 14px; border-left: 3px solid var(--border-strong); }
+.fact b { display: block; font-size: 20px; }
+.rules {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-2);
+  display: grid;
+  gap: 4px;
+}
+
+.score-banner {
+  text-align: center;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid;
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+}
+.score-banner.pass {
+  background: var(--ok-soft);
+  border-color: var(--ok);
+}
+.score-banner.fail {
+  background: var(--bad-soft);
+  border-color: var(--bad);
+}
+.status-pill {
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: .08em;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+.pass .status-pill { background: var(--ok); color: var(--on-accent); }
+.fail .status-pill { background: var(--bad); color: var(--on-accent); }
+.score-banner h2 {
+  font-size: 34px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.section-title {
+  font-size: 16px;
+  font-weight: 650;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
