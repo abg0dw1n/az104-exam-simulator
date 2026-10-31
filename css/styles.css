@@ -415,6 +415,7 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
   padding: 0 !important;
   pointer-events: auto;
 }
+.recent-card:hover { cursor: pointer; }
 .recent-link {
   display: flex;
   flex-direction: column;
@@ -422,8 +423,8 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
   padding: 19px;
   text-decoration: none;
   color: inherit;
-  height: 100%;
-  pointer-events: none;
+  flex: 1;
+  pointer-events: auto;
 }
 .recent-link .learning-path-action { margin-top: auto; }
 .recent-card .recent-remove {
@@ -500,8 +501,8 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 .popular-folder .folder-icon { color: var(--azure-text); }
 
 .learning-path-card .recent-rows { margin-top: 2px; }
-.learning-path-card, .learning-coming-card { display: flex; flex-direction: column; }
-.learning-path-card .learning-path-action { margin-top: auto; }
+.learning-path-card:not(.recent-card), .learning-coming-card { display: flex; flex-direction: column; }
+.learning-path-card:not(.recent-card) .learning-path-action { margin-top: auto; }
 
 /* ── Activities ─────────────────────────────────────────── */
 .activity h3 {
