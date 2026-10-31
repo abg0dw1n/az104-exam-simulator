@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "labs.schema.json",
+  "title": "Labs Configuration",
+  "description": "Schema for exams/<slug>/labs.json - hands-on lab content",
+  "type": "object",
+  "required": ["labs"],
+  "properties": {
+    "intro": {
+      "type": "string",
+      "description": "Introductory text for labs"
+    },
+    "labs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "domain", "kind", "summary", "scenario", "tasks"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+            "description": "Unique lab identifier"
+          },
+          "title": {
+            "type": "string",
+            "description": "Lab title"
+          },
+          "domain": {
+            "type": "string",
+            "pattern": "^D\\d+$",
+            "description": "Domain ID (D1, D2, etc.)"
+          },
+          "kind": {
+            "type": "string",
+            "enum": ["cli", "portal", "terminal"],
+            "description": "Lab type/scaffold"
+          },
+          "level": {
+            "type": "string",
+            "enum": ["beginner", "intermediate", "advanced"],
+            "description": "Difficulty level"
+          },
+          "minutes": {
+            "type": "number",
+            "minimum": 5,
+            "description": "Estimated time to complete"
+          },
+          "summary": {
+            "type": "string",
+            "description": "Brief lab summary"
+          },
+          "scenario": {
+            "type": "string",
+            "description": "Lab scenario/prompt, can contain HTML"
+          },
+          "devices": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name", "platform"],
+              "properties": {
+                "name": { "type": "string" },
+                "platform": { "type": "string" },
+                "subscription": { "type": "string" },
+                "principals": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "state": { "type": "object" }
+              }
+            }
+          },
+          "tasks": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["text", "check"],
+              "properties": {
+                "text": { "type": "string", "description": "Task description, can contain HTML" },
+                "check": {
+                  "type": "object",
+                  "description": "Validation criteria for the task"
+                },
+                "hidden": { "type": "boolean", "default": false }
+              }
+            }
+          },
+          "hints": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Helpful hints for the lab"
+          },
+          "solution": {
+            "type": "string",
+            "description": "Solution commands, can contain HTML"
+          },
+          "review": {
+            "type": "string",
+            "description": "Explanation after completing the lab, can contain HTML"
+          }
+        }
+      }
+    }
+  }
+}

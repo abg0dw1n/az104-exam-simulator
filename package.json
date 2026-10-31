@@ -6,6 +6,7 @@
   "description": "The IT Study Hall: learning paths, practice questions and timed exams for IT certifications",
   "scripts": {
     "validate": "node scripts/validate-questions.mjs",
+    "validate:schemas": "node scripts/validate-schemas.mjs",
     "speech": "node scripts/render-speech.mjs",
     "speech:az104": "node scripts/render-speech.mjs az-104"
   }
