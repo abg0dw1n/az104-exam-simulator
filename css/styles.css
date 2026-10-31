@@ -442,18 +442,20 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
 .recent-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  gap: 6px;
   margin-top: 4px;
 }
 .recent-stat {
   display: grid;
   gap: 3px;
   align-content: start;
-  padding: 9px 10px;
-  border-radius: 10px;
+  padding: 6px 8px;
+  border-radius: 8px;
   background: color-mix(in srgb, var(--text) 4%, transparent);
   border: 1px solid var(--border);
   min-width: 0;
+  width: 100%;
+  max-width: calc(50% - 4px);
 }
 .recent-stat-label { font-size: 11px; color: var(--muted); letter-spacing: .02em; }
 .recent-stat b {
