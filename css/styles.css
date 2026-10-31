@@ -399,10 +399,8 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
   padding: 2px 4px;
   border-radius: 6px;
   line-height: 1;
-  opacity: 0;
   transition: opacity .15s, color .15s, background .15s;
 }
-.recent-card:hover .recent-remove { opacity: 1; }
 .recent-remove:hover {
   color: var(--bad-text);
   background: color-mix(in srgb, var(--bad) 14%, transparent);
@@ -415,6 +413,7 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
   display: flex;
   flex-direction: column;
   padding: 0 !important;
+  pointer-events: auto;
 }
 .recent-link {
   display: flex;
@@ -424,16 +423,19 @@ body.account-page .exams-link, body.subpage .exams-link { display: inline-flex; 
   text-decoration: none;
   color: inherit;
   height: 100%;
+  pointer-events: none;
 }
 .recent-link .learning-path-action { margin-top: auto; }
 .recent-card .recent-remove {
   position: absolute;
   top: 16px;
   right: 16px;
-  z-index: 10;
+  z-index: 11;
   padding: 4px;
   background: color-mix(in srgb, var(--bg) 80%, transparent);
   border-radius: 6px;
+  opacity: 0;
+  transition: opacity .15s, color .15s, background .15s;
 }
 .recent-card:hover .recent-remove { opacity: 1; }
 .recent-stats {
